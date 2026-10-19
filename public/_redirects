@@ -1,8 +1,7 @@
-# Cloudflare Pages / Netlify style redirects
-# Canonical host: https://www.yardcalc.example (update after domain purchase)
+# Cloudflare Workers static assets redirects
+# https://developers.cloudflare.com/workers/static-assets/redirects/
+# Supported: 301/302/303/307/308 redirects and 200 proxying.
+# Not supported: domain-level (host) redirects — use Cloudflare Redirect Rules for apex↔www.
 
-# Force HTTPS is handled by the host. Prefer www (or apex) — pick one in docs/DEPLOYMENT.md
-# http://yardcalc.example/*  https://www.yardcalc.example/:splat  301
-# https://yardcalc.example/* https://www.yardcalc.example/:splat  301
-
+# Serve Astro sitemap index under the common /sitemap.xml path (proxy, not a rewrite 404).
 /sitemap.xml /sitemap-index.xml 200

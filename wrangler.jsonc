@@ -1,0 +1,18 @@
+/**
+ * Pure static-assets Worker — no adapter, no main script, no bindings.
+ * Deployed via Cloudflare Workers Builds: `npm run build` then `npx wrangler deploy`.
+ */
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "home-garden-calculators",
+  // Keep current with Workers runtime (see Cloudflare compatibility dates).
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    // Astro static output (`npm run build` → dist/)
+    "directory": "./dist",
+    // Astro uses trailingSlash: 'always'
+    "html_handling": "force-trailing-slash",
+    // Serve nearest 404.html for missing paths (src/pages/404.astro → dist/404.html)
+    "not_found_handling": "404-page"
+  }
+}

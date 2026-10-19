@@ -178,7 +178,7 @@ All owner-specific values live in **`src/config/site.ts`** (no scattered hardcod
 |---|---|---|
 | `name` | Brand display name | Set final brand |
 | `tagline` | Short description | Optional tweak |
-| `siteUrl` | Canonical origin (`https://www.example.com`) | **Required** |
+| `siteUrl` | From `PUBLIC_SITE_URL` (fallback: workers.dev) | Set in Workers Builds |
 | `contactEmail` | mailto + trust pages | **Required** |
 | `contentUpdated` | Default lastmod / stamps | Keep ISO date current |
 | `author.*` | E-E-A-T byline | Replace placeholder bio |

@@ -1,7 +1,7 @@
-<!-- progress: 85 -->
+<!-- progress: 88 -->
 # Build progress
-Status: Audits green (SEO/AdSense/perf); committing full site next, then Lighthouse screenshots and PR
-Updated: 2026-10-19T06:10:30Z
+Status: Running Lighthouse mobile verification against budgets on home, hub, and tool pages
+Updated: 2026-10-19T06:11:00Z
 
 - [x] Project scaffold & config
 - [x] Tools implemented (18 of 18)

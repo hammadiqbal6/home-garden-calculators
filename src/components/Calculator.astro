@@ -1,9 +1,15 @@
 ---
+import { defaultResultRows, ssrFields } from '../data/calculatorFields';
+
 interface Props {
   calculatorId: string;
   embed?: boolean;
 }
 const { calculatorId, embed = false } = Astro.props;
+const fields = ssrFields[calculatorId] ?? [];
+const resultPlaceholders = defaultResultRows[calculatorId] ?? [
+  ['Result', '—'],
+];
 ---
 
 <div
@@ -15,10 +21,57 @@ const { calculatorId, embed = false } = Astro.props;
     <button type="button" data-units="imperial" aria-pressed="true">US</button>
     <button type="button" data-units="metric" aria-pressed="false">Metric</button>
   </div>
-  <div class="calc-fields"></div>
-  <div class="results" aria-live="polite" hidden>
+  <div class="calc-fields">
+    <div class="field-grid cols-2">
+      {
+        fields.map((field) => (
+          <div
+            class="field"
+            data-field={field.name}
+            hidden={
+              calculatorId === 'concrete' &&
+              ['steps', 'riser', 'tread'].includes(field.name)
+            }
+          >
+            <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
+            {field.type === 'select' && field.options ? (
+              <select id={`${calculatorId}-${field.name}`} name={field.name}>
+                {field.options.map((opt) => (
+                  <option value={opt.value} selected={opt.value === field.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                id={`${calculatorId}-${field.name}`}
+                name={field.name}
+                type="number"
+                inputmode="decimal"
+                step={field.step || 'any'}
+                min="0"
+                value={field.value}
+                required
+              />
+            )}
+            {field.hint && <p class="hint">{field.hint}</p>}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="results" aria-live="polite">
     <h2>Results</h2>
-    <dl class="results-dl"></dl>
+    <dl class="results-dl">
+      {
+        resultPlaceholders.map(([k, v]) => (
+          <>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </>
+        ))
+      }
+    </dl>
     <div class="results-actions">
       <button type="button" class="btn btn-secondary" data-action="copy">Copy results</button>
       <button type="button" class="btn btn-secondary" data-action="share">Share link</button>
@@ -74,6 +127,74 @@ const { calculatorId, embed = false } = Astro.props;
   const lengthUnit = (u: Units) => (u === 'imperial' ? 'ft' : 'm');
   const smallLengthUnit = (u: Units) => (u === 'imperial' ? 'in' : 'cm');
 
+  function bulkConfig(kind: 'gravel' | 'topsoil' | 'sand'): CalculatorConfig {
+    return {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth',
+          imperialDefault: kind === 'sand' ? '1' : '4',
+          metricDefault: kind === 'sand' ? '2.5' : '10',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const fn = kind === 'gravel' ? gravelVolume : kind === 'topsoil' ? topsoilVolume : sandVolume;
+        const r = fn({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const rows: [string, string][] = [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+        ];
+        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+        return rows;
+      },
+    };
+  }
+
+  function resultRows(r: {
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    bags40: number;
+    bags60: number;
+    bags80: number;
+  }): [string, string][] {
+    return [
+      ['Volume', `${r.volumeCuFt} cu ft`],
+      ['Cubic yards', String(r.volumeCuYd)],
+      ['Cubic meters', String(r.volumeCuM)],
+      ['40 lb bags', String(r.bags40)],
+      ['60 lb bags', String(r.bags60)],
+      ['80 lb bags', String(r.bags80)],
+    ];
+  }
+
   const configs: Record<string, CalculatorConfig> = {
     concrete: {
       fields: [
@@ -113,12 +234,7 @@ const { calculatorId, embed = false } = Astro.props;
           imperialHint: 'inches for slabs',
           metricHint: 'centimeters',
         },
-        {
-          name: 'steps',
-          label: 'Number of steps',
-          imperialDefault: '3',
-          metricDefault: '3',
-        },
+        { name: 'steps', label: 'Number of steps', imperialDefault: '3', metricDefault: '3' },
         {
           name: 'riser',
           label: 'Riser',
@@ -135,18 +251,10 @@ const { calculatorId, embed = false } = Astro.props;
           imperialHint: 'inches',
           metricHint: 'cm',
         },
-        {
-          name: 'waste',
-          label: 'Waste %',
-          imperialDefault: '10',
-          metricDefault: '10',
-        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
       ],
       compute(v, u) {
         const waste = v.waste / 100;
-        if (v.shape === 2 || (v as any).shapeLabel === 'steps') {
-          /* handled below */
-        }
         const shape = String((v as any).shapeRaw ?? 'slab');
         if (shape === 'steps') {
           const r = stepsVolume({
@@ -195,15 +303,16 @@ const { calculatorId, embed = false } = Astro.props;
         { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
       ],
       compute(v, u) {
-        const r = postHoleVolume({
-          diameter: v.diameter,
-          depth: v.depth,
-          count: v.count,
-          diameterUnit: smallLengthUnit(u),
-          depthUnit: lengthUnit(u),
-          wasteFactor: v.waste / 100,
-        });
-        return resultRows(r);
+        return resultRows(
+          postHoleVolume({
+            diameter: v.diameter,
+            depth: v.depth,
+            count: v.count,
+            diameterUnit: smallLengthUnit(u),
+            depthUnit: lengthUnit(u),
+            wasteFactor: v.waste / 100,
+          }),
+        );
       },
     },
     sonotube: {
@@ -228,15 +337,16 @@ const { calculatorId, embed = false } = Astro.props;
         { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
       ],
       compute(v, u) {
-        const r = sonotubeVolume({
-          diameter: v.diameter,
-          height: v.height,
-          count: v.count,
-          diameterUnit: smallLengthUnit(u),
-          heightUnit: lengthUnit(u),
-          wasteFactor: v.waste / 100,
-        });
-        return resultRows(r);
+        return resultRows(
+          sonotubeVolume({
+            diameter: v.diameter,
+            height: v.height,
+            count: v.count,
+            diameterUnit: smallLengthUnit(u),
+            heightUnit: lengthUnit(u),
+            wasteFactor: v.waste / 100,
+          }),
+        );
       },
     },
     mulch: {
@@ -423,8 +533,7 @@ const { calculatorId, embed = false } = Astro.props;
       ],
       compute(v, u) {
         const toIn = (n: number) => (u === 'imperial' ? n : n / 2.54);
-        const spacingFt =
-          u === 'imperial' ? v.spacing : v.spacing * 3.280839895;
+        const spacingFt = u === 'imperial' ? v.spacing : v.spacing * 3.280839895;
         const r = fenceMaterials({
           totalLength: v.length,
           lengthUnit: lengthUnit(u),
@@ -759,12 +868,7 @@ const { calculatorId, embed = false } = Astro.props;
           imperialDefault: '1',
           metricDefault: '1',
         },
-        {
-          name: 'nPct',
-          label: 'Nitrogen % on bag',
-          imperialDefault: '25',
-          metricDefault: '25',
-        },
+        { name: 'nPct', label: 'Nitrogen % on bag', imperialDefault: '25', metricDefault: '25' },
         { name: 'bag', label: 'Bag size (lb)', imperialDefault: '40', metricDefault: '40' },
       ],
       compute(v, u) {
@@ -830,74 +934,6 @@ const { calculatorId, embed = false } = Astro.props;
     },
   };
 
-  function bulkConfig(kind: 'gravel' | 'topsoil' | 'sand'): CalculatorConfig {
-    return {
-      fields: [
-        {
-          name: 'length',
-          label: 'Length',
-          imperialDefault: '20',
-          metricDefault: '6',
-          imperialHint: 'feet',
-          metricHint: 'meters',
-        },
-        {
-          name: 'width',
-          label: 'Width',
-          imperialDefault: '10',
-          metricDefault: '3',
-          imperialHint: 'feet',
-          metricHint: 'meters',
-        },
-        {
-          name: 'depth',
-          label: 'Depth',
-          imperialDefault: kind === 'sand' ? '1' : '4',
-          metricDefault: kind === 'sand' ? '2.5' : '10',
-          imperialHint: 'inches',
-          metricHint: 'cm',
-        },
-        { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
-      ],
-      compute(v, u) {
-        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
-        const fn = kind === 'gravel' ? gravelVolume : kind === 'topsoil' ? topsoilVolume : sandVolume;
-        const r = fn({
-          length: v.length,
-          width: v.width,
-          depthInches,
-          lengthUnit: lengthUnit(u),
-          widthUnit: lengthUnit(u),
-          wasteFactor: v.waste / 100,
-        });
-        const rows: [string, string][] = [
-          ['Area', `${r.areaSqFt} sq ft`],
-          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
-        ];
-        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
-        return rows;
-      },
-    };
-  }
-
-  function resultRows(r: {
-    volumeCuFt: number;
-    volumeCuYd: number;
-    volumeCuM: number;
-    bags40: number;
-    bags60: number;
-    bags80: number;
-  }): [string, string][] {
-    return [
-      ['Volume', `${r.volumeCuFt} cu ft`],
-      ['Cubic yards', String(r.volumeCuYd)],
-      ['Cubic meters', String(r.volumeCuM)],
-      ['40 lb bags', String(r.bags40)],
-      ['60 lb bags', String(r.bags60)],
-      ['80 lb bags', String(r.bags80)],
-    ];
-  }
-
   function init(root: HTMLElement) {
     const id = root.dataset.calculator || '';
     const config = configs[id];
@@ -908,20 +944,24 @@ const { calculatorId, embed = false } = Astro.props;
     const dl = root.querySelector('.results-dl') as HTMLElement;
     const err = root.querySelector('.calc-error') as HTMLElement;
     let units: Units = 'imperial';
-
     const params = new URLSearchParams(window.location.search);
     if (params.get('units') === 'metric') units = 'metric';
 
+    function bindInputs() {
+      root.querySelectorAll('input,select').forEach((el) => {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', () => {
+          toggleConcreteStepFields();
+          calculate();
+        });
+      });
+    }
+
     function renderFields() {
-      fieldsEl.innerHTML = '';
+      // Rebuild only when switching unit systems so SSR layout stays stable on first paint.
       const grid = document.createElement('div');
       grid.className = 'field-grid cols-2';
       for (const field of config.fields) {
-        if (id === 'concrete' && ['steps', 'riser', 'tread'].includes(field.name)) {
-          const shape = (fieldsEl.closest('.calc-root') as HTMLElement) || root;
-          const select = shape.querySelector<HTMLSelectElement>('[name="shape"]');
-          // shown dynamically after mount
-        }
         const wrap = document.createElement('div');
         wrap.className = 'field';
         wrap.dataset.field = field.name;
@@ -954,20 +994,13 @@ const { calculatorId, embed = false } = Astro.props;
         wrap.appendChild(input);
         const hint = document.createElement('p');
         hint.className = 'hint';
-        hint.textContent =
-          (units === 'imperial' ? field.imperialHint : field.metricHint) || '';
+        hint.textContent = (units === 'imperial' ? field.imperialHint : field.metricHint) || '';
         if (hint.textContent) wrap.appendChild(hint);
         grid.appendChild(wrap);
       }
-      fieldsEl.appendChild(grid);
+      fieldsEl.replaceChildren(grid);
       toggleConcreteStepFields();
-      grid.querySelectorAll('input,select').forEach((el) => {
-        el.addEventListener('input', calculate);
-        el.addEventListener('change', () => {
-          toggleConcreteStepFields();
-          calculate();
-        });
-      });
+      bindInputs();
     }
 
     function toggleConcreteStepFields() {
@@ -982,7 +1015,7 @@ const { calculatorId, embed = false } = Astro.props;
         if (el) el.hidden = shape === 'steps';
       }
       const lengthLabel = root.querySelector<HTMLElement>('[data-field="length"] label');
-      if (lengthLabel && shape === 'steps') lengthLabel.textContent = 'Stair width';
+      if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
     }
 
     function readValues() {
@@ -992,7 +1025,6 @@ const { calculatorId, embed = false } = Astro.props;
         if (el instanceof HTMLSelectElement) {
           shapeRaw = el.value;
           values.shape = el.selectedIndex;
-          (values as any).shapeRaw = el.value;
           return;
         }
         values[el.name] = Number(el.value);
@@ -1010,7 +1042,6 @@ const { calculatorId, embed = false } = Astro.props;
         resultsEl.hidden = false;
         syncQuery(values);
       } catch (e) {
-        resultsEl.hidden = true;
         err.hidden = false;
         err.textContent = e instanceof Error ? e.message : 'Check your inputs.';
       }
@@ -1021,16 +1052,12 @@ const { calculatorId, embed = false } = Astro.props;
       const sp = new URLSearchParams();
       sp.set('units', units);
       for (const [k, v] of Object.entries(values)) {
-        if (k === 'shape' || k === 'shapeRaw') {
-          if (k === 'shapeRaw') sp.set('shape', String(v));
-          continue;
-        }
+        if (k === 'shape' || k === 'shapeRaw') continue;
         if (Number.isFinite(v)) sp.set(k, String(v));
       }
       const shapeRaw = (values as any).shapeRaw;
       if (shapeRaw) sp.set('shape', String(shapeRaw));
-      const url = `${window.location.pathname}?${sp.toString()}`;
-      window.history.replaceState({}, '', url);
+      window.history.replaceState({}, '', `${window.location.pathname}?${sp.toString()}`);
     }
 
     root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((btn) => {
@@ -1045,10 +1072,9 @@ const { calculatorId, embed = false } = Astro.props;
     });
 
     root.querySelector('[data-action="copy"]')?.addEventListener('click', async () => {
-      const text = Array.from(dl.querySelectorAll('dt')).map((dt, i) => {
-        const dd = dl.querySelectorAll('dd')[i];
-        return `${dt.textContent}: ${dd?.textContent ?? ''}`;
-      }).join('\n');
+      const text = Array.from(dl.querySelectorAll('dt'))
+        .map((dt, i) => `${dt.textContent}: ${dl.querySelectorAll('dd')[i]?.textContent ?? ''}`)
+        .join('\n');
       await navigator.clipboard?.writeText(text);
     });
     root.querySelector('[data-action="share"]')?.addEventListener('click', async () => {
@@ -1058,7 +1084,17 @@ const { calculatorId, embed = false } = Astro.props;
     });
     root.querySelector('[data-action="print"]')?.addEventListener('click', () => window.print());
 
-    renderFields();
+    // Apply query/unit overrides without wiping SSR markup when already imperial defaults.
+    if (units === 'metric' || [...params.keys()].some((k) => k !== 'units')) {
+      renderFields();
+    } else {
+      toggleConcreteStepFields();
+      bindInputs();
+    }
+    // Sync unit toggle pressed state
+    root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.units === units));
+    });
     calculate();
   }
 

@@ -308,6 +308,21 @@ a:hover {
   position: relative;
 }
 
+/* Reserve space so client-side calculator hydration does not cause CLS */
+.calc-root .calc-fields {
+  min-height: 22rem;
+}
+
+.calc-root .results {
+  min-height: 14rem;
+  display: block;
+}
+
+.calc-root .results[hidden] {
+  display: block;
+  visibility: hidden;
+}
+
 .calc-panel h1 {
   margin: 0 0 var(--space-2);
   font-size: clamp(1.45rem, 4vw, 1.9rem);

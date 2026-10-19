@@ -3,6 +3,8 @@
 interface ImportMetaEnv {
   /** Canonical origin (https, no trailing slash). Optional — falls back to workers.dev. */
   readonly PUBLIC_SITE_URL?: string;
+  /** Public contact email. Optional — falls back to hammadiqbal117@gmail.com. */
+  readonly PUBLIC_CONTACT_EMAIL?: string;
   /** GA4 measurement ID (G-…). Empty/unset → no analytics scripts. */
   readonly PUBLIC_GA4_MEASUREMENT_ID?: string;
   /** Google Search Console HTML-tag verification content. Optional. */

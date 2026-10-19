@@ -92,7 +92,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `name` | `YardCalc` | Public brand in header, titles, JSON-LD. |
 | `tagline` | Short sentence | Home hero and Organization description. |
 | `siteUrl` | `https://www.yourdomain.com` | **Canonical origin** — `https`, **no trailing slash**. Must match the host you will redirect to. |
-| `contactEmail` | `hello@yourdomain.com` | Contact page and `mailto:` links. Use a real inbox you monitor. |
+| `contactEmail` | `hammadiqbal117@gmail.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
 | `contentUpdated` | `2026-10-19` | ISO date for “last updated” stamps and sitemap `lastmod` default. Bump when you ship content changes. |
 | `author.name` / `role` / `bio` | Editorial byline | E-E-A-T boxes on guides/tools. Replace placeholder copy. |
 | `sameAs` | `['https://…']` | Optional social/profile URLs for Organization schema. |
@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
+**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
 
 ### 3.2 Public files — replace placeholders
 
@@ -197,6 +197,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Name | Example / notes |
 | --- | --- |
 | `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
+| `PUBLIC_CONTACT_EMAIL` | Optional — defaults to `hammadiqbal117@gmail.com` |
 | `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` — enables gtag.js when set |
 | `PUBLIC_GSC_VERIFICATION` | Optional Google Search Console HTML-tag `content` value |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave unset until AdSense approval |

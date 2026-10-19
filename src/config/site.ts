@@ -1,12 +1,15 @@
 /**
  * Single source of truth for brand, domain, and third-party IDs.
- * Public URL / analytics / AdSense come from build-time PUBLIC_* env vars
- * (see `.env.example`). Nothing else should hardcode those values.
+ * Public URL / contact email / analytics / AdSense come from build-time
+ * PUBLIC_* env vars (see `.env.example`). Nothing else should hardcode those values.
  */
 
 /** Canonical origin used when PUBLIC_SITE_URL is unset (Workers.dev deploy). */
 const DEFAULT_SITE_URL =
   'https://home-garden-calculators.hammadiqbal117.workers.dev';
+
+/** Public contact inbox used when PUBLIC_CONTACT_EMAIL is unset. */
+const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
 
 /**
  * Read a PUBLIC_* build env var from Vite/Astro (`import.meta.env`) or Node
@@ -39,6 +42,7 @@ function normalizeSiteUrl(raw: string): string {
 }
 
 const siteUrl = normalizeSiteUrl(readPublicEnv('PUBLIC_SITE_URL'));
+const contactEmail = readPublicEnv('PUBLIC_CONTACT_EMAIL') || DEFAULT_CONTACT_EMAIL;
 const ga4MeasurementId = readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID');
 /** Prefer PUBLIC_GSC_VERIFICATION; keep legacy alias for older Workers Builds configs. */
 const searchConsoleVerification =
@@ -69,8 +73,11 @@ export const siteConfig = {
    * From PUBLIC_SITE_URL, else Workers.dev fallback.
    */
   siteUrl,
-  /** Contact email shown on Contact page and mailto links */
-  contactEmail: 'hello@yardcalc.example',
+  /**
+   * Contact email shown on Contact/Privacy/Terms, mailto links, and Organization JSON-LD.
+   * From PUBLIC_CONTACT_EMAIL, else DEFAULT_CONTACT_EMAIL.
+   */
+  contactEmail,
   /** ISO date used for "Last updated" stamps and sitemap lastmod defaults */
   contentUpdated: '2026-10-19',
   /** Author / reviewer placeholder for E-E-A-T boxes */

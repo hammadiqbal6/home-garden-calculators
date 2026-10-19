@@ -179,7 +179,7 @@ All owner-specific values live in **`src/config/site.ts`** (no scattered hardcod
 | `name` | Brand display name | Set final brand |
 | `tagline` | Short description | Optional tweak |
 | `siteUrl` | From `PUBLIC_SITE_URL` (fallback: workers.dev) | Set in Workers Builds |
-| `contactEmail` | mailto + trust pages | **Required** |
+| `contactEmail` | From `PUBLIC_CONTACT_EMAIL` (fallback: `hammadiqbal117@gmail.com`) | Optional override |
 | `contentUpdated` | Default lastmod / stamps | Keep ISO date current |
 | `author.*` | E-E-A-T byline | Replace placeholder bio |
 | `sameAs` | Organization `sameAs` profile URLs | Add when available |

@@ -12,7 +12,7 @@ const DEFAULT_SITE_URL =
 const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
 
 /** Brand team byline when PUBLIC_AUTHOR_NAME is unset — not a personal credential. */
-const DEFAULT_AUTHOR_NAME = 'the YardCalc team';
+const DEFAULT_AUTHOR_NAME = 'YardCalc team';
 
 /**
  * Honest team bio when PUBLIC_AUTHOR_BIO is unset.

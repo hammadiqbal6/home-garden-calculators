@@ -5,7 +5,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_SITE_URL?: string;
   /** Public contact email. Optional — falls back to hammadiqbal117@gmail.com. */
   readonly PUBLIC_CONTACT_EMAIL?: string;
-  /** Author byline name. Optional — falls back to "the YardCalc team". */
+  /** Author byline name. Optional — falls back to "YardCalc team". */
   readonly PUBLIC_AUTHOR_NAME?: string;
   /** Author bio. Optional — falls back to honest brand-team copy (no fake credentials). */
   readonly PUBLIC_AUTHOR_BIO?: string;

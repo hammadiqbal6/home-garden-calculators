@@ -1,0 +1,16 @@
+---
+description: Accessibility requirements for YardCalc UI
+globs: src/**/*.{astro,css,ts}
+alwaysApply: false
+---
+
+# Accessibility
+
+- Label every input; use `inputmode="decimal"` for numeric fields; font-size ≥16px on inputs.
+- Tap targets ≥48px on mobile controls.
+- Visible focus styles; skip link present.
+- Maintain contrast on brand greens/oranges against backgrounds.
+- `aria-live` on results; keyboard-operable unit toggles and nav.
+- Decorative icons `aria-hidden`; meaningful alt text when images are added.
+---
+

@@ -1,0 +1,34 @@
+{
+  "name": "home-garden-calculators",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "YardCalc — free home & garden material calculators (Astro static site)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:links": "node scripts/check-links.mjs",
+    "audit:seo": "node scripts/audit/seo.mjs",
+    "audit:adsense": "node scripts/audit/adsense.mjs",
+    "audit:perf": "node scripts/audit/perf.mjs",
+    "audit": "npm run audit:seo && npm run audit:adsense && npm run audit:perf",
+    "lighthouse": "lhci autorun",
+    "indexnow": "node scripts/indexnow.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.7.4",
+    "astro": "5.18.2"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "@types/node": "^26.6.5",
+    "vitest": "^5.0.5"
+  }
+}

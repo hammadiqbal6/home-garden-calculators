@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Terms of Use | YardCalc"
+  description="Terms of use for YardCalc free calculators and guides. Estimates only; verify with professionals and local codes."
+  canonicalPath="/terms/"
+>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Terms' }]} />
+  <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
+    <h1>Terms of Use</h1>
+    <p class="answer-first">
+      YardCalc provides free estimation tools and educational content. Results are approximate aids—not
+      engineering, architectural, or legal advice. Verify materials with manufacturers, suppliers, and local
+      building codes.
+    </p>
+    <p>Last updated {siteConfig.contentUpdated}</p>
+    <h2>License to use</h2>
+    <p>
+      You may use the calculators for personal and professional estimating. Embeddable widgets must retain
+      the visible credit link. Do not scrape the site in a way that degrades service or violates applicable law.
+    </p>
+    <h2>Disclaimer</h2>
+    <p>
+      We strive for accurate formulas but bag yields, densities, and codes vary. You assume responsibility for
+      purchasing decisions and structural safety.
+    </p>
+    <h2>Contact</h2>
+    <p><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
+  </article>
+</BaseLayout>

@@ -1,0 +1,18 @@
+{
+  "name": "YardCalc",
+  "short_name": "YardCalc",
+  "description": "Free home and garden material calculators",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f3f6f2",
+  "theme_color": "#1f6b4a",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

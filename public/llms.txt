@@ -1,0 +1,26 @@
+# YardCalc (optional llms.txt — Google Search ignores this file)
+# Plain link list for answer engines that choose to fetch it.
+
+Title: YardCalc — Free home & garden material calculators
+URL: https://www.yardcalc.example/
+
+## Calculators
+- https://www.yardcalc.example/calculators/concrete-calculator/
+- https://www.yardcalc.example/calculators/concrete-calculator-post-holes/
+- https://www.yardcalc.example/calculators/sonotube-concrete-calculator/
+- https://www.yardcalc.example/calculators/mulch-calculator/
+- https://www.yardcalc.example/calculators/mulch-calculator-tree-rings/
+- https://www.yardcalc.example/calculators/gravel-calculator/
+- https://www.yardcalc.example/calculators/fence-calculator/
+- https://www.yardcalc.example/calculators/deck-material-calculator/
+- https://www.yardcalc.example/calculators/roof-pitch-calculator/
+- https://www.yardcalc.example/calculators/roofing-shingles-calculator/
+- https://www.yardcalc.example/calculators/paint-calculator/
+- https://www.yardcalc.example/calculators/retaining-wall-calculator/
+
+## Guides
+- https://www.yardcalc.example/guides/how-much-concrete-for-fence-posts/
+- https://www.yardcalc.example/guides/mulch-depth-guide/
+- https://www.yardcalc.example/guides/how-many-bags-of-concrete/
+- https://www.yardcalc.example/guides/gravel-types-for-driveways/
+- https://www.yardcalc.example/guides/how-to-measure-roof-pitch/

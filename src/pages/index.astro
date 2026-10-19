@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/site';
+import { absoluteUrl, categories, tools } from '../data/tools';
+import { guides } from '../data/guides';
+
+const featured = [
+  'concrete-calculator',
+  'concrete-calculator-post-holes',
+  'sonotube-concrete-calculator',
+  'mulch-calculator',
+  'mulch-calculator-tree-rings',
+  'gravel-calculator',
+  'fence-calculator',
+  'deck-material-calculator',
+  'roof-pitch-calculator',
+  'roofing-shingles-calculator',
+  'paint-calculator',
+  'retaining-wall-calculator',
+].map((s) => tools.find((t) => t.slug === s)!);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.name,
+    url: siteConfig.siteUrl,
+    description: siteConfig.tagline,
+    publisher: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.siteUrl },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: siteConfig.name,
+    url: siteConfig.siteUrl,
+    email: siteConfig.contactEmail,
+    description: siteConfig.tagline,
+    sameAs: siteConfig.sameAs,
+  },
+];
+---
+
+<BaseLayout
+  title={`${siteConfig.name} – Free Home & Garden Material Calculators`}
+  description="Free concrete, mulch, gravel, fence, deck, roof pitch, paint, and landscape calculators. US & metric units, bag counts, and guides—no signup."
+  canonicalPath="/"
+  jsonLd={jsonLd}
+>
+  <section class="hero container">
+    <p class="brand" style="margin:0 0 0.75rem;font-size:1.35rem">
+      <span class="brand-mark" aria-hidden="true">Y</span> {siteConfig.name}
+    </p>
+    <h1>Free home &amp; garden material calculators</h1>
+    <p class="lede">
+      Estimate concrete bags, mulch yards, gravel tons, fence posts, deck boards, roof pitch, and more.
+      Private in-browser math with US imperial and metric units.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="/calculators/concrete-calculator/">Concrete calculator</a>
+      <a class="btn btn-secondary" href="/calculators/">Browse all tools</a>
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:2rem">
+    <h2>Popular calculators</h2>
+    <div class="card-grid cols-3" style="margin-top:1rem">
+      {
+        featured.map((t) => (
+          <a class="tool-card" href={`/calculators/${t.slug}/`}>
+            <h3>{t.name}</h3>
+            <p>{t.summary}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:2rem">
+    <h2>Browse by project type</h2>
+    <div class="card-grid" style="margin-top:1rem">
+      {
+        Object.values(categories).map((c) => (
+          <a class="tool-card" href={`/hubs/${c.slug}/`}>
+            <h3>{c.name}</h3>
+            <p>{c.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="container" style="padding-bottom:3rem">
+    <h2>Guides</h2>
+    <div class="card-grid" style="margin-top:1rem">
+      {
+        guides.map((g) => (
+          <a class="tool-card" href={`/guides/${g.slug}/`}>
+            <h3>{g.h1}</h3>
+            <p>{g.answerFirst.slice(0, 140)}…</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

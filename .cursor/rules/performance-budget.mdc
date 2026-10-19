@@ -1,0 +1,16 @@
+---
+description: Performance budgets and CWV constraints for YardCalc
+globs: src/**/*.{astro,ts,css}, lighthouserc.cjs, scripts/audit/**
+alwaysApply: false
+---
+
+# Performance budget
+
+- Prefer zero or minimal client JS; calculator logic is the main island.
+- Initial JS ≤ 50 KB gzipped per page; no heavy frameworks without lazy/on-interaction load.
+- System font stack (already in global.css); font-display swap if self-hosting later.
+- Reserve ad slot min-heights; never shift the tool on load.
+- Images: width/height, modern formats when added; preload only true LCP assets.
+- CI must fail on budget regressions (`npm run audit:perf`, Lighthouse CI).
+---
+

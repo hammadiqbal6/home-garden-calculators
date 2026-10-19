@@ -1,0 +1,45 @@
+---
+import { siteConfig } from '../config/site';
+
+interface Props {
+  slot?: string;
+  position?: 'top' | 'mid' | 'bottom';
+}
+const { slot = 'auto', position = 'mid' } = Astro.props;
+const enabled =
+  siteConfig.adsense.enabled &&
+  siteConfig.adsense.publisherId.startsWith('ca-pub-') &&
+  !siteConfig.adsense.publisherId.includes('XXXX');
+---
+
+<aside
+  class="ad-slot"
+  data-position={position}
+  aria-label="Advertisement"
+  style="min-height: var(--ad-slot-h);"
+>
+  {
+    enabled ? (
+      <ins
+        class="adsbygoogle"
+        style="display:block;min-height:var(--ad-slot-h);width:100%"
+        data-ad-client={siteConfig.adsense.publisherId}
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+    ) : (
+      <span>Ad space reserved (disabled until AdSense is configured)</span>
+    )
+  }
+</aside>
+
+{
+  enabled && (
+    <script is:inline>
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {}
+    </script>
+  )
+}

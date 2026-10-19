@@ -1,0 +1,19 @@
+
+> home-garden-calculators@1.0.0 audit
+> npm run audit:seo && npm run audit:adsense && npm run audit:perf
+
+
+> home-garden-calculators@1.0.0 audit:seo
+> node scripts/audit/seo.mjs
+
+SEO audit: 37 pages, 0 errors, 0 warnings
+
+> home-garden-calculators@1.0.0 audit:adsense
+> node scripts/audit/adsense.mjs
+
+AdSense audit: 0 errors
+
+> home-garden-calculators@1.0.0 audit:perf
+> node scripts/audit/perf.mjs
+
+Perf audit: checked 37 pages, 0 errors

@@ -146,6 +146,8 @@ npm run dev
 
 Open the printed localhost URL. Edit `src/config/site.ts` before any public launch.
 
+**Deploy to production:** step-by-step domain, Cloudflare Pages / Vercel / Netlify, Search Console, AdSense, and launch checklist — **[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)**.
+
 ---
 
 ## Scripts / commands
@@ -163,6 +165,7 @@ Open the printed localhost URL. Edit `src/config/site.ts` before any public laun
 | `npm run audit:perf` | First-party JS gzip budget (≤50KB/page) |
 | `npm run audit` | Run all auditors |
 | `npm run lighthouse` | Lighthouse CI mobile budgets (`lighthouserc.cjs`) |
+| `npm run proof` | Regenerate committed proof under `docs/proof/` (Lighthouse, audits, screenshots) |
 | `npm run indexnow -- <url>` | Ping IndexNow for URL(s) |
 
 ---
@@ -222,11 +225,23 @@ npm run audit            # SEO + AdSense + perf budgets
 
 ---
 
+## Proof
+
+Committed, tool-generated evidence (scores are **not** hand-edited): **[`docs/proof/README.md`](docs/proof/README.md)**.
+
+```bash
+npm run build && npm run proof
+```
+
+Includes Lighthouse HTML/JSON, structured-data samples, audit logs, bundle-size table, mobile screenshots (360px & 768px), and AdSense readiness checklist. CI job **`proof`** on pull requests regenerates the bundle and uploads `docs/proof/` as an artifact.
+
+---
+
 ## Audits & CI
 
 - Auditors: `scripts/audit/*.mjs` wired via `npm run audit`
 - Lighthouse CI config: `lighthouserc.cjs` (mobile, Performance/A11y/BP/SEO ≥ 0.95, CLS ≤ 0.05)
-- GitHub Actions: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs install → test → build → links → audit → lighthouse on PRs
+- GitHub Actions: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs install → test → build → links → audit → lighthouse on PRs, plus **`proof`** (full evidence bundle artifact)
 
 ---
 

@@ -1,0 +1,66 @@
+=== robots.txt ===
+# YardCalc robots.txt
+# Allow search engines and AI-search crawlers. Training crawlers are allowed by
+# default; flip to Disallow if you prefer to opt out of model training.
+# Google-Extended affects Gemini training/grounding outside Search, not Google Search.
+
+User-agent: *
+Allow: /
+Disallow: /embed/
+Disallow: /*?utm_
+
+# AI search / answer engines (allow to be cited)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+# AI model training (documented choice — currently Allow)
+# To opt out of training, change these to Disallow: /
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://www.yardcalc.example/sitemap-index.xml
+
+
+=== Crawler allowances (name present in robots.txt) ===
+Googlebot: PASS
+Bingbot: PASS
+OAI-SearchBot: PASS
+PerplexityBot: PASS
+Claude-SearchBot: PASS
+Sitemap absolute URL line: PASS
+
+=== Sitemap validity ===
+XML structure: PASS
+Root loc count (index file): 1
+Total URLs in sitemap(s): 43
+Built HTML pages (excl. embed, 404): 36
+URL count vs pages: PASS (sitemap covers site)
+
+=== llms.txt ===
+PASS: present in dist/
+
+Overall: PASS

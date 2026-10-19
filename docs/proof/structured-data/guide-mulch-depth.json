@@ -1,0 +1,44 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.yardcalc.example/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Guides",
+        "item": "https://www.yardcalc.example/guides/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Mulch Depth Guide",
+        "item": "https://www.yardcalc.example/guides/mulch-depth-guide/"
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Mulch Depth Guide",
+    "description": "Recommended mulch depths for beds, trees, and paths, with volume tips and links to free mulch calculators. Based on extension guidance.",
+    "datePublished": "2026-10-19",
+    "dateModified": "2026-10-19",
+    "author": {
+      "@type": "Organization",
+      "name": "YardCalc Editorial"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "YardCalc",
+      "url": "https://www.yardcalc.example"
+    },
+    "mainEntityOfPage": "https://www.yardcalc.example/guides/mulch-depth-guide/"
+  }
+]

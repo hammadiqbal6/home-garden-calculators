@@ -1,0 +1,8 @@
+Structured data extraction & local validation
+Note: Re-run Google Rich Results Test on production URLs after deploy.
+
+home: PASS — types WebSite, Organization
+hub-concrete: PASS — types BreadcrumbList
+tool-concrete-calculator: PASS — types BreadcrumbList, WebApplication
+guide-mulch-depth: PASS — types BreadcrumbList, Article
+about: PASS — types BreadcrumbList

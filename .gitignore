@@ -4,7 +4,8 @@ dist/
 .astro/
 
 # dependencies
-node_modules/
+node_modules
+.lighthouseci/
 
 # logs
 npm-debug.log*

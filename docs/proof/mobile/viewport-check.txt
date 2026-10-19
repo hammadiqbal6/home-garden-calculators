@@ -1,0 +1,15 @@
+Mobile viewport capture
+Base URL: http://127.0.0.1:40679
+
+home @ 360px: horizontal overflow PASS (scroll 360 vs client 360)
+hub-concrete @ 360px: horizontal overflow PASS (scroll 360 vs client 360)
+tool-concrete-calculator @ 360px: horizontal overflow PASS (scroll 360 vs client 360)
+tool-mulch-calculator @ 360px: horizontal overflow PASS (scroll 360 vs client 360)
+tool-roof-pitch-calculator @ 360px: horizontal overflow PASS (scroll 360 vs client 360)
+home @ 768px: horizontal overflow PASS (scroll 768 vs client 768)
+hub-concrete @ 768px: horizontal overflow PASS (scroll 768 vs client 768)
+tool-concrete-calculator @ 768px: horizontal overflow PASS (scroll 768 vs client 768)
+tool-mulch-calculator @ 768px: horizontal overflow PASS (scroll 768 vs client 768)
+tool-roof-pitch-calculator @ 768px: horizontal overflow PASS (scroll 768 vs client 768)
+
+Overall scroll check: PASS

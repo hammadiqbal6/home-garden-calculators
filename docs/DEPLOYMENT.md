@@ -94,7 +94,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `siteUrl` | `https://www.yourdomain.com` | **Canonical origin** — `https`, **no trailing slash**. Must match the host you will redirect to. |
 | `contactEmail` | `hammadiqbal117@gmail.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
 | `contentUpdated` | `2026-10-19` | ISO date for “last updated” stamps and sitemap `lastmod` default. Bump when you ship content changes. |
-| `author.name` / `role` / `bio` | Editorial byline | E-E-A-T boxes on guides/tools. Replace placeholder copy. |
+| `author.name` / `role` / `bio` | Brand team byline | From `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` (honest defaults; no fake credentials). |
 | `sameAs` | `['https://…']` | Optional social/profile URLs for Organization schema. |
 | `analytics.ga4MeasurementId` | `G-XXXXXXXXXX` or `''` | Empty = GA4 scripts omitted. Set after you create a GA4 property. |
 | `analytics.searchConsoleVerification` | meta tag **content** value | Optional HTML-tag GSC verification. DNS verification is often easier—leave empty if using DNS. |
@@ -197,10 +197,13 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Name | Example / notes |
 | --- | --- |
 | `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
-| `PUBLIC_CONTACT_EMAIL` | Optional — defaults to `hammadiqbal117@gmail.com` |
-| `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` — enables gtag.js when set |
-| `PUBLIC_GSC_VERIFICATION` | Optional Google Search Console HTML-tag `content` value |
-| `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave unset until AdSense approval |
+| `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` |
+| `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` | Optional — brand team defaults in `site.ts` |
+| `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
+| `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |
+| `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave empty until AdSense approval |
+| `INDEXNOW_KEY` | Optional — defaults to committed public key |
+| `INDEXNOW_DISABLE` | `1` to skip post-deploy IndexNow ping |
 | `NODE_VERSION` | `22` (or `20`) if the build image needs it |
 
 Local check: `npm run build && npx wrangler deploy --dry-run`.

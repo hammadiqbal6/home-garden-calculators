@@ -5,6 +5,10 @@ interface ImportMetaEnv {
   readonly PUBLIC_SITE_URL?: string;
   /** Public contact email. Optional — falls back to hammadiqbal117@gmail.com. */
   readonly PUBLIC_CONTACT_EMAIL?: string;
+  /** Author byline name. Optional — falls back to "the YardCalc team". */
+  readonly PUBLIC_AUTHOR_NAME?: string;
+  /** Author bio. Optional — falls back to honest brand-team copy (no fake credentials). */
+  readonly PUBLIC_AUTHOR_BIO?: string;
   /** GA4 measurement ID (G-…). Empty/unset → no analytics scripts. */
   readonly PUBLIC_GA4_MEASUREMENT_ID?: string;
   /** Google Search Console HTML-tag verification content. Optional. */

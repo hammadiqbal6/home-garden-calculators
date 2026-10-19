@@ -197,7 +197,8 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Name | Example / notes |
 | --- | --- |
 | `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
-| `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` |
+| `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` — enables gtag.js when set |
+| `PUBLIC_GSC_VERIFICATION` | Optional Google Search Console HTML-tag `content` value |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave unset until AdSense approval |
 | `NODE_VERSION` | `22` (or `20`) if the build image needs it |
 

@@ -190,7 +190,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Branch | `main` |
 | Root directory | `/` |
 | Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Deploy command | `npx wrangler deploy && node scripts/indexnow.mjs` |
 
 **Build variables** (Workers Builds → Variables):
 
@@ -282,16 +282,10 @@ Do these on the **live** domain after DNS and HTTPS work.
 1. [Bing Webmaster Tools](https://www.bing.com/webmasters) → add site → **Import from Google Search Console** (fastest) or verify DNS.
 2. Submit the same sitemap URL.
 3. **IndexNow** (Bing/Yandex; Google does not use IndexNow):
-   - Ensure `public/<your-indexnow-key>.txt` exists and matches `siteConfig.indexNowKey`.
-   - After meaningful content updates:
-
-```bash
-node scripts/indexnow.mjs \
-  https://www.yourdomain.com/calculators/concrete-calculator/ \
-  https://www.yourdomain.com/guides/mulch-depth-guide/
-```
-
-Optional: enable Cloudflare’s IndexNow integration for Pages.
+   - Key file: `public/<indexNowKey>.txt` (body = the key string). Live at `https://<host>/<key>.txt`.
+   - After deploy, `scripts/indexnow.mjs` reads `dist/sitemap-index.xml` (and child sitemaps) and POSTs all `<loc>` URLs to IndexNow in batches of ≤10,000.
+   - Workers Builds deploy command should be `npx wrangler deploy && node scripts/indexnow.mjs` (or `npm run deploy:indexnow` locally). Do **not** run the ping inside `build` — the key file must already be live.
+   - Skip with `INDEXNOW_DISABLE=1`; override key with `INDEXNOW_KEY`. Dry-run: `node scripts/indexnow.mjs --dry-run`. The script always exits `0` so a ping failure never blocks deploy.
 
 ### 8.3 Rich Results Test
 
@@ -385,8 +379,12 @@ Hosted platforms rebuild on push to the production branch. For config-only chang
 
 ### 11.2 IndexNow after publish
 
+Prefer the post-deploy hook (`npx wrangler deploy && node scripts/indexnow.mjs`). Manually:
+
 ```bash
-node scripts/indexnow.mjs https://www.yourdomain.com/path-you-changed/
+npm run build   # refresh dist/ sitemaps
+npm run indexnow
+# or: node scripts/indexnow.mjs --dry-run
 ```
 
 ### 11.3 Rollback

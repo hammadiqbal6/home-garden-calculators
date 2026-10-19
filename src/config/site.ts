@@ -105,7 +105,7 @@ export const siteConfig = {
     autoAds: false,
   },
   /** IndexNow key filename (place matching key file in /public) */
-  indexNowKey: 'yardcalc-indexnow-key-replace-me',
+  indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',
   locale: 'en-US',
   defaultOgImage: '/og-default.png',
 };

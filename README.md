@@ -166,7 +166,8 @@ Open the printed localhost URL. Edit `src/config/site.ts` before any public laun
 | `npm run audit` | Run all auditors |
 | `npm run lighthouse` | Lighthouse CI mobile budgets (`lighthouserc.cjs`) |
 | `npm run proof` | Regenerate committed proof under `docs/proof/` (Lighthouse, audits, screenshots) |
-| `npm run indexnow -- <url>` | Ping IndexNow for URL(s) |
+| `npm run indexnow` | Ping IndexNow with all URLs from `dist/` sitemaps |
+| `npm run deploy:indexnow` | `wrangler deploy` then IndexNow ping |
 
 ---
 
@@ -188,7 +189,7 @@ All owner-specific values live in **`src/config/site.ts`** (no scattered hardcod
 | `adsense.publisherId` | `ca-pub-…` | After approval |
 | `adsense.enabled` | Master ads switch | `false` until approved |
 | `adsense.autoAds` | Google Auto ads | Documented; default off |
-| `indexNowKey` | IndexNow key + `public/<key>.txt` | Replace placeholder |
+| `indexNowKey` | IndexNow key + `public/<key>.txt` | Set; file body must match key |
 | `locale` | `lang` attribute | Keep `en-US` unless expanding |
 | `defaultOgImage` | OG image path in `/public` | Replace creative optional |
 
@@ -343,7 +344,7 @@ See **[`docs/SEO-GUIDE.md`](docs/SEO-GUIDE.md)**:
 | Sitemap host wrong | Set `siteUrl` in `src/config/site.ts` and rebuild |
 | Ads not showing | `adsense.enabled` must be true **and** real `ca-pub-` id (no `XXXX`) |
 | LHCI Chrome missing locally | Install Chrome or rely on CI; `continue-on-error` until Chrome present |
-| IndexNow 403/422 | Ensure `public/<key>.txt` matches `indexNowKey` on the live host |
+| IndexNow 403/422 | Ensure `public/<key>.txt` is live and matches the key in the POST body |
 | Orphan page in SEO audit | Add nav/hub/related links to the URL |
 | Engine warning Node < 22.22 | Repo pinned to Astro 5 for Node 20+/22.14 compatibility |
 

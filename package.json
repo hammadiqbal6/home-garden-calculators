@@ -21,7 +21,9 @@
     "audit": "npm run audit:seo && npm run audit:adsense && npm run audit:perf",
     "lighthouse": "lhci autorun",
     "proof": "node scripts/proof/run.mjs",
-    "indexnow": "node scripts/indexnow.mjs"
+    "indexnow": "node scripts/indexnow.mjs",
+    "deploy": "wrangler deploy",
+    "deploy:dry-run": "wrangler deploy --dry-run"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",
@@ -31,6 +33,7 @@
     "@lhci/cli": "^0.15.1",
     "playwright": "^1.52.0",
     "@types/node": "^26.6.5",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.45.0"
   }
 }

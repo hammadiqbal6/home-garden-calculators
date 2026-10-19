@@ -1,4 +1,8 @@
-# YardCalc robots.txt
+import type { APIRoute } from 'astro';
+import { siteConfig } from '../config/site';
+
+export const GET: APIRoute = () => {
+  const body = `# YardCalc robots.txt
 # Allow search engines and AI-search crawlers. Training crawlers are allowed by
 # default; flip to Disallow if you prefer to opt out of model training.
 # Google-Extended affects Gemini training/grounding outside Search, not Google Search.
@@ -41,4 +45,13 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.yardcalc.example/sitemap-index.xml
+Sitemap: ${siteConfig.siteUrl}/sitemap-index.xml
+`;
+
+  return new Response(body, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600',
+    },
+  });
+};

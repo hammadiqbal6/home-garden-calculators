@@ -12,12 +12,17 @@ if (!urls.length) {
   process.exit(1);
 }
 
+const DEFAULT_SITE_URL =
+  'https://home-garden-calculators.hammadiqbal117.workers.dev';
+
 const configPath = path.resolve('src/config/site.ts');
 const src = fs.readFileSync(configPath, 'utf8');
-const siteUrl = src.match(/siteUrl:\s*'([^']+)'/)?.[1];
 const key = src.match(/indexNowKey:\s*'([^']+)'/)?.[1];
+
+const siteUrl = (process.env.PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, '');
+
 if (!siteUrl || !key) {
-  console.error('Could not read siteUrl/indexNowKey from src/config/site.ts');
+  console.error('Could not resolve siteUrl (PUBLIC_SITE_URL) or indexNowKey from site.ts');
   process.exit(1);
 }
 

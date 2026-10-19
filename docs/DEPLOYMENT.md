@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Optional `.env` / `PUBLIC_SITE_URL`:** This template does **not** read environment variables for the public URL. If you prefer env-based config, you would wire `import.meta.env.PUBLIC_SITE_URL` into `site.ts` yourself. For launch, editing `siteUrl` in `site.ts` and redeploying is the supported path.
+**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
 
 ### 3.2 Public files — replace placeholders
 
@@ -178,30 +178,32 @@ https://yourdomain.com/*  https://www.yourdomain.com/:splat  301
 
 ---
 
-## 5. Deploy on Cloudflare Pages (recommended)
+## 5. Deploy on Cloudflare Workers (recommended — static assets)
 
-### 5.1 Connect the repository
+Production hosting is a **pure static-assets Worker** named `home-garden-calculators` (see committed `wrangler.jsonc`). No Astro Cloudflare adapter, SESSION KV, or Images bindings.
 
-1. Log in to [Cloudflare Dashboard](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
-2. Select this repository and branch (`main` for production).
-3. **Build settings:**
+### 5.1 Workers Builds (already configured)
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | **Astro** (or **None**) |
+| Worker name | `home-garden-calculators` |
+| Branch | `main` |
+| Root directory | `/` |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | `/` (repo root) |
+| Deploy command | `npx wrangler deploy` |
 
-4. **Environment variables** (Settings → Environment variables):
+**Build variables** (Workers Builds → Variables):
 
-| Name | Value | Environment |
-| --- | --- | --- |
-| `NODE_VERSION` | `22` (or `20`) | Production + Preview |
+| Name | Example / notes |
+| --- | --- |
+| `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
+| `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` |
+| `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave unset until AdSense approval |
+| `NODE_VERSION` | `22` (or `20`) if the build image needs it |
 
-No runtime secrets are required for the static site.
+Local check: `npm run build && npx wrangler deploy --dry-run`.
 
-5. **Save and Deploy**. First build runs `npm ci` / `npm install` and `npm run build`.
+Merging to `main` triggers the first production build/deploy.
 
 ### 5.2 Custom domain on Pages
 

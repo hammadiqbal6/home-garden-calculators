@@ -40,7 +40,10 @@ function normalizeSiteUrl(raw: string): string {
 
 const siteUrl = normalizeSiteUrl(readPublicEnv('PUBLIC_SITE_URL'));
 const ga4MeasurementId = readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID');
-const searchConsoleVerification = readPublicEnv('PUBLIC_SEARCH_CONSOLE_VERIFICATION');
+/** Prefer PUBLIC_GSC_VERIFICATION; keep legacy alias for older Workers Builds configs. */
+const searchConsoleVerification =
+  readPublicEnv('PUBLIC_GSC_VERIFICATION') ||
+  readPublicEnv('PUBLIC_SEARCH_CONSOLE_VERIFICATION');
 const adsensePublisherId = readPublicEnv('PUBLIC_ADSENSE_PUBLISHER_ID');
 
 /** Real ca-pub id only — placeholders keep ads disabled. */

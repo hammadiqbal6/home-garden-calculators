@@ -6,6 +6,8 @@ interface ImportMetaEnv {
   /** GA4 measurement ID (G-…). Empty/unset → no analytics scripts. */
   readonly PUBLIC_GA4_MEASUREMENT_ID?: string;
   /** Google Search Console HTML-tag verification content. Optional. */
+  readonly PUBLIC_GSC_VERIFICATION?: string;
+  /** @deprecated Prefer PUBLIC_GSC_VERIFICATION. Kept as a build-env alias. */
   readonly PUBLIC_SEARCH_CONSOLE_VERIFICATION?: string;
   /** AdSense publisher ID (ca-pub-…). Optional; ads stay off without a real value. */
   readonly PUBLIC_ADSENSE_PUBLISHER_ID?: string;

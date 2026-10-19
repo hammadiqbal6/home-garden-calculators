@@ -12,7 +12,7 @@ export default defineConfig({
       changefreq: undefined,
       priority: undefined,
       lastmod: new Date(siteConfig.contentUpdated),
-      filter: (page) => !page.includes('/404'),
+      filter: (page) => !page.includes('/404') && !page.includes('/embed/'),
     }),
   ],
   build: {

@@ -23,7 +23,8 @@
     "proof": "node scripts/proof/run.mjs",
     "indexnow": "node scripts/indexnow.mjs",
     "deploy": "wrangler deploy",
-    "deploy:dry-run": "wrangler deploy --dry-run"
+    "deploy:dry-run": "wrangler deploy --dry-run",
+    "deploy:indexnow": "npm run deploy && node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "3.7.4",

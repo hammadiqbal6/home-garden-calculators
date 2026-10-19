@@ -1,6 +1,6 @@
 /**
  * Single source of truth for brand, domain, and third-party IDs.
- * Public URL / contact email / analytics / AdSense come from build-time
+ * Public URL / contact / author / analytics / AdSense come from build-time
  * PUBLIC_* env vars (see `.env.example`). Nothing else should hardcode those values.
  */
 
@@ -10,6 +10,19 @@ const DEFAULT_SITE_URL =
 
 /** Public contact inbox used when PUBLIC_CONTACT_EMAIL is unset. */
 const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
+
+/** Brand team byline when PUBLIC_AUTHOR_NAME is unset — not a personal credential. */
+const DEFAULT_AUTHOR_NAME = 'YardCalc team';
+
+/**
+ * Honest team bio when PUBLIC_AUTHOR_BIO is unset.
+ * No licenses, degrees, or invented personal credentials.
+ */
+const DEFAULT_AUTHOR_BIO =
+  'YardCalc builds free home and garden material calculators. We document formulas, cite manufacturer bag yields and extension-service guidance, and keep results as planning estimates—not a substitute for local building codes or a licensed professional.';
+
+/** Role label for author boxes (not a credential). */
+const DEFAULT_AUTHOR_ROLE = 'Home & garden calculator editors';
 
 /**
  * Read a PUBLIC_* build env var from Vite/Astro (`import.meta.env`) or Node
@@ -63,6 +76,9 @@ const adsenseEnabled =
   isRealAdsensePublisherId(adsensePublisherId) &&
   readPublicEnv('PUBLIC_ADSENSE_ENABLED').toLowerCase() === 'true';
 
+const authorName = readPublicEnv('PUBLIC_AUTHOR_NAME') || DEFAULT_AUTHOR_NAME;
+const authorBio = readPublicEnv('PUBLIC_AUTHOR_BIO') || DEFAULT_AUTHOR_BIO;
+
 export const siteConfig = {
   /** Public site name shown in UI, titles, and structured data */
   name: 'YardCalc',
@@ -80,11 +96,14 @@ export const siteConfig = {
   contactEmail,
   /** ISO date used for "Last updated" stamps and sitemap lastmod defaults */
   contentUpdated: '2026-10-19',
-  /** Author / reviewer placeholder for E-E-A-T boxes */
+  /**
+   * Author / reviewer byline for E-E-A-T boxes.
+   * Name/bio from PUBLIC_AUTHOR_NAME / PUBLIC_AUTHOR_BIO (brand team defaults; no fake credentials).
+   */
   author: {
-    name: 'YardCalc Editorial',
-    role: 'Home project calculation team',
-    bio: 'We build practical material estimators for DIY and landscaping projects, citing extension services and manufacturer coverage rates.',
+    name: authorName,
+    role: DEFAULT_AUTHOR_ROLE,
+    bio: authorBio,
   },
   /** Social / entity sameAs links (add real profiles when available) */
   sameAs: [] as string[],
@@ -105,7 +124,7 @@ export const siteConfig = {
     autoAds: false,
   },
   /** IndexNow key filename (place matching key file in /public) */
-  indexNowKey: 'yardcalc-indexnow-key-replace-me',
+  indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',
   locale: 'en-US',
   defaultOgImage: '/og-default.png',
 };

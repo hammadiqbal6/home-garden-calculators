@@ -94,7 +94,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `siteUrl` | `https://www.yourdomain.com` | **Canonical origin** — `https`, **no trailing slash**. Must match the host you will redirect to. |
 | `contactEmail` | `hammadiqbal117@gmail.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
 | `contentUpdated` | `2026-10-19` | ISO date for “last updated” stamps and sitemap `lastmod` default. Bump when you ship content changes. |
-| `author.name` / `role` / `bio` | Editorial byline | E-E-A-T boxes on guides/tools. Replace placeholder copy. |
+| `author.name` / `role` / `bio` | Brand team byline | From `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` (honest defaults; no fake credentials). |
 | `sameAs` | `['https://…']` | Optional social/profile URLs for Organization schema. |
 | `analytics.ga4MeasurementId` | `G-XXXXXXXXXX` or `''` | Empty = GA4 scripts omitted. Set after you create a GA4 property. |
 | `analytics.searchConsoleVerification` | meta tag **content** value | Optional HTML-tag GSC verification. DNS verification is often easier—leave empty if using DNS. |
@@ -190,17 +190,20 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Branch | `main` |
 | Root directory | `/` |
 | Build command | `npm run build` |
-| Deploy command | `npx wrangler deploy` |
+| Deploy command | `npx wrangler deploy && node scripts/indexnow.mjs` |
 
 **Build variables** (Workers Builds → Variables):
 
 | Name | Example / notes |
 | --- | --- |
 | `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
-| `PUBLIC_CONTACT_EMAIL` | Optional — defaults to `hammadiqbal117@gmail.com` |
-| `PUBLIC_GA4_MEASUREMENT_ID` | Optional `G-…` — enables gtag.js when set |
-| `PUBLIC_GSC_VERIFICATION` | Optional Google Search Console HTML-tag `content` value |
-| `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave unset until AdSense approval |
+| `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` |
+| `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` | Optional — brand team defaults in `site.ts` |
+| `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
+| `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |
+| `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave empty until AdSense approval |
+| `INDEXNOW_KEY` | Optional — defaults to committed public key |
+| `INDEXNOW_DISABLE` | `1` to skip post-deploy IndexNow ping |
 | `NODE_VERSION` | `22` (or `20`) if the build image needs it |
 
 Local check: `npm run build && npx wrangler deploy --dry-run`.
@@ -282,16 +285,10 @@ Do these on the **live** domain after DNS and HTTPS work.
 1. [Bing Webmaster Tools](https://www.bing.com/webmasters) → add site → **Import from Google Search Console** (fastest) or verify DNS.
 2. Submit the same sitemap URL.
 3. **IndexNow** (Bing/Yandex; Google does not use IndexNow):
-   - Ensure `public/<your-indexnow-key>.txt` exists and matches `siteConfig.indexNowKey`.
-   - After meaningful content updates:
-
-```bash
-node scripts/indexnow.mjs \
-  https://www.yourdomain.com/calculators/concrete-calculator/ \
-  https://www.yourdomain.com/guides/mulch-depth-guide/
-```
-
-Optional: enable Cloudflare’s IndexNow integration for Pages.
+   - Key file: `public/<indexNowKey>.txt` (body = the key string). Live at `https://<host>/<key>.txt`.
+   - After deploy, `scripts/indexnow.mjs` reads `dist/sitemap-index.xml` (and child sitemaps) and POSTs all `<loc>` URLs to IndexNow in batches of ≤10,000.
+   - Workers Builds deploy command should be `npx wrangler deploy && node scripts/indexnow.mjs` (or `npm run deploy:indexnow` locally). Do **not** run the ping inside `build` — the key file must already be live.
+   - Skip with `INDEXNOW_DISABLE=1`; override key with `INDEXNOW_KEY`. Dry-run: `node scripts/indexnow.mjs --dry-run`. The script always exits `0` so a ping failure never blocks deploy.
 
 ### 8.3 Rich Results Test
 
@@ -385,8 +382,12 @@ Hosted platforms rebuild on push to the production branch. For config-only chang
 
 ### 11.2 IndexNow after publish
 
+Prefer the post-deploy hook (`npx wrangler deploy && node scripts/indexnow.mjs`). Manually:
+
 ```bash
-node scripts/indexnow.mjs https://www.yourdomain.com/path-you-changed/
+npm run build   # refresh dist/ sitemaps
+npm run indexnow
+# or: node scripts/indexnow.mjs --dry-run
 ```
 
 ### 11.3 Rollback

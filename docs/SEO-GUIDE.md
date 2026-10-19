@@ -33,9 +33,9 @@ Governing playbooks: [SEO-PLAYBOOK.md](./SEO-PLAYBOOK.md), [MARKET-RESEARCH.md](
 
 1. Import from GSC or verify DNS.
 2. Submit the same sitemap.
-3. Place IndexNow key file at `public/<key>.txt` matching `siteConfig.indexNowKey`.
-4. Ping changed URLs with `node scripts/indexnow.mjs <url>…` after meaningful updates.
-5. **Note:** Google does not participate in IndexNow.
+3. Place IndexNow key file at `public/<key>.txt` matching `siteConfig.indexNowKey` (committed key: `c2a68b8b8e7e6ba2253b408fa0fe2c4c`).
+4. After deploy, run `node scripts/indexnow.mjs` (or use Workers Builds deploy: `npx wrangler deploy && node scripts/indexnow.mjs`). It submits every URL from the built sitemap. Use `--dry-run` to preview; `INDEXNOW_DISABLE=1` to skip.
+5. **Note:** Google does not participate in IndexNow. Do not ping from `npm run build` — the key must be live first.
 
 ## GA4
 

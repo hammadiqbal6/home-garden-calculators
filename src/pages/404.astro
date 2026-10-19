@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | YardCalc"
+  description="The page you requested is not available. Browse YardCalc concrete, mulch, gravel, and outdoor calculators."
+  canonicalPath="/404/"
+  noIndex={true}
+>
+  <div class="container" style="padding:3rem 0;text-align:center">
+    <h1>Page not found</h1>
+    <p class="answer-first">That URL is not in our calculator hub. Try one of these popular tools:</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="/calculators/">All calculators</a>
+      <a class="btn btn-secondary" href="/calculators/concrete-calculator/">Concrete</a>
+      <a class="btn btn-secondary" href="/calculators/mulch-calculator/">Mulch</a>
+      <a class="btn btn-secondary" href="/guides/">Guides</a>
+    </div>
+  </div>
+</BaseLayout>

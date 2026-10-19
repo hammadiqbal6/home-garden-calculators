@@ -1,0 +1,17 @@
+
+> home-garden-calculators@1.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 /workspace
+
+
+ Test Files  1 passed (1)
+      Tests  21 passed (21)
+   Start at  06:38:24
+   Duration  127ms (transform 43%, import 31%, tests 14%, worker 12%)
+
+
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - `__dirname` (vitest.config.ts:12:25). Use `import.meta.dirname` instead
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.

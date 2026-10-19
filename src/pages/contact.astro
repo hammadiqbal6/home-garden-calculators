@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Contact YardCalc"
+  description="Contact YardCalc about calculator feedback, corrections, or partnership inquiries."
+  canonicalPath="/contact/"
+>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Contact' }]} />
+  <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
+    <h1>Contact</h1>
+    <p class="answer-first">
+      For corrections, feature requests, or licensing the embeddable widgets, email us. We read every
+      message; reply times vary.
+    </p>
+    <p>
+      <a class="btn btn-primary" href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a>
+    </p>
+    <h2>What to include</h2>
+    <ul>
+      <li>The calculator URL and inputs you used</li>
+      <li>Expected vs actual result (if reporting a bug)</li>
+      <li>Sources we should cite for a correction</li>
+    </ul>
+    <p class="meta-row">Last updated {siteConfig.contentUpdated}</p>
+  </article>
+</BaseLayout>

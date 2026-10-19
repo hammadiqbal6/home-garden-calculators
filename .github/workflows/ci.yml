@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build-test-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Link check
+        run: npm run check:links
+      - name: Audits (SEO, AdSense, perf budgets)
+        run: npm run audit
+      - name: Lighthouse CI
+        run: npm run lighthouse
+        continue-on-error: true
+
+  proof:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium --with-deps
+      - name: Build
+        run: npm run build
+      - name: Regenerate proof bundle
+        run: npm run proof
+      - name: Upload proof artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs-proof
+          path: docs/proof/
+          if-no-files-found: error

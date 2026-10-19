@@ -1,0 +1,23 @@
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "YardCalc",
+    "url": "https://www.yardcalc.example",
+    "description": "Free home & garden material calculators",
+    "publisher": {
+      "@type": "Organization",
+      "name": "YardCalc",
+      "url": "https://www.yardcalc.example"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "YardCalc",
+    "url": "https://www.yardcalc.example",
+    "email": "hello@yardcalc.example",
+    "description": "Free home & garden material calculators",
+    "sameAs": []
+  }
+]

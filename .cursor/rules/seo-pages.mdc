@@ -1,0 +1,17 @@
+---
+description: SEO rules for YardCalc pages (titles, intent, schema, cannibalization)
+globs: src/pages/**/*.{astro,md,mdx}, src/data/**/*.ts
+alwaysApply: false
+---
+
+# SEO page rules
+
+- One primary keyword per URL; update `docs/KEYWORD-MAP.md` when adding pages.
+- Title ≤60 chars with primary keyword near the start; meta description ≤155.
+- Exactly one H1; logical H2/H3; answer-first intro 40–60 words on tools/guides.
+- Self-referencing canonical; trailing slash; lowercase hyphenated slugs.
+- Include BreadcrumbList + WebApplication (tools) or Article (guides).
+- No fake ratings; no thin query-variant duplicates.
+- Cite sources; set datePublished/dateModified.
+---
+

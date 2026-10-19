@@ -1,0 +1,15 @@
+---
+description: Content quality and E-E-A-T for YardCalc tools and guides
+globs: src/data/**/*.ts, src/pages/guides/**/*
+alwaysApply: false
+---
+
+# Content quality
+
+- Tool pages need unique explanatory content (formula, worked example, tables, FAQ, sources)—not widget-only.
+- Prefer extension services and manufacturer specs over anonymous blogs.
+- AI-assisted drafting must be fact-checked; no mass near-duplicate pages.
+- Keep brand voice practical and neutral; estimates disclaimer where relevant.
+- Link related tools/guides with descriptive anchors.
+---
+

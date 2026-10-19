@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'About', item: absoluteUrl('/about/') },
+  ],
+};
+---
+
+<BaseLayout
+  title={`About ${siteConfig.name} | Home & Garden Calculators`}
+  description={`${siteConfig.name} builds free, private, in-browser material calculators for DIY and landscaping projects, with cited formulas and guides.`}
+  canonicalPath="/about/"
+  jsonLd={jsonLd}
+>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'About' }]} />
+  <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
+    <h1>About {siteConfig.name}</h1>
+    <p class="answer-first">
+      {siteConfig.name} is a free home and garden material calculator hub. We help DIYers and landscapers
+      estimate concrete, mulch, gravel, fencing, decking, roofing, paint, and lawn products without uploading
+      project data—every calculation runs in your browser.
+    </p>
+    <h2>What we publish</h2>
+    <ul>
+      <li>Working calculators with US imperial and metric units</li>
+      <li>Formulas, worked examples, and manufacturer/extension citations</li>
+      <li>Guides that answer “how much / how many / how to measure” questions</li>
+    </ul>
+    <h2>Who we are</h2>
+    <p>
+      {siteConfig.author.bio} Meet the team on our <a href="/authors/">authors page</a>. Read how we
+      verify math on the <a href="/methodology/">methodology</a> page.
+    </p>
+    <h2>Contact</h2>
+    <p>
+      Email <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a> or visit the
+      <a href="/contact/">contact page</a>.
+    </p>
+    <p class="meta-row">Last updated {siteConfig.contentUpdated}</p>
+  </article>
+</BaseLayout>

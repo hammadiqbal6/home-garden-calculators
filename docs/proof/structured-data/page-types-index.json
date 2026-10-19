@@ -1,0 +1,45 @@
+[
+  {
+    "id": "home",
+    "source": "index.html",
+    "artifact": "home.json",
+    "requiredTypes": [
+      "WebSite",
+      "Organization"
+    ]
+  },
+  {
+    "id": "hub-concrete",
+    "source": "hubs/concrete/index.html",
+    "artifact": "hub-concrete.json",
+    "requiredTypes": [
+      "BreadcrumbList"
+    ]
+  },
+  {
+    "id": "tool-concrete-calculator",
+    "source": "calculators/concrete-calculator/index.html",
+    "artifact": "tool-concrete-calculator.json",
+    "requiredTypes": [
+      "BreadcrumbList",
+      "WebApplication"
+    ]
+  },
+  {
+    "id": "guide-mulch-depth",
+    "source": "guides/mulch-depth-guide/index.html",
+    "artifact": "guide-mulch-depth.json",
+    "requiredTypes": [
+      "BreadcrumbList",
+      "Article"
+    ]
+  },
+  {
+    "id": "about",
+    "source": "about/index.html",
+    "artifact": "about.json",
+    "requiredTypes": [
+      "BreadcrumbList"
+    ]
+  }
+]

@@ -1,0 +1,1106 @@
+---
+import { defaultResultRows, ssrFields } from '../data/calculatorFields';
+
+interface Props {
+  calculatorId: string;
+  embed?: boolean;
+}
+const { calculatorId, embed = false } = Astro.props;
+const fields = ssrFields[calculatorId] ?? [];
+const resultPlaceholders = defaultResultRows[calculatorId] ?? [
+  ['Result', '—'],
+];
+---
+
+<div
+  class:list={['calc-root', embed && 'calc-embed']}
+  data-calculator={calculatorId}
+  data-embed={embed ? 'true' : 'false'}
+>
+  <div class="unit-toggle" role="group" aria-label="Unit system">
+    <button type="button" data-units="imperial" aria-pressed="true">US</button>
+    <button type="button" data-units="metric" aria-pressed="false">Metric</button>
+  </div>
+  <div class="calc-fields">
+    <div class="field-grid cols-2">
+      {
+        fields.map((field) => (
+          <div
+            class="field"
+            data-field={field.name}
+            hidden={
+              calculatorId === 'concrete' &&
+              ['steps', 'riser', 'tread'].includes(field.name)
+            }
+          >
+            <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
+            {field.type === 'select' && field.options ? (
+              <select id={`${calculatorId}-${field.name}`} name={field.name}>
+                {field.options.map((opt) => (
+                  <option value={opt.value} selected={opt.value === field.value}>
+                    {opt.label}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                id={`${calculatorId}-${field.name}`}
+                name={field.name}
+                type="number"
+                inputmode="decimal"
+                step={field.step || 'any'}
+                min="0"
+                value={field.value}
+                required
+              />
+            )}
+            {field.hint && <p class="hint">{field.hint}</p>}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+  <div class="results" aria-live="polite">
+    <h2>Results</h2>
+    <dl class="results-dl">
+      {
+        resultPlaceholders.map(([k, v]) => (
+          <>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </>
+        ))
+      }
+    </dl>
+    <div class="results-actions">
+      <button type="button" class="btn btn-secondary" data-action="copy">Copy results</button>
+      <button type="button" class="btn btn-secondary" data-action="share">Share link</button>
+      <button type="button" class="btn btn-secondary" data-action="print">Print</button>
+    </div>
+  </div>
+  <p class="field hint calc-error" hidden></p>
+</div>
+
+<script>
+  import {
+    bedMulch,
+    deckMaterials,
+    fenceMaterials,
+    fertilizerNeeded,
+    grassSeed,
+    gravelVolume,
+    paintNeeded,
+    paverCount,
+    postHoleVolume,
+    raisedBedSoil,
+    retainingWallBlocks,
+    roofingSquares,
+    roofPitch,
+    sandVolume,
+    slabVolume,
+    sonotubeVolume,
+    stepsVolume,
+    topsoilVolume,
+    treeRingMulch,
+  } from '../lib/calculators';
+
+  type Units = 'imperial' | 'metric';
+
+  type Field = {
+    name: string;
+    label: string;
+    type?: 'number' | 'select';
+    options?: { value: string; label: string }[];
+    step?: string;
+    min?: string;
+    imperialDefault: string;
+    metricDefault: string;
+    imperialHint?: string;
+    metricHint?: string;
+  };
+
+  type CalculatorConfig = {
+    fields: Field[];
+    compute: (values: Record<string, number>, units: Units) => [string, string][];
+  };
+
+  const lengthUnit = (u: Units) => (u === 'imperial' ? 'ft' : 'm');
+  const smallLengthUnit = (u: Units) => (u === 'imperial' ? 'in' : 'cm');
+
+  function bulkConfig(kind: 'gravel' | 'topsoil' | 'sand'): CalculatorConfig {
+    return {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth',
+          imperialDefault: kind === 'sand' ? '1' : '4',
+          metricDefault: kind === 'sand' ? '2.5' : '10',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const fn = kind === 'gravel' ? gravelVolume : kind === 'topsoil' ? topsoilVolume : sandVolume;
+        const r = fn({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const rows: [string, string][] = [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+        ];
+        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+        return rows;
+      },
+    };
+  }
+
+  function resultRows(r: {
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    bags40: number;
+    bags60: number;
+    bags80: number;
+  }): [string, string][] {
+    return [
+      ['Volume', `${r.volumeCuFt} cu ft`],
+      ['Cubic yards', String(r.volumeCuYd)],
+      ['Cubic meters', String(r.volumeCuM)],
+      ['40 lb bags', String(r.bags40)],
+      ['60 lb bags', String(r.bags60)],
+      ['80 lb bags', String(r.bags80)],
+    ];
+  }
+
+  const configs: Record<string, CalculatorConfig> = {
+    concrete: {
+      fields: [
+        {
+          name: 'shape',
+          label: 'Shape',
+          type: 'select',
+          options: [
+            { value: 'slab', label: 'Slab / pad' },
+            { value: 'footing', label: 'Footing' },
+            { value: 'steps', label: 'Steps' },
+          ],
+          imperialDefault: 'slab',
+          metricDefault: 'slab',
+        },
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'thickness',
+          label: 'Thickness / height',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches for slabs',
+          metricHint: 'centimeters',
+        },
+        { name: 'steps', label: 'Number of steps', imperialDefault: '3', metricDefault: '3' },
+        {
+          name: 'riser',
+          label: 'Riser',
+          imperialDefault: '7',
+          metricDefault: '18',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'tread',
+          label: 'Tread',
+          imperialDefault: '11',
+          metricDefault: '28',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const waste = v.waste / 100;
+        const shape = String((v as any).shapeRaw ?? 'slab');
+        if (shape === 'steps') {
+          const r = stepsVolume({
+            numberOfSteps: v.steps,
+            riser: v.riser,
+            tread: v.tread,
+            width: v.width,
+            riserUnit: smallLengthUnit(u),
+            treadUnit: smallLengthUnit(u),
+            widthUnit: lengthUnit(u),
+            wasteFactor: waste,
+          });
+          return resultRows(r);
+        }
+        const r = slabVolume({
+          length: v.length,
+          width: v.width,
+          thickness: v.thickness,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          thicknessUnit: smallLengthUnit(u),
+          wasteFactor: waste,
+        });
+        return resultRows(r);
+      },
+    },
+    'post-holes': {
+      fields: [
+        {
+          name: 'diameter',
+          label: 'Hole diameter',
+          imperialDefault: '10',
+          metricDefault: '25',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'depth',
+          label: 'Hole depth',
+          imperialDefault: '2.5',
+          metricDefault: '0.75',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'count', label: 'Number of posts', imperialDefault: '8', metricDefault: '8' },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        return resultRows(
+          postHoleVolume({
+            diameter: v.diameter,
+            depth: v.depth,
+            count: v.count,
+            diameterUnit: smallLengthUnit(u),
+            depthUnit: lengthUnit(u),
+            wasteFactor: v.waste / 100,
+          }),
+        );
+      },
+    },
+    sonotube: {
+      fields: [
+        {
+          name: 'diameter',
+          label: 'Tube diameter',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'height',
+          label: 'Height',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'count', label: 'Number of tubes', imperialDefault: '4', metricDefault: '4' },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        return resultRows(
+          sonotubeVolume({
+            diameter: v.diameter,
+            height: v.height,
+            count: v.count,
+            diameterUnit: smallLengthUnit(u),
+            heightUnit: lengthUnit(u),
+            wasteFactor: v.waste / 100,
+          }),
+        );
+      },
+    },
+    mulch: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '5',
+          metricDefault: '1.5',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth',
+          imperialDefault: '3',
+          metricDefault: '7.5',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const r = bedMulch({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+          ['2 cu ft bags', String(r.bags2CuFt)],
+          ['3 cu ft bags', String(r.bags3CuFt)],
+        ];
+      },
+    },
+    'tree-ring-mulch': {
+      fields: [
+        {
+          name: 'outer',
+          label: 'Outer ring diameter',
+          imperialDefault: '6',
+          metricDefault: '2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'trunk',
+          label: 'Trunk / keep-out diameter',
+          imperialDefault: '1',
+          metricDefault: '0.3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth',
+          imperialDefault: '3',
+          metricDefault: '7.5',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const r = treeRingMulch({
+          outerDiameter: v.outer,
+          trunkDiameter: v.trunk,
+          depthInches,
+          diameterUnit: lengthUnit(u),
+        });
+        return [
+          ['Ring area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd)`],
+          ['2 cu ft bags', String(r.bags2CuFt)],
+          ['3 cu ft bags', String(r.bags3CuFt)],
+        ];
+      },
+    },
+    gravel: bulkConfig('gravel'),
+    topsoil: bulkConfig('topsoil'),
+    sand: bulkConfig('sand'),
+    paver: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Patio length',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Patio width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'paverL',
+          label: 'Paver length',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'paverW',
+          label: 'Paver width',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const toIn = (n: number) => (u === 'imperial' ? n : n / 2.54);
+        const r = paverCount({
+          areaLength: v.length,
+          areaWidth: v.width,
+          paverLengthIn: toIn(v.paverL),
+          paverWidthIn: toIn(v.paverW),
+          wastePercent: v.waste,
+          areaLengthUnit: lengthUnit(u),
+          areaWidthUnit: lengthUnit(u),
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft (${r.areaSqM} m²)`],
+          ['Pavers (exact)', String(r.paversNeeded)],
+          ['Pavers with waste', String(r.paversWithWaste)],
+          ['Bedding sand', `${r.edgeSandCuFt} cu ft`],
+          ['Base gravel', `${r.baseGravelCuYd} cu yd`],
+        ];
+      },
+    },
+    fence: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Total fence length',
+          imperialDefault: '48',
+          metricDefault: '15',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'spacing',
+          label: 'Post spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'rails', label: 'Rails per section', imperialDefault: '3', metricDefault: '3' },
+        {
+          name: 'picketW',
+          label: 'Picket width',
+          imperialDefault: '5.5',
+          metricDefault: '14',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'gap',
+          label: 'Gap between pickets',
+          imperialDefault: '0.5',
+          metricDefault: '1.2',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+      ],
+      compute(v, u) {
+        const toIn = (n: number) => (u === 'imperial' ? n : n / 2.54);
+        const spacingFt = u === 'imperial' ? v.spacing : v.spacing * 3.280839895;
+        const r = fenceMaterials({
+          totalLength: v.length,
+          lengthUnit: lengthUnit(u),
+          postSpacingFt: spacingFt,
+          railsPerSection: v.rails,
+          picketWidthIn: toIn(v.picketW),
+          picketGapIn: toIn(v.gap),
+        });
+        return [
+          ['Run length', `${r.lengthFt} ft`],
+          ['Sections', String(r.sections)],
+          ['Posts', String(r.posts)],
+          ['Rails', String(r.rails)],
+          ['Pickets', String(r.pickets)],
+          ['80 lb bags for posts (est.)', String(r.concreteBags80ForPosts)],
+        ];
+      },
+    },
+    deck: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Deck length',
+          imperialDefault: '16',
+          metricDefault: '5',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Deck width',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'boardW',
+          label: 'Board face width',
+          imperialDefault: '5.5',
+          metricDefault: '14',
+          imperialHint: 'inches incl. gap',
+          metricHint: 'cm',
+        },
+        {
+          name: 'boardL',
+          label: 'Board length',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+      ],
+      compute(v, u) {
+        const boardW = u === 'imperial' ? v.boardW : v.boardW / 2.54;
+        const boardL = u === 'imperial' ? v.boardL : v.boardL * 3.280839895;
+        const r = deckMaterials({
+          length: v.length,
+          width: v.width,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          boardWidthIn: boardW,
+          boardLengthFt: boardL,
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Deck boards', String(r.deckBoards)],
+          ['Joists (16" o.c.)', String(r.joists)],
+          ['Rim joists', String(r.rimJoists)],
+          ['Screws (est.)', String(r.screws)],
+        ];
+      },
+    },
+    'roof-pitch': {
+      fields: [
+        {
+          name: 'rise',
+          label: 'Rise',
+          imperialDefault: '6',
+          metricDefault: '15',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'run',
+          label: 'Run',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+      ],
+      compute(v, u) {
+        const r = roofPitch({
+          rise: v.rise,
+          run: v.run,
+          riseUnit: smallLengthUnit(u),
+          runUnit: smallLengthUnit(u),
+        });
+        return [
+          ['Pitch', `${r.pitchOver12} / 12`],
+          ['Angle', `${r.angleDegrees}°`],
+          ['Slope', `${r.slopePercent}%`],
+          ['Area factor', String(r.areaFactor)],
+        ];
+      },
+    },
+    roofing: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Plan length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Plan width',
+          imperialDefault: '25',
+          metricDefault: '7.5',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'pitch', label: 'Pitch (X in 12)', imperialDefault: '6', metricDefault: '6' },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const r = roofingSquares({
+          planLength: v.length,
+          planWidth: v.width,
+          pitchOver12: v.pitch,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wastePercent: v.waste,
+        });
+        return [
+          ['Plan area', `${r.planAreaSqFt} sq ft`],
+          ['Roof area', `${r.roofAreaSqFt} sq ft (${r.roofAreaSqM} m²)`],
+          ['Squares', String(r.squares)],
+          ['Squares with waste', String(r.squaresWithWaste)],
+          ['Bundles (~3/sq)', String(r.bundles3PerSquare)],
+        ];
+      },
+    },
+    paint: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Room length',
+          imperialDefault: '14',
+          metricDefault: '4.2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Room width',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'height',
+          label: 'Ceiling height',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'doors', label: 'Doors', imperialDefault: '2', metricDefault: '2' },
+        { name: 'windows', label: 'Windows', imperialDefault: '2', metricDefault: '2' },
+        { name: 'coats', label: 'Coats', imperialDefault: '2', metricDefault: '2' },
+        {
+          name: 'coverage',
+          label: 'Coverage per gallon',
+          imperialDefault: '350',
+          metricDefault: '350',
+          imperialHint: 'sq ft',
+          metricHint: 'sq ft (label)',
+        },
+      ],
+      compute(v, u) {
+        const r = paintNeeded({
+          length: v.length,
+          width: v.width,
+          height: v.height,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          heightUnit: lengthUnit(u),
+          doors: v.doors,
+          windows: v.windows,
+          coats: v.coats,
+          coverageSqFtPerGallon: v.coverage,
+        });
+        return [
+          ['Wall area', `${r.wallAreaSqFt} sq ft`],
+          ['Paintable area', `${r.paintableAreaSqFt} sq ft (${r.paintableAreaSqM} m²)`],
+          ['Gallons (1 coat)', String(r.gallonsOneCoat)],
+          ['Gallons (your coats)', String(r.gallonsTwoCoats)],
+          ['Liters (your coats)', String(r.litersTwoCoats)],
+        ];
+      },
+    },
+    'retaining-wall': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Wall length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'height',
+          label: 'Wall height',
+          imperialDefault: '3',
+          metricDefault: '0.9',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'blockL',
+          label: 'Block face length',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'blockH',
+          label: 'Block face height',
+          imperialDefault: '6',
+          metricDefault: '15',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const toIn = (n: number) => (u === 'imperial' ? n : n / 2.54);
+        const r = retainingWallBlocks({
+          wallLength: v.length,
+          wallHeight: v.height,
+          lengthUnit: lengthUnit(u),
+          heightUnit: lengthUnit(u),
+          blockLengthIn: toIn(v.blockL),
+          blockHeightIn: toIn(v.blockH),
+          wastePercent: v.waste,
+        });
+        return [
+          ['Face area', `${r.faceAreaSqFt} sq ft`],
+          ['Courses', String(r.courses)],
+          ['Blocks / course', String(r.blocksPerCourse)],
+          ['Blocks', String(r.blocks)],
+          ['Blocks with waste', String(r.blocksWithWaste)],
+          ['Base gravel', `${r.baseGravelCuYd} cu yd`],
+        ];
+      },
+    },
+    'grass-seed': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Lawn length',
+          imperialDefault: '50',
+          metricDefault: '15',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Lawn width',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'newRate',
+          label: 'New lawn lb / 1,000 sq ft',
+          imperialDefault: '3.5',
+          metricDefault: '3.5',
+        },
+        {
+          name: 'overRate',
+          label: 'Overseed lb / 1,000 sq ft',
+          imperialDefault: '1.75',
+          metricDefault: '1.75',
+        },
+      ],
+      compute(v, u) {
+        const r = grassSeed({
+          length: v.length,
+          width: v.width,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          newLawnLbPer1000: v.newRate,
+          overseedLbPer1000: v.overRate,
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft (${r.areaSqM} m²)`],
+          ['Seed (new lawn)', `${r.seedLbsNew} lb / ${r.seedKgNew} kg`],
+          ['Seed (overseed)', `${r.seedLbsOverseed} lb / ${r.seedKgOverseed} kg`],
+        ];
+      },
+    },
+    fertilizer: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Lawn length',
+          imperialDefault: '50',
+          metricDefault: '15',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Lawn width',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'nRate',
+          label: 'Target N lb / 1,000 sq ft',
+          imperialDefault: '1',
+          metricDefault: '1',
+        },
+        { name: 'nPct', label: 'Nitrogen % on bag', imperialDefault: '25', metricDefault: '25' },
+        { name: 'bag', label: 'Bag size (lb)', imperialDefault: '40', metricDefault: '40' },
+      ],
+      compute(v, u) {
+        const r = fertilizerNeeded({
+          length: v.length,
+          width: v.width,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          nitrogenLbPer1000: v.nRate,
+          nitrogenPercent: v.nPct,
+          bagSizeLbs: v.bag,
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Product needed', `${r.productLbs} lb (${r.productKg} kg)`],
+          ['Bags', String(r.bagsNeeded)],
+        ];
+      },
+    },
+    'raised-bed': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Interior length',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Interior width',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Fill depth',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const r = raisedBedSoil({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+        });
+        return [
+          ['Volume', `${r.volumeCuFt} cu ft`],
+          ['Cubic yards', String(r.volumeCuYd)],
+          ['Cubic meters', String(r.volumeCuM)],
+          ['1.5 cu ft bags', String(r.bags15CuFt)],
+        ];
+      },
+    },
+  };
+
+  function init(root: HTMLElement) {
+    const id = root.dataset.calculator || '';
+    const config = configs[id];
+    if (!config) return;
+
+    const fieldsEl = root.querySelector('.calc-fields') as HTMLElement;
+    const resultsEl = root.querySelector('.results') as HTMLElement;
+    const dl = root.querySelector('.results-dl') as HTMLElement;
+    const err = root.querySelector('.calc-error') as HTMLElement;
+    let units: Units = 'imperial';
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('units') === 'metric') units = 'metric';
+
+    function bindInputs() {
+      root.querySelectorAll('input,select').forEach((el) => {
+        el.addEventListener('input', calculate);
+        el.addEventListener('change', () => {
+          toggleConcreteStepFields();
+          calculate();
+        });
+      });
+    }
+
+    function renderFields() {
+      // Rebuild only when switching unit systems so SSR layout stays stable on first paint.
+      const grid = document.createElement('div');
+      grid.className = 'field-grid cols-2';
+      for (const field of config.fields) {
+        const wrap = document.createElement('div');
+        wrap.className = 'field';
+        wrap.dataset.field = field.name;
+        const label = document.createElement('label');
+        label.htmlFor = `${id}-${field.name}`;
+        label.textContent = field.label;
+        wrap.appendChild(label);
+        let input: HTMLInputElement | HTMLSelectElement;
+        if (field.type === 'select' && field.options) {
+          input = document.createElement('select');
+          for (const opt of field.options) {
+            const o = document.createElement('option');
+            o.value = opt.value;
+            o.textContent = opt.label;
+            input.appendChild(o);
+          }
+        } else {
+          input = document.createElement('input');
+          input.type = 'number';
+          input.inputMode = 'decimal';
+          input.step = field.step || 'any';
+          input.min = field.min || '0';
+          input.required = true;
+        }
+        input.id = `${id}-${field.name}`;
+        input.name = field.name;
+        const fromQuery = params.get(field.name);
+        input.value =
+          fromQuery ?? (units === 'imperial' ? field.imperialDefault : field.metricDefault);
+        wrap.appendChild(input);
+        const hint = document.createElement('p');
+        hint.className = 'hint';
+        hint.textContent = (units === 'imperial' ? field.imperialHint : field.metricHint) || '';
+        if (hint.textContent) wrap.appendChild(hint);
+        grid.appendChild(wrap);
+      }
+      fieldsEl.replaceChildren(grid);
+      toggleConcreteStepFields();
+      bindInputs();
+    }
+
+    function toggleConcreteStepFields() {
+      if (id !== 'concrete') return;
+      const shape = root.querySelector<HTMLSelectElement>('[name="shape"]')?.value;
+      for (const name of ['steps', 'riser', 'tread']) {
+        const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+        if (el) el.hidden = shape !== 'steps';
+      }
+      for (const name of ['thickness']) {
+        const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+        if (el) el.hidden = shape === 'steps';
+      }
+      const lengthLabel = root.querySelector<HTMLElement>('[data-field="length"] label');
+      if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
+    }
+
+    function readValues() {
+      const values: Record<string, number> = {};
+      let shapeRaw = 'slab';
+      root.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select').forEach((el) => {
+        if (el instanceof HTMLSelectElement) {
+          shapeRaw = el.value;
+          values.shape = el.selectedIndex;
+          return;
+        }
+        values[el.name] = Number(el.value);
+      });
+      (values as any).shapeRaw = shapeRaw;
+      return values;
+    }
+
+    function calculate() {
+      err.hidden = true;
+      try {
+        const values = readValues();
+        const rows = config.compute(values, units);
+        dl.innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
+        resultsEl.hidden = false;
+        syncQuery(values);
+      } catch (e) {
+        err.hidden = false;
+        err.textContent = e instanceof Error ? e.message : 'Check your inputs.';
+      }
+    }
+
+    function syncQuery(values: Record<string, number>) {
+      if (root.dataset.embed === 'true') return;
+      const sp = new URLSearchParams();
+      sp.set('units', units);
+      for (const [k, v] of Object.entries(values)) {
+        if (k === 'shape' || k === 'shapeRaw') continue;
+        if (Number.isFinite(v)) sp.set(k, String(v));
+      }
+      const shapeRaw = (values as any).shapeRaw;
+      if (shapeRaw) sp.set('shape', String(shapeRaw));
+      window.history.replaceState({}, '', `${window.location.pathname}?${sp.toString()}`);
+    }
+
+    root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        units = (btn.dataset.units as Units) || 'imperial';
+        root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((b) => {
+          b.setAttribute('aria-pressed', String(b === btn));
+        });
+        renderFields();
+        calculate();
+      });
+    });
+
+    root.querySelector('[data-action="copy"]')?.addEventListener('click', async () => {
+      const text = Array.from(dl.querySelectorAll('dt'))
+        .map((dt, i) => `${dt.textContent}: ${dl.querySelectorAll('dd')[i]?.textContent ?? ''}`)
+        .join('\n');
+      await navigator.clipboard?.writeText(text);
+    });
+    root.querySelector('[data-action="share"]')?.addEventListener('click', async () => {
+      const shareUrl = window.location.href.split('#')[0];
+      if (navigator.share) await navigator.share({ title: document.title, url: shareUrl });
+      else await navigator.clipboard?.writeText(shareUrl);
+    });
+    root.querySelector('[data-action="print"]')?.addEventListener('click', () => window.print());
+
+    // Apply query/unit overrides without wiping SSR markup when already imperial defaults.
+    if (units === 'metric' || [...params.keys()].some((k) => k !== 'units')) {
+      renderFields();
+    } else {
+      toggleConcreteStepFields();
+      bindInputs();
+    }
+    // Sync unit toggle pressed state
+    root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((b) => {
+      b.setAttribute('aria-pressed', String(b.dataset.units === units));
+    });
+    calculate();
+  }
+
+  function boot() {
+    document.querySelectorAll<HTMLElement>('.calc-root').forEach(init);
+  }
+  boot();
+  document.addEventListener('astro:page-load', boot);
+</script>

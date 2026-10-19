@@ -1,0 +1,6 @@
+# ads.txt template for Google AdSense
+# Replace PUBLISHER_ID with your numeric publisher id (digits only, no ca-pub- prefix)
+# Example: google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+# Leave commented until AdSense is approved — see docs/ADSENSE.md
+
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

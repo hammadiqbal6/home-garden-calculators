@@ -1,0 +1,45 @@
+---
+import Calculator from '../../components/Calculator.astro';
+import { getTool, tools } from '../../data/tools';
+import { siteConfig } from '../../config/site';
+import '../../styles/global.css';
+
+export function getStaticPaths() {
+  return tools.filter((t) => t.embeddable).map((t) => ({ params: { slug: t.slug } }));
+}
+
+const tool = getTool(Astro.params.slug!);
+if (!tool || !tool.embeddable) throw new Error('Embed not available');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>{tool.name} embed | {siteConfig.name}</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 12px;
+        font-family: var(--font-sans);
+        background: #fff;
+      }
+      .credit {
+        margin-top: 12px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 style="font-size:1.25rem;margin:0 0 0.75rem">{tool.h1}</h1>
+    <Calculator calculatorId={tool.calculatorId} embed />
+    <p class="credit">
+      Calculator by
+      <a href={`${siteConfig.siteUrl}/calculators/${tool.slug}/`} target="_blank" rel="noopener"
+        >{siteConfig.name}</a
+      >
+    </p>
+  </body>
+</html>

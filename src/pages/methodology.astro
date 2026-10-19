@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { siteConfig } from '../config/site';
+---
+
+<BaseLayout
+  title="Methodology & Editorial Policy | YardCalc"
+  description="How YardCalc verifies calculator formulas, cites sources, updates pages, and approaches AI-assisted drafting."
+  canonicalPath="/methodology/"
+>
+  <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Methodology' }]} />
+  <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
+    <h1>Methodology &amp; editorial policy</h1>
+    <p class="answer-first">
+      Every YardCalc tool is backed by documented formulas, unit tests, and citations to manufacturer coverage
+      data or university extension guidance. We show last-updated dates and correct errors when readers send
+      sources.
+    </p>
+    <h2>Calculation standards</h2>
+    <ul>
+      <li>Pure functions in <code>src/lib/calculators/</code> with Vitest coverage</li>
+      <li>US bag yields aligned to common Quikrete/Sakrete published coverage</li>
+      <li>Waste factors disclosed in the UI and article text</li>
+      <li>Unit conversions centralized in <code>src/lib/units.ts</code></li>
+    </ul>
+    <h2>Content standards</h2>
+    <ul>
+      <li>Answer-first introductions (about 40–60 words)</li>
+      <li>No thin doorway pages or keyword clones—see <a href="/guides/">guides</a> and keyword map</li>
+      <li>AI-assisted drafting is allowed only with human fact-checking against cited sources</li>
+    </ul>
+    <h2>Update policy</h2>
+    <p>
+      Material coverage and rates are reviewed when manufacturers change published yields or when we expand a
+      tool. The site-wide content stamp is {siteConfig.contentUpdated}; each page also shows its own dates.
+    </p>
+    <p><a href="/authors/">Authors &amp; reviewers</a> · <a href="/contact/">Report an error</a></p>
+  </article>
+</BaseLayout>

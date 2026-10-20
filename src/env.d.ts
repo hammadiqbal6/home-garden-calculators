@@ -3,6 +3,12 @@
 interface ImportMetaEnv {
   /** Canonical origin (https, no trailing slash). Optional — falls back to workers.dev. */
   readonly PUBLIC_SITE_URL?: string;
+  /** Sister-site origins (shared names across the five tool repos). Optional — workers.dev fallbacks. */
+  readonly PUBLIC_SITE_URL_PAYMENT_FEES?: string;
+  readonly PUBLIC_SITE_URL_BUSINESS_DOCS?: string;
+  readonly PUBLIC_SITE_URL_HOME_GARDEN?: string;
+  readonly PUBLIC_SITE_URL_FIBER_ARTS?: string;
+  readonly PUBLIC_SITE_URL_PET?: string;
   /** Public contact email. Optional — falls back to hammadiqbal117@gmail.com. */
   readonly PUBLIC_CONTACT_EMAIL?: string;
   /** Author byline name. Optional — falls back to "Hammad Iqbal". */

@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { siteConfig } from '../config/site';
+import { siblingSitesForAbout } from '../config/sisterSites';
 import { absoluteUrl } from '../data/tools';
 import { profilePageJsonLd, organizationNode, personNode } from '../lib/schema';
 
@@ -96,7 +97,7 @@ const jsonLd = [
     <p>Same maintainer, different niches—listed here only, not in every footer:</p>
     <ul>
       {
-        siteConfig.siblingSites.map((s) => (
+        siblingSitesForAbout.map((s) => (
           <li>
             <a href={s.url} rel="noopener noreferrer">
               {s.name}

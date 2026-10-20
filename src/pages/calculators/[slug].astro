@@ -7,6 +7,7 @@ import TrustBlock from '../../components/TrustBlock.astro';
 import EmbedSnippet from '../../components/EmbedSnippet.astro';
 import SisterLinks from '../../components/SisterLinks.astro';
 import { siteConfig } from '../../config/site';
+import { sisterUrl } from '../../config/sisterSites';
 import { absoluteUrl, categories, getTool, tools } from '../../data/tools';
 import { getGuide } from '../../data/guides';
 import { toolPageGraph } from '../../lib/schema';
@@ -47,28 +48,28 @@ const diagram = diagramByTool[tool.slug];
 const sisterByTool: Record<string, { href: string; label: string; why: string }[]> = {
   'concrete-calculator': [
     {
-      href: 'https://business-document-generators.hammadiqbal117.workers.dev/tools/construction-estimate-template/',
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
       label: 'Construction estimate template',
       why: 'turn bag/yard counts into a line-item estimate PDF',
     },
   ],
   'fence-calculator': [
     {
-      href: 'https://business-document-generators.hammadiqbal117.workers.dev/tools/construction-estimate-template/',
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
       label: 'Construction estimate template',
       why: 'quote posts, rails and labor beside your material counts',
     },
   ],
   'deck-material-calculator': [
     {
-      href: 'https://business-document-generators.hammadiqbal117.workers.dev/tools/construction-estimate-template/',
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
       label: 'Construction estimate template',
       why: 'export a deck materials estimate for clients or yourself',
     },
   ],
   'paint-calculator': [
     {
-      href: 'https://business-document-generators.hammadiqbal117.workers.dev/tools/cleaning-service-invoice/',
+      href: sisterUrl('businessDocs', '/tools/cleaning-service-invoice/'),
       label: 'Cleaning / service invoice template',
       why: 'invoice painting or prep work after you estimate gallons',
     },

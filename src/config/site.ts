@@ -165,31 +165,6 @@ export const siteConfig = {
   /** IndexNow key filename (place matching key file in /public) */
   indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',
   locale: 'en-US',
-  /**
-   * Other free tool sites by the same maintainer (listed only on /about/, not footers).
-   */
-  siblingSites: [
-    {
-      name: 'FeeCalc',
-      url: 'https://payment-fee-calculators.hammadiqbal117.workers.dev/',
-      niche: 'Payment fee calculators',
-    },
-    {
-      name: 'DocuForge Tools',
-      url: 'https://business-document-generators.hammadiqbal117.workers.dev/',
-      niche: 'Business document generators',
-    },
-    {
-      name: 'FiberCalc',
-      url: 'https://fiber-arts-calculators.hammadiqbal117.workers.dev/',
-      niche: 'Knitting & crochet calculators',
-    },
-    {
-      name: 'PetCalc Tools',
-      url: 'https://pet-calculators.hammadiqbal117.workers.dev/',
-      niche: 'Pet calculators',
-    },
-  ],
 };
 
 export type SiteConfig = typeof siteConfig;

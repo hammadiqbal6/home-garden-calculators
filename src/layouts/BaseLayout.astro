@@ -9,6 +9,8 @@ interface Props {
   ogType?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noIndex?: boolean;
+  ogImagePath?: string;
+  ogImageAlt?: string;
 }
 
 const {
@@ -18,6 +20,8 @@ const {
   ogType = 'website',
   jsonLd = [],
   noIndex = false,
+  ogImagePath = siteConfig.defaultOgImage,
+  ogImageAlt = siteConfig.defaultOgImageAlt,
 } = Astro.props;
 
 const canonical = new URL(
@@ -25,9 +29,12 @@ const canonical = new URL(
   siteConfig.siteUrl.endsWith('/') ? siteConfig.siteUrl : `${siteConfig.siteUrl}/`,
 ).toString();
 
+const ogImage = new URL(ogImagePath, siteConfig.siteUrl).toString();
 const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
 const gaId = siteConfig.analytics.ga4MeasurementId;
 const gsc = siteConfig.analytics.searchConsoleVerification;
+const bing = siteConfig.analytics.bingVerification;
+const brand = siteConfig.brandColor;
 ---
 
 <!doctype html>
@@ -37,6 +44,7 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.author.name} />
     <link rel="canonical" href={canonical} />
     {noIndex && <meta name="robots" content="noindex,nofollow" />}
     <meta property="og:type" content={ogType} />
@@ -44,42 +52,110 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(siteConfig.defaultOgImage, siteConfig.siteUrl).toString()} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(siteConfig.defaultOgImageWidth)} />
+    <meta property="og:image:height" content={String(siteConfig.defaultOgImageHeight)} />
+    <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    <!-- Favicon / PWA set (Google favicon guidance: ICO + PNG ≥48px; SVG optional) -->
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#1f6b4a" />
+    <meta name="apple-mobile-web-app-title" content={siteConfig.shortName} />
+    <meta name="theme-color" content={brand} />
     {gsc && <meta name="google-site-verification" content={gsc} />}
+    {bing && <meta name="msvalidate.01" content={bing} />}
     {
       schemas.map((schema) => (
         <script type="application/ld+json" set:html={JSON.stringify(schema)} />
       ))
     }
     {
-      siteConfig.adsense.enabled && siteConfig.adsense.publisherId.startsWith('ca-pub-') && !siteConfig.adsense.publisherId.includes('XXXX') && (
-        <script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.adsense.publisherId}`}
-          crossorigin="anonymous"
-        />
-      )
+      siteConfig.adsense.enabled &&
+        siteConfig.adsense.publisherId.startsWith('ca-pub-') &&
+        !siteConfig.adsense.publisherId.includes('XXXX') && (
+          <script
+            async
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${siteConfig.adsense.publisherId}`}
+            crossorigin="anonymous"
+          />
+        )
     }
     {
       gaId && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
-          <script is:inline define:vars={{ gaId }}>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
+        <script is:inline define:vars={{ gaId }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = window.gtag || gtag;
+          // Consent Mode v2 defaults: denied until the cookie notice is accepted.
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500,
+          });
+          gtag('js', new Date());
+          gtag('config', gaId, {
+            anonymize_ip: true,
+            send_page_view: true,
+          });
+
+          window.__ycLoadGa = function () {
+            if (window.__ycGaLoaded) return;
+            window.__ycGaLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+            document.head.appendChild(s);
+          };
+
+          window.__ycGrantConsent = function () {
+            gtag('consent', 'update', {
+              ad_storage: 'granted',
+              ad_user_data: 'granted',
+              ad_personalization: 'granted',
+              analytics_storage: 'granted',
+            });
+            window.__ycLoadGa();
+          };
+
+          // Defer GA script until idle, first interaction, or consent — never render-blocking.
+          function scheduleGa() {
+            try {
+              if (localStorage.getItem('yc_cookie_ok')) {
+                window.__ycGrantConsent();
+                return;
+              }
+            } catch (e) {}
+            var armed = false;
+            function arm() {
+              if (armed) return;
+              armed = true;
+              // Still denied until consent; only prefetch the library after engagement.
+              if ('requestIdleCallback' in window) {
+                requestIdleCallback(function () {
+                  window.__ycLoadGa();
+                }, { timeout: 4000 });
+              } else {
+                setTimeout(window.__ycLoadGa, 3500);
+              }
             }
-            gtag('js', new Date());
-            gtag('config', gaId, { anonymize_ip: true });
-          </script>
-        </>
+            ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+              window.addEventListener(evt, arm, { once: true, passive: true });
+            });
+            setTimeout(arm, 6000);
+          }
+          scheduleGa();
+        </script>
       )
     }
   </head>
@@ -91,7 +167,13 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
           <span class="brand-mark" aria-hidden="true">Y</span>
           <span>{siteConfig.name}</span>
         </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
           Menu
         </button>
         <nav class="site-nav" id="site-nav" aria-label="Primary">
@@ -139,7 +221,6 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
           <ul>
             <li><a href="/about/">About</a></li>
             <li><a href="/methodology/">Methodology</a></li>
-            <li><a href="/authors/">Authors</a></li>
             <li><a href="/privacy/">Privacy</a></li>
             <li><a href="/terms/">Terms</a></li>
             <li><a href="/contact/">Contact</a></li>
@@ -147,13 +228,14 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
         </div>
       </div>
       <div class="container" style="margin-top:1.5rem;font-size:0.9rem;color:var(--color-ink-muted)">
-        © {new Date().getFullYear()} {siteConfig.name}. Estimates only—verify with manufacturers and local codes.
+        © {new Date().getFullYear()} {siteConfig.name}. Maintained by {siteConfig.author.name}.
+        Estimates only—verify with manufacturers and local codes.
       </div>
     </footer>
-    <div class="cookie-notice" id="cookie-notice" role="dialog" aria-label="Cookie notice">
+    <div class="cookie-notice" id="cookie-notice" role="dialog" aria-label="Cookie notice" hidden>
       <p>
-        We may use cookies for analytics and—once enabled—ads. See our
-        <a href="/privacy/">Privacy Policy</a>.
+        Cookies for analytics{siteConfig.adsense.enabled ? ' and ads' : ''}.
+        <a href="/privacy/">Privacy</a>
       </p>
       <button type="button" class="btn btn-primary" id="cookie-accept">OK</button>
     </div>
@@ -165,18 +247,47 @@ const gsc = siteConfig.analytics.searchConsoleVerification;
           toggle.addEventListener('click', function () {
             var open = nav.classList.toggle('open');
             toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
           });
         }
         var notice = document.getElementById('cookie-notice');
         var accept = document.getElementById('cookie-accept');
         try {
-          if (notice && !localStorage.getItem('yc_cookie_ok')) notice.classList.add('show');
+          if (notice && !localStorage.getItem('yc_cookie_ok')) {
+            notice.hidden = false;
+            notice.classList.add('show');
+            document.body.classList.add('cookie-visible');
+          }
           accept &&
             accept.addEventListener('click', function () {
               localStorage.setItem('yc_cookie_ok', '1');
               notice.classList.remove('show');
+              notice.hidden = true;
+              document.body.classList.remove('cookie-visible');
+              if (typeof window.__ycGrantConsent === 'function') window.__ycGrantConsent();
             });
         } catch (e) {}
+
+        // Track outbound reference clicks for GA4 (after consent / when gtag exists).
+        document.addEventListener(
+          'click',
+          function (ev) {
+            var t = ev.target;
+            if (!t || !t.closest) return;
+            var a = t.closest('a[href]');
+            if (!a) return;
+            var href = a.getAttribute('href') || '';
+            if (!/^https?:\/\//i.test(href)) return;
+            if (href.indexOf(location.hostname) !== -1) return;
+            if (typeof window.gtag === 'function') {
+              window.gtag('event', 'outbound_reference_click', {
+                link_url: href,
+                link_text: (a.textContent || '').trim().slice(0, 100),
+              });
+            }
+          },
+          true,
+        );
       })();
     </script>
   </body>

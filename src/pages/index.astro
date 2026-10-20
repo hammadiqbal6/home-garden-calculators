@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/site';
-import { absoluteUrl, categories, tools } from '../data/tools';
+import { categories, tools } from '../data/tools';
 import { guides } from '../data/guides';
+import { homeGraph } from '../lib/schema';
 
 const featured = [
   'concrete-calculator',
@@ -19,25 +20,7 @@ const featured = [
   'retaining-wall-calculator',
 ].map((s) => tools.find((t) => t.slug === s)!);
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: siteConfig.name,
-    url: siteConfig.siteUrl,
-    description: siteConfig.tagline,
-    publisher: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.siteUrl },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.siteUrl,
-    email: siteConfig.contactEmail,
-    description: siteConfig.tagline,
-    sameAs: siteConfig.sameAs,
-  },
-];
+const jsonLd = [homeGraph()];
 ---
 
 <BaseLayout
@@ -53,7 +36,7 @@ const jsonLd = [
     <h1>Free home &amp; garden material calculators</h1>
     <p class="lede">
       Estimate concrete bags, mulch yards, gravel tons, fence posts, deck boards, roof pitch, and more.
-      Private in-browser math with US imperial and metric units.
+      Private in-browser math with US imperial and metric units. Built by {siteConfig.author.name}.
     </p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/calculators/concrete-calculator/">Concrete calculator</a>

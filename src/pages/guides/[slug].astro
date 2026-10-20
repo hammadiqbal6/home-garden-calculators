@@ -4,6 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { siteConfig } from '../../config/site';
 import { absoluteUrl, getTool } from '../../data/tools';
 import { getGuide, guides } from '../../data/guides';
+import { personRef } from '../../lib/schema';
 
 export function getStaticPaths() {
   return guides.map((g) => ({ params: { slug: g.slug } }));
@@ -33,10 +34,20 @@ const jsonLd = [
     '@type': 'Article',
     headline: guide.h1,
     description: guide.description,
-    datePublished: guide.datePublished,
-    dateModified: guide.dateModified,
-    author: { '@type': 'Organization', name: siteConfig.author.name },
-    publisher: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.siteUrl },
+    datePublished: `${guide.datePublished}T00:00:00+05:00`,
+    dateModified: `${guide.dateModified}T00:00:00+05:00`,
+    author: [personRef()],
+    publisher: {
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: `${siteConfig.siteUrl}/`,
+      logo: {
+        '@type': 'ImageObject',
+        url: new URL(siteConfig.logoPath, `${siteConfig.siteUrl}/`).toString(),
+        width: 512,
+        height: 512,
+      },
+    },
     mainEntityOfPage: absoluteUrl(`/guides/${guide.slug}/`),
   },
 ];
@@ -59,7 +70,10 @@ const jsonLd = [
   <article class="container prose panel" style="margin:1rem auto 3rem; max-width:800px">
     <h1>{guide.h1}</h1>
     <p class="answer-first">{guide.answerFirst}</p>
-    <p class="meta-row">Published {guide.datePublished} · Updated {guide.dateModified}</p>
+    <p class="meta-row">
+      By <a href={siteConfig.author.urlPath} rel="author">{siteConfig.author.name}</a>
+      · Published {guide.datePublished} · Last reviewed {guide.dateModified}
+    </p>
     <Fragment set:html={guide.bodyHtml} />
     <h2>Related calculators</h2>
     <ul>
@@ -76,9 +90,15 @@ const jsonLd = [
     </ul>
     <div class="author-box">
       <p>
-        <strong>{siteConfig.author.name}</strong> — {siteConfig.author.role}
+        Built and maintained by
+        <a href={siteConfig.author.urlPath} rel="author">{siteConfig.author.name}</a>
+        — {siteConfig.author.role}
       </p>
-      <p><a href="/authors/">Author bios</a> · <a href="/methodology/">Editorial methodology</a></p>
+      <p>{siteConfig.author.bio}</p>
+      <p>
+        <a href="/about/#maintainer">About the maintainer</a> ·
+        <a href="/methodology/">Methodology</a>
+      </p>
     </div>
   </article>
 </BaseLayout>

@@ -1,6 +1,6 @@
 ---
 import Calculator from '../../components/Calculator.astro';
-import { getTool, tools } from '../../data/tools';
+import { getTool, tools, absoluteUrl } from '../../data/tools';
 import { siteConfig } from '../../config/site';
 import '../../styles/global.css';
 
@@ -10,6 +10,8 @@ export function getStaticPaths() {
 
 const tool = getTool(Astro.params.slug!);
 if (!tool || !tool.embeddable) throw new Error('Embed not available');
+
+const canonicalTool = absoluteUrl(`/calculators/${tool.slug}/`);
 ---
 
 <!doctype html>
@@ -17,14 +19,18 @@ if (!tool || !tool.embeddable) throw new Error('Embed not available');
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex,follow" />
+    <link rel="canonical" href={canonicalTool} />
     <title>{tool.name} embed | {siteConfig.name}</title>
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <meta name="theme-color" content={siteConfig.brandColor} />
     <style>
       body {
         margin: 0;
         padding: 12px;
         font-family: var(--font-sans);
         background: #fff;
+        color: var(--color-ink);
       }
       .credit {
         margin-top: 12px;
@@ -37,9 +43,8 @@ if (!tool || !tool.embeddable) throw new Error('Embed not available');
     <Calculator calculatorId={tool.calculatorId} embed />
     <p class="credit">
       Calculator by
-      <a href={`${siteConfig.siteUrl}/calculators/${tool.slug}/`} target="_blank" rel="noopener"
-        >{siteConfig.name}</a
-      >
+      <a href={canonicalTool} target="_blank" rel="noopener">{siteConfig.name}</a>
+      · <a href={`${siteConfig.siteUrl}/about/`} target="_blank" rel="noopener">{siteConfig.author.name}</a>
     </p>
   </body>
 </html>

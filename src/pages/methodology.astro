@@ -2,39 +2,99 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'Methodology', item: absoluteUrl('/methodology/') },
+  ],
+};
 ---
 
 <BaseLayout
-  title="Methodology & Editorial Policy | YardCalc"
-  description="How YardCalc verifies calculator formulas, cites sources, updates pages, and approaches AI-assisted drafting."
+  title="Methodology & Correction Log | YardCalc"
+  description="How YardCalc formulas, bag yields, and citations are checked. AI disclosure, what the tools leave out, and a public correction log."
   canonicalPath="/methodology/"
+  jsonLd={jsonLd}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Methodology' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
     <h1>Methodology &amp; editorial policy</h1>
     <p class="answer-first">
-      Every YardCalc tool is backed by documented formulas, unit tests, and citations to manufacturer coverage
-      data or university extension guidance. We show last-updated dates and correct errors when readers send
-      sources.
+      {siteConfig.name} tools are planning estimators. I ({siteConfig.author.name}) document the formulas in
+      code with unit tests, cite manufacturer and extension sources on each page, and only change “last
+      reviewed” dates when the formula, yields, sources, or explanatory text actually change.
     </p>
-    <h2>Calculation standards</h2>
+
+    <h2>How numbers are produced</h2>
     <ul>
-      <li>Pure functions in <code>src/lib/calculators/</code> with Vitest coverage</li>
-      <li>US bag yields aligned to common Quikrete/Sakrete published coverage</li>
+      <li>Pure TypeScript functions in <code>src/lib/calculators/</code> with Vitest coverage</li>
+      <li>
+        US bag yields aligned to common QUIKRETE / Sakrete published coverage (about 0.30 / 0.45 / 0.60 cu ft
+        for 40 / 60 / 80 lb mixes)—always verify the bag you buy
+      </li>
       <li>Waste factors disclosed in the UI and article text</li>
       <li>Unit conversions centralized in <code>src/lib/units.ts</code></li>
     </ul>
-    <h2>Content standards</h2>
-    <ul>
-      <li>Answer-first introductions (about 40–60 words)</li>
-      <li>No thin doorway pages or keyword clones—see <a href="/guides/">guides</a> and keyword map</li>
-      <li>AI-assisted drafting is allowed only with human fact-checking against cited sources</li>
-    </ul>
-    <h2>Update policy</h2>
+
+    <h2>Sources policy</h2>
     <p>
-      Material coverage and rates are reviewed when manufacturers change published yields or when we expand a
-      tool. The site-wide content stamp is {siteConfig.contentUpdated}; each page also shows its own dates.
+      Prefer primary sources: manufacturer calculators and data sheets, American Cement Association (formerly
+      Portland Cement Association) materials, ACI residential concrete guidance, and university extension
+      pages for mulch depth and lawn fertility. Each tool’s Sources list states what the URL is used for and
+      the date I checked it. I do not invent credentials or anonymous “editorial team” bylines.
     </p>
-    <p><a href="/authors/">Authors &amp; reviewers</a> · <a href="/contact/">Report an error</a></p>
+
+    <h2>What the calculators leave out</h2>
+    <ul>
+      <li>Structural design (rebar, thickness for loads, frost heave engineering)</li>
+      <li>Local code minimums and permit requirements</li>
+      <li>Site-specific soil, drainage, and access constraints</li>
+      <li>Specialty mix yields that differ from standard bag charts</li>
+    </ul>
+
+    <h2>AI / automation disclosure</h2>
+    <p>
+      Drafts may be written with AI assistance; every formula, rate, and reference is checked by{' '}
+      {siteConfig.author.name} against the sources listed on each page before publish.
+    </p>
+
+    <h2>Date policy</h2>
+    <p>
+      <code>datePublished</code> is the first release. <code>dateModified</code> / “Last reviewed” change only
+      when content or math changes—not to fake freshness. Site-wide stamp: {siteConfig.contentUpdated}.
+    </p>
+
+    <h2 id="changelog">Correction log &amp; changelog</h2>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2026-10-20</td>
+            <td>
+              Mobile SEO / E-E-A-T pass: named maintainer ({siteConfig.author.name}), TrustBlock sources,
+              Consent Mode v2 analytics, hub and guide expansions, favicon/OG set, embed snippets.
+            </td>
+          </tr>
+          <tr>
+            <td>2026-10-19</td>
+            <td>Initial public release of calculator suite and guides.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Report errors via <a href="/contact/">contact</a> · Maintainer: <a href="/about/#maintainer">{siteConfig.author.name}</a>
+    </p>
   </article>
 </BaseLayout>

@@ -5,3 +5,7 @@
 
 # Serve Astro sitemap index under the common /sitemap.xml path (proxy, not a rewrite 404).
 /sitemap.xml /sitemap-index.xml 200
+
+# Single maintainer profile lives on /about/#maintainer (playbook).
+/authors /about/ 301
+/authors/ /about/ 301

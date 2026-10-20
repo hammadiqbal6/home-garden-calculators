@@ -17,18 +17,28 @@ const hubGuides = guides.filter((g) =>
   g.relatedToolSlugs.some((s) => hubTools.some((t) => t.slug === s)),
 );
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
-    { '@type': 'ListItem', position: 2, name: cat.name, item: absoluteUrl(`/hubs/${cat.slug}/`) },
-  ],
-};
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: cat.name, item: absoluteUrl(`/hubs/${cat.slug}/`) },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: cat.title,
+    description: cat.description,
+    url: absoluteUrl(`/hubs/${cat.slug}/`),
+    isPartOf: { '@id': `${absoluteUrl('/')}#website` },
+  },
+];
 ---
 
 <BaseLayout
-  title={`${cat.name} | YardCalc`}
+  title={`${cat.title} | YardCalc`}
   description={cat.description}
   canonicalPath={`/hubs/${cat.slug}/`}
   jsonLd={jsonLd}
@@ -36,7 +46,9 @@ const jsonLd = {
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: cat.name }]} />
   <div class="container" style="padding-bottom:3rem">
     <h1>{cat.name}</h1>
-    <p class="answer-first">{cat.description} Primary topic focus: {cat.primaryKeyword}.</p>
+    <article class="prose panel" style="margin:1rem 0 1.5rem">
+      <Fragment set:html={cat.introHtml} />
+    </article>
     <h2>Calculators in this hub</h2>
     <div class="card-grid cols-3" style="margin-top:1rem">
       {
@@ -56,7 +68,7 @@ const jsonLd = {
             {hubGuides.map((g) => (
               <a class="tool-card" href={`/guides/${g.slug}/`}>
                 <h3>{g.h1}</h3>
-                <p>{g.answerFirst.slice(0, 120)}…</p>
+                <p>{g.answerFirst.slice(0, 140)}…</p>
               </a>
             ))}
           </div>

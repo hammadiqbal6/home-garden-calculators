@@ -8,7 +8,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 |---|---|---|
 | `/` | home garden material calculator | free landscaping calculators, DIY material estimator |
 | `/calculators/` | home garden calculators | material calculators list |
-| `/hubs/concrete/` | concrete calculator hub | concrete estimators |
+| `/hubs/concrete/` | concrete calculator hub | slabs post holes Sonotubes |
 | `/hubs/landscape/` | landscape material calculator | mulch gravel soil calculators |
 | `/hubs/outdoor-structures/` | outdoor project calculator | fence deck roof calculators |
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
@@ -33,18 +33,22 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |
 | `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be |
 | `/guides/how-many-bags-of-concrete/` | how many bags of concrete do I need | 80 lb bags of concrete per yard |
+| `/guides/concrete-for-10x10-slab/` | how much concrete for a 10x10 slab | 10x10 concrete slab bags |
+| `/guides/mulch-for-common-garden-beds/` | mulch for garden bed sizes | how much mulch for flower bed |
 | `/guides/gravel-types-for-driveways/` | gravel types for driveways | crushed stone vs pea gravel |
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
-| `/about/` | about YardCalc | — |
+| `/about/` | about YardCalc | maintainer Hammad Iqbal |
 | `/contact/` | contact YardCalc | — |
 | `/privacy/` | YardCalc privacy policy | — |
 | `/terms/` | YardCalc terms | — |
-| `/methodology/` | YardCalc methodology | editorial policy |
-| `/authors/` | YardCalc authors | reviewers |
+| `/methodology/` | YardCalc methodology | editorial policy, correction log |
+| `/authors/` | (301 → `/about/`) | — |
 
 ## Cannibalization rules
 
 - Post holes and Sonotube are **separate intents** (fence holes vs form tubes)—keep separate pages.
-- Tree-ring mulch ≠ bed mulch—keep separate.
+- Main concrete calculator targets **slabs/footings/steps** only—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
+- Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.
+- Long-tail size guides (`10x10 slab`, `common garden beds`) must link to the primary calculator and not duplicate its primary keyword.

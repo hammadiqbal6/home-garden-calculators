@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img">
+  <title>Post hole cylinder dimensions</title>
+  <desc>Cylinder labeled Diameter and Depth for fence post concrete volume.</desc>
+  <rect width="960" height="540" fill="#f3f6f2"/>
+  <ellipse cx="400" cy="140" rx="120" ry="36" fill="#d7e8de" stroke="#1f6b4a" stroke-width="4"/>
+  <path d="M280 140 V380" stroke="#1f6b4a" stroke-width="4" fill="none"/>
+  <path d="M520 140 V380" stroke="#1f6b4a" stroke-width="4" fill="none"/>
+  <ellipse cx="400" cy="380" rx="120" ry="36" fill="#b9dcc9" stroke="#145239" stroke-width="4"/>
+  <rect x="385" y="120" width="30" height="280" fill="#8b5a2b" opacity="0.85"/>
+  <line x1="280" y1="100" x2="520" y2="100" stroke="#c45c26" stroke-width="3"/>
+  <text x="400" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="26" font-weight="700" fill="#14201a">Diameter</text>
+  <line x1="560" y1="140" x2="560" y2="380" stroke="#c45c26" stroke-width="3"/>
+  <text x="600" y="270" font-family="system-ui,sans-serif" font-size="26" font-weight="700" fill="#14201a">Depth</text>
+  <text x="480" y="470" text-anchor="middle" font-family="system-ui,sans-serif" font-size="30" font-weight="750" fill="#145239">Fence post hole (cylinder)</text>
+</svg>

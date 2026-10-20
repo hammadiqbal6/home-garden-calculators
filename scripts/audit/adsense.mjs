@@ -20,11 +20,22 @@ const required = [
   'privacy/index.html',
   'terms/index.html',
   'methodology/index.html',
-  'authors/index.html',
   'ads.txt',
 ];
 for (const rel of required) {
   if (!fs.existsSync(path.join(DIST, rel))) fail(`missing required ${rel}`);
+}
+// Playbook: /authors/ may 301 to /about/#maintainer — require a named maintainer on About.
+const aboutHtml = fs.readFileSync(path.join(DIST, 'about/index.html'), 'utf8');
+if (!/id=["']maintainer["']/i.test(aboutHtml) || !/Hammad Iqbal/i.test(aboutHtml)) {
+  fail('about page missing named maintainer (#maintainer / Hammad Iqbal)');
+}
+const hasAuthorsPage = fs.existsSync(path.join(DIST, 'authors/index.html'));
+const redirects = fs.existsSync(path.join(DIST, '_redirects'))
+  ? fs.readFileSync(path.join(DIST, '_redirects'), 'utf8')
+  : '';
+if (!hasAuthorsPage && !/\/authors\/?\s+\/about\/\s+301/i.test(redirects)) {
+  fail('missing authors page or /authors/ → /about/ 301 redirect');
 }
 
 const privacy = fs.readFileSync(path.join(DIST, 'privacy/index.html'), 'utf8');

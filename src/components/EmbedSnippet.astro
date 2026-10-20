@@ -1,0 +1,50 @@
+---
+import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
+
+interface Props {
+  slug: string;
+  name: string;
+}
+
+const { slug, name } = Astro.props;
+const embedUrl = absoluteUrl(`/embed/${slug}/`);
+const toolUrl = absoluteUrl(`/calculators/${slug}/`);
+const snippet = `<iframe src="${embedUrl}" title="${name} – ${siteConfig.name}" width="100%" height="640" loading="lazy" style="border:0;border-radius:8px;max-width:100%"></iframe>
+<p style="font-size:12px;margin-top:8px">Calculator by <a href="${toolUrl}">${siteConfig.name}</a></p>`;
+---
+
+<section class="embed-box" aria-labelledby="embed-h">
+  <h2 id="embed-h" style="margin-top:0;font-size:1.1rem">Embed this tool</h2>
+  <p style="margin:0 0 0.75rem;font-size:0.95rem;color:var(--color-ink-muted)">
+    Copy the snippet into your page. Please keep the attribution link so readers can open the full calculator
+    and sources.
+  </p>
+  <label class="visually-hidden" for={`embed-code-${slug}`}>Embed HTML</label>
+  <textarea id={`embed-code-${slug}`} readonly rows="5" data-embed-snippet>{snippet}</textarea>
+  <div class="btn-row" style="margin-top:0.75rem">
+    <button type="button" class="btn btn-secondary" data-copy-embed={`embed-code-${slug}`}>
+      Copy embed code
+    </button>
+    <a class="btn btn-secondary" href={`/embed/${slug}/`} target="_blank" rel="noopener">Open embed</a>
+  </div>
+</section>
+<script is:inline>
+  document.querySelectorAll('[data-copy-embed]').forEach(function (btn) {
+    btn.addEventListener('click', async function () {
+      var id = btn.getAttribute('data-copy-embed');
+      var el = id && document.getElementById(id);
+      if (!el) return;
+      try {
+        await navigator.clipboard.writeText(el.value);
+        btn.textContent = 'Copied';
+        setTimeout(function () {
+          btn.textContent = 'Copy embed code';
+        }, 1500);
+      } catch (e) {
+        el.focus();
+        el.select();
+      }
+    });
+  });
+</script>

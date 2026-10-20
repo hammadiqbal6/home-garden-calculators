@@ -11,18 +11,26 @@ const DEFAULT_SITE_URL =
 /** Public contact inbox used when PUBLIC_CONTACT_EMAIL is unset. */
 const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
 
-/** Brand team byline when PUBLIC_AUTHOR_NAME is unset — not a personal credential. */
-const DEFAULT_AUTHOR_NAME = 'YardCalc team';
+/** Named maintainer — one-person site; no invented credentials. */
+const DEFAULT_AUTHOR_NAME = 'Hammad Iqbal';
 
 /**
- * Honest team bio when PUBLIC_AUTHOR_BIO is unset.
- * No licenses, degrees, or invented personal credentials.
+ * Short bio for ProfilePage / about (honest; no licenses or degrees invented).
  */
 const DEFAULT_AUTHOR_BIO =
-  'YardCalc builds free home and garden material calculators. We document formulas, cite manufacturer bag yields and extension-service guidance, and keep results as planning estimates—not a substitute for local building codes or a licensed professional.';
+  'I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.';
 
-/** Role label for author boxes (not a credential). */
-const DEFAULT_AUTHOR_ROLE = 'Home & garden calculator editors';
+/** Role label for visible bylines (not a credential; never used as author.name in JSON-LD). */
+const DEFAULT_AUTHOR_ROLE = 'Author & maintainer';
+
+/**
+ * Stable Person @id shared across this maintainer's tool sites.
+ * Based on the public GitHub profile so Google can merge the entity.
+ */
+const CANONICAL_PERSON_URL = 'https://github.com/hammadiqbal6';
+
+/** Public profile URLs for Person.sameAs (only real profiles). */
+const AUTHOR_SAME_AS = ['https://github.com/hammadiqbal6'] as const;
 
 /**
  * Read a PUBLIC_* build env var from Vite/Astro (`import.meta.env`) or Node
@@ -61,6 +69,8 @@ const ga4MeasurementId = readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID');
 const searchConsoleVerification =
   readPublicEnv('PUBLIC_GSC_VERIFICATION') ||
   readPublicEnv('PUBLIC_SEARCH_CONSOLE_VERIFICATION');
+/** Bing Webmaster HTML meta content — keep if already set in env; never invent. */
+const bingVerification = readPublicEnv('PUBLIC_BING_SITE_VERIFICATION');
 const adsensePublisherId = readPublicEnv('PUBLIC_ADSENSE_PUBLISHER_ID');
 
 /** Real ca-pub id only — placeholders keep ads disabled. */
@@ -82,8 +92,12 @@ const authorBio = readPublicEnv('PUBLIC_AUTHOR_BIO') || DEFAULT_AUTHOR_BIO;
 export const siteConfig = {
   /** Public site name shown in UI, titles, and structured data */
   name: 'YardCalc',
+  /** Short name for apple-mobile-web-app-title / manifest */
+  shortName: 'YardCalc',
   /** Short tagline for home/hero and Organization description */
   tagline: 'Free home & garden material calculators',
+  /** Brand color for theme-color / manifest */
+  brandColor: '#1f6b4a',
   /**
    * Canonical origin with protocol, no trailing slash.
    * From PUBLIC_SITE_URL, else Workers.dev fallback.
@@ -94,24 +108,49 @@ export const siteConfig = {
    * From PUBLIC_CONTACT_EMAIL, else DEFAULT_CONTACT_EMAIL.
    */
   contactEmail,
-  /** ISO date used for "Last updated" stamps and sitemap lastmod defaults */
-  contentUpdated: '2026-10-19',
   /**
-   * Author / reviewer byline for E-E-A-T boxes.
-   * Name/bio from PUBLIC_AUTHOR_NAME / PUBLIC_AUTHOR_BIO (brand team defaults; no fake credentials).
+   * Site-wide content stamp. Change only when formulas, sources, or substantial copy change
+   * (Google: do not refresh dates without real updates).
+   */
+  contentUpdated: '2026-10-20',
+  /** First public release date for ProfilePage / Article datePublished defaults */
+  dateCreated: '2026-10-19',
+  /**
+   * Author / maintainer byline for E-E-A-T.
+   * No "reviewed by" unless a real named reviewer exists.
    */
   author: {
     name: authorName,
     role: DEFAULT_AUTHOR_ROLE,
     bio: authorBio,
+    /** On-site author URL (ProfilePage lives on /about/) */
+    urlPath: '/about/#maintainer',
+    /** Cross-site Person @id (same on all five tool sites) */
+    canonicalPersonId: `${CANONICAL_PERSON_URL}#person`,
+    canonicalPersonUrl: CANONICAL_PERSON_URL,
+    sameAs: [...AUTHOR_SAME_AS],
+    knowsAbout: [
+      'home and garden material calculators',
+      'concrete volume estimates',
+      'landscape mulch and gravel quantity',
+    ],
   },
-  /** Social / entity sameAs links (add real profiles when available) */
+  /** Brand Organization sameAs (omit empty arrays in JSON-LD) */
   sameAs: [] as string[],
+  /** Default Open Graph image (1200×630 PNG) */
+  defaultOgImage: '/og-default.png',
+  defaultOgImageWidth: 1200,
+  defaultOgImageHeight: 630,
+  defaultOgImageAlt: 'YardCalc — free home and garden material calculators',
+  /** Organization logo (PNG ≥112px for Google Images) */
+  logoPath: '/logo-512.png',
   analytics: {
     /** GA4 measurement ID from PUBLIC_GA4_MEASUREMENT_ID — empty disables gtag */
     ga4MeasurementId,
     /** Google Search Console HTML tag content — empty omits the meta tag */
     searchConsoleVerification,
+    /** Bing Webmaster Tools msvalidate.01 content — empty omits the meta tag */
+    bingVerification,
   },
   adsense: {
     /**
@@ -126,7 +165,31 @@ export const siteConfig = {
   /** IndexNow key filename (place matching key file in /public) */
   indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',
   locale: 'en-US',
-  defaultOgImage: '/og-default.png',
+  /**
+   * Other free tool sites by the same maintainer (listed only on /about/, not footers).
+   */
+  siblingSites: [
+    {
+      name: 'FeeCalc',
+      url: 'https://payment-fee-calculators.hammadiqbal117.workers.dev/',
+      niche: 'Payment fee calculators',
+    },
+    {
+      name: 'DocuForge Tools',
+      url: 'https://business-document-generators.hammadiqbal117.workers.dev/',
+      niche: 'Business document generators',
+    },
+    {
+      name: 'FiberCalc',
+      url: 'https://fiber-arts-calculators.hammadiqbal117.workers.dev/',
+      niche: 'Knitting & crochet calculators',
+    },
+    {
+      name: 'PetCalc Tools',
+      url: 'https://pet-calculators.hammadiqbal117.workers.dev/',
+      niche: 'Pet calculators',
+    },
+  ],
 };
 
 export type SiteConfig = typeof siteConfig;

@@ -433,6 +433,17 @@ a:hover {
   color: var(--color-ink-muted);
 }
 
+/* Keep first calculator inputs clear of the compact cookie bar on phones */
+@media (max-width: 599px) {
+  .calc-panel .answer-first {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    margin-bottom: var(--space-3);
+  }
+}
+
 .unit-toggle {
   display: inline-flex;
   border: 1px solid var(--color-border);

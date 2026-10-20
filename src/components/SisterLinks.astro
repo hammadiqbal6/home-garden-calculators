@@ -1,0 +1,32 @@
+---
+/**
+ * Sparing cross-site links — only when genuinely topical. Never dump all sister sites in the footer.
+ */
+interface Link {
+  href: string;
+  label: string;
+  why: string;
+}
+interface Props {
+  links: Link[];
+}
+const { links } = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <aside class="sister-links" aria-labelledby="sister-h">
+      <h2 id="sister-h" style="font-size:1.1rem;margin:0">Related tools from our other sites</h2>
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href} rel="noopener noreferrer">
+              {l.label}
+            </a>
+            <span style="color:var(--color-ink-muted)"> — {l.why}</span>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  )
+}

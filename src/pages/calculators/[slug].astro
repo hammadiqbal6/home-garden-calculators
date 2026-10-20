@@ -3,9 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import Calculator from '../../components/Calculator.astro';
+import TrustBlock from '../../components/TrustBlock.astro';
+import EmbedSnippet from '../../components/EmbedSnippet.astro';
+import SisterLinks from '../../components/SisterLinks.astro';
 import { siteConfig } from '../../config/site';
+import { sisterUrl } from '../../config/sisterSites';
 import { absoluteUrl, categories, getTool, tools } from '../../data/tools';
 import { getGuide } from '../../data/guides';
+import { toolPageGraph } from '../../lib/schema';
 
 export function getStaticPaths() {
   return tools.map((tool) => ({ params: { slug: tool.slug } }));
@@ -19,49 +24,95 @@ const cat = categories[tool.category];
 const related = tool.relatedSlugs.map((s) => getTool(s)).filter(Boolean);
 const relatedGuides = tool.relatedGuideSlugs.map((s) => getGuide(s)).filter(Boolean);
 
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
-      { '@type': 'ListItem', position: 2, name: 'Calculators', item: absoluteUrl('/calculators/') },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: cat.name,
-        item: absoluteUrl(`/hubs/${cat.slug}/`),
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        name: tool.name,
-        item: absoluteUrl(`/calculators/${tool.slug}/`),
-      },
-    ],
+const diagramByTool: Record<string, { src: string; alt: string }> = {
+  'concrete-calculator': {
+    src: '/diagrams/slab-dimensions.svg',
+    alt: 'Diagram of a rectangular concrete slab showing length, width and thickness',
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+  'concrete-calculator-post-holes': {
+    src: '/diagrams/post-hole-dimensions.svg',
+    alt: 'Diagram of a fence post hole cylinder showing diameter and depth',
+  },
+  'sonotube-concrete-calculator': {
+    src: '/diagrams/sonotube-dimensions.svg',
+    alt: 'Diagram of a Sonotube round form showing inside diameter and height',
+  },
+  'mulch-calculator': {
+    src: '/diagrams/mulch-bed-dimensions.svg',
+    alt: 'Diagram of a garden bed mulch layer showing length, width and depth',
+  },
+};
+
+const diagram = diagramByTool[tool.slug];
+
+const sisterByTool: Record<string, { href: string; label: string; why: string }[]> = {
+  'concrete-calculator': [
+    {
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
+      label: 'Construction estimate template',
+      why: 'turn bag/yard counts into a line-item estimate PDF',
+    },
+  ],
+  'fence-calculator': [
+    {
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
+      label: 'Construction estimate template',
+      why: 'quote posts, rails and labor beside your material counts',
+    },
+  ],
+  'deck-material-calculator': [
+    {
+      href: sisterUrl('businessDocs', '/tools/construction-estimate-template/'),
+      label: 'Construction estimate template',
+      why: 'export a deck materials estimate for clients or yourself',
+    },
+  ],
+  'paint-calculator': [
+    {
+      href: sisterUrl('businessDocs', '/tools/cleaning-service-invoice/'),
+      label: 'Cleaning / service invoice template',
+      why: 'invoice painting or prep work after you estimate gallons',
+    },
+  ],
+};
+
+const sisterLinks = sisterByTool[tool.slug] ?? [];
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+    { '@type': 'ListItem', position: 2, name: 'Calculators', item: absoluteUrl('/calculators/') },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: cat.name,
+      item: absoluteUrl(`/hubs/${cat.slug}/`),
+    },
+    {
+      '@type': 'ListItem',
+      position: 4,
+      name: tool.name,
+      item: absoluteUrl(`/calculators/${tool.slug}/`),
+    },
+  ],
+};
+
+const jsonLd = [
+  breadcrumbLd,
+  toolPageGraph({
     name: tool.name,
     description: tool.description,
-    url: absoluteUrl(`/calculators/${tool.slug}/`),
+    path: `/calculators/${tool.slug}/`,
+    title: tool.title,
     applicationCategory: tool.applicationCategory,
-    operatingSystem: 'Any',
-    browserRequirements: 'Requires JavaScript',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    provider: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-      url: siteConfig.siteUrl,
-    },
     datePublished: tool.datePublished,
     dateModified: tool.dateModified,
-  },
+    sources: tool.sources,
+    faq: tool.faq,
+    primaryImagePath: diagram?.src,
+  }),
 ];
 ---
 
@@ -70,6 +121,7 @@ const jsonLd = [
   description={tool.description}
   canonicalPath={`/calculators/${tool.slug}/`}
   jsonLd={jsonLd}
+  ogImageAlt={diagram?.alt ?? siteConfig.defaultOgImageAlt}
 >
   <Breadcrumbs
     items={[
@@ -80,18 +132,11 @@ const jsonLd = [
     ]}
   />
   <div class="container tool-layout">
-    <section class="panel calc-panel">
+    <section class="panel calc-panel" id="calculator">
       <h1>{tool.h1}</h1>
       <p class="answer-first">{tool.answerFirst}</p>
       <Calculator calculatorId={tool.calculatorId} />
-      {
-        tool.embeddable && (
-          <p class="hint" style="margin-top:1rem">
-            <a href={`/embed/${tool.slug}/`}>Embeddable widget</a> · state syncs to the URL for sharing
-            (canonical stays on this clean URL).
-          </p>
-        )
-      }
+      {tool.embeddable && <EmbedSnippet slug={tool.slug} name={tool.name} />}
     </section>
     <aside class="panel">
       <h2>Related tools</h2>
@@ -111,6 +156,14 @@ const jsonLd = [
       <AdSlot position="mid" />
     </aside>
     <article class="panel tool-content prose">
+      {
+        diagram && (
+          <figure class="diagram">
+            <img src={diagram.src} width="960" height="540" alt={diagram.alt} loading="lazy" />
+            <figcaption>{diagram.alt}</figcaption>
+          </figure>
+        )
+      }
       <Fragment set:html={tool.sectionsHtml} />
       <h2>FAQ</h2>
       {
@@ -138,28 +191,23 @@ const jsonLd = [
           </>
         )
       }
-      <h2>Sources</h2>
-      <ul class="sources">
-        {
-          tool.sources.map((s) => (
-            <li>
-              <a href={s.href} rel="noopener noreferrer">
-                {s.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <TrustBlock sources={tool.sources} lastReviewed={tool.dateModified} />
+      <SisterLinks links={sisterLinks} />
       <div class="author-box">
         <p>
-          <strong>{siteConfig.author.name}</strong> — {siteConfig.author.role}
+          Built and maintained by
+          <a href={siteConfig.author.urlPath} rel="author">{siteConfig.author.name}</a>
+          — {siteConfig.author.role}
         </p>
         <p>{siteConfig.author.bio}</p>
         <p class="meta-row">
-          Published {tool.datePublished} · Last updated {tool.dateModified} ·
+          Published {tool.datePublished} · Last reviewed {tool.dateModified} ·
           <a href="/methodology/">Methodology</a>
         </p>
       </div>
     </article>
+  </div>
+  <div class="back-to-calc container">
+    <a class="btn btn-primary" href="#calculator">Back to calculator ↑</a>
   </div>
 </BaseLayout>

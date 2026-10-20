@@ -7,16 +7,18 @@ export const toolBodies: Record<string, string> = {
       <h2>How this concrete calculator works</h2>
       <p>Enter the shape (slab, footing, or steps), dimensions, and optional waste percent. The tool returns volume in cubic feet, cubic yards, and cubic meters, plus bag counts for common 40, 60, and 80 lb mixes. All math runs in your browser—inputs are not uploaded.</p>
       <p>Use feet (or meters) for length and width. Enter slab thickness in inches (or centimeters). The calculator converts everything to a consistent unit system before multiplying, which prevents the classic mistake of treating a 4-inch slab as 4 feet thick.</p>
-      <h2>Formulas</h2>
+      <h2>How it's calculated</h2>
       <ul>
-        <li><strong>Slab / footing:</strong> volume = length × width × thickness</li>
+        <li><strong>Slab / footing:</strong> volume = length × width × thickness (all in feet)</li>
         <li><strong>Solid steps:</strong> volume = width × tread × riser × n(n+1)/2</li>
         <li><strong>Bags:</strong> bags = ceil(volume_cu_ft ÷ bag_yield)</li>
       </ul>
-      <p>Bag yields used here follow common Quikrete / Sakrete published coverage: about 0.30 cu ft (40 lb), 0.45 cu ft (60 lb), and 0.60 cu ft (80 lb). Always check the bag you buy—lightweight and high-strength mixes can differ.</p>
+      <p>Bag yields used here follow common QUIKRETE / Sakrete published coverage: about 0.30 cu ft (40 lb), 0.45 cu ft (60 lb), and 0.60 cu ft (80 lb). Always check the bag you buy—lightweight and high-strength mixes can differ.</p>
       <h2>Worked example: 10×10 patio slab</h2>
-      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is about 62 bags of 60 lb mix or 46 bags of 80 lb mix. Ready-mix starts to make sense near or above one cubic yard when access allows a truck.</p>
+      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is about 62 bags of 60 lb mix or 46 bags of 80 lb mix. Ready-mix starts to make sense near or above one cubic yard when access allows a truck. More sizes: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
+      <div class="table-scroll">
       <table>
+        <caption>Typical bagged concrete yields</caption>
         <thead><tr><th>Bag size</th><th>Approx. yield</th><th>Bags per cu yd</th></tr></thead>
         <tbody>
           <tr><td>40 lb</td><td>0.30 cu ft</td><td>~90</td></tr>
@@ -24,6 +26,7 @@ export const toolBodies: Record<string, string> = {
           <tr><td>80 lb</td><td>0.60 cu ft</td><td>~45</td></tr>
         </tbody>
       </table>
+      </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Convert thickness to feet before multiplying, divide by 27 for cubic yards, then add waste. Bag yields vary slightly by brand—verify on the label.</div>
       <h2>Choosing slab thickness</h2>
       <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it does not design structural thickness, rebar, or base depth.</p>
@@ -35,6 +38,7 @@ export const toolBodies: Record<string, string> = {
         <li>Forgetting that gravel base is separate from concrete volume.</li>
         <li>Ordering exact yardage with no waste on rough soil.</li>
         <li>Ignoring manufacturer yield notes on specialty mixes.</li>
+        <li>Using this slab tool for fence post holes or Sonotubes—use the dedicated calculators instead.</li>
       </ul>
       <h2>Related long-tail jobs</h2>
       <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. For cardboard forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Read <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a> for bag charts.</p>
@@ -62,6 +66,7 @@ export const toolBodies: Record<string, string> = {
       <p>Treat each hole as a cylinder. Convert diameter to feet, then volume (cu ft) = π × r² × depth × posts. Example: 10 posts, 10" diameter (r = 5/12 ft), 30" deep (2.5 ft): π × (5/12)² × 2.5 × 10 ≈ 13.6 cu ft (~0.50 cu yd).</p>
       <p>Hole diameter is often about three times the post width for wood posts, but wind load, frost depth, and panel weight matter more than rules of thumb. Dig below the local frost line when frost heave is a concern, and slope the top of the concrete so water drains away from the post.</p>
       <h2>Typical bag counts</h2>
+      <div class="table-scroll">
       <table>
         <thead><tr><th>Hole</th><th>~Volume</th><th>80 lb bags each</th></tr></thead>
         <tbody>
@@ -70,6 +75,7 @@ export const toolBodies: Record<string, string> = {
           <tr><td>12" × 3 ft</td><td>2.36 cu ft</td><td>4</td></tr>
         </tbody>
       </table>
+      </div>
       <h2>Worked example: 48 ft privacy fence</h2>
       <p>At 8 ft post spacing you need 7 posts (6 sections + end). If each hole is 10" × 2.5 ft, one hole is ~1.36 cu ft. Seven holes ≈ 9.55 cu ft before waste, about 10.5 cu ft with 10% waste—roughly eighteen 60 lb bags or fifteen 80 lb bags. Cross-check post count with the <a href="/calculators/fence-calculator/">fence calculator</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Diameter and depth drive volume more than post height. Multiply carefully by post count and add waste for over-dig.</div>

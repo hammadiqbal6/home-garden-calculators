@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Rectangular slab dimensions</title>
+  <desc id="desc">Isometric-style rectangle labeled Length, Width, and Thickness for a concrete slab.</desc>
+  <rect width="960" height="540" fill="#f3f6f2"/>
+  <rect x="180" y="160" width="520" height="220" fill="#d7e8de" stroke="#1f6b4a" stroke-width="4" rx="6"/>
+  <rect x="180" y="360" width="520" height="48" fill="#b9dcc9" stroke="#145239" stroke-width="3"/>
+  <!-- Length arrow -->
+  <line x1="180" y1="420" x2="700" y2="420" stroke="#c45c26" stroke-width="3"/>
+  <polygon points="180,420 198,412 198,428" fill="#c45c26"/>
+  <polygon points="700,420 682,412 682,428" fill="#c45c26"/>
+  <text x="440" y="450" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#14201a">Length</text>
+  <!-- Width arrow -->
+  <line x1="150" y1="160" x2="150" y2="380" stroke="#c45c26" stroke-width="3"/>
+  <polygon points="150,160 142,178 158,178" fill="#c45c26"/>
+  <polygon points="150,380 142,362 158,362" fill="#c45c26"/>
+  <text x="70" y="280" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#14201a" transform="rotate(-90 70 280)">Width</text>
+  <!-- Thickness -->
+  <line x1="720" y1="360" x2="720" y2="408" stroke="#1f6b4a" stroke-width="3"/>
+  <text x="740" y="392" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#145239">Thickness</text>
+  <text x="480" y="80" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="750" fill="#145239">Rectangular slab</text>
+</svg>

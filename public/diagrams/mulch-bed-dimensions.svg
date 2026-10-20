@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img">
+  <title>Mulch bed dimensions</title>
+  <desc>Garden bed rectangle with a mulch layer labeled Length, Width, and Depth.</desc>
+  <rect width="960" height="540" fill="#f3f6f2"/>
+  <rect x="160" y="180" width="560" height="200" fill="#c4a574" stroke="#8b5a2b" stroke-width="3" rx="4"/>
+  <rect x="160" y="180" width="560" height="56" fill="#5a8f4a" stroke="#2f5c28" stroke-width="3" rx="4"/>
+  <line x1="160" y1="420" x2="720" y2="420" stroke="#c45c26" stroke-width="3"/>
+  <text x="440" y="455" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#14201a">Length</text>
+  <line x1="120" y1="180" x2="120" y2="380" stroke="#c45c26" stroke-width="3"/>
+  <text x="55" y="290" text-anchor="middle" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#14201a" transform="rotate(-90 55 290)">Width</text>
+  <line x1="760" y1="180" x2="760" y2="236" stroke="#1f6b4a" stroke-width="3"/>
+  <text x="780" y="220" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#145239">Depth (23")</text>
+  <text x="480" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="750" fill="#145239">Mulched garden bed</text>
+</svg>

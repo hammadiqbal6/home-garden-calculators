@@ -1,5 +1,5 @@
 /**
- * Pure static-assets Worker — no adapter, no main script, no bindings.
+ * Static Astro output + a tiny Worker for 308 trailing-slash redirects.
  * Deployed via Cloudflare Workers Builds: `npm run build` then `npx wrangler deploy`.
  */
 {
@@ -7,9 +7,13 @@
   "name": "home-garden-calculators",
   // Keep current with Workers runtime (see Cloudflare compatibility dates).
   "compatibility_date": "2026-10-19",
+  "main": "./worker/trailing-slash.js",
   "assets": {
     // Astro static output (`npm run build` → dist/)
     "directory": "./dist",
+    "binding": "ASSETS",
+    // Run Worker first so missing trailing slashes get 308 (not the default 307).
+    "run_worker_first": true,
     // Astro uses trailingSlash: 'always'
     "html_handling": "force-trailing-slash",
     // Serve nearest 404.html for missing paths (src/pages/404.astro → dist/404.html)

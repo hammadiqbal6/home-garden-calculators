@@ -60,7 +60,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       }
     </div>
   </div>
-  <div class="results" aria-live="polite">
+  <div class="results" aria-live="polite" aria-atomic="true" role="region" aria-label="Calculation results">
     <h2>Results</h2>
     <dl class="results-dl">
       {
@@ -944,6 +944,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     const dl = root.querySelector('.results-dl') as HTMLElement;
     const err = root.querySelector('.calc-error') as HTMLElement;
     let units: Units = 'imperial';
+    let skipTrack = true;
     const params = new URLSearchParams(window.location.search);
     if (params.get('units') === 'metric') units = 'metric';
 
@@ -1041,6 +1042,12 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         dl.innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v}</dd>`).join('');
         resultsEl.hidden = false;
         syncQuery(values);
+        if (!skipTrack) {
+          track('calculation_run', {
+            calculator_id: calculatorId,
+            unit_system: units,
+          });
+        }
       } catch (e) {
         err.hidden = false;
         err.textContent = e instanceof Error ? e.message : 'Check your inputs.';
@@ -1065,6 +1072,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         units = (btn.dataset.units as Units) || 'imperial';
         root.querySelectorAll<HTMLButtonElement>('.unit-toggle button').forEach((b) => {
           b.setAttribute('aria-pressed', String(b === btn));
+        });
+        track('unit_toggle', {
+          calculator_id: calculatorId,
+          unit_system: units,
         });
         renderFields();
         calculate();
@@ -1096,6 +1107,16 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       b.setAttribute('aria-pressed', String(b.dataset.units === units));
     });
     calculate();
+    skipTrack = false;
+  }
+
+  function track(name: string, params: Record<string, string> = {}) {
+    try {
+      const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+      if (typeof gtag === 'function') gtag('event', name, params);
+    } catch {
+      /* analytics optional */
+    }
   }
 
   function boot() {

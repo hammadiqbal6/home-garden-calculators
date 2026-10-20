@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
+**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_SITE_URL_PAYMENT_FEES` / `_BUSINESS_DOCS` / `_HOME_GARDEN` / `_FIBER_ARTS` / `_PET` drive sister-site cross-links via `src/config/sisterSites.ts` (workers.dev fallbacks if unset). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
 
 ### 3.2 Public files — replace placeholders
 
@@ -197,8 +197,13 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Name | Example / notes |
 | --- | --- |
 | `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
+| `PUBLIC_SITE_URL_PAYMENT_FEES` | Sister origin for FeeCalc cross-links (see `.env.example`) |
+| `PUBLIC_SITE_URL_BUSINESS_DOCS` | Sister origin for DocuForge Tools |
+| `PUBLIC_SITE_URL_HOME_GARDEN` | Sister origin for YardCalc (this site) |
+| `PUBLIC_SITE_URL_FIBER_ARTS` | Sister origin for FiberCalc |
+| `PUBLIC_SITE_URL_PET` | Sister origin for PetCalc Tools |
 | `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` |
-| `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` | Optional — brand team defaults in `site.ts` |
+| `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` | Optional — defaults in `site.ts` (Hammad Iqbal) |
 | `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
 | `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave empty until AdSense approval |

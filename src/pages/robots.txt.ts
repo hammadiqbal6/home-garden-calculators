@@ -2,48 +2,47 @@ import type { APIRoute } from 'astro';
 import { siteConfig } from '../config/site';
 
 export const GET: APIRoute = () => {
+  // Every bot-specific group must repeat Disallow rules. Groups with only
+  // "Allow: /" cancel the * Disallows for that bot (most-specific group wins).
+  const disallows = `Allow: /
+Disallow: /embed/
+Disallow: /*?utm_`;
+
   const body = `# YardCalc robots.txt
-# Allow search engines and AI-search crawlers. Training crawlers are allowed by
-# default; flip to Disallow if you prefer to opt out of model training.
-# Google-Extended affects Gemini training/grounding outside Search, not Google Search.
+# Favicons and apple-touch-icon must stay crawlable (Google favicon guidance).
 
 User-agent: *
-Allow: /
-Disallow: /embed/
-Disallow: /*?utm_
+${disallows}
 
-# AI search / answer engines (allow to be cited)
 User-agent: Googlebot
-Allow: /
+${disallows}
 
 User-agent: Bingbot
-Allow: /
+${disallows}
 
 User-agent: OAI-SearchBot
-Allow: /
+${disallows}
 
 User-agent: ChatGPT-User
-Allow: /
+${disallows}
 
 User-agent: PerplexityBot
-Allow: /
+${disallows}
 
 User-agent: Claude-SearchBot
-Allow: /
+${disallows}
 
-# AI model training (documented choice — currently Allow)
-# To opt out of training, change these to Disallow: /
 User-agent: GPTBot
-Allow: /
+${disallows}
 
 User-agent: Google-Extended
-Allow: /
+${disallows}
 
 User-agent: ClaudeBot
-Allow: /
+${disallows}
 
 User-agent: CCBot
-Allow: /
+${disallows}
 
 Sitemap: ${siteConfig.siteUrl}/sitemap-index.xml
 `;

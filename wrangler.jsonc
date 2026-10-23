@@ -1,6 +1,11 @@
 /**
  * Static Astro output + a tiny Worker for 308 trailing-slash redirects.
  * Deployed via Cloudflare Workers Builds: `npm run build` then `npx wrangler deploy`.
+ *
+ * Do not put build-time PUBLIC_* only in top-level wrangler `vars` if you need
+ * `npx wrangler preview` — that pattern broke previews on file-converter-tools.
+ * Prefer Workers Builds / CI env for PUBLIC_SITE_URL and related PUBLIC_* values;
+ * document any preview-only env separately.
  */
 {
   "$schema": "./node_modules/wrangler/config-schema.json",

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#145239"/>
+      <stop offset="55%" stop-color="#1f6b4a"/>
+      <stop offset="100%" stop-color="#2f8f65"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="980" cy="80" r="220" fill="#ffffff" fill-opacity="0.06"/>
+  <circle cx="120" cy="520" r="180" fill="#c45c26" fill-opacity="0.18"/>
+  <text x="72" y="88" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" fill="#b7f0d2" letter-spacing="0.04em">CALCULATOR</text>
+  <text x="72" y="200" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="36" font-weight="700" fill="#ffffff" fill-opacity="0.92">YardCalc</text>
+  <text x="72" y="312" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">Fertilizer Calculator – Nitrogen</text>
+  <text x="72" y="388" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="54" font-weight="700" fill="#ffffff">Rates | YardCalc</text>
+  <text x="72" y="580" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="24" fill="#dceee4">Free home &amp; garden material calculators</text>
+</svg>

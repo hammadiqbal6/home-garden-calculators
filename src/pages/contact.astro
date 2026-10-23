@@ -1,24 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { siteConfig } from '../config/site';
+
+const { emailjs, contactEmail, name: siteName } = siteConfig;
+const formEnabled = emailjs.enabled;
 ---
 
 <BaseLayout
-  title="Contact YardCalc"
-  description="Contact YardCalc about calculator feedback, corrections, or partnership inquiries."
+  title="Contact YardCalc — Feedback, Bugs and Partnerships"
+  description="Contact YardCalc about calculator feedback, corrections, bug reports, or partnership and embed inquiries. We read every message."
   canonicalPath="/contact/"
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Contact' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
     <h1>Contact</h1>
     <p class="answer-first">
-      For corrections, feature requests, or licensing the embeddable widgets, email us. We read every
-      message; reply times vary.
+      For corrections, feature requests, or licensing the embeddable widgets, send a message below
+      or email us. We read every message; reply times vary.
     </p>
-    <p>
-      <a class="btn btn-primary" href={`mailto:${siteConfig.contactEmail}`}>Email {siteConfig.contactEmail}</a>
-    </p>
+
+    {
+      formEnabled ? (
+        <ContactForm
+          serviceId={emailjs.serviceId}
+          templateId={emailjs.templateId}
+          publicKey={emailjs.publicKey}
+          siteName={siteName}
+          contactEmail={contactEmail}
+        />
+      ) : (
+        <p>
+          <a class="btn btn-primary" href={`mailto:${contactEmail}`}>
+            Email {contactEmail}
+          </a>
+        </p>
+      )
+    }
+
     <h2>What to include</h2>
     <ul>
       <li>The calculator URL and inputs you used</li>

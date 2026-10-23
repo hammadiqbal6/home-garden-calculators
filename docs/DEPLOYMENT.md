@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_SITE_URL_PAYMENT_FEES` / `_BUSINESS_DOCS` / `_HOME_GARDEN` / `_FIBER_ARTS` / `_PET` drive sister-site cross-links via `src/config/sisterSites.ts` (workers.dev fallbacks if unset). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`.
+**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_SITE_URL_PAYMENT_FEES` / `_BUSINESS_DOCS` / `_HOME_GARDEN` / `_FIBER_ARTS` / `_PET` drive sister-site cross-links via `src/config/sisterSites.ts` (workers.dev fallbacks if unset). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`. Optional EmailJS contact form: `PUBLIC_EMAILJS_SERVICE_ID` / `PUBLIC_EMAILJS_TEMPLATE_ID` / `PUBLIC_EMAILJS_PUBLIC_KEY` (public IDs only — see [CONTACT-EMAILJS.md](./CONTACT-EMAILJS.md)).
 
 ### 3.2 Public files — replace placeholders
 
@@ -118,7 +118,7 @@ After you know your real domain (`https://www.yourdomain.com`):
 | **`public/_redirects`** | Uncomment/edit apex → `www` (or reverse) rules for Netlify/Cloudflare Pages; see [Section 4](#4-custom-domain-dns-https-www-vs-apex). |
 | **`public/ads.txt`** | Leave commented until AdSense approval; then uncomment and set `google.com, pub-NNNN…, DIRECT, f08c47fec0942fa0` (numeric pub id). |
 | **`public/<indexNowKey>.txt`** | Rename file to match `siteConfig.indexNowKey`; file body = the key string. |
-| **`public/_headers`** | Usually no edits; security headers and long-cache for hashed assets. CSP already allows AdSense/GA domains when you enable them. |
+| **`public/_headers`** | Usually no edits; security headers and long-cache for hashed assets. CSP already allows AdSense/GA and `https://api.emailjs.com` (`connect-src`) for the contact form. |
 
 Rebuild after any config change:
 

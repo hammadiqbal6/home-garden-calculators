@@ -26,9 +26,12 @@ const ROOT = path.resolve(__dirname, '../..');
 const MIN_TOOL_WORDS = 450;
 const PAGE_MIN = 600;
 const MIN_GUIDE_WORDS = 800;
-const TITLE_MAX = 60;
-const DESC_MIN = 50;
-const DESC_MAX = 165;
+/** Fail CI when title is outside this range (aim ~30–60 in copy). */
+const TITLE_MIN = 25;
+const TITLE_MAX = 65;
+/** Fail CI when meta description is outside this range (aim ~120–160). */
+const DESC_MIN = 70;
+const DESC_MAX = 160;
 
 // Built in parts so this auditor file does not itself contain the forbidden host string.
 const THIS_WORKERS_HOST = [
@@ -255,8 +258,13 @@ for (const file of pages) {
 
   const title = html.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim() || '';
   if (!title) fail(`${url}: missing <title>`);
-  else if ([...title].length > TITLE_MAX) {
-    fail(`${url}: title length ${[...title].length} > ${TITLE_MAX}`);
+  else {
+    const titleLen = [...title].length;
+    if (titleLen < TITLE_MIN || titleLen > TITLE_MAX) {
+      fail(
+        `${url}: title length ${titleLen} outside ${TITLE_MIN}–${TITLE_MAX}`,
+      );
+    }
   }
 
   const desc =

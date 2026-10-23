@@ -64,6 +64,14 @@ const searchConsoleVerification =
 const bingVerification = readPublicEnv('PUBLIC_BING_SITE_VERIFICATION');
 const adsensePublisherId = readPublicEnv('PUBLIC_ADSENSE_PUBLISHER_ID');
 
+/** EmailJS public IDs — all three required to enable the /contact/ form (no private key). */
+const emailjsServiceId = readPublicEnv('PUBLIC_EMAILJS_SERVICE_ID');
+const emailjsTemplateId = readPublicEnv('PUBLIC_EMAILJS_TEMPLATE_ID');
+const emailjsPublicKey = readPublicEnv('PUBLIC_EMAILJS_PUBLIC_KEY');
+const emailjsEnabled = Boolean(
+  emailjsServiceId && emailjsTemplateId && emailjsPublicKey,
+);
+
 /** Real ca-pub id only — placeholders keep ads disabled. */
 function isRealAdsensePublisherId(id: string): boolean {
   return (
@@ -152,6 +160,17 @@ export const siteConfig = {
     enabled: adsenseEnabled,
     /** Enable Google Auto ads when true (documented in docs/ADSENSE.md) */
     autoAds: false,
+  },
+  /**
+   * EmailJS browser form on /contact/ (FREE plan). Public IDs only — never put the
+   * EmailJS private key in env or the repo. See docs/CONTACT-EMAILJS.md.
+   * Form renders only when serviceId + templateId + publicKey are all set.
+   */
+  emailjs: {
+    serviceId: emailjsServiceId,
+    templateId: emailjsTemplateId,
+    publicKey: emailjsPublicKey,
+    enabled: emailjsEnabled,
   },
   /** IndexNow key filename (place matching key file in /public) */
   indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',

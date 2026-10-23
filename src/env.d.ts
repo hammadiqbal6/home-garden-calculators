@@ -27,6 +27,12 @@ interface ImportMetaEnv {
   readonly PUBLIC_ADSENSE_PUBLISHER_ID?: string;
   /** Set to "true" only after AdSense approval (requires real publisher id). */
   readonly PUBLIC_ADSENSE_ENABLED?: string;
+  /** EmailJS service ID for /contact/ form. Empty → mailto-only fallback. */
+  readonly PUBLIC_EMAILJS_SERVICE_ID?: string;
+  /** EmailJS template ID for /contact/ form. Empty → mailto-only fallback. */
+  readonly PUBLIC_EMAILJS_TEMPLATE_ID?: string;
+  /** EmailJS public key (user_id). Never use the private key. Empty → mailto-only. */
+  readonly PUBLIC_EMAILJS_PUBLIC_KEY?: string;
 }
 
 interface ImportMeta {

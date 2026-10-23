@@ -90,7 +90,7 @@ export const categories: Record<
   outdoor: {
     slug: 'outdoor-structures',
     name: 'Outdoor structure calculators',
-    title: 'Outdoor Calculators: Fence, Deck, Roof & Paint',
+    title: 'Outdoor Calculators: Fence, Deck & Roof',
     description:
       'Free calculators for fence posts and pickets, deck boards and joists, roof pitch and shingles, paint gallons and retaining wall blocks.',
     primaryKeyword: 'outdoor project calculator',
@@ -102,7 +102,7 @@ export const categories: Record<
   lawn: {
     slug: 'lawn',
     name: 'Lawn & garden calculators',
-    title: 'Lawn Calculators: Grass Seed & Fertilizer Rates',
+    title: 'Lawn Calculators: Seed & Fertilizer',
     description:
       'Free lawn calculators for grass seed (new lawn and overseed) and fertilizer from nitrogen targets and N-P-K analysis. Rates per 1,000 sq ft.',
     primaryKeyword: 'lawn calculator',
@@ -266,7 +266,7 @@ export const tools: ToolDefinition[] = [
     category: 'concrete',
     primaryKeyword: 'sonotube concrete calculator',
     secondaryKeywords: ['cardboard concrete form calculator', 'column concrete calculator'],
-    title: 'Sonotube Concrete Calculator – Columns & Piers | YardCalc',
+    title: 'Sonotube Concrete Calculator | YardCalc',
     description:
       'Sonotube concrete calculator for round columns and deck piers. Enter tube diameter and height for cubic yards and bag counts.',
     h1: 'Sonotube Concrete Calculator',
@@ -679,7 +679,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'roofing calculator',
     secondaryKeywords: ['shingle calculator', 'roofing squares calculator', 'how many squares of shingles'],
-    title: 'Roofing Shingles Calculator – Squares & Bundles | YardCalc',
+    title: 'Roofing Shingles Calculator – Squares | YardCalc',
     description:
       'Calculate roofing squares and shingle bundles from plan dimensions and pitch. Includes waste factor for hips, valleys, and starter.',
     h1: 'Roofing Shingles & Squares Calculator',

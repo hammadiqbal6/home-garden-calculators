@@ -15,6 +15,7 @@ This repository is a **production** static site of free home & garden material c
 | [docs/SEO-GUIDE.md](docs/SEO-GUIDE.md) | Launch & post-launch SEO ops |
 | [docs/ADSENSE.md](docs/ADSENSE.md) | AdSense enablement |
 | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Hosting |
+| [docs/CONTACT-EMAILJS.md](docs/CONTACT-EMAILJS.md) | Optional EmailJS contact form (public env IDs) |
 
 Cursor-specific: `.cursor/skills/*/SKILL.md`, `.cursor/rules/*.mdc`, `.cursor/agents/*.md`.
 

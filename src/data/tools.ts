@@ -65,7 +65,7 @@ export const categories: Record<
   concrete: {
     slug: 'concrete',
     name: 'Concrete calculators',
-    title: 'Concrete Calculators: Slabs, Post Holes, Sonotubes',
+    title: 'Concrete Calculators: Slabs, Posts, Sonotubes',
     description:
       'Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.',
     primaryKeyword: 'concrete calculator hub',
@@ -107,8 +107,10 @@ export const categories: Record<
       'Free lawn calculators for grass seed (new lawn and overseed) and fertilizer from nitrogen targets and N-P-K analysis. Rates per 1,000 sq ft.',
     primaryKeyword: 'lawn calculator',
     introHtml: `
-      <p>Lawn math is usually “pounds per 1,000 square feet.” The <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> multiplies your area by the bag rate for new lawns or overseeding—do not use new-lawn rates when overseeding. The <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> converts a nitrogen target and the bag’s N-P-K analysis into product pounds.</p>
-      <p>Match species and timing to local extension calendars, and calibrate spreaders so you apply the planned rate. Pair thin soil repairs with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>. These tools are planning aids, not site-specific agronomy advice.</p>
+      <p>Lawn math is usually “pounds per 1,000 square feet.” Measure length × width for rectangles, or break irregular yards into rectangles and add the areas. The <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> multiplies your area by the bag rate for <em>new lawns</em> or <em>overseeding</em>—those rates differ, so do not use a new-lawn rate when you are only thickening an existing stand. Read the species mix and lb/1,000&nbsp;sq&nbsp;ft printed on the seed bag; cool-season blends and warm-season sods are not interchangeable.</p>
+      <p>The <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> converts a nitrogen target (for example, a rule-of-thumb 0.5–1&nbsp;lb of actual N per 1,000&nbsp;sq&nbsp;ft per application—confirm with local extension) and the bag’s N-P-K analysis into product pounds. Product needed ≈ desired N ÷ (N% as a decimal). A 30-0-4 bag at 1&nbsp;lb N/1,000 needs about 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Never exceed label rates; more nitrogen is not “better” and can burn turf or feed weeds.</p>
+      <p>Pair thin soil, low spots, or new seedbeds with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> when you need a shallow fill (often about 0.5–2&nbsp;inches as a planning depth—check drainage and grade). Raised garden boxes next to the lawn use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> instead of lawn topdress rates. After seeding or fertilizing, water lightly and follow the product’s establishment schedule.</p>
+      <p>Guides in this cluster: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, and <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for a 4×8</a>. Match species and timing to local extension calendars, calibrate spreaders, and treat these tools as planning aids—not site-specific agronomy advice. Always check product labels and local fertilizer ordinances.</p>
     `,
   },
 };
@@ -422,7 +424,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
     relatedSlugs: ['sand-calculator', 'paver-calculator', 'retaining-wall-calculator'],
-    relatedGuideSlugs: ['gravel-types-for-driveways'],
+    relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
         question: 'How deep should driveway gravel be?',
@@ -463,7 +465,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Lawn and garden topsoil depth to yards.',
     calculatorId: 'topsoil',
     relatedSlugs: ['mulch-calculator', 'raised-bed-soil-calculator', 'sand-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide'],
+    relatedGuideSlugs: ['topsoil-vs-garden-soil', 'raised-bed-soil-mix-4x8', 'grass-seed-per-sq-ft'],
     faq: [
       {
         question: 'How much topsoil to level a yard?',
@@ -498,7 +500,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Bedding and fill sand by area and depth.',
     calculatorId: 'sand',
     relatedSlugs: ['paver-calculator', 'gravel-calculator', 'concrete-calculator'],
-    relatedGuideSlugs: ['gravel-types-for-driveways'],
+    relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
         question: 'How much sand under pavers?',
@@ -533,7 +535,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Patio paver counts with sand and base volumes.',
     calculatorId: 'paver',
     relatedSlugs: ['sand-calculator', 'gravel-calculator', 'retaining-wall-calculator'],
-    relatedGuideSlugs: ['gravel-types-for-driveways'],
+    relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
         question: 'How much waste for paver patterns?',
@@ -595,7 +597,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'deck material calculator',
     secondaryKeywords: ['deck board calculator', 'deck joist calculator', 'deck screws calculator'],
-    title: 'Deck Material Calculator – Boards, Joists & Screws | YardCalc',
+    title: 'Deck Material Calculator – Boards & Joists | YardCalc',
     description:
       'Deck material calculator for decking boards, joists at 16" o.c., rim joists, and screw counts. Free rectangular deck estimator.',
     h1: 'Deck Material Calculator',
@@ -604,7 +606,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
     relatedSlugs: ['sonotube-concrete-calculator', 'fence-calculator', 'paint-calculator'],
-    relatedGuideSlugs: ['how-to-measure-roof-pitch'],
+    relatedGuideSlugs: ['deck-material-list-12x16', 'how-to-measure-roof-pitch'],
     faq: [
       {
         question: 'What board width should I enter?',
@@ -685,7 +687,7 @@ export const tools: ToolDefinition[] = [
       'One roofing square covers 100 square feet of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add 10–15% waste. Most asphalt bundles cover about ⅓ square (3 bundles per square).',
     summary: 'Squares and bundles from plan area and pitch.',
     calculatorId: 'roofing',
-    relatedSlugs: ['roof-pitch-calculator', 'paint-calculator'],
+    relatedSlugs: ['roof-pitch-calculator', 'deck-material-calculator'],
     relatedGuideSlugs: ['how-to-measure-roof-pitch'],
     faq: [
       {
@@ -721,7 +723,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Room paint in gallons and liters with openings deducted.',
     calculatorId: 'paint',
     relatedSlugs: ['fence-calculator', 'deck-material-calculator'],
-    relatedGuideSlugs: ['how-to-measure-roof-pitch'],
+    relatedGuideSlugs: ['how-much-paint-for-a-room'],
     faq: [
       {
         question: 'How much does a gallon of paint cover?',
@@ -756,7 +758,7 @@ export const tools: ToolDefinition[] = [
     summary: 'SRW blocks, courses, and base gravel.',
     calculatorId: 'retaining-wall',
     relatedSlugs: ['gravel-calculator', 'paver-calculator', 'concrete-calculator'],
-    relatedGuideSlugs: ['gravel-types-for-driveways'],
+    relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
         question: 'Do I need geogrid?',
@@ -790,8 +792,8 @@ export const tools: ToolDefinition[] = [
       'Seed needed = (lawn sq ft ÷ 1000) × rate. Cool-season blends often use about 3–4 lb/1000 sq ft for new lawns and roughly half that for overseeding. Always follow the rate printed on your seed bag for the species mix.',
     summary: 'New lawn and overseed seed quantities.',
     calculatorId: 'grass-seed',
-    relatedSlugs: ['fertilizer-calculator', 'topsoil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide'],
+    relatedSlugs: ['fertilizer-calculator', 'topsoil-calculator', 'raised-bed-soil-calculator'],
+    relatedGuideSlugs: ['grass-seed-per-sq-ft', 'fertilizer-nitrogen-per-1000-sq-ft'],
     faq: [
       {
         question: 'Can I use new-lawn rates for overseeding?',
@@ -826,7 +828,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Product pounds from N rate and analysis.',
     calculatorId: 'fertilizer',
     relatedSlugs: ['grass-seed-calculator', 'topsoil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide'],
+    relatedGuideSlugs: ['fertilizer-nitrogen-per-1000-sq-ft', 'grass-seed-per-sq-ft'],
     faq: [
       {
         question: 'What do N-P-K numbers mean?',
@@ -868,8 +870,8 @@ export const tools: ToolDefinition[] = [
       'Raised bed soil volume = interior length × width × fill depth. An 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd). Many gardeners blend topsoil, compost, and aeration materials rather than using a single bagged product.',
     summary: 'Soil fill volume for garden boxes.',
     calculatorId: 'raised-bed',
-    relatedSlugs: ['topsoil-calculator', 'mulch-calculator', 'sand-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide'],
+    relatedSlugs: ['topsoil-calculator', 'mulch-calculator', 'grass-seed-calculator'],
+    relatedGuideSlugs: ['raised-bed-soil-mix-4x8', 'topsoil-vs-garden-soil'],
     faq: [
       {
         question: 'Should I fill the entire depth with potting mix?',

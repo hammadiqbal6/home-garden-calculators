@@ -1,0 +1,25 @@
+---
+description: SEO/AEO guardrails — titles, origin, linking, CI failures
+globs:
+  - src/**/*
+  - scripts/audit/**/*
+  - public/_headers
+  - public/_redirects
+  - worker/**/*
+  - docs/SEO-GUARDRAILS.md
+  - docs/CUSTOM-DOMAIN.md
+alwaysApply: true
+---
+
+# SEO guardrails
+
+Follow [docs/SEO-GUARDRAILS.md](docs/SEO-GUARDRAILS.md) and [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md).
+
+- Site origin: `PUBLIC_SITE_URL` / `siteConfig.siteUrl` only (`src/config/site-origin.mjs` holds the workers.dev fallback). Never paste this site’s hostname into pages or scripts.
+- Titles ≤60; meta description 50–165; one H1; answer-first 40–60 words on home/tools/guides.
+- `/sitemap.xml` must **301** to `/sitemap-index.xml` (not 200).
+- Worker file extension allowlist up to 16 chars (`.webmanifest`).
+- Every tool page links ≥1 topical guide; guides ≥800 words; topic-matched related links.
+- og:image absolute and must not end with `/`.
+- No `import` in classic inline scripts; no IndexNow placeholder keys; no `example.com` in dist.
+- `npm run audit:seo` must stay green.

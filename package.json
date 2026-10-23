@@ -9,11 +9,13 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/generate-og.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest run",
     "test:watch": "vitest",
+    "og": "node scripts/generate-og.mjs",
     "check:links": "node scripts/check-links.mjs",
     "audit:seo": "node scripts/audit/seo.mjs",
     "audit:adsense": "node scripts/audit/adsense.mjs",

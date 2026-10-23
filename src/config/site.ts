@@ -2,11 +2,14 @@
  * Single source of truth for brand, domain, and third-party IDs.
  * Public URL / contact / author / analytics / AdSense come from build-time
  * PUBLIC_* env vars (see `.env.example`). Nothing else should hardcode those values.
+ *
+ * Site origin: `PUBLIC_SITE_URL` → `siteConfig.siteUrl` (fallback in `site-origin.mjs`).
+ * Used for Astro `site`, canonicals, sitemap, robots.txt, llms.txt, OG, JSON-LD, IndexNow.
  */
 
-/** Canonical origin used when PUBLIC_SITE_URL is unset (Workers.dev deploy). */
-const DEFAULT_SITE_URL =
-  'https://home-garden-calculators.hammadiqbal117.workers.dev';
+import { DEFAULT_SITE_URL, normalizeSiteUrl } from './site-origin.mjs';
+
+export { DEFAULT_SITE_URL } from './site-origin.mjs';
 
 /** Public contact inbox used when PUBLIC_CONTACT_EMAIL is unset. */
 const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
@@ -48,18 +51,6 @@ function readPublicEnv(key: `PUBLIC_${string}`): string {
   const fromProcess =
     typeof process !== 'undefined' && process.env ? String(process.env[key] ?? '') : '';
   return (fromMeta || fromProcess).trim();
-}
-
-function normalizeSiteUrl(raw: string): string {
-  const trimmed = raw.replace(/\/+$/, '');
-  if (!trimmed) return DEFAULT_SITE_URL;
-  try {
-    const u = new URL(trimmed);
-    if (u.protocol !== 'http:' && u.protocol !== 'https:') return DEFAULT_SITE_URL;
-    return `${u.protocol}//${u.host}`;
-  } catch {
-    return DEFAULT_SITE_URL;
-  }
 }
 
 const siteUrl = normalizeSiteUrl(readPublicEnv('PUBLIC_SITE_URL'));
@@ -112,7 +103,7 @@ export const siteConfig = {
    * Site-wide content stamp. Change only when formulas, sources, or substantial copy change
    * (Google: do not refresh dates without real updates).
    */
-  contentUpdated: '2026-10-20',
+  contentUpdated: '2026-10-23',
   /** First public release date for ProfilePage / Article datePublished defaults */
   dateCreated: '2026-10-19',
   /**

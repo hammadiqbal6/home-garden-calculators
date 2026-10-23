@@ -3,8 +3,10 @@
 # Supported: 301/302/303/307/308 redirects and 200 proxying.
 # Not supported: domain-level (host) redirects — use Cloudflare Redirect Rules for apex↔www.
 
-# Serve Astro sitemap index under the common /sitemap.xml path (proxy, not a rewrite 404).
-/sitemap.xml /sitemap-index.xml 200
+# Prefer the Worker 301 for /sitemap.xml → /sitemap-index.xml (see worker/trailing-slash.js).
+# Keep a matching 301 here for asset-only previews that skip the Worker.
+/sitemap.xml /sitemap-index.xml 301
+/sitemap.xml/ /sitemap-index.xml 301
 
 # Single maintainer profile lives on /about/#maintainer (playbook).
 /authors /about/ 301

@@ -37,6 +37,15 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/mulch-for-common-garden-beds/` | mulch for garden bed sizes | how much mulch for flower bed |
 | `/guides/gravel-types-for-driveways/` | gravel types for driveways | crushed stone vs pea gravel |
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
+
+| `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per sq ft |
+| `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | lawn fertilizer rate |
+| `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | soil for 4x8 raised bed |
+| `/guides/how-much-paint-for-a-room/` | how much paint for a room | paint gallons for a room |
+| `/guides/paver-base-gravel-and-sand-depth/` | paver base gravel and sand depth | paver base thickness |
+| `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards |
+| `/guides/retaining-wall-blocks-and-base/` | retaining wall blocks and base | retaining wall gravel base |
+| `/guides/topsoil-vs-garden-soil/` | topsoil vs garden soil | garden soil vs topsoil |
 | `/about/` | about YardCalc | maintainer Hammad Iqbal |
 | `/contact/` | contact YardCalc | — |
 | `/privacy/` | YardCalc privacy policy | — |
@@ -52,3 +61,4 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.
 - Long-tail size guides (`10x10 slab`, `common garden beds`) must link to the primary calculator and not duplicate its primary keyword.
+- Expanded guide bodies live in `src/data/guideExpansions.ts`. Related tools must be **topic-matched** (fence→post-hole/fence; mulch→mulch tools; gravel→gravel/sand/paver; roof→pitch/shingles)—never a fixed concrete/gravel/mulch set on every guide.

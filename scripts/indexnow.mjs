@@ -16,10 +16,9 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveSiteOrigin } from '../src/config/site-origin.mjs';
 
 const DEFAULT_KEY = 'c2a68b8b8e7e6ba2253b408fa0fe2c4c';
-const DEFAULT_SITE_URL =
-  'https://home-garden-calculators.hammadiqbal117.workers.dev';
 const INDEXNOW_ENDPOINT = 'https://api.indexnow.org/indexnow';
 const BATCH_SIZE = 10_000;
 const DIST = path.resolve('dist');
@@ -93,8 +92,14 @@ async function main() {
 
   const dryRun = process.argv.includes('--dry-run');
   const key = (process.env.INDEXNOW_KEY || DEFAULT_KEY).trim();
-  const siteUrl = (process.env.PUBLIC_SITE_URL || DEFAULT_SITE_URL).replace(/\/+$/, '');
+  // Same origin resolution as Astro/canonicals/sitemap (PUBLIC_SITE_URL → site-origin.mjs).
+  const siteUrl = resolveSiteOrigin(process.env);
   const host = new URL(siteUrl).host;
+  const PLACEHOLDER_KEYS = new Set(['', 'changeme', 'your_key', 'YOUR_KEY', 'xxxxxxxx', 'placeholder']);
+  if (PLACEHOLDER_KEYS.has(key) || /^x{8,}$/i.test(key) || /placeholder/i.test(key)) {
+    log('error (non-fatal): IndexNow key looks like a placeholder — set INDEXNOW_KEY');
+    return;
+  }
   const keyLocation = `${siteUrl}/${key}.txt`;
 
   const urlList = collectUrlsFromSitemaps();

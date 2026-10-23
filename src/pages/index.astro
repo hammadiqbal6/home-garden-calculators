@@ -28,15 +28,19 @@ const jsonLd = [homeGraph()];
   description="Free concrete, mulch, gravel, fence, deck, roof pitch, paint, and landscape calculators. US & metric units, bag counts, and guides—no signup."
   canonicalPath="/"
   jsonLd={jsonLd}
+  ogImagePath="/og/home.svg"
+  ogImageAlt="YardCalc — free home and garden material calculators"
 >
   <section class="hero container">
     <p class="brand" style="margin:0 0 0.75rem;font-size:1.35rem">
       <span class="brand-mark" aria-hidden="true">Y</span> {siteConfig.name}
     </p>
     <h1>Free home &amp; garden material calculators</h1>
-    <p class="lede">
-      Estimate concrete bags, mulch yards, gravel tons, fence posts, deck boards, roof pitch, and more.
-      Private in-browser math with US imperial and metric units. Built by {siteConfig.author.name}.
+    <p class="lede answer-first">
+      YardCalc estimates concrete bags, mulch yards, gravel tons, grass seed, fertilizer, paint, and outdoor
+      materials from simple dimensions. Enter length, width, and depth (or area and rate) for cubic yards,
+      bags, or product pounds in US or metric units. Math runs privately in your browser—confirm bag yields,
+      local codes, and product labels before you buy.
     </p>
     <div class="btn-row">
       <a class="btn btn-primary" href="/calculators/concrete-calculator/">Concrete calculator</a>

@@ -7,6 +7,8 @@ This repository is a **production** static site of free home & garden material c
 | Doc | Role |
 |---|---|
 | [docs/SEO-PLAYBOOK.md](docs/SEO-PLAYBOOK.md) | Governing SEO / GEO / technical rules |
+| [docs/SEO-GUARDRAILS.md](docs/SEO-GUARDRAILS.md) | Do/don’t rules + CI failure conditions |
+| [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md) | Custom domain cutover (`PUBLIC_SITE_URL`) |
 | [docs/MARKET-RESEARCH.md](docs/MARKET-RESEARCH.md) | Niche research & AdSense eligibility notes |
 | [docs/ideas/README.md](docs/ideas/README.md) | All 23 ideas index + home/garden add-on backlog |
 | [docs/KEYWORD-MAP.md](docs/KEYWORD-MAP.md) | Primary keyword per live URL |
@@ -21,7 +23,7 @@ Cursor-specific: `.cursor/skills/*/SKILL.md`, `.cursor/rules/*.mdc`, `.cursor/ag
 ## Project overview
 
 - **Stack:** Astro 5 (static) + TypeScript, Vitest for calculator math, minimal client JS (calculator island).
-- **Config:** single file `src/config/site.ts` (domain, brand, AdSense, GA4, IndexNow, contact).
+- **Config:** `src/config/site.ts` (brand, AdSense, GA4, IndexNow, contact) + `src/config/site-origin.mjs` (**only** place for this site’s workers.dev fallback). Canonical origin = `PUBLIC_SITE_URL` → `siteConfig.siteUrl` everywhere. Never hardcode the site hostname elsewhere — CI fails. Cutover: [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md).
 - **Math:** pure functions in `src/lib/calculators/` — never duplicate formulas in page copy without matching tests.
 - **Content registries:** `src/data/tools.ts`, `src/data/guides.ts`.
 - **Pages:** file routes under `src/pages/` (dynamic `[slug].astro` for tools/guides/hubs).

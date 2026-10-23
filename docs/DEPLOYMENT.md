@@ -196,7 +196,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 
 | Name | Example / notes |
 | --- | --- |
-| `PUBLIC_SITE_URL` | `https://home-garden-calculators.hammadiqbal117.workers.dev` (or custom domain) |
+| `PUBLIC_SITE_URL` | Custom canonical origin (https, no trailing slash). Leave unset to use `DEFAULT_SITE_URL` in `src/config/site-origin.mjs`. See [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md). |
 | `PUBLIC_SITE_URL_PAYMENT_FEES` | Sister origin for FeeCalc cross-links (see `.env.example`) |
 | `PUBLIC_SITE_URL_BUSINESS_DOCS` | Sister origin for DocuForge Tools |
 | `PUBLIC_SITE_URL_HOME_GARDEN` | Sister origin for YardCalc (this site) |

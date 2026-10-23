@@ -7,11 +7,11 @@ alwaysApply: false
 # SEO page rules
 
 - One primary keyword per URL; update `docs/KEYWORD-MAP.md` when adding pages.
-- Title ≤60 chars with primary keyword near the start; meta description ≤155.
-- Exactly one H1; logical H2/H3; answer-first intro 40–60 words on tools/guides.
-- Self-referencing canonical; trailing slash; lowercase hyphenated slugs.
-- Include BreadcrumbList + WebApplication (tools) or Article (guides).
+- Title ≤60 chars with primary keyword near the start; meta description 50–165 (aim ≤155).
+- Exactly one H1; logical H2/H3; answer-first intro 40–60 words on home/tools/guides.
+- Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; lowercase hyphenated slugs.
+- Include BreadcrumbList + WebApplication (tools) or Article + FAQPage (guides with FAQ).
 - No fake ratings; no thin query-variant duplicates.
 - Cite sources; set datePublished/dateModified.
----
-
+- Tool pages: topical “Learn more” guide links; never a fixed unrelated related-tools list.
+- Site origin: see `docs/CUSTOM-DOMAIN.md` / `docs/SEO-GUARDRAILS.md` — no hardcoded site host.

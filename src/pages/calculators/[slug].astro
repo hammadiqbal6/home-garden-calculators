@@ -121,7 +121,8 @@ const jsonLd = [
   description={tool.description}
   canonicalPath={`/calculators/${tool.slug}/`}
   jsonLd={jsonLd}
-  ogImageAlt={diagram?.alt ?? siteConfig.defaultOgImageAlt}
+  ogImagePath={`/og/calculator-${tool.slug}.svg`}
+  ogImageAlt={diagram?.alt ?? `${tool.name} — YardCalc`}
 >
   <Breadcrumbs
     items={[
@@ -136,6 +137,23 @@ const jsonLd = [
       <h1>{tool.h1}</h1>
       <p class="answer-first">{tool.answerFirst}</p>
       <Calculator calculatorId={tool.calculatorId} />
+      {
+        relatedGuides.length > 0 && (
+          <div class="learn-more" style="margin-top:1.25rem">
+            <h2 style="font-size:1.1rem;margin:0 0 0.5rem">Learn more</h2>
+            <ul style="margin:0;padding-left:1.2rem">
+              {relatedGuides.map(
+                (g) =>
+                  g && (
+                    <li>
+                      <a href={`/guides/${g.slug}/`}>{g.h1}</a>
+                    </li>
+                  ),
+              )}
+            </ul>
+          </div>
+        )
+      }
       {tool.embeddable && <EmbedSnippet slug={tool.slug} name={tool.name} />}
     </section>
     <aside class="panel">

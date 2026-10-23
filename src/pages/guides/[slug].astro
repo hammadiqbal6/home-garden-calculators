@@ -13,8 +13,12 @@ export function getStaticPaths() {
 const guide = getGuide(Astro.params.slug!);
 if (!guide) throw new Error('Unknown guide');
 const relatedTools = guide.relatedToolSlugs.map((s) => getTool(s)).filter(Boolean);
+const relatedGuides = (guide.relatedGuideSlugs || [])
+  .map((s) => getGuide(s))
+  .filter(Boolean);
+const faqs = guide.faq || [];
 
-const jsonLd = [
+const jsonLd: Record<string, unknown>[] = [
   {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -51,6 +55,18 @@ const jsonLd = [
     mainEntityOfPage: absoluteUrl(`/guides/${guide.slug}/`),
   },
 ];
+
+if (faqs.length) {
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: { '@type': 'Answer', text: item.answer },
+    })),
+  });
+}
 ---
 
 <BaseLayout
@@ -59,6 +75,8 @@ const jsonLd = [
   canonicalPath={`/guides/${guide.slug}/`}
   ogType="article"
   jsonLd={jsonLd}
+  ogImagePath={`/og/guide-${guide.slug}.svg`}
+  ogImageAlt={`${guide.h1} — YardCalc`}
 >
   <Breadcrumbs
     items={[
@@ -75,6 +93,19 @@ const jsonLd = [
       · Published {guide.datePublished} · Last reviewed {guide.dateModified}
     </p>
     <Fragment set:html={guide.bodyHtml} />
+    {
+      faqs.length > 0 && (
+        <>
+          <h2>FAQ</h2>
+          {faqs.map((item) => (
+            <>
+              <h3>{item.question}</h3>
+              <p>{item.answer}</p>
+            </>
+          ))}
+        </>
+      )
+    }
     <h2>Related calculators</h2>
     <ul>
       {
@@ -88,6 +119,23 @@ const jsonLd = [
         )
       }
     </ul>
+    {
+      relatedGuides.length > 0 && (
+        <>
+          <h2>Related guides</h2>
+          <ul>
+            {relatedGuides.map(
+              (g) =>
+                g && (
+                  <li>
+                    <a href={`/guides/${g.slug}/`}>{g.h1}</a>
+                  </li>
+                ),
+            )}
+          </ul>
+        </>
+      )
+    }
     <div class="author-box">
       <p>
         Built and maintained by

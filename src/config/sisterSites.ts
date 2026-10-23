@@ -4,10 +4,13 @@
  * without code changes. Same variable names across all five tool repos.
  */
 
+import { DEFAULT_SITE_URL } from './site-origin.mjs';
+
 const DEFAULTS = {
   paymentFees: 'https://payment-fee-calculators.hammadiqbal117.workers.dev',
   businessDocs: 'https://business-document-generators.hammadiqbal117.workers.dev',
-  homeGarden: 'https://home-garden-calculators.hammadiqbal117.workers.dev',
+  /** Same fallback as PUBLIC_SITE_URL — do not paste the hostname again. */
+  homeGarden: DEFAULT_SITE_URL,
   fiberArts: 'https://fiber-arts-calculators.hammadiqbal117.workers.dev',
   pet: 'https://pet-calculators.hammadiqbal117.workers.dev',
 } as const;

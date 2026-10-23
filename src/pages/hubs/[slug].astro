@@ -42,6 +42,8 @@ const jsonLd = [
   description={cat.description}
   canonicalPath={`/hubs/${cat.slug}/`}
   jsonLd={jsonLd}
+  ogImagePath={`/og/hub-${cat.slug}.svg`}
+  ogImageAlt={`${cat.name} — YardCalc`}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: cat.name }]} />
   <div class="container" style="padding-bottom:3rem">

@@ -19,4 +19,4 @@ New guide, expanding thin copy, or shipping an item from `docs/SEO-GUIDE.md` con
 8. Run `npm test && npm run build && npm run audit && npm run check:links`.
 
 ## Quality bar
-Non-commodity examples, no doorway duplicates, E-E-A-T via sources + methodology links. Titles ≤60 with `| YardCalc`. Follow `docs/SEO-GUARDRAILS.md`.
+Non-commodity examples, no doorway duplicates, E-E-A-T via sources + methodology links. Titles 25–65 (aim ~30–60) with `| YardCalc`. Follow `docs/SEO-GUARDRAILS.md`.

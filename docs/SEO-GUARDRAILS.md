@@ -5,8 +5,8 @@ Machine-checked where noted (`npm run audit:seo`, `npm run check:links`). Human 
 ## Do
 
 - **One origin:** set `PUBLIC_SITE_URL` (or rely on `DEFAULT_SITE_URL` in `src/config/site-origin.mjs`). Use `siteConfig.siteUrl` / `resolveSiteOrigin()` for canonicals, sitemap, robots Sitemap line, llms.txt, OG, JSON-LD, IndexNow. See [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md).
-- **Titles ≤60 characters** (including brand suffix). Keyword near the start.
-- **Meta descriptions 50–165 characters** (aim 120–160).
+- **Titles 25–65 characters** (aim ~30–60, including brand). Keyword near the start; keep `og:title` / Twitter title in sync (same string via `BaseLayout`).
+- **Meta descriptions 70–160 characters** (aim ~120–160); keep `og:description` / Twitter description in sync.
 - **Exactly one H1** per page; answer-first intro (about 40–60 words) under the H1 on home, tools, and guides.
 - **Self-canonical** absolute URL ending in `/`, same host as `PUBLIC_SITE_URL`.
 - **og:image** absolute URL that does **not** end with `/`. Prefer per-page `/og/*.svg` (or default PNG).
@@ -37,8 +37,8 @@ Machine-checked where noted (`npm run audit:seo`, `npm run check:links`). Human 
 | example.com in `dist/` | placeholder domains in build output |
 | Hardcoded this-site workers.dev | appears outside `site-origin.mjs` / `CUSTOM-DOMAIN.md` |
 | og:image trailing `/` | image URL ends with `/` |
-| Title | missing or `>60` chars |
-| Meta description | missing or outside 50–165 |
+| Title | missing or outside 25–65 chars |
+| Meta description | missing or outside 70–160 chars |
 | Canonical | missing or wrong host |
 | H1 | missing or more than one |
 | Tool without guide link | no `/guides/…` href on tool pages |

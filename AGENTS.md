@@ -15,6 +15,7 @@ This repository is a **production** static site of free home & garden material c
 | [docs/SEO-GUIDE.md](docs/SEO-GUIDE.md) | Launch & post-launch SEO ops |
 | [docs/ADSENSE.md](docs/ADSENSE.md) | AdSense enablement |
 | [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Hosting |
+| [docs/CONTACT-EMAILJS.md](docs/CONTACT-EMAILJS.md) | Optional EmailJS contact form (public env IDs) |
 
 Cursor-specific: `.cursor/skills/*/SKILL.md`, `.cursor/rules/*.mdc`, `.cursor/agents/*.md`.
 
@@ -50,7 +51,7 @@ flowchart LR
 4. **Export** from `src/lib/calculators/index.ts`.
 5. **Wire UI** in `src/components/Calculator.astro` (`configs` map + `calculatorId`).
 6. **Register the tool** in `src/data/tools.ts` with:
-   - unique `primaryKeyword`, secondaries, title (<60), description (<155)
+   - unique `primaryKeyword`, secondaries, title (25–65, aim ~30–60), description (70–160, aim ~120–160)
    - `answerFirst` (40–60 words), `sectionsHtml` (600–1200 words worth of unique HTML), FAQ, sources
    - `relatedSlugs` / `relatedGuideSlugs`, dates, `applicationCategory`
 7. **Update keyword map** `docs/KEYWORD-MAP.md`.

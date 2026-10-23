@@ -5,8 +5,8 @@ import { siteConfig } from '../config/site';
 ---
 
 <BaseLayout
-  title="Privacy Policy | YardCalc"
-  description="YardCalc privacy policy: in-browser calculators, cookies, Google AdSense/GA4 disclosures, and ad opt-out links."
+  title="Privacy Policy | YardCalc Cookies & Ads"
+  description="YardCalc privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads."
   canonicalPath="/privacy/"
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Privacy' }]} />
@@ -24,8 +24,9 @@ import { siteConfig } from '../config/site';
         contains query parameters.
       </li>
       <li>
-        <strong>Contact email:</strong> if you email {siteConfig.contactEmail}, we receive the message
-        contents you send.
+        <strong>Contact:</strong> if you email {siteConfig.contactEmail} or use the optional contact
+        form (EmailJS when configured), we receive your message to respond. The form sends name,
+        email, and message via EmailJS’s API; see their privacy policy. We do not sell contact data.
       </li>
       <li>
         <strong>Logs:</strong> hosting providers may log standard request metadata (IP, user agent) for

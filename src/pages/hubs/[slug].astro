@@ -46,22 +46,22 @@ const jsonLd = [
   ogImageAlt={`${cat.name} — YardCalc`}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: cat.name }]} />
-  <div class="container" style="padding-bottom:3rem">
+  <div class="container hub-page" style="padding-bottom:3rem">
     <h1>{cat.name}</h1>
-    <article class="prose panel" style="margin:1rem 0 1.5rem">
-      <Fragment set:html={cat.introHtml} />
-    </article>
-    <h2>Calculators in this hub</h2>
-    <div class="card-grid cols-3" style="margin-top:1rem">
+    <p class="answer-first lede">{cat.answerFirst}</p>
+    <div class="card-grid cols-3 hub-tool-grid" style="margin-top:0.75rem">
       {
         hubTools.map((t) => (
-          <a class="tool-card" href={`/calculators/${t.slug}/`}>
-            <h3>{t.name}</h3>
+          <a class="tool-card hub-tool-card" href={`/calculators/${t.slug}/`}>
+            <h2>{t.name}</h2>
             <p>{t.summary}</p>
           </a>
         ))
       }
     </div>
+    <article class="prose panel" style="margin:1.5rem 0">
+      <Fragment set:html={cat.introHtml} />
+    </article>
     {
       hubGuides.length > 0 && (
         <>

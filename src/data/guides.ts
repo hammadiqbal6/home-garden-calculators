@@ -129,7 +129,7 @@ export const guides: GuideDefinition[] = [
     primaryKeyword: 'gravel types for driveways',
     secondaryKeywords: ['driveway gravel depth', 'crushed stone vs pea gravel'],
     answerFirst:
-      'Driveways usually need a compacted angular crushed-stone base (often called dense grade or crusher run) topped with a stable surface aggregate. Rounded pea gravel looks tidy but can roll under tires. Depth depends on soil and traffic—many DIY drives use several inches of compacted base plus a surface course.',
+      'Most DIY gravel driveways use about 4–6 inches of compacted angular crushed-stone base (dense grade / crusher run) plus 2–3 inches of surface aggregate—often 1.2–1.5 tons per cubic yard depending on rock type. Rounded pea gravel looks tidy but can roll under tires; prefer angular stone for driving surfaces.',
     relatedToolSlugs: ['gravel-calculator', 'sand-calculator', 'paver-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
@@ -170,7 +170,7 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'fertilizer-nitrogen-per-1000-sq-ft',
-    title: 'Fertilizer N per 1,000 Sq Ft',
+    title: 'How Much Nitrogen per 1,000 Sq Ft? (Lawn Chart)',
     description:
       'Calculate lawn fertilizer product pounds from a nitrogen target and N-P-K analysis, with examples per 1,000 square feet and label safety tips.',
     h1: 'Fertilizer Nitrogen per 1,000 Square Feet',
@@ -229,7 +229,7 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'deck-material-list-12x16',
-    title: '12×16 Deck Material List',
+    title: '12×16 Deck Material List & Cost (Boards, Joists)',
     description:
       'Planning takeoff for a 12×16 ft deck: footprint, board and joist counting ideas, waste rules of thumb, and links to deck and footing calculators.',
     h1: 'Deck Material List for a 12×16 Deck',
@@ -253,7 +253,7 @@ export const guides: GuideDefinition[] = [
     primaryKeyword: 'retaining wall blocks and base',
     secondaryKeywords: ['how many retaining wall blocks', 'retaining wall gravel base'],
     answerFirst:
-      'Block count is roughly wall length divided by block length times the number of courses, plus waste and corners. Small segmental walls usually sit on compacted gravel in a trench; taller walls need engineering and may require geogrid. Follow the block manufacturer’s height chart.',
+      'A 20 ft wall that is 3 ft exposed (about 4 courses of 8-inch-tall blocks) needs roughly 120 face blocks before corners and ~5–10% waste, plus a compacted gravel trench often 6 inches deep and a few inches wider than the block. Taller walls need engineering and may require geogrid—follow the manufacturer height chart.',
     relatedToolSlugs: ['retaining-wall-calculator', 'gravel-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
@@ -263,7 +263,7 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'topsoil-vs-garden-soil',
-    title: 'Topsoil vs Garden Soil (Cubic Yards)',
+    title: 'Topsoil vs Garden Soil: Differences, Uses & Cost',
     description:
       'Understand topsoil versus bagged garden or raised-bed mixes, calculate cubic yards from area and depth, and choose bulk vs bags for the job.',
     h1: 'Topsoil vs Garden Soil',

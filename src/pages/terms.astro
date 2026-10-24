@@ -2,12 +2,35 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Terms', item: absoluteUrl('/terms/') },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Terms of Use',
+    description:
+      'YardCalc terms of use for free home and garden calculators and guides. Results are estimates only.',
+    url: absoluteUrl('/terms/'),
+    isPartOf: { '@id': `${absoluteUrl('/')}#website` },
+    dateModified: siteConfig.contentUpdated,
+  },
+];
 ---
 
 <BaseLayout
   title="Terms of Use for YardCalc Calculators and Guides"
   description="YardCalc terms of use for free home and garden calculators and guides. Results are estimates only—verify with professionals, labels, and local codes."
   canonicalPath="/terms/"
+  jsonLd={jsonLd}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Terms' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
@@ -15,20 +38,36 @@ import { siteConfig } from '../config/site';
     <p class="answer-first">
       YardCalc provides free estimation tools and educational content. Results are approximate aids—not
       engineering, architectural, or legal advice. Verify materials with manufacturers, suppliers, and local
-      building codes.
+      building codes before you buy or build.
     </p>
-    <p>Last updated {siteConfig.contentUpdated}</p>
+    <p class="meta-row">Last updated {siteConfig.contentUpdated}</p>
     <h2>License to use</h2>
     <p>
       You may use the calculators for personal and professional estimating. Embeddable widgets must retain
-      the visible credit link. Do not scrape the site in a way that degrades service or violates applicable law.
+      the visible credit link back to the matching calculator page. Do not scrape or automate access in a way
+      that degrades service or violates applicable law.
+    </p>
+    <h2>Accuracy and responsibility</h2>
+    <p>
+      Formulas are documented on each tool page and in the <a href="/methodology/">methodology</a> notes, but
+      bag yields, rock densities, seed rates, and codes vary by product and location. You assume responsibility
+      for purchasing decisions, structural safety, and compliance with local rules.
     </p>
     <h2>Disclaimer</h2>
     <p>
-      We strive for accurate formulas but bag yields, densities, and codes vary. You assume responsibility for
-      purchasing decisions and structural safety.
+      The site is provided “as is” without warranties of merchantability or fitness for a particular purpose.
+      To the extent permitted by law, {siteConfig.name} and its maintainer are not liable for indirect or
+      consequential damages arising from use of the tools or guides.
+    </p>
+    <h2>Privacy and analytics</h2>
+    <p>
+      Calculator inputs are processed in your browser. Optional analytics cookies load only after consent. See
+      the <a href="/privacy/">privacy policy</a> for details.
     </p>
     <h2>Contact</h2>
-    <p><a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a></p>
+    <p>
+      Questions about these terms: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+      or the <a href="/contact/">contact page</a>.
+    </p>
   </article>
 </BaseLayout>

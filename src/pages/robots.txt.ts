@@ -5,7 +5,6 @@ export const GET: APIRoute = () => {
   // Every bot-specific group must repeat Disallow rules. Groups with only
   // "Allow: /" cancel the * Disallows for that bot (most-specific group wins).
   const disallows = `Allow: /
-Disallow: /embed/
 Disallow: /*?utm_`;
 
   const body = `# YardCalc robots.txt

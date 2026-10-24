@@ -3,22 +3,51 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
 
 const { emailjs, contactEmail, name: siteName } = siteConfig;
 const formEnabled = emailjs.enabled;
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: absoluteUrl('/contact/') },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    name: `Contact ${siteName}`,
+    description:
+      'Contact YardCalc about calculator feedback, corrections, bug reports, or partnership and embed inquiries.',
+    url: absoluteUrl('/contact/'),
+    isPartOf: { '@id': `${absoluteUrl('/')}#website` },
+    mainEntity: {
+      '@type': 'Organization',
+      name: siteName,
+      email: contactEmail,
+      url: absoluteUrl('/'),
+    },
+  },
+];
 ---
 
 <BaseLayout
   title="Contact YardCalc — Feedback, Bugs and Partnerships"
   description="Contact YardCalc about calculator feedback, corrections, bug reports, or partnership and embed inquiries. We read every message."
   canonicalPath="/contact/"
+  jsonLd={jsonLd}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Contact' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
     <h1>Contact</h1>
     <p class="answer-first">
-      For corrections, feature requests, or licensing the embeddable widgets, send a message below
-      or email us. We read every message; reply times vary.
+      For corrections, feature requests, or licensing the embeddable widgets, email
+      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+      or use the form below. Typical reply time is within 2 business days.
     </p>
 
     {
@@ -44,6 +73,7 @@ const formEnabled = emailjs.enabled;
       <li>The calculator URL and inputs you used</li>
       <li>Expected vs actual result (if reporting a bug)</li>
       <li>Sources we should cite for a correction</li>
+      <li>For formula corrections, use the same inbox—messages feed the <a href="/methodology/#changelog">correction log</a></li>
     </ul>
     <p class="meta-row">Last updated {siteConfig.contentUpdated}</p>
   </article>

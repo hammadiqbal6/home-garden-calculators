@@ -111,7 +111,7 @@ export const siteConfig = {
    * Site-wide content stamp. Change only when formulas, sources, or substantial copy change
    * (Google: do not refresh dates without real updates).
    */
-  contentUpdated: '2026-10-23',
+  contentUpdated: '2026-10-24',
   /** First public release date for ProfilePage / Article datePublished defaults */
   dateCreated: '2026-10-19',
   /**

@@ -43,9 +43,23 @@ flowchart LR
 
 ---
 
+## Research first (any new or reworked page)
+
+Before drafting copy or registering a URL:
+
+1. One primary query + SERP/PAA review (format of top results, gaps).
+2. Intent: do / know / compare / navigate — match tool, guide, or hub.
+3. Cannibalization check in [`docs/KEYWORD-MAP.md`](docs/KEYWORD-MAP.md).
+4. Follow [`docs/PAGE-CHECKLIST.md`](docs/PAGE-CHECKLIST.md) end-to-end (also summarized in `.cursor/rules/seo-pages.mdc`).
+5. Answer-first: ≤60 words before the first input (tools) or numeric answer (guides/hubs); hubs put the card grid directly under the lead; cookie bar ≤56px.
+
+CI enforces the checklist via `npm run audit:pages` (included in `npm run audit`).
+
+---
+
 ## How to add a new tool page (step-by-step)
 
-1. **Pick a unique intent** — check `docs/KEYWORD-MAP.md` and `docs/ideas/README.md` add-on backlog. No cannibalizing an existing primary keyword.
+1. **Pick a unique intent** — research first (above); check `docs/KEYWORD-MAP.md` and `docs/ideas/README.md` add-on backlog. No cannibalizing an existing primary keyword.
 2. **Implement math** in `src/lib/calculators/<name>.ts` (pure functions, imperial+metric via `src/lib/units.ts`).
 3. **Add Vitest cases** in `tests/calculators.test.ts` (or colocated `*.test.ts`). Formulas must be verified.
 4. **Export** from `src/lib/calculators/index.ts`.
@@ -121,7 +135,8 @@ A change is done when:
 | `npm run audit:seo` | SEO auditor |
 | `npm run audit:adsense` | AdSense readiness |
 | `npm run audit:perf` | Performance budget check on `dist/` |
-| `npm run audit` | All auditors |
+| `npm run audit:pages` | Per-page checklist (answer-first, title/meta, JSON-LD, sitemap, viewport) |
+| `npm run audit` | All auditors (SEO + AdSense + perf + pages) |
 | `npm run lighthouse` | Lighthouse CI (mobile) |
 
 ---

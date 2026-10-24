@@ -17,10 +17,10 @@ env:
 
 jobs:
   build-test-audit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
@@ -32,17 +32,17 @@ jobs:
         run: npm run build
       - name: Link check
         run: npm run check:links
-      - name: Audits (SEO, AdSense, perf budgets)
+      - name: Audits (SEO, AdSense, perf, page checklist)
         run: npm run audit
       - name: Lighthouse CI
         run: npm run lighthouse
         continue-on-error: true
 
   proof:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm
@@ -55,7 +55,7 @@ jobs:
       - name: Regenerate proof bundle
         run: npm run proof
       - name: Upload proof artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: docs-proof
           path: docs/proof/

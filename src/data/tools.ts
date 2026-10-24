@@ -58,7 +58,9 @@ export const categories: Record<
     title: string;
     description: string;
     primaryKeyword: string;
-    /** 150–300 words of unique hub intro HTML */
+    /** 1–2 sentence answer-first lead with a number (above the card grid) */
+    answerFirst: string;
+    /** Extra HTML below the card grid (tables, longer explainer) */
     introHtml: string;
   }
 > = {
@@ -69,10 +71,22 @@ export const categories: Record<
     description:
       'Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.',
     primaryKeyword: 'concrete calculator hub',
+    answerFirst:
+      'Estimate slabs, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈45–46 × 80 lb bags before waste).',
     introHtml: `
-      <p>Pick the calculator that matches your pour shape. The <a href="/calculators/concrete-calculator/">slab and footing calculator</a> converts length × width × thickness into cubic yards and 40/60/80&nbsp;lb bags—use it for patios, pads, and rectangular footings. The <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> is for cylindrical fence or sign holes (diameter × depth × count). The <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> covers cardboard column forms for deck piers and posts.</p>
-      <p>Start with dimensions in feet (or meters), add about 10% waste for DIY bag mixes, and confirm bag yields on the label. For step-by-step bag charts see <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a> and <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a>. Always check local frost-line depth and building codes before you dig or pour.</p>
-      <p>Common sizes: a 10×10 patio at 4&nbsp;inches is roughly 1.2&nbsp;cu&nbsp;yd before waste; an 8-inch-wide, 2-foot-deep fence hole is often one to two 60–80&nbsp;lb bags. Use the specialized tools rather than forcing post holes or tubes into the slab calculator.</p>
+      <h2>Which concrete calculator do I need?</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Match the pour shape to the right tool</caption>
+        <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
+        <tbody>
+          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Slab / footing calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³</td></tr>
+          <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole calculator</a></td><td>Often 1–3 bags per hole</td></tr>
+          <tr><td>Cardboard column forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a></td><td>π × r² × height</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Start with dimensions in feet (or meters), add about 10% waste for DIY bag mixes, and confirm bag yields on the label. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a>, and <a href="/guides/concrete-for-10x10-slab/">10×10 slab</a>. Check frost-line depth and local codes before you dig or pour.</p>
     `,
   },
   landscape: {
@@ -82,9 +96,23 @@ export const categories: Record<
     description:
       'Free landscape calculators for mulch, gravel, topsoil, sand, pavers and raised beds. Enter area and depth for cubic yards, tons and bag counts.',
     primaryKeyword: 'landscape material calculator',
+    answerFirst:
+      'Convert bed area × depth into cubic yards, tons, or bags for mulch, gravel, topsoil, sand, pavers, and raised beds. At 3 inches deep, 100 sq ft of mulch is about 0.93 cu yd (roughly thirteen 2 cu ft bags).',
     introHtml: `
-      <p>Landscape volume tools share one idea: area × depth, then convert to yards or bags. Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes that stay off the trunk flare. Depth guidance lives in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds).</p>
-      <p>Order bulk gravel and topsoil with the <a href="/calculators/gravel-calculator/">gravel</a> and <a href="/calculators/topsoil-calculator/">topsoil</a> tools—confirm density with your local yard when converting yards to tons. Paver projects usually need bedding sand plus a compacted base; pair the <a href="/calculators/paver-calculator/">paver calculator</a> with sand and gravel estimates. Raised beds get their own <a href="/calculators/raised-bed-soil-calculator/">soil volume tool</a>.</p>
+      <h2>Bulk yards vs bags</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Planning rule of thumb (confirm bag size on the label)</caption>
+        <thead><tr><th>Material</th><th>1 cubic yard ≈</th><th>When bags win</th></tr></thead>
+        <tbody>
+          <tr><td>Mulch (2 cu ft bags)</td><td>~13.5 bags</td><td>Under ~1 yd or tight access</td></tr>
+          <tr><td>Mulch (3 cu ft bags)</td><td>~9 bags</td><td>Small beds and top-ups</td></tr>
+          <tr><td>Topsoil / compost blends</td><td>Bulk by the yard</td><td>Raised beds and small fills</td></tr>
+          <tr><td>Gravel / crushed stone</td><td>~1.2–1.5 tons (density varies)</td><td>Only for tiny patches</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and <a href="/calculators/gravel-calculator/">gravel</a>; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>.</p>
     `,
   },
   outdoor: {
@@ -94,9 +122,24 @@ export const categories: Record<
     description:
       'Free calculators for fence posts and pickets, deck boards and joists, roof pitch and shingles, paint gallons and retaining wall blocks.',
     primaryKeyword: 'outdoor project calculator',
+    answerFirst:
+      'Plan fence posts and pickets, deck boards, roof pitch and shingles, paint gallons, and retaining-wall blocks before you buy. A 100 ft fence with 8 ft sections typically needs 14 posts (sections + 1) before gates and corners.',
     introHtml: `
-      <p>Plan the structure before you buy materials. The <a href="/calculators/fence-calculator/">fence calculator</a> counts posts, rails and pickets from run length and spacing—then estimate concrete with the <a href="/calculators/concrete-calculator-post-holes/">post hole tool</a>. Deck framing and boards use the <a href="/calculators/deck-material-calculator/">deck material calculator</a>; pier concrete often uses the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>.</p>
-      <p>Roof work splits geometry from materials: measure pitch safely with the <a href="/guides/how-to-measure-roof-pitch/">roof pitch guide</a> and <a href="/calculators/roof-pitch-calculator/">pitch calculator</a>, then estimate squares and bundles with the <a href="/calculators/roofing-shingles-calculator/">shingles calculator</a>. Interior or exterior walls use the <a href="/calculators/paint-calculator/">paint calculator</a>. Segmental walls use the <a href="/calculators/retaining-wall-calculator/">retaining wall block calculator</a>—taller walls may need engineering.</p>
+      <h2>Project picker</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Start with the structure, then add related materials</caption>
+        <thead><tr><th>If you are building…</th><th>Start here</th><th>Also estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Fence line</td><td><a href="/calculators/fence-calculator/">Fence calculator</a></td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete</a></td></tr>
+          <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube piers</a></td></tr>
+          <tr><td>Roof / re-roof</td><td><a href="/calculators/roof-pitch-calculator/">Pitch</a> → <a href="/calculators/roofing-shingles-calculator/">Shingles</a></td><td><a href="/guides/how-to-measure-roof-pitch/">Measure pitch safely</a></td></tr>
+          <tr><td>Painted walls</td><td><a href="/calculators/paint-calculator/">Paint calculator</a></td><td><a href="/guides/how-much-paint-for-a-room/">Room paint guide</a></td></tr>
+          <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Deck takeoff example: <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>. Taller retaining walls may need engineering—follow the block manufacturer’s height chart.</p>
     `,
   },
   lawn: {
@@ -106,11 +149,23 @@ export const categories: Record<
     description:
       'Free lawn calculators for grass seed (new lawn and overseed) and fertilizer from nitrogen targets and N-P-K analysis. Rates per 1,000 sq ft.',
     primaryKeyword: 'lawn calculator',
+    answerFirst:
+      'Convert lawn area into grass-seed pounds and fertilizer product pounds using rates per 1,000 sq ft. A 5,000 sq ft cool-season new lawn at 6 lb/1,000 needs about 30 lb of seed (use the rate on your bag).',
     introHtml: `
-      <p>Lawn math is usually “pounds per 1,000 square feet.” Measure length × width for rectangles, or break irregular yards into rectangles and add the areas. The <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> multiplies your area by the bag rate for <em>new lawns</em> or <em>overseeding</em>—those rates differ, so do not use a new-lawn rate when you are only thickening an existing stand. Read the species mix and lb/1,000&nbsp;sq&nbsp;ft printed on the seed bag; cool-season blends and warm-season sods are not interchangeable.</p>
-      <p>The <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> converts a nitrogen target (for example, a rule-of-thumb 0.5–1&nbsp;lb of actual N per 1,000&nbsp;sq&nbsp;ft per application—confirm with local extension) and the bag’s N-P-K analysis into product pounds. Product needed ≈ desired N ÷ (N% as a decimal). A 30-0-4 bag at 1&nbsp;lb N/1,000 needs about 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Never exceed label rates; more nitrogen is not “better” and can burn turf or feed weeds.</p>
-      <p>Pair thin soil, low spots, or new seedbeds with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> when you need a shallow fill (often about 0.5–2&nbsp;inches as a planning depth—check drainage and grade). Raised garden boxes next to the lawn use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> instead of lawn topdress rates. After seeding or fertilizing, water lightly and follow the product’s establishment schedule.</p>
-      <p>Guides in this cluster: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, and <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for a 4×8</a>. Match species and timing to local extension calendars, calibrate spreaders, and treat these tools as planning aids—not site-specific agronomy advice. Always check product labels and local fertilizer ordinances.</p>
+      <h2>Seasonal lawn calendar (planning)</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Typical cool-season timing—confirm with local extension</caption>
+        <thead><tr><th>Season</th><th>Common tasks</th><th>YardCalc tools</th></tr></thead>
+        <tbody>
+          <tr><td>Early spring</td><td>Soil test, light cleanup, pre-emergent where appropriate</td><td><a href="/calculators/fertilizer-calculator/">Fertilizer</a></td></tr>
+          <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a></td></tr>
+          <tr><td>Fall</td><td>Nitrogen feeding per local calendar; topdress thin spots</td><td><a href="/calculators/topsoil-calculator/">Topsoil</a></td></tr>
+          <tr><td>Anytime (beds)</td><td>Raised-bed fills next to the lawn</td><td><a href="/calculators/raised-bed-soil-calculator/">Raised bed soil</a></td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>New-lawn and overseed rates differ—read the bag. Product fertilizer ≈ desired N ÷ (N% as a decimal); a 30-0-4 bag at 1&nbsp;lb N/1,000 needs about 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Guides: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a>.</p>
     `,
   },
 };
@@ -130,7 +185,7 @@ export const tools: ToolDefinition[] = [
     title: 'Concrete Calculator: Bags & Cubic Yards for Slabs',
     description:
       'Free concrete calculator for slabs, footings and steps. Enter length, width and depth to get cubic yards and 40, 60 or 80 lb bag counts with waste added.',
-    h1: 'Concrete Calculator',
+    h1: 'Concrete Calculator: Cubic Yards & 40/60/80 lb Bags',
     answerFirst:
       'A concrete calculator converts your project dimensions into cubic feet and cubic yards, then into 40, 60, or 80 lb bags. For a slab, multiply length × width × thickness (in feet); divide by 27 for yards. Add about 10% waste. Typical bag yields are 0.30, 0.45, and 0.60 cubic feet.',
     summary: 'Slabs, footings, and solid steps with cubic yards and bag counts.',
@@ -269,7 +324,7 @@ export const tools: ToolDefinition[] = [
     title: 'Sonotube Concrete Calculator | YardCalc',
     description:
       'Sonotube concrete calculator for round columns and deck piers. Enter tube diameter and height for cubic yards and bag counts.',
-    h1: 'Sonotube Concrete Calculator',
+    h1: 'Sonotube Concrete Calculator: Bags by Diameter',
     answerFirst:
       'Sonotube (round cardboard form) volume is π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 60 lb bags before waste. Multiply by the number of piers and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
@@ -317,7 +372,7 @@ export const tools: ToolDefinition[] = [
     title: 'Mulch Calculator: How Much Mulch Do I Need? (Yards/Bags)',
     description:
       'Enter bed length, width and depth to see how many cubic yards or 2 and 3 cu ft bags of mulch you need. Includes recommended mulch depths for beds and trees.',
-    h1: 'Mulch Calculator',
+    h1: 'Mulch Calculator: Cubic Yards & Bags',
     answerFirst:
       'Mulch volume equals area times depth. Convert depth to feet (3 inches = 0.25 ft), then multiply by square feet. Divide cubic feet by 27 for yards, or by 2 or 3 for bag counts. Most beds need 2–3 inches of organic mulch; keep mulch off tree trunks.',
     summary: 'Bed mulch in cubic yards and bag counts.',
@@ -378,7 +433,7 @@ export const tools: ToolDefinition[] = [
     title: 'Mulch Calculator for Tree Rings – Donut Volume | YardCalc',
     description:
       'Calculate mulch for tree rings: enter outer ring and trunk diameters plus depth for cubic feet, yards, and bags. Avoid volcano mulching.',
-    h1: 'Mulch Calculator for Tree Rings',
+    h1: 'Mulch Calculator for Tree Rings: Donut Volume',
     answerFirst:
       'Tree-ring mulch volume uses a donut (annulus): π × (R_outer² − R_trunk²) × depth. Leave a small bare gap at the trunk flare—do not pile mulch against bark. A 6 ft wide ring around a 1 ft trunk at 3 inches deep needs about 7 cu ft of mulch.',
     summary: 'Annular mulch rings around trees by outer and trunk diameter.',
@@ -418,7 +473,7 @@ export const tools: ToolDefinition[] = [
     title: 'Gravel Calculator – Tons & Cubic Yards | YardCalc',
     description:
       'Gravel and crushed stone calculator: length, width, and depth to cubic yards and estimated tons. Useful for driveways, paths, and bases.',
-    h1: 'Gravel Calculator',
+    h1: 'Gravel Calculator: Tons & Cubic Yards',
     answerFirst:
       'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate. Add ~10% for compaction on driveways and paths.',
     summary: 'Driveway and path gravel in yards and tons.',
@@ -459,7 +514,7 @@ export const tools: ToolDefinition[] = [
     title: 'Topsoil Calculator – Cubic Yards & Bags | YardCalc',
     description:
       'Calculate topsoil for lawns and beds: enter length, width and depth to get cubic yards, cubic meters and bag estimates with waste. Free planning tool.',
-    h1: 'Topsoil Calculator',
+    h1: 'Topsoil Calculator: Yards, Bags & Tons',
     answerFirst:
       'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; bagged soil is handy for small beds. Include ~10% for settling.',
     summary: 'Lawn and garden topsoil depth to yards.',
@@ -494,7 +549,7 @@ export const tools: ToolDefinition[] = [
     title: 'Sand Calculator – Beds, Pavers & Play | YardCalc',
     description:
       'Sand calculator for paver bedding, leveling, and play areas. Converts dimensions to cubic yards and estimated tons.',
-    h1: 'Sand Calculator',
+    h1: 'Sand Calculator: Cubic Yards & Bags',
     answerFirst:
       'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding.',
     summary: 'Bedding and fill sand by area and depth.',
@@ -529,7 +584,7 @@ export const tools: ToolDefinition[] = [
     title: 'Paver Calculator – Count, Sand & Base | YardCalc',
     description:
       'Estimate pavers needed plus bedding sand and gravel base. Enter patio size and paver dimensions with a waste percent.',
-    h1: 'Paver Calculator',
+    h1: 'Paver Calculator: Count, Sand & Base',
     answerFirst:
       'Pavers needed ≈ patio area ÷ paver face area, then add 5–10% waste for cuts. A 10×10 patio with 12×12 inch pavers needs 100 pavers, about 110 with 10% waste. Plan ~1" sand bed and several inches of compacted gravel base.',
     summary: 'Patio paver counts with sand and base volumes.',
@@ -561,10 +616,10 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'fence calculator',
     secondaryKeywords: ['fence post calculator', 'picket fence calculator', 'rails and pickets'],
-    title: 'Fence Calculator – Posts, Rails & Pickets | YardCalc',
+    title: 'Fence Calculator – Posts, Rails, Pickets & Concrete',
     description:
       'Fence materials calculator for posts, rails, and pickets from total run length and spacing. Includes concrete bag estimate for posts.',
-    h1: 'Fence Calculator',
+    h1: 'Fence Calculator: Posts, Rails, Pickets & Concrete',
     answerFirst:
       'Fence posts usually equal the number of sections plus one end post. At 8 ft spacing, a 48 ft run needs 6 sections and 7 posts. Rails are sections × rails per bay (often 2–3). Pickets ≈ total inches of run ÷ (picket width + gap).',
     summary: 'Posts, rails, pickets, and post concrete bags.',
@@ -600,7 +655,7 @@ export const tools: ToolDefinition[] = [
     title: 'Deck Material Calculator – Boards & Joists | YardCalc',
     description:
       'Deck material calculator for decking boards, joists at 16" o.c., rim joists, and screw counts. Free rectangular deck estimator.',
-    h1: 'Deck Material Calculator',
+    h1: 'Deck Material Calculator: Boards & Joists',
     answerFirst:
       'Deck boards needed ≈ deck width ÷ board face width, times boards along the length. Joists are typically spaced 16 inches on center: count = floor(length ÷ spacing) + 1, plus rim joists. Screw counts scale with linear feet of decking—often about two fasteners per foot of board.',
     summary: 'Boards, joists, and screws for a rectangular deck.',
@@ -641,7 +696,7 @@ export const tools: ToolDefinition[] = [
     title: 'Roof Pitch Calculator – Slope, Angle & Factor | YardCalc',
     description:
       'Roof pitch calculator converts rise and run to X-in-12 pitch, degrees, percent slope, and roof area factor. Free, mobile-friendly.',
-    h1: 'Roof Pitch Calculator',
+    h1: 'Roof Pitch Calculator: Slope, Angle & Factor',
     answerFirst:
       'Roof pitch is rise over run, usually stated as inches of rise per 12 inches of run (for example 6/12). Angle = arctan(rise÷run). The area factor √(1+(rise/run)²) converts horizontal plan area to actual roof surface area for material estimates.',
     summary: 'Pitch, degrees, percent slope, and area multiplier.',
@@ -717,7 +772,7 @@ export const tools: ToolDefinition[] = [
     title: 'Paint Calculator – Gallons for Walls | YardCalc',
     description:
       'Paint calculator for rooms: wall area minus doors and windows, coverage per gallon, one or two coats. US gallons and liters.',
-    h1: 'Paint Calculator',
+    h1: 'Paint Calculator: Gallons for Walls',
     answerFirst:
       'Paint gallons ≈ paintable wall area × coats ÷ coverage. Wall area is perimeter × height (or 2×(L+W)×H for a rectangular room). Subtract doors (~20 sq ft) and windows (~15 sq ft each). At 350 sq ft/gallon, two coats on 400 sq ft need about 2.3 gallons.',
     summary: 'Room paint in gallons and liters with openings deducted.',
@@ -749,10 +804,10 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'retaining wall calculator',
     secondaryKeywords: ['retaining wall block calculator', 'how many retaining wall blocks'],
-    title: 'Retaining Wall Block Calculator | YardCalc',
+    title: 'Retaining Wall Block Calculator – Blocks & Base',
     description:
       'Estimate retaining wall blocks, courses and base gravel from wall length, height and block face size. Free SRW planning calculator with waste allowance.',
-    h1: 'Retaining Wall Block Calculator',
+    h1: 'Retaining Wall Calculator: Blocks & Base',
     answerFirst:
       'Block count ≈ wall face area ÷ block face area, or courses × blocks per course. Courses = ceil(wall height ÷ block height). Add ~5% waste. Include a compacted gravel base trench in your materials list for drainage and leveling.',
     summary: 'SRW blocks, courses, and base gravel.',
@@ -787,7 +842,7 @@ export const tools: ToolDefinition[] = [
     title: 'Grass Seed Calculator – New Lawn & Overseed | YardCalc',
     description:
       'Grass seed calculator using lb per 1,000 sq ft rates for new lawns and overseeding. Get pounds and kilograms for your yard size—match the rate on your seed bag.',
-    h1: 'Grass Seed Calculator',
+    h1: 'Grass Seed Calculator: lb per 1,000 Sq Ft (New & Overseed)',
     answerFirst:
       'Seed needed = (lawn sq ft ÷ 1000) × rate. Cool-season blends often use about 3–4 lb/1000 sq ft for new lawns and roughly half that for overseeding. Always follow the rate printed on your seed bag for the species mix.',
     summary: 'New lawn and overseed seed quantities.',
@@ -822,7 +877,7 @@ export const tools: ToolDefinition[] = [
     title: 'Fertilizer Calculator – Nitrogen Rates | YardCalc',
     description:
       'Lawn fertilizer calculator from nitrogen target and N-P-K percentage. Get product pounds and bag counts for your yard size.',
-    h1: 'Fertilizer Calculator',
+    h1: 'Fertilizer Calculator: Nitrogen Rates & Bag Count',
     answerFirst:
       'Product fertilizer = (area÷1000) × (desired lb nitrogen per 1000 ÷ nitrogen fraction). Example: 1 lb N/1000 sq ft using a 25-0-5 product needs 4 lb of product per 1,000 sq ft because 1 ÷ 0.25 = 4. Match timing to local extension calendars.',
     summary: 'Product pounds from N rate and analysis.',
@@ -862,10 +917,10 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'raised bed soil calculator',
     secondaryKeywords: ['garden box soil calculator', 'how much soil for raised bed'],
-    title: 'Raised Bed Soil Calculator | YardCalc',
+    title: 'Raised Bed Soil Calculator – Cubic Feet, Bags & Mix',
     description:
       'Calculate soil mix volume for raised beds from interior length, width, and depth. Cubic feet, yards, and bag estimates.',
-    h1: 'Raised Bed Soil Calculator',
+    h1: 'Raised Bed Soil Calculator: Cubic Feet, Bags & Mix',
     answerFirst:
       'Raised bed soil volume = interior length × width × fill depth. An 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd). Many gardeners blend topsoil, compost, and aeration materials rather than using a single bagged product.',
     summary: 'Soil fill volume for garden boxes.',

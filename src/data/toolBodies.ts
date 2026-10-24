@@ -32,6 +32,16 @@ export const toolBodies: Record<string, string> = {
       <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it does not design structural thickness, rebar, or base depth.</p>
       <h2>Waste factor tips</h2>
       <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short; cold joints and mismatched batches are hard to hide.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Sand density &amp; bag planning</caption>
+        <thead><tr><th>Type (typical)</th><th>Approx. lb / yd³</th><th>50 lb bags / yd³</th></tr></thead>
+        <tbody>
+          <tr><td>Play / masonry sand</td><td>~2,400–2,700</td><td>~48–54</td></tr>
+          <tr><td>Concrete sand</td><td>~2,600–2,900</td><td>~52–58</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Common mistakes</h2>
       <ul>
         <li>Mixing inches and feet in the same product (4 must mean 0.333 ft for thickness).</li>
@@ -53,12 +63,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this concrete calculator for slabs, footings, and solid steps when you need yards and bag counts together. Switch to the dedicated post-hole or Sonotube tools when the shape is a cylinder.</p>
 
   `,
   'concrete-calculator-post-holes': `
@@ -99,12 +105,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this post hole concrete calculator when hole diameter, depth, and post count are known. It is the right tool for fence and sign posts, while slabs and steps belong on the main concrete calculator.</p>
 
   `,
   'sonotube-concrete-calculator': `
@@ -113,6 +115,18 @@ export const toolBodies: Record<string, string> = {
       <h2>Worked example</h2>
       <p>Four 10" Sonotubes, each 3 ft: diameter 10" → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd), about eleven 80 lb bags at 0.60 cu ft/bag with 5% waste.</p>
       <p>A 12" tube holds about 0.785 cu ft per foot of height. That means a 4 ft pier is roughly 3.14 cu ft—five to six 80 lb bags before waste—useful for deck footings when paired with proper footing bells or pads as required by code.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Approx. 80 lb bags per tube (0.60 cu ft/bag, before waste)</caption>
+        <thead><tr><th>Inside Ø</th><th>3 ft deep</th><th>4 ft deep</th></tr></thead>
+        <tbody>
+          <tr><td>8 in</td><td>~2 bags</td><td>~3 bags</td></tr>
+          <tr><td>10 in</td><td>~3 bags</td><td>~4 bags</td></tr>
+          <tr><td>12 in</td><td>~5 bags</td><td>~6 bags</td></tr>
+          <tr><td>16 in</td><td>~9 bags</td><td>~12 bags</td></tr>
+        </tbody>
+      </table>
+      </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, and keep a small waste factor for spillage when filling tall forms.</div>
       <h2>Deck pier tips</h2>
       <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a>.</p>
@@ -133,12 +147,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this Sonotube calculator for round piers and columns when you know inside diameter and fill height. Multiply by the number of tubes and keep a small waste factor for tall pours.</p>
 
   `,
   'mulch-calculator': `
@@ -146,6 +156,16 @@ export const toolBodies: Record<string, string> = {
       <p>volume (cu ft) = length (ft) × width (ft) × (depth_inches ÷ 12). Bulk mulch is sold by the cubic yard (27 cu ft). Bagged mulch is usually 2 or 3 cubic feet. This calculator returns both so you can compare bulk delivery versus bags for small beds.</p>
       <h2>Worked example</h2>
       <p>A 20 × 5 ft bed at 3 inches needs 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, or thirteen 2 cu ft bags. At 2 inches the same bed needs about 16.7 cu ft—useful when refreshing an existing layer rather than starting bare soil.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Coverage per bag at common depths</caption>
+        <thead><tr><th>Bag</th><th>2 in deep</th><th>3 in deep</th><th>4 in deep</th></tr></thead>
+        <tbody>
+          <tr><td>2 cu ft</td><td>12 sq ft</td><td>8 sq ft</td><td>6 sq ft</td></tr>
+          <tr><td>3 cu ft</td><td>18 sq ft</td><td>12 sq ft</td><td>9 sq ft</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Depth guide (summary)</h2>
       <p>University extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. Keep mulch a few inches away from tree trunks and woody stems. See our <a href="/guides/mulch-depth-guide/">mulch depth guide</a> and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donut shapes.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Depth in inches must be converted to feet before multiplying by area. Over-mulching can smother roots and trap moisture against bark.</div>
@@ -168,12 +188,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this mulch calculator for rectangular beds and borders when you want cubic yards alongside 2 and 3 cubic foot bag counts. Switch to the tree-ring tool when the shape is a donut around a trunk.</p>
 
   `,
   'mulch-calculator-tree-rings': `
@@ -181,6 +197,17 @@ export const toolBodies: Record<string, string> = {
       <p>Area = π(R² − r²). Volume = area × depth. Example: outer diameter 6 ft (R=3), trunk keep-out 1 ft (r=0.5), depth 3": area ≈ 27.5 sq ft; volume ≈ 6.9 cu ft (~3–4 bags of 2 cu ft mulch).</p>
       <p>The inner diameter is not the trunk bark alone—leave a bare gap so mulch does not pile against the flare. Wider rings toward the dripline generally help roots more than deep piles near the stem.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Tree mulch is a donut, not a disk. Subtract the keep-out circle or you will overestimate volume and risk volcano mulching.</div>
+      <div class="table-scroll">
+      <table>
+        <caption>Approx. 2 cu ft bags for a ring at 3 in deep (1 ft keep-out)</caption>
+        <thead><tr><th>Outer diameter</th><th>Volume</th><th>Bags</th></tr></thead>
+        <tbody>
+          <tr><td>4 ft</td><td>~2.9 cu ft</td><td>~2</td></tr>
+          <tr><td>6 ft</td><td>~6.9 cu ft</td><td>~4</td></tr>
+          <tr><td>8 ft</td><td>~12.4 cu ft</td><td>~7</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Why volcano mulching hurts trees</h2>
       <p>Piling mulch against bark traps moisture, invites decay organisms and rodents, and can cause roots to grow up into the mulch. Extension services consistently recommend a wide, flat doughnut with the flare visible.</p>
       <h2>Worked comparison</h2>
@@ -197,12 +224,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this tree ring mulch calculator when the bed is a donut around a trunk rather than a rectangle. Enter a keep-out diameter so mulch stays off the root flare and you do not order a solid disk of material.</p>
 
   `,
   'gravel-calculator': `
@@ -211,6 +234,17 @@ export const toolBodies: Record<string, string> = {
       <h2>Worked example</h2>
       <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Order by cubic yards for volume, convert to tons with your yard’s density, and include compaction waste for trafficked surfaces.</div>
+      <div class="table-scroll">
+      <table>
+        <caption>Illustrative tons per cubic yard (confirm with your yard)</caption>
+        <thead><tr><th>Material</th><th>Approx. tons / yd³</th></tr></thead>
+        <tbody>
+          <tr><td>Pea gravel</td><td>~1.2–1.3</td></tr>
+          <tr><td>#57 crushed stone</td><td>~1.3–1.4</td></tr>
+          <tr><td>Crusher run / dense grade</td><td>~1.4–1.5</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Base vs surface stone</h2>
       <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—do not assume one stone type does every job.</p>
       <h2>Common mistakes</h2>
@@ -230,12 +264,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this gravel calculator for paths, pads, and driveway layers when you need cubic yards and a rough tonnage estimate. Confirm density with your stone yard because moisture and rock type move the ton conversion.</p>
 
   `,
   'topsoil-calculator': `
@@ -245,7 +275,19 @@ export const toolBodies: Record<string, string> = {
       <div class="takeaway"><strong>Key takeaway:</strong> Measure average fill depth across the whole area. Deep low spots should be calculated separately so you do not under-order.</div>
       <h2>Worked example</h2>
       <p>Leveling 1,000 sq ft by an average of 1 inch needs about 83 cu ft ≈ 3.1 cu yd. Raising a 10 × 10 bed by 6 inches needs 50 cu ft ≈ 1.85 cu yd before waste.</p>
-      <h2>Related tools</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Quick conversions (before waste)</caption>
+        <thead><tr><th>Volume</th><th>2 cu ft bags</th><th>Approx. tons*</th></tr></thead>
+        <tbody>
+          <tr><td>1 cu yd (27 cu ft)</td><td>~14 bags</td><td>~1.0–1.3</td></tr>
+          <tr><td>2 cu yd</td><td>~27 bags</td><td>~2.0–2.6</td></tr>
+          <tr><td>5 cu yd</td><td>~68 bags</td><td>~5–6.5</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>*Density varies with moisture and blend—confirm with your supplier.</p>
+      <h2>Choosing topsoil vs garden soil</h2>
       <p>For boxed beds use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>. For surface cover after planting, use the <a href="/calculators/mulch-calculator/">mulch calculator</a>.</p>
 
       <h2>Assumptions and limits</h2>
@@ -258,13 +300,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this topsoil calculator when spreading a measured depth over lawns or beds. Average the fill across high and low spots, then add waste for settling before you schedule a bulk delivery.</p>
-      <p>Ask whether quoted yards are delivered loose or compacted—settling after spreading is why a waste factor still matters.</p>
   `,
   'sand-calculator': `
       <h2>Sand vs gravel base</h2>
@@ -290,12 +327,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this sand calculator for bedding and fill layers when depth is roughly uniform. Pair it with the paver and gravel tools so the sand layer is not asked to fix a poorly compacted base.</p>
       <p>Keep bedding sand dry while screeding; wet sand changes volume and makes consistent depth harder to hold.</p>
   `,
   'paver-calculator': `
@@ -313,6 +346,17 @@ export const toolBodies: Record<string, string> = {
       </ul>
       <p>See also the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Pavers per square foot (common face sizes)</caption>
+        <thead><tr><th>Paver face</th><th>Pavers / sq ft</th></tr></thead>
+        <tbody>
+          <tr><td>4×8 in</td><td>4.5</td></tr>
+          <tr><td>6×9 in</td><td>~2.7</td></tr>
+          <tr><td>12×12 in</td><td>1.0</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The paver calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -323,12 +367,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this paver calculator for rectangular patios and walks when you know the paver face size and want piece counts plus sand and base volume. Increase waste for diagonal patterns before you check out.</p>
       <p>Dry-lay a few rows to confirm the bond pattern before cutting edge pieces so your waste percentage stays realistic.</p>
       <p>Measure the patio twice, mark square corners with a 3-4-5 triangle, and confirm slope for drainage away from the house before you excavate for the gravel base and bedding sand layers.</p>
   `,
@@ -347,6 +387,18 @@ export const toolBodies: Record<string, string> = {
         <li>Underestimating concrete on windy corner posts.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Worked example: 100 ft privacy fence, 8 ft sections</caption>
+        <thead><tr><th>Item</th><th>Count</th></tr></thead>
+        <tbody>
+          <tr><td>Sections</td><td>12.5 → plan 13 bays / adjust end</td></tr>
+          <tr><td>Posts (sections + 1)</td><td>14 (before gates)</td></tr>
+          <tr><td>Rails (3 per bay)</td><td>~39</td></tr>
+          <tr><td>Post concrete</td><td>Use <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a></td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The fence calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -357,12 +409,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this fence calculator when laying out a straight privacy or picket run and you need posts, rails, pickets, and a rough concrete bag count in one place. Add extras manually for gates, corners, and grade steps.</p>
       <p>Print or screenshot the results before you shop so post counts and picket estimates stay aligned when a second person helps load materials.</p>
   `,
   'deck-material-calculator': `
@@ -380,6 +428,17 @@ export const toolBodies: Record<string, string> = {
         <li>Spacing joists for lumber when using composite that needs tighter spacing.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Board length planning (buy common stock lengths)</caption>
+        <thead><tr><th>Stock length</th><th>Best when…</th></tr></thead>
+        <tbody>
+          <tr><td>12 ft</td><td>Short spans / less waste on small decks</td></tr>
+          <tr><td>16 ft</td><td>Matches many 12×16 footprints with fewer joints</td></tr>
+          <tr><td>20 ft</td><td>Long runs when handling allows</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The deck material calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -390,12 +449,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this deck material calculator when you need a fast board, joist, and fastener list for a single rectangular platform before you visit the lumber yard. It will not replace stamped drawings for elevated decks, but it prevents under-ordering the visible decking surface.</p>
 
   `,
   'roof-pitch-calculator': `
@@ -417,6 +472,19 @@ export const toolBodies: Record<string, string> = {
         <li>Forgetting that hips, valleys, and overhangs add surface beyond a simple rectangle.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Pitch → angle → area multiplier (rise / 12 run)</caption>
+        <thead><tr><th>Pitch</th><th>Approx. degrees</th><th>Multiplier</th></tr></thead>
+        <tbody>
+          <tr><td>3/12</td><td>14.0°</td><td>1.031</td></tr>
+          <tr><td>4/12</td><td>18.4°</td><td>1.054</td></tr>
+          <tr><td>6/12</td><td>26.6°</td><td>1.118</td></tr>
+          <tr><td>8/12</td><td>33.7°</td><td>1.202</td></tr>
+          <tr><td>12/12</td><td>45.0°</td><td>1.414</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The roof pitch calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -427,12 +495,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this roof pitch calculator when you can measure rise and run safely from a rafter, rake, or drawing. Convert to X-in-12 pitch, degrees, and an area factor before estimating shingles.</p>
       <p>Record pitch as X-in-12 when talking to suppliers—many shingle specifications use that form instead of degrees.</p>
   `,
   'roofing-shingles-calculator': `
@@ -450,6 +514,18 @@ export const toolBodies: Record<string, string> = {
         <li>Skipping underlayment and ice-barrier quantities in cold climates.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Squares, bundles, and waste rules of thumb</caption>
+        <thead><tr><th>Item</th><th>Typical value</th></tr></thead>
+        <tbody>
+          <tr><td>1 square</td><td>100 sq ft of roof surface</td></tr>
+          <tr><td>Bundles per square</td><td>~3 (asphalt)</td></tr>
+          <tr><td>Waste — simple gable</td><td>~10%</td></tr>
+          <tr><td>Waste — hip / complex</td><td>~15%</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The roofing shingles calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -460,12 +536,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this roofing calculator for simple rectangular plans when you already know pitch. It converts plan area through the pitch factor into squares and bundles, then applies a waste percentage.</p>
       <p>Separate ridge, hip, and starter products from field bundles when you place the order so waste factors stay clear.</p>
   `,
   'paint-calculator': `
@@ -483,6 +555,17 @@ export const toolBodies: Record<string, string> = {
         <li>Assuming one gallon always covers 400 sq ft on rough plaster.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Gallons for common rooms (8 ft ceilings, 2 coats, ~350 sq ft/gal, one door + one window deducted)</caption>
+        <thead><tr><th>Room</th><th>Approx. wall area</th><th>Gallons (2 coats)</th></tr></thead>
+        <tbody>
+          <tr><td>10×10</td><td>~300 sq ft</td><td>~1.7 gal</td></tr>
+          <tr><td>12×12</td><td>~350 sq ft</td><td>~2.0 gal</td></tr>
+          <tr><td>12×16</td><td>~430 sq ft</td><td>~2.5 gal</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The paint calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -493,12 +576,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this paint calculator for rectangular rooms when you want gallons and liters after subtracting doors and windows. Adjust coverage to the number printed on your can when priming or covering dark colors.</p>
       <p>Buy all finish coats from the same batch when possible, and keep a labeled quart for touch-ups after furniture goes back in place.</p>
   `,
   'retaining-wall-calculator': `
@@ -516,6 +595,17 @@ export const toolBodies: Record<string, string> = {
         <li>Using landscape wall blocks beyond their rated height.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Blocks per sq ft of wall face (approx.)</caption>
+        <thead><tr><th>Block face</th><th>Blocks / sq ft</th></tr></thead>
+        <tbody>
+          <tr><td>16×6 in</td><td>~1.5</td></tr>
+          <tr><td>18×8 in</td><td>~1.0</td></tr>
+          <tr><td>12×4 in</td><td>~3.0</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The retaining wall calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -526,12 +616,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this retaining wall calculator for short segmental gravity walls within manufacturer height limits. It estimates face blocks, courses, and a simple gravel base trench, not engineered geogrid designs.</p>
       <p>Stake the wall alignment and check the first course with a level; block counts assume a level base trench.</p>
   `,
   'grass-seed-calculator': `
@@ -539,6 +625,16 @@ export const toolBodies: Record<string, string> = {
       <p>Seed needed = (lawn sq ft ÷ 1000) × rate. Cool-season blends often use about 3–4 lb/1000 sq ft for new lawns and roughly half that for overseeding. Species differ—tall fescue, Kentucky bluegrass, and ryegrass labels vary, so prefer the bag rate when it conflicts with defaults.</p>
       <h2>Worked example</h2>
       <p>A 50 × 20 ft yard is 1,000 sq ft. At 3.5 lb/1000 for a new lawn you need 3.5 lb of seed. Overseeding the same lawn at 1.75 lb/1000 needs 1.75 lb. Split large bags across multiple passes for even coverage.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Illustrative rates (lb per 1,000 sq ft)—use your bag label</caption>
+        <thead><tr><th>Job</th><th>Cool-season blend</th><th>Warm-season (example)</th></tr></thead>
+        <tbody>
+          <tr><td>New lawn</td><td>~4–8 lb</td><td>Follow sod/seed tag</td></tr>
+          <tr><td>Overseed</td><td>~2–4 lb</td><td>Often lower than new</td></tr>
+        </tbody>
+      </table>
+      </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Do not use new-lawn rates when overseeding—excess seed increases competition and waste.</div>
       <h2>Timing and soil</h2>
       <p>Match species to sun, shade, and your region’s cool- or warm-season window. Topdressing with a light soil mix can improve seed-to-soil contact—estimate soil with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> if you are spreading a wider dressing.</p>
@@ -559,12 +655,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this grass seed calculator for new lawns and overseeding jobs where the bag lists pounds per thousand square feet. Adjust the rate fields to match your species mix instead of relying only on defaults.</p>
       <p>After seeding, keep the surface evenly moist through establishment; the calculator only sizes seed, not water or starter fertilizer.</p>
   `,
   'fertilizer-calculator': `
@@ -582,6 +674,18 @@ export const toolBodies: Record<string, string> = {
         <li>Using garden vegetable rates on lawns (or the reverse).</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Product lb per 1 lb actual N (per 1,000 sq ft)</caption>
+        <thead><tr><th>Analysis</th><th>Product lb for 1 lb N</th></tr></thead>
+        <tbody>
+          <tr><td>10-10-10</td><td>10 lb</td></tr>
+          <tr><td>24-0-11</td><td>~4.2 lb</td></tr>
+          <tr><td>30-0-4</td><td>~3.3 lb</td></tr>
+          <tr><td>32-0-4</td><td>~3.1 lb</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The fertilizer calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -592,12 +696,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this fertilizer calculator when you know your target nitrogen rate and the N-P-K analysis on the bag. It translates agronomic pounds of nitrogen into product pounds and bag counts for the measured lawn area.</p>
       <p>If your bag lists coverage in square feet instead of an N rate, convert using the label math, then confirm the nitrogen percent still matches what you typed.</p>
   `,
   'raised-bed-soil-calculator': `
@@ -615,6 +715,17 @@ export const toolBodies: Record<string, string> = {
         <li>Forgetting that soil settles—budget a top-up the following season.</li>
       </ul>
 
+      <div class="table-scroll">
+      <table>
+        <caption>Common bed volumes (before waste)</caption>
+        <thead><tr><th>Bed</th><th>6 in deep</th><th>12 in deep</th></tr></thead>
+        <tbody>
+          <tr><td>4×4 ft</td><td>8 cu ft</td><td>16 cu ft</td></tr>
+          <tr><td>4×8 ft</td><td>16 cu ft</td><td>32 cu ft</td></tr>
+          <tr><td>3×6 ft</td><td>9 cu ft</td><td>18 cu ft</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Assumptions and limits</h2>
       <p>The raised bed soil calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
@@ -625,12 +736,8 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
-      <h2>How YardCalc keeps the math honest</h2>
-      <p>Formulas live in version-controlled TypeScript modules with unit tests. When manufacturers publish different bag yields, we update both the code and the explanatory tables together. If you spot a discrepancy, email the contact address on this site with your inputs and the source sheet you used.</p>
-      <p>For topical context, browse the matching hub from the header, read related guides linked below, and compare a second calculator when your project spans multiple materials (for example gravel base plus pavers, or fence posts plus pickets).</p>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
-      <h2>When to reach for this tool</h2>
-      <p>Use this raised bed soil calculator for garden boxes measured on the inside. Convert the fill depth carefully—twelve inches is a full foot—and compare bag counts against a bulk cubic-yard delivery.</p>
       <p>If you stage soil in bulk bags, note the delivered cubic feet on the receipt and compare it with this estimate after settling.</p>
   `,
 };

@@ -1,17 +1,29 @@
 ---
-description: SEO rules for YardCalc pages (titles, intent, schema, cannibalization)
+description: SEO/AEO rules for YardCalc pages — research first, answer-first, checklist
 globs: src/pages/**/*.{astro,md,mdx}, src/data/**/*.ts
 alwaysApply: false
 ---
 
 # SEO page rules
 
-- One primary keyword per URL; update `docs/KEYWORD-MAP.md` when adding pages.
-- Title 25–65 chars (aim ~30–60) with primary keyword near the start; meta description 70–160 (aim ~120–160); keep og/twitter tags matching.
-- Exactly one H1; logical H2/H3; answer-first intro 40–60 words on home/tools/guides.
-- Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; lowercase hyphenated slugs.
-- Include BreadcrumbList + WebApplication (tools) or Article + FAQPage (guides with FAQ).
-- No fake ratings; no thin query-variant duplicates.
-- Cite sources; set datePublished/dateModified.
-- Tool pages: topical “Learn more” guide links; never a fixed unrelated related-tools list.
-- Site origin: see `docs/CUSTOM-DOMAIN.md` / `docs/SEO-GUARDRAILS.md` — no hardcoded site host.
+## Research first (before any new or reworked page)
+
+1. One primary query; check autocomplete / PAA / SERP top 5 format.
+2. Name intent (do / know / compare / navigate) and match page type.
+3. Check `docs/KEYWORD-MAP.md` for cannibalization; extend an existing URL when intent overlaps.
+4. List 3–6 secondary questions → H2s and FAQ.
+5. Follow the full checklist in `docs/PAGE-CHECKLIST.md` (synced from the shared per-page checklist).
+
+## On-page structure
+
+- Title 25–65 chars (aim ~30–60), primary keyword near the start; meta description 70–160 (aim ~120–160); og/twitter match.
+- Exactly one H1; logical H2/H3 (no skipped levels).
+- Answer first: opening 40–60 words answer the query with a **number or clear verdict** in sentence 1 where one exists.
+- Tools: calculator inputs ≤60 words after H1 and above the fold on mobile (390×844); cookie bar ≤56px.
+- Hubs: 1–2 sentence numeric lead, then **card grid immediately** (first card above the fold).
+- Guides: answer block immediately after H1; byline/dates after the answer.
+- Cite primary sources; visible Published / Last updated matching schema.
+- Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; no hardcoded site host.
+- Schema: BreadcrumbList; WebApplication (tools); Article + FAQPage when FAQ is visible; CollectionPage on hubs/indexes.
+- Tool pages link ≥1 topical guide high on the page; no thin query-variant duplicates.
+---

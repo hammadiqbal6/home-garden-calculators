@@ -21,6 +21,31 @@ Cursor-specific: `.cursor/skills/*/SKILL.md`, `.cursor/rules/*.mdc`, `.cursor/ag
 
 ---
 
+## UI/UX Pro Max
+
+Use this skill for **any change to how the site looks or behaves** (layout, components, colors, typography, motion, forms, nav, dark mode, responsive behavior). Skip it for pure math/content/SEO copy with no UI impact.
+
+1. Read [`.cursor/skills/ui-ux-pro-max/SKILL.md`](.cursor/skills/ui-ux-pro-max/SKILL.md).
+2. Search the local design intelligence:
+
+```bash
+python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain <domain>
+```
+
+Useful flags from the skill: `--design-system` (new page / visual direction), `--stack astro` (implementation tips), `--persist` / `--output-dir` (optional design-system docs). Prefer `python3` if `python` is missing.
+
+**Priority checks before shipping UI:**
+
+- Contrast ≥ 4.5:1 (text and controls; verify light **and** dark)
+- Touch targets ≥ 44×44px
+- Visible `:focus-visible` rings; keyboard-operable controls
+- Labels on every input; inline errors with `aria-invalid` / `aria-describedby`
+- Dark mode surfaces readable (no white inputs with light text)
+- No horizontal scroll at 360px
+- `prefers-reduced-motion` respected
+
+---
+
 ## Project overview
 
 - **Stack:** Astro 5 (static) + TypeScript, Vitest for calculator math, minimal client JS (calculator island).
@@ -138,6 +163,9 @@ A change is done when:
 | `npm run audit:pages` | Per-page checklist (answer-first, title/meta, JSON-LD, sitemap, viewport) |
 | `npm run audit` | All auditors (SEO + AdSense + perf + pages) |
 | `npm run lighthouse` | Lighthouse CI (mobile) |
+| `npm run proof` | Full proof bundle (Lighthouse + mobile + audits) |
+
+PR CI (`.github/workflows/ci.yml`) runs **build + unit tests** only. Full audits, link check, Lighthouse, and proof are manual via **Actions → Full checks** (`.github/workflows/full-checks.yml`) or locally before opening a PR.
 
 ---
 

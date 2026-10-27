@@ -135,18 +135,33 @@ async function main() {
     adsensePass,
   });
 
-  const fail =
-    !testsPass ||
-    !auditPass ||
-    !bundlePass ||
-    !sitemapPass ||
-    !structuredPass ||
-    !lighthousePass ||
-    !mobilePass ||
-    !adsensePass;
+  const results = {
+    tests: testsPass,
+    audit: auditPass,
+    bundle: bundlePass,
+    sitemap: sitemapPass,
+    structured: structuredPass,
+    lighthouse: lighthousePass,
+    mobile: mobilePass,
+    adsense: adsensePass,
+  };
+  const failed = Object.entries(results)
+    .filter(([, ok]) => !ok)
+    .map(([name]) => name);
 
-  if (fail) {
-    console.error('Proof generation completed with failures — fix budgets and re-run npm run proof');
+  if (failed.length) {
+    console.error(
+      `Proof generation completed with failures (${failed.join(', ')}) — fix budgets and re-run npm run proof`,
+    );
+    if (!lighthousePass) {
+      try {
+        const summary = fs.readFileSync(path.join(PROOF, 'lighthouse', 'summary.md'), 'utf8');
+        const failSection = summary.split('## Failures')[1];
+        if (failSection) console.error(failSection.trim());
+      } catch {
+        /* summary may be missing */
+      }
+    }
     process.exit(1);
   }
   console.log(`Proof bundle written to ${PROOF}`);

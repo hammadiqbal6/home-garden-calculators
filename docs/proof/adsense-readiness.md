@@ -1,6 +1,6 @@
 # AdSense readiness proof
 
-Generated: 2026-10-19T06:38:24Z (UTC)
+Generated: 2026-10-27T11:54:20Z (UTC)
 
 Evidence collected from `dist/` after `npm run build`. Re-run `npm run proof` to refresh.
 
@@ -12,7 +12,7 @@ Evidence collected from `dist/` after `npm run build`. Re-run `npm run proof` to
 | Contact page | PASS | `/contact/` built |
 | Privacy (AdSense + cookies) | PASS | Cookies, Google advertising, opt-out / aboutads.info, CMP note in `/privacy/` |
 | Terms | PASS | `/terms/` |
-| Methodology / Authors | PASS | Trust pages present |
+| Methodology / Authors | FAIL | Trust pages present |
 | ads.txt | PASS | `# ads.txt template for Google AdSense
 # Replace PUBLISHER_ID with your numeric p…` |
 | Reserved ad slots (CSS) | PASS | `global.css` / built CSS |
@@ -25,12 +25,12 @@ Evidence collected from `dist/` after `npm run build`. Re-run `npm run proof` to
 
 | URL | Words |
 | --- | --- |
-| /calculators/grass-seed-calculator/ | 712 |
-| /calculators/roofing-shingles-calculator/ | 715 |
-| /calculators/sand-calculator/ | 716 |
-| /calculators/retaining-wall-calculator/ | 721 |
-| /calculators/fertilizer-calculator/ | 722 |
-| /calculators/topsoil-calculator/ | 727 |
+| /calculators/sand-calculator/ | 715 |
+| /calculators/roofing-shingles-calculator/ | 735 |
+| /calculators/retaining-wall-calculator/ | 751 |
+| /calculators/paver-calculator/ | 754 |
+| /calculators/grass-seed-calculator/ | 760 |
+| /calculators/topsoil-calculator/ | 773 |
 | … | (18 tools total) |
 
 ## Operator notes

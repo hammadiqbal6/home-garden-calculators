@@ -7,48 +7,126 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.yardcalc.example/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Calculators",
-        "item": "https://www.yardcalc.example/calculators/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Concrete calculators",
-        "item": "https://www.yardcalc.example/hubs/concrete/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/hubs/concrete/"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Concrete Calculator",
-        "item": "https://www.yardcalc.example/calculators/concrete-calculator/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/"
       }
     ]
   },
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Concrete Calculator",
-    "description": "Free concrete calculator for slabs, footings, post holes, Sonotubes, and steps. Get cubic yards and 40/60/80 lb bags with waste. No signup.",
-    "url": "https://www.yardcalc.example/calculators/concrete-calculator/",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires JavaScript",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "provider": {
-      "@type": "Organization",
-      "name": "YardCalc",
-      "url": "https://www.yardcalc.example"
-    },
-    "datePublished": "2026-10-19",
-    "dateModified": "2026-10-19"
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#app",
+        "name": "Concrete Calculator",
+        "description": "Free concrete calculator for slabs, footings and steps. Enter length, width and depth to get cubic yards and 40, 60 or 80 lb bag counts with waste added.",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "@id": "https://github.com/hammadiqbal6#person",
+          "name": "Hammad Iqbal",
+          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/"
+        },
+        "publisher": {
+          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization"
+        },
+        "datePublished": "2026-10-19",
+        "dateModified": "2026-10-24"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#webpage",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/",
+        "name": "Concrete Calculator: Bags & Cubic Yards for Slabs",
+        "isPartOf": {
+          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#website"
+        },
+        "mainEntity": {
+          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#app"
+        },
+        "datePublished": "2026-10-19T00:00:00+05:00",
+        "dateModified": "2026-10-24T00:00:00+05:00",
+        "lastReviewed": "2026-10-24",
+        "author": {
+          "@id": "https://github.com/hammadiqbal6#person"
+        },
+        "citation": [
+          "https://www.quikrete.com/calculator/main.asp",
+          "https://sakrete.com/resources/calculators/",
+          "https://www.cement.org/",
+          "https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf"
+        ],
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/diagrams/slab-dimensions.svg",
+          "width": 960,
+          "height": 540
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How many 80 lb bags of concrete in a yard?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "One cubic yard is 27 cubic feet. At about 0.60 cu ft per 80 lb bag, you need roughly 45 bags per cubic yard (27 ÷ 0.60), before waste."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Should I order ready-mix or use bags?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How thick should a concrete slab be?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Many residential patio and shed slabs use 4 inches. Driveways and heavier loads often need 5–6 inches plus proper base—confirm with local code."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What waste factor should I use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A 5–10% waste factor covers uneven subgrade, spillage, and over-excavation. Use 10% for DIY bag mixes and irregular forms."
+            }
+          }
+        ]
+      }
+    ]
   }
 ]

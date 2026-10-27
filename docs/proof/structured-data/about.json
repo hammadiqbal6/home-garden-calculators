@@ -1,19 +1,77 @@
 [
   {
     "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "dateCreated": "2026-10-19T00:00:00+05:00",
+    "dateModified": "2026-10-24T00:00:00+05:00",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://github.com/hammadiqbal6#person",
+      "name": "Hammad Iqbal",
+      "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/",
+      "description": "I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.",
+      "knowsAbout": [
+        "home and garden material calculators",
+        "concrete volume estimates",
+        "landscape mulch and gravel quantity"
+      ],
+      "sameAs": [
+        "https://github.com/hammadiqbal6"
+      ]
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization",
+        "name": "YardCalc",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+        "email": "hammadiqbal117@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/logo-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "founder": {
+          "@id": "https://github.com/hammadiqbal6#person"
+        },
+        "publishingPrinciples": "https://home-garden-calculators.hammadiqbal117.workers.dev/methodology/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/hammadiqbal6#person",
+        "name": "Hammad Iqbal",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/",
+        "description": "I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.",
+        "knowsAbout": [
+          "home and garden material calculators",
+          "concrete volume estimates",
+          "landscape mulch and gravel quantity"
+        ],
+        "sameAs": [
+          "https://github.com/hammadiqbal6"
+        ]
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.yardcalc.example/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About",
-        "item": "https://www.yardcalc.example/about/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/"
       }
     ]
   }

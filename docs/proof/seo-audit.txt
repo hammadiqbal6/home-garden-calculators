@@ -1,12 +1,12 @@
 
 > home-garden-calculators@1.0.0 audit
-> npm run audit:seo && npm run audit:adsense && npm run audit:perf
+> npm run audit:seo && npm run audit:adsense && npm run audit:perf && npm run audit:pages
 
 
 > home-garden-calculators@1.0.0 audit:seo
 > node scripts/audit/seo.mjs
 
-SEO audit: 37 pages, 0 errors, 0 warnings
+SEO audit: 46 pages, 0 errors, 0 warnings (SITE_ORIGIN=https://home-garden-calculators.hammadiqbal117.workers.dev, default=https://home-garden-calculators.hammadiqbal117.workers.dev)
 
 > home-garden-calculators@1.0.0 audit:adsense
 > node scripts/audit/adsense.mjs
@@ -16,4 +16,9 @@ AdSense audit: 0 errors
 > home-garden-calculators@1.0.0 audit:perf
 > node scripts/audit/perf.mjs
 
-Perf audit: checked 37 pages, 0 errors
+Perf audit: checked 46 pages, 0 errors
+
+> home-garden-calculators@1.0.0 audit:pages
+> node scripts/audit/pages.mjs
+
+Page checklist audit: 45 pages, 0 errors (SITE_ORIGIN=https://home-garden-calculators.hammadiqbal117.workers.dev)

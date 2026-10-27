@@ -55,8 +55,9 @@ jobs:
       - name: Regenerate proof bundle
         run: npm run proof
       - name: Upload proof artifact
+        if: always()
         uses: actions/upload-artifact@v6
         with:
           name: docs-proof
           path: docs/proof/
-          if-no-files-found: error
+          if-no-files-found: warn

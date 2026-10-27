@@ -7,19 +7,19 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.yardcalc.example/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Guides",
-        "item": "https://www.yardcalc.example/guides/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/guides/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Mulch Depth Guide",
-        "item": "https://www.yardcalc.example/guides/mulch-depth-guide/"
+        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/guides/mulch-depth-guide/"
       }
     ]
   },
@@ -28,17 +28,73 @@
     "@type": "Article",
     "headline": "Mulch Depth Guide",
     "description": "Recommended mulch depths for beds, trees, and paths, with volume tips and links to free mulch calculators. Based on extension guidance.",
-    "datePublished": "2026-10-19",
-    "dateModified": "2026-10-19",
-    "author": {
-      "@type": "Organization",
-      "name": "YardCalc Editorial"
-    },
+    "datePublished": "2026-10-19T00:00:00+05:00",
+    "dateModified": "2026-10-24T00:00:00+05:00",
+    "author": [
+      {
+        "@type": "Person",
+        "@id": "https://github.com/hammadiqbal6#person",
+        "name": "Hammad Iqbal",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/"
+      }
+    ],
     "publisher": {
       "@type": "Organization",
       "name": "YardCalc",
-      "url": "https://www.yardcalc.example"
+      "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/logo-512.png",
+        "width": 512,
+        "height": 512
+      }
     },
-    "mainEntityOfPage": "https://www.yardcalc.example/guides/mulch-depth-guide/"
+    "mainEntityOfPage": "https://home-garden-calculators.hammadiqbal117.workers.dev/guides/mulch-depth-guide/"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How deep should mulch be in flower beds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. That depth suppresses weeds and conserves moisture without smothering roots. Replenish as the mulch decomposes rather than stacking thicker layers each year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How deep should mulch be around trees?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use a similar 2–3 inch depth in a wide ring (donut), kept clear of the trunk flare. Piling mulch against the bark—“volcano mulching”—traps moisture against the trunk and can encourage rot and pests. Leave a bare collar at the base."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is 4 inches of mulch too much?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most ornamental beds, yes—layers much deeper than about 3 inches can impede water and oxygen. Wood-chip paths sometimes use 3–4 inches because they compact under foot traffic; that is a different use case than planting beds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I remove old mulch before adding new?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not always. If the old layer is thin and well decomposed, top-dress to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, rake it out or thin it first so new mulch does not create an anaerobic blanket."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does mulch depth change bag counts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Volume scales directly with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use a mulch calculator for irregular shapes."
+        }
+      }
+    ]
   }
 ]

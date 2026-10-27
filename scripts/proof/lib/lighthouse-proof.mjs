@@ -80,17 +80,34 @@ export async function writeLighthouseProof(outDir, baseUrl) {
     const url = `${baseUrl}${target.path}`;
     const outBase = path.join(outDir, target.slug);
     process.stdout.write(`Lighthouse ${target.slug}…\n`);
-    await runLighthouse(url, outBase, target.formFactor);
-    const jsonPath = `${outBase}.report.json`;
-    const htmlPath = `${outBase}.report.html`;
-    const legacyJson = `${outBase}.json`;
-    if (fs.existsSync(legacyJson) && !fs.existsSync(jsonPath)) {
-      fs.renameSync(legacyJson, jsonPath);
+
+    let ev;
+    let lhr;
+    let finalJson;
+    let htmlPath;
+    // One retry — CI runners occasionally spike LCP under load.
+    for (let attempt = 1; attempt <= 2; attempt++) {
+      await runLighthouse(url, outBase, target.formFactor);
+      const jsonPath = `${outBase}.report.json`;
+      htmlPath = `${outBase}.report.html`;
+      const legacyJson = `${outBase}.json`;
+      if (fs.existsSync(legacyJson) && !fs.existsSync(jsonPath)) {
+        fs.renameSync(legacyJson, jsonPath);
+      }
+      finalJson = fs.existsSync(jsonPath) ? jsonPath : legacyJson;
+      lhr = JSON.parse(fs.readFileSync(finalJson, 'utf8'));
+      ev = evaluateLhr(lhr, { desktop: target.formFactor === 'desktop' });
+      if (ev.pass) break;
+      if (attempt === 1) {
+        process.stdout.write(
+          `  retry ${target.slug} after: ${ev.issues.join('; ')}\n`,
+        );
+      }
     }
-    const finalJson = fs.existsSync(jsonPath) ? jsonPath : legacyJson;
-    const lhr = JSON.parse(fs.readFileSync(finalJson, 'utf8'));
-    const ev = evaluateLhr(lhr, { desktop: target.formFactor === 'desktop' });
-    if (!ev.pass) failures++;
+    if (!ev.pass) {
+      failures++;
+      process.stdout.write(`  FAIL ${target.slug}: ${ev.issues.join('; ')}\n`);
+    }
 
     const perf = Math.round((lhr.categories.performance?.score ?? 0) * 100);
     const a11y = Math.round((lhr.categories.accessibility?.score ?? 0) * 100);

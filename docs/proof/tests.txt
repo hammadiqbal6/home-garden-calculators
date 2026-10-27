@@ -8,8 +8,8 @@
 
  Test Files  1 passed (1)
       Tests  21 passed (21)
-   Start at  06:38:24
-   Duration  127ms (transform 43%, import 31%, tests 14%, worker 12%)
+   Start at  11:54:20
+   Duration  119ms (transform 39%, import 37%, tests 15%, worker 9%)
 
 
 (!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:

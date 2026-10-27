@@ -1,37 +1,46 @@
 First-party JS gzip budget: 50KB per page
-Pages checked: 37
+Pages checked: 46
 
 URL | JS gzip (bytes) | Pass
 --- | --- | ---
 /404.html | 0 | PASS
 /about/ | 0 | PASS
-/authors/ | 0 | PASS
-/calculators/concrete-calculator/ | 6250 | PASS
-/calculators/concrete-calculator-post-holes/ | 6250 | PASS
-/calculators/deck-material-calculator/ | 6250 | PASS
-/calculators/fence-calculator/ | 6250 | PASS
-/calculators/fertilizer-calculator/ | 6250 | PASS
-/calculators/grass-seed-calculator/ | 6250 | PASS
-/calculators/gravel-calculator/ | 6250 | PASS
+/calculators/concrete-calculator/ | 6599 | PASS
+/calculators/concrete-calculator-post-holes/ | 6599 | PASS
+/calculators/deck-material-calculator/ | 6599 | PASS
+/calculators/fence-calculator/ | 6599 | PASS
+/calculators/fertilizer-calculator/ | 6599 | PASS
+/calculators/grass-seed-calculator/ | 6599 | PASS
+/calculators/gravel-calculator/ | 6599 | PASS
 /calculators/ | 0 | PASS
-/calculators/mulch-calculator/ | 6250 | PASS
-/calculators/mulch-calculator-tree-rings/ | 6250 | PASS
-/calculators/paint-calculator/ | 6250 | PASS
-/calculators/paver-calculator/ | 6250 | PASS
-/calculators/raised-bed-soil-calculator/ | 6250 | PASS
-/calculators/retaining-wall-calculator/ | 6250 | PASS
-/calculators/roof-pitch-calculator/ | 6250 | PASS
-/calculators/roofing-shingles-calculator/ | 6250 | PASS
-/calculators/sand-calculator/ | 6250 | PASS
-/calculators/sonotube-concrete-calculator/ | 6250 | PASS
-/calculators/topsoil-calculator/ | 6250 | PASS
+/calculators/mulch-calculator/ | 6599 | PASS
+/calculators/mulch-calculator-tree-rings/ | 6599 | PASS
+/calculators/paint-calculator/ | 6599 | PASS
+/calculators/paver-calculator/ | 6599 | PASS
+/calculators/raised-bed-soil-calculator/ | 6599 | PASS
+/calculators/retaining-wall-calculator/ | 6599 | PASS
+/calculators/roof-pitch-calculator/ | 6599 | PASS
+/calculators/roofing-shingles-calculator/ | 6599 | PASS
+/calculators/sand-calculator/ | 6599 | PASS
+/calculators/sonotube-concrete-calculator/ | 6599 | PASS
+/calculators/topsoil-calculator/ | 6599 | PASS
 /contact/ | 0 | PASS
+/guides/concrete-for-10x10-slab/ | 0 | PASS
+/guides/deck-material-list-12x16/ | 0 | PASS
+/guides/fertilizer-nitrogen-per-1000-sq-ft/ | 0 | PASS
+/guides/grass-seed-per-sq-ft/ | 0 | PASS
 /guides/gravel-types-for-driveways/ | 0 | PASS
 /guides/how-many-bags-of-concrete/ | 0 | PASS
 /guides/how-much-concrete-for-fence-posts/ | 0 | PASS
+/guides/how-much-paint-for-a-room/ | 0 | PASS
 /guides/how-to-measure-roof-pitch/ | 0 | PASS
 /guides/ | 0 | PASS
 /guides/mulch-depth-guide/ | 0 | PASS
+/guides/mulch-for-common-garden-beds/ | 0 | PASS
+/guides/paver-base-gravel-and-sand-depth/ | 0 | PASS
+/guides/raised-bed-soil-mix-4x8/ | 0 | PASS
+/guides/retaining-wall-blocks-and-base/ | 0 | PASS
+/guides/topsoil-vs-garden-soil/ | 0 | PASS
 /hubs/concrete/ | 0 | PASS
 /hubs/landscape/ | 0 | PASS
 /hubs/lawn/ | 0 | PASS
@@ -41,5 +50,5 @@ URL | JS gzip (bytes) | Pass
 /privacy/ | 0 | PASS
 /terms/ | 0 | PASS
 
-Worst page: /calculators/concrete-calculator/ (6250 bytes gz, 6.1KB)
+Worst page: /calculators/concrete-calculator/ (6599 bytes gz, 6.4KB)
 Overall: PASS

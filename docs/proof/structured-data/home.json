@@ -1,23 +1,53 @@
 [
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "YardCalc",
-    "url": "https://www.yardcalc.example",
-    "description": "Free home & garden material calculators",
-    "publisher": {
-      "@type": "Organization",
-      "name": "YardCalc",
-      "url": "https://www.yardcalc.example"
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "YardCalc",
-    "url": "https://www.yardcalc.example",
-    "email": "hello@yardcalc.example",
-    "description": "Free home & garden material calculators",
-    "sameAs": []
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#website",
+        "name": "YardCalc",
+        "alternateName": [
+          "YardCalc"
+        ],
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+        "inLanguage": "en",
+        "description": "Free home & garden material calculators",
+        "publisher": {
+          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization",
+        "name": "YardCalc",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+        "email": "hammadiqbal117@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/logo-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "founder": {
+          "@id": "https://github.com/hammadiqbal6#person"
+        },
+        "publishingPrinciples": "https://home-garden-calculators.hammadiqbal117.workers.dev/methodology/"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://github.com/hammadiqbal6#person",
+        "name": "Hammad Iqbal",
+        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/",
+        "description": "I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.",
+        "knowsAbout": [
+          "home and garden material calculators",
+          "concrete volume estimates",
+          "landscape mulch and gravel quantity"
+        ],
+        "sameAs": [
+          "https://github.com/hammadiqbal6"
+        ]
+      }
+    ]
   }
 ]

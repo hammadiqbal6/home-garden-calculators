@@ -5,6 +5,10 @@ on:
   push:
     branches: [main]
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 # Public build-time URLs (same pattern as Cloudflare Workers Builds variables).
 # This site's origin: leave PUBLIC_SITE_URL unset so Astro uses DEFAULT_SITE_URL
 # from src/config/site-origin.mjs (single fallback). Custom domain: set PUBLIC_SITE_URL
@@ -16,8 +20,10 @@ env:
   PUBLIC_SITE_URL_PET: https://pet-calculators.hammadiqbal117.workers.dev
 
 jobs:
+  # Keep this job name: branch protection / required checks may reference it.
   build-test-audit:
     runs-on: ubuntu-24.04
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -26,40 +32,7 @@ jobs:
           cache: npm
       - name: Install
         run: npm ci
+      - name: Build
+        run: npm run build
       - name: Unit tests
         run: npm test
-      - name: Build
-        run: npm run build
-      - name: Link check
-        run: npm run check:links
-      - name: Audits (SEO, AdSense, perf, page checklist)
-        run: npm run audit
-      - name: Lighthouse CI
-        run: npm run lighthouse
-        continue-on-error: true
-
-  proof:
-    runs-on: ubuntu-24.04
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
-        with:
-          node-version: '22'
-          cache: npm
-      - name: Install
-        run: npm ci
-      - name: Install Playwright Chromium
-        timeout-minutes: 10
-        run: npx playwright install chromium --with-deps
-      - name: Build
-        run: npm run build
-      - name: Regenerate proof bundle
-        run: npm run proof
-      - name: Upload proof artifact
-        if: always()
-        uses: actions/upload-artifact@v6
-        with:
-          name: docs-proof
-          path: docs/proof/
-          if-no-files-found: warn

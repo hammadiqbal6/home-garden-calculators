@@ -1,0 +1,65 @@
+name: Full checks
+
+# Manual-only suite: link check, SEO/AdSense/perf/pages audits, Lighthouse, and proof.
+# Run locally before PRs; trigger here from Actions → Full checks → Run workflow.
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: full-checks-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PUBLIC_SITE_URL_PAYMENT_FEES: https://payment-fee-calculators.hammadiqbal117.workers.dev
+  PUBLIC_SITE_URL_BUSINESS_DOCS: https://business-document-generators.hammadiqbal117.workers.dev
+  PUBLIC_SITE_URL_FIBER_ARTS: https://fiber-arts-calculators.hammadiqbal117.workers.dev
+  PUBLIC_SITE_URL_PET: https://pet-calculators.hammadiqbal117.workers.dev
+
+jobs:
+  audit-lighthouse:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Link check
+        run: npm run check:links
+      - name: Audits (SEO, AdSense, perf, page checklist)
+        run: npm run audit
+      - name: Lighthouse CI
+        run: npm run lighthouse
+        continue-on-error: true
+
+  proof:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci
+      - name: Install Playwright Chromium
+        timeout-minutes: 5
+        # ubuntu-24.04 already ships the system libs; skip --with-deps (apt is slow).
+        run: npx playwright install chromium
+      - name: Build
+        run: npm run build
+      - name: Regenerate proof bundle
+        run: npm run proof
+      - name: Upload proof artifact
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: docs-proof
+          path: docs/proof/
+          if-no-files-found: warn

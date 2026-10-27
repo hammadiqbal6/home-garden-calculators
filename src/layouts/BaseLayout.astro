@@ -131,7 +131,7 @@ const brand = siteConfig.brandColor;
           // Defer GA script until idle, first interaction, or consent — never render-blocking.
           function scheduleGa() {
             try {
-              if (localStorage.getItem('yc_cookie_ok')) {
+              if (localStorage.getItem('yc_cookie_ok') === '1') {
                 window.__ycGrantConsent();
                 return;
               }
@@ -237,23 +237,43 @@ const brand = siteConfig.brandColor;
         Cookies for analytics{siteConfig.adsense.enabled ? ' and ads' : ''}.
         <a href="/privacy/">Privacy</a>
       </p>
-      <button type="button" class="btn btn-primary" id="cookie-accept">OK</button>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-secondary" id="cookie-reject">Reject</button>
+        <button type="button" class="btn btn-primary" id="cookie-accept">Accept</button>
+      </div>
     </div>
     <script is:inline>
       (function () {
         var toggle = document.querySelector('.nav-toggle');
         var nav = document.getElementById('site-nav');
+        function setNavOpen(open) {
+          if (!toggle || !nav) return;
+          nav.classList.toggle('open', open);
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        }
         if (toggle && nav) {
           toggle.addEventListener('click', function () {
-            var open = nav.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            setNavOpen(!nav.classList.contains('open'));
+          });
+          document.addEventListener('keydown', function (ev) {
+            if (ev.key !== 'Escape') return;
+            if (!nav.classList.contains('open')) return;
+            setNavOpen(false);
+            toggle.focus();
           });
         }
         var notice = document.getElementById('cookie-notice');
         var accept = document.getElementById('cookie-accept');
+        var reject = document.getElementById('cookie-reject');
+        function dismissCookieNotice() {
+          if (!notice) return;
+          notice.classList.remove('show');
+          notice.hidden = true;
+          document.body.classList.remove('cookie-visible');
+        }
         try {
-          if (notice && !localStorage.getItem('yc_cookie_ok')) {
+          if (notice && localStorage.getItem('yc_cookie_ok') == null) {
             notice.hidden = false;
             notice.classList.add('show');
             document.body.classList.add('cookie-visible');
@@ -261,10 +281,13 @@ const brand = siteConfig.brandColor;
           accept &&
             accept.addEventListener('click', function () {
               localStorage.setItem('yc_cookie_ok', '1');
-              notice.classList.remove('show');
-              notice.hidden = true;
-              document.body.classList.remove('cookie-visible');
+              dismissCookieNotice();
               if (typeof window.__ycGrantConsent === 'function') window.__ycGrantConsent();
+            });
+          reject &&
+            reject.addEventListener('click', function () {
+              localStorage.setItem('yc_cookie_ok', '0');
+              dismissCookieNotice();
             });
         } catch (e) {}
 

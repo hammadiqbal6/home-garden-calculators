@@ -78,7 +78,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       <button type="button" class="btn btn-secondary" data-action="print">Print</button>
     </div>
   </div>
-  <p class="field hint calc-error" hidden></p>
+  <p class="field hint calc-error" id={`${calculatorId}-calc-error`} role="alert" hidden></p>
 </div>
 
 <script>
@@ -1034,8 +1034,54 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       return values;
     }
 
-    function calculate() {
+    function clearFieldErrors() {
+      root.querySelectorAll<HTMLElement>('[aria-invalid="true"]').forEach((el) => {
+        el.removeAttribute('aria-invalid');
+        el.removeAttribute('aria-describedby');
+      });
       err.hidden = true;
+      err.textContent = '';
+    }
+
+    function markInvalidFields(message: string) {
+      const allowZero = new Set([
+        'waste',
+        'doors',
+        'windows',
+        'rise',
+        'trunk',
+        'doorWidth',
+        'doorHeight',
+        'windowWidth',
+        'windowHeight',
+      ]);
+      const inputs = [
+        ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),
+      ].filter((el) => {
+        const wrap = el.closest<HTMLElement>('[data-field]');
+        return !wrap?.hidden;
+      });
+      let marked = false;
+      for (const el of inputs) {
+        const v = Number(el.value);
+        const zeroOk = allowZero.has(el.name);
+        const bad = !Number.isFinite(v) || v < 0 || (!zeroOk && v <= 0);
+        if (bad) {
+          el.setAttribute('aria-invalid', 'true');
+          el.setAttribute('aria-describedby', err.id || `${id}-calc-error`);
+          marked = true;
+        }
+      }
+      if (!marked && inputs[0]) {
+        inputs[0].setAttribute('aria-invalid', 'true');
+        inputs[0].setAttribute('aria-describedby', err.id || `${id}-calc-error`);
+      }
+      err.hidden = false;
+      err.textContent = message;
+    }
+
+    function calculate() {
+      clearFieldErrors();
       try {
         const values = readValues();
         const rows = config.compute(values, units);
@@ -1049,8 +1095,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           });
         }
       } catch (e) {
-        err.hidden = false;
-        err.textContent = e instanceof Error ? e.message : 'Check your inputs.';
+        markInvalidFields(e instanceof Error ? e.message : 'Check your inputs.');
       }
     }
 

@@ -68,12 +68,62 @@ const jsonLd = [
       )
     }
 
+    <h2>What this inbox is for</h2>
+    <ul>
+      <li>
+        <strong>Formula or bag-yield corrections</strong> — send the calculator URL, the inputs you used,
+        the result you got, the result you expected, and a link to a manufacturer data sheet or extension
+        page that supports the correction. Confirmed fixes go in the
+        <a href="/methodology/#changelog">methodology correction log</a>.
+      </li>
+      <li>
+        <strong>Broken links, typos, or accessibility issues</strong> — a page URL and a short description
+        are enough.
+      </li>
+      <li>
+        <strong>Embed and partnership questions</strong> — tools marked embeddable may be framed on other
+        sites when the credit link back to the matching YardCalc page stays visible. Describe your site and
+        intended use.
+      </li>
+      <li>
+        <strong>Citation or source updates</strong> — if a manufacturer yield or extension depth guide
+        changed, send the new URL. See also the <a href="/methodology/">methodology</a> page for how sources
+        are checked.
+      </li>
+    </ul>
+
     <h2>What to include</h2>
     <ul>
-      <li>The calculator URL and inputs you used</li>
-      <li>Expected vs actual result (if reporting a bug)</li>
-      <li>Sources we should cite for a correction</li>
-      <li>For formula corrections, use the same inbox—messages feed the <a href="/methodology/#changelog">correction log</a></li>
+      <li>The calculator or guide URL</li>
+      <li>Inputs you used (dimensions, waste factor, bag size)</li>
+      <li>Expected vs actual result when reporting a math bug</li>
+      <li>Primary-source links (QUIKRETE / Sakrete data sheets, university extension pages, ICPI, etc.)</li>
+    </ul>
+
+    <h2>What we do not handle here</h2>
+    <ul>
+      <li>Personal structural, engineering, or building-code advice for your specific site</li>
+      <li>Quotes for ready-mix, landscaping labor, or material delivery</li>
+      <li>Requests to invent fake reviews, credentials, or aggregate ratings</li>
+    </ul>
+
+    <h2>Privacy of messages</h2>
+    <p>
+      Messages sent to {contactEmail}
+      {
+        formEnabled
+          ? ' or through the contact form (EmailJS) are used only to reply and to fix documented errors. We do not sell contact data. See the '
+          : ' are used only to reply and to fix documented errors. We do not sell contact data. See the '
+      }
+      <a href="/privacy/">privacy policy</a> for cookies, analytics, and advertising disclosures.
+    </p>
+
+    <h2>Other useful pages</h2>
+    <ul>
+      <li><a href="/about/">About</a> — who maintains the site</li>
+      <li><a href="/methodology/">Methodology</a> — formulas, yields, and the public correction log</li>
+      <li><a href="/calculators/">All calculators</a> — full tool index</li>
+      <li><a href="/terms/">Terms of use</a> — estimates disclaimer and embed credit rules</li>
     </ul>
     <p class="meta-row">Last updated {siteConfig.contentUpdated}</p>
   </article>

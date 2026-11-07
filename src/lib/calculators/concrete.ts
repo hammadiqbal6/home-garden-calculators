@@ -1,7 +1,10 @@
 /**
  * Concrete volume estimators.
- * Bag yields follow common Quikrete / Sakrete published coverage for
- * 40 / 60 / 80 lb bags (approx. 0.30 / 0.45 / 0.60 cu ft per bag).
+ * Bag yields follow QUIKRETE Concrete Mix (No. 1101) published coverage
+ * for 40 / 60 / 80 lb bags (approx. 0.30 / 0.45 / 0.60 cu ft per bag).
+ * Sakrete standard mixes publish the same planning yields; specialty and
+ * high-yield mixes can differ—always read the bag you buy.
+ * Default waste: 10% for slabs/steps/post holes, 5% for Sonotube columns.
  */
 import { ceilBags, cuFtToCuM, cuFtToCuYd, round, toFeet, type LengthUnit } from '../units';
 

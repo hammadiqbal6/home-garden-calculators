@@ -21,7 +21,11 @@ export function fenceMaterials(opts: {
   railsPerSection?: number;
   picketWidthIn?: number;
   picketGapIn?: number;
-  /** 80 lb bags per post hole (typical 1 bag for 8–12" hole). */
+  /**
+   * 80 lb bags per post hole. Default 1 is a Fast-Setting dry-pour heuristic
+   * for small holes—not a full cylinder fill. Override after running the
+   * post-hole volume calculator for your diameter and depth.
+   */
   bagsPerPost?: number;
 }): FenceResult {
   const lengthFt = toFeet(opts.totalLength, opts.lengthUnit ?? 'ft');

@@ -67,6 +67,16 @@ function readPublicEnv(key: `PUBLIC_${string}`): string {
   return (fromMeta || fromProcess).trim();
 }
 
+/**
+ * Opt-out boolean for PUBLIC_* flags that default on.
+ * Empty/unset → true; "false" / "0" / "off" / "no" → false; anything else → true.
+ */
+function envEnabledDefaultTrue(key: `PUBLIC_${string}`): boolean {
+  const v = readPublicEnv(key).toLowerCase();
+  if (!v) return true;
+  return !['false', '0', 'off', 'no'].includes(v);
+}
+
 const name = readPublicEnv('PUBLIC_SITE_NAME') || DEFAULT_SITE_NAME;
 const shortName = readPublicEnv('PUBLIC_SITE_SHORT_NAME') || DEFAULT_SITE_SHORT_NAME;
 const tagline = readPublicEnv('PUBLIC_SITE_TAGLINE') || DEFAULT_SITE_TAGLINE;
@@ -109,6 +119,28 @@ function isRealAdsensePublisherId(id: string): boolean {
 const adsenseEnabled =
   isRealAdsensePublisherId(adsensePublisherId) &&
   readPublicEnv('PUBLIC_ADSENSE_ENABLED').toLowerCase() === 'true';
+
+/**
+ * Directory listing badges (footer). Each has its own PUBLIC_*_ENABLED toggle
+ * so future badges can follow the same pattern. Fazier requires its badge on
+ * the live site before approving a free listing.
+ *
+ * Official Fazier embed uses a doubled slash in `/api/v1//public/badges/` —
+ * keep it; "tidying" the path can 404.
+ */
+const directoryBadges = {
+  fazier: {
+    enabled: envEnabledDefaultTrue('PUBLIC_FAZIER_BADGE_ENABLED'),
+    href: 'https://fazier.com',
+    imageSrc:
+      'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light',
+    imageSrcDark:
+      'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=dark',
+    width: 182,
+    height: 43,
+    alt: 'Fazier badge',
+  },
+} as const;
 
 /**
  * Fixed in-page ad unit IDs (numeric). Empty → no fixed `<ins>` (Auto ads still OK).
@@ -236,6 +268,11 @@ export const siteConfig = {
     publicKey: emailjsPublicKey,
     enabled: emailjsEnabled,
   },
+  /**
+   * Footer directory badges (Fazier, etc.). Toggle each with PUBLIC_*_BADGE_ENABLED
+   * (default true). Add new entries here + render in DirectoryBadges.astro.
+   */
+  directoryBadges,
   /** IndexNow key filename (place matching key file in /public) */
   indexNowKey: readPublicEnv('PUBLIC_INDEXNOW_KEY') || DEFAULT_INDEXNOW_KEY,
   locale,

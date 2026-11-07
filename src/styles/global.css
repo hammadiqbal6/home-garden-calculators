@@ -897,6 +897,43 @@ a:hover {
   align-items: center;
 }
 
+.footer-bottom {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer-copy {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-ink-muted);
+  flex: 1 1 16rem;
+}
+
+.directory-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.directory-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 0;
+  line-height: 0;
+}
+
+.directory-badge img {
+  display: block;
+  width: 182px;
+  height: 43px;
+  max-width: 100%;
+}
+
 /* Compact cookie bar — max 56px tall (answer-first fold budget) */
 .cookie-notice {
   position: fixed;

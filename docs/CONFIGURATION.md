@@ -47,6 +47,7 @@ Do **not** put `PUBLIC_*` in top-level wrangler `vars` (breaks `npx wrangler pre
 | `PUBLIC_ADSENSE_ENABLED` | _(empty/false)_ | Ad slots stay off until `true` + real pub id |
 | `PUBLIC_ADSENSE_SLOT_DISPLAY` | _(empty)_ | Numeric ad unit id for the fixed calculator display slot; empty → no fixed `<ins>` (Auto ads OK) |
 | `PUBLIC_ADSENSE_SLOT_TOP` / `_MID` / `_BOTTOM` | _(empty)_ | Optional per-placement numeric overrides; each falls back to `DISPLAY` |
+| `PUBLIC_FAZIER_BADGE_ENABLED` | `true` (default on when unset) | Footer “Featured on Fazier” badge; set `false` to hide. Same opt-out pattern for future directory badges |
 
 Templates: `{name}` and `{short}` in author bio / OG alt expand to the configured site / short name.
 

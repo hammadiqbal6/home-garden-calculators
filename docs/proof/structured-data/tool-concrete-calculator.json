@@ -7,25 +7,25 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/"
+        "item": "https://getyardtally.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Calculators",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/"
+        "item": "https://getyardtally.com/calculators/"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Concrete calculators",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/hubs/concrete/"
+        "item": "https://getyardtally.com/hubs/concrete/"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Concrete Calculator",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/"
+        "item": "https://getyardtally.com/calculators/concrete-calculator/"
       }
     ]
   },
@@ -34,10 +34,10 @@
     "@graph": [
       {
         "@type": "WebApplication",
-        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#app",
+        "@id": "https://getyardtally.com/calculators/concrete-calculator/#app",
         "name": "Concrete Calculator",
         "description": "Free concrete calculator for slabs, footings and steps. Enter length, width and depth to get cubic yards and 40, 60 or 80 lb bag counts with waste added.",
-        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/",
+        "url": "https://getyardtally.com/calculators/concrete-calculator/",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Any",
         "browserRequirements": "Requires JavaScript",
@@ -51,24 +51,24 @@
           "@type": "Person",
           "@id": "https://github.com/hammadiqbal6#person",
           "name": "Hammad Iqbal",
-          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/"
+          "url": "https://getyardtally.com/about/"
         },
         "publisher": {
-          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization"
+          "@id": "https://getyardtally.com/#organization"
         },
         "datePublished": "2026-10-19",
         "dateModified": "2026-10-24"
       },
       {
         "@type": "WebPage",
-        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#webpage",
-        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/",
+        "@id": "https://getyardtally.com/calculators/concrete-calculator/#webpage",
+        "url": "https://getyardtally.com/calculators/concrete-calculator/",
         "name": "Concrete Calculator: Bags & Cubic Yards for Slabs",
         "isPartOf": {
-          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#website"
+          "@id": "https://getyardtally.com/#website"
         },
         "mainEntity": {
-          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#app"
+          "@id": "https://getyardtally.com/calculators/concrete-calculator/#app"
         },
         "datePublished": "2026-10-19T00:00:00+05:00",
         "dateModified": "2026-10-24T00:00:00+05:00",
@@ -84,14 +84,14 @@
         ],
         "primaryImageOfPage": {
           "@type": "ImageObject",
-          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/diagrams/slab-dimensions.svg",
+          "url": "https://getyardtally.com/diagrams/slab-dimensions.svg",
           "width": 960,
           "height": 540
         }
       },
       {
         "@type": "FAQPage",
-        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/#faq",
+        "@id": "https://getyardtally.com/calculators/concrete-calculator/#faq",
         "mainEntity": [
           {
             "@type": "Question",

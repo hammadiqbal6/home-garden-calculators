@@ -1,6 +1,6 @@
 ---
 name: keyword-research
-description: Free-tools keyword research workflow for YardCalc using autocomplete, SERP judgment, and the repo keyword map.
+description: Free-tools keyword research workflow for YardTally using autocomplete, SERP judgment, and the repo keyword map.
 ---
 
 # Keyword research (free tools)

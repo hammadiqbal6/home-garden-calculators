@@ -1,5 +1,5 @@
 ---
-description: Accessibility requirements for YardCalc UI
+description: Accessibility requirements for YardTally UI
 globs: src/**/*.{astro,css,ts}
 alwaysApply: false
 ---

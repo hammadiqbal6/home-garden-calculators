@@ -4,15 +4,25 @@
  * without code changes. Same variable names across all five tool repos.
  */
 
-import { DEFAULT_SITE_URL } from './site-origin.mjs';
+import {
+  DEFAULT_SISTER_NAME_BUSINESS_DOCS,
+  DEFAULT_SISTER_NAME_FIBER_ARTS,
+  DEFAULT_SISTER_NAME_PAYMENT_FEES,
+  DEFAULT_SISTER_NAME_PET,
+  DEFAULT_SISTER_URL_BUSINESS_DOCS,
+  DEFAULT_SISTER_URL_FIBER_ARTS,
+  DEFAULT_SISTER_URL_HOME_GARDEN,
+  DEFAULT_SISTER_URL_PAYMENT_FEES,
+  DEFAULT_SISTER_URL_PET,
+} from './siteDefaults.mjs';
 
 const DEFAULTS = {
-  paymentFees: 'https://payment-fee-calculators.hammadiqbal117.workers.dev',
-  businessDocs: 'https://business-document-generators.hammadiqbal117.workers.dev',
+  paymentFees: DEFAULT_SISTER_URL_PAYMENT_FEES,
+  businessDocs: DEFAULT_SISTER_URL_BUSINESS_DOCS,
   /** Same fallback as PUBLIC_SITE_URL — do not paste the hostname again. */
-  homeGarden: DEFAULT_SITE_URL,
-  fiberArts: 'https://fiber-arts-calculators.hammadiqbal117.workers.dev',
-  pet: 'https://pet-calculators.hammadiqbal117.workers.dev',
+  homeGarden: DEFAULT_SISTER_URL_HOME_GARDEN,
+  fiberArts: DEFAULT_SISTER_URL_FIBER_ARTS,
+  pet: DEFAULT_SISTER_URL_PET,
 } as const;
 
 type SisterKey = keyof typeof DEFAULTS;
@@ -24,6 +34,13 @@ const ENV_KEYS: Record<SisterKey, `PUBLIC_SITE_URL_${string}`> = {
   fiberArts: 'PUBLIC_SITE_URL_FIBER_ARTS',
   pet: 'PUBLIC_SITE_URL_PET',
 };
+
+const NAME_ENV_KEYS = {
+  paymentFees: 'PUBLIC_SISTER_NAME_PAYMENT_FEES',
+  businessDocs: 'PUBLIC_SISTER_NAME_BUSINESS_DOCS',
+  fiberArts: 'PUBLIC_SISTER_NAME_FIBER_ARTS',
+  pet: 'PUBLIC_SISTER_NAME_PET',
+} as const;
 
 function readPublicEnv(key: `PUBLIC_${string}`): string {
   let fromMeta = '';
@@ -75,12 +92,12 @@ export function sisterUrl(id: SisterSiteId, path = '/'): string {
 
 /**
  * Other free tool sites by the same maintainer (About page only — not footers).
- * Exclude this site (homeGarden) from the list shown on YardCalc.
+ * Exclude this site (homeGarden) from the list shown on YardTally.
  */
 export const siblingSitesForAbout = [
   {
     id: 'paymentFees' as const,
-    name: 'FeeCalc',
+    name: readPublicEnv(NAME_ENV_KEYS.paymentFees) || DEFAULT_SISTER_NAME_PAYMENT_FEES,
     niche: 'Payment fee calculators',
     get url() {
       return sisterUrl('paymentFees');
@@ -88,7 +105,7 @@ export const siblingSitesForAbout = [
   },
   {
     id: 'businessDocs' as const,
-    name: 'DocuForge Tools',
+    name: readPublicEnv(NAME_ENV_KEYS.businessDocs) || DEFAULT_SISTER_NAME_BUSINESS_DOCS,
     niche: 'Business document generators',
     get url() {
       return sisterUrl('businessDocs');
@@ -96,7 +113,7 @@ export const siblingSitesForAbout = [
   },
   {
     id: 'fiberArts' as const,
-    name: 'FiberCalc',
+    name: readPublicEnv(NAME_ENV_KEYS.fiberArts) || DEFAULT_SISTER_NAME_FIBER_ARTS,
     niche: 'Knitting & crochet calculators',
     get url() {
       return sisterUrl('fiberArts');
@@ -104,7 +121,7 @@ export const siblingSitesForAbout = [
   },
   {
     id: 'pet' as const,
-    name: 'PetCalc Tools',
+    name: readPublicEnv(NAME_ENV_KEYS.pet) || DEFAULT_SISTER_NAME_PET,
     niche: 'Pet calculators',
     get url() {
       return sisterUrl('pet');

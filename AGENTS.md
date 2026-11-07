@@ -1,6 +1,6 @@
-# AGENTS.md — YardCalc contributor & AI agent guide
+# AGENTS.md — YardTally contributor & AI agent guide
 
-This repository is a **production** static site of free home & garden material calculators (brand placeholder: **YardCalc**). It is optimized for Google ranking, AI-search citations, AdSense readiness, and mobile Core Web Vitals.
+This repository is a **production** static site of free home & garden material calculators (brand: **YardTally**). It is optimized for Google ranking, AI-search citations, AdSense readiness, and mobile Core Web Vitals.
 
 ## Governing documents
 
@@ -9,6 +9,7 @@ This repository is a **production** static site of free home & garden material c
 | [docs/SEO-PLAYBOOK.md](docs/SEO-PLAYBOOK.md) | Governing SEO / GEO / technical rules |
 | [docs/SEO-GUARDRAILS.md](docs/SEO-GUARDRAILS.md) | Do/don’t rules + CI failure conditions |
 | [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md) | Custom domain cutover (`PUBLIC_SITE_URL`) |
+| [docs/CONFIGURATION.md](docs/CONFIGURATION.md) | Brand / env var reference |
 | [docs/MARKET-RESEARCH.md](docs/MARKET-RESEARCH.md) | Niche research & AdSense eligibility notes |
 | [docs/ideas/README.md](docs/ideas/README.md) | All 23 ideas index + home/garden add-on backlog |
 | [docs/KEYWORD-MAP.md](docs/KEYWORD-MAP.md) | Primary keyword per live URL |
@@ -49,7 +50,7 @@ Useful flags from the skill: `--design-system` (new page / visual direction), `-
 ## Project overview
 
 - **Stack:** Astro 5 (static) + TypeScript, Vitest for calculator math, minimal client JS (calculator island).
-- **Config:** `src/config/site.ts` (brand, AdSense, GA4, IndexNow, contact) + `src/config/site-origin.mjs` (**only** place for this site’s workers.dev fallback). Canonical origin = `PUBLIC_SITE_URL` → `siteConfig.siteUrl` everywhere. Never hardcode the site hostname elsewhere — CI fails. Cutover: [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md).
+- **Config:** `src/config/site.ts` (brand, AdSense, GA4, IndexNow, contact) + `src/config/siteDefaults.mjs` (**only** place for this site’s origin / brand fallbacks). Canonical origin = `PUBLIC_SITE_URL` → `siteConfig.siteUrl` everywhere. Never hardcode the site hostname elsewhere — CI fails. Cutover: [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md).
 - **Math:** pure functions in `src/lib/calculators/` — never duplicate formulas in page copy without matching tests.
 - **Content registries:** `src/data/tools.ts`, `src/data/guides.ts`.
 - **Pages:** file routes under `src/pages/` (dynamic `[slug].astro` for tools/guides/hubs).

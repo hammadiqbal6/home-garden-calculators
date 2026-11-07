@@ -1,10 +1,10 @@
-# SEO / AEO guardrails (YardCalc)
+# SEO / AEO guardrails (YardTally)
 
 Machine-checked where noted (`npm run audit:seo`, `npm run check:links`). Human rules for authors and agents.
 
 ## Do
 
-- **One origin:** set `PUBLIC_SITE_URL` (or rely on `DEFAULT_SITE_URL` in `src/config/site-origin.mjs`). Use `siteConfig.siteUrl` / `resolveSiteOrigin()` for canonicals, sitemap, robots Sitemap line, llms.txt, OG, JSON-LD, IndexNow. See [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md).
+- **One origin:** set `PUBLIC_SITE_URL` (or rely on `DEFAULT_SITE_URL` in `src/config/siteDefaults.mjs`). Use `siteConfig.siteUrl` / `resolveSiteOrigin()` for canonicals, sitemap, robots Sitemap line, llms.txt, OG, JSON-LD, IndexNow. See [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md).
 - **Titles 25–65 characters** (aim ~30–60, including brand). Keyword near the start; keep `og:title` / Twitter title in sync (same string via `BaseLayout`).
 - **Meta descriptions 70–160 characters** (aim ~120–160); keep `og:description` / Twitter description in sync.
 - **Exactly one H1** per page; answer-first intro (about 40–60 words) under the H1 on home, tools, and guides.
@@ -21,21 +21,22 @@ Machine-checked where noted (`npm run audit:seo`, `npm run check:links`). Human 
 
 ## Don’t
 
-- Don’t hardcode this site’s `*.workers.dev` hostname outside `site-origin.mjs` (CI fails).
-- Don’t ship `example.com` / `yardcalc.example` in app output or app source.
+- Don’t hardcode this site’s canonical hostname (`getyardtally.com`) outside `siteDefaults.mjs` / wrangler / env / docs / tests (CI fails).
+- Don’t hardcode the legacy `*.workers.dev` hostname outside redirect/config/docs/tests allowlist (CI fails).
+- Don’t ship `example.com` in app output or app source.
 - Don’t use a **200 proxy copy** for `/sitemap.xml`—use **301**.
 - Don’t put `import` inside classic inline `<script>` (breaks GA; use `data-*` + bundled module or IIFE).
-- Don’t put build-only `PUBLIC_*` only in top-level wrangler `vars` if you need `npx wrangler preview`—that pattern broke previews on file-converter-tools. Prefer build-time env (Workers Builds / GitHub Actions); document preview env separately.
+- Don’t put build-only `PUBLIC_*` only in top-level wrangler `vars` if you need `npx wrangler preview`—prefer build-time env (Workers Builds / GitHub Actions); Worker runtime vars are only `CANONICAL_ORIGIN` + `LEGACY_REDIRECT_HOSTS`.
 - Don’t invent statistics, studies, or quotes; label rules of thumb; point to labels and local codes.
 - Don’t cannibalize primary keywords (see [KEYWORD-MAP.md](./KEYWORD-MAP.md)).
-- Don’t merge custom-domain cutover into code until DNS + GSC are ready ([CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md)).
 
 ## CI failure conditions (`audit:seo`)
 
 | Check | Fail when |
 |---|---|
 | example.com in `dist/` | placeholder domains in build output |
-| Hardcoded this-site workers.dev | appears outside `site-origin.mjs` / `CUSTOM-DOMAIN.md` |
+| Hardcoded this-site workers.dev | appears outside redirect/config/docs/tests allowlist |
+| Hardcoded canonical host | appears outside siteDefaults / wrangler / env / docs / tests |
 | og:image trailing `/` | image URL ends with `/` |
 | Title | missing or outside 25–65 chars |
 | Meta description | missing or outside 70–160 chars |

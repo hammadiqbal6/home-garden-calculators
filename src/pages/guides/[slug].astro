@@ -70,13 +70,13 @@ if (faqs.length) {
 ---
 
 <BaseLayout
-  title={`${guide.title} | YardCalc`}
+  title={`${guide.title} | ${siteConfig.name}`}
   description={guide.description}
   canonicalPath={`/guides/${guide.slug}/`}
   ogType="article"
   jsonLd={jsonLd}
   ogImagePath={`/og/guide-${guide.slug}.svg`}
-  ogImageAlt={`${guide.h1} — YardCalc`}
+  ogImageAlt={`${guide.h1} — ${siteConfig.name}`}
 >
   <Breadcrumbs
     items={[

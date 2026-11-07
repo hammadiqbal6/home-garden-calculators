@@ -5,7 +5,7 @@ export const guideBodies: Record<string, string> = {
       <h2>How it's calculated</h2>
       <p>Treat each fence-post hole as a cylinder. Convert the hole diameter to feet, then:</p>
       <p><strong>Volume (cu&nbsp;ft) ≈ π × (diameter ÷ 2)² × depth</strong>, with diameter and depth in feet.</p>
-      <p>Example conversion: an 8-inch diameter is 8÷12 = 0.667&nbsp;ft, so the radius is 0.333&nbsp;ft. For a 2-foot depth, volume ≈ 3.1416 × 0.333² × 2 ≈ 0.70&nbsp;cu&nbsp;ft. Bags ≈ ceil(volume ÷ bag_yield). YardCalc’s typical yields match common bagged concrete coverage: about 0.30&nbsp;cu&nbsp;ft (40&nbsp;lb), 0.45&nbsp;cu&nbsp;ft (60&nbsp;lb), and 0.60&nbsp;cu&nbsp;ft (80&nbsp;lb). Multiply by the number of posts, then apply a waste factor (often about 10%) for over-excavation and spillage.</p>
+      <p>Example conversion: an 8-inch diameter is 8÷12 = 0.667&nbsp;ft, so the radius is 0.333&nbsp;ft. For a 2-foot depth, volume ≈ 3.1416 × 0.333² × 2 ≈ 0.70&nbsp;cu&nbsp;ft. Bags ≈ ceil(volume ÷ bag_yield). YardTally’s typical yields match common bagged concrete coverage: about 0.30&nbsp;cu&nbsp;ft (40&nbsp;lb), 0.45&nbsp;cu&nbsp;ft (60&nbsp;lb), and 0.60&nbsp;cu&nbsp;ft (80&nbsp;lb). Multiply by the number of posts, then apply a waste factor (often about 10%) for over-excavation and spillage.</p>
       <p>Post count comes from fence length and spacing. A 96&nbsp;ft run with 8&nbsp;ft bays needs 13 posts if you count both end posts (12 bays + 1). Use the <a href="/calculators/fence-calculator/">fence calculator</a> for picket or panel layouts, then feed hole size into the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>—not the rectangular <a href="/calculators/concrete-calculator/">slab calculator</a>.</p>
 
       <h2>Quick chart (approx., before waste)</h2>
@@ -142,10 +142,10 @@ export const guideBodies: Record<string, string> = {
   'how-many-bags-of-concrete': `      <div class="takeaway"><strong>Key takeaway:</strong> Divide project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb), round up, then add waste. An 80&nbsp;lb bag yields about 0.60&nbsp;cu&nbsp;ft—roughly 45 bags per cubic yard before waste.</div>
 
       <h2>Bag yield table</h2>
-      <p>YardCalc uses the same approximate yields published for many QUIKRETE and Sakrete general-purpose mixes. Specialty high-strength or lightweight products can differ—read the label.</p>
+      <p>YardTally uses the same approximate yields published for many QUIKRETE and Sakrete general-purpose mixes. Specialty high-strength or lightweight products can differ—read the label.</p>
       <div class="table-scroll">
       <table>
-        <caption>Typical bagged concrete yields used by YardCalc</caption>
+        <caption>Typical bagged concrete yields used by YardTally</caption>
         <thead><tr><th>Bag</th><th>Yield (approx.)</th><th>Bags / cu yd</th></tr></thead>
         <tbody>
           <tr><td>40 lb</td><td>0.30 cu ft</td><td>~90</td></tr>
@@ -201,7 +201,7 @@ export const guideBodies: Record<string, string> = {
       <p>Placing the concrete is half the job. Many residential references recommend keeping fresh concrete moist for several days after finishing, often about a week, so it can gain strength; the bag and the ACI residential guidance linked below describe curing practices. Hot, dry, or windy days dry the surface too fast, and freezing temperatures can damage concrete that has not yet set. If the forecast is poor, move the pour date rather than gambling with a full order of bags you cannot return once they are opened.</p>
 
       <h2>When to call a pro / safety / codes</h2>
-      <p>Call a concrete contractor for structural footings, large driveways, stamped or colored finishes, or sites with poor access. Cement products are alkaline—wear gloves, eye protection, and long sleeves; wash skin promptly. Reinforcing steel, control-joint spacing, and thickness for vehicle loads are code- and engineer-driven. YardCalc estimates volume and bags only; it does not replace ACI guidance or a local building permit review. For residential concrete overview documents, see ACI resources linked below.</p>
+      <p>Call a concrete contractor for structural footings, large driveways, stamped or colored finishes, or sites with poor access. Cement products are alkaline—wear gloves, eye protection, and long sleeves; wash skin promptly. Reinforcing steel, control-joint spacing, and thickness for vehicle loads are code- and engineer-driven. YardTally estimates volume and bags only; it does not replace ACI guidance or a local building permit review. For residential concrete overview documents, see ACI resources linked below.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -212,7 +212,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'concrete-for-10x10-slab': `      <div class="takeaway"><strong>Key takeaway:</strong> A 10×10&nbsp;ft slab at 4&nbsp;inches is about 1.23&nbsp;cu&nbsp;yd (33.3&nbsp;cu&nbsp;ft) before waste. With YardCalc’s 10% waste factor, plan on roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix. Gravel base is ordered separately.</div>
+  'concrete-for-10x10-slab': `      <div class="takeaway"><strong>Key takeaway:</strong> A 10×10&nbsp;ft slab at 4&nbsp;inches is about 1.23&nbsp;cu&nbsp;yd (33.3&nbsp;cu&nbsp;ft) before waste. With YardTally’s 10% waste factor, plan on roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix. Gravel base is ordered separately.</div>
 
       <p>This page is a size-specific worked chart. For arbitrary dimensions use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. It does not replace post-hole or Sonotube tools—see <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a> and <a href="/guides/how-many-bags-of-concrete/">bag yield charts</a> for those shapes.</p>
       <figure class="diagram">
@@ -253,7 +253,7 @@ export const guideBodies: Record<string, string> = {
       <p>Near or above one cubic yard, ready-mix often wins on labor if a truck can access the site. Always compact a gravel base separately—base volume is not included in slab concrete. Estimate base with the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
 
       <h2>Worked example: 10×10×4&quot; with base</h2>
-      <p>Concrete: 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd) before waste → 36.7&nbsp;cu&nbsp;ft with 10% → about sixty-two 80&nbsp;lb bags. If you also place 4&nbsp;inches of compacted gravel under the slab, gravel volume before waste is also 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd). With 10% compaction/waste allowance ≈ 1.35&nbsp;cu&nbsp;yd. At YardCalc’s mid-range crushed-stone density (~2,700&nbsp;lb/cu&nbsp;yd), that is on the order of 1.8&nbsp;tons—confirm density with your yard.</p>
+      <p>Concrete: 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd) before waste → 36.7&nbsp;cu&nbsp;ft with 10% → about sixty-two 80&nbsp;lb bags. If you also place 4&nbsp;inches of compacted gravel under the slab, gravel volume before waste is also 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd). With 10% compaction/waste allowance ≈ 1.35&nbsp;cu&nbsp;yd. At YardTally’s mid-range crushed-stone density (~2,700&nbsp;lb/cu&nbsp;yd), that is on the order of 1.8&nbsp;tons—confirm density with your yard.</p>
 
       <h2>Worked example: 10×10×6&quot; shed pad</h2>
       <p>Heavier shed pads sometimes use 6&nbsp;inches: 50&nbsp;cu&nbsp;ft (1.85&nbsp;cu&nbsp;yd) before waste → 55&nbsp;cu&nbsp;ft with 10% → about ninety-two 80&nbsp;lb bags or one hundred twenty-three 60&nbsp;lb bags. At that bag count, price a short-load ready-mix truck against all-day mixing.</p>
@@ -380,7 +380,7 @@ export const guideBodies: Record<string, string> = {
       <p>If you later convert a gravel drive to pavers, the compacted crushed-stone base often remains useful beneath a sand setting bed—another reason to build the base correctly the first time.</p>
 
       <h2>How much to order</h2>
-      <p><strong>Volume (cu&nbsp;ft) = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. Tons ≈ yards × (density_lb_per_cu_yd ÷ 2000). YardCalc’s gravel tool defaults near 2,700&nbsp;lb per cu&nbsp;yd for crushed stone as a mid-range planning density—quarries often quote 1.2–1.4&nbsp;tons per cu&nbsp;yd depending on moisture and rock type. Add roughly 10% for compaction and crowning unless your supplier says otherwise.</p>
+      <p><strong>Volume (cu&nbsp;ft) = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. Tons ≈ yards × (density_lb_per_cu_yd ÷ 2000). YardTally’s gravel tool defaults near 2,700&nbsp;lb per cu&nbsp;yd for crushed stone as a mid-range planning density—quarries often quote 1.2–1.4&nbsp;tons per cu&nbsp;yd depending on moisture and rock type. Add roughly 10% for compaction and crowning unless your supplier says otherwise.</p>
       <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you are building a paver driveway instead of loose gravel, you will also need a sand setting bed—see the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
 
       <h2>Worked example: 40 × 10 ft drive at 4 inches</h2>
@@ -502,7 +502,7 @@ export const guideBodies: Record<string, string> = {
 
       <h2>When to call a pro / safety / codes</h2>
       <div class="takeaway"><strong>Safety:</strong> Never walk a wet, frosty, or steep roof without training and fall protection. Hire a pro when in doubt.</div>
-      <p>Roofing work is among the more hazardous homeowner DIY jobs. Call a licensed roofing contractor for steep pitches, multi-story homes, fragile shingles, skylight work, or when local code requires permitted reroofs with specific underlayment and ventilation details. Structural changes to rafters need an engineer or qualified contractor. YardCalc helps with pitch math and shingle estimating only—it does not inspect structure, ice-dam risk, or wind uplift ratings.</p>
+      <p>Roofing work is among the more hazardous homeowner DIY jobs. Call a licensed roofing contractor for steep pitches, multi-story homes, fragile shingles, skylight work, or when local code requires permitted reroofs with specific underlayment and ventilation details. Structural changes to rafters need an engineer or qualified contractor. YardTally helps with pitch math and shingle estimating only—it does not inspect structure, ice-dam risk, or wind uplift ratings.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -518,7 +518,7 @@ export const guideBodies: Record<string, string> = {
       <p>Retail grass seed is sold by weight. The practical unit for homeowners is <strong>pounds of seed per 1,000 square feet</strong>. To size a purchase you need two numbers: your lawn area in square feet, and the bag’s recommended rate for either a new lawn or overseeding. The formula in plain language is:</p>
       <p><strong>Seed (lb) = (area in sq ft ÷ 1,000) × label rate (lb per 1,000 sq ft).</strong></p>
       <p>There is no one “correct” ounces-per-square-foot figure that fits every grass type. Kentucky bluegrass, tall fescue, fine fescue, and perennial ryegrass germinate and tiller differently, so manufacturers and extension services publish different ranges. Iowa State Extension’s establishing-from-seed guidance, for example, lists mixture-specific rates that can run from roughly 1–1½ lb per 1,000 sq ft for 100% Kentucky bluegrass up to about 7–9 lb per 1,000 for tall fescue—illustrating why copying a neighbor’s bag rate can under- or over-seed your yard.</p>
-      <p>YardCalc’s <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> uses adjustable defaults in the common cool-season blend ballpark (about 3.5 lb per 1,000 for new lawn and about 1.75 lb per 1,000 for overseed). Those defaults are planning aids only. Replace them with the exact rate printed on the seed you buy.</p>
+      <p>YardTally’s <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> uses adjustable defaults in the common cool-season blend ballpark (about 3.5 lb per 1,000 for new lawn and about 1.75 lb per 1,000 for overseed). Those defaults are planning aids only. Replace them with the exact rate printed on the seed you buy.</p>
 
       <h2>Worked example: 50 × 40 ft lawn</h2>
       <p>A rectangular lawn measuring 50 ft by 40 ft is 2,000 square feet. Using the calculator’s default new-lawn rate of 3.5 lb per 1,000 sq ft:</p>
@@ -536,8 +536,8 @@ export const guideBodies: Record<string, string> = {
           <tr><th>Scenario</th><th>Rate (lb / 1,000 sq ft)</th><th>Seed for 2,000 sq ft</th></tr>
         </thead>
         <tbody>
-          <tr><td>Cool-season blend, new (YardCalc default)</td><td>3.5</td><td>7.0 lb</td></tr>
-          <tr><td>Cool-season blend, overseed (YardCalc default)</td><td>1.75</td><td>3.5 lb</td></tr>
+          <tr><td>Cool-season blend, new (YardTally default)</td><td>3.5</td><td>7.0 lb</td></tr>
+          <tr><td>Cool-season blend, overseed (YardTally default)</td><td>1.75</td><td>3.5 lb</td></tr>
           <tr><td>Example bluegrass-heavy mix (extension-style range)</td><td>~1–2.5</td><td>~2–5 lb</td></tr>
           <tr><td>Example tall fescue new lawn (extension-style range)</td><td>~7–9</td><td>~14–18 lb</td></tr>
         </tbody>
@@ -597,7 +597,7 @@ export const guideBodies: Record<string, string> = {
       <p>Plain-language formula:</p>
       <p><strong>Product lb per 1,000 sq ft = N lb desired per 1,000 ÷ (N percent ÷ 100).</strong></p>
       <p>Then scale by area: <strong>Total product lb = (lawn sq ft ÷ 1,000) × product lb per 1,000.</strong></p>
-      <p>YardCalc’s <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> implements that relationship with adjustable nitrogen target, N%, bag size, and lawn dimensions. Defaults are for planning; your soil test report and product label override them.</p>
+      <p>YardTally’s <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> implements that relationship with adjustable nitrogen target, N%, bag size, and lawn dimensions. Defaults are for planning; your soil test report and product label override them.</p>
       <p>Extension guidance often discusses annual nitrogen ranges by grass species and maintenance intensity, split across the season—not one giant dump. Penn State Extension materials discuss annual nitrogen ranges for cool-season species and note that individual applications are commonly kept near or below about 1 lb N per 1,000 sq ft, with slow-release forms preferred for water quality. Some states (for example Pennsylvania’s fertilizer law for turf) set maximum nitrogen rates per application—check your jurisdiction before copying any example rate.</p>
 
       <h2>Worked example: 50 × 40 ft lawn, 30-0-4, 1 lb N per 1,000</h2>
@@ -760,7 +760,7 @@ export const guideBodies: Record<string, string> = {
       <p><strong>Paintable area ≈ wall area − door areas − window areas.</strong></p>
       <p><strong>Gallons per coat ≈ paintable area ÷ coverage (sq ft per gallon).</strong></p>
       <p><strong>Total gallons ≈ gallons per coat × coats.</strong></p>
-      <p>YardCalc’s <a href="/calculators/paint-calculator/">paint calculator</a> uses that layout with default door and window sizes (about 20 and 15 sq ft each unless you override) and a default coverage of 350 sq ft per gallon—within the range many consumer labels publish. Behr’s how-to guidance, for example, states that one gallon of several BEHR Ultra or Premium Plus interior products covers about 250 to 400 sq ft per coat, with textured or drastic color changes needing more. Sherwin-Williams and other manufacturers publish similar label ranges; the can in your hand controls the buy.</p>
+      <p>YardTally’s <a href="/calculators/paint-calculator/">paint calculator</a> uses that layout with default door and window sizes (about 20 and 15 sq ft each unless you override) and a default coverage of 350 sq ft per gallon—within the range many consumer labels publish. Behr’s how-to guidance, for example, states that one gallon of several BEHR Ultra or Premium Plus interior products covers about 250 to 400 sq ft per coat, with textured or drastic color changes needing more. Sherwin-Williams and other manufacturers publish similar label ranges; the can in your hand controls the buy.</p>
       <p>Ceilings, trim, and doors are separate takeoffs. This guide focuses on walls. Closets, hall returns, and accent walls should be measured individually so you do not under-order a specialty color.</p>
 
       <h2>Worked example: 12 × 14 ft room, 8 ft ceilings</h2>
@@ -842,7 +842,7 @@ export const guideBodies: Record<string, string> = {
       <p>Paver projects are stacked systems: compacted subgrade, aggregate base, bedding sand, pavers, and joint sand. Volume for any uniform layer is:</p>
       <p><strong>Cubic feet = area (sq ft) × (depth inches ÷ 12).</strong></p>
       <p><strong>Cubic yards = cubic feet ÷ 27.</strong></p>
-      <p>YardCalc’s <a href="/calculators/paver-calculator/">paver calculator</a> counts pavers and also estimates bedding sand and gravel base using adjustable depths (defaults: 1 in sand, 4 in base). Refine bulk orders with the <a href="/calculators/gravel-calculator/">gravel calculator</a> and <a href="/calculators/sand-calculator/">sand calculator</a>. Choosing angular crushed stone versus decorative rounded rock is covered conceptually in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>—the same angular-vs-rounded logic applies to patio bases that must lock under compaction.</p>
+      <p>YardTally’s <a href="/calculators/paver-calculator/">paver calculator</a> counts pavers and also estimates bedding sand and gravel base using adjustable depths (defaults: 1 in sand, 4 in base). Refine bulk orders with the <a href="/calculators/gravel-calculator/">gravel calculator</a> and <a href="/calculators/sand-calculator/">sand calculator</a>. Choosing angular crushed stone versus decorative rounded rock is covered conceptually in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>—the same angular-vs-rounded logic applies to patio bases that must lock under compaction.</p>
 
       <h2>Worked example: 12 × 10 ft patio</h2>
       <p>Area = 120 sq ft. Using calculator defaults of 4 in compacted gravel base and 1 in bedding sand:</p>
@@ -919,7 +919,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'deck-material-list-12x16': `      <div class="takeaway"><strong>Key takeaway:</strong> A simple 12×16 ft rectangular deck takeoff estimates deck boards from covering width ÷ board face width, joists from span ÷ spacing + 1, plus fasteners. YardCalc’s defaults use about 5.5 in effective board width and 16 in on-center joists—common planning assumptions, not a substitute for span tables or local code. Orientation of the 12 and 16 matters.</div>
+  'deck-material-list-12x16': `      <div class="takeaway"><strong>Key takeaway:</strong> A simple 12×16 ft rectangular deck takeoff estimates deck boards from covering width ÷ board face width, joists from span ÷ spacing + 1, plus fasteners. YardTally’s defaults use about 5.5 in effective board width and 16 in on-center joists—common planning assumptions, not a substitute for span tables or local code. Orientation of the 12 and 16 matters.</div>
 
       <h2>How a basic deck takeoff works</h2>
       <p>For a rectangular deck with boards running along the length dimension:</p>
@@ -942,7 +942,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
       <p>If you reverse the framing so boards run the 16 ft direction (length = 16, width = 12), the same calculator returns more boards (54 of 12 ft stock with splices) and 13 joists—because board stock length and joist span changed. Always sketch which way decking runs before ordering.</p>
 
-      <h2>Planning table (YardCalc defaults, boards along first dimension)</h2>
+      <h2>Planning table (YardTally defaults, boards along first dimension)</h2>
       <div class="table-scroll">
       <table>
         <caption>Illustrative decking counts for a 12×16 ft rectangle (5.5 in face, 12 ft boards, 16 in O.C.)</caption>
@@ -1011,7 +1011,7 @@ export const guideBodies: Record<string, string> = {
       <p><strong>Blocks per course = ceil(wall length ÷ block face length).</strong></p>
       <p><strong>Blocks = courses × blocks per course</strong> (then add waste for cuts and breakage).</p>
       <p>Base trench gravel volume ≈ wall length × trench width × trench depth (convert to yards by dividing cubic feet by 27).</p>
-      <p>YardCalc’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> and drainage layers used under <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand</a>.</p>
+      <p>YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> and drainage layers used under <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand</a>.</p>
       <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions—do not scale a 3 ft DIY patio wall detail to a 8 ft yard cut without professional design.</p>
 
       <h2>Worked example: 20 ft long × 3 ft exposed height</h2>

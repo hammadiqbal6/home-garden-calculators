@@ -1,6 +1,6 @@
 ---
 name: structured-data
-description: Add or validate YardCalc JSON-LD (WebSite, Organization, BreadcrumbList, WebApplication, Article) without fake ratings.
+description: Add or validate YardTally JSON-LD (WebSite, Organization, BreadcrumbList, WebApplication, Article) without fake ratings.
 ---
 
 # Structured data

@@ -1,4 +1,4 @@
-# Deployment guide — YardCalc (step by step)
+# Deployment guide — YardTally (step by step)
 
 This guide walks you from a fresh clone to a live, HTTPS site on your own domain, with Search Console, analytics, and (when ready) AdSense. It matches **this repository’s real scripts and files**—copy-paste the commands as written.
 
@@ -89,7 +89,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 
 | Field | Example | What to do |
 | --- | --- | --- |
-| `name` | `YardCalc` | Public brand in header, titles, JSON-LD. |
+| `name` | `YardTally` | Public brand in header, titles, JSON-LD. |
 | `tagline` | Short sentence | Home hero and Organization description. |
 | `siteUrl` | `https://www.yourdomain.com` | **Canonical origin** — `https`, **no trailing slash**. Must match the host you will redirect to. |
 | `contactEmail` | `hammadiqbal117@gmail.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Build env vars:** See [`.env.example`](../.env.example). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: workers.dev URL). `PUBLIC_SITE_URL_PAYMENT_FEES` / `_BUSINESS_DOCS` / `_HOME_GARDEN` / `_FIBER_ARTS` / `_PET` drive sister-site cross-links via `src/config/sisterSites.ts` (workers.dev fallbacks if unset). `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true`. Optional EmailJS contact form: `PUBLIC_EMAILJS_SERVICE_ID` / `PUBLIC_EMAILJS_TEMPLATE_ID` / `PUBLIC_EMAILJS_PUBLIC_KEY` (public IDs only — see [CONTACT-EMAILJS.md](./CONTACT-EMAILJS.md)).
+**Build env vars:** See [`.env.example`](../.env.example) and [CONFIGURATION.md](./CONFIGURATION.md). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: `https://getyardtally.com` in `siteDefaults.mjs`). Sister origins use `PUBLIC_SITE_URL_*` via `src/config/sisterSites.ts`. `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true` ( `/ads.txt` is generated from the publisher id). Optional EmailJS contact form: `PUBLIC_EMAILJS_SERVICE_ID` / `PUBLIC_EMAILJS_TEMPLATE_ID` / `PUBLIC_EMAILJS_PUBLIC_KEY` (public IDs only — see [CONTACT-EMAILJS.md](./CONTACT-EMAILJS.md)). Legacy host 301s use Worker vars `CANONICAL_ORIGIN` + `LEGACY_REDIRECT_HOSTS` (see [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md)).
 
 ### 3.2 Public files — replace placeholders
 
@@ -113,8 +113,8 @@ After you know your real domain (`https://www.yourdomain.com`):
 
 | File | Action |
 | --- | --- |
-| **`public/robots.txt`** | Set `Sitemap: https://www.yourdomain.com/sitemap-index.xml` (line 44 today points at `yardcalc.example`). |
-| **`public/llms.txt`** | Replace every `https://www.yardcalc.example` URL with your domain (optional file for some answer engines). |
+| **`public/robots.txt`** | Set `Sitemap: https://www.yourdomain.com/sitemap-index.xml` (line 44 today points at `yardtally.example`). |
+| **`public/llms.txt`** | Replace every `https://www.yardtally.example` URL with your domain (optional file for some answer engines). |
 | **`public/_redirects`** | Uncomment/edit apex → `www` (or reverse) rules for Netlify/Cloudflare Pages; see [Section 4](#4-custom-domain-dns-https-www-vs-apex). |
 | **`public/ads.txt`** | Leave commented until AdSense approval; then uncomment and set `google.com, pub-NNNN…, DIRECT, f08c47fec0942fa0` (numeric pub id). |
 | **`public/<indexNowKey>.txt`** | Rename file to match `siteConfig.indexNowKey`; file body = the key string. |
@@ -199,7 +199,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | `PUBLIC_SITE_URL` | Custom canonical origin (https, no trailing slash). Leave unset to use `DEFAULT_SITE_URL` in `src/config/site-origin.mjs`. See [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md). |
 | `PUBLIC_SITE_URL_PAYMENT_FEES` | Sister origin for FeeCalc cross-links (see `.env.example`) |
 | `PUBLIC_SITE_URL_BUSINESS_DOCS` | Sister origin for DocuForge Tools |
-| `PUBLIC_SITE_URL_HOME_GARDEN` | Sister origin for YardCalc (this site) |
+| `PUBLIC_SITE_URL_HOME_GARDEN` | Sister origin for YardTally (this site) |
 | `PUBLIC_SITE_URL_FIBER_ARTS` | Sister origin for FiberCalc |
 | `PUBLIC_SITE_URL_PET` | Sister origin for PetCalc Tools |
 | `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` |
@@ -411,7 +411,7 @@ Also revert the Git commit on `main` if the bad change is in source control.
 
 | Symptom | Likely cause | Fix |
 | --- | --- | --- |
-| Sitemap URLs still show `yardcalc.example` | `siteUrl` not updated or old deploy | Fix `src/config/site.ts`, rebuild, redeploy. |
+| Sitemap URLs still show `yardtally.example` | `siteUrl` not updated or old deploy | Fix `src/config/site.ts`, rebuild, redeploy. |
 | `www` and apex both work without redirect | Redirect rule missing | Add Cloudflare Rule or `_redirects`; pick one canonical in `siteUrl`. |
 | `/sitemap.xml` 404 | Host not using `_redirects` | Use `/sitemap-index.xml` directly in GSC, or add host redirect (Vercel has it in `vercel.json`). |
 | Canonical mismatch warnings in GSC | `siteUrl` ≠ live URL | Align protocol, host, trailing slash (`trailingSlash: 'always'`). |

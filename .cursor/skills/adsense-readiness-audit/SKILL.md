@@ -1,6 +1,6 @@
 ---
 name: adsense-readiness-audit
-description: Check YardCalc AdSense readiness (trust pages, privacy disclosures, ads.txt, thin pages, slot CLS).
+description: Check YardTally AdSense readiness (trust pages, privacy disclosures, ads.txt, thin pages, slot CLS).
 ---
 
 # AdSense readiness audit

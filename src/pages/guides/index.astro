@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { siteConfig } from '../../config/site';
 import { guides } from '../../data/guides';
 import { absoluteUrl } from '../../data/tools';
 ---
 
 <BaseLayout
-  title="Home & Garden Guides | YardCalc"
-  description="Practical YardCalc guides on concrete bags, mulch depth, driveway gravel, and measuring roof pitch—each paired with a free calculator."
+  title={`Home & Garden Guides | ${siteConfig.name}`}
+  description={`Practical ${siteConfig.name} guides on concrete bags, mulch depth, driveway gravel, and measuring roof pitch—each paired with a free calculator.`}
   canonicalPath="/guides/"
   jsonLd={{
     '@context': 'https://schema.org',
@@ -22,7 +23,7 @@ import { absoluteUrl } from '../../data/tools';
   <div class="container" style="padding-bottom:3rem">
     <h1>Guides</h1>
     <p class="answer-first">
-      Short, cited explainers that answer common project questions and link to the matching YardCalc tools.
+      Short, cited explainers that answer common project questions and link to the matching {siteConfig.name} tools.
     </p>
     <div class="card-grid" style="margin-top:1.5rem">
       {

@@ -52,7 +52,7 @@ const ogSvg = `<?xml version="1.0" encoding="UTF-8"?>
     <path d="M30 90 L60 30 L90 90 Z" stroke="#fff" stroke-width="8" fill="none" stroke-linejoin="round"/>
     <circle cx="60" cy="72" r="8" fill="#c45c26"/>
   </g>
-  <text x="240" y="250" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="84" font-weight="750" fill="#ffffff">YardCalc</text>
+  <text x="240" y="250" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="84" font-weight="750" fill="#ffffff">YardTally</text>
   <text x="240" y="330" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="36" fill="#dceee4">Free home &amp; garden material calculators</text>
   <text x="240" y="400" font-family="ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#b7f0d2">Concrete · mulch · gravel · fence · deck · lawn</text>
 </svg>`;

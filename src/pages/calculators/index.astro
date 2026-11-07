@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { siteConfig } from '../../config/site';
 import { categories, tools, absoluteUrl } from '../../data/tools';
 
 const jsonLd = {
@@ -25,8 +26,8 @@ const categoryHints: Record<string, string> = {
 ---
 
 <BaseLayout
-  title="All Home & Garden Calculators | YardCalc"
-  description="Browse free YardCalc tools for concrete, mulch, gravel, fence, deck, roof, paint, and lawn. US and metric units, bag counts, no signup."
+  title={`All Home & Garden Calculators | ${siteConfig.name}`}
+  description={`Browse free ${siteConfig.name} tools for concrete, mulch, gravel, fence, deck, roof, paint, and lawn. US and metric units, bag counts, no signup.`}
   canonicalPath="/calculators/"
   jsonLd={jsonLd}
 >
@@ -34,7 +35,7 @@ const categoryHints: Record<string, string> = {
   <div class="container" style="padding-bottom:3rem">
     <h1>All calculators</h1>
     <p class="answer-first">
-      Every YardCalc tool runs locally in your browser. Pick a calculator below or start from a
+      Every {siteConfig.name} tool runs locally in your browser. Pick a calculator below or start from a
       <a href="/hubs/concrete/">topic hub</a>.
     </p>
 

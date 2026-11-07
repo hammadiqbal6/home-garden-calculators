@@ -1,8 +1,8 @@
-# YardCalc — Home & Garden Material Calculators
+# YardTally — Home & Garden Material Calculators
 
 Production-ready **static** website of free DIY / landscaping material calculators. Built to rank in Google, be citable by AI search, pass AdSense review, and stay fast on mobile.
 
-**Placeholder brand:** YardCalc · **Config:** [`src/config/site.ts`](src/config/site.ts)  
+**Brand:** YardTally · **Site:** https://getyardtally.com · **Config:** [`src/config/site.ts`](src/config/site.ts)  
 **Governing research:** [`docs/SEO-PLAYBOOK.md`](docs/SEO-PLAYBOOK.md) · [`docs/MARKET-RESEARCH.md`](docs/MARKET-RESEARCH.md) · [`docs/ideas/README.md`](docs/ideas/README.md)
 
 ---
@@ -179,7 +179,7 @@ All owner-specific values live in **`src/config/site.ts`** (no scattered hardcod
 |---|---|---|
 | `name` | Brand display name | Set final brand |
 | `tagline` | Short description | Optional tweak |
-| `siteUrl` | From `PUBLIC_SITE_URL` (fallback: workers.dev) | Set in Workers Builds |
+| `siteUrl` | From `PUBLIC_SITE_URL` (fallback: getyardtally.com) | Set in Workers Builds |
 | `contactEmail` | From `PUBLIC_CONTACT_EMAIL` (fallback: `hammadiqbal117@gmail.com`) | Optional override |
 | `contentUpdated` | Default lastmod / stamps | Keep ISO date current |
 | `author.*` | E-E-A-T byline | Replace placeholder bio |
@@ -365,6 +365,6 @@ Other niches (#2 marketplace fees, #3 pets, …) are **separate sites**, not bol
 
 ## License
 
-Copyright © YardCalc contributors. Source is provided for operating this calculator property.  
+Copyright © YardTally contributors. Source is provided for operating this calculator property.  
 Calculator outputs are **estimates only**—verify with manufacturers, suppliers, and local building codes.  
 Replace this section with your preferred license (e.g. MIT) before public open-source release if desired.

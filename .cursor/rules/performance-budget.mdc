@@ -1,5 +1,5 @@
 ---
-description: Performance budgets and CWV constraints for YardCalc
+description: Performance budgets and CWV constraints for YardTally
 globs: src/**/*.{astro,ts,css}, lighthouserc.cjs, scripts/audit/**
 alwaysApply: false
 ---

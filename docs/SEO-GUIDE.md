@@ -23,7 +23,7 @@ Governing playbooks: [SEO-PLAYBOOK.md](./SEO-PLAYBOOK.md), [MARKET-RESEARCH.md](
 
 ## Google Search Console
 
-1. Add a **Domain** property for `yardcalc.example` (DNS TXT verification).
+1. Add a **Domain** property for `yardtally.example` (DNS TXT verification).
 2. Or URL-prefix property + HTML tag (`siteConfig.analytics.searchConsoleVerification`).
 3. Submit `https://www.your-domain/sitemap-index.xml`.
 4. URL Inspection → Request indexing for home, hubs, and top tools.
@@ -92,7 +92,7 @@ See [KEYWORD-MAP.md](./KEYWORD-MAP.md) for every live URL.
 ## AI-search (GEO) steps
 
 - Allow AI search bots in `robots.txt` (already configured).
-- Keep answer-first paragraphs, tables with dates/sources, clear entity name **YardCalc**.
+- Keep answer-first paragraphs, tables with dates/sources, clear entity name **YardTally**.
 - Optional `llms.txt` is published; Google ignores it—do not rely on it.
 - Measure AI Overview/Mode traffic inside GSC when available.
 

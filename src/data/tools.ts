@@ -87,7 +87,7 @@ export const categories: Record<
       </table>
       </div>
       <h2>How to choose bag mix vs ready-mix</h2>
-      <p>Bagged QUIKRETE / Sakrete-style mixes suit posts, small pads, and repairs you can place in batches. Past about one cubic yard—or any pour that must be continuous across a large slab—compare the cost and labor of ready-mix delivery. YardCalc bag counts use published standard-mix yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags; lightweight and high-yield products differ, so read the label.</p>
+      <p>Bagged QUIKRETE / Sakrete-style mixes suit posts, small pads, and repairs you can place in batches. Past about one cubic yard—or any pour that must be continuous across a large slab—compare the cost and labor of ready-mix delivery. YardTally bag counts use published standard-mix yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags; lightweight and high-yield products differ, so read the label.</p>
       <h2>Worked example: 10×10 patio</h2>
       <p>Volume = 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste factor that becomes 36.7 cu ft → 62 bags of 80 lb mix or 82 bags of 60 lb mix. Order gravel base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Full charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a>, and <a href="/guides/concrete-for-10x10-slab/">10×10 slab</a>.</p>
       <h2>Waste, frost, and regional caveats</h2>
@@ -118,7 +118,7 @@ export const categories: Record<
       </table>
       </div>
       <h2>How to choose bulk vs bags</h2>
-      <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardCalc ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
+      <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardTally ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
       <h2>Worked example: 20×10 path at 4 inches</h2>
       <p>Area = 200 sq ft. Depth = 4÷12 = 0.333 ft. Volume = 66.7 cu ft ≈ 2.47 cu yd before waste; with 10% compaction allowance ≈ 2.72 cu yd ≈ 3.67 tons at 2,700 lb/yd³. Run the same dimensions in the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
       <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>.</p>
@@ -170,7 +170,7 @@ export const categories: Record<
       'Convert lawn area into grass-seed pounds and fertilizer product pounds using rates per 1,000 sq ft. A 5,000 sq ft cool-season new lawn at 3.5 lb/1,000 needs about 17.5 lb of seed (use the rate on your bag).',
     introHtml: `
       <h2>How to choose seed rate vs fertilizer rate</h2>
-      <p>Seed quantity comes from the species blend on the bag (new-lawn rates are higher than overseed). Fertilizer quantity comes from your nitrogen target and the first N-P-K number. YardCalc’s grass-seed defaults (3.5 lb/1,000 new, 1.75 lb/1,000 overseed) are mid cool-season planning figures—always override with the printed bag rate for your mix. Warm-season grasses and specialty blends can sit well outside that band.</p>
+      <p>Seed quantity comes from the species blend on the bag (new-lawn rates are higher than overseed). Fertilizer quantity comes from your nitrogen target and the first N-P-K number. YardTally’s grass-seed defaults (3.5 lb/1,000 new, 1.75 lb/1,000 overseed) are mid cool-season planning figures—always override with the printed bag rate for your mix. Warm-season grasses and specialty blends can sit well outside that band.</p>
       <h2>Worked examples</h2>
       <ul>
         <li><strong>Seed:</strong> 5,000 sq ft × (3.5 lb ÷ 1,000) = 17.5 lb for a new cool-season lawn. The same area overseeded at 1.75 lb/1,000 needs 8.75 lb.</li>
@@ -181,7 +181,7 @@ export const categories: Record<
       <div class="table-scroll">
       <table>
         <caption>Typical cool-season timing—confirm with local extension</caption>
-        <thead><tr><th>Season</th><th>Common tasks</th><th>YardCalc tools</th></tr></thead>
+        <thead><tr><th>Season</th><th>Common tasks</th><th>YardTally tools</th></tr></thead>
         <tbody>
           <tr><td>Early spring</td><td>Soil test, light cleanup, pre-emergent where appropriate</td><td><a href="/calculators/fertilizer-calculator/">Fertilizer</a></td></tr>
           <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a></td></tr>
@@ -293,7 +293,7 @@ export const tools: ToolDefinition[] = [
     category: 'concrete',
     primaryKeyword: 'concrete calculator for post holes',
     secondaryKeywords: ['fence post concrete calculator', 'how much concrete per fence post'],
-    title: 'Concrete Calculator for Post Holes | YardCalc',
+    title: 'Concrete Calculator for Post Holes | YardTally',
     description:
       'Calculate concrete for fence post holes: enter diameter, depth, and post count for cubic yards and 40/60/80 lb bags. Free post-hole concrete estimator.',
     h1: 'Concrete Calculator for Post Holes',
@@ -353,7 +353,7 @@ export const tools: ToolDefinition[] = [
     category: 'concrete',
     primaryKeyword: 'sonotube concrete calculator',
     secondaryKeywords: ['cardboard concrete form calculator', 'column concrete calculator'],
-    title: 'Sonotube Concrete Calculator | YardCalc',
+    title: 'Sonotube Concrete Calculator | YardTally',
     description:
       'Sonotube concrete calculator for round columns and deck piers. Enter tube diameter and height for cubic yards and bag counts.',
     h1: 'Sonotube Concrete Calculator: Bags by Diameter',
@@ -462,7 +462,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'mulch calculator for tree rings',
     secondaryKeywords: ['tree ring mulch calculator', 'mulch around trees calculator'],
-    title: 'Mulch Calculator for Tree Rings – Donut Volume | YardCalc',
+    title: 'Mulch Calculator for Tree Rings – Donut Volume | YardTally',
     description:
       'Calculate mulch for tree rings: enter outer ring and trunk diameters plus depth for cubic feet, yards, and bags. Avoid volcano mulching.',
     h1: 'Mulch Calculator for Tree Rings: Donut Volume',
@@ -504,7 +504,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'gravel calculator',
     secondaryKeywords: ['crushed stone calculator', 'how much gravel do I need'],
-    title: 'Gravel Calculator – Tons & Cubic Yards | YardCalc',
+    title: 'Gravel Calculator – Tons & Cubic Yards | YardTally',
     description:
       'Gravel and crushed stone calculator: length, width, and depth to cubic yards and estimated tons. Useful for driveways, paths, and bases.',
     h1: 'Gravel Calculator: Tons & Cubic Yards',
@@ -547,7 +547,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'topsoil calculator',
     secondaryKeywords: ['soil calculator cubic yards', 'how much topsoil'],
-    title: 'Topsoil Calculator – Cubic Yards & Bags | YardCalc',
+    title: 'Topsoil Calculator – Cubic Yards & Bags | YardTally',
     description:
       'Calculate topsoil for lawns and beds: enter length, width and depth to get cubic yards, cubic meters and bag estimates with waste. Free planning tool.',
     h1: 'Topsoil Calculator: Yards, Bags & Tons',
@@ -584,7 +584,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'sand calculator',
     secondaryKeywords: ['paver sand calculator', 'how much sand do I need'],
-    title: 'Sand Calculator – Beds, Pavers & Play | YardCalc',
+    title: 'Sand Calculator – Beds, Pavers & Play | YardTally',
     description:
       'Sand calculator for paver bedding, leveling, and play areas. Converts dimensions to cubic yards and estimated tons.',
     h1: 'Sand Calculator: Cubic Yards & Bags',
@@ -621,7 +621,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'paver calculator',
     secondaryKeywords: ['patio paver calculator', 'how many pavers do I need'],
-    title: 'Paver Calculator – Count, Sand & Base | YardCalc',
+    title: 'Paver Calculator – Count, Sand & Base | YardTally',
     description:
       'Estimate pavers needed plus bedding sand and gravel base. Enter patio size and paver dimensions with a waste percent.',
     h1: 'Paver Calculator: Count, Sand & Base',
@@ -707,7 +707,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'deck material calculator',
     secondaryKeywords: ['deck board calculator', 'deck joist calculator', 'deck screws calculator'],
-    title: 'Deck Material Calculator – Boards & Joists | YardCalc',
+    title: 'Deck Material Calculator – Boards & Joists | YardTally',
     description:
       'Deck material calculator for decking boards, joists at 16" o.c., rim joists, and screw counts. Free rectangular deck estimator.',
     h1: 'Deck Material Calculator: Boards & Joists',
@@ -750,7 +750,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'roof pitch calculator',
     secondaryKeywords: ['roof slope calculator', 'roof angle calculator', 'pitch to degrees'],
-    title: 'Roof Pitch Calculator – Slope, Angle & Factor | YardCalc',
+    title: 'Roof Pitch Calculator – Slope, Angle & Factor | YardTally',
     description:
       'Roof pitch calculator converts rise and run to X-in-12 pitch, degrees, percent slope, and roof area factor. Free, mobile-friendly.',
     h1: 'Roof Pitch Calculator: Slope, Angle & Factor',
@@ -793,7 +793,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'roofing calculator',
     secondaryKeywords: ['shingle calculator', 'roofing squares calculator', 'how many squares of shingles'],
-    title: 'Roofing Shingles Calculator – Squares | YardCalc',
+    title: 'Roofing Shingles Calculator – Squares | YardTally',
     description:
       'Calculate roofing squares and shingle bundles from plan dimensions and pitch. Includes waste factor for hips, valleys, and starter.',
     h1: 'Roofing Shingles & Squares Calculator',
@@ -830,7 +830,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'paint calculator',
     secondaryKeywords: ['how much paint do I need', 'room paint calculator', 'gallon paint calculator'],
-    title: 'Paint Calculator – Gallons for Walls | YardCalc',
+    title: 'Paint Calculator – Gallons for Walls | YardTally',
     description:
       'Paint calculator for rooms: wall area minus doors and windows, coverage per gallon, one or two coats. US gallons and liters.',
     h1: 'Paint Calculator: Gallons for Walls',
@@ -851,7 +851,7 @@ export const tools: ToolDefinition[] = [
       {
         label: 'Sherwin-Williams – Coverage guidelines (typical)',
         href: 'https://www.sherwin-williams.com/',
-        usedFor: 'Typical interior coverage band; YardCalc defaults to 350 sq ft/gal',
+        usedFor: 'Typical interior coverage band; YardTally defaults to 350 sq ft/gal',
         checked: '2026-11-07',
       },
     ],
@@ -904,7 +904,7 @@ export const tools: ToolDefinition[] = [
     category: 'lawn',
     primaryKeyword: 'grass seed calculator',
     secondaryKeywords: ['lawn seed calculator', 'overseeding calculator'],
-    title: 'Grass Seed Calculator – New Lawn & Overseed | YardCalc',
+    title: 'Grass Seed Calculator – New Lawn & Overseed | YardTally',
     description:
       'Grass seed calculator using lb per 1,000 sq ft rates for new lawns and overseeding. Get pounds and kilograms for your yard size—match the rate on your seed bag.',
     h1: 'Grass Seed Calculator: lb per 1,000 Sq Ft (New & Overseed)',
@@ -941,7 +941,7 @@ export const tools: ToolDefinition[] = [
     category: 'lawn',
     primaryKeyword: 'fertilizer calculator',
     secondaryKeywords: ['lawn fertilizer calculator', 'nitrogen fertilizer calculator'],
-    title: 'Fertilizer Calculator – Nitrogen Rates | YardCalc',
+    title: 'Fertilizer Calculator – Nitrogen Rates | YardTally',
     description:
       'Lawn fertilizer calculator from nitrogen target and N-P-K percentage. Get product pounds and bag counts for your yard size.',
     h1: 'Fertilizer Calculator: Nitrogen Rates & Bag Count',

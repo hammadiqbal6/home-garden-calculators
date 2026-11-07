@@ -20,7 +20,13 @@
     }
   ],
   "redirects": [
-    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": false }
+    { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.getyardtally.com" }],
+      "destination": "https://getyardtally.com/:path*",
+      "permanent": true
+    }
   ],
   "trailingSlash": true
 }

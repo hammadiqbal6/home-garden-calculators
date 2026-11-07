@@ -1,39 +1,52 @@
 /**
  * Single source of truth for brand, domain, and third-party IDs.
- * Public URL / contact / author / analytics / AdSense come from build-time
- * PUBLIC_* env vars (see `.env.example`). Nothing else should hardcode those values.
+ * Public URL / contact / author / analytics / AdSense / brand come from build-time
+ * PUBLIC_* env vars (see `.env.example` + docs/CONFIGURATION.md).
  *
- * Site origin: `PUBLIC_SITE_URL` → `siteConfig.siteUrl` (fallback in `site-origin.mjs`).
+ * Site origin: `PUBLIC_SITE_URL` → `siteConfig.siteUrl` (fallback in `siteDefaults.mjs`).
  * Used for Astro `site`, canonicals, sitemap, robots.txt, llms.txt, OG, JSON-LD, IndexNow.
  */
 
-import { DEFAULT_SITE_URL, normalizeSiteUrl } from './site-origin.mjs';
+import {
+  DEFAULT_AUTHOR_BIO,
+  DEFAULT_AUTHOR_NAME,
+  DEFAULT_AUTHOR_ROLE,
+  DEFAULT_AUTHOR_SAME_AS,
+  DEFAULT_AUTHOR_URL,
+  DEFAULT_BACKGROUND_COLOR,
+  DEFAULT_CONTACT_EMAIL,
+  DEFAULT_CONTENT_UPDATED,
+  DEFAULT_COPYRIGHT_OWNER,
+  DEFAULT_DATE_CREATED,
+  DEFAULT_INDEXNOW_KEY,
+  DEFAULT_LOCALE,
+  DEFAULT_LOGO_PATH,
+  DEFAULT_MANIFEST_DESCRIPTION,
+  DEFAULT_OG_IMAGE_ALT,
+  DEFAULT_OG_IMAGE_PATH,
+  DEFAULT_ORG_SAME_AS,
+  DEFAULT_SITE_NAME,
+  DEFAULT_SITE_SHORT_NAME,
+  DEFAULT_SITE_TAGLINE,
+  DEFAULT_SITE_URL,
+  DEFAULT_THEME_COLOR,
+  FORMER_SITE_NAME,
+  applyBrandTemplate,
+  normalizeSiteUrl,
+  parseList,
+} from './siteDefaults.mjs';
 
-export { DEFAULT_SITE_URL } from './site-origin.mjs';
-
-/** Public contact inbox used when PUBLIC_CONTACT_EMAIL is unset. */
-const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
-
-/** Named maintainer — one-person site; no invented credentials. */
-const DEFAULT_AUTHOR_NAME = 'Hammad Iqbal';
-
-/**
- * Short bio for ProfilePage / about (honest; no licenses or degrees invented).
- */
-const DEFAULT_AUTHOR_BIO =
-  'I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.';
-
-/** Role label for visible bylines (not a credential; never used as author.name in JSON-LD). */
-const DEFAULT_AUTHOR_ROLE = 'Author & maintainer';
+export {
+  DEFAULT_SITE_URL,
+  FORMER_SITE_NAME,
+  applyBrandTemplate,
+} from './siteDefaults.mjs';
 
 /**
  * Stable Person @id shared across this maintainer's tool sites.
  * Based on the public GitHub profile so Google can merge the entity.
  */
-const CANONICAL_PERSON_URL = 'https://github.com/hammadiqbal6';
-
-/** Public profile URLs for Person.sameAs (only real profiles). */
-const AUTHOR_SAME_AS = ['https://github.com/hammadiqbal6'] as const;
+const CANONICAL_PERSON_URL_DEFAULT = DEFAULT_AUTHOR_URL;
 
 /**
  * Read a PUBLIC_* build env var from Vite/Astro (`import.meta.env`) or Node
@@ -53,8 +66,19 @@ function readPublicEnv(key: `PUBLIC_${string}`): string {
   return (fromMeta || fromProcess).trim();
 }
 
+const name = readPublicEnv('PUBLIC_SITE_NAME') || DEFAULT_SITE_NAME;
+const shortName = readPublicEnv('PUBLIC_SITE_SHORT_NAME') || DEFAULT_SITE_SHORT_NAME;
+const tagline = readPublicEnv('PUBLIC_SITE_TAGLINE') || DEFAULT_SITE_TAGLINE;
+const manifestDescription =
+  readPublicEnv('PUBLIC_MANIFEST_DESCRIPTION') || DEFAULT_MANIFEST_DESCRIPTION;
 const siteUrl = normalizeSiteUrl(readPublicEnv('PUBLIC_SITE_URL'));
 const contactEmail = readPublicEnv('PUBLIC_CONTACT_EMAIL') || DEFAULT_CONTACT_EMAIL;
+const copyrightOwner =
+  (readPublicEnv('PUBLIC_COPYRIGHT_OWNER') || DEFAULT_COPYRIGHT_OWNER).trim() || name;
+const brandColor = readPublicEnv('PUBLIC_THEME_COLOR') || DEFAULT_THEME_COLOR;
+const backgroundColor =
+  readPublicEnv('PUBLIC_BACKGROUND_COLOR') || DEFAULT_BACKGROUND_COLOR;
+const locale = readPublicEnv('PUBLIC_LOCALE') || DEFAULT_LOCALE;
 const ga4MeasurementId = readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID');
 /** Prefer PUBLIC_GSC_VERIFICATION; keep legacy alias for older Workers Builds configs. */
 const searchConsoleVerification =
@@ -86,20 +110,41 @@ const adsenseEnabled =
   readPublicEnv('PUBLIC_ADSENSE_ENABLED').toLowerCase() === 'true';
 
 const authorName = readPublicEnv('PUBLIC_AUTHOR_NAME') || DEFAULT_AUTHOR_NAME;
-const authorBio = readPublicEnv('PUBLIC_AUTHOR_BIO') || DEFAULT_AUTHOR_BIO;
+const authorBio = applyBrandTemplate(
+  readPublicEnv('PUBLIC_AUTHOR_BIO') || DEFAULT_AUTHOR_BIO,
+  { name, shortName },
+);
+const authorUrl = (readPublicEnv('PUBLIC_AUTHOR_URL') || CANONICAL_PERSON_URL_DEFAULT).replace(
+  /\/$/,
+  '',
+);
+const authorSameAs = parseList(readPublicEnv('PUBLIC_AUTHOR_SAME_AS'), DEFAULT_AUTHOR_SAME_AS);
+const orgSameAs = parseList(readPublicEnv('PUBLIC_ORG_SAME_AS'), DEFAULT_ORG_SAME_AS);
+const logoPath = readPublicEnv('PUBLIC_LOGO_PATH') || DEFAULT_LOGO_PATH;
+const defaultOgImage = readPublicEnv('PUBLIC_OG_IMAGE_PATH') || DEFAULT_OG_IMAGE_PATH;
+const defaultOgImageAlt = applyBrandTemplate(
+  readPublicEnv('PUBLIC_OG_IMAGE_ALT') || DEFAULT_OG_IMAGE_ALT,
+  { name, shortName },
+);
 
 export const siteConfig = {
   /** Public site name shown in UI, titles, and structured data */
-  name: 'YardCalc',
+  name,
   /** Short name for apple-mobile-web-app-title / manifest */
-  shortName: 'YardCalc',
+  shortName,
+  /** Previous brand (About copy + schema alternateName) */
+  formerName: FORMER_SITE_NAME,
   /** Short tagline for home/hero and Organization description */
-  tagline: 'Free home & garden material calculators',
+  tagline,
+  /** Manifest / PWA description */
+  manifestDescription,
   /** Brand color for theme-color / manifest */
-  brandColor: '#1f6b4a',
+  brandColor,
+  /** Manifest background_color */
+  backgroundColor,
   /**
    * Canonical origin with protocol, no trailing slash.
-   * From PUBLIC_SITE_URL, else Workers.dev fallback.
+   * From PUBLIC_SITE_URL, else DEFAULT_SITE_URL in siteDefaults.mjs.
    */
   siteUrl,
   /**
@@ -107,13 +152,15 @@ export const siteConfig = {
    * From PUBLIC_CONTACT_EMAIL, else DEFAULT_CONTACT_EMAIL.
    */
   contactEmail,
+  /** Footer © line owner */
+  copyrightOwner,
   /**
    * Site-wide content stamp. Change only when formulas, sources, or substantial copy change
    * (Google: do not refresh dates without real updates).
    */
-  contentUpdated: '2026-11-07',
+  contentUpdated: readPublicEnv('PUBLIC_CONTENT_UPDATED') || DEFAULT_CONTENT_UPDATED,
   /** First public release date for ProfilePage / Article datePublished defaults */
-  dateCreated: '2026-10-19',
+  dateCreated: readPublicEnv('PUBLIC_DATE_CREATED') || DEFAULT_DATE_CREATED,
   /**
    * Author / maintainer byline for E-E-A-T.
    * No "reviewed by" unless a real named reviewer exists.
@@ -125,9 +172,9 @@ export const siteConfig = {
     /** On-site author URL (ProfilePage lives on /about/) */
     urlPath: '/about/#maintainer',
     /** Cross-site Person @id (same on all five tool sites) */
-    canonicalPersonId: `${CANONICAL_PERSON_URL}#person`,
-    canonicalPersonUrl: CANONICAL_PERSON_URL,
-    sameAs: [...AUTHOR_SAME_AS],
+    canonicalPersonId: `${authorUrl}#person`,
+    canonicalPersonUrl: authorUrl,
+    sameAs: authorSameAs.length ? authorSameAs : [authorUrl],
     knowsAbout: [
       'home and garden material calculators',
       'concrete volume estimates',
@@ -135,14 +182,14 @@ export const siteConfig = {
     ],
   },
   /** Brand Organization sameAs (omit empty arrays in JSON-LD) */
-  sameAs: [] as string[],
+  sameAs: orgSameAs as string[],
   /** Default Open Graph image (1200×630 PNG) */
-  defaultOgImage: '/og-default.png',
+  defaultOgImage,
   defaultOgImageWidth: 1200,
   defaultOgImageHeight: 630,
-  defaultOgImageAlt: 'YardCalc — free home and garden material calculators',
+  defaultOgImageAlt,
   /** Organization logo (PNG ≥112px for Google Images) */
-  logoPath: '/logo-512.png',
+  logoPath,
   analytics: {
     /** GA4 measurement ID from PUBLIC_GA4_MEASUREMENT_ID — empty disables gtag */
     ga4MeasurementId,
@@ -173,8 +220,8 @@ export const siteConfig = {
     enabled: emailjsEnabled,
   },
   /** IndexNow key filename (place matching key file in /public) */
-  indexNowKey: 'c2a68b8b8e7e6ba2253b408fa0fe2c4c',
-  locale: 'en-US',
+  indexNowKey: readPublicEnv('PUBLIC_INDEXNOW_KEY') || DEFAULT_INDEXNOW_KEY,
+  locale,
 };
 
 export type SiteConfig = typeof siteConfig;

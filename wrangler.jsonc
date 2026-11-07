@@ -1,27 +1,43 @@
 /**
- * Static Astro output + a tiny Worker for 308 trailing-slash redirects.
- * Deployed via Cloudflare Workers Builds: `npm run build` then `npx wrangler deploy`.
+ * Static Astro output + run-first Worker for legacy-host 301s and 308
+ * trailing-slash redirects. Deployed via Cloudflare Workers Builds:
+ * `npm run build` then `npx wrangler deploy`.
  *
- * Do not put build-time PUBLIC_* only in top-level wrangler `vars` if you need
- * `npx wrangler preview` — that pattern broke previews on file-converter-tools.
- * Prefer Workers Builds / CI env for PUBLIC_SITE_URL and related PUBLIC_* values;
- * document any preview-only env separately.
+ * Build-time PUBLIC_* belong in Cloudflare Workers Builds → Variables
+ * (.env.example). Do NOT put PUBLIC_* in top-level wrangler "vars" — that
+ * breaks `npx wrangler preview` unless mirrored under previews.vars, and
+ * still does not bake Astro HTML.
+ *
+ * Worker runtime vars (not PUBLIC_*): CANONICAL_ORIGIN + LEGACY_REDIRECT_HOSTS
+ * for host 301s. Override in the Cloudflare dashboard if the apex or legacy
+ * hosts change; see docs/CONFIGURATION.md and docs/CUSTOM-DOMAIN.md.
  */
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "home-garden-calculators",
   // Keep current with Workers runtime (see Cloudflare compatibility dates).
   "compatibility_date": "2026-10-19",
-  "main": "./worker/trailing-slash.js",
+  "main": "./src/worker.ts",
+  "vars": {
+    "CANONICAL_ORIGIN": "https://getyardtally.com",
+    "LEGACY_REDIRECT_HOSTS": "home-garden-calculators.hammadiqbal117.workers.dev,www.getyardtally.com"
+  },
   "assets": {
     // Astro static output (`npm run build` → dist/)
     "directory": "./dist",
     "binding": "ASSETS",
-    // Run Worker first so missing trailing slashes get 308 (not the default 307).
+    // Run Worker first so legacy hosts and missing trailing slashes redirect.
     "run_worker_first": true,
     // Astro uses trailingSlash: 'always'
     "html_handling": "force-trailing-slash",
     // Serve nearest 404.html for missing paths (src/pages/404.astro → dist/404.html)
     "not_found_handling": "404-page"
+  },
+  // Required by `npx wrangler preview` (non-production Workers Builds command).
+  "previews": {
+    "vars": {
+      "CANONICAL_ORIGIN": "https://getyardtally.com",
+      "LEGACY_REDIRECT_HOSTS": "home-garden-calculators.hammadiqbal117.workers.dev,www.getyardtally.com"
+    }
   }
 }

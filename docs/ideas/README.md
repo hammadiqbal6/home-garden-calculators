@@ -1,6 +1,6 @@
 # Ideas research index
 
-Compiled index of free-tool site ideas from the Oct 2026 research package. Use this when choosing the **next niche site** or **add-on tools** for YardCalc.
+Compiled index of free-tool site ideas from the Oct 2026 research package. Use this when choosing the **next niche site** or **add-on tools** for YardTally.
 
 ## Source files
 
@@ -19,7 +19,7 @@ Governing guidelines for this repo: **`docs/SEO-PLAYBOOK.md`** and **`docs/MARKE
 
 | Status | Meaning |
 |---|---|
-| **in progress / built** | This repository (YardCalc home & garden hub) |
+| **in progress / built** | This repository (YardTally home & garden hub) |
 | **backlog** | Not started; candidate for a future site or expansion |
 | **add-on backlog** | Extra tools that fit *this* site’s niche |
 
@@ -79,7 +79,7 @@ From `MORE-IDEAS.md` / Meyerhans census / Calcwright. Prefer these before spinni
 
 ## How to use this index
 
-1. **Expand YardCalc** → pick from the **add-on backlog** above; follow `AGENTS.md` and `.cursor/skills/add-new-tool/SKILL.md`.
+1. **Expand YardTally** → pick from the **add-on backlog** above; follow `AGENTS.md` and `.cursor/skills/add-new-tool/SKILL.md`.
 2. **Start a new niche site** → pick a **backlog** idea with KD ≤30 / small-site SERPs; copy the Astro tool-site pattern; keep research files linked from that repo’s `docs/`.
 3. **Do not** mass-produce thin pages per query variation (see SEO playbook § scaled content).
 

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { siteConfig } from '../../config/site';
 import { absoluteUrl, categories, tools, type ToolCategory } from '../../data/tools';
 import { guides } from '../../data/guides';
 
@@ -38,12 +39,12 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title={`${cat.title} | YardCalc`}
+  title={`${cat.title} | ${siteConfig.name}`}
   description={cat.description}
   canonicalPath={`/hubs/${cat.slug}/`}
   jsonLd={jsonLd}
   ogImagePath={`/og/hub-${cat.slug}.svg`}
-  ogImageAlt={`${cat.name} — YardCalc`}
+  ogImageAlt={`${cat.name} — ${siteConfig.name}`}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: cat.name }]} />
   <div class="container hub-page" style="padding-bottom:3rem">

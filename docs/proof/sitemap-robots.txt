@@ -1,5 +1,5 @@
 === robots.txt ===
-# YardCalc robots.txt
+# YardTally robots.txt
 # Favicons and apple-touch-icon must stay crawlable (Google favicon guidance).
 
 User-agent: *
@@ -46,7 +46,7 @@ User-agent: CCBot
 Allow: /
 Disallow: /*?utm_
 
-Sitemap: https://home-garden-calculators.hammadiqbal117.workers.dev/sitemap-index.xml
+Sitemap: https://getyardtally.com/sitemap-index.xml
 
 
 === Crawler allowances (name present in robots.txt) ===

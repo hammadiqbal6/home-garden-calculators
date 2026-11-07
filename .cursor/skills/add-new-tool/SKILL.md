@@ -1,6 +1,6 @@
 ---
 name: add-new-tool
-description: Add a new YardCalc calculator page end-to-end (math, tests, UI, SEO content, keyword map, audits).
+description: Add a new YardTally calculator page end-to-end (math, tests, UI, SEO content, keyword map, audits).
 ---
 
 # Add a new tool

@@ -1,5 +1,5 @@
 ---
-description: Content quality and E-E-A-T for YardCalc tools and guides
+description: Content quality and E-E-A-T for YardTally tools and guides
 globs: src/data/**/*.ts, src/pages/guides/**/*
 alwaysApply: false
 ---

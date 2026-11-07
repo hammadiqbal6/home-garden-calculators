@@ -3,8 +3,9 @@
 # Supported: 301/302/303/307/308 redirects and 200 proxying.
 # Not supported: domain-level (host) redirects — use Cloudflare Redirect Rules for apex↔www.
 
-# Prefer the Worker 301 for /sitemap.xml → /sitemap-index.xml (see worker/trailing-slash.js).
+# Prefer the Worker 301 for /sitemap.xml → /sitemap-index.xml (see src/worker.ts).
 # Keep a matching 301 here for asset-only previews that skip the Worker.
+# Host-level 301s (workers.dev + www → apex) are Worker-only — see docs/CUSTOM-DOMAIN.md.
 /sitemap.xml /sitemap-index.xml 301
 /sitemap.xml/ /sitemap-index.xml 301
 

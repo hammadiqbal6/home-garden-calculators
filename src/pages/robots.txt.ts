@@ -7,7 +7,7 @@ export const GET: APIRoute = () => {
   const disallows = `Allow: /
 Disallow: /*?utm_`;
 
-  const body = `# YardCalc robots.txt
+  const body = `# ${siteConfig.name} robots.txt
 # Favicons and apple-touch-icon must stay crawlable (Google favicon guidance).
 
 User-agent: *

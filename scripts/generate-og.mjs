@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Dependency-free OG SVG generator for YardCalc.
+ * Dependency-free OG SVG generator for YardTally.
  * Reads slugs + titles from src/data/tools.ts and src/data/guides.ts via regex
  * (no TypeScript import). Writes 1200×630 SVGs under public/og/.
  *
@@ -9,10 +9,24 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  DEFAULT_OG_IMAGE_FOOTER,
+  DEFAULT_SITE_NAME,
+  DEFAULT_SITE_TAGLINE,
+  applyBrandTemplate,
+} from '../src/config/siteDefaults.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const outDir = path.join(root, 'public', 'og');
+
+const SITE_NAME = process.env.PUBLIC_SITE_NAME?.trim() || DEFAULT_SITE_NAME;
+const OG_FOOTER = applyBrandTemplate(
+  process.env.PUBLIC_OG_IMAGE_FOOTER?.trim() || DEFAULT_OG_IMAGE_FOOTER,
+  { name: SITE_NAME },
+);
+const SITE_TAGLINE =
+  process.env.PUBLIC_SITE_TAGLINE?.trim() || DEFAULT_SITE_TAGLINE;
 
 const FONT =
   'ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif';
@@ -29,7 +43,7 @@ function escapeXml(s) {
 /** Split title into ≤3 lines for the OG canvas. */
 function wrapTitle(title, maxChars = 28, maxLines = 3) {
   const words = String(title).trim().split(/\s+/).filter(Boolean);
-  if (!words.length) return ['YardCalc'];
+  if (!words.length) return [SITE_NAME];
   const lines = [];
   let cur = '';
   for (const w of words) {
@@ -117,9 +131,9 @@ function ogSvg({ eyebrow, title }) {
   <circle cx="980" cy="80" r="220" fill="#ffffff" fill-opacity="0.06"/>
   <circle cx="120" cy="520" r="180" fill="#c45c26" fill-opacity="0.18"/>
   <text x="72" y="88" font-family="${FONT}" font-size="28" font-weight="600" fill="#b7f0d2" letter-spacing="0.04em">${escapeXml(eyebrow)}</text>
-  <text x="72" y="200" font-family="${FONT}" font-size="36" font-weight="700" fill="#ffffff" fill-opacity="0.92">YardCalc</text>
+  <text x="72" y="200" font-family="${FONT}" font-size="36" font-weight="700" fill="#ffffff" fill-opacity="0.92">${escapeXml(SITE_NAME)}</text>
   ${titleNodes}
-  <text x="72" y="580" font-family="${FONT}" font-size="24" fill="#dceee4">Free home &amp; garden material calculators</text>
+  <text x="72" y="580" font-family="${FONT}" font-size="24" fill="#dceee4">${escapeXml(OG_FOOTER)}</text>
 </svg>
 `;
 }
@@ -157,7 +171,7 @@ function main() {
   let written = 0;
   writeSvg('home.svg', {
     eyebrow: 'HOME',
-    title: 'Free home & garden material calculators',
+    title: SITE_TAGLINE,
   });
   written++;
 

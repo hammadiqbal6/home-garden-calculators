@@ -29,7 +29,7 @@ const jsonLd = [homeGraph()];
   canonicalPath="/"
   jsonLd={jsonLd}
   ogImagePath="/og/home.svg"
-  ogImageAlt="YardCalc — free home and garden material calculators"
+  ogImageAlt={siteConfig.defaultOgImageAlt}
 >
   <section class="hero container">
     <p class="brand" style="margin:0 0 0.75rem;font-size:1.35rem">
@@ -37,7 +37,7 @@ const jsonLd = [homeGraph()];
     </p>
     <h1>Free home &amp; garden material calculators</h1>
     <p class="lede answer-first">
-      YardCalc estimates concrete bags, mulch yards, gravel tons, grass seed, fertilizer, paint, and outdoor
+      {siteConfig.name} estimates concrete bags, mulch yards, gravel tons, grass seed, fertilizer, paint, and outdoor
       materials from simple dimensions. Enter length, width, and depth (or area and rate) for cubic yards,
       bags, or product pounds in US or metric units. Math runs privately in your browser—confirm bag yields,
       local codes, and product labels before you buy.

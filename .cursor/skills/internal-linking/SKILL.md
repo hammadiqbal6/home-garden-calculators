@@ -1,6 +1,6 @@
 ---
 name: internal-linking
-description: Maintain YardCalc hub → tool → guide clusters, related blocks, and orphan-free navigation.
+description: Maintain YardTally hub → tool → guide clusters, related blocks, and orphan-free navigation.
 ---
 
 # Internal linking

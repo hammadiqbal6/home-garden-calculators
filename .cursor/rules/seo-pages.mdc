@@ -1,5 +1,5 @@
 ---
-description: SEO/AEO rules for YardCalc pages — research first, answer-first, checklist
+description: SEO/AEO rules for YardTally pages — research first, answer-first, checklist
 globs: src/pages/**/*.{astro,md,mdx}, src/data/**/*.ts
 alwaysApply: false
 ---

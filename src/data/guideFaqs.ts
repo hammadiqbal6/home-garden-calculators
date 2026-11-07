@@ -71,7 +71,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   "concrete-for-10x10-slab": [
     {
       "question": "How much concrete do I need for a 10×10 slab at 4 inches?",
-      "answer": "About 33.3 cu ft or 1.23 cu yd before waste. With a 10% waste factor (YardCalc default), that is about 36.7 cu ft—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix at standard yields."
+      "answer": "About 33.3 cu ft or 1.23 cu yd before waste. With a 10% waste factor (YardTally default), that is about 36.7 cu ft—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix at standard yields."
     },
     {
       "question": "How much for a 10×10 slab at 6 inches?",
@@ -127,7 +127,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How do I convert driveway gravel to tons?",
-      "answer": "Compute cubic yards (length × width × depth ÷ 27), then multiply by density. YardCalc uses about 2,700 lb per cu yd for crushed stone as a mid-range planning density—ask your quarry for the exact figure and order extra for compaction."
+      "answer": "Compute cubic yards (length × width × depth ÷ 27), then multiply by density. YardTally uses about 2,700 lb per cu yd for crushed stone as a mid-range planning density—ask your quarry for the exact figure and order extra for compaction."
     },
     {
       "question": "Do I need sand under driveway gravel?",
@@ -237,7 +237,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How much do doors and windows subtract?",
-      "answer": "YardCalc defaults to about 20 sq ft per door and 15 sq ft per window—adjust if your units differ."
+      "answer": "YardTally defaults to about 20 sq ft per door and 15 sq ft per window—adjust if your units differ."
     },
     {
       "question": "Should I buy extra?",
@@ -281,7 +281,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How many screws do I need?",
-      "answer": "A simple estimate is board linear feet × screws per foot (YardCalc defaults to 2). Hidden-clip systems use different counts."
+      "answer": "A simple estimate is board linear feet × screws per foot (YardTally defaults to 2). Hidden-clip systems use different counts."
     },
     {
       "question": "Can I build from this list alone?",

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * YardCalc SEO / AEO auditor — fails CI on guardrail violations.
- * See docs/SEO-GUARDRAILS.md.
+ * YardTally SEO / AEO auditor — fails CI on guardrail violations.
+ * See docs/SEO-GUARDRAILS.md and docs/CUSTOM-DOMAIN.md.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -15,9 +15,11 @@ import {
   walkHtml,
 } from './lib.mjs';
 import {
+  DEFAULT_INDEXNOW_KEY,
+  DEFAULT_SITE_HOST,
   DEFAULT_SITE_URL,
   resolveSiteOrigin,
-} from '../../src/config/site-origin.mjs';
+} from '../../src/config/siteDefaults.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -39,9 +41,30 @@ const THIS_WORKERS_HOST = [
   'hammadiqbal117',
   'workers.dev',
 ].join('.');
+/** Legacy workers.dev host may appear only in redirect/config/docs/tests. */
 const WORKERS_ALLOWLIST = new Set([
+  path.join(ROOT, 'src/config/siteDefaults.mjs'),
   path.join(ROOT, 'src/config/site-origin.mjs'),
+  path.join(ROOT, 'src/lib/workerRedirect.ts'),
+  path.join(ROOT, 'src/worker.ts'),
+  path.join(ROOT, 'wrangler.jsonc'),
+  path.join(ROOT, '.env.example'),
   path.join(ROOT, 'docs/CUSTOM-DOMAIN.md'),
+  path.join(ROOT, 'docs/CONFIGURATION.md'),
+  path.join(ROOT, 'tests/worker-redirect.test.ts'),
+]);
+/** Canonical hostname may appear only in defaults / wrangler / env / docs / tests. */
+const CANONICAL_HOST_ALLOWLIST = new Set([
+  path.join(ROOT, 'src/config/siteDefaults.mjs'),
+  path.join(ROOT, 'src/config/site-origin.mjs'),
+  path.join(ROOT, 'wrangler.jsonc'),
+  path.join(ROOT, '.env.example'),
+  path.join(ROOT, '.github/workflows/ci.yml'),
+  path.join(ROOT, '.github/workflows/full-checks.yml'),
+  path.join(ROOT, 'vercel.json'),
+  path.join(ROOT, 'README.md'),
+  path.join(ROOT, 'AGENTS.md'),
+  path.join(ROOT, 'package.json'),
 ]);
 
 const SITE_ORIGIN = resolveSiteOrigin(process.env);
@@ -109,30 +132,41 @@ function pagePathToSitemapUrl(url) {
   return `${origin}${url.endsWith('/') ? url : `${url}/`}`;
 }
 
-// —— Repo-wide: this site's workers.dev host (allowlisted files only) ——
+// —— Repo-wide: legacy workers.dev + canonical host (allowlisted files only) ——
 for (const file of walkRepoFiles(ROOT)) {
   const abs = path.resolve(file);
-  if (WORKERS_ALLOWLIST.has(abs)) continue;
+  const rel = path.relative(ROOT, abs);
+  if (rel.startsWith(`docs${path.sep}`) || rel.startsWith(`tests${path.sep}`)) {
+    // docs + tests may discuss cutover hosts; still block workers.dev outside allowlist below
+  }
   let text;
   try {
     text = fs.readFileSync(file, 'utf8');
   } catch {
     continue;
   }
-  if (text.includes(THIS_WORKERS_HOST)) {
+  if (text.includes(THIS_WORKERS_HOST) && !WORKERS_ALLOWLIST.has(abs)) {
+    if (!(rel.startsWith(`docs${path.sep}`) || rel.startsWith(`tests${path.sep}`))) {
+      fail(
+        `hardcoded ${THIS_WORKERS_HOST} in ${rel} (only allowed in siteDefaults / worker redirect / wrangler / CUSTOM-DOMAIN / CONFIGURATION / tests)`,
+      );
+    }
+  }
+  if (
+    DEFAULT_SITE_HOST &&
+    text.includes(DEFAULT_SITE_HOST) &&
+    !CANONICAL_HOST_ALLOWLIST.has(abs) &&
+    !rel.startsWith(`docs${path.sep}`) &&
+    !rel.startsWith(`tests${path.sep}`)
+  ) {
     fail(
-      `hardcoded ${THIS_WORKERS_HOST} in ${path.relative(ROOT, file)} (only allowed in src/config/site-origin.mjs and docs/CUSTOM-DOMAIN.md)`,
+      `hardcoded site host ${DEFAULT_SITE_HOST} in ${rel} — use PUBLIC_SITE_URL / siteDefaults.mjs only (see docs/CUSTOM-DOMAIN.md)`,
     );
   }
 }
 
-// —— IndexNow key in site.ts + public key file ——
-const siteTsPath = path.join(ROOT, 'src/config/site.ts');
-const siteTs = fs.existsSync(siteTsPath)
-  ? fs.readFileSync(siteTsPath, 'utf8')
-  : '';
-const indexNowMatch = siteTs.match(/indexNowKey:\s*['"]([^'"]*)['"]/);
-const indexNowKey = indexNowMatch?.[1] ?? '';
+// —— IndexNow key in siteDefaults + public key file ——
+const indexNowKey = DEFAULT_INDEXNOW_KEY || '';
 const PLACEHOLDER_KEYS = new Set([
   '',
   'changeme',
@@ -146,7 +180,9 @@ if (
   /^x{8,}$/i.test(indexNowKey) ||
   /placeholder/i.test(indexNowKey)
 ) {
-  fail(`IndexNow placeholder key in site.ts (indexNowKey=${JSON.stringify(indexNowKey)})`);
+  fail(
+    `IndexNow placeholder key in siteDefaults.mjs (DEFAULT_INDEXNOW_KEY=${JSON.stringify(indexNowKey)})`,
+  );
 } else if (indexNowKey) {
   const keyFile = path.join(ROOT, 'public', `${indexNowKey}.txt`);
   if (!fs.existsSync(keyFile)) {
@@ -160,7 +196,7 @@ if (
     }
   }
 } else {
-  fail('IndexNow indexNowKey missing in site.ts');
+  fail('IndexNow DEFAULT_INDEXNOW_KEY missing in siteDefaults.mjs');
 }
 
 if (!fs.existsSync(DIST)) {
@@ -216,7 +252,7 @@ if (!sitemapPath) {
 
 // —— Placeholder / bad absolute hosts in dist ——
 const BAD_DIST_HOST_RE =
-  /https?:\/\/(?:www\.)?(?:example\.com|yardcalc\.example|localhost)(?:[:/]|\"|'|\s|$)/gi;
+  /https?:\/\/(?:www\.)?(?:example\.com|yardtally\.example|localhost)(?:[:/]|\"|'|\s|$)/gi;
 
 const inbound = new Map(pages.map((f) => [relUrl(f), 0]));
 
@@ -226,14 +262,14 @@ for (const file of pages) {
   if (url === '/404.html' || url === '/404/') continue;
 
   if (BAD_DIST_HOST_RE.test(html)) {
-    fail(`${url}: contains example.com / yardcalc.example / localhost absolute URL`);
+    fail(`${url}: contains example.com / yardtally.example / localhost absolute URL`);
   }
   // reset lastIndex after /g test
   BAD_DIST_HOST_RE.lastIndex = 0;
 
   // Also catch bare host strings without requiring full match edge cases
   if (
-    /example\.com|yardcalc\.example|localhost/i.test(html) &&
+    /example\.com|yardtally\.example|localhost/i.test(html) &&
     /https?:\/\//i.test(html)
   ) {
     for (const m of html.matchAll(
@@ -244,7 +280,7 @@ for (const file of pages) {
         if (
           u.hostname === 'example.com' ||
           u.hostname === 'www.example.com' ||
-          u.hostname === 'yardcalc.example' ||
+          u.hostname === 'yardtally.example' ||
           u.hostname === 'localhost' ||
           u.hostname === '127.0.0.1'
         ) {
@@ -471,7 +507,7 @@ for (const file of walkDistAll()) {
       if (
         u.hostname === 'example.com' ||
         u.hostname === 'www.example.com' ||
-        u.hostname === 'yardcalc.example' ||
+        u.hostname === 'yardtally.example' ||
         u.hostname === 'localhost' ||
         u.hostname === '127.0.0.1'
       ) {

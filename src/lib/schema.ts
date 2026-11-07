@@ -20,6 +20,7 @@ export function organizationNode() {
     '@type': 'Organization',
     '@id': orgId(),
     name: siteConfig.name,
+    alternateName: siteConfig.formerName,
     url: `${siteConfig.siteUrl}/`,
     email: siteConfig.contactEmail,
     logo: {
@@ -57,8 +58,11 @@ export function homeGraph() {
         '@type': 'WebSite',
         '@id': websiteId(),
         name: siteConfig.name,
-        alternateName: [siteConfig.shortName],
+        alternateName: [siteConfig.shortName, siteConfig.formerName].filter(
+          (n, i, arr) => n && arr.indexOf(n) === i,
+        ),
         url: `${siteConfig.siteUrl}/`,
+
         inLanguage: 'en',
         description: siteConfig.tagline,
         publisher: { '@id': orgId() },

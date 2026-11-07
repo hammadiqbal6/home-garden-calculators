@@ -1,6 +1,6 @@
 ---
 name: content-refresh
-description: Refresh YardCalc dates, bag yields, densities, and citations when manufacturer or extension data changes.
+description: Refresh YardTally dates, bag yields, densities, and citations when manufacturer or extension data changes.
 ---
 
 # Content refresh

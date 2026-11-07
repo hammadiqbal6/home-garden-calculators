@@ -22,7 +22,7 @@ const jsonLd = [
     '@type': 'ContactPage',
     name: `Contact ${siteName}`,
     description:
-      'Contact YardCalc about calculator feedback, corrections, bug reports, or partnership and embed inquiries.',
+      `Contact ${siteConfig.name} about calculator feedback, corrections, bug reports, or partnership and embed inquiries.`,
     url: absoluteUrl('/contact/'),
     isPartOf: { '@id': `${absoluteUrl('/')}#website` },
     mainEntity: {
@@ -36,8 +36,8 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Contact YardCalc — Feedback, Bugs and Partnerships"
-  description="Contact YardCalc about calculator feedback, corrections, bug reports, or partnership and embed inquiries. We read every message."
+  title={`Contact ${siteConfig.name} — Feedback, Bugs and Partnerships`}
+  description={`Contact ${siteConfig.name} about calculator feedback, corrections, bug reports, or partnership and embed inquiries. We read every message.`}
   canonicalPath="/contact/"
   jsonLd={jsonLd}
 >
@@ -82,7 +82,7 @@ const jsonLd = [
       </li>
       <li>
         <strong>Embed and partnership questions</strong> — tools marked embeddable may be framed on other
-        sites when the credit link back to the matching YardCalc page stays visible. Describe your site and
+        sites when the credit link back to the matching {siteConfig.name} page stays visible. Describe your site and
         intended use.
       </li>
       <li>

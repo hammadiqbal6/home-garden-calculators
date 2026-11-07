@@ -122,7 +122,7 @@ const jsonLd = [
   canonicalPath={`/calculators/${tool.slug}/`}
   jsonLd={jsonLd}
   ogImagePath={`/og/calculator-${tool.slug}.svg`}
-  ogImageAlt={diagram?.alt ?? `${tool.name} — YardCalc`}
+  ogImageAlt={diagram?.alt ?? `${tool.name} — ${siteConfig.name}`}
 >
   <Breadcrumbs
     items={[

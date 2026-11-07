@@ -1,4 +1,4 @@
-# Keyword map (YardCalc)
+# Keyword map (YardTally)
 
 One **primary keyword / distinct intent** per URL. Secondaries live on the same page as modifiers, FAQ, or H2s—not as duplicate URLs.
 
@@ -46,11 +46,11 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards |
 | `/guides/retaining-wall-blocks-and-base/` | retaining wall blocks and base | retaining wall gravel base |
 | `/guides/topsoil-vs-garden-soil/` | topsoil vs garden soil | garden soil vs topsoil |
-| `/about/` | about YardCalc | maintainer Hammad Iqbal |
-| `/contact/` | contact YardCalc | — |
-| `/privacy/` | YardCalc privacy policy | — |
-| `/terms/` | YardCalc terms | — |
-| `/methodology/` | YardCalc methodology | editorial policy, correction log |
+| `/about/` | about YardTally | maintainer Hammad Iqbal |
+| `/contact/` | contact YardTally | — |
+| `/privacy/` | YardTally privacy policy | — |
+| `/terms/` | YardTally terms | — |
+| `/methodology/` | YardTally methodology | editorial policy, correction log |
 | `/authors/` | (301 → `/about/`) | — |
 
 ## Cannibalization rules

@@ -1,6 +1,6 @@
 {
-  "name": "YardCalc",
-  "short_name": "YardCalc",
+  "name": "YardTally",
+  "short_name": "YardTally",
   "description": "Free home and garden material calculators",
   "start_url": "/",
   "display": "standalone",

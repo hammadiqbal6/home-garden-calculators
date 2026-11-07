@@ -4,41 +4,41 @@
     "@graph": [
       {
         "@type": "WebSite",
-        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#website",
-        "name": "YardCalc",
+        "@id": "https://getyardtally.com/#website",
+        "name": "YardTally",
         "alternateName": [
-          "YardCalc"
+          "YardTally"
         ],
-        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+        "url": "https://getyardtally.com/",
         "inLanguage": "en",
         "description": "Free home & garden material calculators",
         "publisher": {
-          "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization"
+          "@id": "https://getyardtally.com/#organization"
         }
       },
       {
         "@type": "Organization",
-        "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#organization",
-        "name": "YardCalc",
-        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/",
+        "@id": "https://getyardtally.com/#organization",
+        "name": "YardTally",
+        "url": "https://getyardtally.com/",
         "email": "hammadiqbal117@gmail.com",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/logo-512.png",
+          "url": "https://getyardtally.com/logo-512.png",
           "width": 512,
           "height": 512
         },
         "founder": {
           "@id": "https://github.com/hammadiqbal6#person"
         },
-        "publishingPrinciples": "https://home-garden-calculators.hammadiqbal117.workers.dev/methodology/"
+        "publishingPrinciples": "https://getyardtally.com/methodology/"
       },
       {
         "@type": "Person",
         "@id": "https://github.com/hammadiqbal6#person",
         "name": "Hammad Iqbal",
-        "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/about/",
-        "description": "I build and maintain YardCalc as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.",
+        "url": "https://getyardtally.com/about/",
+        "description": "I build and maintain YardTally as a one-person project: free home and garden material calculators with documented formulas, manufacturer bag yields, and university extension guidance. I am not a licensed contractor or engineer—results are planning estimates you should check against local building codes and product labels.",
         "knowsAbout": [
           "home and garden material calculators",
           "concrete volume estimates",

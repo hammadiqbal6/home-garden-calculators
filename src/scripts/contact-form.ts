@@ -46,7 +46,7 @@ function init(): void {
   const serviceId = form.dataset.serviceId || '';
   const templateId = form.dataset.templateId || '';
   const publicKey = form.dataset.publicKey || '';
-  const siteName = form.dataset.siteName || 'YardCalc';
+  const siteName = form.dataset.siteName || 'YardTally';
   if (!serviceId || !templateId || !publicKey) return;
 
   const status = form.querySelector('#contact-form-status') as HTMLElement | null;

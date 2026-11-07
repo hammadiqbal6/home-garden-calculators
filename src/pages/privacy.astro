@@ -5,15 +5,15 @@ import { siteConfig } from '../config/site';
 ---
 
 <BaseLayout
-  title="Privacy Policy | YardCalc Cookies & Ads"
-  description="YardCalc privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads."
+  title={`Privacy Policy | ${siteConfig.name} Cookies & Ads`}
+  description={`${siteConfig.name} privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads.`}
   canonicalPath="/privacy/"
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Privacy' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">
     <h1>Privacy Policy</h1>
     <p class="answer-first">
-      YardCalc calculator inputs are processed in your browser and are not uploaded to our servers as part
+      {siteConfig.name} calculator inputs are processed in your browser and are not uploaded to our servers as part
       of the static site. This policy explains cookies, analytics, and advertising disclosures.
     </p>
     <p>Last updated {siteConfig.contentUpdated}</p>
@@ -63,7 +63,7 @@ import { siteConfig } from '../config/site';
     </p>
     <h2>Data retention</h2>
     <p>
-      Calculator inputs are not stored on YardCalc servers. Contact emails are kept only as long as needed
+      Calculator inputs are not stored on {siteConfig.name} servers. Contact emails are kept only as long as needed
       to respond and maintain the public correction log when a fix is documented. Hosting access logs follow
       the retention policy of the hosting provider and are used for security and reliability, not for
       building marketing profiles.

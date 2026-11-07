@@ -1061,7 +1061,7 @@
                     "height": 242
                   },
                   "snippet": "<p class=\"lede answer-first\">",
-                  "nodeLabel": "YardCalc estimates concrete bags, mulch yards, gravel tons, grass seed, fertili…"
+                  "nodeLabel": "YardTally estimates concrete bags, mulch yards, gravel tons, grass seed, fertili…"
                 }
               }
             ]
@@ -3340,7 +3340,7 @@
               "height": 242
             },
             "snippet": "<p class=\"lede answer-first\">",
-            "nodeLabel": "YardCalc estimates concrete bags, mulch yards, gravel tons, grass seed, fertili…"
+            "nodeLabel": "YardTally estimates concrete bags, mulch yards, gravel tons, grass seed, fertili…"
           }
         ]
       },

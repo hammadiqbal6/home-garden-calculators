@@ -7,13 +7,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/"
+        "item": "https://getyardtally.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Concrete calculators",
-        "item": "https://home-garden-calculators.hammadiqbal117.workers.dev/hubs/concrete/"
+        "item": "https://getyardtally.com/hubs/concrete/"
       }
     ]
   },
@@ -22,9 +22,9 @@
     "@type": "CollectionPage",
     "name": "Concrete Calculators: Slabs, Posts, Sonotubes",
     "description": "Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.",
-    "url": "https://home-garden-calculators.hammadiqbal117.workers.dev/hubs/concrete/",
+    "url": "https://getyardtally.com/hubs/concrete/",
     "isPartOf": {
-      "@id": "https://home-garden-calculators.hammadiqbal117.workers.dev/#website"
+      "@id": "https://getyardtally.com/#website"
     }
   }
 ]

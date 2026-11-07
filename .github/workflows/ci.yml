@@ -10,12 +10,14 @@ concurrency:
   cancel-in-progress: true
 
 # Public build-time URLs (same pattern as Cloudflare Workers Builds variables).
-# This site's origin: leave PUBLIC_SITE_URL unset so Astro uses DEFAULT_SITE_URL
-# from src/config/site-origin.mjs (single fallback). Custom domain: set PUBLIC_SITE_URL
-# in the dashboard / here — see docs/CUSTOM-DOMAIN.md. Do not paste workers.dev in app code.
+# Defaults also live in src/config/siteDefaults.mjs. See docs/CUSTOM-DOMAIN.md.
 env:
+  PUBLIC_SITE_URL: https://getyardtally.com
+  PUBLIC_SITE_NAME: YardTally
+  PUBLIC_SITE_SHORT_NAME: YardTally
   PUBLIC_SITE_URL_PAYMENT_FEES: https://payment-fee-calculators.hammadiqbal117.workers.dev
-  PUBLIC_SITE_URL_BUSINESS_DOCS: https://business-document-generators.hammadiqbal117.workers.dev
+  PUBLIC_SITE_URL_BUSINESS_DOCS: https://docuklin.com
+  PUBLIC_SITE_URL_HOME_GARDEN: https://getyardtally.com
   PUBLIC_SITE_URL_FIBER_ARTS: https://fiber-arts-calculators.hammadiqbal117.workers.dev
   PUBLIC_SITE_URL_PET: https://pet-calculators.hammadiqbal117.workers.dev
 

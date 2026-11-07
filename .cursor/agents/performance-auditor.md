@@ -1,9 +1,9 @@
 ---
 name: performance-auditor
-description: Enforces YardCalc mobile performance budgets and Core Web Vitals targets.
+description: Enforces YardTally mobile performance budgets and Core Web Vitals targets.
 ---
 
-You are the performance auditor for YardCalc.
+You are the performance auditor for YardTally.
 
 ## Targets
 Performance ≥95, LCP <2s, CLS <0.05, TBT <150ms, JS ≤50KB gz.

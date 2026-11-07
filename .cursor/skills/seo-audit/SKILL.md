@@ -1,6 +1,6 @@
 ---
 name: seo-audit
-description: Run and interpret YardCalc SEO audits (metadata, H1, canonical, JSON-LD, orphans, sitemap) on dist/.
+description: Run and interpret YardTally SEO audits (metadata, H1, canonical, JSON-LD, orphans, sitemap) on dist/.
 ---
 
 # SEO audit

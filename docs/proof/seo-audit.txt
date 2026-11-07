@@ -6,7 +6,7 @@
 > home-garden-calculators@1.0.0 audit:seo
 > node scripts/audit/seo.mjs
 
-SEO audit: 46 pages, 0 errors, 0 warnings (SITE_ORIGIN=https://home-garden-calculators.hammadiqbal117.workers.dev, default=https://home-garden-calculators.hammadiqbal117.workers.dev)
+SEO audit: 46 pages, 0 errors, 0 warnings (SITE_ORIGIN=https://getyardtally.com, default=https://getyardtally.com)
 
 > home-garden-calculators@1.0.0 audit:adsense
 > node scripts/audit/adsense.mjs
@@ -21,4 +21,4 @@ Perf audit: checked 46 pages, 0 errors
 > home-garden-calculators@1.0.0 audit:pages
 > node scripts/audit/pages.mjs
 
-Page checklist audit: 45 pages, 0 errors (SITE_ORIGIN=https://home-garden-calculators.hammadiqbal117.workers.dev)
+Page checklist audit: 45 pages, 0 errors (SITE_ORIGIN=https://getyardtally.com)

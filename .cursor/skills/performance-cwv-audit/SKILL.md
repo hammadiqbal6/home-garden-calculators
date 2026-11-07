@@ -1,6 +1,6 @@
 ---
 name: performance-cwv-audit
-description: Enforce YardCalc performance budgets (JS weight, Lighthouse CI, CLS-safe ads, mobile LCP).
+description: Enforce YardTally performance budgets (JS weight, Lighthouse CI, CLS-safe ads, mobile LCP).
 ---
 
 # Performance / CWV audit

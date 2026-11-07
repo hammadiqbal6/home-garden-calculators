@@ -1,6 +1,6 @@
 # Contact form via EmailJS (FREE plan)
 
-YardCalc’s `/contact/` page can send messages through [EmailJS](https://www.emailjs.com/) using a tiny first-party script and the public REST API. No `@emailjs/browser` SDK.
+YardTally’s `/contact/` page can send messages through [EmailJS](https://www.emailjs.com/) using a tiny first-party script and the public REST API. No `@emailjs/browser` SDK.
 
 ## Build env vars (public only)
 
@@ -26,9 +26,9 @@ Create a template in the EmailJS dashboard that uses these params (must match th
 | `{{reply_to}}` | Visitor email (set Reply-To to this in the template) |
 | `{{message}}` | Message body |
 | `{{page_url}}` | Full URL of the contact page when they submitted |
-| `{{site_name}}` | Brand name (`YardCalc`) |
+| `{{site_name}}` | Brand name (`YardTally`) |
 
-Suggested subject: `YardCalc contact from {{from_name}}`.
+Suggested subject: `YardTally contact from {{from_name}}`.
 
 ## Client safeguards (FREE-plan friendly)
 
@@ -62,7 +62,7 @@ Content-Type: application/json
     "reply_to": "...",
     "message": "...",
     "page_url": "...",
-    "site_name": "YardCalc"
+    "site_name": "YardTally"
   }
 }
 ```

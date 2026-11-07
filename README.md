@@ -202,6 +202,8 @@ Also update after domain purchase:
 
 **Env vars:** none required at runtime (static site). Hosts may set `NODE_VERSION=20` for builds (see [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)).
 
+**Directory badges:** set build-time `PUBLIC_DIRECTORY_BADGES` to a JSON array of `{href,img,alt,width?,height?,rel?}` (width/height default `182`/`43`; `rel` only when you need it). Invalid JSON logs a warning and renders no badges. When unset, the Fazier badge still appears unless `PUBLIC_FAZIER_BADGE_ENABLED=false`. Full list: [`.env.example`](.env.example) · [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md).
+
 ---
 
 ## Adding a tool or article

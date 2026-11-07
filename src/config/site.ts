@@ -36,6 +36,7 @@ import {
   parseList,
 } from './siteDefaults.mjs';
 import { normalizeAdsenseSlotId } from '../lib/adsenseSlots';
+import { resolveDirectoryBadges } from '../lib/directoryBadges';
 
 export {
   DEFAULT_SITE_URL,
@@ -121,26 +122,18 @@ const adsenseEnabled =
   readPublicEnv('PUBLIC_ADSENSE_ENABLED').toLowerCase() === 'true';
 
 /**
- * Directory listing badges (footer). Each has its own PUBLIC_*_ENABLED toggle
- * so future badges can follow the same pattern. Fazier requires its badge on
- * the live site before approving a free listing.
+ * Directory listing badges (footer). Prefer `PUBLIC_DIRECTORY_BADGES` (JSON
+ * array of {href,img,alt,width?,height?,rel?}). When unset, fall back to the
+ * Fazier badge gated by `PUBLIC_FAZIER_BADGE_ENABLED` (default on). Invalid
+ * JSON warns and renders none — never fails the build.
  *
  * Official Fazier embed uses a doubled slash in `/api/v1//public/badges/` —
  * keep it; "tidying" the path can 404.
  */
-const directoryBadges = {
-  fazier: {
-    enabled: envEnabledDefaultTrue('PUBLIC_FAZIER_BADGE_ENABLED'),
-    href: 'https://fazier.com',
-    imageSrc:
-      'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light',
-    imageSrcDark:
-      'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=dark',
-    width: 182,
-    height: 43,
-    alt: 'Fazier badge',
-  },
-} as const;
+const directoryBadges = resolveDirectoryBadges({
+  jsonEnv: readPublicEnv('PUBLIC_DIRECTORY_BADGES'),
+  fazierEnabled: envEnabledDefaultTrue('PUBLIC_FAZIER_BADGE_ENABLED'),
+});
 
 /**
  * Fixed in-page ad unit IDs (numeric). Empty → no fixed `<ins>` (Auto ads still OK).
@@ -269,8 +262,8 @@ export const siteConfig = {
     enabled: emailjsEnabled,
   },
   /**
-   * Footer directory badges (Fazier, etc.). Toggle each with PUBLIC_*_BADGE_ENABLED
-   * (default true). Add new entries here + render in DirectoryBadges.astro.
+   * Footer directory badges. Set via PUBLIC_DIRECTORY_BADGES JSON, or Fazier
+   * fallback when that env is unset (PUBLIC_FAZIER_BADGE_ENABLED, default on).
    */
   directoryBadges,
   /** IndexNow key filename (place matching key file in /public) */

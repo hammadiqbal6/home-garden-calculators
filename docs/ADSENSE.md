@@ -18,21 +18,16 @@ Apply after launch content is live, Search Console shows impressions, and you ha
 ## Enable ads in this repo
 
 1. Get approved; copy your publisher ID (`ca-pub-XXXXXXXXXXXXXXXX`).
-2. In `src/config/site.ts`:
-   ```ts
-   adsense: {
-     publisherId: 'ca-pub-XXXXXXXXXXXXXXXX',
-     enabled: true,
-     autoAds: false, // set true only if you use Auto ads
-   }
+2. Set build env (Workers Builds / `.env`):
+   ```bash
+   PUBLIC_ADSENSE_PUBLISHER_ID=ca-pub-XXXXXXXXXXXXXXXX
+   PUBLIC_ADSENSE_ENABLED=true
+   # Numeric ad unit id from AdSense → Ads → By ad unit (not the word "auto")
+   PUBLIC_ADSENSE_SLOT_DISPLAY=1234567890
    ```
-3. Uncomment and fill `public/ads.txt`:
-   ```
-   google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
-   ```
-   (Use the numeric `pub-` id without `ca-`.)
-4. Redeploy. Ad slots are reserved in CSS (`--ad-slot-h`) to protect CLS.
-5. Optional: replace `data-ad-slot` values in `AdSlot.astro` with real slot IDs.
+   Leave `PUBLIC_ADSENSE_SLOT_DISPLAY` empty to skip fixed `<ins>` units so **Auto ads** alone can fill. Optional overrides: `PUBLIC_ADSENSE_SLOT_TOP`, `PUBLIC_ADSENSE_SLOT_MID`, `PUBLIC_ADSENSE_SLOT_BOTTOM` (each falls back to `DISPLAY`).
+3. `/ads.txt` is generated from the publisher id at build time (no manual `public/ads.txt` edit needed).
+4. Redeploy. When a numeric slot id is set, reserved CSS (`--ad-slot-h`) protects CLS for that fixed unit.
 
 ## CMP (EEA / UK / CH)
 

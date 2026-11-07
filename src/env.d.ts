@@ -48,6 +48,17 @@ interface ImportMetaEnv {
   readonly PUBLIC_ADSENSE_PUBLISHER_ID?: string;
   /** Set to "true" only after AdSense approval (requires real publisher id). */
   readonly PUBLIC_ADSENSE_ENABLED?: string;
+  /**
+   * Numeric AdSense ad unit id for the primary fixed display slot (calculator mid).
+   * Empty → no fixed `<ins>` (Auto ads still work when ads are enabled).
+   */
+  readonly PUBLIC_ADSENSE_SLOT_DISPLAY?: string;
+  /** Optional numeric ad unit id for top placement. Falls back to DISPLAY. */
+  readonly PUBLIC_ADSENSE_SLOT_TOP?: string;
+  /** Optional numeric ad unit id for mid placement. Falls back to DISPLAY. */
+  readonly PUBLIC_ADSENSE_SLOT_MID?: string;
+  /** Optional numeric ad unit id for bottom placement. Falls back to DISPLAY. */
+  readonly PUBLIC_ADSENSE_SLOT_BOTTOM?: string;
   /** EmailJS service ID for /contact/ form. Empty → mailto-only fallback. */
   readonly PUBLIC_EMAILJS_SERVICE_ID?: string;
   /** EmailJS template ID for /contact/ form. Empty → mailto-only fallback. */

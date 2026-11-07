@@ -45,6 +45,8 @@ Do **not** put `PUBLIC_*` in top-level wrangler `vars` (breaks `npx wrangler pre
 | `PUBLIC_INDEXNOW_KEY` / `INDEXNOW_KEY` | _(current key)_ | IndexNow |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` | _(empty)_ | `ads.txt` line + ad client id |
 | `PUBLIC_ADSENSE_ENABLED` | _(empty/false)_ | Ad slots stay off until `true` + real pub id |
+| `PUBLIC_ADSENSE_SLOT_DISPLAY` | _(empty)_ | Numeric ad unit id for the fixed calculator display slot; empty → no fixed `<ins>` (Auto ads OK) |
+| `PUBLIC_ADSENSE_SLOT_TOP` / `_MID` / `_BOTTOM` | _(empty)_ | Optional per-placement numeric overrides; each falls back to `DISPLAY` |
 
 Templates: `{name}` and `{short}` in author bio / OG alt expand to the configured site / short name.
 

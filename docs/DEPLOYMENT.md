@@ -207,6 +207,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
 | `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave empty until AdSense approval |
+| `PUBLIC_ADSENSE_SLOT_DISPLAY` (optional `_TOP` / `_MID` / `_BOTTOM`) | Numeric ad unit id for fixed calculator slots; empty → Auto ads only |
 | `INDEXNOW_KEY` | Optional — defaults to committed public key |
 | `INDEXNOW_DISABLE` | `1` to skip post-deploy IndexNow ping |
 | `NODE_VERSION` | `22` (or `20`) if the build image needs it |
@@ -343,7 +344,7 @@ The AdSense script in `BaseLayout.astro` loads only when `enabled` is true and t
 
 ### 9.4 Ad placement and CLS
 
-- Use existing `<AdSlot />` components—reserved min-heights in CSS (`--ad-slot-h`) prevent layout shift.
+- Use existing `<AdSlot />` with `PUBLIC_ADSENSE_SLOT_DISPLAY` (numeric ad unit id). Empty slot env → no fixed `<ins>` (Auto ads still load when ads are enabled). Reserved min-heights in CSS (`--ad-slot-h`) protect CLS when a fixed unit is present.
 - Avoid stacking large display units above the calculator on mobile.
 - After enabling ads, re-run `npm run proof` or PageSpeed Insights on a tool page and watch **CLS**.
 

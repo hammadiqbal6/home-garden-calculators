@@ -1,15 +1,22 @@
 ---
 import { siteConfig } from '../config/site';
+import {
+  resolveAdsenseSlotId,
+  type AdSlotPosition,
+} from '../lib/adsenseSlots';
 
 interface Props {
-  slot?: string;
-  position?: 'top' | 'mid' | 'bottom';
+  /** Placement hint for CSS / future per-slot env overrides. */
+  position?: AdSlotPosition;
 }
-const { slot = 'auto', position = 'mid' } = Astro.props;
+const { position = 'mid' } = Astro.props;
+
+const slotId = resolveAdsenseSlotId(position, siteConfig.adsense.slots);
 const enabled =
   siteConfig.adsense.enabled &&
   siteConfig.adsense.publisherId.startsWith('ca-pub-') &&
-  !siteConfig.adsense.publisherId.includes('XXXX');
+  !siteConfig.adsense.publisherId.includes('XXXX') &&
+  Boolean(slotId);
 ---
 
 {
@@ -25,7 +32,7 @@ const enabled =
           class="adsbygoogle"
           style="display:block;min-height:var(--ad-slot-h);width:100%"
           data-ad-client={siteConfig.adsense.publisherId}
-          data-ad-slot={slot}
+          data-ad-slot={slotId}
           data-ad-format="auto"
           data-full-width-responsive="true"
         />

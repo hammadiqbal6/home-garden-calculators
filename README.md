@@ -275,11 +275,11 @@ System fonts, reserved ad slots, hashed assets, `_headers` long-cache for `/asse
 ## AdSense setup (summary)
 
 1. Ship 20–30 quality pages + some traffic  
-2. Fill publisher ID and set `adsense.enabled: true`  
-3. Uncomment `public/ads.txt`  
+2. Set `PUBLIC_ADSENSE_PUBLISHER_ID` + `PUBLIC_ADSENSE_ENABLED=true`  
+3. Set `PUBLIC_ADSENSE_SLOT_DISPLAY` to a numeric ad unit id for the fixed calculator slot (leave empty to rely on Auto ads only)  
 4. Install certified CMP before personalized ads in EEA/UK/CH  
 
-Details: [`docs/ADSENSE.md`](docs/ADSENSE.md)
+Details: [`docs/ADSENSE.md`](docs/ADSENSE.md) · env reference: [`.env.example`](.env.example)
 
 ---
 

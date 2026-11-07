@@ -35,6 +35,7 @@ import {
   normalizeSiteUrl,
   parseList,
 } from './siteDefaults.mjs';
+import { normalizeAdsenseSlotId } from '../lib/adsenseSlots';
 
 export {
   DEFAULT_SITE_URL,
@@ -108,6 +109,17 @@ function isRealAdsensePublisherId(id: string): boolean {
 const adsenseEnabled =
   isRealAdsensePublisherId(adsensePublisherId) &&
   readPublicEnv('PUBLIC_ADSENSE_ENABLED').toLowerCase() === 'true';
+
+/**
+ * Fixed in-page ad unit IDs (numeric). Empty → no fixed `<ins>` (Auto ads still OK).
+ * See PUBLIC_ADSENSE_SLOT_* in `.env.example`.
+ */
+const adsenseSlots = {
+  display: normalizeAdsenseSlotId(readPublicEnv('PUBLIC_ADSENSE_SLOT_DISPLAY')),
+  top: normalizeAdsenseSlotId(readPublicEnv('PUBLIC_ADSENSE_SLOT_TOP')),
+  mid: normalizeAdsenseSlotId(readPublicEnv('PUBLIC_ADSENSE_SLOT_MID')),
+  bottom: normalizeAdsenseSlotId(readPublicEnv('PUBLIC_ADSENSE_SLOT_BOTTOM')),
+};
 
 const authorName = readPublicEnv('PUBLIC_AUTHOR_NAME') || DEFAULT_AUTHOR_NAME;
 const authorBio = applyBrandTemplate(
@@ -207,6 +219,11 @@ export const siteConfig = {
     enabled: adsenseEnabled,
     /** Enable Google Auto ads when true (documented in docs/ADSENSE.md) */
     autoAds: false,
+    /**
+     * Fixed ad unit IDs from PUBLIC_ADSENSE_SLOT_*. Empty ids skip the fixed
+     * `<ins>` so Auto ads can still run when the script is loaded.
+     */
+    slots: adsenseSlots,
   },
   /**
    * EmailJS browser form on /contact/ (FREE plan). Public IDs only — never put the

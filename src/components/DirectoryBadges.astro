@@ -1,34 +1,51 @@
 ---
 /**
- * Footer directory-listing badges (Fazier, and future peers).
- * Each badge is gated by siteConfig.directoryBadges.<id>.enabled (PUBLIC_* env).
- * Keep outbound links followable unless a directory's official snippet uses nofollow.
+ * Footer directory-listing badges (Fazier, TinyLaunch, BetaList, …).
+ * Data comes from siteConfig.directoryBadges (PUBLIC_DIRECTORY_BADGES JSON, or
+ * the Fazier fallback). Links are followable unless a badge sets `rel`.
  */
 import { siteConfig } from '../config/site';
 
-const { fazier } = siteConfig.directoryBadges;
-const anyEnabled = Object.values(siteConfig.directoryBadges).some((b) => b.enabled);
+const badges = siteConfig.directoryBadges;
 ---
 
 {
-  anyEnabled && (
+  badges.length > 0 && (
     <div class="directory-badges" aria-label="Directory listings">
       {
-        fazier.enabled && (
-          <a class="directory-badge" href={fazier.href} target="_blank">
-            <picture>
-              <source media="(prefers-color-scheme: dark)" srcset={fazier.imageSrcDark} />
-              <img
-                src={fazier.imageSrc}
-                width={fazier.width}
-                height={fazier.height}
-                alt={fazier.alt}
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+        badges.map((badge) => (
+          <a
+            class="directory-badge"
+            href={badge.href}
+            target="_blank"
+            rel={badge.rel || undefined}
+          >
+            {
+              badge.imgDark ? (
+                <picture>
+                  <source media="(prefers-color-scheme: dark)" srcset={badge.imgDark} />
+                  <img
+                    src={badge.img}
+                    width={badge.width}
+                    height={badge.height}
+                    alt={badge.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              ) : (
+                <img
+                  src={badge.img}
+                  width={badge.width}
+                  height={badge.height}
+                  alt={badge.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )
+            }
           </a>
-        )
+        ))
       }
     </div>
   )

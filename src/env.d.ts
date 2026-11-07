@@ -66,8 +66,14 @@ interface ImportMetaEnv {
   /** EmailJS public key (user_id). Never use the private key. Empty → mailto-only. */
   readonly PUBLIC_EMAILJS_PUBLIC_KEY?: string;
   /**
-   * Footer "Featured on Fazier" badge. Default on (empty/true).
-   * Set to "false" to hide. Pattern for future PUBLIC_*_BADGE_ENABLED flags.
+   * Footer directory badges as a JSON array of
+   * {href,img,alt,width?,height?,rel?}. When unset, falls back to Fazier
+   * (see PUBLIC_FAZIER_BADGE_ENABLED). Invalid JSON → warn, render none.
+   */
+  readonly PUBLIC_DIRECTORY_BADGES?: string;
+  /**
+   * Footer "Featured on Fazier" badge fallback when PUBLIC_DIRECTORY_BADGES
+   * is unset. Default on (empty/true). Set to "false" to hide.
    */
   readonly PUBLIC_FAZIER_BADGE_ENABLED?: string;
 }

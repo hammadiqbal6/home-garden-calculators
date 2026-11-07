@@ -207,7 +207,8 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
 | `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |
 | `PUBLIC_ADSENSE_PUBLISHER_ID` / `PUBLIC_ADSENSE_ENABLED` | Leave empty until AdSense approval |
-| `PUBLIC_FAZIER_BADGE_ENABLED` | Default on; set `false` to hide the footer Fazier badge |
+| `PUBLIC_DIRECTORY_BADGES` | Optional JSON array of `{href,img,alt,width?,height?,rel?}` footer badges; invalid JSON → warn, none |
+| `PUBLIC_FAZIER_BADGE_ENABLED` | Default on; Fazier fallback when `PUBLIC_DIRECTORY_BADGES` unset; set `false` to hide |
 | `PUBLIC_ADSENSE_SLOT_DISPLAY` (optional `_TOP` / `_MID` / `_BOTTOM`) | Numeric ad unit id for fixed calculator slots; empty → Auto ads only |
 | `INDEXNOW_KEY` | Optional — defaults to committed public key |
 | `INDEXNOW_DISABLE` | `1` to skip post-deploy IndexNow ping |

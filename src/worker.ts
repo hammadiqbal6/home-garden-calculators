@@ -6,8 +6,8 @@
  * 3. Otherwise permanent trailing-slash redirects (308)
  *
  * Built-in assets html_handling uses temporary 307; this worker upgrades slash
- * consolidation to 308. Preview/versioned workers.dev hosts and localhost are
- * not host-redirected unless explicitly listed.
+ * consolidation to 308. The retired workers.dev subdomain is disabled in
+ * wrangler (`workers_dev` / `preview_urls` false). Localhost is not redirected.
  *
  * Runtime config (wrangler `vars` / dashboard Variables — not PUBLIC_*):
  *   CANONICAL_ORIGIN, LEGACY_REDIRECT_HOSTS

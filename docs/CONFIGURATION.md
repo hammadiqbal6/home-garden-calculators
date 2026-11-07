@@ -57,7 +57,8 @@ Templates: `{name}` and `{short}` in author bio / OG alt expand to the configure
 | Variable | Default | Controls |
 |----------|---------|----------|
 | `CANONICAL_ORIGIN` | `https://getyardtally.com` | 301 target for legacy hosts (no trailing slash) |
-| `LEGACY_REDIRECT_HOSTS` | `home-garden-calculators.hammadiqbal117.workers.dev,www.getyardtally.com` | Comma-separated **exact** Host values that 301 → `CANONICAL_ORIGIN` |
+| `LEGACY_REDIRECT_HOSTS` | `www.getyardtally.com` | Comma-separated **exact** Host values that 301 → `CANONICAL_ORIGIN` |
+| `workers_dev` / `preview_urls` | `false` / `false` (wrangler top-level) | Keep the retired `*.workers.dev` + preview URLs off on deploy |
 
 Defaults are also in `wrangler.jsonc` `vars` (and `previews.vars`). Dashboard overrides apply on the next Worker deploy without an Astro rebuild.
 

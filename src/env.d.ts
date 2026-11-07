@@ -65,6 +65,11 @@ interface ImportMetaEnv {
   readonly PUBLIC_EMAILJS_TEMPLATE_ID?: string;
   /** EmailJS public key (user_id). Never use the private key. Empty → mailto-only. */
   readonly PUBLIC_EMAILJS_PUBLIC_KEY?: string;
+  /**
+   * Footer "Featured on Fazier" badge. Default on (empty/true).
+   * Set to "false" to hide. Pattern for future PUBLIC_*_BADGE_ENABLED flags.
+   */
+  readonly PUBLIC_FAZIER_BADGE_ENABLED?: string;
 }
 
 interface ImportMeta {

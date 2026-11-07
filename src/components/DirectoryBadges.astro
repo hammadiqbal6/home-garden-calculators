@@ -1,0 +1,35 @@
+---
+/**
+ * Footer directory-listing badges (Fazier, and future peers).
+ * Each badge is gated by siteConfig.directoryBadges.<id>.enabled (PUBLIC_* env).
+ * Keep outbound links followable unless a directory's official snippet uses nofollow.
+ */
+import { siteConfig } from '../config/site';
+
+const { fazier } = siteConfig.directoryBadges;
+const anyEnabled = Object.values(siteConfig.directoryBadges).some((b) => b.enabled);
+---
+
+{
+  anyEnabled && (
+    <div class="directory-badges" aria-label="Directory listings">
+      {
+        fazier.enabled && (
+          <a class="directory-badge" href={fazier.href} target="_blank">
+            <picture>
+              <source media="(prefers-color-scheme: dark)" srcset={fazier.imageSrcDark} />
+              <img
+                src={fazier.imageSrc}
+                width={fazier.width}
+                height={fazier.height}
+                alt={fazier.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </a>
+        )
+      }
+    </div>
+  )
+}

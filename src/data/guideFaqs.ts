@@ -5,7 +5,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   "how-much-concrete-for-fence-posts": [
     {
       "question": "How many bags of concrete per fence post?",
-      "answer": "It depends on hole diameter and depth, not post height alone. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—often one to two 80 lb bags after waste. A 12-inch × 3-foot hole is about 2.36 cu ft (roughly four 80 lb bags before waste). Always size the hole for frost depth and wind load."
+      "answer": "It depends on hole diameter and depth, not post height alone. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—about two 80 lb bags of standard mix after 10% waste. A 12-inch × 3-foot hole is about 2.36 cu ft (four 80 lb bags before waste). Fast-Setting dry-pour products may list fewer bags—follow that label."
     },
     {
       "question": "Should fence post holes be three times the post width?",

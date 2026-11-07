@@ -15,7 +15,7 @@ export const toolBodies: Record<string, string> = {
       </ul>
       <p>Bag yields used here follow common QUIKRETE / Sakrete published coverage: about 0.30 cu ft (40 lb), 0.45 cu ft (60 lb), and 0.60 cu ft (80 lb). Always check the bag you buy—lightweight and high-strength mixes can differ.</p>
       <h2>Worked example: 10×10 patio slab</h2>
-      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is about 62 bags of 60 lb mix or 46 bags of 80 lb mix. Ready-mix starts to make sense near or above one cubic yard when access allows a truck. More sizes: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
+      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80 lb mix or ceil(36.7 ÷ 0.45) = 82 bags of 60 lb mix (QUIKRETE Concrete Mix yields of about 0.60 / 0.45 cu ft per bag). Ready-mix starts to make sense near or above one cubic yard when access allows a truck. More sizes: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
       <div class="table-scroll">
       <table>
         <caption>Typical bagged concrete yields</caption>
@@ -34,14 +34,15 @@ export const toolBodies: Record<string, string> = {
       <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short; cold joints and mismatched batches are hard to hide.</p>
       <div class="table-scroll">
       <table>
-        <caption>Sand density &amp; bag planning</caption>
-        <thead><tr><th>Type (typical)</th><th>Approx. lb / yd³</th><th>50 lb bags / yd³</th></tr></thead>
+        <caption>10×10 slab bag counts at standard yields (after 10% waste)</caption>
+        <thead><tr><th>Thickness</th><th>Volume + waste</th><th>80 lb bags</th><th>60 lb bags</th></tr></thead>
         <tbody>
-          <tr><td>Play / masonry sand</td><td>~2,400–2,700</td><td>~48–54</td></tr>
-          <tr><td>Concrete sand</td><td>~2,600–2,900</td><td>~52–58</td></tr>
+          <tr><td>4 in</td><td>~36.7 cu ft</td><td>62</td><td>82</td></tr>
+          <tr><td>6 in</td><td>~55.0 cu ft</td><td>92</td><td>123</td></tr>
         </tbody>
       </table>
       </div>
+      <p>Gravel or crushed-stone base under the slab is ordered separately—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Regional frost depth and soil type change how thick that base should be; this tool does not size base for your climate.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Mixing inches and feet in the same product (4 must mean 0.333 ft for thickness).</li>
@@ -113,17 +114,17 @@ export const toolBodies: Record<string, string> = {
       <h2>Column volume method</h2>
       <p>Sonotube and similar round cardboard forms use the cylinder formula: π × (inside diameter ÷ 2)² × height × count. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short.</p>
       <h2>Worked example</h2>
-      <p>Four 10" Sonotubes, each 3 ft: diameter 10" → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd), about eleven 80 lb bags at 0.60 cu ft/bag with 5% waste.</p>
-      <p>A 12" tube holds about 0.785 cu ft per foot of height. That means a 4 ft pier is roughly 3.14 cu ft—five to six 80 lb bags before waste—useful for deck footings when paired with proper footing bells or pads as required by code.</p>
+      <p>Four 10" Sonotubes, each 3 ft: diameter 10" → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd). With 5% waste → 6.87 cu ft, which is ceil(6.87 ÷ 0.60) = 12 bags of 80 lb mix.</p>
+      <p>A 12" tube holds about 0.785 cu ft per foot of height. That means a 4 ft pier is roughly 3.14 cu ft—six 80 lb bags (or seven 60 lb bags) before waste—useful for deck footings when paired with proper footing bells or pads as required by code.</p>
       <div class="table-scroll">
       <table>
         <caption>Approx. 80 lb bags per tube (0.60 cu ft/bag, before waste)</caption>
         <thead><tr><th>Inside Ø</th><th>3 ft deep</th><th>4 ft deep</th></tr></thead>
         <tbody>
-          <tr><td>8 in</td><td>~2 bags</td><td>~3 bags</td></tr>
-          <tr><td>10 in</td><td>~3 bags</td><td>~4 bags</td></tr>
-          <tr><td>12 in</td><td>~5 bags</td><td>~6 bags</td></tr>
-          <tr><td>16 in</td><td>~9 bags</td><td>~12 bags</td></tr>
+          <tr><td>8 in</td><td>2 bags</td><td>3 bags</td></tr>
+          <tr><td>10 in</td><td>3 bags</td><td>4 bags</td></tr>
+          <tr><td>12 in</td><td>4 bags</td><td>6 bags</td></tr>
+          <tr><td>16 in</td><td>7 bags</td><td>10 bags</td></tr>
         </tbody>
       </table>
       </div>
@@ -375,8 +376,9 @@ export const toolBodies: Record<string, string> = {
   'fence-calculator': `
       <h2>Material takeoff logic</h2>
       <p>sections = ceil(length ÷ post spacing); posts = sections + 1; rails = sections × rails per section; pickets from face width and gap along the run. Default spacing of 8 ft is common for wood privacy panels; heavier or taller panels may need 6 ft.</p>
+      <p>The optional “bags per post” field defaults to one 80 lb bag as a <em>Fast-Setting dry-pour planning heuristic</em> for small holes—not a full cylinder fill. A typical 10" × 2.5 ft hole filled solid needs about three 80 lb bags of standard concrete mix after waste. For accurate concrete volume, use the <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> with your diameter and depth, then override bags-per-post here if you want a single materials list.</p>
       <h2>Worked example</h2>
-      <p>A 48 ft run at 8 ft spacing needs 6 sections, 7 posts, and 18 rails if you use 3 rails per bay. With 5.5" pickets and 0.5" gaps, picket pitch is 6", so pickets ≈ (48×12)/6 = 96. Budget concrete with the <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a>.</p>
+      <p>A 48 ft run at 8 ft spacing needs 6 sections, 7 posts, and 18 rails if you use 3 rails per bay. With 5.5" pickets and 0.5" gaps, picket pitch is 6", so pickets ≈ (48×12)/6 = 96. For seven 10" × 2.5 ft holes filled solid, plan roughly fifteen 80 lb bags after 10% waste—not seven.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Posts equal sections plus one. Forget the end post and your rails will not land correctly.</div>
       <h2>Gates and corners</h2>
       <p>This estimator models a straight run. Add extra posts for gates, corners, and elevation breaks. Gate posts often use larger posts and more concrete—calculate those holes individually.</p>

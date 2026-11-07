@@ -43,11 +43,20 @@ export function rectangularBulkVolume(opts: {
   return result;
 }
 
-/** Common crushed stone / gravel density ≈ 2,400–2,700 lb/cu yd; use 2,700 mid. */
+/**
+ * Mid-range crushed stone / gravel dry bulk density (~1.35 ton/cu yd).
+ * Supplier tickets often fall ~2,400–2,800 lb/cu yd by rock type and moisture.
+ */
 export const GRAVEL_DENSITY_LB_PER_CUYD = 2700;
-/** Screened topsoil often ~2,000–2,400 lb/cu yd. */
+/**
+ * Screened topsoil mid estimate (~1.1 ton/cu yd). Wet or clay-heavy blends
+ * can run heavier; lightweight mixes run lighter—confirm with the yard.
+ */
 export const TOPSOIL_DENSITY_LB_PER_CUYD = 2200;
-/** Dry sand ~2,600–2,900 lb/cu yd. */
+/**
+ * Dry sand mid estimate (~1.35 ton/cu yd). Masonry, concrete, and play sand
+ * differ; moisture swings weight more than volume.
+ */
 export const SAND_DENSITY_LB_PER_CUYD = 2700;
 
 export function gravelVolume(opts: Parameters<typeof rectangularBulkVolume>[0]) {

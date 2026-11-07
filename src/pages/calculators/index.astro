@@ -11,6 +11,17 @@ const jsonLd = {
     { '@type': 'ListItem', position: 2, name: 'Calculators', item: absoluteUrl('/calculators/') },
   ],
 };
+
+const categoryHints: Record<string, string> = {
+  concrete:
+    'Use these when you need cubic yards and 40/60/80 lb bag counts. Example: a 10×10 ft patio at 4 inches is about 1.23 cu yd (~62 × 80 lb bags after 10% waste at standard QUIKRETE yields).',
+  landscape:
+    'Convert bed or path area × depth into yards, tons, or bags. Example: 100 sq ft of mulch at 3 inches is about 0.93 cu yd (roughly thirteen 2 cu ft bags).',
+  outdoor:
+    'Takeoffs for fence runs, decks, roof pitch/shingles, paint, and retaining-wall blocks. Example: a 48 ft fence at 8 ft spacing needs 7 posts before gates.',
+  lawn:
+    'Seed and fertilizer from rates per 1,000 sq ft, plus raised-bed soil volume. Example: 5,000 sq ft at 3.5 lb seed/1,000 needs 17.5 lb of seed (override with your bag rate).',
+};
 ---
 
 <BaseLayout
@@ -26,12 +37,73 @@ const jsonLd = {
       Every YardCalc tool runs locally in your browser. Pick a calculator below or start from a
       <a href="/hubs/concrete/">topic hub</a>.
     </p>
+
+    <article class="prose panel" style="margin:1rem 0 0">
+      <h2>How to choose a calculator</h2>
+      <p>
+        Match the shape of the job, not just the material name. Slabs and pads use rectangular volume;
+        post holes and Sonotubes use cylinders; mulch beds use area × depth; fence and deck tools count
+        pieces. Each page shows the formula, a worked example, waste or compaction caveats, and cited
+        sources. Prefer the dedicated tool over forcing one calculator to do another’s job.
+      </p>
+      <div class="table-scroll">
+        <table>
+          <caption>Start here by project type</caption>
+          <thead>
+            <tr>
+              <th>If you are estimating…</th>
+              <th>Open</th>
+              <th>Related guide</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Patio / pad concrete</td>
+              <td><a href="/calculators/concrete-calculator/">Concrete calculator</a></td>
+              <td><a href="/guides/concrete-for-10x10-slab/">10×10 slab</a></td>
+            </tr>
+            <tr>
+              <td>Fence post concrete</td>
+              <td><a href="/calculators/concrete-calculator-post-holes/">Post holes</a></td>
+              <td><a href="/guides/how-much-concrete-for-fence-posts/">Fence post bags</a></td>
+            </tr>
+            <tr>
+              <td>Mulch or gravel volume</td>
+              <td>
+                <a href="/calculators/mulch-calculator/">Mulch</a> /
+                <a href="/calculators/gravel-calculator/">Gravel</a>
+              </td>
+              <td><a href="/guides/mulch-depth-guide/">Mulch depth</a></td>
+            </tr>
+            <tr>
+              <td>Fence / deck / roof / paint</td>
+              <td><a href="/hubs/outdoor-structures/">Outdoor structures hub</a></td>
+              <td><a href="/guides/deck-material-list-12x16/">12×16 deck list</a></td>
+            </tr>
+            <tr>
+              <td>Seed or fertilizer</td>
+              <td><a href="/hubs/lawn/">Lawn hub</a></td>
+              <td><a href="/guides/grass-seed-per-sq-ft/">Seed rates</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Waste factors (often 5–10%), rock density, and bag yields vary by product and region. Treat every
+        result as a planning estimate and confirm labels, supplier tickets, and local code before you buy.
+        Full formula notes live on each tool page and in <a href="/methodology/">methodology</a>.
+      </p>
+    </article>
+
     {
       Object.entries(categories).map(([key, cat]) => (
         <section style="margin-top:2rem">
           <h2>
             <a href={`/hubs/${cat.slug}/`}>{cat.name}</a>
           </h2>
+          <p class="lede" style="margin:0.5rem 0 0;max-width:42rem">
+            {categoryHints[key]}
+          </p>
           <div class="card-grid cols-3" style="margin-top:1rem">
             {tools
               .filter((t) => t.category === key)

@@ -72,7 +72,7 @@ export const categories: Record<
       'Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.',
     primaryKeyword: 'concrete calculator hub',
     answerFirst:
-      'Estimate slabs, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈45–46 × 80 lb bags before waste).',
+      'Estimate slabs, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈56 × 80 lb bags before waste; ~62 after 10%).',
     introHtml: `
       <h2>Which concrete calculator do I need?</h2>
       <div class="table-scroll">
@@ -80,13 +80,18 @@ export const categories: Record<
         <caption>Match the pour shape to the right tool</caption>
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
-          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Slab / footing calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³</td></tr>
-          <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole calculator</a></td><td>Often 1–3 bags per hole</td></tr>
-          <tr><td>Cardboard column forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a></td><td>π × r² × height</td></tr>
+          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Slab / footing calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
+          <tr><td>Cardboard column forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Start with dimensions in feet (or meters), add about 10% waste for DIY bag mixes, and confirm bag yields on the label. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a>, and <a href="/guides/concrete-for-10x10-slab/">10×10 slab</a>. Check frost-line depth and local codes before you dig or pour.</p>
+      <h2>How to choose bag mix vs ready-mix</h2>
+      <p>Bagged QUIKRETE / Sakrete-style mixes suit posts, small pads, and repairs you can place in batches. Past about one cubic yard—or any pour that must be continuous across a large slab—compare the cost and labor of ready-mix delivery. YardCalc bag counts use published standard-mix yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags; lightweight and high-yield products differ, so read the label.</p>
+      <h2>Worked example: 10×10 patio</h2>
+      <p>Volume = 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste factor that becomes 36.7 cu ft → 62 bags of 80 lb mix or 82 bags of 60 lb mix. Order gravel base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Full charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a>, and <a href="/guides/concrete-for-10x10-slab/">10×10 slab</a>.</p>
+      <h2>Waste, frost, and regional caveats</h2>
+      <p>Uneven subgrade and spillage routinely consume 5–10% extra on DIY bag mixes. Frost-line depth, soil type, and local code control hole depth and slab thickness—this hub estimates volume only. Confirm reinforcement, joints, and base with local practice before you pour.</p>
     `,
   },
   landscape: {
@@ -112,7 +117,11 @@ export const categories: Record<
         </tbody>
       </table>
       </div>
-      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and <a href="/calculators/gravel-calculator/">gravel</a>; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>.</p>
+      <h2>How to choose bulk vs bags</h2>
+      <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardCalc ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
+      <h2>Worked example: 20×10 path at 4 inches</h2>
+      <p>Area = 200 sq ft. Depth = 4÷12 = 0.333 ft. Volume = 66.7 cu ft ≈ 2.47 cu yd before waste; with 10% compaction allowance ≈ 2.72 cu yd ≈ 3.67 tons at 2,700 lb/yd³. Run the same dimensions in the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
+      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>.</p>
     `,
   },
   outdoor: {
@@ -139,7 +148,15 @@ export const categories: Record<
         </tbody>
       </table>
       </div>
-      <p>Deck takeoff example: <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>. Taller retaining walls may need engineering—follow the block manufacturer’s height chart.</p>
+      <h2>How to choose what to estimate first</h2>
+      <p>Start with geometry (run length, deck footprint, plan roof area, wall face), then layer on waste and related materials. Fence posts drive concrete volume; deck boards drive joist count and pier locations; roof pitch drives shingle squares; retaining-wall height drives whether you need engineering beyond a simple block count.</p>
+      <h2>Worked examples</h2>
+      <ul>
+        <li><strong>48 ft fence at 8 ft spacing:</strong> 6 sections, 7 posts, 18 rails (3 per bay). For 10&quot; × 2.5 ft holes filled solid, plan ~15 × 80 lb bags after 10% waste—use the post-hole tool, not a flat “one bag per post” rule for cylinder fills.</li>
+        <li><strong>12×16 deck:</strong> board and joist takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>; pier concrete via Sonotube diameter × height.</li>
+        <li><strong>40×25 plan roof at 6/12:</strong> area factor ≈ 1.118 → ~11.2 squares before waste; with 10% waste and 3 bundles/square, order about 37 bundles.</li>
+      </ul>
+      <p>Taller retaining walls and load-bearing decks may need a licensed design—follow manufacturer height charts and local code. Paint coverage varies by brand (this site defaults to 350 sq ft/gal); confirm on the can.</p>
     `,
   },
   lawn: {
@@ -150,8 +167,16 @@ export const categories: Record<
       'Free lawn calculators for grass seed (new lawn and overseed) and fertilizer from nitrogen targets and N-P-K analysis. Rates per 1,000 sq ft.',
     primaryKeyword: 'lawn calculator',
     answerFirst:
-      'Convert lawn area into grass-seed pounds and fertilizer product pounds using rates per 1,000 sq ft. A 5,000 sq ft cool-season new lawn at 6 lb/1,000 needs about 30 lb of seed (use the rate on your bag).',
+      'Convert lawn area into grass-seed pounds and fertilizer product pounds using rates per 1,000 sq ft. A 5,000 sq ft cool-season new lawn at 3.5 lb/1,000 needs about 17.5 lb of seed (use the rate on your bag).',
     introHtml: `
+      <h2>How to choose seed rate vs fertilizer rate</h2>
+      <p>Seed quantity comes from the species blend on the bag (new-lawn rates are higher than overseed). Fertilizer quantity comes from your nitrogen target and the first N-P-K number. YardCalc’s grass-seed defaults (3.5 lb/1,000 new, 1.75 lb/1,000 overseed) are mid cool-season planning figures—always override with the printed bag rate for your mix. Warm-season grasses and specialty blends can sit well outside that band.</p>
+      <h2>Worked examples</h2>
+      <ul>
+        <li><strong>Seed:</strong> 5,000 sq ft × (3.5 lb ÷ 1,000) = 17.5 lb for a new cool-season lawn. The same area overseeded at 1.75 lb/1,000 needs 8.75 lb.</li>
+        <li><strong>Fertilizer:</strong> Target 1 lb N per 1,000 sq ft with a 25-0-5 product → product = 1 ÷ 0.25 = 4 lb per 1,000 sq ft. For 5,000 sq ft that is 20 lb of product (half of a 40 lb bag).</li>
+        <li><strong>Raised bed next to the lawn:</strong> an 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd) of mix—see the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>.</li>
+      </ul>
       <h2>Seasonal lawn calendar (planning)</h2>
       <div class="table-scroll">
       <table>
@@ -165,7 +190,14 @@ export const categories: Record<
         </tbody>
       </table>
       </div>
-      <p>New-lawn and overseed rates differ—read the bag. Product fertilizer ≈ desired N ÷ (N% as a decimal); a 30-0-4 bag at 1&nbsp;lb N/1,000 needs about 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Guides: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a>.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using new-lawn seed rates for overseeding (usually too much seed).</li>
+        <li>Applying fertilizer by bag count without dividing by the nitrogen percentage.</li>
+        <li>Skipping a soil test when pH or phosphorus limits growth more than nitrogen.</li>
+        <li>Assuming one national calendar fits every USDA hardiness zone.</li>
+      </ul>
+      <p>Guides: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a>.</p>
     `,
   },
 };
@@ -227,25 +259,25 @@ export const tools: ToolDefinition[] = [
         label: 'QUIKRETE – Concrete calculator & bag yields',
         href: 'https://www.quikrete.com/calculator/main.asp',
         usedFor: '40/60/80 lb bag yield planning figures and coverage checks',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'Sakrete – Concrete calculator',
         href: 'https://sakrete.com/resources/calculators/',
         usedFor: 'Cross-check bag coverage estimates for bagged concrete',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'American Cement Association (formerly PCA)',
         href: 'https://www.cement.org/',
         usedFor: 'Industry context on cement and concrete materials',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'ACI 332.1R-18 preview – Guide to Residential Concrete Construction',
         href: 'https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf',
         usedFor: 'Residential concrete practice overview (preview PDF)',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
@@ -266,7 +298,7 @@ export const tools: ToolDefinition[] = [
       'Calculate concrete for fence post holes: enter diameter, depth, and post count for cubic yards and 40/60/80 lb bags. Free post-hole concrete estimator.',
     h1: 'Concrete Calculator for Post Holes',
     answerFirst:
-      'Concrete for post holes equals the cylinder volume of each hole times the number of posts: π × (diameter÷2)² × depth. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—often one 60 or 80 lb bag after waste. Multiply by your post count and add 10% for over-dig.',
+      'Concrete for post holes equals the cylinder volume of each hole times the number of posts: π × (diameter÷2)² × depth. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—about two 60 or 80 lb bags after 10% waste. Multiply by your post count; Fast-Setting dry-pour methods may use fewer bags.',
     summary: 'Fence and sign post hole concrete by diameter, depth, and count.',
     calculatorId: 'post-holes',
     relatedSlugs: ['concrete-calculator', 'sonotube-concrete-calculator', 'fence-calculator'],
@@ -275,7 +307,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much concrete for one fence post?',
         answer:
-          'For an 8–12 inch diameter hole about one-third the post height deep, many DIYers use one 50–80 lb bag per post. Use this calculator for your exact diameter and depth.',
+          'It depends on hole diameter and depth. An 8″ × 2 ft cylinder is about 0.70 cu ft (two 80 lb bags of standard mix after waste). A 10″ × 2.5 ft hole is about 1.36 cu ft (three 80 lb bags after waste). Fast-Setting dry-pour products may list fewer bags—follow that label, or use this calculator for a full fill.',
       },
       {
         question: 'Do I fill the whole hole with concrete?',
@@ -293,19 +325,19 @@ export const tools: ToolDefinition[] = [
         label: 'QUIKRETE – Setting a fence post',
         href: 'https://www.quikrete.com/athome/project-setting-a-fence-post.asp',
         usedFor: 'Practical post-setting steps and bagged concrete context',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'QUIKRETE – Concrete calculator',
         href: 'https://www.quikrete.com/calculator/main.asp',
         usedFor: 'Bag yield cross-check for cylinder volumes',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'Clemson HGIC – Home & Garden Information Center',
         href: 'https://hgic.clemson.edu/',
         usedFor: 'Landscape and fencing extension resources',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['concrete-calculator-post-holes'],
@@ -326,7 +358,7 @@ export const tools: ToolDefinition[] = [
       'Sonotube concrete calculator for round columns and deck piers. Enter tube diameter and height for cubic yards and bag counts.',
     h1: 'Sonotube Concrete Calculator: Bags by Diameter',
     answerFirst:
-      'Sonotube (round cardboard form) volume is π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 60 lb bags before waste. Multiply by the number of piers and add 5% for spillage.',
+      'Sonotube (round cardboard form) volume is π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
     calculatorId: 'sonotube',
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
@@ -340,7 +372,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much concrete for a 12-inch Sonotube?',
         answer:
-          'Per foot of height, a 12" tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft—about five to six 80 lb bags with a little waste.',
+          'Per foot of height, a 12" tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft—six 80 lb bags before waste (still six after the default 5% waste at 0.60 cu ft/bag).',
       },
     ],
     sources: [
@@ -348,13 +380,13 @@ export const tools: ToolDefinition[] = [
         label: 'Sonotube concrete forms – product sizing',
         href: 'https://www.sonotube.com/sonotube-concrete-forms',
         usedFor: 'Inside diameter / form sizing for round tubes',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'QUIKRETE – Concrete calculator',
         href: 'https://www.quikrete.com/calculator/main.asp',
         usedFor: 'Bag counts from calculated cubic feet',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
@@ -388,7 +420,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How many bags in a cubic yard of mulch?',
         answer:
-          'A cubic yard is 27 cu ft, so about fourteen 2 cu ft bags or nine 3 cu ft bags.',
+          'A cubic yard is 27 cu ft, so 27÷2 = 13.5 of the common 2 cu ft bags (plan on 14 at the register) or nine 3 cu ft bags.',
       },
     ],
     sources: [
@@ -396,25 +428,25 @@ export const tools: ToolDefinition[] = [
         label: 'Iowa State Extension – How to determine amount of mulch needed',
         href: 'https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed',
         usedFor: 'Volume method (area × depth) for garden beds',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'UF/IFAS Gardening Solutions – Choosing and installing mulches',
         href: 'https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/',
         usedFor: 'Mulch depth and installation guidance',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'Mississippi State Extension – Mulches for the landscape',
         href: 'https://extension.msstate.edu/publications/mulches-for-the-landscape',
         usedFor: 'Landscape mulch practice overview',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'Clemson HGIC – Mulch',
         href: 'https://hgic.clemson.edu/factsheet/mulch/',
         usedFor: 'Extension mulch depth and care notes',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
@@ -456,6 +488,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'Penn State Extension – Mulching',
         href: 'https://extension.psu.edu/mulching',
+        usedFor: 'Tree-ring mulch depth and volcano-mulching guidance',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['mulch-calculator-tree-rings'],
@@ -494,8 +528,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'USDA NRCS – Aggregate basics (general)',
+        label: 'USDA NRCS – Aggregate and soil resources (general)',
         href: 'https://www.nrcs.usda.gov/',
+        usedFor: 'Context on aggregates; density still confirmed with local stone yards',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['gravel-calculator'],
@@ -530,8 +566,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'University extension soil guidance (general)',
+        label: 'Extension.org – Soil and gardening resources',
         href: 'https://extension.org/',
+        usedFor: 'General topsoil and garden-soil practice; bag sizes vary by brand',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['topsoil-calculator'],
@@ -567,6 +605,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'ICPI – Segmental pavement basics',
         href: 'https://www.icpi.org/',
+        usedFor: 'Paver bedding sand depth context (~1 inch typical setting bed)',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['sand-calculator'],
@@ -602,6 +642,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'ICPI – Industry guidance',
         href: 'https://www.icpi.org/',
+        usedFor: 'Segmental paver waste, bedding, and base practice overview',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['paver-calculator'],
@@ -632,11 +674,24 @@ export const tools: ToolDefinition[] = [
         answer:
           'Six to eight feet is common for wood privacy fences. Heavier or taller panels may need closer spacing—check panel specs.',
       },
+      {
+        question: 'Why does the tool default to one concrete bag per post?',
+        answer:
+          'One 80 lb bag is a Fast-Setting dry-pour planning heuristic for small holes, not a full cylinder fill. For solid fills, run the post-hole calculator (e.g. 10″ × 2.5 ft ≈ three 80 lb bags after waste) and override bags-per-post.',
+      },
     ],
     sources: [
       {
         label: 'Clemson HGIC – Landscape structures',
         href: 'https://hgic.clemson.edu/',
+        usedFor: 'Fence and landscape structure practice overview',
+        checked: '2026-11-07',
+      },
+      {
+        label: 'QUIKRETE – Setting a fence post',
+        href: 'https://www.quikrete.com/athome/project-setting-a-fence-post.asp',
+        usedFor: 'Fast-Setting vs standard mix post-setting context',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['fence-calculator'],
@@ -678,6 +733,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'AWC – Deck guide resources',
         href: 'https://www.awc.org/',
+        usedFor: 'Deck framing practice and span-table context (not a substitute for code)',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['deck-material-calculator'],
@@ -717,8 +774,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'FEMA / general roof slope terminology',
+        label: 'FEMA – Roof and building guidance (general)',
         href: 'https://www.fema.gov/',
+        usedFor: 'General roof slope terminology; measure safely from the ground when possible',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['roof-pitch-calculator'],
@@ -753,8 +812,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'GAF / manufacturer coverage labels (example industry practice)',
+        label: 'GAF – Manufacturer coverage practice (example)',
         href: 'https://www.gaf.com/',
+        usedFor: 'Bundles-per-square industry practice; always read the bundle label',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['roofing-shingles-calculator'],
@@ -788,8 +849,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'Paint manufacturer coverage guidelines (typical)',
+        label: 'Sherwin-Williams – Coverage guidelines (typical)',
         href: 'https://www.sherwin-williams.com/',
+        usedFor: 'Typical interior coverage band; YardCalc defaults to 350 sq ft/gal',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['paint-calculator'],
@@ -825,6 +888,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'NCMA – Segmental retaining walls',
         href: 'https://www.ncma.org/',
+        usedFor: 'SRW block and base practice overview; height limits are manufacturer-specific',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['retaining-wall-calculator'],
@@ -860,6 +925,8 @@ export const tools: ToolDefinition[] = [
       {
         label: 'Penn State Extension – Turfgrass',
         href: 'https://extension.psu.edu/turfgrass',
+        usedFor: 'Cool-season turf seeding context; override with bag rate for your mix',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['grass-seed-calculator'],
@@ -896,13 +963,13 @@ export const tools: ToolDefinition[] = [
         label: 'University of Minnesota Extension – Fertilizing lawns',
         href: 'https://extension.umn.edu/lawn-care/fertilizing-lawns',
         usedFor: 'Nitrogen rate and lawn fertility practice',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
       {
         label: 'Penn State Extension – Turfgrass',
         href: 'https://extension.psu.edu/turfgrass',
         usedFor: 'Turfgrass care and rate context',
-        checked: '2026-10-20',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['fertilizer-calculator'],
@@ -936,8 +1003,10 @@ export const tools: ToolDefinition[] = [
     ],
     sources: [
       {
-        label: 'Extension vegetable gardening resources',
+        label: 'Extension.org – Vegetable gardening resources',
         href: 'https://extension.org/',
+        usedFor: 'Raised-bed soil volume practice; mix recipes vary by crop and climate',
+        checked: '2026-11-07',
       },
     ],
     sectionsHtml: toolBodies['raised-bed-soil-calculator'],

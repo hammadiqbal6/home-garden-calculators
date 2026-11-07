@@ -47,7 +47,7 @@ export const guides: GuideDefinition[] = [
     primaryKeyword: 'how much concrete for fence posts',
     secondaryKeywords: ['concrete per fence post', 'bags of concrete for fence posts'],
     answerFirst:
-      'Most residential fence posts need about one to three 60–80 lb bags of concrete each, depending on hole diameter and depth. An 8-inch-wide, 2-foot-deep hole holds roughly 0.70 cubic feet—often one to two bags after waste. Multiply by your post count, and dig below the local frost line.',
+      'Most residential fence posts need about one to three 60–80 lb bags of concrete each, depending on hole diameter and depth. An 8-inch-wide, 2-foot-deep hole holds roughly 0.70 cubic feet—about two bags of standard mix after waste. Multiply by your post count, and dig below the local frost line.',
     relatedToolSlugs: [
       'concrete-calculator-post-holes',
       'fence-calculator',
@@ -101,7 +101,7 @@ export const guides: GuideDefinition[] = [
     primaryKeyword: 'how much concrete for a 10x10 slab',
     secondaryKeywords: ['10x10 concrete slab bags', 'concrete for patio slab'],
     answerFirst:
-      'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 46 bags of 80 lb mix or 62 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
+      'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
     relatedToolSlugs: ['concrete-calculator', 'gravel-calculator'],
     relatedGuideSlugs: ['how-many-bags-of-concrete', 'how-much-concrete-for-fence-posts'],
     datePublished: '2026-10-20',

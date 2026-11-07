@@ -89,14 +89,17 @@ export const DEFAULT_INDEXNOW_KEY = 'c2a68b8b8e7e6ba2253b408fa0fe2c4c';
 
 /**
  * Exact hostnames that 301 → CANONICAL_ORIGIN (Worker runtime).
- * Comma-separated. Includes legacy workers.dev + www (apex is canonical).
+ * Comma-separated. www → apex only (workers.dev subdomain is retired/disabled).
  * Preview hosts (`<version>-…workers.dev`) must NOT be listed.
  */
-export const DEFAULT_LEGACY_REDIRECT_HOSTS =
-  'home-garden-calculators.hammadiqbal117.workers.dev,www.getyardtally.com';
+export const DEFAULT_LEGACY_REDIRECT_HOSTS = 'www.getyardtally.com';
 
-/** First legacy host (compat for docs / older imports). */
-export const LEGACY_WORKERS_DEV_HOST = DEFAULT_LEGACY_REDIRECT_HOSTS.split(',')[0].trim();
+/**
+ * Retired workers.dev host (disabled via wrangler `workers_dev: false`).
+ * Kept for docs/SEO allowlist / older imports — not in LEGACY_REDIRECT_HOSTS.
+ */
+export const LEGACY_WORKERS_DEV_HOST =
+  'home-garden-calculators.hammadiqbal117.workers.dev';
 
 /** Sister-site origin fallbacks (no trailing slash). */
 export const DEFAULT_SISTER_URL_PAYMENT_FEES =

@@ -20,11 +20,11 @@ The run-first Worker (`src/worker.ts`) permanently redirects these **exact** hos
 
 | Host | Behavior |
 |------|----------|
-| `home-garden-calculators.hammadiqbal117.workers.dev` | 301 → `https://getyardtally.com` + path + query |
 | `www.getyardtally.com` | 301 → `https://getyardtally.com` + path + query |
 | `getyardtally.com` | Normal site; trailing-slash only → **308** when needed |
-| `<version>-home-garden-calculators.….workers.dev` (previews) | **No** host redirect |
 | `localhost` / `127.0.0.1` | **No** host redirect |
+
+The retired `home-garden-calculators.hammadiqbal117.workers.dev` subdomain is **off** (`workers_dev: false` and `preview_urls: false` in `wrangler.jsonc`) so deploys do not re-enable it. It is no longer in `LEGACY_REDIRECT_HOSTS`.
 
 Override without rebuilding Astro HTML by setting Worker vars `CANONICAL_ORIGIN` / `LEGACY_REDIRECT_HOSTS` in `wrangler.jsonc` or the Cloudflare dashboard. Build-time `PUBLIC_*` vars are **not** available to the Worker runtime.
 
@@ -44,21 +44,20 @@ Constants: `DEFAULT_LEGACY_REDIRECT_HOSTS` in `src/config/siteDefaults.mjs`. Uni
    Rebuild/deploy so Astro bakes the new origin into canonicals, sitemap, robots, llms, OG, and JSON-LD.
 
 2. **Attach custom domains in Cloudflare**  
-   Workers → this Worker → Custom Domains → add `getyardtally.com` and `www.getyardtally.com`. Complete DNS as prompted. Do not remove the workers.dev route until redirects work.
+   Workers → this Worker → Custom Domains → add `getyardtally.com` and `www.getyardtally.com`. Complete DNS as prompted. Keep `workers_dev` / `preview_urls` false in `wrangler.jsonc` so deploys do not revive the retired subdomain.
 
 3. **Verify Worker 301s** (deployed in `src/worker.ts`):
    ```bash
-   curl -sI 'https://home-garden-calculators.hammadiqbal117.workers.dev/calculators/concrete-calculator/?a=1' | head
-   # expect: 301 Location: https://getyardtally.com/calculators/concrete-calculator/?a=1
    curl -sI 'https://www.getyardtally.com/guides/?utm=1' | head
    # expect: 301 Location: https://getyardtally.com/guides/?utm=1
+   curl -sI 'https://getyardtally.com/calculators/concrete-calculator/' | head
+   # expect: 200 (apex serves the site)
    ```
 
 4. **Google Search Console**  
    - Add a new URL-prefix (or Domain) property for `https://getyardtally.com`.  
    - Verify (HTML tag via `PUBLIC_GSC_VERIFICATION` or DNS).  
-   - Submit `https://getyardtally.com/sitemap-index.xml`.  
-   - Use **Change of Address** from the old workers.dev property once permanent 301s are live.
+   - Submit `https://getyardtally.com/sitemap-index.xml`.
 
 5. **Analytics**  
    In GA4, add/update the web data stream URL to `https://getyardtally.com`. Keep the same measurement ID unless you intentionally split properties.

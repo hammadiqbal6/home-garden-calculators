@@ -5,16 +5,19 @@
 import {
   DEFAULT_LEGACY_REDIRECT_HOSTS,
   DEFAULT_SITE_URL,
+  LEGACY_WORKERS_DEV_HOST,
   parseList,
 } from '../config/siteDefaults.mjs';
 
 /** Long enough for `.webmanifest` (11 chars) and similar asset extensions. */
 export const FILE_EXT = /\.[a-zA-Z0-9]{1,16}$/;
 
-export { DEFAULT_SITE_URL as DEFAULT_CANONICAL_ORIGIN, DEFAULT_LEGACY_REDIRECT_HOSTS };
-
-/** First legacy host (compat for older tests / docs). */
-export const LEGACY_WORKERS_DEV_HOST = DEFAULT_LEGACY_REDIRECT_HOSTS.split(',')[0].trim();
+export {
+  DEFAULT_SITE_URL as DEFAULT_CANONICAL_ORIGIN,
+  DEFAULT_LEGACY_REDIRECT_HOSTS,
+  /** Retired workers.dev host (not in default redirect list). */
+  LEGACY_WORKERS_DEV_HOST,
+};
 
 export function normalizeCanonicalOrigin(origin: string): string {
   return origin.trim().replace(/\/$/, '');

@@ -181,6 +181,29 @@ describe('paver / fence / deck', () => {
     const r = deckMaterials({ length: 12, width: 12, boardWidthIn: 5.5, boardLengthFt: 12 });
     expect(r.areaSqFt).toBe(144);
     expect(r.deckBoards).toBe(Math.ceil(12 / (5.5 / 12)));
+    expect(r.deckBoardsWithWaste).toBe(r.deckBoards);
+  });
+
+  it('deck joist spacing and board waste are optional inputs', () => {
+    const at16 = deckMaterials({
+      length: 16,
+      width: 12,
+      boardWidthIn: 5.5,
+      boardLengthFt: 12,
+      joistSpacingIn: 16,
+    });
+    const at12 = deckMaterials({
+      length: 16,
+      width: 12,
+      boardWidthIn: 5.5,
+      boardLengthFt: 12,
+      joistSpacingIn: 12,
+      wastePercent: 10,
+    });
+    expect(at16.joists).toBe(Math.floor(16 / (16 / 12)) + 1);
+    expect(at12.joists).toBe(Math.floor(16 / (12 / 12)) + 1);
+    expect(at12.joists).toBeGreaterThan(at16.joists);
+    expect(at12.deckBoardsWithWaste).toBe(Math.ceil(at12.deckBoards * 1.1));
   });
 });
 

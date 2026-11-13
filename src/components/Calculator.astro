@@ -596,10 +596,27 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           imperialHint: 'feet',
           metricHint: 'meters',
         },
+        {
+          name: 'joistOC',
+          label: 'Joist spacing',
+          imperialDefault: '16',
+          metricDefault: '40',
+          imperialHint: 'inches o.c.',
+          metricHint: 'cm o.c.',
+        },
+        {
+          name: 'waste',
+          label: 'Board waste %',
+          imperialDefault: '10',
+          metricDefault: '10',
+          imperialHint: '%',
+          metricHint: '%',
+        },
       ],
       compute(v, u) {
         const boardW = u === 'imperial' ? v.boardW : v.boardW / 2.54;
         const boardL = u === 'imperial' ? v.boardL : v.boardL * 3.280839895;
+        const joistOC = u === 'imperial' ? v.joistOC : v.joistOC / 2.54;
         const r = deckMaterials({
           length: v.length,
           width: v.width,
@@ -607,11 +624,14 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           widthUnit: lengthUnit(u),
           boardWidthIn: boardW,
           boardLengthFt: boardL,
+          joistSpacingIn: joistOC,
+          wastePercent: v.waste,
         });
         return [
           ['Area', `${r.areaSqFt} sq ft`],
           ['Deck boards', String(r.deckBoards)],
-          ['Joists (16" o.c.)', String(r.joists)],
+          ['Boards with waste', String(r.deckBoardsWithWaste)],
+          [`Joists (${Math.round(r.joistSpacingIn * 10) / 10}" o.c.)`, String(r.joists)],
           ['Rim joists', String(r.rimJoists)],
           ['Screws (est.)', String(r.screws)],
         ];

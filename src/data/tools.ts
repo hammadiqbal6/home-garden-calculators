@@ -536,6 +536,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'gravel-calculator',
@@ -641,6 +642,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'sand-calculator',
@@ -693,6 +695,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'paver-calculator',
@@ -745,6 +748,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'fence-calculator',
@@ -1019,6 +1023,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'retaining-wall-calculator',
@@ -1130,6 +1135,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'fertilizer-calculator',
@@ -1188,6 +1194,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'raised-bed-soil-calculator',
@@ -1240,6 +1247,7 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'asphalt-calculator',

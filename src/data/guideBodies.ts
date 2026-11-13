@@ -1128,6 +1128,10 @@ export const guideBodies: Record<string, string> = {
 
   'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Key takeaway:</strong> Block count ≈ courses × blocks per course, where courses = ceil(wall height ÷ block height) and blocks per course = ceil(wall length ÷ block length). YardTally’s gravel trench defaults (about 24 in wide by 6 in deep) are planning assumptions for the calculator, not a universal code. Taller walls, surcharges, and poor soils need engineering. Follow the block manufacturer’s installation manual and local codes.</div>
 
+      <figure class="diagram">
+        <img src="/diagrams/retaining-wall-dimensions.svg" width="960" height="540" alt="Diagram of a retaining wall section showing wall height, block face, and gravel trench width and depth" loading="lazy" />
+      </figure>
+
       <h2>Can I use paver base under a retaining wall?</h2>
       <p>Yes for a compacted gravel trench under wall blocks, people often call that “paver base.” Treat it as wall base, not a patio sand-and-gravel section. Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
       <p>Related ideas (compacted angular gravel) transfer; the assembly does not. Patio bedding sand is not a substitute for wall drainage stone, and patio base thickness is not a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>

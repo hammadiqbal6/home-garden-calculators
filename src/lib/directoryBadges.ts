@@ -3,6 +3,9 @@
  *
  * Prefer `PUBLIC_DIRECTORY_BADGES` (JSON array). When unset, fall back to the
  * Fazier badge gated by `PUBLIC_FAZIER_BADGE_ENABLED` (default on).
+ *
+ * “Launching soon” style badges are always filtered out (even when present in
+ * the env JSON) so the footer never advertises an unapproved listing.
  */
 
 export type DirectoryBadge = {
@@ -60,7 +63,22 @@ function parsePositiveInt(value: unknown, fallback: number): number {
 }
 
 /**
- * Normalize one JSON object into a badge, or `null` when required fields are missing.
+ * True when a badge looks like a “launching soon” / pending-listing badge.
+ * Matched on img URL and alt so Cloudflare env JSON cannot keep showing it.
+ */
+export function isLaunchingSoonBadge(badge: Pick<DirectoryBadge, 'img' | 'alt' | 'imgDark'>): boolean {
+  const haystack = `${badge.img} ${badge.imgDark ?? ''} ${badge.alt}`.toLowerCase();
+  return (
+    haystack.includes('launching_soon') ||
+    haystack.includes('launching-soon') ||
+    haystack.includes('launching soon') ||
+    haystack.includes('badge_type=soon')
+  );
+}
+
+/**
+ * Normalize one JSON object into a badge, or `null` when required fields are missing
+ * or the badge is a “launching soon” placeholder.
  */
 export function normalizeDirectoryBadge(raw: unknown, warn: WarnFn = console.warn): DirectoryBadge | null {
   if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
@@ -89,6 +107,13 @@ export function normalizeDirectoryBadge(raw: unknown, warn: WarnFn = console.war
   }
   if (isNonEmptyString(record.imgDark)) {
     badge.imgDark = record.imgDark.trim();
+  }
+
+  if (isLaunchingSoonBadge(badge)) {
+    warn(
+      '[directoryBadges] Skipping “launching soon” badge (footer never renders pending-listing badges).',
+    );
+    return null;
   }
 
   return badge;

@@ -1,174 +1,116 @@
-# AGENTS.md — YardTally contributor & AI agent guide
+# AGENTS.md — YardTally
 
-This repository is a **production** static site of free home & garden material calculators (brand: **YardTally**). It is optimized for Google ranking, AI-search citations, AdSense readiness, and mobile Core Web Vitals.
+## 1. Project overview
 
-## Governing documents
+- **YardTally** (`getyardtally.com`) — free home & garden material calculators (concrete, mulch, gravel, paint, seed, etc.).
+- Goals: Google ranking, AI-search citations, AdSense readiness, mobile Core Web Vitals.
+- **Stack:** Astro 5 static site + TypeScript; Vitest for calculator math; minimal client JS (calculator island); Cloudflare Worker serves `dist/`.
+- **Deploy:** merge to `main` → Workers Builds auto-deploys the Cloudflare Worker (`npx wrangler deploy` + IndexNow). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+- Canonical origin: `PUBLIC_SITE_URL` → `siteConfig.siteUrl` only. Never hardcode the site hostname in pages/scripts.
 
-| Doc | Role |
+## 2. Repo map
+
+| Path | Role |
 |---|---|
-| [docs/SEO-PLAYBOOK.md](docs/SEO-PLAYBOOK.md) | Governing SEO / GEO / technical rules |
-| [docs/SEO-GUARDRAILS.md](docs/SEO-GUARDRAILS.md) | Do/don’t rules + CI failure conditions |
-| [docs/PAGE-CHECKLIST.md](docs/PAGE-CHECKLIST.md) | Per-page SEO/AEO checklist (CI: `audit:pages`) |
-| [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md) | Custom domain cutover (`PUBLIC_SITE_URL`) |
-| [docs/CONFIGURATION.md](docs/CONFIGURATION.md) | Brand / env var reference |
-| [docs/MARKET-RESEARCH.md](docs/MARKET-RESEARCH.md) | Niche research & AdSense eligibility notes |
-| [docs/ideas/README.md](docs/ideas/README.md) | All 23 ideas index + home/garden add-on backlog |
-| [docs/KEYWORD-MAP.md](docs/KEYWORD-MAP.md) | Primary keyword per live URL |
-| [docs/SEO-GUIDE.md](docs/SEO-GUIDE.md) | Launch & post-launch SEO ops |
-| [docs/ADSENSE.md](docs/ADSENSE.md) | AdSense + CMP enablement |
-| [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) | Hosting |
-| [docs/CONTACT-EMAILJS.md](docs/CONTACT-EMAILJS.md) | Optional EmailJS contact form (public env IDs) |
+| `src/config/site.ts`, `src/config/siteDefaults.mjs` | Brand, AdSense, GA4, IndexNow, origin fallbacks |
+| `src/lib/calculators/` | Pure math (imperial + metric via `units.ts`) |
+| `src/data/tools.ts`, `toolBodies.ts`, `calculatorFields.ts`, `toolHowTo.ts` | Calculator registry, HTML bodies, SSR defaults, HowTo steps |
+| `src/data/guides.ts`, `guideBodies.ts`, `guideFaqs.ts`, `guideHowTo.ts` | Guide registry, bodies, FAQ, HowTo |
+| `src/components/Calculator.astro` | Calculator UI configs + island |
+| `src/pages/calculators/[slug].astro`, `guides/[slug].astro` | Tool / guide templates + JSON-LD |
+| `src/pages/llms.txt.ts`, `llms-full.txt.ts`, `.well-known/llms.txt.ts` | LLM/AI index files |
+| `src/layouts/BaseLayout.astro` | Consent Mode, CMP/banner gate, shared head |
+| `src/lib/gdprRegions.ts`, `htmlGeoInject.ts`, `src/worker.ts` | EEA/UK/CH geo + HTML inject |
+| `public/_headers` | CSP + cache (Workers static assets) |
+| `astro.config.mjs` | Sitemap `lastmod` from real `dateModified` |
+| `docs/KEYWORD-MAP.md`, `SEO-GUARDRAILS.md`, `PAGE-CHECKLIST.md`, `ADSENSE.md` | SEO / AdSense ops |
+| `.cursor/skills/`, `.cursor/rules/` | Agent skills and standing rules |
 
-Cursor-specific: `.cursor/skills/*/SKILL.md`, `.cursor/rules/*.mdc`, `.cursor/agents/*.md`.
-
-### Skills (start here for common tasks)
-
-| Skill | Use for |
-|---|---|
-| [add-a-new-calculator](.cursor/skills/add-a-new-calculator/SKILL.md) | New tool end-to-end |
-| [add-a-new-guide](.cursor/skills/add-a-new-guide/SKILL.md) | New guide end-to-end |
-| [refresh-an-existing-guide](.cursor/skills/refresh-an-existing-guide/SKILL.md) | Rewrite/refresh one guide |
-| [pre-merge-seo-aeo-checklist](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md) | Before opening/updating a PR |
-| [ui-ux-pro-max](.cursor/skills/ui-ux-pro-max/SKILL.md) | Any visual/UX change |
-
----
-
-## Standing rules (do not re-learn)
-
-### Agent / PR workflow
-- **One concern per PR** (content ≠ CMP/consent ≠ calculator SEO ≠ docs). Fresh branch from `main`: `cursor/<name>-c2d2`.
-- Open PRs with `ManagePullRequest`; **do not merge** unless asked.
-- Seasonality: publish evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** peaks (lawn, mulch, concrete, paint).
-
-### Content voice & facts
-- Human, contractor-practical. Ban AI filler (“delve”, “in today’s world”, “whether you’re a beginner or…”, “unlock”, “comprehensive guide”, etc.). Full list: `.cursor/rules/content-quality.mdc`.
-- **No invented stats.** Every number needs a manufacturer TDS or extension URL.
-- Guides: Sources list + visible `Reviewed by Hammad Iqbal · Last updated {date}`.
-- Tools: Sources via `TrustBlock`; FAQ 3–5 sourced items.
-
-### Guide structure
-- `answerFirst` 40–60 words (sourced verdict first).
-- Question H2s from real search/PAA questions; worked example; FAQ in `guideFaqs.ts`.
-- Bodies in `guideBodies.ts` (≥800 words). HowTo only in `guideHowTo.ts` when steps are on-page.
-
-### Calculator structure
-- Math in `src/lib/calculators/` + Vitest; UI in `Calculator.astro`; registry in `tools.ts` + `toolBodies.ts`.
-- SSR default results from `calculatorFields.ts` (real numbers in HTML — no em-dash placeholders).
-- HowTo from on-page steps via `src/data/toolHowTo.ts` (add the registry + page wiring if missing).
-
-### Schema
-- Tools: WebApplication + FAQPage (`toolPageGraph`). Guides: Article + FAQPage.
-- **HowTo JSON-LD only from visible steps** — never invent steps for schema.
-- No fake `aggregateRating`.
-
-### Sitemap, IndexNow, llms
-- Sitemap `lastmod` = each page’s real `dateModified` (`astro.config.mjs`). **Never** `Date.now()` / “now”.
-- After deploy: IndexNow (`npm run indexnow` / `deploy:indexnow`).
-- Keep `src/pages/llms.txt.ts` (Q→URL) and `llms-full.txt.ts` (figures) in sync; `/.well-known/llms.txt` aliases `/llms.txt`.
-
-### Consent & CSP
-- Consent Mode v2: **denied by default** in EEA/UK/CH until CMP updates (`BaseLayout.astro`, `gdprRegions.ts`).
-- EEA/UK/CH → **Google AdSense / Funding Choices message only**; elsewhere → site cookie bar (`docs/ADSENSE.md`).
-- CSP allowlist lives in `public/_headers` with comments per host family (GA4, AdSense/FC, CF Analytics). **Do not loosen broadly.**
-
----
-
-## UI/UX Pro Max
-
-Use this skill for **any change to how the site looks or behaves** (layout, components, colors, typography, motion, forms, nav, dark mode, responsive behavior). Skip it for pure math/content/SEO copy with no UI impact.
-
-1. Read [`.cursor/skills/ui-ux-pro-max/SKILL.md`](.cursor/skills/ui-ux-pro-max/SKILL.md).
-2. Search the local design intelligence:
+## 3. Commands
 
 ```bash
-python3 .cursor/skills/ui-ux-pro-max/scripts/search.py "<query>" --domain <domain>
+npm install
+npm run dev          # local Astro server
+npm test             # Vitest (calculator math + consent helpers)
+npm run build        # static site → dist/ (also regenerates OG)
+npm run audit        # SEO + AdSense + perf + pages (needs dist/)
+npm run check:links  # internal links on dist/
+npm run indexnow     # ping IndexNow with sitemap URLs (after deploy)
+npm run proof        # full proof bundle (Lighthouse + audits)
 ```
 
-**Priority checks before shipping UI:** contrast ≥ 4.5:1 (light + dark); touch targets ≥ 44×44px; `:focus-visible`; labeled inputs; no horizontal scroll at 360px; `prefers-reduced-motion`.
+- PR CI (`.github/workflows/ci.yml`): **build + unit tests** only.
+- Full checks: **Actions → Full checks** or run `audit` / `proof` locally before merge.
 
----
+## 4. Content rules
 
-## Project overview
+- **Voice:** human, contractor-practical; short sentences; no fake job-site stories or credentials.
+- **Banned filler:** “in today’s world”, “delve”, “it’s important to note”, “whether you’re a beginner or a pro”, “look no further”, “unlock”, “elevate”, “comprehensive guide to”, “game-changer”, “leverage”, “robust solution”, emoji-heavy intros. See `.cursor/rules/content-quality.mdc`.
+- **No invented stats.** Every number (bag yield, coverage, density, seed rate, pitch factor) needs a manufacturer TDS or extension URL.
+- **Sources:** visible Sources list; guides show `Reviewed by Hammad Iqbal · Last updated {date}`; tools use `TrustBlock`.
+- **Guides:** answer-first 40–60 words (sourced verdict first); question H2s from real search/PAA; worked example; FAQ 3–5; body ≥800 words in `guideBodies.ts`.
+- **Tools:** answer-first 40–60 words before inputs; calculator above the fold; FAQ 3–5; SSR default results (real numbers, not em dashes) via `calculatorFields.ts`.
 
-- **Stack:** Astro 5 (static) + TypeScript, Vitest for calculator math, minimal client JS (calculator island).
-- **Config:** `src/config/site.ts` + `src/config/siteDefaults.mjs` (**only** place for origin / brand fallbacks). Canonical origin = `PUBLIC_SITE_URL` → `siteConfig.siteUrl`. Never hardcode the hostname elsewhere.
-- **Math:** `src/lib/calculators/` — never duplicate formulas in copy without matching tests.
-- **Registries:** `src/data/tools.ts`, `src/data/guides.ts` (+ `guideBodies` / `guideFaqs` / `guideHowTo`, `toolBodies` / `toolHowTo`, `calculatorFields`).
-- **Pages:** `src/pages/` (dynamic `[slug].astro` for tools/guides/hubs).
+## 5. SEO / AEO rules
 
-```mermaid
-flowchart LR
-  Config[site.ts] --> Layouts
-  ToolsData[tools.ts / guides.ts] --> Pages
-  Math[lib/calculators] --> CalculatorIsland
-  CalculatorIsland --> Pages
-  Pages --> Dist[dist static HTML]
-  Dist --> Audits[scripts/audit]
-```
+- Titles 25–65 (aim ~30–60); meta 70–160 (aim ~120–160); one H1; og/twitter match title & description.
+- Answer-first on home/tools/guides; tools link ≥1 topical guide; no doorway/query-variant duplicates.
+- **Schema:** BreadcrumbList; tools → WebApplication (+ FAQPage); guides → Article (+ FAQPage). **HowTo only from visible on-page steps** (`guideHowTo.ts` / `toolHowTo.ts`). No fake `aggregateRating`.
+- **Sitemap `lastmod`:** from each page’s real `dateModified` in `astro.config.mjs` — **never** `Date.now()` / “now”.
+- **IndexNow** after publish (`npm run indexnow` / deploy hook). Google does not use IndexNow.
+- Keep `llms.txt` (Q→URL), `llms-full.txt` (figures), and `/.well-known/llms.txt` (alias) in sync when answers/figures change.
+- Keyword map: `docs/KEYWORD-MAP.md`. Full checklist: `docs/PAGE-CHECKLIST.md`.
 
----
+## 6. Security & consent
 
-## Research first (any new or reworked page)
+### CSP (`public/_headers`)
+Keep the allowlist narrow; every host needs a comment + product reason.
 
-1. One primary query + SERP/PAA review.
-2. Intent: do / know / compare / navigate — match tool, guide, or hub.
-3. Cannibalization check in [`docs/KEYWORD-MAP.md`](docs/KEYWORD-MAP.md).
-4. Follow [`docs/PAGE-CHECKLIST.md`](docs/PAGE-CHECKLIST.md) (also `.cursor/rules/seo-pages.mdc`).
-5. Answer-first ≤60 words before first input (tools) or numeric answer (guides/hubs).
+| Hosts | Why |
+|---|---|
+| `googletagmanager.com`, `google-analytics.com`, `*.g.doubleclick.net`, `*.google.com` | GA4 / Google Signals |
+| `*.googlesyndication.com`, `*.adtrafficquality.google`, `fundingchoicesmessages.google.com` | AdSense + Funding Choices CMP |
+| `fonts.googleapis.com`, `fonts.gstatic.com` | Funding Choices UI fonts/styles |
+| `static.cloudflareinsights.com`, `cloudflareinsights.com` | Cloudflare Web Analytics |
 
-CI: `npm run audit:pages` (in `npm run audit`).
+Do **not** loosen to `*` or broad CDNs. CSP changes are careful, dedicated PRs.
 
----
+### Consent
+- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until CMP updates (`BaseLayout.astro`, `gdprRegions.ts`).
+- **EEA / UK / CH:** Google AdSense Privacy & messaging / Funding Choices is the **only** CMP UI; suppress the site cookie bar.
+- **Elsewhere:** site Accept/Reject cookie bar only.
+- Geo: Worker injects `<meta name="yt-geo-country">` from `request.cf.country`. Details: [docs/ADSENSE.md](docs/ADSENSE.md).
 
-## How to add a new tool / guide
+## 7. Adding pages
 
 Follow the skills (file lists are authoritative):
 
-- Calculator → [`.cursor/skills/add-a-new-calculator/SKILL.md`](.cursor/skills/add-a-new-calculator/SKILL.md)
-- Guide → [`.cursor/skills/add-a-new-guide/SKILL.md`](.cursor/skills/add-a-new-guide/SKILL.md)
-- Refresh guide → [`.cursor/skills/refresh-an-existing-guide/SKILL.md`](.cursor/skills/refresh-an-existing-guide/SKILL.md)
+- New calculator → [`.cursor/skills/add-a-new-calculator/SKILL.md`](.cursor/skills/add-a-new-calculator/SKILL.md)
+- New guide → [`.cursor/skills/add-a-new-guide/SKILL.md`](.cursor/skills/add-a-new-guide/SKILL.md)
+- Refresh a guide → [`.cursor/skills/refresh-an-existing-guide/SKILL.md`](.cursor/skills/refresh-an-existing-guide/SKILL.md)
+- Pre-merge SEO/AEO → [`.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md`](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md)
+- UI/UX changes → [`.cursor/skills/ui-ux-pro-max/SKILL.md`](.cursor/skills/ui-ux-pro-max/SKILL.md)
 
----
+Research first: one primary query, SERP/PAA, cannibalization check in `docs/KEYWORD-MAP.md`, then `docs/PAGE-CHECKLIST.md`.
 
-## Quality bar / definition of done
+## 8. Workflow
 
-- [ ] `npm test` · `npm run build` · `npm run audit` · `npm run check:links`
-- [ ] Pre-merge checklist skill completed
-- [ ] Keyword map updated; no intent cannibalization
-- [ ] Mobile OK at 360px; tap targets ≥48px preferred
-- [ ] IndexNow planned for after deploy
+- **One agent / one concern / one PR.** Content ≠ CMP/consent ≠ calculator SEO ≠ docs/skills. Do not mix into open unrelated PRs.
+- Branch from latest `main`: `cursor/<descriptive-name>-c2d2` (lowercase).
+- Open PRs with `ManagePullRequest`; **do not merge** unless the user asks.
+- Seasonality: ship evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** peaks (lawn, mulch, concrete, paint).
+- Before merge: run the [pre-merge SEO/AEO checklist](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md) and `npm test && npm run build && npm run audit && npm run check:links`.
+- After deploy: IndexNow; spot-check critical URLs in GSC when indexing matters.
 
-PR CI (`.github/workflows/ci.yml`) = **build + unit tests** only. Full audits / Lighthouse via **Actions → Full checks** or locally.
+## 9. Don'ts
 
----
-
-## Commands
-
-| Command | Purpose |
-|---|---|
-| `npm run dev` | Local dev server |
-| `npm run build` | Production static build → `dist/` |
-| `npm run preview` | Preview `dist/` |
-| `npm test` | Vitest unit tests |
-| `npm run check:links` | Internal link check on `dist/` |
-| `npm run audit` | SEO + AdSense + perf + pages |
-| `npm run indexnow` | Ping IndexNow with sitemap URLs |
-| `npm run lighthouse` / `npm run proof` | Lighthouse CI / full proof bundle |
-
----
-
-## Subagent roles (mirror of `.cursor/agents/`)
-
-| Role | Focus |
-|---|---|
-| **seo-auditor** | Titles, canonicals, schema, keyword map, orphans |
-| **content-writer** | Tool/guide copy, answer-first, citations |
-| **adsense-reviewer** | Trust pages, thin content, ads.txt, privacy, CMP |
-| **performance-auditor** | JS weight, LCP/CLS budgets, ad slot sizing |
-| **link-builder-researcher** | Resource pages, embed distribution, outreach angles |
-
----
-
-## Ideas backlog
-
-See [docs/ideas/README.md](docs/ideas/README.md) for niches and add-on tools (stair stringer, sod, pool volume, etc.).
+- Don’t invent stats, yields, coverage rates, or first-person credentials.
+- Don’t invent HowTo / FAQ schema that isn’t visible on the page.
+- Don’t set sitemap `lastmod` to “now” or a fake freshness stamp.
+- Don’t hardcode `getyardtally.com` (or any site host) outside `siteDefaults` / `PUBLIC_SITE_URL`.
+- Don’t loosen CSP broadly or edit `public/_headers` without a named product reason.
+- Don’t show the site cookie bar in EEA/UK/CH when Google’s CMP applies (or vice versa).
+- Don’t put ads above the fold in a way that pushes the calculator down on mobile.
+- Don’t ship doorway URL variants or near-duplicate keyword pages.
+- Don’t leave copy disagreeing with Vitest math / bag yields.
+- Don’t merge without green build+tests, or pile unrelated concerns into one PR.

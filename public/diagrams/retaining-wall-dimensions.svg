@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">Retaining wall block and base dimensions</title>
+  <desc id="desc">Side view of stacked retaining wall blocks on a gravel trench, labeled wall length, wall height, block face, and base trench width and depth.</desc>
+  <rect width="960" height="540" fill="#f3f6f2"/>
+  <!-- Backfill / retained soil -->
+  <path d="M120 140 L120 380 L520 380 L520 200 Z" fill="#d4c4a8" stroke="#8b7355" stroke-width="2"/>
+  <!-- Gravel trench -->
+  <rect x="140" y="380" width="420" height="72" fill="#b9b3a3" stroke="#6b6558" stroke-width="3"/>
+  <!-- Block stack (six courses) -->
+  <g fill="#d7e8de" stroke="#1f6b4a" stroke-width="3">
+    <rect x="200" y="332" width="220" height="48" rx="3"/>
+    <rect x="200" y="284" width="220" height="48" rx="3"/>
+    <rect x="200" y="236" width="220" height="48" rx="3"/>
+    <rect x="200" y="188" width="220" height="48" rx="3"/>
+    <rect x="200" y="140" width="220" height="48" rx="3"/>
+    <rect x="200" y="92" width="220" height="48" rx="3"/>
+  </g>
+  <!-- Cap hint -->
+  <rect x="190" y="72" width="240" height="22" fill="#b9dcc9" stroke="#145239" stroke-width="2" rx="2"/>
+  <!-- Wall height arrow (exposed face) -->
+  <line x1="450" y1="92" x2="450" y2="380" stroke="#c45c26" stroke-width="3"/>
+  <polygon points="450,92 442,110 458,110" fill="#c45c26"/>
+  <polygon points="450,380 442,362 458,362" fill="#c45c26"/>
+  <text x="480" y="250" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#14201a">Wall height</text>
+  <!-- Block face callout -->
+  <line x1="200" y1="308" x2="420" y2="308" stroke="#145239" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="310" y="300" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" font-weight="700" fill="#145239">Block face L × H</text>
+  <!-- Trench depth -->
+  <line x1="580" y1="380" x2="580" y2="452" stroke="#1f6b4a" stroke-width="3"/>
+  <polygon points="580,380 572,398 588,398" fill="#1f6b4a"/>
+  <polygon points="580,452 572,434 588,434" fill="#1f6b4a"/>
+  <text x="600" y="425" font-family="system-ui,sans-serif" font-size="22" font-weight="700" fill="#145239">Trench depth</text>
+  <!-- Trench width -->
+  <line x1="140" y1="480" x2="560" y2="480" stroke="#c45c26" stroke-width="3"/>
+  <polygon points="140,480 158,472 158,488" fill="#c45c26"/>
+  <polygon points="560,480 542,472 542,488" fill="#c45c26"/>
+  <text x="350" y="515" text-anchor="middle" font-family="system-ui,sans-serif" font-size="24" font-weight="700" fill="#14201a">Trench width (base)</text>
+  <!-- Wall length (into page hint via top label) -->
+  <text x="480" y="48" text-anchor="middle" font-family="system-ui,sans-serif" font-size="32" font-weight="750" fill="#145239">Retaining wall section</text>
+  <text x="700" y="160" font-family="system-ui,sans-serif" font-size="20" fill="#14201a">Wall length</text>
+  <text x="700" y="186" font-family="system-ui,sans-serif" font-size="18" fill="#5a6b62">(along face, into page)</text>
+  <line x1="680" y1="140" x2="760" y2="140" stroke="#8b7355" stroke-width="2"/>
+  <polygon points="760,140 744,132 744,148" fill="#8b7355"/>
+</svg>

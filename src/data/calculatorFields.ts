@@ -111,6 +111,8 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'width', label: 'Deck width', value: '12', hint: 'feet' },
     { name: 'boardW', label: 'Board face width', value: '5.5', hint: 'inches incl. gap' },
     { name: 'boardL', label: 'Board length', value: '12', hint: 'feet' },
+    { name: 'joistOC', label: 'Joist spacing', value: '16', hint: 'inches o.c.' },
+    { name: 'waste', label: 'Board waste %', value: '10' },
   ],
   'roof-pitch': [
     { name: 'rise', label: 'Rise', value: '6', hint: 'inches' },
@@ -300,6 +302,8 @@ const deckDefault = deckMaterials({
   width: 12,
   boardWidthIn: 5.5,
   boardLengthFt: 12,
+  joistSpacingIn: 16,
+  wastePercent: 10,
 });
 const pitchDefault = roofPitch({ rise: 6, run: 12 });
 const roofingDefault = roofingSquares({
@@ -408,7 +412,8 @@ export const defaultResultRows: Record<string, [string, string][]> = {
   deck: [
     ['Area', `${deckDefault.areaSqFt} sq ft`],
     ['Deck boards', String(deckDefault.deckBoards)],
-    ['Joists (16" o.c.)', String(deckDefault.joists)],
+    ['Boards with waste', String(deckDefault.deckBoardsWithWaste)],
+    [`Joists (${deckDefault.joistSpacingIn}" o.c.)`, String(deckDefault.joists)],
     ['Rim joists', String(deckDefault.rimJoists)],
     ['Screws (est.)', String(deckDefault.screws)],
   ],

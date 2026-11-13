@@ -2,6 +2,7 @@
 import DirectoryBadges from '../components/DirectoryBadges.astro';
 import { siteConfig } from '../config/site';
 import { GDPR_CONSENT_REGION_CODES } from '../lib/gdprRegions';
+import { formatPageTitle } from '../lib/seo';
 import '../styles/global.css';
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 }
 
 const {
-  title,
+  title: titleProp,
   description,
   canonicalPath,
   ogType = 'website',
@@ -27,6 +28,9 @@ const {
   ogImageAlt = siteConfig.defaultOgImageAlt,
 } = Astro.props;
 
+/** Single brand suffix — strips a trailing `| {brand}` then re-adds it once. */
+const title = formatPageTitle(titleProp);
+
 const canonical = canonicalPath
   ? new URL(
       canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`,
@@ -35,6 +39,13 @@ const canonical = canonicalPath
   : undefined;
 
 const ogImage = new URL(ogImagePath, siteConfig.siteUrl).toString();
+const ogImageType = /\.jpe?g$/i.test(ogImagePath)
+  ? 'image/jpeg'
+  : /\.webp$/i.test(ogImagePath)
+    ? 'image/webp'
+    : /\.svg$/i.test(ogImagePath)
+      ? 'image/svg+xml'
+      : 'image/png';
 const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
 const gaId = siteConfig.analytics.ga4MeasurementId;
 const gsc = siteConfig.analytics.searchConsoleVerification;
@@ -62,6 +73,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content={String(siteConfig.defaultOgImageWidth)} />
     <meta property="og:image:height" content={String(siteConfig.defaultOgImageHeight)} />
+    <meta property="og:image:type" content={ogImageType} />
     <meta property="og:image:alt" content={ogImageAlt} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />

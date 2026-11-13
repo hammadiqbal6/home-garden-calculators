@@ -32,6 +32,23 @@ describe('normalizeDirectoryBadge', () => {
       rel: 'noopener',
     });
   });
+
+  it('drops launching-soon badges even when fields are otherwise valid', () => {
+    const warn = vi.fn();
+    expect(
+      normalizeDirectoryBadge(
+        {
+          href: 'https://tinylaunch.com',
+          img: 'https://tinylaunch.com/tinylaunch_badge_launching_soon.svg',
+          alt: 'TinyLaunch Badge',
+          width: 202,
+          height: 48,
+        },
+        warn,
+      ),
+    ).toBeNull();
+    expect(warn).toHaveBeenCalled();
+  });
 });
 
 describe('parseDirectoryBadgesJson', () => {
@@ -90,6 +107,34 @@ describe('resolveDirectoryBadges', () => {
     expect(badges[0]?.href).toBe('https://fazier.com');
     expect(badges[0]?.imgDark).toBeUndefined();
     expect(badges[0]?.width).toBe(182);
+  });
+
+  it('keeps featured badges and strips launching-soon entries from env JSON', () => {
+    const warn = vi.fn();
+    const badges = resolveDirectoryBadges({
+      jsonEnv: JSON.stringify([
+        {
+          href: 'https://fazier.com',
+          img: 'https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=featured&theme=light',
+          alt: 'Fazier badge',
+          width: 182,
+          height: 43,
+        },
+        {
+          href: 'https://tinylaunch.com',
+          img: 'https://tinylaunch.com/tinylaunch_badge_launching_soon.svg',
+          alt: 'TinyLaunch Badge',
+          width: 202,
+          height: 48,
+          rel: 'noopener',
+        },
+      ]),
+      fazierEnabled: false,
+      warn,
+    });
+    expect(badges).toHaveLength(1);
+    expect(badges[0]?.href).toBe('https://fazier.com');
+    expect(warn).toHaveBeenCalled();
   });
 
   it('renders none on invalid JSON even when Fazier fallback would be on', () => {

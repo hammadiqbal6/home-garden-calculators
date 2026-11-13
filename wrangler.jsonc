@@ -38,6 +38,15 @@
     // Serve nearest 404.html for missing paths (src/pages/404.astro → dist/404.html)
     "not_found_handling": "404-page"
   },
+  // Workers Observability (dashboard toggle refused via API — enable in config).
+  // https://developers.cloudflare.com/workers/wrangler/configuration/#observability
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true
+    }
+  },
   // Required by `npx wrangler preview` (non-production Workers Builds command).
   "previews": {
     "vars": {

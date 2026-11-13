@@ -37,16 +37,18 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/mulch-for-common-garden-beds/` | mulch for garden bed sizes | how much mulch for flower bed |
 | `/guides/gravel-types-for-driveways/` | gravel types for driveways | crushed stone vs pea gravel |
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
+| `/guides/how-much-concrete-in-a-sonotube/` | how much concrete in a sonotube | sonotube bags of concrete, concrete for 12 inch sonotube |
+| `/guides/how-to-estimate-roofing-shingles/` | how to estimate roofing shingles | how to figure shingles for a roof, roofing squares vs square feet |
 
 | `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per 1000 sq ft, grass seed rate per 1000 sq ft |
 | `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | lawn fertilizer rate |
 | `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | soil for 4x8 raised bed |
-| `/guides/how-much-paint-for-a-room/` | how much paint for a room | paint gallons for a room |
-| `/guides/paver-base-gravel-and-sand-depth/` | paver base gravel and sand depth | paver base thickness |
-| `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards |
-| `/guides/deck-material-list-16x24/` | 16x24 deck material list | 16x24 deck boards, how many joists for 16x24 deck |
-| `/guides/retaining-wall-blocks-and-base/` | retaining wall blocks and base | retaining wall gravel base |
-| `/guides/topsoil-vs-garden-soil/` | topsoil vs garden soil | garden soil vs topsoil |
+| `/guides/how-much-paint-for-a-room/` | how much paint for a room | how many square feet does a gallon of paint cover, paint gallons for a room, how much paint for small bathroom, how much paint for a 12x12 room |
+| `/guides/paver-base-gravel-and-sand-depth/` | paver base gravel and sand depth | how deep should paver base gravel be, paver base thickness, bedding sand depth for pavers, how much sand under pavers |
+| `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards, how many joists for 12x16 deck, 12x16 deck plan vs material list |
+| `/guides/deck-material-list-16x24/` | 16x24 deck material list | 16x24 deck boards, how many joists for 16x24 deck, is 16x24 deck list same as 12x16 scaled |
+| `/guides/retaining-wall-blocks-and-base/` | retaining wall blocks and base | how many retaining wall blocks, retaining wall gravel base, can I use paver base under a retaining wall, typical retaining wall block dimensions |
+| `/guides/topsoil-vs-garden-soil/` | topsoil vs garden soil | garden soil vs topsoil, how many yards of topsoil, can I use topsoil in pots, is garden soil the same as topsoil |
 | `/about/` | about YardTally | maintainer Hammad Iqbal |
 | `/contact/` | contact YardTally | — |
 | `/privacy/` | YardTally privacy policy | — |

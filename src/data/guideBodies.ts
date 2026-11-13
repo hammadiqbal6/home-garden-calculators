@@ -1,75 +1,71 @@
 /** Long-form HTML bodies for guide pages (FAQ is rendered separately from guideFaqs). */
 export const guideBodies: Record<string, string> = {
-  'how-much-concrete-for-fence-posts': `      <div class="takeaway"><strong>Key takeaway:</strong> Calculate cylinder volume for each hole, convert to bags with the published yield on your mix, then multiply by post count and add about 10% waste. Do not guess from post height alone—diameter and depth drive the order.</div>
+  'how-much-concrete-for-fence-posts': `      <div class="takeaway"><strong>Key takeaway:</strong> Size each hole as a cylinder (π × r² × depth), convert cubic feet to bags with the yield on your mix, then multiply by post count and add about 10% waste. Hole diameter and depth drive the order, not the post height alone.</div>
 
-      <h2>How it's calculated</h2>
-      <p>Treat each fence-post hole as a cylinder. Convert the hole diameter to feet, then:</p>
-      <p><strong>Volume (cu&nbsp;ft) ≈ π × (diameter ÷ 2)² × depth</strong>, with diameter and depth in feet.</p>
-      <p>Example conversion: an 8-inch diameter is 8÷12 = 0.667&nbsp;ft, so the radius is 0.333&nbsp;ft. For a 2-foot depth, volume ≈ 3.1416 × 0.333² × 2 ≈ 0.70&nbsp;cu&nbsp;ft. Bags ≈ ceil(volume ÷ bag_yield). YardTally’s typical yields match common bagged concrete coverage: about 0.30&nbsp;cu&nbsp;ft (40&nbsp;lb), 0.45&nbsp;cu&nbsp;ft (60&nbsp;lb), and 0.60&nbsp;cu&nbsp;ft (80&nbsp;lb). Multiply by the number of posts, then apply a waste factor (often about 10%) for over-excavation and spillage.</p>
-      <p>Post count comes from fence length and spacing. A 96&nbsp;ft run with 8&nbsp;ft bays needs 13 posts if you count both end posts (12 bays + 1). Use the <a href="/calculators/fence-calculator/">fence calculator</a> for picket or panel layouts, then feed hole size into the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>—not the rectangular <a href="/calculators/concrete-calculator/">slab calculator</a>.</p>
+      <h2>How much concrete do I need per fence post?</h2>
+      <p>Most residential line posts take about one to three 60–80&nbsp;lb bags each once you dig a proper hole. An 8-inch-wide, 2-foot-deep hole holds roughly 0.70&nbsp;cu&nbsp;ft, which is about two 80&nbsp;lb bags after you round up. Wider or deeper holes climb fast, so measure the hole you actually dig before you leave the store.</p>
+      <p>Treat the hole as a cylinder. Convert diameter to feet, then use <strong>Volume (cu&nbsp;ft) ≈ π × (diameter ÷ 2)² × depth</strong>. Bags = ceil(volume ÷ bag yield). Common planning yields for general-purpose mix are about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb bags (QUIKRETE Concrete Mix 1101 and Sakrete High Strength TDS). Confirm the bag you buy.</p>
+      <p>Post count comes from fence length and spacing. A 96&nbsp;ft run with 8&nbsp;ft bays needs 13 posts if you count both ends. Use the <a href="/calculators/fence-calculator/">fence calculator</a> for layout, then feed hole size into the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>, not the rectangular <a href="/calculators/concrete-calculator/">slab calculator</a>.</p>
 
-      <h2>Quick chart (approx., before waste)</h2>
+      <h2>How many bags of concrete per fence post?</h2>
+      <p>Bag count equals hole volume divided by bag yield, rounded up. At 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag, an 8&quot; × 2&nbsp;ft hole (~0.70&nbsp;cu&nbsp;ft) needs 2 bags. A 10&quot; × 2.5&nbsp;ft hole (~1.36&nbsp;cu&nbsp;ft) needs 3 bags. A 12&quot; × 3&nbsp;ft hole (~2.36&nbsp;cu&nbsp;ft) needs 4 bags before waste. Fast-setting labels can differ, so read the bag.</p>
       <div class="table-scroll">
       <table>
-        <caption>Approximate concrete volume and 80&nbsp;lb bags per fence post hole</caption>
-        <thead><tr><th>Hole diameter</th><th>Depth</th><th>Volume</th><th>80 lb bags</th></tr></thead>
+        <caption>Approximate concrete volume and 80&nbsp;lb bags per fence post hole (before waste)</caption>
+        <thead><tr><th>Hole diameter</th><th>Depth</th><th>Volume</th><th>80 lb bags</th><th>60 lb bags</th></tr></thead>
         <tbody>
-          <tr><td>8"</td><td>2 ft</td><td>0.70 cu ft</td><td>2</td></tr>
-          <tr><td>10"</td><td>2.5 ft</td><td>1.36 cu ft</td><td>3</td></tr>
-          <tr><td>12"</td><td>3 ft</td><td>2.36 cu ft</td><td>4</td></tr>
+          <tr><td>8"</td><td>2 ft</td><td>0.70 cu ft</td><td>2</td><td>2</td></tr>
+          <tr><td>10"</td><td>2.5 ft</td><td>1.36 cu ft</td><td>3</td><td>4</td></tr>
+          <tr><td>12"</td><td>3 ft</td><td>2.36 cu ft</td><td>4</td><td>6</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Bag counts in the chart round up per hole using a 0.60&nbsp;cu&nbsp;ft yield. Your brand’s fast-setting mix may list a different yield—always check the bag.</p>
+      <p>Chart bags use ceil(volume ÷ 0.60) for 80&nbsp;lb and ceil(volume ÷ 0.45) for 60&nbsp;lb. That matches QUIKRETE 1101 and Sakrete published yields for those bag sizes.</p>
 
-      <h2>Worked example: 12 posts</h2>
-      <p>Twelve 8&quot; × 2&nbsp;ft holes ≈ 12 × 0.70 = 8.4&nbsp;cu&nbsp;ft. With 10% waste → about 9.2&nbsp;cu&nbsp;ft. At 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag that is ceil(9.2 ÷ 0.60) = 16 bags. At 0.45&nbsp;cu&nbsp;ft per 60&nbsp;lb bag, plan on 21 bags. That matches the same cylinder math the post-hole calculator uses.</p>
+      <h2>How deep should fence post holes be?</h2>
+      <p>QUIKRETE’s setting-posts guidance commonly puts about one-third to one-half of the above-ground post length in the ground, and often adds a few inches of gravel under the post. Dig below the local frost line where frost heave is a real risk. Gate and corner posts usually need deeper or wider holes than line posts because they take more load.</p>
+      <p>Hole diameter is often about three times the post width as a starting rule (a 4-inch post in a roughly 12-inch hole). Soft or sandy soil may need a wider collar so the concrete has more contact with undisturbed ground. Tall privacy panels that catch wind deserve the same caution.</p>
+
+      <h2>Worked example: 12 posts at 8&quot; × 2 ft</h2>
+      <p>Twelve 8&quot; × 2&nbsp;ft holes ≈ 12 × 0.70 = 8.4&nbsp;cu&nbsp;ft. With 10% waste → about 9.2&nbsp;cu&nbsp;ft. At 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag that is ceil(9.2 ÷ 0.60) = 16 bags. At 0.45&nbsp;cu&nbsp;ft per 60&nbsp;lb bag, plan on 21 bags. Same cylinder math the post-hole calculator uses.</p>
 
       <h2>Worked example: 48 ft privacy fence</h2>
-      <p>At 8&nbsp;ft post spacing you need 7 posts (6 sections + end). If each hole is 10&quot; × 2.5&nbsp;ft, one hole is ~1.36&nbsp;cu&nbsp;ft. Seven holes ≈ 9.55&nbsp;cu&nbsp;ft before waste, about 10.5&nbsp;cu&nbsp;ft with 10% waste—roughly eighteen 60&nbsp;lb bags or fifteen 80&nbsp;lb bags. Brace posts plumb before you place mix, and slope the finished concrete so water drains away from the wood.</p>
+      <p>At 8&nbsp;ft spacing you need 7 posts (6 sections plus end). If each hole is 10&quot; × 2.5&nbsp;ft, one hole is ~1.36&nbsp;cu&nbsp;ft. Seven holes ≈ 9.55&nbsp;cu&nbsp;ft before waste, about 10.5&nbsp;cu&nbsp;ft with 10% waste—roughly eighteen 60&nbsp;lb bags or fifteen 80&nbsp;lb bags. Brace posts plumb before you place mix, and slope the finished concrete so water drains away from the wood.</p>
 
-      <h2>Step-by-step ordering</h2>
+      <h2>How do I order concrete for a fence line?</h2>
+      <p>Count every post (including gates and corners), pick a hole diameter and depth you can actually dig, run the cylinder math or the calculator, then add waste and buy matching outdoor concrete or fast-setting post mix. Ready-mix only makes sense on very long runs with truck access. Measure a few real holes with a tape before you finalize the ticket.</p>
       <ol>
         <li>Count posts with the <a href="/calculators/fence-calculator/">fence calculator</a> (include corners and gates).</li>
-        <li>Decide hole diameter (often about 3× post width as a rule of thumb) and depth (commonly ~⅓ above-ground height, below frost where required).</li>
+        <li>Set hole diameter (often about 3× post width) and depth (commonly ~⅓ to ½ of above-ground height, below frost where required).</li>
         <li>Run the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> for total cubic feet and bag counts.</li>
-        <li>Add ~10% waste and buy matching outdoor concrete or fast-setting post mix—or order ready-mix for very large runs.</li>
-        <li>Optional: place a few inches of gravel under the post for drainage, then set, brace, and fill per the bag instructions.</li>
+        <li>Add ~10% waste and buy outdoor concrete or fast-setting post mix from one product line.</li>
+        <li>Optional: place a few inches of gravel under the post for drainage, then set, brace, and fill per the bag instructions. Fast-set products often firm up in about 20–40 minutes once watered.</li>
       </ol>
 
       <h2>Tips</h2>
       <ul>
-        <li>Call before you dig—utility locate services exist for a reason.</li>
-        <li>Keep a spare bag or two on site; running short mid-set is expensive.</li>
-        <li>Fast-setting mixes are convenient for posts; structural deck footings may need a different product and forms.</li>
-        <li>For cardboard tube forms (deck piers), switch to the Sonotube workflow covered in the <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a>.</li>
-        <li>Compare bag math with the general <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> only when you are pouring pads—not for round holes.</li>
+        <li>Call before you dig. Utility locates exist for a reason.</li>
+        <li>Keep a spare bag or two on site. Running short mid-set wastes a day.</li>
+        <li>Fast-setting mixes are handy for posts. Structural deck footings often need mixed concrete and cardboard forms instead.</li>
+        <li>For cardboard tube forms (deck piers), use the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>. This page is for dug fence holes, not tube forms.</li>
+        <li>Use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> only when you are pouring pads, not round holes.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
         <li>Setting posts too shallow for wind load or frost heave.</li>
-        <li>Filling to the top without sloping for drainage away from the post.</li>
-        <li>Using interior drywall or mortar mix instead of outdoor concrete/setting mix.</li>
-        <li>Using the slab tool for round holes (use the post-hole tool instead).</li>
-        <li>Ignoring gate posts, which often need larger diameter or deeper embedment than line posts.</li>
-        <li>Forgetting that gravel in the hole bottom displaces some concrete—measure the concrete column you actually place.</li>
+        <li>Filling flat to the top without sloping water away from the post.</li>
+        <li>Using mortar or interior mix instead of outdoor concrete or post-setting mix.</li>
+        <li>Using the slab tool for round holes.</li>
+        <li>Ignoring gate posts, which often need a larger or deeper hole than line posts.</li>
+        <li>Forgetting that gravel in the hole bottom displaces some concrete.</li>
       </ul>
-
-      <h2>Choosing the mix and setting method</h2>
-      <p>Most bagged post-setting products fall into two camps. General-purpose concrete is mixed with water to a stiff, workable consistency and shoveled around a braced post. Fast-setting post mixes are formulated so the dry mix can be poured around the post and then wetted, which saves a mixing tub but still demands that you follow the bag directions for the water amount. Neither style changes the volume math on this page; the label simply tells you how many bags a cubic foot requires and how long you have before the mix stiffens.</p>
-      <p>Posts that carry heavy loads—gates, corner posts, or tall privacy panels that catch wind—often justify a larger hole diameter and a deeper embedment than a line post, not just more bags in the same hole. Treat the examples here as planning math for common residential line posts, and check the fence manufacturer or your local building department for gate-post and height requirements. Soft or sandy soil can also call for wider holes so the concrete collar has enough surface contact with undisturbed ground.</p>
-      <p>A practical way to sanity-check your order: count the holes you dug, note the average diameter and depth with a tape, and rerun the calculator with those real numbers before you leave the store. Holes dug with a power auger are often slightly larger than the auger bit suggests, especially in loose soil, so measuring beats assuming. If you find the holes average an inch wider than planned, the extra concrete adds up quickly across a long fence line.</p>
-
-      <h2>When to call a pro / safety / codes</h2>
-      <p>Hire a fencing or concrete contractor when soil is unstable, the fence is tall or on a steep grade, property lines are disputed, or local code requires engineered footings. Wear eye and hand protection when mixing cement products; avoid skin contact with wet concrete. Depth below frost, setback rules, and HOA limits are local—this page is a planning estimate, not a building-code opinion. Confirm requirements with your building department before you dig.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://quikrete.com/athome/settingposts.asp" rel="noopener noreferrer">QUIKRETE – Setting posts in concrete</a></li>
-        <li><a href="https://www.quikrete.com/calculator/main.asp" rel="noopener noreferrer">QUIKRETE calculator &amp; yields</a></li>
-        <li><a href="https://sakrete.com/resources/calculators/" rel="noopener noreferrer">Sakrete concrete calculators</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC landscape resources</a></li>
+        <li><a href="https://quikrete.com/athome/settingposts.asp" rel="noopener noreferrer">QUIKRETE – Setting posts in concrete (hole size, depth, fast-set timing)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
 
@@ -141,12 +137,12 @@ export const guideBodies: Record<string, string> = {
 
   'how-many-bags-of-concrete': `      <div class="takeaway"><strong>Key takeaway:</strong> Divide project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb), round up, then add waste. An 80&nbsp;lb bag yields about 0.60&nbsp;cu&nbsp;ft—roughly 45 bags per cubic yard before waste.</div>
 
-      <h2>Bag yield table</h2>
-      <p>YardTally uses the same approximate yields published for many QUIKRETE and Sakrete general-purpose mixes. Specialty high-strength or lightweight products can differ—read the label.</p>
+      <h2>How many 80 lb bags of concrete are in a cubic yard?</h2>
+      <p>About 45 bags before waste, using a 0.60&nbsp;cu&nbsp;ft yield per 80&nbsp;lb bag (27 ÷ 0.60). After a 10% waste factor, plan closer to 50 bags for one cubic yard of placed concrete. Confirm the yield printed on the bag you buy. Lightweight and specialty mixes can list different coverage.</p>
       <div class="table-scroll">
       <table>
-        <caption>Typical bagged concrete yields used by YardTally</caption>
-        <thead><tr><th>Bag</th><th>Yield (approx.)</th><th>Bags / cu yd</th></tr></thead>
+        <caption>Typical bagged concrete yields (QUIKRETE 1101 / Sakrete High Strength planning figures)</caption>
+        <thead><tr><th>Bag</th><th>Yield (approx.)</th><th>Bags / cu yd (before waste)</th></tr></thead>
         <tbody>
           <tr><td>40 lb</td><td>0.30 cu ft</td><td>~90</td></tr>
           <tr><td>60 lb</td><td>0.45 cu ft</td><td>~60</td></tr>
@@ -154,78 +150,64 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
+      <p>QUIKRETE Concrete Mix No. 1101 lists about 0.30 / 0.375 / 0.45 / 0.60 / 0.675&nbsp;cu&nbsp;ft for 40 / 50 / 60 / 80 / 90&nbsp;lb bags. Sakrete High Strength TDS lists about 0.30 / 0.45 / 0.6 / 0.66&nbsp;cu&nbsp;ft for 40 / 60 / 80 / 90&nbsp;lb. YardTally’s calculators use the shared 40 / 60 / 80 planning yields above.</p>
 
-      <h2>How it's calculated</h2>
-      <p><strong>Bags = ceil(volume_cu_ft ÷ yield).</strong> Volume depends on shape:</p>
-      <ul>
-        <li><strong>Slab / footing:</strong> length × width × (thickness_inches ÷ 12)</li>
-        <li><strong>Post hole / Sonotube:</strong> π × r² × height × count</li>
-      </ul>
-      <p>Divide cubic feet by 27 for cubic yards. Add 5–10% waste for uneven subgrade and spillage—Sakrete’s calculator guidance commonly reminds users to add about 10% for safety. Convert after waste: for example, 27&nbsp;cu&nbsp;ft × 1.10 = 29.7&nbsp;cu&nbsp;ft → ceil(29.7 ÷ 0.60) = 50 bags of 80&nbsp;lb mix for one yard with 10% waste (versus ~45 bags with zero waste).</p>
-      <p>Pick the right tool: <a href="/calculators/concrete-calculator/">concrete calculator</a> for slabs and steps, <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> for fence posts, and <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> for cardboard forms.</p>
-      <p>Weight also matters for logistics. Forty-five 80&nbsp;lb bags are about 3,600&nbsp;lb of dry mix before water—roughly the payload of a small trailer trip or several SUV loads. Sixty-pound bags trade more bag count for easier lifting. If you are working alone, factor mixing time: even an efficient helper rarely places a full yard of bagged concrete as fast as a chute. That labor math is why the “about one cubic yard” ready-mix threshold is a rule of thumb, not a hard industry law.</p>
-      <p>When comparing store prices, normalize to cost per cubic foot of yield, not cost per bag. An 80&nbsp;lb bag at 0.60&nbsp;cu&nbsp;ft and a 60&nbsp;lb bag at 0.45&nbsp;cu&nbsp;ft are different products; the cheaper bag on the shelf is not always the cheaper cubic foot in the form.</p>
-      <p>Write the yield on your shopping list before you leave home. If the store only stocks a high-strength mix with a different coverage note, re-run the division rather than forcing the 0.60&nbsp;cu&nbsp;ft assumption.</p>
+      <h2>How many 60 lb bags per cubic yard?</h2>
+      <p>About 60 bags before waste at a 0.45&nbsp;cu&nbsp;ft yield (27 ÷ 0.45). After 10% waste, plan closer to 66 bags per cubic yard of placed concrete. Sixty-pound bags trade a higher bag count for easier lifting, which matters when you are mixing by hand all day.</p>
+
+      <h2>How do I convert cubic feet to bags of concrete?</h2>
+      <p>Bags = ceil(volume_cu_ft ÷ yield). Get volume from the shape first, add waste, then divide. Slabs use length × width × (thickness inches ÷ 12). Post holes and Sonotubes use π × r² × height × count. Divide cubic feet by 27 for cubic yards when you are comparing ready-mix quotes.</p>
+      <p>Pick the right tool: <a href="/calculators/concrete-calculator/">concrete calculator</a> for slabs and steps, <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> for fence posts, and <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> for cardboard forms. Tube charts live in the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>.</p>
+      <p>Weight matters for logistics. Forty-five 80&nbsp;lb bags are about 3,600&nbsp;lb of dry mix before water. If you are working alone, factor mixing time. That labor math is why the “about one cubic yard” ready-mix threshold is a practical rule of thumb, not a hard law.</p>
 
       <h2>Worked example: 10×10×4&quot; slab</h2>
-      <p>10 × 10 × (4÷12) = 33.33&nbsp;cu&nbsp;ft ≈ 1.23&nbsp;cu&nbsp;yd. With 10% waste → 36.7&nbsp;cu&nbsp;ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80&nbsp;lb or ceil(36.7 ÷ 0.45) = 82 bags of 60&nbsp;lb. See the dedicated <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> for thickness charts and patio sizes.</p>
-
-      <h2>Worked example: eight Sonotube piers</h2>
-      <p>Eight 12-inch-diameter tubes, 4&nbsp;ft tall: one tube is π × 0.5² × 4 ≈ 3.14&nbsp;cu&nbsp;ft. Eight tubes ≈ 25.1&nbsp;cu&nbsp;ft before waste. With 5% waste (typical for formed cylinders) ≈ 26.4&nbsp;cu&nbsp;ft → about 44 bags of 80&nbsp;lb mix. That is near one cubic yard—worth pricing ready-mix if the truck can reach the pour.</p>
+      <p>10 × 10 × (4÷12) = 33.33&nbsp;cu&nbsp;ft ≈ 1.23&nbsp;cu&nbsp;yd. With 10% waste → 36.7&nbsp;cu&nbsp;ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80&nbsp;lb or ceil(36.7 ÷ 0.45) = 82 bags of 60&nbsp;lb. See the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> for thickness charts.</p>
 
       <h2>Worked example: fence posts vs slab bags</h2>
-      <p>People often search “how many bags of concrete” when they mean fence posts. A single 8&quot; × 2&nbsp;ft hole (~0.70&nbsp;cu&nbsp;ft) needs a couple of 80&nbsp;lb bags after rounding—not the sixty-plus bags of a patio. Always identify the shape first. The <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> and post-hole calculator keep cylinder jobs from inheriting slab charts.</p>
+      <p>People often search “how many bags of concrete” when they mean fence posts. A single 8&quot; × 2&nbsp;ft hole (~0.70&nbsp;cu&nbsp;ft) needs a couple of 80&nbsp;lb bags after rounding, not the sixty-plus bags of a patio. Always identify the shape first. The <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> keeps cylinder jobs from inheriting slab charts.</p>
+
+      <h2>When should I order ready-mix instead of bags?</h2>
+      <p>When the pour approaches or exceeds about one cubic yard, ready-mix often wins on labor and consistency if a truck can reach the site. Smaller pads, repairs, and fence posts usually stay on bags. Call the plant about short-load fees before you assume a truck is cheaper than bags.</p>
 
       <h2>Tips</h2>
       <ul>
         <li>Buy all bags from the same product line so color and strength stay consistent on visible slabs.</li>
-        <li>Stage water, a mixing tub or mixer, and wheelbarrow routes before you open bags—cement waits for no one in hot weather.</li>
-        <li>For fence posts, jump to the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a> so you do not apply slab thickness math to round holes.</li>
-        <li>Cold weather and hot weather change set times; follow the bag’s temperature notes.</li>
-        <li>Ready-mix minimum loads vary by plant—call before you assume a short load is available.</li>
+        <li>Stage water, a tub or mixer, and wheelbarrow routes before you open bags.</li>
+        <li>Write the yield on your shopping list. If the store only stocks a specialty mix, re-run the division.</li>
+        <li>Cold and hot weather change set times. Follow the bag’s temperature notes.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
         <li>Mixing inches and feet (treating a 4-inch slab as 4 feet thick).</li>
-        <li>Using 45 bags per yard for an 80&nbsp;lb mix, then forgetting waste.</li>
+        <li>Using 45 bags per yard, then forgetting waste.</li>
         <li>Ordering exact yardage on rough soil with no contingency.</li>
         <li>Applying slab bag charts to post holes or Sonotubes.</li>
         <li>Ignoring that gravel base under a slab is a separate material order.</li>
       </ul>
 
-      <h2>Choosing a mix and mixing method</h2>
-      <p>Bag yield is only useful if the product matches the job. General-purpose concrete mix suits slabs, steps, and footings. High-early-strength and fast-setting products shorten wait times but may have a shorter working window. Mortar and sand mixes are different products and should not be substituted for concrete. Always confirm the label says the product is intended for your application, and read the stated yield and water quantity, because those numbers can differ between brands and between bag sizes.</p>
-      <p>For bagged jobs of a few bags, a wheelbarrow or mixing tub and a hoe are common. Above about a dozen bags, many homeowners rent a mixer or price delivered ready-mix, because consistent water-to-mix ratios are hard to maintain by hand over dozens of batches. Too much water makes concrete easier to place but weaker and more prone to cracking, so measure water per bag rather than judging by eye.</p>
-      <h2>Curing and weather</h2>
-      <p>Placing the concrete is half the job. Many residential references recommend keeping fresh concrete moist for several days after finishing, often about a week, so it can gain strength; the bag and the ACI residential guidance linked below describe curing practices. Hot, dry, or windy days dry the surface too fast, and freezing temperatures can damage concrete that has not yet set. If the forecast is poor, move the pour date rather than gambling with a full order of bags you cannot return once they are opened.</p>
-
-      <h2>When to call a pro / safety / codes</h2>
-      <p>Call a concrete contractor for structural footings, large driveways, stamped or colored finishes, or sites with poor access. Cement products are alkaline—wear gloves, eye protection, and long sleeves; wash skin promptly. Reinforcing steel, control-joint spacing, and thickness for vehicle loads are code- and engineer-driven. YardTally estimates volume and bags only; it does not replace ACI guidance or a local building permit review. For residential concrete overview documents, see ACI resources linked below.</p>
-
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.quikrete.com/calculator/main.asp" rel="noopener noreferrer">QUIKRETE calculator &amp; yields</a></li>
-        <li><a href="https://sakrete.com/resources/calculators/" rel="noopener noreferrer">Sakrete calculators (includes ~10% safety note)</a></li>
-        <li><a href="https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf" rel="noopener noreferrer">ACI 332.1R-18 preview – residential concrete</a></li>
-        <li><a href="https://www.cement.org/" rel="noopener noreferrer">American Cement Association</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
 
   'concrete-for-10x10-slab': `      <div class="takeaway"><strong>Key takeaway:</strong> A 10×10&nbsp;ft slab at 4&nbsp;inches is about 1.23&nbsp;cu&nbsp;yd (33.3&nbsp;cu&nbsp;ft) before waste. With YardTally’s 10% waste factor, plan on roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix. Gravel base is ordered separately.</div>
 
-      <p>This page is a size-specific worked chart. For arbitrary dimensions use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. It does not replace post-hole or Sonotube tools—see <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a> and <a href="/guides/how-many-bags-of-concrete/">bag yield charts</a> for those shapes.</p>
+      <p>This page is a size-specific chart. For other footprints use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Round holes belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>. Bag yields follow the <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a>.</p>
       <figure class="diagram">
         <img src="/diagrams/slab-dimensions.svg" width="960" height="540" alt="Diagram of a rectangular concrete slab showing length, width and thickness" loading="lazy" />
       </figure>
 
-      <h2>How it's calculated</h2>
-      <p><strong>Volume (cu&nbsp;ft) = 10 × 10 × (thickness_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. With waste: bags = ceil(cu&nbsp;ft × 1.10 ÷ yield) using ~0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag and ~0.45&nbsp;cu&nbsp;ft per 60&nbsp;lb bag. At 4&nbsp;inches, thickness in feet is 4÷12 = 0.333&nbsp;ft, so volume = 100 × 0.333 = 33.3&nbsp;cu&nbsp;ft. Multiplying by 1.10 gives 36.7&nbsp;cu&nbsp;ft for ordering.</p>
-      <p>That bag math matches the same TypeScript formulas behind the on-site calculator—so the chart below should agree with what you see when you enter 10 × 10 × 4&quot; with 10% waste.</p>
-      <p>Why do some older charts show fewer bags? They sometimes omit waste, use a different yield assumption, or round aggressively. If a chart says “about 45 bags” for this slab, look closely: 45 bags of 80&nbsp;lb mix cover about 27&nbsp;cu&nbsp;ft—one cubic yard with no waste—which is less than a 10×10×4&quot; pour. Trust volume first, then bags.</p>
-      <p>Finish planning with access in mind. A 10×10 patio behind a narrow side yard may force wheelbarrow staging even if ready-mix is priced well. Conversely, a front-yard pad with truck access makes short-load ready-mix attractive once you pass roughly a yard. Price both options with the same waste assumption so the comparison is fair.</p>
+      <h2>How much concrete for a 10×10 slab at 4 inches?</h2>
+      <p>About 33.3&nbsp;cu&nbsp;ft or 1.23&nbsp;cu&nbsp;yd before waste. With a 10% waste factor that becomes about 36.7&nbsp;cu&nbsp;ft—roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix at 0.60 and 0.45&nbsp;cu&nbsp;ft yields. Those bag counts match QUIKRETE 1101 and Sakrete planning yields. Confirm the label on the bags you buy.</p>
+      <p><strong>Volume (cu&nbsp;ft) = 10 × 10 × (thickness_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. With waste: bags = ceil(cu&nbsp;ft × 1.10 ÷ yield). At 4&nbsp;inches, thickness in feet is 4÷12 ≈ 0.333&nbsp;ft, so volume = 100 × 0.333 = 33.3&nbsp;cu&nbsp;ft.</p>
 
-      <h2>10×10 slab chart</h2>
+      <h2>How much concrete for a 10×10 slab at 6 inches?</h2>
+      <p>About 50&nbsp;cu&nbsp;ft or 1.85&nbsp;cu&nbsp;yd before waste. With 10% waste, expect roughly 92 bags of 80&nbsp;lb mix or 123 bags of 60&nbsp;lb mix. At that bag count, price a short-load ready-mix truck against all-day mixing if a chute can reach the pad.</p>
+
+      <h2>10×10 slab chart (with 10% waste)</h2>
       <div class="table-scroll">
       <table>
         <caption>10×10 ft slab volume and approximate bags with 10% waste</caption>
@@ -250,21 +232,27 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Near or above one cubic yard, ready-mix often wins on labor if a truck can access the site. Always compact a gravel base separately—base volume is not included in slab concrete. Estimate base with the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
+      <p>Near or above one cubic yard, ready-mix often wins on labor if a truck can access the site. Compact a gravel base separately. Estimate base with the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
+
+      <h2>How do I order concrete for a 10×10 pad?</h2>
+      <p>Measure the formed length and width, lock the slab thickness, convert to cubic feet, add about 10% waste, then divide by bag yield or call for ready-mix yards. Order gravel as a second line item. Forms, joints, and any thickened edges are not free volume. Sketch those extras before you shop.</p>
+      <ol>
+        <li>Confirm finished slab size and thickness (many patios and shed pads use about 4&nbsp;inches over compacted base).</li>
+        <li>Build and brace forms so they do not belly out when you place concrete.</li>
+        <li>Compute volume: length × width × (thickness ÷ 12). For 10×10×4&quot;, that is 33.3&nbsp;cu&nbsp;ft.</li>
+        <li>Multiply by 1.10 for waste, then divide by 0.60 (80&nbsp;lb) or 0.45 (60&nbsp;lb) and round up, or quote ready-mix in yards.</li>
+        <li>Order gravel base separately. Keep water, tools, and helpers staged before the first bag opens.</li>
+      </ol>
 
       <h2>Worked example: 10×10×4&quot; with base</h2>
-      <p>Concrete: 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd) before waste → 36.7&nbsp;cu&nbsp;ft with 10% → about sixty-two 80&nbsp;lb bags. If you also place 4&nbsp;inches of compacted gravel under the slab, gravel volume before waste is also 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd). With 10% compaction/waste allowance ≈ 1.35&nbsp;cu&nbsp;yd. At YardTally’s mid-range crushed-stone density (~2,700&nbsp;lb/cu&nbsp;yd), that is on the order of 1.8&nbsp;tons—confirm density with your yard.</p>
-
-      <h2>Worked example: 10×10×6&quot; shed pad</h2>
-      <p>Heavier shed pads sometimes use 6&nbsp;inches: 50&nbsp;cu&nbsp;ft (1.85&nbsp;cu&nbsp;yd) before waste → 55&nbsp;cu&nbsp;ft with 10% → about ninety-two 80&nbsp;lb bags or one hundred twenty-three 60&nbsp;lb bags. At that bag count, price a short-load ready-mix truck against all-day mixing.</p>
-      <p>If the shed manufacturer specifies a thicker edge beam or pier footings under the skids, those volumes are additive. Sketch the thickened sections as separate rectangles, run the calculator once per section, and sum bags so you do not under-order the perimeter.</p>
+      <p>Concrete: 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd) before waste → 36.7&nbsp;cu&nbsp;ft with 10% → about sixty-two 80&nbsp;lb bags. If you also place 4&nbsp;inches of compacted gravel under the slab, gravel volume before waste is also 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd). With 10% compaction allowance ≈ 1.35&nbsp;cu&nbsp;yd. Confirm density with your yard when converting to tons.</p>
 
       <h2>Tips</h2>
       <ul>
-        <li>Form the slab carefully; bowed forms steal concrete and ruin edges.</li>
-        <li>Plan control joints—rule-of-thumb spacing is often discussed in residential guides as roughly 2–3 times the thickness in feet (for example, a 4-inch slab might see joints on the order of 8–12&nbsp;ft), but follow local practice and ACI residential guidance.</li>
-        <li>Dampening the subgrade helps in hot weather; avoid standing puddles.</li>
-        <li>Order extra bags for steps or thickened edges if your design includes them—they are not in the flat 10×10 chart.</li>
+        <li>Form carefully. Bowed forms steal concrete and ruin edges.</li>
+        <li>Plan control joints. Local practice varies; do not invent a spacing rule from this volume chart.</li>
+        <li>Dampening the subgrade helps in hot weather. Avoid standing puddles.</li>
+        <li>Order extra bags for steps or thickened edges. They are not in the flat 10×10 chart.</li>
       </ul>
 
       <h2>Common mistakes</h2>
@@ -273,22 +261,13 @@ export const guideBodies: Record<string, string> = {
         <li>Including gravel depth inside the concrete thickness input.</li>
         <li>Using post-hole bag charts for a rectangular patio.</li>
         <li>Pouring on uncompacted fill that later settles and cracks the slab.</li>
-        <li>Assuming 46 bags of 80&nbsp;lb mix covers a 10×10×4&quot; slab with waste—that under-orders versus 0.60&nbsp;cu&nbsp;ft yields (you need about 62).</li>
+        <li>Assuming ~45 bags of 80&nbsp;lb mix covers a 10×10×4&quot; slab with waste. That under-orders versus 0.60&nbsp;cu&nbsp;ft yields (you need about 62).</li>
       </ul>
-
-      <h2>What goes under and around the slab</h2>
-      <p>The chart on this page covers only the concrete itself. A well-built 10×10 patio or shed pad usually also involves a compacted gravel base, forms around the perimeter, and sometimes welded wire or rebar, depending on local practice and the load. Reinforcement keeps cracks tight rather than preventing them, and the spacing and size are design decisions best taken from your local code or a contractor for anything structural.</p>
-      <p>Where a new slab meets a house wall or an existing pad, builders commonly place an isolation or expansion joint material so the pieces can move independently. Skipping that detail is a frequent source of cracking at the contact line. Slope is another detail that is easy to forget: patios are typically given a slight fall away from the building so water drains, which means the concrete thickness at the high and low edges differs a little. Measure at several points and use the average thickness when you convert to cubic feet.</p>
-      <p>Finishing and curing take planning too. Once bleed water leaves the surface, the slab is floated and troweled or broom-finished for traction. A broom finish is common outdoors because it is less slippery when wet. Then keep the surface from drying out too fast. If you only have the helpers and mixer capacity to place a small section at a time, consider splitting the slab with a form divider so each pour can be finished before it sets.</p>
-
-      <h2>When to call a pro / safety / codes</h2>
-      <p>Hire a concrete contractor for driveway slabs, attached garage floors, structural foundations, or decorative finishes. Building departments often require permits for large pads and for any work tied to a structure. Reinforcement, vapor barriers, and thickness for vehicle loads must follow local code—not a volume chart. Wet concrete can burn skin; use PPE and keep children and pets away from the pour. This guide is for material estimating only.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.quikrete.com/calculator/main.asp" rel="noopener noreferrer">QUIKRETE calculator</a></li>
-        <li><a href="https://sakrete.com/resources/calculators/" rel="noopener noreferrer">Sakrete calculators</a></li>
-        <li><a href="https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf" rel="noopener noreferrer">ACI 332.1R-18 preview</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
 
@@ -441,27 +420,8 @@ export const guideBodies: Record<string, string> = {
 
   'how-to-measure-roof-pitch': `      <div class="takeaway"><strong>Key takeaway:</strong> Roof pitch is inches of rise per 12&nbsp;inches of run. Measure with a level and tape on a rafter or rake when possible. A 6-inch rise over 12&nbsp;inches of run is a 6/12 pitch (about 26.6°). Prefer attic measurements when climbing is unsafe.</div>
 
-      <h2>Three practical methods</h2>
-      <ol>
-        <li><strong>On a rafter (attic):</strong> safest for many homes—measure rise over 12&quot; of run along the rafter bottom or with a level held horizontal.</li>
-        <li><strong>On the roof surface or rake:</strong> only with proper fall protection and dry conditions; use a level and tape on a straight section.</li>
-        <li><strong>From drawings:</strong> use the stated pitch or rise/run on section details when plans are available.</li>
-      </ol>
-      <p>Ground-based estimates and phone apps can ballpark pitch, but material orders deserve a direct measurement. If you cannot access the attic safely, hire a roofer rather than improvising on a steep slope.</p>
-      <p>Pitch also shows up outside roofing invoices. Snow shedding, attic ventilation design, and even ladder placement change with steepness. University of Minnesota Extension notes that snow does not slide as easily on flatter roofs (about 3/12 or less)—a reminder that pitch is a performance characteristic, not just a number for shingle math. Still, measuring rise over run with a level remains the homeowner-friendly method for asphalt reroofs and simple gables.</p>
-
-      <h2>How it's calculated</h2>
-      <p><strong>Pitch (X-in-12) = (rise ÷ run) × 12</strong> when rise and run use the same units. <strong>Angle ≈ arctan(rise/run)</strong> in degrees. <strong>Area factor ≈ √(1 + (rise/run)²)</strong>—multiply plan (footprint) area by this factor to estimate slope surface area for shingles.</p>
-      <p>Example: rise = 6&nbsp;in, run = 12&nbsp;in → pitch = 6/12, angle ≈ 26.57°, area factor ≈ 1.118. A 40 × 30&nbsp;ft rectangle in plan is 1,200&nbsp;sq&nbsp;ft footprint × 1.118 ≈ 1,342&nbsp;sq&nbsp;ft of roof surface before waste, hips, and valleys.</p>
-      <p>Convert interactively with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a>, then estimate bundles with the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a> (1 square = 100&nbsp;sq&nbsp;ft; many asphalt bundles cover about ⅓ square).</p>
-
-      <h2>Worked example: level-and-tape in the attic</h2>
-      <p>Hold a 2-ft level against the bottom of a rafter so the bubble is centered (true horizontal). From the downhill end of the level, measure vertically up to the rafter at the 12-inch mark along the level. If that vertical measurement is 5&nbsp;inches, the pitch is 5/12. Enter 5 and 12 in the pitch calculator to confirm angle (~22.6°) and area factor (~1.083).</p>
-
-      <h2>Worked example: pitch to shingle squares</h2>
-      <p>A simple gable with 1,200&nbsp;sq&nbsp;ft of plan area at 6/12: roof area ≈ 1,200 × 1.118 = 1,342&nbsp;sq&nbsp;ft = 13.42 squares. With 10% waste → about 14.8 squares. At 3 bundles per square, that is roughly 45 bundles before starter and ridge pieces. Always add waste for cut-heavy roofs; complex hips need more than a simple gable.</p>
-
-      <h2>Pitch reference table</h2>
+      <h2>What does a 6/12 roof pitch mean?</h2>
+      <p>It means 6&nbsp;inches of vertical rise for every 12&nbsp;inches of horizontal run. That is about 26.6° and an area factor near 1.118. Multiply plan (footprint) area by that factor to estimate slope surface area before you convert to roofing squares. IKO uses the same 6:12 factor of 1.118 when explaining shingle quantity math.</p>
       <div class="table-scroll">
       <table>
         <caption>Common pitches with approximate angle and area factor</caption>
@@ -474,15 +434,34 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Use the table for quick checks, then confirm with the calculator when ordering materials. A jump from 4/12 to 8/12 increases surface area by roughly 14% on the same footprint—easy to miss if you only measure the house length and width from the ground.</p>
+      <p><strong>Pitch (X-in-12) = (rise ÷ run) × 12</strong> when rise and run use the same units. <strong>Angle ≈ arctan(rise/run)</strong>. <strong>Area factor ≈ √(1 + (rise/run)²)</strong>. Convert interactively with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a>.</p>
+
+      <h2>How do I measure roof pitch from the attic?</h2>
+      <p>Place a level against the underside of a rafter so the bubble is centered. Mark 12&nbsp;inches along the level, then measure the vertical rise from the level up to the rafter at that mark. That rise in inches is the X in X/12. Attic measurements avoid walking the roof and are the safest option for many homeowners.</p>
+      <ol>
+        <li>Pick a straight rafter away from hips, valleys, and damaged members.</li>
+        <li>Hold a level true horizontal against the rafter bottom (or along a level line).</li>
+        <li>At exactly 12&nbsp;inches of horizontal run, measure vertical rise to the rafter.</li>
+        <li>Write the reading as X/12. Repeat on a second rafter to catch mixed pitches.</li>
+        <li>Enter rise and run in the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a> to confirm angle and area factor.</li>
+      </ol>
+      <p>If that vertical measurement is 5&nbsp;inches, the pitch is 5/12 (about 22.6°, area factor about 1.083). Photograph the level reading so a supplier can sanity-check your number.</p>
+
+      <h2>Why does roof pitch matter for shingles?</h2>
+      <p>Pitch converts plan area to actual roof surface and affects product choice. Steeper roofs need more shingles for the same house footprint. Low slopes may need different underlayment or systems. After you know pitch, estimate squares and bundles with the <a href="/guides/how-to-estimate-roofing-shingles/">roofing shingles estimate guide</a> and the <a href="/calculators/roofing-shingles-calculator/">shingles calculator</a>.</p>
+      <p>Example: a simple gable with 1,200&nbsp;sq&nbsp;ft of plan area at 6/12 has roof area ≈ 1,200 × 1.118 = 1,342&nbsp;sq&nbsp;ft = 13.42 squares. With about 10% waste → roughly 14.8 squares. At 3 bundles per square (common for many asphalt products per IKO and GAF), that is about 45 bundles before starter and ridge pieces.</p>
+
+      <h2>Can I measure roof pitch from the ground or the roof surface?</h2>
+      <p>Ground apps and sight estimates can ballpark pitch, but material orders deserve a direct rise-over-run measurement on a rafter, rake, or drawing. Measuring on the roof surface only makes sense with fall protection, dry conditions, and experience. Prefer the attic when you can reach a rafter safely.</p>
+
+      <div class="takeaway"><strong>Safety:</strong> Never walk a wet, frosty, or steep roof without training and fall protection. Hire a pro when in doubt.</div>
 
       <h2>Tips</h2>
       <ul>
-        <li>Measure more than one rafter; renovations sometimes mix pitches.</li>
-        <li>Note units—mixing centimeters of rise with inches of run ruins the ratio.</li>
-        <li>Low-slope roofs may need different underlayment or membrane systems; pitch drives product choice, not only quantity.</li>
-        <li>Photograph the level reading so a supplier can sanity-check your number.</li>
-        <li>Use pitch together with plan dimensions; pitch alone does not tell you how many squares to buy.</li>
+        <li>Measure more than one rafter. Renovations sometimes mix pitches.</li>
+        <li>Keep units consistent. Mixing centimeters of rise with inches of run ruins the ratio.</li>
+        <li>Run is horizontal, not along the slope of the rafter.</li>
+        <li>Use pitch together with plan dimensions. Pitch alone does not tell you how many squares to buy.</li>
       </ul>
 
       <h2>Common mistakes</h2>
@@ -490,25 +469,13 @@ export const guideBodies: Record<string, string> = {
         <li>Walking a wet roof without fall protection to “quickly” check pitch.</li>
         <li>Reporting angle degrees when a supplier asked for X-in-12 (or the reverse).</li>
         <li>Using plan area as shingle area on a steep roof without an area factor.</li>
-        <li>Measuring along the rafter slope and calling that “run” (run is horizontal).</li>
-        <li>Linking roof projects to unrelated concrete bag charts—pitch is a geometry problem first.</li>
+        <li>Measuring along the rafter slope and calling that “run.”</li>
       </ul>
-
-      <h2>Pitch terminology and product limits</h2>
-      <p>Roofers often group slopes into low-slope, conventional, and steep ranges, and product choices change across those groups. Model residential codes such as the International Residential Code generally limit asphalt shingles to slopes of 2:12 or steeper and call for extra underlayment on lower slopes, and many manufacturers publish their own minimum pitches and installation details. Metal, tile, and membrane systems carry different minimums. Because adoption and local amendments vary, treat these as reasons to confirm requirements with your building department and the manufacturer, not as rules this page can settle for your address.</p>
-      <h2>Improving measurement accuracy</h2>
-      <p>Small errors in rise multiply across the roof. Use a level long enough to hold true, confirm that the bubble is centered, and measure the vertical distance at exactly 12 inches of horizontal run, not along the slope of the level. Round your reading to the nearest half inch and repeat on two or three rafters. If the numbers differ by more than a half inch or so, the roof may have sagging members or an addition with a different slope, and each plane should be treated separately.</p>
-      <p>If you only have a photo or plan, you can still estimate pitch from drawn rise and run, but treat the result as a draft number. Orders for materials deserve a direct tape-and-level check, and a roofing contractor's measurement or aerial-report service can add confidence on complex hip-and-valley roofs. Always write down which plane you measured so your shingle estimate maps to the right section of the roof.</p>
-
-      <h2>When to call a pro / safety / codes</h2>
-      <div class="takeaway"><strong>Safety:</strong> Never walk a wet, frosty, or steep roof without training and fall protection. Hire a pro when in doubt.</div>
-      <p>Roofing work is among the more hazardous homeowner DIY jobs. Call a licensed roofing contractor for steep pitches, multi-story homes, fragile shingles, skylight work, or when local code requires permitted reroofs with specific underlayment and ventilation details. Structural changes to rafters need an engineer or qualified contractor. YardTally helps with pitch math and shingle estimating only—it does not inspect structure, ice-dam risk, or wind uplift ratings.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://extension.umn.edu/agriculture/farm-operations-and-systems/farm-safety/roof-collapses-from-snow-and-ice" rel="noopener noreferrer">University of Minnesota Extension – Roof pitch and snow buildup context</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/gardening-slopes-and-hillsides" rel="noopener noreferrer">Iowa State Extension – Rise-over-run slope measurement (gradient method)</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Home &amp; garden information hub</a></li>
+        <li><a href="https://www.iko.com/na/blog/how-many-shingles-in-a-bundle/" rel="noopener noreferrer">IKO – How many shingles in a bundle (squares, bundles, 6:12 factor 1.118, waste)</a></li>
+        <li><a href="https://www.gaf.com/en-us/blog/your-home/how-to-measure-a-roofing-square-3faec381-6f6f-49ff-841f-114c59108f2a" rel="noopener noreferrer">GAF – How to measure a roofing square (100 sq ft, bundles per square, overage)</a></li>
       </ul>
   `,
 
@@ -752,7 +719,15 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'how-much-paint-for-a-room': `      <div class="takeaway"><strong>Key takeaway:</strong> Estimate wall area as perimeter × ceiling height, subtract doors and windows, then divide by label coverage per coat. Many interior paints list roughly 250–400 sq ft per gallon per coat (often planned near 350–400 on smooth primed walls)—always read your can. Multiply by the number of coats.</div>
+  'how-much-paint-for-a-room': `      <div class="takeaway"><strong>Key takeaway:</strong> Estimate wall area as perimeter × ceiling height, subtract doors and windows, then divide by label coverage per coat. BEHR lists about 250–400 sq ft per gallon per coat for several ULTRA and PREMIUM PLUS interior paints; YardTally defaults to 350. Multiply by the number of coats and read your can.</div>
+
+      <h2>How many square feet does a gallon of paint cover?</h2>
+      <p>BEHR states that one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250 to 400 square feet in one coat. Textured walls, bare surfaces, and big color changes use more paint. YardTally’s paint calculator defaults to 350 square feet per gallon, which sits in that Behr range. Confirm the can for your product.</p>
+      <p>Coverage is never a single magic number. Smooth, primed drywall often lands toward the high end of a label range. Porous new drywall, heavy texture, or a dark-to-light color change lands toward the low end and may need primer plus extra finish coats. Always use the coverage printed on the product you buy, then run the <a href="/calculators/paint-calculator/">paint calculator</a> with that number.</p>
+
+      <h2>How much area will one gallon of paint cover?</h2>
+      <p>Plan with the same 250–400 sq ft per gallon band Behr publishes for those interior lines, and treat 350 as a mid-range planning default until your can says otherwise. One gallon covers one coat on that area; two coats roughly double the gallons. Keep ceilings, trim, and doors as separate takeoffs so wall gallons stay accurate.</p>
+      <p>Closets, hall returns, and accent walls should be measured on their own when the color differs. Open-concept rooms work better as separate wall planes than as one vague “living area” guess.</p>
 
       <h2>How room paint quantity is calculated</h2>
       <p>For a rectangular room:</p>
@@ -760,17 +735,28 @@ export const guideBodies: Record<string, string> = {
       <p><strong>Paintable area ≈ wall area − door areas − window areas.</strong></p>
       <p><strong>Gallons per coat ≈ paintable area ÷ coverage (sq ft per gallon).</strong></p>
       <p><strong>Total gallons ≈ gallons per coat × coats.</strong></p>
-      <p>YardTally’s <a href="/calculators/paint-calculator/">paint calculator</a> uses that layout with default door and window sizes (about 20 and 15 sq ft each unless you override) and a default coverage of 350 sq ft per gallon—within the range many consumer labels publish. Behr’s how-to guidance, for example, states that one gallon of several BEHR Ultra or Premium Plus interior products covers about 250 to 400 sq ft per coat, with textured or drastic color changes needing more. Sherwin-Williams and other manufacturers publish similar label ranges; the can in your hand controls the buy.</p>
-      <p>Ceilings, trim, and doors are separate takeoffs. This guide focuses on walls. Closets, hall returns, and accent walls should be measured individually so you do not under-order a specialty color.</p>
+      <p>YardTally’s paint calculator uses that layout with default door and window sizes (about 20 and 15 sq ft each unless you override) and a default coverage of 350 sq ft per gallon. That default sits inside Behr’s published 250–400 range for several ULTRA and PREMIUM PLUS interior products. The can in your hand still controls the buy.</p>
+
+      <h2>How much paint for a 12×12 room?</h2>
+      <p>With 8 ft ceilings, wall area is 2 × (12 + 12) × 8 = 384 sq ft before openings. After one door and two windows (~50 sq ft), about 334 sq ft remains. At 350 sq ft per gallon, one coat is about 1.0 gallon and two coats about 1.9; plan on two gallons of the same tint batch.</p>
+      <p>If your surface eats paint closer to 300 sq ft per gallon, two coats need (334 × 2) ÷ 300 ≈ 2.2 gallons. Round up so you do not split dye lots mid-wall. Run the same length, width, height, openings, and coverage in the paint calculator to match these numbers.</p>
 
       <h2>Worked example: 12 × 14 ft room, 8 ft ceilings</h2>
       <p>Perimeter contribution: 2 × (12 + 14) = 52 ft. Wall area = 52 × 8 = <strong>416 sq ft</strong>.</p>
       <p>Subtract one door (20 sq ft) and two windows (2 × 15 = 30 sq ft): paintable = 416 − 50 = <strong>366 sq ft</strong>.</p>
-      <p>At 350 sq ft per gallon: 366 ÷ 350 ≈ <strong>1.05 gallons for one coat</strong>. Two coats ≈ <strong>2.09 gallons</strong>—plan on buying three gallons so tint lots match and touch-up remains, or two gallons plus a quart if the store can match. These figures match the paint calculator for the same inputs.</p>
-      <p>If the label’s practical coverage on your textured plaster is closer to 300 sq ft per gallon, two coats need (366 × 2) ÷ 300 ≈ 2.44 gallons—round up accordingly.</p>
+      <p>At 350 sq ft per gallon: 366 ÷ 350 ≈ <strong>1.05 gallons for one coat</strong>. Two coats ≈ <strong>2.09 gallons</strong>. Buy three gallons if you want matching touch-up stock, or two gallons plus a quart when the store can match. These figures match the paint calculator for the same inputs.</p>
 
-      <h2>Worked example: small bathroom (5 × 8 ft)</h2>
-      <p>A compact 5 × 8 ft bath with 8 ft ceilings has perimeter 2 × (5 + 8) = 26 ft and wall area 26 × 8 = <strong>208 sq ft</strong>. Subtract one door (~20 sq ft) and one small window (~9–15 sq ft): paintable walls land around <strong>170–180 sq ft</strong>. At 350 sq ft/gallon, one coat is about half a gallon; two coats are roughly <strong>1.0–1.1 gallons</strong>—so one gallon may finish a same-color refresh, while a deep color change still warrants a second gallon for touch-up and shower-adjacent humidity coats. Confirm openings and ceiling height with the <a href="/calculators/paint-calculator/">paint calculator</a>; skip ceiling and vanity doors unless you measure them separately.</p>
+      <h2>How much paint for a small bathroom?</h2>
+      <p>A compact 5 × 8 ft bath with 8 ft ceilings has about 208 sq ft of wall before openings. After one door and a small window, paintable walls land around 170–180 sq ft. At 350 sq ft per gallon, one coat is about half a gallon; two coats are roughly 1.0–1.1 gallons.</p>
+      <p>One gallon may finish a same-color refresh. A deep color change or humid shower-adjacent walls still warrant a second gallon for touch-up and an extra coat. Confirm openings and ceiling height with the paint calculator; skip the ceiling and vanity doors unless you measure them separately.</p>
+
+      <h2>Do I include the ceiling?</h2>
+      <p>Not in the basic four-wall estimate. Ceiling paint is a separate product and a separate area: length × width, then apply the ceiling can’s coverage and coat count. Coffered or highly textured ceilings drink more paint than smooth drywall. Trim and doors are usually measured later in linear feet or as a small enamel budget once walls are ordered.</p>
+      <p>Accent walls use the single-wall formula: wall width × height, minus openings on that wall only. Saturated accent colors often sit toward the low end of the label coverage range, so a test quart first is wise.</p>
+
+      <h2>How much do doors and windows subtract?</h2>
+      <p>YardTally defaults to about 20 sq ft per standard door and 15 sq ft per typical window. Measure oversized patio doors, sidelights, or picture windows and override those defaults. On small baths, openings remove a large share of wall area; on open plans with many windows, skipping openings underbuys paint.</p>
+      <p>Do not subtract cabinets you plan to paint, and do not add openings you will not paint around. Only remove surfaces that stay unpainted.</p>
 
       <h2>Coverage planning table</h2>
       <div class="table-scroll">
@@ -789,24 +775,19 @@ export const guideBodies: Record<string, string> = {
       </div>
       <p>Dark-to-light color changes, unrepaired drywall, and bare wood often need primer plus two finish coats. “Paint-and-primer” marketing does not erase surface preparation requirements printed on the label.</p>
 
-      <h2>Ceilings, trim, and accent walls</h2>
-      <p>Ceiling paint is usually a separate product and a separate area: length × width, then apply the ceiling can’s coverage and coat count. Coffered or highly textured ceilings drink more paint than smooth drywall. Trim and doors are often measured in linear feet times an average width (for example, baseboard length × about 0.5 ft if the trim is roughly six inches tall)—or simply budget a quart or gallon of enamel based on experience once walls are ordered.</p>
-      <p>Accent walls use the single-wall formula: wall width × height, minus openings on that wall only. Ordering a deep accent color in a tiny test size first is wise; coverage on saturated colors can sit toward the low end of the label range. If you change from a dark existing color to a pale one, plan on primer or an extra finish coat even when the wall area math looks modest.</p>
-      <p>Open-concept spaces should be split into paintable planes. A long great-room may share paint color with a hall; measure each run of wall so you do not forget stairwells, pony walls, or the back of a freestanding fireplace surround.</p>
-
       <h2>Step-by-step</h2>
       <ol>
         <li>Measure length, width, and ceiling height in feet.</li>
         <li>Count doors and windows; measure unusual openings if they differ from typical sizes.</li>
         <li>Compute paintable wall area (or use the <a href="/calculators/paint-calculator/">paint calculator</a>).</li>
-        <li>Read coverage and recommended coats on the product data sheet or can.</li>
+        <li>Read coverage and recommended coats on the product data sheet or can (Behr’s how-to notes 250–400 sq ft per gallon for several ULTRA and PREMIUM PLUS interior products).</li>
         <li>Divide and multiply for total gallons; round up to whole containers of the same tint batch.</li>
         <li>Add primer quantity separately when the label calls for it.</li>
         <li>Estimate trim linear feet later if you are brushing a contrasting enamel.</li>
       </ol>
 
       <h2>Surface prep that changes how much paint you need</h2>
-      <p>Patched drywall, bare paper facing, glossy enamel, and nicotine-stained walls all affect how far a gallon goes. Sanding gloss, washing grease, and priming repairs usually improves finish uniformity and can reduce the urge to apply a third finish coat “just to hide.” Skipping prep rarely saves paint—it usually wastes it on uneven absorption and flashing.</p>
+      <p>Patched drywall, bare paper facing, glossy enamel, and nicotine-stained walls all affect how far a gallon goes. Sanding gloss, washing grease, and priming repairs usually improves finish uniformity and can reduce the urge to apply a third finish coat “just to hide.” Skipping prep rarely saves paint; it usually wastes it on uneven absorption and flashing.</p>
       <p>Roller nap thickness matters on texture: deeper texture holds more paint in the first pass. When in doubt, use the lower coverage number from the manufacturer’s range for the first coat estimate, then adjust after you see how the wall looks when dry.</p>
 
       <h2>Tips</h2>
@@ -829,72 +810,83 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Sheen, application method, and waste</h2>
-      <p>Sheen and tools influence how far paint goes. Flat finishes hide wall flaws but scuff more easily; satin and eggshell wipe clean in kitchens and hallways. A roller with a thicker nap holds more paint and suits textured walls, but it applies more paint per square foot than a thin nap on smooth drywall. Airless sprayers can cover fast but typically waste more paint to overspray and cleanup than rolling does, so plan extra if you spray.</p>
+      <p>Sheen and tools influence how far paint goes. Flat finishes hide wall flaws but scuff more easily; satin and eggshell wipe clean in kitchens and hallways. A roller with a thicker nap holds more paint and suits textured walls, but it applies more paint per square foot than a thin nap on smooth drywall. Airless sprayers cover fast but typically waste more paint to overspray and cleanup than rolling does, so plan extra if you spray.</p>
       <p>Cutting in around trim and corners adds to usage, and so does paint left in trays, rollers, and brushes. A small buffer of around 10 percent is a common planning allowance. When a room has a dramatic color change, tinted primer can reduce the number of finish coats needed.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy" rel="noopener noreferrer">BEHR – How much interior paint to buy (250–400 sq ft/gal guidance)</a></li>
-        <li><a href="https://www.sherwin-williams.com/" rel="noopener noreferrer">Sherwin-Williams – Product labels &amp; coverage (verify on can)</a></li>
       </ul>
   `,
 
-  'paver-base-gravel-and-sand-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> Many DIY patio guides use a rule of thumb of about 4–6 inches of compacted gravel base plus about 1 inch of bedding sand under concrete pavers—then the paver thickness on top. Exact depths depend on soil, traffic, climate, and the paver manufacturer’s instructions or local code. Calculate each layer’s volume separately.</div>
+  'paver-base-gravel-and-sand-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> YardTally’s paver calculator defaults to about 4 inches of compacted gravel paver base plus about 1 inch of bedding sand under concrete pavers, then the paver thickness on top. Those depths are planning assumptions, not a universal standard. Exact depths depend on soil, traffic, climate, and the paver manufacturer’s installation sheet or local code. Calculate each layer’s volume separately.</div>
 
-      <h2>How base and sand volumes work</h2>
+      <h2>How deep should paver base gravel be?</h2>
+      <p>YardTally’s patio planning default is 4 inches of compacted angular paver base gravel; many DIY worksheets also use about 4 to 6 inches. That is a calculator starting point, not a code claim. Soft soils and freeze-thaw sites may need more on the manufacturer sheet. Driveway assemblies differ; do not copy patio defaults onto a driveway.</p>
       <p>Paver projects are stacked systems: compacted subgrade, aggregate base, bedding sand, pavers, and joint sand. Volume for any uniform layer is:</p>
       <p><strong>Cubic feet = area (sq ft) × (depth inches ÷ 12).</strong></p>
       <p><strong>Cubic yards = cubic feet ÷ 27.</strong></p>
-      <p>YardTally’s <a href="/calculators/paver-calculator/">paver calculator</a> counts pavers and also estimates bedding sand and gravel base using adjustable depths (defaults: 1 in sand, 4 in base). Refine bulk orders with the <a href="/calculators/gravel-calculator/">gravel calculator</a> and <a href="/calculators/sand-calculator/">sand calculator</a>. Choosing angular crushed stone versus decorative rounded rock is covered conceptually in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>—the same angular-vs-rounded logic applies to patio bases that must lock under compaction.</p>
+      <p>The <a href="/calculators/paver-calculator/">paver calculator</a> counts pavers and also estimates bedding sand and gravel base using adjustable depths (defaults: 1 in sand, 4 in base). Refine bulk orders with the <a href="/calculators/gravel-calculator/">gravel calculator</a> and <a href="/calculators/sand-calculator/">sand calculator</a>. Choosing angular crushed stone versus decorative rounded rock is covered in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. The same angular-versus-rounded logic applies to patio bases that must lock under compaction.</p>
+
+      <h2>How much sand under pavers?</h2>
+      <p>YardTally’s bedding-sand default is 1 inch of screeded sand under concrete pavers. Joint sand is extra and much smaller in volume. Do not thicken the sand bed to hide a wavy base; that is a common settlement failure. Confirm the bedding depth on your paver brand’s current installation guide before you excavate.</p>
+      <p>Sand should stay a consistent thickness across the field. Major low spots belong in the compacted gravel paver base, not in a deep sand pocket that will settle later.</p>
+
+      <h2>How do I convert inches of base to tons?</h2>
+      <p>Convert depth to cubic yards first: area × (inches ÷ 12) ÷ 27. Then ask your stone yard for tons per cubic yard for that specific aggregate, because density varies with rock type and moisture. The gravel calculator helps with volume; your supplier converts volume to tons for delivery.</p>
+      <p>Example: 120 sq ft of 4-inch paver base is 120 × (4÷12) ÷ 27 ≈ 1.48 cu yd. If that yard quotes about 1.3 tons per yard for dense-grade base, order roughly 1.9 tons before waste, then add a little for edges and uneven excavation.</p>
 
       <h2>Worked example: 12 × 10 ft patio</h2>
-      <p>Area = 120 sq ft. Using calculator defaults of 4 in compacted gravel base and 1 in bedding sand:</p>
+      <p>Area = 120 sq ft. Using YardTally calculator defaults of 4 in compacted gravel paver base and 1 in bedding sand:</p>
       <ul>
         <li>Sand: 120 × (1÷12) = <strong>10 cu ft</strong> (about 0.37 cu yd).</li>
         <li>Base: 120 × (4÷12) ÷ 27 ≈ <strong>1.48 cu yd</strong> of gravel.</li>
       </ul>
-      <p>If you thicken the base to 6 in for softer soil (still a planning example—not a site design): 120 × 0.5 ÷ 27 ≈ <strong>2.22 cu yd</strong> gravel, with sand unchanged at 10 cu ft. Order extra aggregate for edge restraints, compaction loss, and uneven excavation. Paver count for 12×12 in units on this footprint is 120 pieces before waste; with 10% waste the calculator returns 132—buy the waste factor your pattern needs (cuts on diagonals need more).</p>
+      <p>If you thicken the paver base to 6 in because the manufacturer sheet or soil conditions call for it: 120 × 0.5 ÷ 27 ≈ <strong>2.22 cu yd</strong> gravel, with sand unchanged at 10 cu ft. Order extra aggregate for edge restraints, compaction loss, and uneven excavation. Paver count for 12×12 in units on this footprint is 120 pieces before waste; with 10% waste the calculator returns 132. Buy the waste factor your pattern needs (diagonal cuts need more).</p>
 
       <h2>Layer depth reference table</h2>
       <div class="table-scroll">
       <table>
-        <caption>Example material volumes for a 120 sq ft patio (rule-of-thumb depths—verify for your project)</caption>
+        <caption>Example material volumes for a 120 sq ft patio (YardTally planning depths unless noted; verify on the paver sheet)</caption>
         <thead>
           <tr><th>Layer</th><th>Depth</th><th>Volume</th></tr>
         </thead>
         <tbody>
-          <tr><td>Bedding sand</td><td>1"</td><td>10 cu ft (0.37 cu yd)</td></tr>
-          <tr><td>Gravel base</td><td>4"</td><td>≈1.48 cu yd</td></tr>
-          <tr><td>Gravel base</td><td>6"</td><td>≈2.22 cu yd</td></tr>
+          <tr><td>Bedding sand (calculator default)</td><td>1"</td><td>10 cu ft (0.37 cu yd)</td></tr>
+          <tr><td>Paver base gravel (calculator default)</td><td>4"</td><td>≈1.48 cu yd</td></tr>
+          <tr><td>Paver base gravel (thicker planning option)</td><td>6"</td><td>≈2.22 cu yd</td></tr>
           <tr><td>Excavation (4" base + 1" sand + 2.375" paver example)</td><td>~7.4"</td><td>Plan drainage slope too</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Excavation depth must also create the finished surface elevation you want relative to doors and yard drainage. Slope pavers to shed water per manufacturer guidance—do not trap runoff against siding.</p>
+      <p>Excavation depth must also create the finished surface elevation you want relative to doors and yard drainage. Slope pavers to shed water per manufacturer guidance. Do not trap runoff against siding.</p>
+
+      <h2>Patio paver base vs driveway sections</h2>
+      <p>Driveway gravel depths and patio paver base depths are not interchangeable. A driveway carries vehicle loads and often uses a thicker aggregate section, different edge details, and sometimes a different stone gradation. If you came from the driveway gravel types guide for material intuition, keep the angular-stone lesson and still read the patio or driveway detail that matches the traffic you expect.</p>
+      <p>Retaining-wall trenches are another assembly again. Compacted gravel under wall blocks is related in material choice but not the same thickness or trench shape as a patio paver base. Compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide when you are holding soil, not paving a patio.</p>
 
       <h2>Subgrade, geotextile, and edge restraint</h2>
-      <p>Even perfect gravel depth fails on pumping mud. Excavate soft organic soil, compact the subgrade, and consider a geotextile separator when fines from below will migrate into the open-graded stone—follow site conditions and manufacturer notes rather than treating fabric as mandatory everywhere. Edge restraint (plastic spike-down, concrete curb, or other approved systems) keeps perimeter pavers from migrating; without it, joint lines open and the sand bed creeps.</p>
+      <p>Even perfect gravel depth fails on pumping mud. Excavate soft organic soil, compact the subgrade, and consider a geotextile separator when fines from below will migrate into the open-graded stone. Follow site conditions and manufacturer notes rather than treating fabric as mandatory everywhere. Edge restraint (plastic spike-down, concrete curb, or other approved systems) keeps perimeter pavers from migrating; without it, joint lines open and the sand bed creeps.</p>
       <p>Compaction equipment should match the job size. Plate compactors are standard for residential patios; compact the base in lifts instead of placing all the stone at once and buzzing the top. When compacting on top of pavers, use protective pads if the paver producer requires them so you do not spall the surface.</p>
-      <p>Climate matters: freeze–thaw regions punish trapped water. Drainage should move water through and out of the system, not store it in a bathtub excavation. In arid climates, dust control and joint sand loss from wind can be the bigger maintenance issue—still build a competent base so irrigation runoff does not undermine edges.</p>
-      <p>For material intuition—angular crushed stone versus decorative rounded gravel—see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. The structural lesson transfers: interlocking particles outperform ball-bearing rock under loads. Always re-check the paver manufacturer’s current installation sheet before you excavate, because base and sand depths can differ by product line.</p>
+      <p>Climate matters. Freeze-thaw regions punish trapped water. Drainage should move water through and out of the system, not store it in a bathtub excavation. In arid climates, dust control and joint sand loss from wind can be the bigger maintenance issue. Still build a competent paver base so irrigation runoff does not undermine edges.</p>
 
       <h2>Step-by-step</h2>
       <ol>
-        <li>Confirm paver thickness and the manufacturer’s base/sand recommendations.</li>
+        <li>Confirm paver thickness and the manufacturer’s current paver base and sand recommendations.</li>
         <li>Outline the patio; measure length and width; decide waste percent for cuts.</li>
         <li>Excavate to subgrade, removing soft spots; compact the native soil.</li>
         <li>Place geotextile if specified for your soil conditions.</li>
-        <li>Install angular base gravel in lifts, compacting each lift to the target thickness.</li>
-        <li>Screed a uniform bedding sand layer—typically about 1 in—without using sand to fix major base waves.</li>
+        <li>Install angular paver base gravel in lifts, compacting each lift to the target thickness.</li>
+        <li>Screed a uniform bedding sand layer (YardTally default 1 in) without using sand to fix major base waves.</li>
         <li>Lay pavers, install edge restraint, compact, and sweep joint sand (polymeric only if the product instructions fit your climate and joints).</li>
       </ol>
 
       <h2>Tips</h2>
       <ul>
-        <li>Use crushed stone with fines (often sold as dense grade / crusher run) for bases that must lock—see the driveway gravel guide for material intuition.</li>
+        <li>Use crushed stone with fines (often sold as dense grade / crusher run) for bases that must lock. See the driveway gravel guide for material intuition, not for copying driveway thickness onto a patio.</li>
         <li>Keep sand bedding consistent; thick sand pockets settle and telegraph dips.</li>
         <li>Compact with a plate compactor rated for your paver type; use protective pads when required.</li>
-        <li>Account for delivery minimums—1.5 cu yd on a ticket may be cheaper than multiple small loads.</li>
+        <li>Account for delivery minimums. A 1.5 cu yd ticket may beat multiple small loads.</li>
         <li>Check HOA and municipal rules for impermeable cover limits.</li>
         <li>String-line elevations before excavating so the finished patio meets door thresholds with the correct step-down.</li>
       </ul>
@@ -902,27 +894,30 @@ export const guideBodies: Record<string, string> = {
       <h2>Common mistakes</h2>
       <ul>
         <li>Skipping compaction and blaming the pavers later.</li>
-        <li>Using rounded pea gravel as the structural base.</li>
+        <li>Using rounded pea gravel as the structural paver base.</li>
         <li>Bedding sand deeper than recommended to hide a bad base.</li>
         <li>Forgetting edge restraint so perimeter pavers creep.</li>
         <li>Ordering only pavers and estimating base “by eye.”</li>
         <li>Building a flat patio that ponds against the house instead of sloping away for drainage.</li>
+        <li>Reusing driveway depth numbers on a patio (or patio defaults on a driveway) without reading the matching assembly.</li>
       </ul>
 
       <h2>Slope, compaction, and joint sand</h2>
-      <p>Patios should shed water. A frequently cited guideline is a slope of about one-quarter inch per foot, roughly 2 percent, directed away from buildings, but follow your paver manufacturer's instructions and any local requirements. Build that slope into the compacted base and screeded bedding layer instead of trying to correct it with sand, which should stay at a uniform depth. Compact the base in lifts, commonly in layers no thicker than about four inches, with a plate compactor, moistening dry aggregate slightly if the manufacturer advises.</p>
+      <p>Patios should shed water. A frequently cited guideline is a slope of about one-quarter inch per foot (roughly 2 percent) directed away from buildings, but follow your paver manufacturer's instructions and any local requirements. Build that slope into the compacted paver base and screeded bedding layer instead of trying to correct it with sand, which should stay at a uniform depth. Compact the base in lifts, commonly in layers no thicker than about four inches, with a plate compactor, moistening dry aggregate slightly if the manufacturer advises.</p>
       <p>After the pavers are laid and cut, edge restraints keep the field from spreading, and joint sand is swept into the gaps and compacted. Polymeric sand can reduce weed growth and sand loss when it is installed according to its directions, while plain sand is cheaper but may require refilling. Order a bit more joint sand than the bedding estimate suggests, because it gets swept off the surface and into the joints repeatedly.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.quikrete.com/" rel="noopener noreferrer">QUIKRETE – Concrete / landscape product resources</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Landscape installation resources</a></li>
-        <li><a href="https://extension.psu.edu/" rel="noopener noreferrer">Penn State Extension</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/" rel="noopener noreferrer">Iowa State Extension – Yard and Garden</a></li>
+        <li>Follow the current installation sheet for your paver brand for paver base gravel depth, bedding sand thickness, edge restraint, and joint sand. YardTally’s 4 in base / 1 in sand figures are calculator planning defaults until that sheet says otherwise.</li>
       </ul>
   `,
 
-  'deck-material-list-12x16': `      <div class="takeaway"><strong>Key takeaway:</strong> A simple 12×16 ft rectangular deck takeoff estimates deck boards from covering width ÷ board face width, joists from span ÷ spacing + 1, plus fasteners. YardTally’s defaults use about 5.5 in effective board width and 16 in on-center joists—common planning assumptions, not a substitute for span tables or local code. Orientation of the 12 and 16 matters.</div>
+  'deck-material-list-12x16': `      <div class="takeaway"><strong>Key takeaway:</strong> This page is a shopping takeoff for a 12×16 ft rectangular deck, not a set of construction plans and not a priced bill of materials. Board count follows covering width ÷ board face width; joists follow span ÷ spacing + 1. YardTally defaults use about 5.5 in effective board width and 16 in on-center joists as planning assumptions. Orientation of the 12 and 16 matters.</div>
+
+      <h2>Is this a 12×16 deck plan or a material list?</h2>
+      <p>It is a material-list starting point for shopping, not construction plans and not a priced BOM. Board, joist, and fastener counts help you order lumber. Verify joist and beam sizes against current AWC or DCA span tables, the decking brand, and local permits before you build.</p>
+      <p>The <a href="/calculators/deck-material-calculator/">deck material calculator</a> encodes that simplified model with defaults of 5.5 in board width (dimensional 6 in decking allowance for gap), 12 ft board length, 16 in joist spacing, and about two screws per board-foot. Real decks also need beams, posts, footings, ledger details, flashing, railings, and lateral bracing. None of those are fully designed here.</p>
+      <p>For a larger sister takeoff, see the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>. Ground-level pads and stairs often need concrete; see <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> and the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a> when estimating footing mix. Low retaining edges beside a patio-to-deck transition are a different system; compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide if you are holding soil, not framing lumber.</p>
 
       <h2>How a basic deck takeoff works</h2>
       <p>For a rectangular deck with boards running along the length dimension:</p>
@@ -932,18 +927,24 @@ export const guideBodies: Record<string, string> = {
         <li><strong>Deck boards</strong> = rows × boards per row.</li>
         <li><strong>Joists</strong> ≈ floor(length ÷ joist spacing) + 1 (plus separate rim/band joists in many layouts).</li>
       </ul>
-      <p>The <a href="/calculators/deck-material-calculator/">deck material calculator</a> encodes that simplified model with defaults of 5.5 in board width (dimensional 6 in decking allowance for gap), 12 ft board length, 16 in joist spacing, and about two screws per board-foot. Real decks also need beams, posts, footings, ledger details, flashing, railings, and lateral bracing—none of which this planning list fully designs. Verify lumber species, grade, span, and fastener schedules against IRC span tables or engineered drawings, and pull permits where required.</p>
-      <p>Ground-level pads and stairs often need concrete—see <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> when estimating footing mix. Low retaining edges beside a patio-to-deck transition are a different system; compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide if you are holding soil, not framing lumber.</p>
 
-      <h2>Worked example: 12 × 16 ft deck (boards along 12 ft)</h2>
+      <h2>How many deck boards for a 12×16 deck?</h2>
+      <p>With YardTally defaults (5.5 in face, 12 ft stock) and boards running 12 ft across a 16 ft width, plan on about 35 twelve-foot boards before waste. Boards the other way need about 54 twelve-foot pieces because you splice along the longer run. Sketch board direction before you order.</p>
       <p>Using calculator inputs length = 12 ft (board direction), width = 16 ft (across boards), 5.5 in face width, 12 ft boards, 16 in joist spacing:</p>
       <ul>
         <li>Area = <strong>192 sq ft</strong>.</li>
         <li>Rows = ceil(16 ÷ 5.5/12) = <strong>35 board rows</strong>; boards per row = 1 → <strong>35 deck boards</strong> (each 12 ft).</li>
-        <li>Joists = floor(12 ÷ 16/12) + 1 = <strong>10 joists</strong>; rim joists counted separately as 2 in the tool.</li>
         <li>Board linear feet = 35 × 12 = 420; screws ≈ 840 at two per board-foot.</li>
       </ul>
-      <p>If you reverse the framing so boards run the 16 ft direction (length = 16, width = 12), the same calculator returns more boards (54 of 12 ft stock with splices) and 13 joists—because board stock length and joist span changed. Always sketch which way decking runs before ordering.</p>
+      <p>Add waste for bad boards, picture-frame borders, and angle cuts. Composite decking may use different widths, hidden clips, and gapping rules. Follow that brand’s installation guide rather than wood defaults.</p>
+
+      <h2>What joist spacing should I use?</h2>
+      <p>YardTally’s calculator default is 16 inches on center, a planning assumption for many wood decks. Some composites require 12 in O.C., and spans change with species, grade, and load. Check current AWC or DCA tables and your decking brand; a standards homepage is not a span table.</p>
+      <p>For the 12 ft board-run orientation above, field joists = floor(12 ÷ 16/12) + 1 = <strong>10 joists</strong>; rim joists are counted separately as 2 in the tool. Reverse the orientation (length = 16, width = 12) and the same defaults return 13 field joists because the joist span direction changed.</p>
+
+      <h2>Does this include railings and stairs?</h2>
+      <p>No. Railings, guards, stairs, and landings are separate takeoffs with their own post layout, baluster spacing, and rise/run rules. This list covers rectangular field decking and a simplified joist count only. Add those systems on the sketch before you call the material list “complete.”</p>
+      <p>Railings can also force stronger boundary joists or blocking. Stairs need consistent rise and run within local tolerances. None of those counts come from the simple rectangular decking estimator.</p>
 
       <h2>Planning table (YardTally defaults, boards along first dimension)</h2>
       <div class="table-scroll">
@@ -958,20 +959,18 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Add waste for bad boards, picture-frame borders, and angle cuts. Composite decking may use different widths, hidden clips, and gapping rules—follow that brand’s installation guide rather than wood defaults.</p>
 
       <h2>Beyond boards: beams, posts, and footings</h2>
-      <p>A board-and-joist shopping list is only the deck “skin and ribs.” Beams that carry joists, posts that carry beams, and footings that carry posts must be sized for tributary load, snow load where applicable, and species/grade. Many jurisdictions require permits and inspections for elevated decks. Ledger connections to houses need correct flashing and tension hardware; free-standing decks need adequate bracing against lateral movement.</p>
-      <p>Footing volume is a concrete problem, not a decking problem. Once you know diameter and depth (often to below frost), estimate bags or yards with concrete tools and guides such as <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Do not pour footings on organic topsoil or leave cardboard tube forms unfilled to grade when the detail requires otherwise—follow local practice.</p>
-      <p>Railings change the shopping list again: posts may need to land on framing with specific blocking, and baluster spacing is a life-safety rule, not aesthetics alone. Stairs need consistent rise/run within code tolerances. None of those counts come from the simple rectangular decking estimator, so sketch them early.</p>
-      <p>If your deck meets a grade change or patio, you may also be holding soil with a short wall—different system entirely. See <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> rather than improvising landscape blocks as structural deck foundations.</p>
+      <p>A board-and-joist shopping list is only the deck skin and ribs. Beams that carry joists, posts that carry beams, and footings that carry posts must be sized for tributary load, snow load where applicable, and species/grade. Many jurisdictions require permits and inspections for elevated decks. Ledger connections to houses need correct flashing and tension hardware; free-standing decks need adequate bracing against lateral movement.</p>
+      <p>Footing volume is a concrete problem, not a decking problem. Once you know diameter and depth (often to below frost), estimate bags or yards with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a> and guides such as <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Do not pour footings on organic topsoil.</p>
+      <p>If your deck meets a grade change or patio, you may also be holding soil with a short wall. That is a different system. See <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> rather than improvising landscape blocks as structural deck foundations.</p>
 
       <h2>Step-by-step</h2>
       <ol>
         <li>Confirm finished deck size, height, ledger vs freestanding, and railing needs with local code.</li>
         <li>Choose decking direction for appearance and span.</li>
         <li>Run the <a href="/calculators/deck-material-calculator/">deck material calculator</a> with your board width and joist spacing.</li>
-        <li>Size beams and posts from span tables or an engineer—do not guess from board count alone.</li>
+        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Do not guess from board count alone.</li>
         <li>Plan footings below frost where required; estimate concrete separately.</li>
         <li>Order fasteners rated for the lumber or composite system (and treated lumber compatibility).</li>
         <li>Dry-fit patterns, then fasten per manufacturer spacing diagrams.</li>
@@ -979,11 +978,12 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Tips</h2>
       <ul>
-        <li>16 in on-center is common for many residential decks with suitable joist size—but span rating depends on species, grade, and load. Check tables.</li>
+        <li>Treat 16 in on-center as a YardTally planning default until span tables and the decking brand say otherwise.</li>
         <li>Crown joists up; align fastener rows for a cleaner look.</li>
         <li>Flash ledgers properly; deck ledger failures are a known safety issue when details are skipped.</li>
         <li>Account for stair stringers and landing framing as extra takeoffs.</li>
         <li>Stain or seal according to product instructions after moisture targets are met.</li>
+        <li>Compare counts with the larger <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a> if you are sizing up later.</li>
       </ul>
 
       <h2>Common mistakes</h2>
@@ -991,42 +991,48 @@ export const guideBodies: Record<string, string> = {
         <li>Ordering boards without deciding orientation and seam layout.</li>
         <li>Using interior fasteners on exterior treated lumber.</li>
         <li>Ignoring post-to-beam hardware and lateral load paths.</li>
-        <li>Assuming the calculator replaces a permit set of drawings.</li>
+        <li>Assuming this material list replaces a permit set of drawings.</li>
         <li>Forgetting that railings can require stronger boundary joists or blocking.</li>
+        <li>Citing a standards-organization homepage as if it were the span table you actually checked.</li>
       </ul>
 
       <h2>Permits, footings, and guards</h2>
-      <p>Deck projects commonly require a permit and inspections, and the rules cover items a board count cannot: footing size and depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30 inches above the ground, but local amendments differ, and this is exactly why permit review is worthwhile. Footing depth must reach below the local frost depth in cold climates, which also affects how much concrete you order. Confirm all of this with your building department before buying lumber.</p>
+      <p>Deck projects commonly require a permit and inspections, and the rules cover items a board count cannot: footing size and depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30 inches above the ground, but local amendments differ. Footing depth must reach below the local frost depth in cold climates, which also affects how much concrete you order. Confirm all of this with your building department before buying lumber.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.awc.org/" rel="noopener noreferrer">American Wood Council – Span resources / DCA guidance</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Outdoor structure topics</a></li>
-        <li><a href="https://extension.psu.edu/" rel="noopener noreferrer">Penn State Extension</a></li>
+        <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
 
-  'deck-material-list-16x24': `      <div class="takeaway"><strong>Key takeaway:</strong> A 16×24 ft deck is 384 sq&nbsp;ft of footprint. Board and joist counts depend on decking direction. With YardTally defaults (5.5&nbsp;in face width, 12&nbsp;ft stock, 16&nbsp;in O.C. joists) and boards running the 24&nbsp;ft direction, plan about <strong>70</strong> deck boards and <strong>19</strong> field joists before waste—then add beams, posts, footings, and fasteners. Assumptions below are planning aids, not engineered drawings.</div>
+  'deck-material-list-16x24': `      <div class="takeaway"><strong>Key takeaway:</strong> A 16×24 ft deck is 384 sq&nbsp;ft of footprint. Board and joist counts depend on decking direction. With YardTally defaults (5.5&nbsp;in face width, 12&nbsp;ft stock, 16&nbsp;in O.C. joists) and boards running the 24&nbsp;ft direction, plan about <strong>70</strong> deck boards and <strong>19</strong> field joists before waste, then add beams, posts, footings, and fasteners. This is a takeoff starting point, not construction plans.</div>
+
+      <h2>Is a 16×24 list the same as 12×16 scaled?</h2>
+      <p>No. Same takeoff method, but you cannot multiply the 12×16 counts by area and call it done. Orientation, stock splices, and joist span direction change the math, and a 16×24 usually needs a larger footing and beam plan. Use these numbers or set length = 24 and width = 16 in the deck calculator.</p>
+      <p>Compare the smaller sister takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a> to sanity-check orientation logic, not to scale counts. Run the live tool in the <a href="/calculators/deck-material-calculator/">deck material calculator</a> when your board width or joist spacing differs from YardTally defaults.</p>
 
       <h2>Clear assumptions for this material list</h2>
       <ul>
         <li><strong>Shape:</strong> simple rectangle, 16&nbsp;ft × 24&nbsp;ft finished decking (no stairs, no picture-frame border, no curves).</li>
         <li><strong>Decking:</strong> boards run the <strong>24&nbsp;ft</strong> direction; covering width is 16&nbsp;ft; effective face width 5.5&nbsp;in (typical 6&nbsp;in nominal + gap); stock length 12&nbsp;ft (two boards per row).</li>
-        <li><strong>Joists:</strong> 16&nbsp;in on center along the 24&nbsp;ft span direction in the simplified calculator model; +2 rim/band joists counted separately.</li>
-        <li><strong>Not included as structural design:</strong> beam size/species, post size, ledger vs freestanding choice, railing, stairs, lateral bracing, or frost-depth footings—those need span tables, manufacturer charts, or an engineer and local permits.</li>
+        <li><strong>Joists:</strong> YardTally planning default of 16&nbsp;in on center along the 24&nbsp;ft span direction in the simplified calculator model; +2 rim/band joists counted separately.</li>
+        <li><strong>Not included as structural design:</strong> beam size/species, post size, ledger vs freestanding choice, railing, stairs, lateral bracing, or frost-depth footings. Those need current AWC/DCA span tables, manufacturer charts, or an engineer and local permits.</li>
         <li><strong>Fasteners:</strong> ~2 exterior screws per board-foot as a shopping ballpark (hidden-clip systems differ).</li>
       </ul>
-      <p>Run the same dimensions live in the <a href="/calculators/deck-material-calculator/">deck material calculator</a> (set length = 24, width = 16 for this orientation). Compare a smaller takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>. Pier concrete for posts uses the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a> once you know tube diameter and height.</p>
 
-      <h2>Worked example: boards, joists, and fasteners</h2>
+      <h2>How many deck boards for a 16×24 deck?</h2>
+      <p>With YardTally defaults (5.5 in face, 12 ft stock) and boards running the 24 ft direction across a 16 ft width, plan on about 70 twelve-foot boards before waste. Boards the other way need about 106 twelve-foot pieces because you cover 24 ft of width with more rows. Add waste for bad boards, angle cuts, and borders.</p>
       <p>Using calculator inputs length = 24&nbsp;ft (board direction), width = 16&nbsp;ft (across boards), 5.5&nbsp;in face width, 12&nbsp;ft boards, 16&nbsp;in joist spacing:</p>
       <ul>
         <li>Area = <strong>384 sq&nbsp;ft</strong>.</li>
         <li>Rows = ceil(16 ÷ 5.5/12) = <strong>35 board rows</strong>; boards per row = ceil(24 ÷ 12) = 2 → <strong>70 deck boards</strong>.</li>
-        <li>Joists = floor(24 ÷ 16/12) + 1 = <strong>19 joists</strong>; rim joists = <strong>2</strong> in the tool.</li>
         <li>Board linear feet = 70 × 12 = <strong>840</strong>; screws ≈ <strong>1,680</strong> at two per board-foot.</li>
       </ul>
-      <p>If you reverse orientation so boards run the 16&nbsp;ft direction (length = 16, width = 24), the same defaults return about <strong>106</strong> twelve-foot boards and <strong>13</strong> field joists—more decking pieces, fewer joists. Sketch the board direction before ordering.</p>
+      <p>Composite decking may need different face widths, 12&nbsp;in O.C. joists, and brand-specific gapping. Follow that installation guide rather than wood defaults.</p>
+
+      <h2>How many joists for a 16×24 deck?</h2>
+      <p>At YardTally’s 16 in on-center planning default, boards along 24 ft imply about 19 field joists (+2 rim in the tool). Boards along 16 ft imply about 13 field joists. Verify spacing against current AWC/DCA span tables and your decking brand; some composites require 12 in O.C.</p>
+      <p>Joists = floor(24 ÷ 16/12) + 1 = <strong>19 joists</strong> for the primary orientation above. Treat that as a shopping count, not a stamped framing plan.</p>
 
       <h2>Planning table (YardTally defaults)</h2>
       <div class="table-scroll">
@@ -1041,13 +1047,12 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Add waste for bad boards, angle cuts, and picture-frame borders. Composite decking may need 12&nbsp;in O.C. joists and brand-specific gapping—follow that installation guide rather than wood defaults.</p>
 
       <h2>Beams, posts, and layout (planning only)</h2>
-      <p>A board-and-joist list is not a beam schedule. Common DIY patterns place beams under joists with posts at intervals allowed by the beam size and species—but allowable spans change with lumber grade, load (including snow), and whether the deck is attached or freestanding. Treat the following as a <em>shopping conversation starter</em>, not a code-compliant design:</p>
+      <p>A board-and-joist list is not a beam schedule. Common DIY patterns place beams under joists with posts at intervals allowed by the beam size and species, but allowable spans change with lumber grade, load (including snow), and whether the deck is attached or freestanding. Treat the following as a shopping conversation starter, not a code-compliant design:</p>
       <ul>
         <li><strong>Beams:</strong> count how many beam lines your sketch needs (often one or more under mid-span joists plus a rim or ledger condition). Length each beam to the post layout; include splice hardware if beams are not continuous.</li>
-        <li><strong>Posts:</strong> one post at each beam support point that does not land on a ledger. A rough planning grid for a 16×24 freestanding deck might use posts every 6–8&nbsp;ft along beams—confirm with span tables before buying.</li>
+        <li><strong>Posts:</strong> one post at each beam support point that does not land on a ledger. A rough planning grid for a 16×24 freestanding deck might use posts every 6–8&nbsp;ft along beams. Confirm with span tables before buying.</li>
         <li><strong>Hardware:</strong> post bases, post caps, joist hangers, and structural screws/bolts rated for treated lumber outdoor use.</li>
       </ul>
       <p>Elevated decks, ledgers into house bands, and guards over 30&nbsp;in above grade commonly require permits and inspections. Do not scale a ground-level pad detail to a second-story deck.</p>
@@ -1056,10 +1061,11 @@ export const guideBodies: Record<string, string> = {
       <p>Each post that bears on soil needs a footing sized for load and frost depth. Once you know diameter and depth (often to below frost), estimate concrete with tube forms:</p>
       <ul>
         <li>Use the <a href="/calculators/sonotube-concrete-calculator/">concrete tube / Sonotube calculator</a> for cardboard forms (diameter × height × count).</li>
+        <li>Worked tube examples and bag charts: <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>.</li>
         <li>Bag charts and waste notes: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</li>
-        <li>Round hole intuition for fence-style piers: <a href="/guides/how-much-concrete-for-fence-posts/">concrete for fence posts</a> (different detail than deck piers—still useful for bag math).</li>
+        <li>Round hole intuition for fence-style piers: <a href="/guides/how-much-concrete-for-fence-posts/">concrete for fence posts</a> (different detail than deck piers, still useful for bag math).</li>
       </ul>
-      <p>Example planning ballpark only: eight 12&nbsp;in × 4&nbsp;ft tubes with 5% waste is on the order of two dozen 80&nbsp;lb bags—recalculate for your actual pier count and frost depth. Never pour on organic topsoil or skip local frost requirements.</p>
+      <p>Example planning ballpark only: eight 12&nbsp;in × 4&nbsp;ft tubes with 5% waste is on the order of two dozen 80&nbsp;lb bags. Recalculate for your actual pier count and frost depth. Never pour on organic topsoil or skip local frost requirements.</p>
 
       <h2>Fasteners and consumables checklist</h2>
       <ul>
@@ -1075,23 +1081,24 @@ export const guideBodies: Record<string, string> = {
         <li>Confirm finished size (16×24), height, ledger vs freestanding, railing, and permit needs.</li>
         <li>Choose decking direction for appearance and joist span.</li>
         <li>Run the <a href="/calculators/deck-material-calculator/">deck material calculator</a> with your board width and stock length.</li>
-        <li>Size beams and posts from span tables or an engineer—do not guess from board count alone.</li>
-        <li>Plan footings below frost where required; estimate concrete with the Sonotube tool.</li>
+        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Do not guess from board count alone.</li>
+        <li>Plan footings below frost where required; estimate concrete with the Sonotube tool and the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>.</li>
         <li>Order fasteners rated for the lumber or composite system.</li>
         <li>Dry-fit patterns, then fasten per manufacturer spacing diagrams.</li>
       </ol>
 
       <h2>Tips</h2>
       <ul>
-        <li>16&nbsp;in on-center is a common wood-deck default; some composites require 12&nbsp;in O.C.—check the brand.</li>
+        <li>Treat 16&nbsp;in on-center as a YardTally wood-deck planning default; some composites require 12&nbsp;in O.C. Check the brand.</li>
         <li>Crown joists up; keep fastener rows consistent.</li>
         <li>Flash ledgers properly; ledger failures are a known safety issue when details are skipped.</li>
         <li>Account for stair stringers and landing framing as extra takeoffs.</li>
-        <li>Compare your counts against the smaller <a href="/guides/deck-material-list-12x16/">12×16 list</a> to sanity-check orientation math.</li>
+        <li>Compare your counts against the smaller <a href="/guides/deck-material-list-12x16/">12×16 list</a> to sanity-check orientation math, not to scale the list.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
+        <li>Scaling the 12×16 list by area instead of re-running orientation math.</li>
         <li>Ordering boards without deciding orientation and seam layout on a 24&nbsp;ft run.</li>
         <li>Using interior fasteners on exterior treated lumber.</li>
         <li>Ignoring post-to-beam hardware and lateral load paths on a larger freestanding footprint.</li>
@@ -1104,38 +1111,44 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.awc.org/" rel="noopener noreferrer">American Wood Council – Span resources / DCA guidance</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Outdoor structure topics</a></li>
-        <li><a href="https://extension.psu.edu/" rel="noopener noreferrer">Penn State Extension</a></li>
+        <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
 
-  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Key takeaway:</strong> Block count ≈ courses × blocks per course, where courses = ceil(wall height ÷ block height) and blocks per course = ceil(wall length ÷ block length). Compacted gravel bases are typical for segmental walls, but taller walls, surcharges, and poor soils need engineering. Follow the block manufacturer’s installation manual and local codes.</div>
+  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Key takeaway:</strong> Block count ≈ courses × blocks per course, where courses = ceil(wall height ÷ block height) and blocks per course = ceil(wall length ÷ block length). YardTally’s gravel trench defaults (about 24 in wide by 6 in deep) are planning assumptions for the calculator, not a universal code. Taller walls, surcharges, and poor soils need engineering. Follow the block manufacturer’s installation manual and local codes.</div>
 
-      <h2>How block and base estimates work</h2>
-      <p>For a straight wall with uniform rectangular face blocks:</p>
+      <h2>Can I use paver base under a retaining wall?</h2>
+      <p>Yes for a compacted gravel trench under wall blocks, people often call that “paver base.” Treat it as wall base, not a patio sand-and-gravel section. Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
+      <p>Related ideas (compacted angular gravel) transfer; the assembly does not. Patio bedding sand is not a substitute for wall drainage stone, and patio base thickness is not a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+
+      <h2>How many retaining wall blocks do I need?</h2>
+      <p>Divide wall length by block face length and height by face height, multiply courses by blocks per course, then add waste. Example: 20 ft × 3 ft exposed with 18×6 in blocks is 6 × 14 = 84 face blocks before waste (about 89 with 5%). Order caps separately by linear feet.</p>
+      <p>Formulas for a straight wall with uniform rectangular face blocks:</p>
       <p><strong>Courses = ceil(wall height ÷ block face height).</strong></p>
       <p><strong>Blocks per course = ceil(wall length ÷ block face length).</strong></p>
       <p><strong>Blocks = courses × blocks per course</strong> (then add waste for cuts and breakage).</p>
       <p>Base trench gravel volume ≈ wall length × trench width × trench depth (convert to yards by dividing cubic feet by 27).</p>
-      <p>YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> and drainage layers used under <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand</a>.</p>
-      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions—do not scale a 3 ft DIY patio wall detail to a 8 ft yard cut without professional design.</p>
+      <p>YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Those trench numbers are planning defaults for the tool. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
+
+      <h2>What are typical retaining wall block dimensions?</h2>
+      <p>Use the face length and face height on the pallet tag or cut sheet. Many retail landscape blocks are near 18 in long by 6 in tall, which is YardTally’s planning default, not a rule. Courses = ceil(height ÷ face height); blocks per course = ceil(length ÷ face length).</p>
+      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Do not scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
 
       <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
-      <p>With 18 in long × 6 in tall face blocks:</p>
+      <p>With 18 in long × 6 in tall face blocks (YardTally calculator defaults):</p>
       <ul>
         <li>Courses = ceil(3 ÷ 0.5) = <strong>6 courses</strong>.</li>
         <li>Blocks per course = ceil(20 ÷ 1.5) = <strong>14</strong>.</li>
         <li>Blocks = 6 × 14 = <strong>84</strong>; with 5% waste ≈ <strong>89 blocks</strong>.</li>
         <li>Face area = 20 × 3 = 60 sq ft.</li>
-        <li>Base gravel at 20 ft × 2 ft wide × 0.5 ft deep = 20 cu ft ≈ <strong>0.74 cu yd</strong>.</li>
+        <li>Base gravel at the calculator’s planning trench of 20 ft × 2 ft wide × 0.5 ft deep = 20 cu ft ≈ <strong>0.74 cu yd</strong>.</li>
       </ul>
       <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it does not show in the exposed height.</p>
 
       <h2>Block planning table</h2>
       <div class="table-scroll">
       <table>
-        <caption>Approximate block counts for 18×6 in face blocks (no waste; add ~5–10%)</caption>
+        <caption>Approximate block counts for 18×6 in face blocks (no waste; add ~5–10%; dimensions are a common planning size)</caption>
         <thead>
           <tr><th>Wall L × H</th><th>Courses</th><th>Per course</th><th>Blocks</th></tr>
         </thead>
@@ -1149,20 +1162,23 @@ export const guideBodies: Record<string, string> = {
       </div>
       <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item.</p>
 
-      <h2>Drainage, geogrid, and when DIY stops</h2>
-      <p>Water is the quiet load behind many wall failures. A perforated drainpipe at the base of the drainage stone, outlets to daylight or an approved system, and free-draining backfill keep hydrostatic pressure down. Compacted clay jammed against the back of hollow blocks is a common mistake—follow the block producer’s backfill specification, which often calls for clean stone in a drainage zone.</p>
-      <p>Geogrid extends the reinforced soil mass for taller segmental walls. Grid type, length, and vertical spacing are not guesswork; they come from the manufacturer’s engineered charts or a site-specific design. If your project exceeds the published maximum for a gravity (unreinforced) stack—or if a driveway, fence post footing, or slope sits above the wall—stop and get qualified design help.</p>
-      <p>Base preparation deserves as much care as the visible face. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>; for related thin-layer patio bases (not wall backfill), see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
+      <h2>When do I need an engineer?</h2>
+      <p>Call for engineered design when the wall gets taller than the manufacturer’s gravity (unreinforced) chart, when a driveway, slope, or structure sits above the wall, when soils are poor or wet, or when your building department says a permit needs stamped drawings. Local height triggers vary. Do not invent a legal cap from a blog rule of thumb.</p>
+      <p>Geogrid type, length, and vertical spacing are not guesswork; they come from the manufacturer’s engineered charts or a site-specific design. If your project exceeds the published maximum for an unreinforced stack, stop and get qualified help.</p>
+
+      <h2>Drainage, geogrid, and base preparation</h2>
+      <p>Water is the quiet load behind many wall failures. A perforated drainpipe at the base of the drainage stone, outlets to daylight or an approved system, and free-draining backfill keep hydrostatic pressure down. Compacted clay jammed against the back of hollow blocks is a common mistake. Follow the block producer’s backfill specification, which often calls for clean stone in a drainage zone.</p>
+      <p>Base preparation deserves as much care as the visible face. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. For patio-only thin-layer bases (not wall backfill), see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
       <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage will not send water onto a neighbor’s foundation.</p>
 
       <h2>Step-by-step</h2>
       <ol>
         <li>Determine retained height, slope above/below, and any driveway or structure surcharge.</li>
-        <li>Check whether the wall height triggers permit or engineering thresholds in your city.</li>
-        <li>Select a block system and read its maximum unreinforced height tables.</li>
-        <li>Estimate blocks and base gravel with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a>.</li>
+        <li>Ask the building department whether the wall height or surcharge triggers a permit or engineering review.</li>
+        <li>Select a block system and read its maximum unreinforced height tables on the current installation manual.</li>
+        <li>Enter face dimensions from the pallet tag into the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a>; adjust trench width/depth to the manufacturer sheet when it differs from YardTally defaults.</li>
         <li>Excavate trench; place and compact base gravel level (or stepped on slopes per manual).</li>
-        <li>Set base course carefully—errors compound upward.</li>
+        <li>Set base course carefully. Errors compound upward.</li>
         <li>Stack with pins/lips as designed; install drainpipe and drainage stone; place geogrid when specified; backfill in lifts.</li>
       </ol>
 
@@ -1170,9 +1186,9 @@ export const guideBodies: Record<string, string> = {
       <ul>
         <li>Keep underground utilities marked before digging.</li>
         <li>Compact behind the wall in thin lifts; heavy clay dumped in one lift settles for years.</li>
-        <li>Outlet drains to daylight or an approved system—trapped water raises pressure.</li>
+        <li>Outlet drains to daylight or an approved system. Trapped water raises pressure.</li>
         <li>Order extra blocks from the same production lot for color match.</li>
-        <li>For low decorative seats under ~2 ft, still use a proper base; skipping gravel is a frequent failure mode.</li>
+        <li>For low decorative seats, still use a proper compacted gravel trench; skipping base is a frequent failure mode.</li>
         <li>Dry-stack a mockup course on the driveway to confirm pattern and cap overhang before trench day.</li>
       </ul>
 
@@ -1181,45 +1197,49 @@ export const guideBodies: Record<string, string> = {
         <li>Building “as tall as the slope” without drainage or grid when the system requires them.</li>
         <li>Setting the first course on native dirt without compacted aggregate.</li>
         <li>Using rounded decorative rock as structural base.</li>
-        <li>Ignoring global slope stability above the wall.</li>
+        <li>Copying patio paver base depths into a wall trench without reading the wall manual.</li>
         <li>Counting only exposed face and forgetting buried courses.</li>
         <li>Backfilling with saturated soil in one dump truck pass and calling it done.</li>
+        <li>Publishing a homemade height cap as if it were local law.</li>
       </ul>
 
-      <h2>Height thresholds, permits, and utilities</h2>
-      <p>Many local codes treat retaining walls above a certain height as engineered structures that need a permit, and a measurement of around four feet from the bottom of the footing to the top of the wall is a common threshold in many places—though it varies, and surcharges from driveways, slopes, or buildings can trigger earlier review. Call your building department before design, and schedule a utility locate before digging. Mark property lines, since walls near boundaries can raise drainage and access issues with neighbors. Where the soil is poor or the wall holds back water, a professional designer is worth the cost.</p>
+      <h2>Permits, utilities, and site checks</h2>
+      <p>Many local codes treat taller retaining walls as engineered structures that need a permit, and surcharge from driveways, slopes, or buildings can trigger review earlier than a short garden edge. Call your building department before design, and schedule a utility locate before digging. Mark property lines, since walls near boundaries can raise drainage and access issues with neighbors. Where the soil is poor or the wall holds back water, a professional designer is worth the cost.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://www.quikrete.com/" rel="noopener noreferrer">QUIKRETE – Concrete &amp; landscape products</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC</a></li>
-        <li><a href="https://extension.psu.edu/" rel="noopener noreferrer">Penn State Extension</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/" rel="noopener noreferrer">Iowa State Extension</a></li>
+        <li>Follow the current installation manual and height charts for your retaining-wall block system for trench size, drainage, geogrid, and maximum unreinforced height. YardTally’s 18×6 in face blocks and 24×6 in gravel trench figures are calculator planning defaults until that manual says otherwise.</li>
       </ul>
   `,
 
-  'topsoil-vs-garden-soil': `      <div class="takeaway"><strong>Key takeaway:</strong> Topsoil is primarily mineral soil from the upper earth layer; bagged “garden soil” and raised-bed mixes usually blend mineral soil or composted organics for planting beds. Neither label is federally standardized in everyday retail speech—read ingredients. Buy by cubic yards (bulk) or cubic feet (bags) after you compute volume from area × depth.</div>
+  'topsoil-vs-garden-soil': `      <div class="takeaway"><strong>Key takeaway:</strong> Topsoil is primarily mineral soil from the upper earth layer; bagged “garden soil” and raised-bed mixes usually blend mineral soil or composted organics for planting beds. Neither label is federally standardized in everyday retail speech, so read ingredients. Buy by cubic yards (bulk) or cubic feet (bags) after you compute volume from area × depth.</div>
 
-      <h2>What the names usually mean</h2>
-      <p><strong>Topsoil</strong> in landscape yards often means screened mineral soil with some organic matter—used to fill low spots, establish lawns, or blend into beds. Quality varies: ask about texture (sandy loam vs clay), screening, weed seeds, and contaminants.</p>
-      <p><strong>Garden soil</strong> on bag labels frequently denotes a blended product intended for in-ground beds—commonly topsoil plus compost or other organics. <strong>Raised-bed</strong> or <strong>potting</strong> mixes may be lighter, with bark, peat or coir, perlite, and compost, and may contain little true mineral topsoil.</p>
-      <p>Extension sources stress matching the material to the job. Iowa State’s raised-bed FAQ discusses topsoil/compost/sand combinations; Clemson HGIC discusses topsoil-plus-compost fills and warns that compost fractions that are too high or too low can cause problems. UF/IFAS and other services publish mulch and soil-improvement guidance that complements—but does not replace—reading the bag in your cart.</p>
+      <h2>Is garden soil the same as topsoil?</h2>
+      <p>Not reliably. Topsoil usually means mineral soil for grading and fill. Bagged garden soil is often a blend with compost or other organics meant for planting beds. Raised-bed and potting mixes can be lighter still. Read the ingredient list and intended-use statement on the bag or bulk ticket before you treat the names as interchangeable.</p>
+      <p><strong>Topsoil</strong> in landscape yards often means screened mineral soil with some organic matter, used to fill low spots, establish lawns, or blend into beds. Quality varies: ask about texture (sandy loam vs clay), screening, weed seeds, and contaminants.</p>
+      <p><strong>Garden soil</strong> on bag labels frequently denotes a blended product intended for in-ground beds, commonly topsoil plus compost or other organics. <strong>Raised-bed</strong> or <strong>potting</strong> mixes may be lighter, with bark, peat or coir, perlite, and compost, and may contain little true mineral topsoil.</p>
+      <p>Extension sources stress matching the material to the job. Iowa State’s raised-bed FAQ discusses topsoil, compost, and sand combinations. Clemson HGIC’s soil-conditioning and raised-bed fact sheets discuss topsoil-plus-compost fills and warn that compost fractions that are too high or too low can cause problems.</p>
       <p>Estimate quantities with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>. After planting, cover beds using the <a href="/calculators/mulch-calculator/">mulch calculator</a>, depth norms in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>, and size charts in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. Filling boxed beds is covered in <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for 4×8</a>.</p>
 
-      <h2>How to calculate cubic yards</h2>
+      <h2>How many cubic yards of topsoil do I need?</h2>
+      <p>Multiply area in square feet by depth in feet, then divide by 27. Example: 100 sq ft at 3 inches (0.25 ft) is 25 cu ft, about 0.93 cu yd. At 2 cu ft per bag that is about thirteen bags; bulk delivery usually wins near a yard. Lawn leveling often uses thinner lifts than deep bed fills.</p>
       <p><strong>Cu ft = length × width × (depth_inches ÷ 12).</strong></p>
       <p><strong>Cu yd = cu ft ÷ 27.</strong></p>
-      <p>Example: a 10 × 10 ft area needing 3 in of topsoil → 100 × 0.25 = 25 cu ft ≈ <strong>0.93 cu yd</strong>. At 2 cu ft per bag that is about thirteen bags—bulk delivery is usually smarter near a yard. Lawn leveling often uses thinner lifts; deep raised beds need full volume math.</p>
+      <p>Deep raised beds need full volume math, not a “few bags” guess. A 4×8 bed filled 12 inches deep is 32 cu ft (about 1.2 cu yd), which is a different order of magnitude from a 2-inch top-dress on the same footprint.</p>
+
+      <h2>Can I use topsoil in pots?</h2>
+      <p>Heavy mineral topsoil often compacts and drains poorly in containers. Use a potting mix designed for pots unless a specific recipe says otherwise. Save screened topsoil for grade work, lawn establishment, and blending into in-ground beds where mineral soil continuity matters.</p>
+      <p>On roofs, decks, and sealed patios, weight and drainage matter even more. Confirm structural load limits before placing deep wet soil on structures, and prefer lighter manufactured mixes when the container sits above grade.</p>
 
       <h2>When to choose which product</h2>
-      <p>Use screened topsoil when you need to raise grade, fill ruts, or establish a lawn seedbed where mineral soil continuity matters. Use bagged garden soil when you are amending an existing border and want convenient organic matter in small quantities. Use a raised-bed or planter mix when weight, drainage, and a manufactured blend matter more than matching native mineral soil—especially on roofs, decks, and sealed patios (confirm structural load limits before placing deep wet soil on structures).</p>
-      <p>Compost alone is a powerful amendment but a mediocre structural fill for deep boxes: it continues to decompose and shrink, and excessive organic fractions can cause water and nutrient imbalances. Extension sheets that discuss compost percentages in beds are reacting to that reality. Likewise, “black dirt” sold cheaply without screening may be fill—not a planting medium.</p>
+      <p>Use screened topsoil when you need to raise grade, fill ruts, or establish a lawn seedbed where mineral soil continuity matters. Use bagged garden soil when you are amending an existing border and want convenient organic matter in small quantities. Use a raised-bed or planter mix when weight, drainage, and a manufactured blend matter more than matching native mineral soil.</p>
+      <p>Compost alone is a powerful amendment but a mediocre structural fill for deep boxes: it continues to decompose and shrink, and excessive organic fractions can cause water and nutrient imbalances. Extension sheets that discuss compost percentages in beds are reacting to that reality. Likewise, “black dirt” sold cheaply without screening may be fill, not a planting medium.</p>
       <p>For lawns, thin topdressings after aeration differ from burying turf under inches of new soil. If you are seeding bare ground, coordinate soil depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so you do not strand seed on cloddy clay or bury it too deep.</p>
 
       <h2>Comparison table</h2>
       <div class="table-scroll">
       <table>
-        <caption>Practical comparison of common soil products (general retail meanings—check labels)</caption>
+        <caption>Practical comparison of common soil products (general retail meanings; check labels)</caption>
         <thead>
           <tr><th>Product</th><th>Typical use</th><th>What to verify</th></tr>
         </thead>
@@ -1234,13 +1254,13 @@ export const guideBodies: Record<string, string> = {
       </div>
 
       <h2>Worked example: topping a 4×8 bed with 2 in of compost-rich garden soil</h2>
-      <p>Area = 32 sq ft. Depth = 2 in → 32 × (2÷12) ≈ <strong>5.33 cu ft</strong> (about 0.20 cu yd). That might be three to four 1.5–2.0 cu ft bags depending on bag size—far less than rebuilding the same bed 12 in deep (32 cu ft). Use garden soil or compost blends for top-ups when the mineral base already exists; use calculated topsoil/mix volumes when filling empty frames.</p>
+      <p>Area = 32 sq ft. Depth = 2 in → 32 × (2÷12) ≈ <strong>5.33 cu ft</strong> (about 0.20 cu yd). That might be three to four 1.5–2.0 cu ft bags depending on bag size, far less than rebuilding the same bed 12 in deep (32 cu ft). Use garden soil or compost blends for top-ups when the mineral base already exists; use calculated topsoil/mix volumes when filling empty frames.</p>
 
       <h2>Step-by-step</h2>
       <ol>
         <li>Define the job: regrade a lawn, amend a border, or fill a raised bed.</li>
         <li>Measure area and target depth; convert to cubic feet and yards.</li>
-        <li>Choose product type based on drainage and organic-matter needs—not color of the bag alone.</li>
+        <li>Choose product type based on drainage and organic-matter needs, not color of the bag alone.</li>
         <li>Ask bulk suppliers for a sample scoop; reject foul-smelling or debris-filled loads.</li>
         <li>Order with compaction/settling waste in mind (especially fluffy compost blends).</li>
         <li>Incorporate into native soil when layering on existing ground to avoid perched water barriers.</li>
@@ -1249,7 +1269,7 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Tips</h2>
       <ul>
-        <li>Soil-test before heavy fertilizer additions—new soil can still be off-pH.</li>
+        <li>Soil-test before heavy fertilizer additions. New soil can still be off-pH.</li>
         <li>For food gardens, ask about lead testing if the site or imported soil is suspect.</li>
         <li>“Black dirt” marketing is not a specification; texture matters more than color.</li>
         <li>Keep delivery trucks off septic fields and wet lawns.</li>
@@ -1263,6 +1283,7 @@ export const guideBodies: Record<string, string> = {
         <li>Assuming garden soil and topsoil are interchangeable in every recipe.</li>
         <li>Creating a compost bathtub with no mineral structure for roots.</li>
         <li>Ordering by “scoops” without confirming the yard’s cubic-yard definition.</li>
+        <li>Using heavy topsoil as the only fill in pots and containers.</li>
       </ul>
 
       <h2>Testing and matching soil to the site</h2>
@@ -1271,10 +1292,152 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://yardandgarden.extension.iastate.edu/faq/what-would-be-good-soil-mix-raised-bed" rel="noopener noreferrer">Iowa State Extension – Raised bed soil mix</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/faq/what-would-be-good-soil-mix-raised-bed" rel="noopener noreferrer">Iowa State Extension – Raised bed soil mix FAQ</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/raised-beds/" rel="noopener noreferrer">Clemson HGIC – Raised beds (topsoil &amp; compost)</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/soil-conditioning-establishing-a-successful-gardening-foundation/" rel="noopener noreferrer">Clemson HGIC – Soil conditioning</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Mulch (companion to soil improvement)</a></li>
+      </ul>
+  `,
+
+  'how-much-concrete-in-a-sonotube': `      <div class="takeaway"><strong>Key takeaway:</strong> Sonotube volume is π × r² × height using inside diameter. A 12-inch tube 4&nbsp;ft tall holds about 3.14&nbsp;cu&nbsp;ft—plan on six 80&nbsp;lb bags or seven 60&nbsp;lb bags before waste. Multiply by pier count, then add a little for spillage.</div>
+
+      <h2>How much concrete is in a Sonotube?</h2>
+      <p>Enough to fill the clear inside cylinder: <strong>Volume (cu&nbsp;ft) = π × (diameter ÷ 2)² × height</strong>, with diameter and height in feet. A 12&quot; ID tube (0.5&nbsp;ft radius) at 4&nbsp;ft tall is π × 0.5² × 4 ≈ 3.14&nbsp;cu&nbsp;ft (~0.12&nbsp;cu&nbsp;yd). Convert to bags with your mix yield, then multiply by pier count.</p>
+      <p>Run the same math live in the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a>. Fence post holes without cardboard forms belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a> instead.</p>
+
+      <h2>How many bags of concrete for a 12-inch Sonotube?</h2>
+      <p>Per foot of height, a 12&quot; tube needs about 0.785&nbsp;cu&nbsp;ft. A 2&nbsp;ft pier is ~1.57&nbsp;cu&nbsp;ft (three 80&nbsp;lb or four 60&nbsp;lb bags). A 3&nbsp;ft pier is ~2.36&nbsp;cu&nbsp;ft (four 80&nbsp;lb or six 60&nbsp;lb). A 4&nbsp;ft pier is ~3.14&nbsp;cu&nbsp;ft—about 5.2 of the 80&nbsp;lb bags before rounding, so plan on 6, or about 7 of the 60&nbsp;lb bags.</p>
+      <p>Bag counts below use ceil(volume ÷ yield) with 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag and 0.45&nbsp;cu&nbsp;ft per 60&nbsp;lb bag (QUIKRETE 1101 / Sakrete planning yields). YardTally’s Sonotube tool also adds a default 5% waste for formed cylinders when you leave waste on.</p>
+
+      <h2>Sonotube bag chart (before waste)</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Concrete volume and bags for common Sonotube sizes at 2, 3, and 4 ft (before waste)</caption>
+        <thead>
+          <tr>
+            <th>Diameter</th>
+            <th>Height</th>
+            <th>Volume (cu ft)</th>
+            <th>80 lb bags</th>
+            <th>60 lb bags</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>8"</td><td>2 ft</td><td>0.70</td><td>2</td><td>2</td></tr>
+          <tr><td>8"</td><td>3 ft</td><td>1.05</td><td>2</td><td>3</td></tr>
+          <tr><td>8"</td><td>4 ft</td><td>1.40</td><td>3</td><td>4</td></tr>
+          <tr><td>10"</td><td>2 ft</td><td>1.09</td><td>2</td><td>3</td></tr>
+          <tr><td>10"</td><td>3 ft</td><td>1.64</td><td>3</td><td>4</td></tr>
+          <tr><td>10"</td><td>4 ft</td><td>2.18</td><td>4</td><td>5</td></tr>
+          <tr><td>12"</td><td>2 ft</td><td>1.57</td><td>3</td><td>4</td></tr>
+          <tr><td>12"</td><td>3 ft</td><td>2.36</td><td>4</td><td>6</td></tr>
+          <tr><td>12"</td><td>4 ft</td><td>3.14</td><td>6</td><td>7</td></tr>
+          <tr><td>16"</td><td>2 ft</td><td>2.79</td><td>5</td><td>7</td></tr>
+          <tr><td>16"</td><td>3 ft</td><td>4.19</td><td>7</td><td>10</td></tr>
+          <tr><td>16"</td><td>4 ft</td><td>5.59</td><td>10</td><td>13</td></tr>
+          <tr><td>18"</td><td>2 ft</td><td>3.53</td><td>6</td><td>8</td></tr>
+          <tr><td>18"</td><td>3 ft</td><td>5.30</td><td>9</td><td>12</td></tr>
+          <tr><td>18"</td><td>4 ft</td><td>7.07</td><td>12</td><td>16</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Use inside diameter. Manufacturers label common sizes such as 8&quot;, 10&quot;, and 12&quot;. Outside cardboard thickness does not get filled with concrete.</p>
+
+      <h2>Worked example: eight 12&quot; × 4 ft piers</h2>
+      <p>One tube ≈ 3.14&nbsp;cu&nbsp;ft. Eight tubes ≈ 25.1&nbsp;cu&nbsp;ft before waste. With 5% waste ≈ 26.4&nbsp;cu&nbsp;ft → ceil(26.4 ÷ 0.60) = 44 bags of 80&nbsp;lb mix. That is near one cubic yard, so price ready-mix if the truck can reach the pour. Full bag math context: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
+
+      <h2>Are Sonotubes necessary for deck posts?</h2>
+      <p>Not always. Cardboard tube forms give a clean round pier with a known diameter and a consistent column. Many decks still use square formed footings or poured holes when the detail allows it. Follow the footing size on your plan or local practice. This page only sizes concrete once you choose a tube.</p>
+
+      <h2>Do Sonotubes need rebar?</h2>
+      <p>That depends on the structural detail, local code, and load, not on a volume chart. Some pier details call for vertical bars and a cage. Others are plain concrete for light loads. Check the plan, the deck hardware instructions, and your building department. Do not invent a rebar schedule from bag counts.</p>
+
+      <h2>How do I use a concrete calculator for tubes?</h2>
+      <p>Enter inside diameter, height, and tube count in the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Read cubic feet, yards, and 40 / 60 / 80&nbsp;lb bag estimates. For rectangular pads use the <a href="/calculators/concrete-calculator/">slab calculator</a> instead. Deck lumber takeoffs are separate in the <a href="/calculators/deck-material-calculator/">deck material calculator</a>.</p>
+      <ol>
+        <li>Confirm inside diameter and pour height for each pier (include above-grade reveal if the tube stays).</li>
+        <li>Count tubes. Corner and stair piers often differ from field piers.</li>
+        <li>Run πr²h or the Sonotube calculator for total volume.</li>
+        <li>Convert to bags with the yield on your mix. Add about 5% for formed cylinders unless you already rounded aggressively.</li>
+        <li>Brace tubes plumb before you place concrete. Strip cardboard only when the mix has set per the form and mix instructions.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Buy one product line for the whole pour so color and strength stay consistent.</li>
+        <li>Stage water and a mixing plan before the first bag opens. Tube pours go fast once you start.</li>
+        <li>For full deck lumber lists after the piers, see the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using outside diameter instead of inside diameter.</li>
+        <li>Applying fence-hole depth rules to formed deck piers without checking frost and plan details.</li>
+        <li>Forgetting to multiply by pier count.</li>
+        <li>Ordering from a slab chart that assumes a rectangle.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
+      </ul>
+  `,
+
+  'how-to-estimate-roofing-shingles': `      <div class="takeaway"><strong>Key takeaway:</strong> One roofing square covers 100&nbsp;sq&nbsp;ft of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add about 10–15% waste. Most common asphalt products use about 3 bundles per square. Specialty laminates can need 4–5.</div>
+
+      <h2>How do I estimate roofing shingles for a roof?</h2>
+      <p>Find roof surface area, convert to squares, add waste, then multiply by bundles per square from the product you are buying. Surface area is plan footprint times the pitch factor, not the house length × width alone. Measure pitch first if you do not already know it. Then run the numbers in the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a>.</p>
+      <ol>
+        <li>Measure plan length and width of each roof plane (or the simple rectangle footprint for a basic gable).</li>
+        <li>Find pitch as X-in-12. See <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> if you need a safe method.</li>
+        <li>Multiply plan area by the pitch area factor (6/12 ≈ 1.118 per IKO’s example).</li>
+        <li>Divide roof square feet by 100 to get squares.</li>
+        <li>Add waste (often about 10–15% for hips, valleys, and cuts; GAF notes up to about 10% overage as a planning figure for many jobs).</li>
+        <li>Multiply squares by bundles per square from the label (commonly 3; some specialty products 4–5).</li>
+      </ol>
+
+      <h2>What is a roofing square vs square feet?</h2>
+      <p>A roofing square is 100&nbsp;square feet of roof surface. Contractors order by squares. Homeowners often think in square feet. Both describe the same area: 13.5 squares is 1,350&nbsp;sq&nbsp;ft of roof. IKO and GAF both define a square as 100&nbsp;sq&nbsp;ft when explaining coverage and bundles.</p>
+
+      <h2>How many bundles of shingles in a square?</h2>
+      <p>Typically three bundles per square for many asphalt products, about 33.3&nbsp;sq&nbsp;ft of coverage each. IKO notes that specialty shingles can take four or five bundles per square. GAF cites Timberline HDZ at three bundles per square and Grand Sequoia at five. Always read the bundle wrapper for the product on your truck.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Bundle planning figures from manufacturer guidance</caption>
+        <thead><tr><th>Product type (examples)</th><th>Bundles per square</th><th>Source note</th></tr></thead>
+        <tbody>
+          <tr><td>Many common asphalt / Timberline HDZ</td><td>3</td><td>IKO typical; GAF Timberline HDZ</td></tr>
+          <tr><td>Some specialty laminates</td><td>4–5</td><td>IKO specialty range</td></tr>
+          <tr><td>GAF Grand Sequoia</td><td>5</td><td>GAF square / bundle article</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>How does roof pitch change the shingle order?</h2>
+      <p>Steeper roofs have more surface area on the same footprint. At 6/12 the area factor is about 1.118. At 8/12 it rises to about 1.202. Skipping the pitch factor under-orders every steep roof. Convert pitch with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a>, then finish the material takeoff here or in the shingles calculator.</p>
+
+      <h2>Worked example: 40 × 30 ft plan at 6/12</h2>
+      <p>Plan area = 1,200&nbsp;sq&nbsp;ft. Roof surface ≈ 1,200 × 1.118 = 1,342&nbsp;sq&nbsp;ft = 13.42 squares. With 10% waste → about 14.76 squares. At 3 bundles per square → about 45 bundles before starter and ridge. Complex hips and valleys often need more waste than a simple gable.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Order starter and ridge pieces as separate line items. They are not always included in field-shingle bundle math.</li>
+        <li>Match dye lots. Buying a few extra bundles later can show a color shift.</li>
+        <li>Low-slope roofs may need different underlayment or systems. Pitch drives product choice, not only quantity.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using plan area as roof area on a steep pitch.</li>
+        <li>Assuming every asphalt product is 3 bundles per square.</li>
+        <li>Skipping waste on cut-heavy hips and valleys.</li>
+        <li>Measuring pitch along the rafter slope instead of horizontal run.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.iko.com/na/blog/how-many-shingles-in-a-bundle/" rel="noopener noreferrer">IKO – How many shingles in a bundle (square = 100 sq ft, bundles, 6:12 factor, waste)</a></li>
+        <li><a href="https://www.gaf.com/en-us/blog/your-home/how-to-measure-a-roofing-square-3faec381-6f6f-49ff-841f-114c59108f2a" rel="noopener noreferrer">GAF – How to measure a roofing square (100 sq ft, Timberline HDZ / Grand Sequoia bundles, overage)</a></li>
       </ul>
   `,
 

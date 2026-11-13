@@ -69,71 +69,82 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'mulch-depth-guide': `      <div class="takeaway"><strong>Key takeaway:</strong> Most flower and shrub beds do well with about 2–3 inches of organic mulch. Tree rings use a similar depth in a wide donut kept off the trunk flare. Depth drives volume—measure area first, then multiply by depth in feet.</div>
+  'mulch-depth-guide': `      <div class="takeaway"><strong>Key takeaway:</strong> For most flower beds and gardens, plan on about 2–3 inches of organic mulch. Keep mulch pulled back from trunks, refresh by measuring what is already there, and size bags from area × depth.</div>
 
-      <p>This guide answers “how deep,” not only “how many bags.” For quantities on common rectangles, see the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>. For custom shapes, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
+      <h2>How deep should mulch be in flower beds / for gardens?</h2>
+      <p>Most flower beds and gardens do well with about 2–3 inches of organic mulch. That depth suppresses weeds and holds moisture without smothering roots. Mississippi State says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and says not to exceed 3 inches in beds. Clemson lists 2–3 inches for many wood and bark mulches.</p>
+      <p>This page answers “how deep,” not only “how many bags.” For quantities on common rectangles, see the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>. For custom shapes, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
 
-      <h2>Recommended depths</h2>
+      <h2>Recommended depths by area</h2>
       <div class="table-scroll">
       <table>
-        <caption>Typical organic mulch depths by landscape area</caption>
-        <thead><tr><th>Area</th><th>Typical depth</th><th>Notes</th></tr></thead>
+        <caption>Typical organic mulch depths cited for landscape beds</caption>
+        <thead><tr><th>Area</th><th>Typical depth</th><th>Source notes</th></tr></thead>
         <tbody>
-          <tr><td>Shrub &amp; perennial beds</td><td>2–3"</td><td>Replenish as it decomposes</td></tr>
-          <tr><td>Tree rings</td><td>2–3"</td><td>Keep clear of trunk bark</td></tr>
-          <tr><td>Paths (wood chips)</td><td>3–4"</td><td>Expect compaction under foot traffic</td></tr>
+          <tr><td>Flower, shrub, and perennial beds</td><td>2–3"</td><td>Clemson wood/bark range; MSU bark 2–3"</td></tr>
+          <tr><td>Florida-Friendly beds</td><td>About 3" (max 3")</td><td>UF/IFAS; seedlings often only 1"</td></tr>
+          <tr><td>Tree rings</td><td>Similar bed depth</td><td>Keep a bare collar; MSU pull 2–3" from trunk</td></tr>
+          <tr><td>Wood-chip paths</td><td>Often a bit thicker</td><td>Expect compaction under foot traffic</td></tr>
         </tbody>
       </table>
       </div>
-      <p>University extension publications consistently land near the 2–3&nbsp;inch range for landscape beds. Treat thicker “set it and forget it” layers as a risk for water shedding and oxygen restriction around roots—not as a shortcut. Inorganic options such as gravel mulch behave differently: they do not feed soil life the way shredded bark does, they can heat beds in full sun, and they are harder to remove if you change the planting plan. Choose organic mulch when soil improvement is part of the goal.</p>
-      <p>Season matters. In hot, dry climates a full 3-inch organic layer helps hold moisture through summer; in wet, poorly drained beds a slightly thinner layer (closer to 2&nbsp;inches) can reduce prolonged soil saturation at the surface. Refresh depth after winter winds and decomposition rather than adding a fixed number of bags every spring without measuring what is already there.</p>
+      <p>Organic mulch feeds soil life as it breaks down. Inorganic rock mulch behaves differently: it does not add organic matter the way shredded bark does, it can heat beds in full sun, and it is harder to remove later. Choose organic mulch when soil improvement is part of the goal. Season also matters. Hot, dry beds often benefit from a full 3-inch organic layer; wet, poorly drained beds may do better closer to 2 inches so the surface stays less soggy.</p>
 
-      <h2>How volume follows from depth</h2>
-      <p><strong>Cubic feet = area (sq&nbsp;ft) × (depth_inches ÷ 12).</strong> Cubic yards = cubic feet ÷ 27. At 3&nbsp;inches (0.25&nbsp;ft), each 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (≈0.93&nbsp;cu&nbsp;yd). At 2&nbsp;inches, the same 100&nbsp;sq&nbsp;ft needs about 16.7&nbsp;cu&nbsp;ft (≈0.62&nbsp;cu&nbsp;yd). Bag counts for 2&nbsp;cu&nbsp;ft bags are ceil(cu&nbsp;ft ÷ 2).</p>
-      <p>Depth errors are costly: ordering for 4&nbsp;inches when you only need 3&nbsp;inches wastes about one-third extra material. Measure the depth you intend to maintain after settling, not the fluffy height right out of the bag.</p>
+      <h2>Is 4 inches of mulch too much?</h2>
+      <p>For most ornamental beds, yes. Layers much deeper than about 3 inches can shed water and cut oxygen to roots. UF/IFAS says not to apply more than 3 inches in beds because excess mulch can divert rain and irrigation. Wood-chip paths sometimes run thicker under foot traffic; that is a different job than a planting bed.</p>
+      <p>Ordering for 4 inches when you only need 3 inches wastes about one-third extra material. Measure the depth you intend to maintain after settling, not the fluffy height right out of the bag.</p>
+
+      <h2>Should I remove old mulch before adding new?</h2>
+      <p>Not always. If the old layer is thin and well decomposed, rake it and top-dress only enough to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, thin or remove it first so new mulch does not create an anaerobic blanket. Light replenishment is preferred when depth falls below about 2 inches.</p>
+      <p>Mississippi State Extension also warns that years of heavy mulching can build soil against plant bases. After a few seasons, rake off excess before you lay a fresh, even layer.</p>
+
+      <h2>How to measure depth and refresh mulch (step-by-step)</h2>
+      <ol>
+        <li>Pull weeds and water dry soil so you are not sealing dust under a new blanket.</li>
+        <li>Push a ruler or marked trowel through the mulch to the soil surface and read the current depth in several spots.</li>
+        <li>Decide the target depth (usually 2–3 inches in beds; about 3 inches where UF/IFAS Florida-Friendly guidance applies).</li>
+        <li>If you already have close to target depth, rake to loosen mats and stop; if you are short, order only the difference.</li>
+        <li>Measure bed length and width (or break curves into rectangles). Area (sq&nbsp;ft) × (depth inches ÷ 12) = cubic feet needed.</li>
+        <li>Convert to bags (÷ bag size, often 2 or 3 cu&nbsp;ft) or yards (÷ 27). Round up a little for settling.</li>
+        <li>Spread evenly, keep mulch a few inches off trunks and stems, and water lightly so the layer settles to the measured depth.</li>
+      </ol>
+      <p><strong>Cubic feet = area (sq&nbsp;ft) × (depth_inches ÷ 12).</strong> At 3 inches, each 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). At 2 inches, the same 100&nbsp;sq&nbsp;ft needs about 16.7&nbsp;cu&nbsp;ft.</p>
 
       <h2>Worked example: 20 × 5 ft bed</h2>
-      <p>A 20 × 5&nbsp;ft bed is 100&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 100 × 0.25 = 25&nbsp;cu&nbsp;ft ≈ thirteen 2&nbsp;cu&nbsp;ft bags. At 2&nbsp;inches: 100 × (2÷12) ≈ 16.7&nbsp;cu&nbsp;ft ≈ nine 2&nbsp;cu&nbsp;ft bags. Split irregular beds into rectangles and add the volumes—same method the calculator uses.</p>
+      <p>A 20 × 5&nbsp;ft bed is 100&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 100 × 0.25 = 25&nbsp;cu&nbsp;ft ≈ thirteen 2&nbsp;cu&nbsp;ft bags. At 2&nbsp;inches: 100 × (2÷12) ≈ 16.7&nbsp;cu&nbsp;ft ≈ nine 2&nbsp;cu&nbsp;ft bags. Split irregular beds into rectangles and add the volumes, using the same method the calculator uses.</p>
 
       <h2>Worked example: tree ring</h2>
-      <p>Suppose you mulch a ring with a 6&nbsp;ft outer diameter and leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ 6.6&nbsp;cu&nbsp;ft (about four 2&nbsp;cu&nbsp;ft bags). The <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> automates that donut math so you do not mulch the trunk space you should leave bare.</p>
+      <p>Suppose you mulch a ring with a 6&nbsp;ft outer diameter and leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ 6.6&nbsp;cu&nbsp;ft (about four 2&nbsp;cu&nbsp;ft bags). Keep the trunk flare bare; MSU’s 2–3 inch pull-back is about clearance from bark, not deeper mulch against the wood.</p>
 
       <h2>Tips</h2>
       <ul>
-        <li>Water the soil before mulching so you are not sealing dust-dry ground under a thick blanket.</li>
-        <li>Pull weeds first; mulch suppresses new germination better than it kills established weeds.</li>
-        <li>Keep mulch a few inches back from siding and stems to reduce moisture and pest issues.</li>
-        <li>Organic mulches shrink as they decompose—budget a light top-dress each year rather than a deep dump.</li>
-        <li>Match mulch type to the job: shredded hardwood for beds, coarser chips for paths, and avoid piling anything against tree bark.</li>
+        <li>Match mulch type to the job: shredded hardwood for beds, coarser chips for paths.</li>
+        <li>Keep mulch off siding and stems to reduce moisture and pest issues.</li>
+        <li>Organic mulches shrink as they decompose; budget a light top-dress rather than a deep dump every spring.</li>
+        <li>Fine sawdust or packed fresh clippings can mat and shed water; prefer coarser products for a 2–3 inch layer.</li>
+        <li>If you mulch food gardens with dyed product, read the label and ask what the colorant and base wood are.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
         <li>Volcano mulching against trunks.</li>
         <li>Installing 6&nbsp;inches “so it lasts longer,” then watching water shed off the surface.</li>
-        <li>Measuring bed length but guessing width—pace both directions or use a tape.</li>
+        <li>Measuring length but guessing width.</li>
         <li>Ordering by bags without converting depth to feet (using 3 instead of 0.25).</li>
-        <li>Ignoring paths and tree rings that share the same delivery truck but need different depths.</li>
+        <li>Stacking new bags on old matted layers without checking total depth.</li>
       </ul>
 
-      <h2>Comparing common mulch materials</h2>
-      <p>Depth guidance assumes an organic, reasonably coarse material. Shredded hardwood bark knits together and stays put on slopes. Pine bark nuggets are lighter and float in heavy rain. Pine straw and similar needle mulches are common in parts of the Southeast and are usually spread lighter and fluffier. Arborist wood chips are inexpensive and good for paths and large areas, but they are coarser and can look rougher. Finished compost works as a thin nutrient-rich top dressing but breaks down faster and may not suppress weeds as long as a bark layer. When you read an extension recommendation, note which material it describes before copying the number.</p>
-      <p>Fresh, very fine material such as sawdust or fine grass clippings packed thickly can mat and shed water, so most guidance prefers coarser products for deep layers. Dyed mulches are widely sold; if you are mulching food gardens, read the label and ask the supplier what the colorant and base wood are.</p>
-      <h2>Refreshing instead of re-burying</h2>
-      <p>The most useful habit is to measure what is already in the bed. Push a ruler or trowel through the mulch to the soil and read the depth. If you still have two inches of loose material, rake it to break up any crust and add only enough to restore the target depth. Many beds need only a light top-up each year or two, while paths and high-traffic areas decompose faster. This approach saves money and avoids the slow suffocation of roots that comes from stacking new layers on top of old ones year after year.</p>
-      <p>Landscape fabric under organic mulch is a debated topic; some extension publications caution that fabric can clog with debris and roots over time and complicate future planting. Whether you use it or not, keep the same depth targets and check your local extension office for climate-specific advice.</p>
-
-      <h2>When to call a pro / safety / codes</h2>
-      <p>Call an arborist if trees show girdling roots, buried root flares, or chronic decline after years of deep mulch. Large properties may justify a landscape contractor for bulk delivery and even spreading. Mulch is generally not a permit item, but street trees and HOA rules may limit materials or colors. Wear dust protection when dumping dry bulk mulch, and keep piles away from building walls where spontaneous heating in large heaps can be a fire concern—spread large deliveries promptly.</p>
+      <h2>When to call a pro / safety</h2>
+      <p>Call an arborist if trees show girdling roots, buried root flares, or decline after years of deep mulch. Large properties may justify a crew for bulk delivery and even spreading. Wear dust protection when dumping dry bulk mulch, and spread large deliveries promptly so piles do not heat against building walls.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed</a></li>
+        <li><a href="https://extension.msstate.edu/publications/mulches-for-the-landscape" rel="noopener noreferrer">Mississippi State Extension – Mulches for the landscape</a></li>
         <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
-        <li><a href="https://extension.msstate.edu/publications/mulches-for-the-landscape" rel="noopener noreferrer">Mississippi State Extension – Mulches for the landscape</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed</a></li>
       </ul>
-  `,
+`,
 
   'how-many-bags-of-concrete': `      <div class="takeaway"><strong>Key takeaway:</strong> Divide project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb), round up, then add waste. An 80&nbsp;lb bag yields about 0.60&nbsp;cu&nbsp;ft—roughly 45 bags per cubic yard before waste.</div>
 
@@ -271,18 +282,34 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'mulch-for-common-garden-beds': `      <div class="takeaway"><strong>Key takeaway:</strong> At 3&nbsp;inches deep, a 4×8&nbsp;ft bed needs about 8&nbsp;cu&nbsp;ft of mulch (four 2&nbsp;cu&nbsp;ft bags). A 20×5 bed needs about 25&nbsp;cu&nbsp;ft (≈0.93&nbsp;cu&nbsp;yd). Depth guidance lives in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>—this page is the quantity chart.</div>
+  'mulch-for-common-garden-beds': `      <div class="takeaway"><strong>Key takeaway:</strong> At 3&nbsp;inches deep, a 4×8&nbsp;ft bed needs about 8&nbsp;cu&nbsp;ft of mulch (four 2&nbsp;cu&nbsp;ft bags). A 20×5 bed needs about 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). Depth targets live in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide; this page is the quantity chart.</div>
 
+      <h2>How much mulch for a 4×8 garden bed?</h2>
+      <p>At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (about 0.30 cu yd). That is four 2 cu ft bags, or about three 3 cu ft bags. At 2 inches, the same bed needs about 5.3 cu ft. Measure inside the frame so lumber thickness does not inflate the order.</p>
       <p>Customize odd shapes with the <a href="/calculators/mulch-calculator/">mulch calculator</a>. For trees, use the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the trunk opening.</p>
       <figure class="diagram">
         <img src="/diagrams/mulch-bed-dimensions.svg" width="960" height="540" alt="Diagram of a garden bed mulch layer showing length, width and depth" loading="lazy" />
       </figure>
 
-      <h2>How it's calculated</h2>
-      <p><strong>Cu&nbsp;ft = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. Bags (2&nbsp;cu&nbsp;ft) = ceil(cu&nbsp;ft ÷ 2). Some regions sell 3&nbsp;cu&nbsp;ft bags—divide by 3 instead. Iowa State Extension walks through the same area × depth approach for garden beds; the arithmetic does not change with mulch brand, only with how settled the product is after spreading.</p>
-      <p>At 2&nbsp;inches, volumes are two-thirds of the 3-inch figures. If you are only top-dressing an existing 1-inch layer up to 3&nbsp;inches, order the 2-inch difference—not a full new 3-inch blanket.</p>
-      <p>Raised beds complicate the picture slightly: you mulch the soil surface inside the frame, not the outer footprint of the lumber. A 4×8 bed built with 2× lumber still has roughly 32&nbsp;sq&nbsp;ft of mulchable surface if you measure inside dimensions. Vegetable beds sometimes use finer compost or straw instead of chunky bark; the volume math is identical even when the material name changes.</p>
-      <p>Color and texture affect how deep mulch looks. Fine, dark mulch can appear thicker than coarse chips at the same measured depth. Always verify with a ruler or a marked trowel rather than eyeballing from the patio. After the first rain, check depth again—fluffed bags settle.</p>
+      <h2>How many bags for a 20×5 bed?</h2>
+      <p>A 20×5 bed is 100 sq ft. At 3 inches: 100 × 0.25 = 25 cu ft, about 0.93 cu yd. That is thirteen 2 cu ft bags, or nine 3 cu ft bags after rounding up. At this size, compare bulk delivery by the cubic yard against bag pricing, especially if several beds share one truck.</p>
+      <p>UF/IFAS notes that one cubic yard covers about 108 sq ft at a 3-inch depth, which matches the same volume math: 100 sq ft at 3 inches is just under one yard.</p>
+
+      <h2>Bags vs bulk mulch</h2>
+      <p>Bags win for small beds and color-matched touch-ups. Iowa State Extension notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size on the package. Bulk usually costs less per cubic foot once you need roughly a cubic yard or more, if you can stage a pile and move it quickly.</p>
+      <p>Under about 0.5 cu yd, bags are often simpler. Between 0.5 and 1 cu yd, compare delivery fees; short-load premiums can erase bulk savings. Whatever you buy, spread to the target depth from the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide rather than emptying every bag onto one corner.</p>
+
+      <h2>How to calculate mulch from area × depth (step-by-step)</h2>
+      <ol>
+        <li>Measure length and width of the planting surface in feet (inside raised-bed frames).</li>
+        <li>Multiply for square feet. Split L-shapes and curves into rectangles and add the pieces.</li>
+        <li>Choose depth in inches (often 2–3 inches; see the depth guide).</li>
+        <li>Convert depth to feet (inches ÷ 12). Example: 3 inches = 0.25 ft.</li>
+        <li>Multiply area × depth in feet to get cubic feet.</li>
+        <li>For bags, divide cubic feet by bag size (commonly 2 or 3 cu ft per Iowa’s bag method) and round up.</li>
+        <li>For bulk, divide cubic feet by 27 for cubic yards. As a check, UF/IFAS coverage is about 108 sq ft per cu yd at 3 inches.</li>
+      </ol>
+      <p><strong>Cu&nbsp;ft = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. If you are only top-dressing an existing 1-inch layer up to 3 inches, order the 2-inch difference, not a full new 3-inch blanket.</p>
 
       <h2>Common bed chart at 3&quot; depth</h2>
       <div class="table-scroll">
@@ -303,19 +330,15 @@ export const guideBodies: Record<string, string> = {
       <p>Two raised beds, each 4×8 at 3&nbsp;inches: 2 × 8 = 16&nbsp;cu&nbsp;ft → eight 2&nbsp;cu&nbsp;ft bags. If you prefer 2&nbsp;inches for a lighter look, 2 × 5.33 ≈ 10.7&nbsp;cu&nbsp;ft → six bags. Buy one extra bag when color-matching matters; dye lots can vary between store runs.</p>
 
       <h2>Worked example: 12×3 border at 2&quot;</h2>
-      <p>A long border: 12 × 3 = 36&nbsp;sq&nbsp;ft × (2÷12) = 6&nbsp;cu&nbsp;ft → three 2&nbsp;cu&nbsp;ft bags. The same border at 3&nbsp;inches needs 9&nbsp;cu&nbsp;ft (five bags). Paths beside the border often want thicker wood chips—price those separately so bed mulch and path chips can differ.</p>
-
-      <h2>Bulk vs bags at a glance</h2>
-      <p>Under about 0.5&nbsp;cu&nbsp;yd, bags usually win on convenience. Between 0.5 and 1&nbsp;cu&nbsp;yd, compare delivery fees—some yards charge a short-load premium that erases bulk savings. Above 1&nbsp;cu&nbsp;yd, bulk shredded hardwood is frequently cheaper per cubic foot if you can stage a pile and move it within a day or two. Whatever you buy, spread to the target depth from the <a href="/guides/mulch-depth-guide/">mulch depth guide</a> rather than emptying every bag onto one corner of the bed.</p>
-      <p>When several beds share a truck, add the chart rows first, then round the combined yards upward. Ordering three separate “half yards” for three beds often costs more than one full yard split among them.</p>
+      <p>A long border: 12 × 3 = 36&nbsp;sq&nbsp;ft × (2÷12) = 6&nbsp;cu&nbsp;ft → three 2&nbsp;cu&nbsp;ft bags. The same border at 3&nbsp;inches needs 9&nbsp;cu&nbsp;ft (five bags). Paths beside the border often want thicker wood chips; price those separately so bed mulch and path chips can differ.</p>
 
       <h2>Tips</h2>
       <ul>
-        <li>Measure inside the bed frame; outer landscape timber dimensions overstate planting area.</li>
-        <li>Bulk mulch is usually sold by the cubic yard—round up when your chart shows 0.9&nbsp;cu&nbsp;yd.</li>
         <li>Fluffed bag mulch settles; rake to the target depth after watering.</li>
+        <li>When several beds share a truck, add the chart rows first, then round the combined yards upward.</li>
         <li>Keep mulch off vegetable stems that rot easily when buried.</li>
-        <li>Read the <a href="/guides/mulch-depth-guide/">depth guide</a> before you decide that “more mulch” will reduce weeding forever.</li>
+        <li>Compare bag prices only after you know whether bags are 1.5, 2, or 3&nbsp;cu&nbsp;ft.</li>
+        <li>Read the <a href="/guides/mulch-depth-guide/">depth guide</a> before deciding that more mulch will end weeding forever.</li>
       </ul>
 
       <h2>Common mistakes</h2>
@@ -323,74 +346,51 @@ export const guideBodies: Record<string, string> = {
         <li>Using 3 as a multiplier instead of 0.25 when depth is 3&nbsp;inches.</li>
         <li>Ordering for tree rings with the rectangle chart and covering the trunk flare.</li>
         <li>Forgetting multiple beds that share one delivery.</li>
-        <li>Comparing bag prices without checking whether bags are 1.5, 2, or 3&nbsp;cu&nbsp;ft.</li>
-        <li>Spreading fresh, un-composted chips tight against tender perennials that can nitrogen-tie temporarily—mix or age chips when possible.</li>
+        <li>Spreading fresh, uncomposted chips tight against tender perennials.</li>
       </ul>
 
-      <h2>Measuring curved and irregular beds</h2>
-      <p>The chart assumes tidy rectangles, but most real beds curve. A reliable shortcut is the average-width method: stretch a tape along the bed's centerline for the length, then measure the width at every few feet and average those readings. Multiply length by average width for square footage. For a kidney-shaped bed with widths of 3, 5, 6, 5, and 3 feet over a 20-foot length, the average width is about 4.4 feet, giving roughly 88 square feet. That is close enough for ordering mulch, especially if you round up your yards.</p>
-      <p>Another approach is to break the shape into rectangles and triangles, calculate each, and add. A circle or semicircle uses π × radius². Whichever method you choose, write the numbers down so you can reuse them next season—measuring once and saving the square footage makes every future top-dress a thirty-second calculation.</p>
-      <h2>Spacing the work through the year</h2>
-      <p>Mulch is easier to spread when beds are clear of weeds and soil is moist, which is why many gardeners mulch in spring after the soil has warmed and again in fall if the layer has thinned. Timing varies by climate and plant type, so follow local extension advice for when to apply near tender perennials or newly seeded areas. If you have several bed sizes to cover, list each bed's square footage in a small table and total the cubic feet before you shop; one consolidated order is almost always cheaper and more color-consistent than several small ones.</p>
+      <h2>Measuring curved beds</h2>
+      <p>Most real beds curve. Stretch a tape along the centerline for length, measure width every few feet, and average those readings. Multiply length by average width for square footage. Or break the shape into rectangles and triangles, calculate each, and add. Write the square footage down so next season’s top-dress is a thirty-second calculation.</p>
 
-      <h2>When to call a pro / safety / codes</h2>
-      <p>Large estate beds, steep slopes, or properties with irrigation and lighting already installed may need a landscape crew to avoid damaging lines. Mulch deliveries can weigh well over a ton per cubic yard of dense product—protect lawns with plywood if a truck dumps on turf. There is rarely a building-code issue for garden mulch, but street-tree rules and wildfire-prone regions may restrict mulch type or placement against structures. Follow local fire-safe landscaping guidance where it applies.</p>
+      <h2>When to call a pro / safety</h2>
+      <p>Large estate beds, steep slopes, or sites with irrigation and lighting may need a landscape crew. Mulch deliveries can weigh well over a ton per cubic yard of dense product; protect lawns with plywood if a truck dumps on turf. Follow local fire-safe landscaping rules where they apply near structures.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – Mulch amount</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS mulch guide</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed (2- or 3-cu-ft bags)</a></li>
+        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Mulch coverage (~108 sq ft per cu yd at 3 inches)</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
       </ul>
-  `,
+`,
 
-  'gravel-types-for-driveways': `      <div class="takeaway"><strong>Key takeaway:</strong> Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) topped with a stable surface aggregate. Rounded pea gravel looks tidy but rolls under tires. Estimate volume with length × width × depth, then convert to tons using your yard’s density.</div>
+  'gravel-types-for-driveways': `      <div class="takeaway"><strong>Key takeaway:</strong> Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) topped with a stable surface aggregate. Rounded pea gravel looks tidy but rolls under tires. Estimate volume with length × width × depth, then convert to tons using your yard’s compacted density.</div>
 
-      <h2>Common materials</h2>
-      <ul>
-        <li><strong>Crusher run / dense grade / road base:</strong> stone plus fines; locks when compacted—excellent structural base.</li>
-        <li><strong>Clean crushed stone (#57 and similar):</strong> fewer fines; good drainage layers and some surface courses.</li>
-        <li><strong>Pea gravel:</strong> rounded and decorative; poor as the only driving surface because particles migrate.</li>
-        <li><strong>Recycled concrete aggregate:</strong> sometimes available locally; ask about gradation and contaminants.</li>
-      </ul>
-      <p>Product names vary by quarry. Bring photos of your project and ask for a base stone that compacts plus a surface stone rated for drive traffic—do not rely on bagged decorative pebble alone.</p>
-      <p>Think in layers. A typical DIY gravel drive is not one homogeneous dump: a thicker compacted base carries loads, while a thinner angular surface course provides traction and a finished look. Mixing those jobs into a single uncompacted lift is a common reason drives rut in the first winter. On soft or clay soils, contractors often recommend geotextile under the base so stone does not punch into mud—another line item beyond the calculator’s pure volume output.</p>
-      <p>Drainage and crown matter as much as stone type. Water that sits in the wheel paths pumps fines upward and creates potholes. A slight crown, open edges, or a defined ditch keeps the section dry. Clemson HGIC materials on permeable hardscapes and landscape water management are useful context when you are choosing between impermeable pavement and a gravel or paver system that lets water infiltrate.</p>
-      <p>If you later convert a gravel drive to pavers, the compacted crushed-stone base often remains useful beneath a sand setting bed—another reason to build the base correctly the first time.</p>
+      <h2>What is the best gravel for a driveway?</h2>
+      <p>The best driveway gravel is usually angular crushed stone that locks when compacted, not rounded decorative rock. Most DIY drives use a dense-grade or crusher-run base under a surface course sized for traffic. Pea gravel alone is a poor sole driving surface because rounded particles migrate under tires. Ask the quarry for compactable base stone and a drive-rated surface.</p>
+      <p>Think in layers. A thicker compacted base carries loads; a thinner angular surface course provides traction and a finished look. Mixing those jobs into one uncompacted lift is a common reason drives rut in the first winter. On soft clay, contractors often add geotextile under the base so stone does not punch into mud.</p>
 
-      <h2>How much to order</h2>
-      <p><strong>Volume (cu&nbsp;ft) = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. Tons ≈ yards × (density_lb_per_cu_yd ÷ 2000). YardTally’s gravel tool defaults near 2,700&nbsp;lb per cu&nbsp;yd for crushed stone as a mid-range planning density—quarries often quote 1.2–1.4&nbsp;tons per cu&nbsp;yd depending on moisture and rock type. Add roughly 10% for compaction and crowning unless your supplier says otherwise.</p>
-      <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you are building a paver driveway instead of loose gravel, you will also need a sand setting bed—see the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
+      <h2>What is dense gravel / dense grade?</h2>
+      <p>Dense grade (also sold as crusher run or road base) is angular crushed stone mixed with stone dust and fines. The fines fill voids so the blend locks into a firm mat when compacted in lifts. Clean stone such as #57 has fewer fines, drains well, and may not lock as tightly for a base. Product names vary by quarry.</p>
+      <p>Drainage and crown matter as much as stone type. Water that sits in wheel paths pumps fines upward and creates potholes. A slight crown, open edges, or a defined ditch keeps the section drier. Clemson’s porous-pavement overview is useful context when you are comparing impermeable pavement with gravel or permeable systems that let water infiltrate.</p>
 
-      <h2>Worked example: 40 × 10 ft drive at 4 inches</h2>
-      <p>Area = 400&nbsp;sq&nbsp;ft. Depth = 4÷12 = 0.333&nbsp;ft. Volume = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With 10% extra ≈ 5.4&nbsp;cu&nbsp;yd. At 2,700&nbsp;lb/cu&nbsp;yd that is about 7.3&nbsp;tons after waste—order using your yard’s tonnage table and expect crowning to consume a little more along the centerline.</p>
+      <h2>How do I convert driveway gravel to tons?</h2>
+      <p>First compute cubic yards: length × width × (depth inches ÷ 12) ÷ 27. Then multiply by the density your quarry quotes. Yards sell by the ton or by the yard; moisture and rock type change the weight. YardTally uses a mid-range planning density near 2,700 lb per cu yd. Treat that as a planning assumption, not a universal rule.</p>
+      <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you are building a paver driveway instead of loose gravel, you will also need a sand setting bed. See the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
+
+      <h2>Planning depths (assumptions, not a design code)</h2>
+      <p>Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a thinner surface course, often landing somewhere in a broad 4–8 inch total range before soft soils or heavier vehicles. Soft clay, steep grades, and delivery trucks can need deeper stone or fabric. Confirm with local practice or a contractor; this guide does not design structural thickness.</p>
+
+      <h2>Worked example: 40 × 10 ft drive</h2>
+      <p>Area = 400&nbsp;sq&nbsp;ft. Using a 4-inch planning depth: 400 × (4÷12) = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With a 10% compaction/crowning allowance ≈ 5.4&nbsp;cu&nbsp;yd. At a mid-range planning density of 2,700&nbsp;lb/cu&nbsp;yd that is about 7.3&nbsp;tons after waste. Re-run the ton math with the quarry’s density before you pay the ticket.</p>
 
       <h2>Worked example: base plus surface</h2>
-      <p>Same 40 × 10 footprint with 6&nbsp;inches of dense-grade base and 2&nbsp;inches of clean surface stone: base = 400 × 0.5 = 200&nbsp;cu&nbsp;ft ≈ 7.4&nbsp;cu&nbsp;yd; surface = 400 × (2÷12) ≈ 66.7&nbsp;cu&nbsp;ft ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before placing the surface course. Soft clay soils may need geotextile and deeper stone—that is a site judgment call beyond a simple volume chart.</p>
-
-      <h2>Tips</h2>
-      <ul>
-        <li>Crown the drive slightly so water sheds to the edges.</li>
-        <li>Compact in lifts; dumping one deep pile and driving over it once is not compaction.</li>
-        <li>Edge restraints or timber borders reduce shoulder washout.</li>
-        <li>Keep organic soil and mulch out of the stone—fines from topsoil muddy the base.</li>
-        <li>For paver conversions, plan gravel base and sand bedding as separate line items.</li>
-      </ul>
-
-      <h2>Common mistakes</h2>
-      <ul>
-        <li>Using pea gravel as the entire section thickness.</li>
-        <li>Ordering by the scoop without measuring length and width.</li>
-        <li>Ignoring compaction loss and running short mid-project.</li>
-        <li>Blocking drainage so the drive becomes a bathtub.</li>
-        <li>Mixing sand-bed paver math into a loose-gravel drive (or the reverse).</li>
-      </ul>
+      <p>Same 40 × 10 footprint with a planning section of 6&nbsp;inches dense-grade base and 2&nbsp;inches clean surface stone: base = 400 × 0.5 = 200&nbsp;cu&nbsp;ft ≈ 7.4&nbsp;cu&nbsp;yd; surface = 400 × (2÷12) ≈ 66.7&nbsp;cu&nbsp;ft ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before placing the surface course.</p>
 
       <h2>Layer volume reference for a 40 × 10 ft drive</h2>
       <div class="table-scroll">
       <table>
-        <caption>Approximate stone volume for a 400 sq ft driveway by compacted depth (before waste)</caption>
-        <thead><tr><th>Depth</th><th>Cu ft</th><th>Cu yd</th><th>Tons at 2,700 lb/cu yd</th></tr></thead>
+        <caption>Approximate stone volume for a 400 sq ft driveway by depth (before waste; tons use 2,700 lb/cu yd planning density)</caption>
+        <thead><tr><th>Depth</th><th>Cu ft</th><th>Cu yd</th><th>Tons (planning)</th></tr></thead>
         <tbody>
           <tr><td>2"</td><td>66.7</td><td>2.47</td><td>~3.3</td></tr>
           <tr><td>4"</td><td>133.3</td><td>4.94</td><td>~6.7</td></tr>
@@ -398,25 +398,40 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>The tonnage column uses a planning density only; your quarry's weight per cubic yard decides the actual ticket.</p>
+      <p>The tonnage column is a planning aid only. Your quarry’s weight per cubic yard decides the actual ticket.</p>
 
-      <h2>Questions to ask the quarry or landscape yard</h2>
-      <p>Gravel names are not standardized nationwide, so the fastest way to get the right product is to describe your project and ask a few direct questions. Which stone do they recommend for a compacted base, and which for a surface layer? What is the maximum stone size, and how many fines does it contain? Is the material washed or unwashed? What is the typical weight per cubic yard when it is dry and when it is wet? Do they sell by the ton or by the yard, and what are the minimum delivery quantities and truck access requirements?</p>
-      <p>Be ready to share your driveway length, width, slope, and soil type. A steeper drive will wash out faster with rounded stone, and a yard may suggest a binder-rich crusher run on the incline. If you will plow snow, tell them: a rigid base and slightly larger surface stone resist being scraped away by a blade, although some stone will always migrate to the edges.</p>
+      <h2>Questions to ask the quarry</h2>
+      <p>Which stone do they recommend for a compacted base, and which for a surface layer? What is the maximum stone size, and how many fines does it contain? Is it sold by the ton or by the yard, and what density should you use after compaction? Share length, width, slope, and soil type. Steeper drives wash out faster with rounded stone; snow plowing favors a rigid base and stone that resists blade scrape.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Crown the drive slightly so water sheds to the edges.</li>
+        <li>Compact in lifts; dumping one deep pile and driving over it once is not compaction.</li>
+        <li>Edge restraints reduce shoulder washout.</li>
+        <li>Keep organic soil and mulch out of the stone.</li>
+        <li>For paver conversions, plan gravel base and sand bedding as separate line items.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using pea gravel as the entire section thickness.</li>
+        <li>Ordering by the scoop without measuring length and width.</li>
+        <li>Treating a blog’s inches or tons-per-yard as a universal rule for every quarry.</li>
+        <li>Blocking drainage so the drive becomes a bathtub.</li>
+        <li>Mixing sand-bed paver math into a loose-gravel drive (or the reverse).</li>
+      </ul>
+
       <h2>Maintenance expectations</h2>
-      <p>No gravel drive is permanent. Expect to rake it level, fill ruts, and add a thin top-up of stone periodically, with the frequency depending on traffic, drainage, and winter conditions. Weeds can establish in the fines; a base with good compaction and a crown makes them harder to take hold. Keeping vegetation and overhanging branches trimmed back lets sunlight and wind dry the surface after rain, which slows the formation of potholes. Budget a little stone each year rather than treating the first delivery as the last.</p>
+      <p>No gravel drive is permanent. Expect to rake it level, fill ruts, and add a thin top-up of stone as traffic and winter weather demand. Weeds establish more easily in loose fines; good compaction and a crown slow that process. Budget a little stone each year rather than treating the first delivery as the last.</p>
 
       <h2>When to call a pro / safety / codes</h2>
-      <p>Call an excavator or paving contractor for long drives, steep grades, poor soils, heavy vehicles, or when stormwater rules limit runoff onto the street. Utility locates are mandatory before excavating. Gravel delivery trucks are heavy—confirm driveway aprons and septic locations can handle the load. Local jurisdictions may regulate curb cuts and drainage; this guide does not grant a permit. Wear eye protection when spreading stone, and keep helpers clear of loader buckets.</p>
+      <p>Call an excavator or paving contractor for long drives, steep grades, poor soils, heavy vehicles, or when stormwater rules limit runoff onto the street. Utility locates are mandatory before excavating. Confirm driveway aprons and septic locations can handle delivery trucks. Local jurisdictions may regulate curb cuts and drainage.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://hgic.clemson.edu/factsheet/an-introduction-to-porous-pavement/" rel="noopener noreferrer">Clemson HGIC – An introduction to porous pavement</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/water-management-in-the-home-landscape/" rel="noopener noreferrer">Clemson HGIC – Water management in the home landscape</a></li>
-        <li><a href="https://hgic.clemson.edu/consider-using-permeable-surfaces-when-hardscaping-your-yard/" rel="noopener noreferrer">Clemson HGIC – Permeable surfaces when hardscaping</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/stabilized-construction-site-entrances/" rel="noopener noreferrer">Clemson HGIC – Stabilized construction site entrances (aggregate pads)</a></li>
       </ul>
-  `,
+`,
 
   'how-to-measure-roof-pitch': `      <div class="takeaway"><strong>Key takeaway:</strong> Roof pitch is inches of rise per 12&nbsp;inches of run. Measure with a level and tape on a rafter or rake when possible. A 6-inch rise over 12&nbsp;inches of run is a 6/12 pitch (about 26.6°). Prefer attic measurements when climbing is unsafe.</div>
 
@@ -479,109 +494,107 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
-  'grass-seed-per-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Bag labels list grass seed in pounds per 1,000 square feet—not a single universal ounces-per-square-foot rate. Convert area ÷ 1,000 × label rate (new lawn vs overseed differ). Species blends vary widely; always follow the seed bag and local extension guidance.</div>
+  'grass-seed-per-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Bag labels and extension charts list grass seed in pounds per 1,000 square feet. Convert with (lawn sq&nbsp;ft ÷ 1,000) × rate. Iowa State PM 1072 publishes exact cool-season mixture rates; warm-season grasses need a Southern extension source.</div>
 
-      <h2>How grass seed rates work</h2>
-      <p>Retail grass seed is sold by weight. The practical unit for homeowners is <strong>pounds of seed per 1,000 square feet</strong>. To size a purchase you need two numbers: your lawn area in square feet, and the bag’s recommended rate for either a new lawn or overseeding. The formula in plain language is:</p>
-      <p><strong>Seed (lb) = (area in sq ft ÷ 1,000) × label rate (lb per 1,000 sq ft).</strong></p>
-      <p>There is no one “correct” ounces-per-square-foot figure that fits every grass type. Kentucky bluegrass, tall fescue, fine fescue, and perennial ryegrass germinate and tiller differently, so manufacturers and extension services publish different ranges. Iowa State Extension’s establishing-from-seed guidance, for example, lists mixture-specific rates that can run from roughly 1–1½ lb per 1,000 sq ft for 100% Kentucky bluegrass up to about 7–9 lb per 1,000 for tall fescue—illustrating why copying a neighbor’s bag rate can under- or over-seed your yard.</p>
-      <p>YardTally’s <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> uses adjustable defaults in the common cool-season blend ballpark (about 3.5 lb per 1,000 for new lawn and about 1.75 lb per 1,000 for overseed). Those defaults are planning aids only. Replace them with the exact rate printed on the seed you buy.</p>
+      <h2>How much grass seed per 1,000 sq ft?</h2>
+      <p>Use pounds of seed per 1,000 square feet, then scale to your lawn. Seed (lb) = (area ÷ 1,000) × label or extension rate. Iowa State Extension PM 1072 lists rates from 1–1.5 lb per 1,000 for 100% Kentucky bluegrass up to 7–9 lb for 100% tall fescue. There is no single universal ounces-per-square-foot figure.</p>
+      <p>YardTally’s <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> uses adjustable defaults in a common cool-season blend ballpark (about 3.5 lb per 1,000 for new lawn and about 1.75 lb per 1,000 for overseed). Those defaults are planning aids only. Replace them with the PM 1072 row for your mix or the rate printed on the seed you buy.</p>
 
-      <h2>Worked example: 50 × 40 ft lawn</h2>
-      <p>A rectangular lawn measuring 50 ft by 40 ft is 2,000 square feet. Using the calculator’s default new-lawn rate of 3.5 lb per 1,000 sq ft:</p>
-      <p>(2,000 ÷ 1,000) × 3.5 = <strong>7 lb of seed for a new lawn</strong>.</p>
-      <p>At the default overseed rate of 1.75 lb per 1,000:</p>
-      <p>(2,000 ÷ 1,000) × 1.75 = <strong>3.5 lb for overseeding</strong>.</p>
-      <p>If your tall-fescue bag instead calls for 8 lb per 1,000 on bare soil, the same yard needs (2,000 ÷ 1,000) × 8 = 16 lb. That is more than double the cool-season blend default—another reason to trust the label over a generic chart.</p>
-      <p>Before seeding, improve the seedbed. Thin thatch, rake bare spots, and consider a light topdressing of screened topsoil or compost so seed contacts soil. Estimate fill volume with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>, then compare product types in our <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide. After establishment, nitrogen planning belongs with the <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000 sq ft</a> guide and the <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>.</p>
-
-      <h2>Illustrative rate table (not a universal prescription)</h2>
+      <h2>Iowa PM 1072 seeding rates (lb per 1,000 sq ft)</h2>
       <div class="table-scroll">
       <table>
-        <caption>Example seed amounts for a 2,000 sq ft lawn at selected rates (always verify your bag)</caption>
+        <caption>Exact cool-season seed rates from Iowa State Extension PM 1072</caption>
         <thead>
-          <tr><th>Scenario</th><th>Rate (lb / 1,000 sq ft)</th><th>Seed for 2,000 sq ft</th></tr>
+          <tr><th>Seed mixture</th><th>lb / 1,000 sq ft</th></tr>
         </thead>
         <tbody>
-          <tr><td>Cool-season blend, new (YardTally default)</td><td>3.5</td><td>7.0 lb</td></tr>
-          <tr><td>Cool-season blend, overseed (YardTally default)</td><td>1.75</td><td>3.5 lb</td></tr>
-          <tr><td>Example bluegrass-heavy mix (extension-style range)</td><td>~1–2.5</td><td>~2–5 lb</td></tr>
-          <tr><td>Example tall fescue new lawn (extension-style range)</td><td>~7–9</td><td>~14–18 lb</td></tr>
+          <tr><td>100% Kentucky bluegrass</td><td>1–1.5</td></tr>
+          <tr><td>20% perennial ryegrass + 80% bluegrass</td><td>2–2.5</td></tr>
+          <tr><td>50% perennial ryegrass + 50% bluegrass</td><td>3–3.5</td></tr>
+          <tr><td>50% red fescue + 50% bluegrass</td><td>2.5–3</td></tr>
+          <tr><td>100% red fescue</td><td>3.5–4.5</td></tr>
+          <tr><td>100% tall fescue</td><td>7–9</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Treat the “extension-style” rows as orientation only. Your county’s climate, soil, and recommended cultivars may differ. Warm-season grasses (bermudagrass, zoysia, St. Augustine) often use vegetative planting or different seed products—read regional extension fact sheets rather than forcing cool-season math onto them.</p>
+      <p>Iowa’s tall fescue page repeats the 7–9 lb per 1,000 recommendation and notes a 90–95% tall fescue / 5–10% Kentucky bluegrass mix can help uniformity. Warm-season grasses such as bermudagrass and zoysia often use vegetative planting or different seed products. Do not invent rates here; check a Southern university extension fact sheet for your species and county.</p>
+
+      <h2>Worked example: 50 × 40 ft lawn</h2>
+      <p>A 50 × 40 ft lawn is 2,000 square feet (2 × 1,000). Using the calculator’s default new-lawn rate of 3.5 lb per 1,000:</p>
+      <p>(2,000 ÷ 1,000) × 3.5 = <strong>7 lb of seed for a new lawn</strong>.</p>
+      <p>At the default overseed rate of 1.75 lb per 1,000: <strong>3.5 lb for overseeding</strong>.</p>
+      <p>If your tall-fescue bag follows PM 1072 at 8 lb per 1,000 on bare soil, the same yard needs 16 lb. That is more than double the cool-season blend default. Before seeding, thin thatch, rake bare spots, and consider a light topdressing so seed contacts soil. Estimate fill with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>, then compare products in <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>. After establishment, see <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000 sq ft</a> and the <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>.</p>
+
+      <h2>Cool-season timing (PM 1072)</h2>
+      <p>PM 1072 says the best time to seed a lawn in Iowa is between mid-August and mid/late September. Lawns can still establish as late as late September in central Iowa and early October in southern Iowa. Late summer planting is preferred to spring because warm soil and cool nights favor seedlings. Spring seeding is possible with irrigation but often fights more annual weeds. Seeding from late May to mid-August is extremely difficult and usually unsuccessful per that publication.</p>
+
+      <p>Bag labels that claim “covers X square feet” assume a specific lb-per-1,000 rate. Recalculate from the printed rate and your measured area instead of trusting the marketing coverage claim alone.</p>
+
+      <h2>Overseeding vs new lawn</h2>
+      <p>Overseed rates on bags are often lower than bare-soil rates for the same product, but the ratio is not always exactly half. Use the overseed line on your bag. Tall fescue that clumps may need interseeding with the same species every few years; Iowa’s tall fescue guidance discusses that separately from a full new-lawn rate.</p>
 
       <h2>Step-by-step: buy the right amount of seed</h2>
       <ol>
-        <li>Measure length and width of each lawn rectangle (or break irregular shapes into rectangles). Multiply for square feet; add sections.</li>
-        <li>Decide whether you are establishing bare soil (new rate) or thickening an existing stand (overseed rate).</li>
-        <li>Read the seed bag for lb per 1,000 sq ft for your exact product and use case.</li>
+        <li>Measure each lawn rectangle (or break irregular shapes into rectangles) and add square feet.</li>
+        <li>Decide new lawn vs overseed.</li>
+        <li>Pick the PM 1072 mixture row that matches your seed, or read the bag’s lb per 1,000 rate.</li>
         <li>Compute seed pounds with the formula above or the <a href="/calculators/grass-seed-calculator/">grass seed calculator</a>.</li>
-        <li>Buy a little extra for thin spots and calibration error—many DIYers round up one bag size rather than running short mid-pass.</li>
-        <li>Calibrate the spreader: divide seed into two halves and walk perpendicular passes for more even coverage.</li>
-        <li>Keep the surface moist until seedlings establish; avoid letting a crust form that traps seed high and dry.</li>
+        <li>Buy a little extra for thin spots and calibration error.</li>
+        <li>Divide seed in half and walk perpendicular passes for even coverage.</li>
+        <li>Keep the surface moist until seedlings establish; avoid a hard crust.</li>
       </ol>
 
       <h2>Tips for even coverage</h2>
       <ul>
-        <li>Match spreader settings to the bag chart when provided; otherwise start conservative and do a test strip on a driveway to see distribution pattern.</li>
-        <li>Mix seed thoroughly in the hopper—fines settle and can create striped germination.</li>
-        <li>Flag irrigation heads and edges so you do not dump heavy rates in corners.</li>
-        <li>Time cool-season seeding for local recommended windows (often late summer to early fall in many northern regions); spring windows are shorter and weedier.</li>
-        <li>Pair seeding with soil testing before heavy fertilizer programs—seed needs contact and moisture first.</li>
+        <li>Match spreader settings to the bag chart when provided.</li>
+        <li>Mix seed in the hopper so fines do not settle and stripe the lawn.</li>
+        <li>Flag irrigation heads and edges so corners do not get a double dump.</li>
+        <li>Read purity and germination on the seed tag; cheap bags with high inert matter deliver less live seed per pound.</li>
+        <li>Pair seeding with soil testing before heavy fertilizer programs.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
-        <li>Using a new-lawn rate on a dense existing turf (wastes seed; seedlings struggle for light).</li>
-        <li>Assuming “oz per sq ft” from a blog equals every bag—convert from the printed lb/1,000 figure instead.</li>
+        <li>Using a new-lawn rate on dense existing turf.</li>
+        <li>Assuming a blog’s “oz per sq ft” equals every bag.</li>
         <li>Seeding onto hard, unrepaired soil without scarifying or topdressing.</li>
-        <li>Buying the cheapest “contractor mix” without reading purity and germination percentages on the label.</li>
-        <li>Skipping starter fertilizer guidance on the bag or applying nitrogen far above local limits.</li>
-        <li>Watering so heavily that seed washes into clumps in low spots.</li>
+        <li>Copying cool-season rates onto bermuda or zoysia without a Southern source.</li>
+        <li>Watering so heavily that seed washes into clumps.</li>
       </ul>
-
-      <h2>Reading the seed tag</h2>
-      <p>Seed bags carry a tag with information that is required by state seed laws: the species and variety, the percentage of pure seed, the percentage of other crop seed, inert matter, and weed seed, the germination percentage, and the test date. Compare the pure seed and germination figures between brands, because a cheaper bag with a lot of inert matter delivers less live seed per pound. The tag also tells you whether the seed is coated; coated seed weighs more per piece, so the label rate matters more than any rule of thumb about handfuls.</p>
-      <h2>Soil contact, watering, and timing</h2>
-      <p>The best seed rate cannot compensate for poor contact. Rake to loosen the top layer, spread seed evenly, and lightly rake or roll so the seed touches soil, without burying small seed deeply. Keep the surface consistently moist until the grass is established; short, frequent light watering is a common recommendation for new seedings, then gradually less frequent and deeper watering. Timing depends on the grass type: cool-season grasses are generally seeded in late summer to early fall in many northern climates, while warm-season species are seeded in late spring into summer. Check local extension guidance for your region.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf" rel="noopener noreferrer">Iowa State Extension – Establishing a Lawn from Seed (PM 1072)</a></li>
         <li><a href="https://yardandgarden.extension.iastate.edu/how-to/all-about-tall-fescue-low-maintenance-alternative-kentucky-bluegrass" rel="noopener noreferrer">Iowa State Extension – Turf-type tall fescue seeding rates</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Home &amp; Garden Information Center</a></li>
-        <li><a href="https://extension.psu.edu/recycling-turfgrass-clippings" rel="noopener noreferrer">Penn State Extension – Turfgrass fertility context (clippings &amp; nitrogen)</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/" rel="noopener noreferrer">UF/IFAS Gardening Solutions</a></li>
       </ul>
-  `,
+`,
 
-  'fertilizer-nitrogen-per-1000-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Product pounds = (nitrogen pounds you want per 1,000 sq ft) ÷ (N% as a decimal). Example: 1 lb N with a 30-0-4 bag → 1 ÷ 0.30 ≈ 3.3 lb of product per 1,000 sq ft. Always follow the fertilizer label and any local turf nutrient laws; soil-test before routine phosphate.</div>
+  'fertilizer-nitrogen-per-1000-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Product pounds = (nitrogen pounds you want per 1,000 sq&nbsp;ft) ÷ (N% as a decimal). Example: 1&nbsp;lb&nbsp;N with a 30-0-4 bag → 1 ÷ 0.30 ≈ 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Follow the label, soil test, and any local turf nutrient law.</div>
 
-      <h2>How the nitrogen math works</h2>
-      <p>Lawn fertilizers are labeled with three numbers—N-P-K—showing the percent by weight of nitrogen, phosphate (as P<sub>2</sub>O<sub>5</sub>), and potash (as K<sub>2</sub>O). Homeowners usually plan around <strong>pounds of actual nitrogen per 1,000 square feet</strong> per application or per year, then back-calculate how much bagged product to spread.</p>
-      <p>Plain-language formula:</p>
+      <h2>How do I calculate fertilizer for 1 lb N per 1000?</h2>
+      <p>Divide 1 by the nitrogen decimal from the bag. For 30-0-4, 1 ÷ 0.30 ≈ 3.3 lb of product per 1,000 sq ft. Multiply by (lawn sq ft ÷ 1,000) for the whole lawn. That is the same math behind YardTally’s <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>. Defaults are for planning; your soil test and product label override them.</p>
+      <p>Plain-language formulas:</p>
       <p><strong>Product lb per 1,000 sq ft = N lb desired per 1,000 ÷ (N percent ÷ 100).</strong></p>
-      <p>Then scale by area: <strong>Total product lb = (lawn sq ft ÷ 1,000) × product lb per 1,000.</strong></p>
-      <p>YardTally’s <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> implements that relationship with adjustable nitrogen target, N%, bag size, and lawn dimensions. Defaults are for planning; your soil test report and product label override them.</p>
-      <p>Extension guidance often discusses annual nitrogen ranges by grass species and maintenance intensity, split across the season—not one giant dump. Penn State Extension materials discuss annual nitrogen ranges for cool-season species and note that individual applications are commonly kept near or below about 1 lb N per 1,000 sq ft, with slow-release forms preferred for water quality. Some states (for example Pennsylvania’s fertilizer law for turf) set maximum nitrogen rates per application—check your jurisdiction before copying any example rate.</p>
+      <p><strong>Total product lb = (lawn sq ft ÷ 1,000) × product lb per 1,000.</strong></p>
+
+      <h2>What does 30-0-4 mean?</h2>
+      <p>Thirty percent nitrogen, zero phosphate, and four percent potash by weight. A 10 lb bag of 30-0-4 contains about 3 lb of nitrogen (10 × 0.30). Pennsylvania’s homeowner fertilizer page walks through the same label math: convert the first number to a decimal and multiply by the product pounds you spread per 1,000 sq ft to find actual nitrogen delivered.</p>
+      <p>Skip phosphorus unless a soil test or an establishment exception allows it under local rules. Many turf laws restrict phosphate on established lawns.</p>
+
+      <h2>Is 1 lb N always correct?</h2>
+      <p>No. One pound of nitrogen per 1,000 sq ft is a planning example, not a universal prescription. Penn State discusses about 2 lb N per 1,000 per season as a starting annual rate. Pennsylvania law caps total N near 0.9 lb per 1,000 per application. Split that ~2 lb annual starting rate into thirds to stay under the 0.9 cap.</p>
+      <p>Species matter too. Iowa State’s tall fescue guidance says a single late-October/early-November application of about 1 lb N per 1,000 sq ft may be adequate for low-maintenance tall fescue. Higher-maintenance schedules add smaller spring and fall amounts. Match the grass and the law where you live.</p>
 
       <h2>Worked example: 50 × 40 ft lawn, 30-0-4, 1 lb N per 1,000</h2>
-      <p>Area = 50 × 40 = 2,000 sq ft. Target = 1 lb nitrogen per 1,000 sq ft. Fertilizer analysis = 30-0-4 (30% N).</p>
+      <p>Area = 50 × 40 = 2,000 sq ft. Target = 1 lb nitrogen per 1,000 sq ft. Analysis = 30-0-4.</p>
       <p>Product per 1,000 = 1 ÷ 0.30 ≈ 3.333 lb.</p>
-      <p>Total product for 2,000 sq ft = 2 × 3.333 ≈ <strong>6.67 lb of 30-0-4</strong> (matches the fertilizer calculator output for these inputs).</p>
-      <p>If the same nitrogen target used a 25-0-5 product instead, product per 1,000 = 1 ÷ 0.25 = 4 lb, and the 2,000 sq ft lawn would need about 8 lb of product. Lower N% means more pounds of bag to deliver the same nitrogen.</p>
-      <p>Pair fertility with sound cultural care. Returning clippings recycles nutrients. Seeding thin areas is a separate calculation—see <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> and the <a href="/calculators/grass-seed-calculator/">grass seed calculator</a>.</p>
-
-      <h2>Annual budgets vs single applications</h2>
-      <p>Homeowners often confuse “pounds of nitrogen per year” with “pounds per application.” A lawn that thrives on roughly 2 lb N per 1,000 sq ft per growing season (a watershed-friendly starting discussion point in some Penn State materials—not a mandate for every climate) might receive that total in two or three smaller applications. Splitting reduces surge growth and runoff risk compared with dumping the full annual budget on a single spring weekend.</p>
-      <p>Enhanced-efficiency or slow-release nitrogen sources release more gradually. When a label lists both water-insoluble nitrogen and a maximum coverage chart, use the chart that matches your spreader and verify the implied nitrogen against any legal cap in your state. If the bag’s “covers 5,000 sq ft” claim implies more nitrogen per 1,000 than you intend—or than the law allows—choose a lighter setting or a different product rather than forcing the marketing coverage.</p>
+      <p>Total product for 2,000 sq ft = 2 × 3.333 ≈ <strong>6.67 lb of 30-0-4</strong> (matches the fertilizer calculator for these inputs).</p>
+      <p>If the same nitrogen target used a 25-0-5 product, product per 1,000 = 1 ÷ 0.25 = 4 lb, and the 2,000 sq ft lawn would need about 8 lb of product. Pair fertility with cultural care. Returning clippings recycles nutrients. Seeding thin areas is a separate calculation; see <a href="/guides/grass-seed-per-sq-ft/">grass seed per 1,000 sq ft</a> and the <a href="/calculators/grass-seed-calculator/">grass seed calculator</a>.</p>
 
       <h2>Quick conversion table</h2>
       <div class="table-scroll">
       <table>
-        <caption>Product pounds per 1,000 sq ft to deliver 1 lb actual nitrogen (rule-of-thumb math)</caption>
+        <caption>Product pounds per 1,000 sq ft to deliver 1 lb actual nitrogen</caption>
         <thead>
           <tr><th>Fertilizer N%</th><th>Product lb / 1,000 for 1 lb N</th><th>Product for 2,000 sq ft</th></tr>
         </thead>
@@ -594,66 +607,68 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>If your target is 0.75 lb N per 1,000 instead of 1.0, multiply every product figure by 0.75. If the bag already prints “covers X sq ft,” verify that the implied nitrogen matches your plan and local limits.</p>
+      <p>If your target is 0.67 lb N per 1,000 (one-third of a 2 lb annual starting rate), multiply every product figure by 0.67. If the bag prints “covers X sq ft,” verify that the implied nitrogen matches your plan and local limits.</p>
 
       <h2>Step-by-step</h2>
       <ol>
-        <li>Soil-test every few years for pH, phosphorus, and potassium; nitrogen is managed more by plant response and timing than by a single soil number.</li>
-        <li>Choose an annual nitrogen budget appropriate for your grass and goals, then split it into multiple applications during active growth.</li>
-        <li>Read the three-number analysis and any enhanced-efficiency (slow-release) claims on the label.</li>
+        <li>Soil-test for pH, phosphorus, and potassium.</li>
+        <li>Choose an annual nitrogen budget (Penn State’s ~2 lb starting discussion is one cool-season reference) and split it across active growth, often into two or three applications.</li>
+        <li>Confirm any state per-application cap (Pennsylvania: 0.9 lb total N per 1,000 unless enhanced-efficiency rules apply).</li>
+        <li>Read the three-number analysis on the bag.</li>
         <li>Compute product pounds with the formula or the <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>.</li>
-        <li>Calibrate the spreader; keep product off hardscapes, waterways, and storm drains.</li>
+        <li>Calibrate the spreader; keep product off hardscapes and storm drains.</li>
         <li>Water in if the label says to; avoid applying before heavy runoff-producing storms.</li>
-        <li>Reassess color and growth—dark green surge is not always healthier turf.</li>
       </ol>
 
       <h2>Tips</h2>
       <ul>
-        <li>Prefer products with a meaningful slow-release nitrogen fraction when labels offer that option.</li>
-        <li>Skip phosphorus unless a soil test or establishment/repair exception allows it under local rules.</li>
-        <li>Raise mowing height within the grass’s recommended range; taller canopies often need less rescue fertility.</li>
-        <li>Measure lawn area carefully—guessing “a quarter acre” can double your product buy.</li>
-        <li>Store opened bags dry and sealed; caked fertilizer spreads poorly and rates drift.</li>
+        <li>Prefer products with a meaningful slow-release nitrogen fraction when the label offers that option.</li>
+        <li>Raise mowing height within the grass’s recommended range.</li>
+        <li>Measure lawn area carefully; guessing “a quarter acre” can double your product buy.</li>
+        <li>Store opened bags dry and sealed.</li>
+        <li>For low-maintenance tall fescue, Iowa’s late-fall 1 lb N application is a species-specific option, not a rule for every lawn.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
-        <li>Spreading “one bag per lawn” without doing N math for that analysis and acreage.</li>
-        <li>Confusing product pounds with nitrogen pounds (they are not the same).</li>
+        <li>Spreading “one bag per lawn” without doing N math.</li>
+        <li>Confusing product pounds with nitrogen pounds.</li>
         <li>Applying the full annual nitrogen budget in a single spring dump.</li>
         <li>Ignoring state or municipal fertilizer restrictions near water.</li>
         <li>Fertilizing drought-dormant turf expecting a miracle green-up.</li>
-        <li>Using garden vegetable fertilizers with high phosphate on turf without a need.</li>
       </ul>
-
-      <h2>Spreader settings, timing, and local rules</h2>
-      <p>The pounds-of-product figure is only half of the job; the spreader has to deliver it evenly. Most bags print a spreader setting for popular models, but those are starting points. A simple calibration is to weigh out a known amount for a known test area, apply it, and see whether the spreader runs short or long. Overlap passes slightly at the edges to avoid stripes, and sweep stray granules off sidewalks and driveways so they do not wash into storm drains.</p>
-      <p>Timing and rules vary. Some states and municipalities limit phosphorus use on lawns, restrict fertilizing near water or on frozen ground, or set seasonal blackout windows, and many university extension services give regional calendars. Water in the application as the label directs, and avoid applying right before heavy rain. When in doubt, follow your state's guidance and consider a soil test to see whether you need phosphorus or potassium at all.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard" rel="noopener noreferrer">Penn State Extension – Watershed-friendly yard &amp; nitrogen timing</a></li>
-        <li><a href="https://extension.psu.edu/recycling-turfgrass-clippings" rel="noopener noreferrer">Penn State Extension – Suggested N ranges for cool-season turf</a></li>
-        <li><a href="https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators" rel="noopener noreferrer">Pennsylvania PDA – Homeowner fertilizer limits &amp; label math example</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/" rel="noopener noreferrer">Iowa State Extension – Yard and Garden</a></li>
-        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC</a></li>
+        <li><a href="https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard" rel="noopener noreferrer">Penn State Extension – Spring tips for a watershed-friendly yard (~2 lb N/1,000 starting annual rate)</a></li>
+        <li><a href="https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators" rel="noopener noreferrer">Pennsylvania PDA – Homeowner fertilizer limits (0.9 lb total N/application)</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/all-about-tall-fescue-low-maintenance-alternative-kentucky-bluegrass" rel="noopener noreferrer">Iowa State Extension – Tall fescue fertility (about 1 lb N late fall for low-maintenance lawns)</a></li>
       </ul>
-  `,
+`,
 
-  'raised-bed-soil-mix-4x8': `      <div class="takeaway"><strong>Key takeaway:</strong> Soil volume for a raised bed is length × width × depth (use interior dimensions). A 4×8 ft bed 12 in deep holds 32 cu ft (about 1.19 cu yd). Mix recipes vary—equal parts topsoil/compost/aeration media is a common DIY rule of thumb, while some extension sheets favor more topsoil with a smaller compost fraction. Check local guidance and bag labels.</div>
+  'raised-bed-soil-mix-4x8': `      <div class="takeaway"><strong>Key takeaway:</strong> Soil volume for a raised bed is length × width × depth using interior dimensions. A 4×8 ft bed 12 in deep holds 32 cu ft (about 1.19 cu yd). Iowa State Extension describes equal parts topsoil, organic matter, and coarse sand, or about 70% topsoil and 30% compost.</div>
+
+      <h2>How much soil for a 4×8?</h2>
+      <p>At 12 inches deep, a 4×8 ft bed needs 32 cubic feet of mix, about 1.19 cubic yards. At 18 inches, it needs 48 cubic feet, about 1.78 cubic yards. Multiply interior length × width × depth in feet. Measure inside the frame before you order bags or bulk so board thickness does not inflate the volume.</p>
+      <p>The <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> returns cubic feet, yards, and an approximate count of 1.5 cu ft bags. For paths or topping beside the bed, use the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>. After planting, see the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide and the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart. Choosing bagged products is easier once you understand <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>.</p>
+
+      <h2>What is a good soil mix?</h2>
+      <p>Iowa State Extension’s raised-bed FAQ describes an excellent mix as equal parts topsoil, organic matter (compost, well-rotted manure, or peat), and coarse sand. Another option listed there is about 70% topsoil and 30% compost. Use mature compost that is not overly salty, and avoid contaminated fill soil.</p>
+      <p>At 12 inches depth (32 cu ft total), an equal-parts mix is about 10.7 cu ft of each component. A 70/30 mix is about 22.4 cu ft topsoil and 9.6 cu ft compost. Pick one coherent recipe and stick to it rather than stacking every internet blend at once.</p>
+
+      <h2>How deep should the soil be?</h2>
+      <p>Depth depends on crops and whether roots can enter native soil below. Many vegetables grow well in about a foot of improved media; deep-rooted crops appreciate more. If the bed sits on open ground and you loosen native soil below, a 10–12 inch fill may behave deeper than the same fill on a sealed patio.</p>
+      <p>On hardscape, plan the full root depth inside the box and favor mixes that drain freely so the bed does not become a stagnant tub after storms. Width matters for access: many gardeners keep beds near 3–4 ft wide so they never step on the growing media.</p>
 
       <h2>How bed volume is calculated</h2>
-      <p>Fill volume does not care about the brand of soil—geometry comes first:</p>
       <p><strong>Cubic feet = length (ft) × width (ft) × (depth in inches ÷ 12).</strong></p>
       <p><strong>Cubic yards = cubic feet ÷ 27.</strong></p>
-      <p>Measure inside the frame. A “4×8” marketed kit can lose an inch or two to board thickness. Depth is the finished soil depth you want after settling—not the board height if you leave freeboard at the top.</p>
-      <p>The <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> returns cubic feet, yards, and an approximate count of 1.5 cu ft bags for rectangular beds. For irregular topping or paths beside the bed, the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> helps with bulk yards. After planting, mulch depth and bag counts are covered in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a> and <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart. Choosing bagged products is easier once you understand <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>.</p>
+      <p>Depth is the finished soil depth you want after settling, not the board height if you leave freeboard at the top.</p>
 
       <h2>Worked example: 4×8 bed at 12 in and 18 in</h2>
       <p>Interior footprint = 4 × 8 = 32 sq ft.</p>
       <p>At 12 in depth: 32 × (12÷12) = <strong>32 cu ft ≈ 1.185 cu yd</strong>. At 1.5 cu ft per bag that is about <strong>22 bags</strong> before you blend multiple products (matches raised-bed calculator output).</p>
       <p>At 18 in depth: 32 × 1.5 = <strong>48 cu ft ≈ 1.778 cu yd</strong>, roughly <strong>32</strong> of those 1.5 cu ft bags.</p>
-      <p>If you follow a simple equal-parts rule of thumb (topsoil / compost / coarse aeration such as pine bark or coarse sand—recipes vary), each component is about one-third of the volume: ~10.7 cu ft each at 12 in depth. Iowa State Extension describes an excellent mix as equal parts topsoil, organic matter, and coarse sand, and also mentions a ~70% topsoil / ~30% compost option. Clemson HGIC emphasizes good topsoil plus compost commonly in about the 10–20% compost-by-volume range for many raised beds—showing that published recipes are not identical. Pick one coherent recipe and stick to it rather than stacking every internet blend at once.</p>
 
       <h2>Volume and bag planning table</h2>
       <div class="table-scroll">
@@ -671,20 +686,16 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Bulk delivery often becomes cheaper near or above one cubic yard, especially if you can wheelbarrow from the driveway. Bagged mixes win on small top-ups and when you need a specific soilless blend on a patio with no native soil contact.</p>
-
-      <h2>Choosing depth for crops</h2>
-      <p>Shallow-rooted salad greens can produce in surprisingly little media when watering is frequent, but tomatoes, peppers, and squash generally appreciate deeper rooting volume. If the bed sits on open ground and you loosen the native soil below, roots can continue downward—so a 10–12 in fill may behave deeper than the same fill on a patio with a solid barrier. On hardscape, plan the full root depth inside the box and favor mixes that drain freely so the bed does not become a stagnant tub after storms.</p>
-      <p>Width matters for access: many gardeners keep beds near 3–4 ft wide so they never step on the growing media. A 4×8 rectangle is popular because lumber lengths are convenient and paths fit between parallel beds. Whatever size you build, calculate soil from the interior—decorative caps and exterior trim do not hold roots.</p>
+      <p>Bulk delivery often becomes cheaper near or above one cubic yard if you can wheelbarrow from the driveway. Bagged mixes win on small top-ups and patio beds with no native soil contact.</p>
 
       <h2>Step-by-step</h2>
       <ol>
         <li>Build or place the frame on a level, well-drained spot; confirm interior length and width with a tape.</li>
-        <li>Choose crop-appropriate depth (shallow greens vs deeper-rooted tomatoes)—many gardeners target roughly 10–12 in of quality media as a starting point, deeper when roots and drainage demand it.</li>
+        <li>Choose crop-appropriate depth (many gardeners start near 10–12 in of quality media).</li>
         <li>Calculate volume with the formula or raised-bed calculator.</li>
-        <li>Select a mix recipe from extension guidance or a reputable bagged raised-bed mix; avoid untested contaminated fill.</li>
-        <li>Loosen native soil at the base when the bed sits on ground so layers do not perch water.</li>
-        <li>Fill in lifts, lightly firming—do not compact like a road base.</li>
+        <li>Select an Iowa-style mix (equal parts topsoil / organic matter / coarse sand, or ~70% topsoil / ~30% compost) or a reputable bagged raised-bed mix.</li>
+        <li>Remove sod if present and loosen native soil at the base when the bed sits on ground so layers do not perch water.</li>
+        <li>Add mix in lifts and incorporate into the existing soil as Iowa recommends, lightly firming without compacting like a road base.</li>
         <li>Water to settle, top off, soil-test after settling, then mulch paths and bed surfaces as appropriate.</li>
       </ol>
 
@@ -692,32 +703,29 @@ export const guideBodies: Record<string, string> = {
       <ul>
         <li>Order a little extra; mixes settle and compost volume shrinks over a season.</li>
         <li>Ask bulk yards about screening, weed seeds, and whether the “topsoil” is sandy loam or heavy clay.</li>
-        <li>Keep treated lumber ratings appropriate for garden contact if you use pressure-treated sides—follow manufacturer and extension notes.</li>
+        <li>Keep treated lumber ratings appropriate for garden contact if you use pressure-treated sides.</li>
         <li>Replenish organic matter annually; beds shrink as carbon decomposes.</li>
-        <li>Use mulch to cut evaporation—see the mulch depth guide for 2–3 in bed norms.</li>
+        <li>Use mulch to cut evaporation; see the mulch depth guide for 2–3 in bed norms.</li>
       </ul>
 
       <h2>Common mistakes</h2>
       <ul>
         <li>Buying “4×8” volume using outside board dimensions.</li>
-        <li>Filling only with pure compost or pure manure (can be too rich, salty, or fluffy).</li>
+        <li>Filling only with pure compost or pure manure.</li>
         <li>Creating a bathtub on compacted subgrade with no drainage path.</li>
         <li>Mixing unreliable units (inches of depth treated as feet).</li>
-        <li>Assuming every bag labeled “garden soil” matches mineral topsoil—read the <a href="/guides/topsoil-vs-garden-soil/">comparison guide</a>.</li>
+        <li>Assuming every bag labeled “garden soil” matches mineral topsoil; read the <a href="/guides/topsoil-vs-garden-soil/">comparison guide</a>.</li>
       </ul>
 
       <h2>Settling, top-offs, and weight</h2>
-      <p>Freshly filled beds settle as air pockets collapse and organic matter breaks down, so it is normal to top off the bed an inch or two after the first season. Fill to just below the rim at first so water does not wash soil over the edge, and plan a small reserve of compost for later top-offs rather than overbuying soil on day one. Mix components in a wheelbarrow or tarp, not in layers, because abrupt texture differences can slow water movement.</p>
-      <p>Soil is heavy, particularly when wet. A moist cubic foot of garden mix can weigh many pounds, so a full 4×8 bed is a substantial load for a deck, rooftop, or any structure not designed for it. Check the surface and the bed construction before filling. For delivery sizes over about one cubic yard, bulk soil is typically less expensive per cubic foot than bagged product, but you will need a place for the pile and a plan for moving it promptly—protect the pile with a tarp if rain is expected.</p>
+      <p>Freshly filled beds settle as air pockets collapse and organic matter breaks down, so it is normal to top off an inch or two after the first season. Fill to just below the rim at first so water does not wash soil over the edge. Mix components thoroughly rather than stacking abrupt layers that can slow water movement.</p>
+      <p>Soil is heavy when wet. A full 4×8 bed is a substantial load for a deck or rooftop not designed for it. For deliveries over about one cubic yard, bulk soil is typically less expensive per cubic foot than bagged product, but you need a place for the pile and a plan to move it promptly.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
-        <li><a href="https://yardandgarden.extension.iastate.edu/faq/what-would-be-good-soil-mix-raised-bed" rel="noopener noreferrer">Iowa State Extension – Raised bed soil mix FAQ</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/raised-beds/" rel="noopener noreferrer">Clemson HGIC – Raised beds</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/soil-conditioning-establishing-a-successful-gardening-foundation/" rel="noopener noreferrer">Clemson HGIC – Soil conditioning</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/" rel="noopener noreferrer">UF/IFAS Gardening Solutions</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/faq/what-would-be-good-soil-mix-raised-bed" rel="noopener noreferrer">Iowa State Extension – What would be a good soil mix for a raised bed?</a></li>
       </ul>
-  `,
+`,
 
   'how-much-paint-for-a-room': `      <div class="takeaway"><strong>Key takeaway:</strong> Estimate wall area as perimeter × ceiling height, subtract doors and windows, then divide by label coverage per coat. BEHR lists about 250–400 sq ft per gallon per coat for several ULTRA and PREMIUM PLUS interior paints; YardTally defaults to 350. Multiply by the number of coats and read your can.</div>
 

@@ -63,14 +63,18 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'mulch-depth-guide',
-    title: 'Mulch Depth Guide: How Deep Should Mulch Be?',
+    title: 'Mulch Depth for Gardens: How Deep?',
     description:
-      'Recommended mulch depths for beds, trees, and paths, with volume tips and links to free mulch calculators. Based on extension guidance.',
-    h1: 'Mulch Depth Guide',
+      'How deep mulch should be in flower beds and gardens: about 2–3 inches organic, with MSU, UF/IFAS, and Clemson guidance plus a free mulch calculator.',
+    h1: 'Mulch Depth for Gardens',
     primaryKeyword: 'mulch depth',
-    secondaryKeywords: ['how deep should mulch be', 'mulch depth for trees'],
+    secondaryKeywords: [
+      'how deep should mulch be',
+      'mulch depth for gardens',
+      'mulch depth for flower beds',
+    ],
     answerFirst:
-      'Most flower and shrub beds do well with about 2–3 inches of organic mulch. Tree rings use a similar depth in a wide donut, kept off the trunk flare. Thicker layers can block water and oxygen; thinner layers break down quickly and suppress weeds poorly.',
+      'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth before you order.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
     relatedGuideSlugs: [
       'mulch-for-common-garden-beds',
@@ -78,6 +82,7 @@ export const guides: GuideDefinition[] = [
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -128,12 +133,17 @@ export const guides: GuideDefinition[] = [
       'Cubic yards and bag counts for common garden bed sizes at 2 and 3 inch mulch depth, with a free mulch calculator for custom beds.',
     h1: 'Mulch for Common Garden Bed Sizes',
     primaryKeyword: 'mulch for garden bed sizes',
-    secondaryKeywords: ['how much mulch for flower bed', 'mulch bags for garden bed'],
+    secondaryKeywords: [
+      'how much mulch for a 4x8 garden bed',
+      'how many bags of mulch for flower bed',
+      'mulch bags vs bulk',
+    ],
     answerFirst:
-      'At 3 inches deep, a 4×8 ft bed needs about 8 cu ft of mulch (four 2 cu ft bags). A 10×4 bed needs about 10 cu ft; a 20×5 bed needs about 25 cu ft (≈0.93 cu yd). Use 2 inches for lighter top-ups and keep mulch off tree trunks.',
+      'At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (four 2 cu ft bags). A 20×5 bed needs about 25 cu ft (thirteen 2 cu ft bags). Iowa notes bags are commonly 2 or 3 cu ft; UF/IFAS says one cubic yard covers about 108 sq ft at 3 inches. Calculate area × depth first.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
     relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-20',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'gravel-types-for-driveways',
@@ -142,15 +152,20 @@ export const guides: GuideDefinition[] = [
       'Compare crushed stone, dense grade, pea gravel, and clean rock for driveway layers, plus how to estimate tons with a gravel calculator.',
     h1: 'Gravel Types for Driveways',
     primaryKeyword: 'gravel types for driveways',
-    secondaryKeywords: ['driveway gravel depth', 'crushed stone vs pea gravel'],
+    secondaryKeywords: [
+      'best gravel for driveway',
+      'what is dense grade gravel',
+      'crushed stone vs pea gravel',
+    ],
     answerFirst:
-      'Most DIY gravel driveways use about 4–6 inches of compacted angular crushed-stone base (dense grade / crusher run) plus 2–3 inches of surface aggregate—often 1.2–1.5 tons per cubic yard depending on rock type. Rounded pea gravel looks tidy but can roll under tires; prefer angular stone for driving surfaces.',
+      'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons. Treat depth and tons-per-yard figures as planning assumptions.',
     relatedToolSlugs: ['gravel-calculator', 'sand-calculator', 'paver-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'retaining-wall-blocks-and-base',
     ],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'how-to-measure-roof-pitch',
@@ -180,7 +195,7 @@ export const guides: GuideDefinition[] = [
       'how much grass seed per sq ft',
     ],
     answerFirst:
-      'Grass seed is usually sold by pounds per 1,000 square feet, not a universal ounces-per-square-foot number. Multiply (lawn sq ft ÷ 1000) by the bag rate. New-lawn and overseed rates differ—always use the rate printed for your species mix and job type.',
+      'Grass seed rates are listed in pounds per 1,000 square feet. Multiply (lawn sq ft ÷ 1,000) by the bag or extension rate. Iowa State PM 1072 lists cool-season mixes from 1–1.5 lb per 1,000 for Kentucky bluegrass up to 7–9 lb for tall fescue. Warm-season grasses need Southern extension rates; do not invent them here.',
     relatedToolSlugs: ['grass-seed-calculator', 'topsoil-calculator', 'fertilizer-calculator'],
     relatedGuideSlugs: [
       'fertilizer-nitrogen-per-1000-sq-ft',
@@ -196,26 +211,36 @@ export const guides: GuideDefinition[] = [
       'Calculate lawn fertilizer product pounds from a nitrogen target and N-P-K analysis, with examples per 1,000 square feet and label safety tips.',
     h1: 'Fertilizer Nitrogen per 1,000 Square Feet',
     primaryKeyword: 'fertilizer nitrogen per 1000 sq ft',
-    secondaryKeywords: ['lawn fertilizer rate calculator', 'how much fertilizer per 1000 sq ft'],
+    secondaryKeywords: [
+      'how to calculate fertilizer for 1 lb nitrogen',
+      'what does 30-0-4 mean',
+      'lawn fertilizer rate calculator',
+    ],
     answerFirst:
-      'Product fertilizer pounds equal desired pounds of actual nitrogen divided by the nitrogen percent as a decimal. For 1 lb N per 1,000 sq ft with a 30-0-4 bag, you need about 3.3 lb of product per 1,000 sq ft. Never exceed the label; match timing to local extension calendars.',
+      'Product pounds equal desired nitrogen pounds divided by N% as a decimal. For 1 lb N per 1,000 sq ft with 30-0-4, use about 3.3 lb of product per 1,000. Penn State cites about 2 lb N per 1,000 per season as a starting rate; Pennsylvania caps total N near 0.9 lb per application. Follow the label and local law.',
     relatedToolSlugs: ['fertilizer-calculator', 'grass-seed-calculator'],
     relatedGuideSlugs: ['grass-seed-per-sq-ft', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-23',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'raised-bed-soil-mix-4x8',
     title: '4×8 Raised Bed Soil Mix & Depth',
     description:
-      'Soil volume for a 4×8 raised bed by depth, plus practical mix rules of thumb, settling tips, and links to free soil calculators.',
+      'Soil volume for a 4×8 raised bed by depth, plus Iowa Extension mix options, settling tips, and links to free soil calculators.',
     h1: 'Raised Bed Soil Mix for a 4×8 Bed',
     primaryKeyword: 'raised bed soil mix 4x8',
-    secondaryKeywords: ['how much soil for 4x8 raised bed', 'raised bed soil depth'],
+    secondaryKeywords: [
+      'how much soil for 4x8 raised bed',
+      'good soil mix for raised bed',
+      'raised bed soil depth',
+    ],
     answerFirst:
-      'A 4×8 ft raised bed filled 12 inches deep needs 32 cubic feet of mix (about 1.19 cubic yards). Volume is interior length × width × depth. Mix recipes vary; a common teaching rule of thumb uses roughly equal parts mineral soil, compost, and an aeration component—adjust for crops and climate.',
+      'A 4×8 ft raised bed filled 12 inches deep needs 32 cubic feet of mix (about 1.19 cubic yards). Volume is interior length × width × depth. Iowa State Extension describes equal parts topsoil, organic matter, and coarse sand, or about 70% topsoil and 30% compost. Adjust for crops and climate.',
     relatedToolSlugs: ['raised-bed-soil-calculator', 'topsoil-calculator'],
     relatedGuideSlugs: ['topsoil-vs-garden-soil', 'mulch-depth-guide'],
     datePublished: '2026-10-23',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'how-much-paint-for-a-room',

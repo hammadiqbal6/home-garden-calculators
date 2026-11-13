@@ -24,26 +24,26 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "No. Slabs are rectangular volume (length × width × thickness). Post holes are cylinders. Use the post hole concrete calculator so diameter and depth convert correctly, then convert volume to bags. Cardboard tube forms belong on the Sonotube calculator and Sonotube guide instead."
     }
   ],
-  "mulch-depth-guide": [
+  "mulch-depth-guide":   [
     {
       "question": "How deep should mulch be in flower beds?",
-      "answer": "Extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. That depth suppresses weeds and conserves moisture without smothering roots. Replenish as the mulch decomposes rather than stacking thicker layers each year."
+      "answer": "About 2–3 inches of organic mulch for most flower beds and gardens. UF/IFAS Florida-Friendly guidance targets about 3 inches and says not to exceed 3 inches in beds. Clemson lists 2–3 inches for many wood and bark mulches. Replenish as it decomposes rather than stacking thicker layers each year."
     },
     {
       "question": "How deep should mulch be around trees?",
-      "answer": "Use a similar 2–3 inch depth in a wide ring (donut), kept clear of the trunk flare. Piling mulch against the bark—“volcano mulching”—traps moisture against the trunk and can encourage rot and pests. Leave a bare collar at the base."
+      "answer": "Use a similar 2–3 inch depth in a wide ring, kept clear of the trunk flare. Mississippi State Extension says pull mulch about 2–3 inches back from the trunk. Piling mulch against bark traps moisture and can encourage rot and pests. Leave a bare collar at the base."
     },
     {
       "question": "Is 4 inches of mulch too much?",
-      "answer": "For most ornamental beds, yes—layers much deeper than about 3 inches can impede water and oxygen. Wood-chip paths sometimes use 3–4 inches because they compact under foot traffic; that is a different use case than planting beds."
+      "answer": "For most ornamental beds, yes. Layers deeper than about 3 inches can impede water and oxygen. UF/IFAS warns against more than 3 inches in beds. Wood-chip paths sometimes use thicker layers because they compact under foot traffic; that is a different use case than planting beds."
     },
     {
       "question": "Should I remove old mulch before adding new?",
-      "answer": "Not always. If the old layer is thin and well decomposed, top-dress to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, rake it out or thin it first so new mulch does not create an anaerobic blanket."
+      "answer": "Not always. If the old layer is thin and well decomposed, top-dress to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, rake it out or thin it first. UF/IFAS prefers light replenishment over full replacement that can damage surface roots."
     },
     {
       "question": "Does mulch depth change bag counts?",
-      "answer": "Yes. Volume scales directly with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use a mulch calculator for irregular shapes."
+      "answer": "Yes. Volume scales with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use a mulch calculator for irregular shapes."
     }
   ],
   "how-many-bags-of-concrete": [
@@ -90,18 +90,18 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "Compute cubic feet (10 × 10 × thickness in feet), multiply by 1.10 for a 10% waste allowance, then divide by bag yield (about 0.60 cu ft for 80 lb, 0.45 for 60 lb) and round up. Confirm yields on the QUIKRETE or Sakrete bag you buy."
     }
   ],
-  "mulch-for-common-garden-beds": [
+  "mulch-for-common-garden-beds":   [
     {
       "question": "How much mulch for a 4×8 garden bed?",
-      "answer": "At 3 inches deep: 4 × 8 × 0.25 = 8 cu ft (about 0.30 cu yd), or four 2 cu ft bags. At 2 inches, the same bed needs about 5.3 cu ft (three 2 cu ft bags after rounding up)."
+      "answer": "At 3 inches deep: 4 × 8 × 0.25 = 8 cu ft (about 0.30 cu yd), or four 2 cu ft bags. At 2 inches, the same bed needs about 5.3 cu ft (three 2 cu ft bags after rounding up). Iowa notes bags are commonly 2 or 3 cu ft."
     },
     {
       "question": "How many bags of mulch for a 20×5 bed?",
-      "answer": "At 3 inches: 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, which is thirteen 2 cu ft bags. Bulk delivery by the cubic yard is often cheaper at this size."
+      "answer": "At 3 inches: 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, which is thirteen 2 cu ft bags or about nine 3 cu ft bags. UF/IFAS notes one cubic yard covers about 108 sq ft at 3 inches. Bulk delivery is often cheaper at this size."
     },
     {
       "question": "Should I buy bags or bulk mulch?",
-      "answer": "Bags are convenient for small beds and touch-ups. Once you need roughly a cubic yard or more, bulk usually costs less per cubic foot and means fewer plastic bags—if you can stage a delivery."
+      "answer": "Bags are convenient for small beds and touch-ups. Once you need roughly a cubic yard or more, bulk usually costs less per cubic foot if you can stage a delivery. Always divide cubic feet by the bag size printed on the package."
     },
     {
       "question": "How do I mulch an L-shaped bed?",
@@ -112,22 +112,22 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "Not directly. Tree rings need a donut volume (outer circle minus trunk opening). Use the tree ring mulch calculator so you do not over-order for the trunk area you leave bare."
     }
   ],
-  "gravel-types-for-driveways": [
+  "gravel-types-for-driveways":   [
     {
-      "question": "What gravel is best for a driveway base?",
+      "question": "What gravel is best for a driveway?",
       "answer": "Angular crushed stone with fines—often sold as crusher run, dense grade, or road base—locks together when compacted and makes a stable base. Rounded pea gravel alone tends to roll under tires and is a poor sole driving surface."
     },
     {
-      "question": "What is #57 stone used for?",
-      "answer": "Clean crushed stone such as #57 is commonly used for drainage layers and some surface courses. It has fewer fines than dense grade, so it drains well but may not lock as tightly as crusher run for a structural base."
+      "question": "What is dense grade gravel?",
+      "answer": "Dense grade is angular crushed stone mixed with stone dust and fines so it locks when compacted. Quarries may also call it crusher run or road base. Clean stone such as #57 has fewer fines, drains well, and may not lock as tightly for a structural base."
     },
     {
       "question": "How deep should driveway gravel be?",
-      "answer": "Depth depends on soil strength and traffic. As a DIY planning rule of thumb, many light residential drives use several inches of compacted base plus a surface course—often on the order of 4–8 inches total before considering soft soils or heavier vehicles. Confirm with local practice; this is not a structural design."
+      "answer": "Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a surface course. Soft soils and heavier vehicles need more. Confirm with local practice; this is not a structural design."
     },
     {
       "question": "How do I convert driveway gravel to tons?",
-      "answer": "Compute cubic yards (length × width × depth ÷ 27), then multiply by density. YardTally uses about 2,700 lb per cu yd for crushed stone as a mid-range planning density—ask your quarry for the exact figure and order extra for compaction."
+      "answer": "Compute cubic yards (length × width × depth ÷ 27), then multiply by density. YardTally uses about 2,700 lb per cu yd for crushed stone as a mid-range planning density. Ask your quarry for the compacted figure and order extra for compaction."
     },
     {
       "question": "Do I need sand under driveway gravel?",
@@ -156,58 +156,58 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "Only with proper fall protection, dry conditions, and experience. Prefer attic or rake measurements whenever you can reach a rafter safely. Hire a roofing professional when the roof is steep, high, wet, or fragile. Pitch math is not worth an injury."
     }
   ],
-  "grass-seed-per-sq-ft": [
+  "grass-seed-per-sq-ft":   [
     {
       "question": "How much grass seed do I need per square foot?",
-      "answer": "Convert from the bag’s pounds per 1,000 sq ft. Example: 3.5 lb per 1,000 equals 0.0035 lb per sq ft (about 0.056 oz per sq ft). Rates change by species and new vs overseed—do not invent a single universal oz/sq ft rule."
+      "answer": "Convert from pounds per 1,000 sq ft. Example: 3.5 lb per 1,000 equals 0.0035 lb per sq ft (about 0.056 oz per sq ft). Rates change by species and new vs overseed. Use the lb/1,000 figure from PM 1072 or your bag—do not invent a universal oz/sq ft rule."
+    },
+    {
+      "question": "How much grass seed per 1,000 square feet?",
+      "answer": "Iowa State PM 1072 lists cool-season mixes from 1–1.5 lb per 1,000 for 100% Kentucky bluegrass up to 7–9 lb for 100% tall fescue. Blends with ryegrass or red fescue fall between those ranges. Always match the mixture on your bag."
     },
     {
       "question": "Is overseeding half the new-lawn rate?",
-      "answer": "Often overseed rates are lower than bare-soil rates for the same product, but the ratio is not always exactly half. Use the overseed line on your bag."
+      "answer": "Often overseed rates are lower than bare-soil rates for the same product, but the ratio is not always exactly half. Use the overseed line on your bag. Tall fescue may need periodic interseeding with the same species when it clumps."
     },
     {
-      "question": "Should I buy by the pound or by the bag?",
-      "answer": "Compute pounds first, then choose bag sizes that cover that weight. Check net weight on each package—marketing “covers X sq ft” claims assume a specific rate."
+      "question": "When should I seed a cool-season lawn?",
+      "answer": "PM 1072 says the best time in Iowa is mid-August through mid/late September, with late September to early October still possible in parts of the state. Late summer is preferred to spring. Avoid late May through mid-August seedings when possible."
     },
     {
-      "question": "Do I need topsoil when seeding?",
-      "answer": "Not always, but bare spots with poor contact benefit from a thin, screened topdressing. Estimate volume with the topsoil calculator; choose material carefully (see topsoil vs garden soil)."
-    },
-    {
-      "question": "Can I seed and fertilize the same day?",
-      "answer": "Many starter fertilizers are designed for establishment—follow both the seed and fertilizer labels, and obey any state turf fertilizer limits."
+      "question": "What about Bermuda or zoysia seed rates?",
+      "answer": "Warm-season grasses need Southern extension guidance. Do not copy cool-season PM 1072 rates onto bermudagrass or zoysia. Many warm-season lawns are established vegetatively. Check a university extension fact sheet for your species and region."
     }
   ],
-  "fertilizer-nitrogen-per-1000-sq-ft": [
+  "fertilizer-nitrogen-per-1000-sq-ft":   [
     {
       "question": "How do I calculate fertilizer for 1 lb of nitrogen per 1,000 sq ft?",
       "answer": "Divide 1 by the nitrogen decimal. For 30-0-4, 1 ÷ 0.30 ≈ 3.3 lb of product per 1,000 sq ft. Multiply by (area ÷ 1,000) for the whole lawn."
     },
     {
       "question": "What does 30-0-4 mean?",
-      "answer": "Thirty percent nitrogen, zero phosphate, four percent potash by weight. A 10 lb bag contains about 3 lb of nitrogen (10 × 0.30)."
+      "answer": "Thirty percent nitrogen, zero phosphate, four percent potash by weight. A 10 lb bag contains about 3 lb of nitrogen (10 × 0.30). Pennsylvania’s fertilizer guidance uses the same label math for homeowners."
     },
     {
       "question": "Is 1 lb N per 1,000 always correct?",
-      "answer": "No—it is a common planning example, not a universal prescription. Annual needs and legal per-application caps vary. Follow your soil test, extension guidance, and the product label."
+      "answer": "No. Penn State discusses about 2 lb N per 1,000 per growing season as a starting annual rate. Pennsylvania caps total N near 0.9 lb per 1,000 per application. Iowa tall fescue guidance may use about 1 lb N in late fall for low-maintenance lawns. Follow soil tests, labels, and local law."
     },
     {
       "question": "How does bag size enter the math?",
-      "answer": "After you know total product pounds, bags needed ≈ ceil(total product lb ÷ bag weight). The calculator can show that step."
+      "answer": "After you know total product pounds, bags needed ≈ ceil(total product lb ÷ bag weight). The fertilizer calculator can show that step."
     },
     {
       "question": "Should new seedings use a starter fertilizer?",
-      "answer": "Often yes when the label and soil test support it—especially if phosphorus is recommended for establishment. Do not assume every “lawn food” is a starter. Coordinate with seeding rates from the grass seed guide."
+      "answer": "Often yes when the label and soil test support it, especially if phosphorus is recommended for establishment. Do not assume every lawn food is a starter. Coordinate with seeding rates from the grass seed guide."
     }
   ],
-  "raised-bed-soil-mix-4x8": [
+  "raised-bed-soil-mix-4x8":   [
     {
       "question": "How much soil does a 4×8 raised bed need?",
-      "answer": "At 12 in deep, 32 cu ft (about 1.19 cu yd). At 18 in, 48 cu ft (about 1.78 cu yd). Multiply length × width × depth in feet."
+      "answer": "At 12 in deep, 32 cu ft (about 1.19 cu yd). At 18 in, 48 cu ft (about 1.78 cu yd). Multiply length × width × depth in feet using interior dimensions."
     },
     {
       "question": "What is a good soil mix for a 4×8 bed?",
-      "answer": "Recipes vary. A common DIY rule of thumb is roughly equal parts topsoil, compost, and a coarse aeration ingredient; some extension pages suggest higher topsoil fractions with less compost. There is no single mandatory recipe."
+      "answer": "Iowa State Extension describes equal parts topsoil, organic matter, and coarse sand as an excellent mix, or about 70% topsoil and 30% compost as another option. Use mature compost and clean topsoil. There is no single mandatory recipe."
     },
     {
       "question": "Bags or bulk: which should I buy?",
@@ -219,7 +219,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "Do I need landscape fabric under the bed?",
-      "answer": "Optional. Fabric can limit weeds from below but can also impede earthworms and root exploration. Cardboard is a common biodegradable suppressant when installing on turf—follow local extension preferences."
+      "answer": "Optional. Fabric can limit weeds from below but can also impede earthworms and root exploration. Cardboard is a common biodegradable suppressant when installing on turf. Follow local extension preferences."
     }
   ],
   "how-much-paint-for-a-room": [

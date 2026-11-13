@@ -31,18 +31,18 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/fertilizer-calculator/` | fertilizer calculator | lawn fertilizer calculator |
 | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator | garden box soil calculator |
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |
-| `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be |
+| `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be, mulch depth for gardens |
 | `/guides/how-many-bags-of-concrete/` | how many bags of concrete do I need | 80 lb bags of concrete per yard |
 | `/guides/concrete-for-10x10-slab/` | how much concrete for a 10x10 slab | 10x10 concrete slab bags |
-| `/guides/mulch-for-common-garden-beds/` | mulch for garden bed sizes | how much mulch for flower bed |
-| `/guides/gravel-types-for-driveways/` | gravel types for driveways | crushed stone vs pea gravel |
+| `/guides/mulch-for-common-garden-beds/` | mulch for garden bed sizes | how much mulch for a 4x8 garden bed, mulch bags vs bulk |
+| `/guides/gravel-types-for-driveways/` | gravel types for driveways | best gravel for driveway, dense grade gravel |
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
 | `/guides/how-much-concrete-in-a-sonotube/` | how much concrete in a sonotube | sonotube bags of concrete, concrete for 12 inch sonotube |
 | `/guides/how-to-estimate-roofing-shingles/` | how to estimate roofing shingles | how to figure shingles for a roof, roofing squares vs square feet |
 
 | `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per 1000 sq ft, grass seed rate per 1000 sq ft |
-| `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | lawn fertilizer rate |
-| `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | soil for 4x8 raised bed |
+| `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | what does 30-0-4 mean, lawn fertilizer rate |
+| `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | how much soil for 4x8 raised bed, good soil mix for raised bed |
 | `/guides/how-much-paint-for-a-room/` | how much paint for a room | how many square feet does a gallon of paint cover, paint gallons for a room, how much paint for small bathroom, how much paint for a 12x12 room |
 | `/guides/paver-base-gravel-and-sand-depth/` | paver base gravel and sand depth | how deep should paver base gravel be, paver base thickness, bedding sand depth for pavers, how much sand under pavers |
 | `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards, how many joists for 12x16 deck, 12x16 deck plan vs material list |

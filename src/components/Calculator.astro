@@ -62,6 +62,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
   </div>
   <div class="results" aria-live="polite" aria-atomic="true" role="region" aria-label="Calculation results">
     <h2>Results</h2>
+    <p class="hint results-example-note">
+      Worked example from the default inputs above—values update live when you change a field.
+    </p>
     <dl class="results-dl">
       {
         resultPlaceholders.map(([k, v]) => (

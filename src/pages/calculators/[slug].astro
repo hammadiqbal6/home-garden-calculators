@@ -10,7 +10,8 @@ import { siteConfig } from '../../config/site';
 import { sisterUrl } from '../../config/sisterSites';
 import { absoluteUrl, categories, getTool, tools } from '../../data/tools';
 import { getGuide } from '../../data/guides';
-import { toolPageGraph } from '../../lib/schema';
+import { toolHowTo } from '../../data/toolHowTo';
+import { howToJsonLd, toolPageGraph } from '../../lib/schema';
 import { formatPageTitle } from '../../lib/seo';
 
 export function getStaticPaths() {
@@ -100,7 +101,9 @@ const breadcrumbLd = {
   ],
 };
 
-const jsonLd = [
+const howTo = toolHowTo[tool.slug];
+
+const jsonLd: Record<string, unknown>[] = [
   breadcrumbLd,
   toolPageGraph({
     name: tool.name,
@@ -115,6 +118,18 @@ const jsonLd = [
     primaryImagePath: diagram?.src,
   }),
 ];
+
+if (howTo) {
+  jsonLd.push(
+    howToJsonLd({
+      name: howTo.name,
+      description: tool.answerFirst,
+      path: `/calculators/${tool.slug}/`,
+      imagePath: diagram?.src,
+      steps: howTo.steps,
+    }),
+  );
+}
 ---
 
 <BaseLayout
@@ -142,6 +157,7 @@ const jsonLd = [
         <h2>On this page</h2>
         <ul>
           <li><a href="#calculator">Calculator</a></li>
+          {howTo && <li><a href="#how-to-use">How to use</a></li>}
           <li><a href="#tool-guide">How it works</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#sources">Sources</a></li>
@@ -197,6 +213,21 @@ const jsonLd = [
             />
             <figcaption>{diagram.alt}</figcaption>
           </figure>
+        )
+      }
+      {
+        howTo && (
+          <section id="how-to-use">
+            <h2>How to use this calculator</h2>
+            <ol class="howto-steps">
+              {howTo.steps.map((step, i) => (
+                <li id={`step-${i + 1}`}>
+                  <strong>{step.name}</strong>
+                  <p>{step.text}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
         )
       }
       <Fragment set:html={tool.sectionsHtml} />

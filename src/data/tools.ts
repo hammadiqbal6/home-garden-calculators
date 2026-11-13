@@ -283,7 +283,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -343,7 +343,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator-post-holes'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -359,12 +359,12 @@ export const tools: ToolDefinition[] = [
       'cardboard concrete form calculator',
       'column concrete calculator',
     ],
-    title: 'Sonotube / Concrete Tube Calculator (Bags, Yards)',
+    title: 'Concrete Tube / Sonotube Calculator (Bags)',
     description:
       'Concrete calculator for tubes and Sonotube forms: enter diameter, height, and tube count for cubic yards and 40/60/80 lb bag estimates.',
-    h1: 'Sonotube / Concrete Tube Calculator: Bags by Diameter',
+    h1: 'Concrete Tube Calculator: Sonotube Bags by Diameter',
     answerFirst:
-      'Sonotube (round cardboard form) volume is π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
+      'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
     calculatorId: 'sonotube',
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
@@ -400,13 +400,13 @@ export const tools: ToolDefinition[] = [
         label: 'Sonotube concrete forms – product sizing',
         href: 'https://www.sonotube.com/sonotube-concrete-forms',
         usedFor: 'Inside diameter / form sizing for round tubes',
-        checked: '2026-11-07',
+        checked: '2026-11-13',
       },
       {
-        label: 'QUIKRETE – Concrete calculator',
-        href: 'https://www.quikrete.com/calculator/main.asp',
-        usedFor: 'Bag counts from calculated cubic feet',
-        checked: '2026-11-07',
+        label: 'QUIKRETE Concrete Mix 1101 – Technical data',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+        usedFor: 'Bag yield (~0.60 cu ft per 80 lb bag) for tube pours',
+        checked: '2026-11-13',
       },
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
@@ -500,14 +500,24 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['mulch-depth-guide'],
     faq: [
       {
-        question: 'How wide should a mulch ring be?',
+        question: 'Why subtract the inner circle?',
         answer:
-          'Wider is generally better for roots—often out toward the dripline when practical. Even a 3–6 ft diameter ring helps retain moisture and reduce mower damage.',
+          'Tree-ring mulch is a donut: keep mulch off the trunk flare. Volume uses the outer circle minus the mulch-free inner circle, times depth.',
       },
       {
-        question: 'What is volcano mulching?',
+        question: 'How deep should tree-ring mulch be?',
         answer:
-          'Piling mulch against the trunk. It traps moisture on bark and can invite decay and pests. Keep mulch a few inches away from the trunk.',
+          'Keep a shallow, even layer and never volcano-mulch against the bark. Extension guidance emphasizes leaving the root flare visible.',
+      },
+      {
+        question: 'Can I pile mulch against the trunk?',
+        answer:
+          'No. Mulch volcanoes trap moisture against bark and can encourage pests and decline. Leave a clear collar at the trunk.',
+      },
+      {
+        question: 'How do I convert ring volume to bags?',
+        answer:
+          'Read cubic feet from the calculator, then divide by the coverage or volume printed on the mulch bag.',
       },
     ],
     sources: [
@@ -520,7 +530,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator-tree-rings'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -542,14 +552,24 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
-        question: 'How deep should driveway gravel be?',
+        question: 'How do I convert gravel cubic feet to tons?',
         answer:
-          'Many driveways use several inches of compacted base (often 4–8"+ depending on soil and traffic). Follow local practice and stone-yard guidance for your region.',
+          'Tons ≈ (cubic feet × density lb/cu ft) ÷ 2,000. Density varies with rock type and moisture—confirm with your supplier rather than assuming one number for every product.',
       },
       {
-        question: 'How many tons in a cubic yard of gravel?',
+        question: 'What depth should I use for a driveway base?',
         answer:
-          'Roughly 1.2–1.4 tons depending on rock type and moisture. Always confirm density with your supplier.',
+          'Depth depends on soil, traffic, and local practice. Enter the compacted depth your plan calls for; decorative surface stone is often shallower than structural base.',
+      },
+      {
+        question: 'Should I order by the yard or by the ton?',
+        answer:
+          'Use cubic yards when pricing by volume and tons when the quarry sells by weight. This calculator reports both when you supply a density.',
+      },
+      {
+        question: 'Do I need a waste factor?',
+        answer:
+          'Yes for irregular edges and compaction loss. Add waste in the calculator so the delivered load covers the finished depth.',
       },
     ],
     sources: [
@@ -562,7 +582,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['gravel-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -587,7 +607,22 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much topsoil to level a yard?',
         answer:
-          'Measure average fill depth across the area. Even 1 inch over 1,000 sq ft is about 3.1 cu yd. Deep low spots should be measured separately.',
+          'Measure average fill depth across the area. Even 1 inch over 1,000 sq ft is 1,000 × (1 ÷ 12) ≈ 83 cu ft (~3.1 cu yd). Deep low spots should be measured separately.',
+      },
+      {
+        question: 'How do I convert topsoil cubic feet to yards or bags?',
+        answer:
+          'Divide cubic feet by 27 for cubic yards. For bags, divide cubic feet by the cubic feet printed on the bag—bagged topsoil sizes vary by brand, so do not assume a universal bag volume.',
+      },
+      {
+        question: 'Should I add waste for settling?',
+        answer:
+          'Yes. Include about 10% extra when ordering so settling and uneven grade do not leave thin spots after spreading.',
+      },
+      {
+        question: 'Is topsoil the same as garden soil or raised-bed mix?',
+        answer:
+          'Not always. Screened topsoil is common for lawn leveling; garden blends and raised-bed mixes usually include more compost. Use the raised bed soil calculator when filling boxes.',
       },
     ],
     sources: [
@@ -600,7 +635,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['topsoil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -624,7 +659,22 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much sand under pavers?',
         answer:
-          'A common setting bed is about 1 inch of coarse concrete/bedding sand over a compacted gravel base. Confirm with your paver manufacturer.',
+          'A common setting bed is about 1 inch of coarse concrete/bedding sand over a compacted gravel base. Confirm with your paver manufacturer or ICPI-style installation guidance for the system you buy.',
+      },
+      {
+        question: 'Can I use play sand for a paver bed?',
+        answer:
+          'Usually no. Play sand, masonry sand, and concrete/bedding sand are not interchangeable. Use the product specified for pavers or the mix design.',
+      },
+      {
+        question: 'How do I convert sand volume to cubic yards?',
+        answer:
+          'Volume = length × width × depth. Divide cubic feet by 27 for cubic yards. A 10×10 ft area at 1 inch is about 8.3 cu ft (~0.31 cu yd) before waste.',
+      },
+      {
+        question: 'Why does sand migrate at the edges?',
+        answer:
+          'Missing or weak edge restraints let sand and pavers spread under traffic. Install restraints before final compaction and joint filling.',
       },
     ],
     sources: [
@@ -637,7 +687,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sand-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -661,7 +711,22 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much waste for paver patterns?',
         answer:
-          'Straight stack patterns may need ~5–10%. Diagonal herringbone often needs 10–15% extra for cuts.',
+          'Straight stack patterns may need ~5–10%. Diagonal herringbone often needs 10–15% extra for cuts. Buy a few matching dye-lot extras for future repairs.',
+      },
+      {
+        question: 'How many 12×12 inch pavers per square foot?',
+        answer:
+          'One 12×12 inch paver covers 1 sq ft of face area, so a 100 sq ft patio needs 100 pavers before waste (about 110 with 10% waste).',
+      },
+      {
+        question: 'How deep should sand and gravel base be?',
+        answer:
+          'A common planning stack is about 1 inch of bedding sand over several inches of compacted crushed stone. Exact base depth depends on soil, traffic, and the paver manufacturer—confirm before excavating.',
+      },
+      {
+        question: 'Does the calculator count edge restraints?',
+        answer:
+          'No. Order edge restraints, geotextile, and joint sand from the system instructions; this tool estimates paver count plus sand and base volumes from the depths you enter.',
       },
     ],
     sources: [
@@ -674,7 +739,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['paver-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -705,6 +770,16 @@ export const tools: ToolDefinition[] = [
         answer:
           'One 80 lb bag is a Fast-Setting dry-pour planning heuristic for small holes, not a full cylinder fill. For solid fills, run the post-hole calculator (e.g. 10″ × 2.5 ft ≈ three 80 lb bags after waste) and override bags-per-post.',
       },
+      {
+        question: 'How are pickets counted?',
+        answer:
+          'Pickets ≈ total inches of run ÷ (picket width + gap). Enter the actual face width and gap you will leave so the count matches the finished look.',
+      },
+      {
+        question: 'Does the calculator include gates?',
+        answer:
+          'A straight run estimate does not design gate hardware. Add gate posts and leaf materials separately after you choose opening width.',
+      },
     ],
     sources: [
       {
@@ -722,7 +797,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['fence-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -758,6 +833,16 @@ export const tools: ToolDefinition[] = [
         answer:
           '16" o.c. is common for many boards, but composites and some spans require 12" o.c. Follow the decking manufacturer span tables.',
       },
+      {
+        question: 'Does this design beams, footings, or stairs?',
+        answer:
+          'No. It is a rectangular decking and joist takeoff. Size beams, posts, footings, and stairs from code and manufacturer tables—or a qualified designer.',
+      },
+      {
+        question: 'How are screw counts estimated?',
+        answer:
+          'Fastener counts scale with linear feet of decking (often about two fasteners per foot of board). Confirm the pattern required by your decking brand.',
+      },
     ],
     sources: [
       {
@@ -769,7 +854,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['deck-material-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -794,12 +879,22 @@ export const tools: ToolDefinition[] = [
       {
         question: 'What is a 6/12 roof pitch?',
         answer:
-          'The roof rises 6 inches for every 12 inches of horizontal run—about 26.6°, a common residential slope.',
+          'The roof rises 6 inches for every 12 inches of horizontal run. That is about a 26.57° angle and a 50% slope.',
       },
       {
         question: 'How do I measure pitch safely?',
         answer:
-          'Measure on a rafter, rake board, or level+tape on the roof surface using safe access. See our measurement guide before climbing.',
+          'Prefer measuring rise over run on a rafter in the attic. Use the roof surface only with proper fall protection and dry conditions.',
+      },
+      {
+        question: 'How does pitch affect shingle square footage?',
+        answer:
+          'Steeper pitches have larger area factors. IKO lists a 6:12 area factor of 1.118 for converting plan area to roof surface before you estimate squares.',
+      },
+      {
+        question: 'Is pitch the same as roofing squares?',
+        answer:
+          'No. Pitch is geometry (rise/run). Squares are materials (100 sq ft of roof surface). Use this tool for pitch, then the shingle estimator for squares.',
       },
     ],
     sources: [
@@ -812,7 +907,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['roof-pitch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -828,10 +923,10 @@ export const tools: ToolDefinition[] = [
       'roofing squares calculator',
       'how many squares of shingles',
     ],
-    title: 'Shingle Estimator: Squares and Square Feet',
+    title: 'Shingle Estimator: Square Feet to Squares',
     description:
       'Shingle estimator for roof square feet and squares: convert plan length × width and pitch into roof area, squares, waste, and asphalt bundles (~3 per square).',
-    h1: 'Shingle Estimator: Squares & Square Feet',
+    h1: 'Shingle Estimator: Square Feet, Squares & Bundles',
     answerFirst:
       'One roofing square covers 100 square feet of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add 10–15% waste. Most asphalt bundles cover about ⅓ square (3 bundles per square).',
     summary: 'Squares and bundles from plan area and pitch.',
@@ -888,14 +983,24 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['how-much-paint-for-a-room'],
     faq: [
       {
-        question: 'How much does a gallon of paint cover?',
+        question: 'What coverage should I enter?',
         answer:
-          'Many interior paints list about 250–400 sq ft per gallon per coat depending on surface and color change. This tool defaults to 350.',
+          'Use the sq ft per gallon per coat on your paint can. BEHR lists about 250–400 sq ft per gallon per coat for several ULTRA and PREMIUM PLUS interior paints; YardTally defaults to 350 until you override it.',
       },
       {
-        question: 'How many square feet does a gallon of paint cover?',
+        question: 'Do I subtract doors and windows?',
         answer:
-          'Use the coverage printed on the can (often ~350–400 sq ft per gallon per coat indoors). Divide paintable wall area × coats by that coverage to get gallons.',
+          'Yes. Enter door and window counts (or areas) so openings are removed from wall area before coats and coverage are applied.',
+      },
+      {
+        question: 'How many coats should I plan?',
+        answer:
+          'Many interior projects use two finish coats over appropriately primed surfaces. Follow the label for hide, color change, and primer requirements.',
+      },
+      {
+        question: 'Should I buy all gallons from one tint lot?',
+        answer:
+          'Yes when possible. Round up to whole containers from the same tint batch so wall color stays consistent across the room.',
       },
     ],
     sources: [
@@ -970,27 +1075,37 @@ export const tools: ToolDefinition[] = [
     shortName: 'Grass seed',
     category: 'lawn',
     primaryKeyword: 'grass seed calculator',
-    secondaryKeywords: ['lawn seed calculator', 'overseeding calculator'],
-    title: 'Grass Seed Calculator – New Lawn & Overseed | YardTally',
+    secondaryKeywords: ['lawn seed calculator', 'overseeding calculator', 'grass seed per 1000 sq ft'],
+    title: 'Grass Seed Calculator: lb per 1,000 Sq Ft',
     description:
       'Grass seed calculator using lb per 1,000 sq ft rates for new lawns and overseeding. Get pounds and kilograms for your yard size—match the rate on your seed bag.',
-    h1: 'Grass Seed Calculator: lb per 1,000 Sq Ft (New & Overseed)',
+    h1: 'Grass Seed per 1,000 Sq Ft: New Lawn & Overseed',
     answerFirst:
-      'Seed needed = (lawn sq ft ÷ 1000) × rate. Cool-season blends often use about 3–4 lb/1000 sq ft for new lawns and roughly half that for overseeding. Always follow the rate printed on your seed bag for the species mix.',
+      'Per 1,000 sq ft: seed needed = (lawn sq ft ÷ 1,000) × the bag rate. Cool-season blends often list about 3–4 lb per 1,000 sq ft for new lawns and roughly half that for overseeding. Always follow the rate printed on your seed bag for the species mix.',
     summary: 'New lawn and overseed seed quantities.',
     calculatorId: 'grass-seed',
     relatedSlugs: ['fertilizer-calculator', 'topsoil-calculator', 'raised-bed-soil-calculator'],
     relatedGuideSlugs: ['grass-seed-per-sq-ft', 'fertilizer-nitrogen-per-1000-sq-ft'],
     faq: [
       {
-        question: 'Can I use new-lawn rates for overseeding?',
-        answer:
-          'Usually no—overseeding rates are lower. Too much seed increases competition and waste.',
-      },
-      {
         question: 'How much grass seed per 1,000 sq ft?',
         answer:
-          'Read the bag. Many cool-season blends list about 3–4 lb per 1,000 sq ft for new lawns and a lower overseed rate. This calculator multiplies (area ÷ 1,000) by the rate you enter from the label.',
+          'Read the bag. Many cool-season blends list about 3–4 lb per 1,000 sq ft for new lawns and a lower overseed rate. This calculator multiplies (area ÷ 1,000) by the rate you enter from the label. Iowa State PM 1072 discusses seeding rates by species—always override with your product label.',
+      },
+      {
+        question: 'Can I use new-lawn rates for overseeding?',
+        answer:
+          'Usually no—overseeding rates are lower. Too much seed increases competition and waste. Use the overseed rate printed on the bag when thickening existing turf.',
+      },
+      {
+        question: 'Do I enter square feet or acres?',
+        answer:
+          'Enter square feet. For acreage, multiply acres × 43,560, then apply the per-1,000-sq-ft rate: seed lb = (sq ft ÷ 1,000) × rate.',
+      },
+      {
+        question: 'Should I match the spreader setting to the bag chart?',
+        answer:
+          'Yes. Calibrate to the bag’s spreader chart, split seed into two perpendicular passes, and keep seed in firm contact with soil for germination.',
       },
     ],
     sources: [
@@ -999,6 +1114,12 @@ export const tools: ToolDefinition[] = [
         href: 'https://extension.psu.edu/turfgrass',
         usedFor: 'Cool-season turf seeding context; override with bag rate for your mix',
         checked: '2026-11-07',
+      },
+      {
+        label: 'Iowa State University – PM 1072 Lawn Establishment',
+        href: 'https://store.extension.iastate.edu/product/5413',
+        usedFor: 'Species seeding-rate context; always prefer the rate on your seed bag',
+        checked: '2026-11-13',
       },
     ],
     sectionsHtml: toolBodies['grass-seed-calculator'],
@@ -1029,6 +1150,21 @@ export const tools: ToolDefinition[] = [
         answer:
           'They are percent nitrogen, phosphate, and potash by weight. A 25-0-5 bag is 25% nitrogen.',
       },
+      {
+        question: 'How do I convert a nitrogen rate to product pounds?',
+        answer:
+          'Product fertilizer = (area ÷ 1,000) × (desired lb nitrogen per 1,000 ÷ nitrogen fraction). Example: 1 lb N/1,000 sq ft using 25-0-5 needs 4 lb of product per 1,000 sq ft because 1 ÷ 0.25 = 4. University of Minnesota Extension covers lawn nitrogen practice; match timing to local calendars.',
+      },
+      {
+        question: 'Should I fertilize by the bag’s coverage chart?',
+        answer:
+          'Use the nitrogen math above for a target rate, then confirm the spreader setting and water-in instructions on the label so you do not burn turf.',
+      },
+      {
+        question: 'Is more nitrogen always better?',
+        answer:
+          'No. Excess nitrogen can burn turf and increase clipping growth without improving root health. Follow extension rate guidance for your grass type and season.',
+      },
     ],
     sources: [
       {
@@ -1046,7 +1182,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['fertilizer-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -1072,6 +1208,21 @@ export const tools: ToolDefinition[] = [
         answer:
           'Deep beds can use bulk topsoil/compost blends for most of the volume and reserve finer mix for the top layer. Avoid pure play sand as the only fill.',
       },
+      {
+        question: 'How much soil for an 8×4 ft bed 12 inches deep?',
+        answer:
+          'Interior volume = 8 × 4 × 1 = 32 cu ft (~1.2 cu yd). Enter your actual inside dimensions and fill depth if the box differs.',
+      },
+      {
+        question: 'How do I convert cubic feet to bags?',
+        answer:
+          'Divide total cubic feet by the cubic feet printed on the bag. Bag sizes vary widely—always use the label volume rather than assuming a standard bag.',
+      },
+      {
+        question: 'Will the soil settle after filling?',
+        answer:
+          'Yes. Mixes settle after watering. Plan a little extra volume or top up after the first deep watering so the finished surface stays near the rim.',
+      },
     ],
     sources: [
       {
@@ -1083,7 +1234,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['raised-bed-soil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
 ];

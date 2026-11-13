@@ -38,7 +38,7 @@ const jsonLd = [
       {siteConfig.name} calculator inputs are processed in your browser and are not uploaded to our servers as part
       of the static site. This policy explains cookies, analytics, and advertising disclosures.
     </p>
-    <p>Last updated {siteConfig.contentUpdated}</p>
+    <p>Last updated 2026-11-13</p>
     <h2>Information we process</h2>
     <ul>
       <li>
@@ -57,11 +57,25 @@ const jsonLd = [
     </ul>
     <h2>Cookies, analytics, and advertising</h2>
     <p>
-      We may use Google Analytics 4 to understand aggregate traffic. The GA4 script loads only after
-      interaction/idle and respects a cookie notice with Google Consent Mode v2 defaults
-      (<code>analytics_storage</code> and ad-related consents denied until you accept). Third-party vendors,
-      including Google, may use cookies to serve ads based on a user’s prior visits to this or other websites
-      when Google AdSense is enabled.
+      We may use Google Analytics 4 to understand aggregate traffic. The GA4 library may load after
+      interaction or idle time. Consent Mode v2 defaults keep <code>analytics_storage</code> and
+      ad-related storage denied until consent is granted. Third-party vendors, including Google, may use
+      cookies to serve ads based on a user’s prior visits to this or other websites when Google AdSense is
+      enabled.
+    </p>
+    <h2>Which consent tool applies</h2>
+    <p>
+      <strong>EEA, United Kingdom, and Switzerland:</strong> when AdSense is enabled, Google’s certified
+      consent message (Funding Choices / Privacy &amp; messaging, IAB TCF v2.2 via
+      <code>adsbygoogle.js</code> and <code>fundingchoicesmessages.google.com</code>) collects consent for
+      personalized ads and related purposes. The site’s own cookie bar is not shown in those regions so you
+      only see Google’s message. Consent Mode stays denied for those regions until Google’s CMP records a
+      choice.
+    </p>
+    <p>
+      <strong>Other regions:</strong> the site shows a small first-party cookie notice (Accept / Reject).
+      Analytics and ad-storage Consent Mode signals stay denied until you Accept. Reject keeps them denied.
+      Google’s European regulations CMP message is not used outside the EEA, UK, and Switzerland.
     </p>
     <p>
       Google’s use of advertising cookies enables it and its partners to serve ads based on your visits to
@@ -79,9 +93,8 @@ const jsonLd = [
     <h2>DoubleClick / personalized ads</h2>
     <p>
       When AdSense is active, Google may use the DoubleClick cookie for ad serving and measurement. Use the
-      opt-out links above to manage personalized ads. For visitors in the EEA, UK, and Switzerland, a
-      Google-certified consent management platform (CMP) integrated with the IAB Transparency and Consent
-      Framework will collect consent before personalized ads are shown in those regions.
+      opt-out links above to manage personalized ads. In the EEA, UK, and Switzerland, personalized ads
+      depend on the Google-certified CMP described above (IAB TCF v2.2).
     </p>
     <h2>Data retention</h2>
     <p>

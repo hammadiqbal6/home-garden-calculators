@@ -4,6 +4,8 @@
  *    (path + query preserved; trailing slash applied in the same response)
  * 2. /sitemap.xml → /sitemap-index.xml (301)
  * 3. Otherwise permanent trailing-slash redirects (308)
+ * 4. HTML responses: inject yt-geo-country meta from request.cf.country so the
+ *    client can hide the site cookie banner in EEA/UK/CH (Google CMP only)
  *
  * Built-in assets html_handling uses temporary 307; this worker upgrades slash
  * consolidation to 308. The retired workers.dev subdomain is disabled in
@@ -20,6 +22,7 @@ import {
   needsTrailingSlashRedirect,
   parseLegacyRedirectHosts,
 } from './lib/workerRedirect';
+import { countryFromWorkerRequest, injectGeoCountryMeta } from './lib/htmlGeoInject';
 
 export interface Env {
   ASSETS: Fetcher;
@@ -27,6 +30,26 @@ export interface Env {
   CANONICAL_ORIGIN?: string;
   /** Comma-separated exact Host values that 301 → CANONICAL_ORIGIN. */
   LEGACY_REDIRECT_HOSTS?: string;
+}
+
+async function withGeoMeta(request: Request, response: Response): Promise<Response> {
+  const contentType = response.headers.get('content-type') || '';
+  if (!contentType.toLowerCase().includes('text/html')) {
+    return response;
+  }
+
+  const country = countryFromWorkerRequest(request as Request & { cf?: { country?: string } });
+  const html = await response.text();
+  const next = injectGeoCountryMeta(html, country);
+  const headers = new Headers(response.headers);
+  // Body length changed; drop stale length / encodings from the asset response.
+  headers.delete('content-length');
+  headers.delete('content-encoding');
+  return new Response(next, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
 }
 
 export default {
@@ -68,9 +91,15 @@ export default {
       const assetRes = await env.ASSETS.fetch(notFoundReq);
       const headers = new Headers(assetRes.headers);
       headers.set('Cache-Control', 'no-store');
-      return new Response(assetRes.body, { status: 404, statusText: 'Not Found', headers });
+      const res = new Response(assetRes.body, {
+        status: 404,
+        statusText: 'Not Found',
+        headers,
+      });
+      return withGeoMeta(request, res);
     }
 
-    return env.ASSETS.fetch(request);
+    const assetRes = await env.ASSETS.fetch(request);
+    return withGeoMeta(request, assetRes);
   },
 };

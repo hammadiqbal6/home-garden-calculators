@@ -1,6 +1,7 @@
 ---
 import DirectoryBadges from '../components/DirectoryBadges.astro';
 import { siteConfig } from '../config/site';
+import { GDPR_CONSENT_REGION_CODES } from '../lib/gdprRegions';
 import '../styles/global.css';
 
 interface Props {
@@ -39,6 +40,8 @@ const gaId = siteConfig.analytics.ga4MeasurementId;
 const gsc = siteConfig.analytics.searchConsoleVerification;
 const bing = siteConfig.analytics.bingVerification;
 const brand = siteConfig.brandColor;
+/** EEA + UK + CH — Consent Mode region defaults + site banner suppression. */
+const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
 ---
 
 <!doctype html>
@@ -81,6 +84,113 @@ const brand = siteConfig.brandColor;
       ))
     }
     {
+      /* Consent Mode defaults must run before adsbygoogle / gtag.js. */
+      (gaId ||
+        (siteConfig.adsense.enabled &&
+          siteConfig.adsense.publisherId.startsWith('ca-pub-') &&
+          !siteConfig.adsense.publisherId.includes('XXXX'))) && (
+        <script is:inline define:vars={{ gaId, gdprRegions }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = window.gtag || gtag;
+
+          function __ytIsCmpRegion() {
+            if (window.__ytCmpRegion) return true;
+            var meta = document.querySelector('meta[name="yt-geo-country"]');
+            var cc = meta ? String(meta.getAttribute('content') || '').toUpperCase() : '';
+            if (cc && gdprRegions.indexOf(cc) !== -1) {
+              window.__ytCmpRegion = true;
+              return true;
+            }
+            return false;
+          }
+          window.__ytIsCmpRegion = __ytIsCmpRegion;
+          __ytIsCmpRegion();
+
+          // Consent Mode v2 — EEA/UK/CH: denied until Google's certified CMP updates.
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 2000,
+            region: gdprRegions,
+          });
+          // Everywhere else: denied until the site cookie notice is accepted (unchanged).
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            wait_for_update: 500,
+          });
+
+          if (gaId) {
+            gtag('js', new Date());
+            gtag('config', gaId, {
+              anonymize_ip: true,
+              send_page_view: true,
+            });
+
+            window.__ycLoadGa = function () {
+              if (window.__ycGaLoaded) return;
+              window.__ycGaLoaded = true;
+              var s = document.createElement('script');
+              s.async = true;
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+              document.head.appendChild(s);
+            };
+
+            window.__ycGrantConsent = function () {
+              // Site banner grant — not used in Google CMP regions.
+              if (__ytIsCmpRegion()) return;
+              gtag('consent', 'update', {
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+                analytics_storage: 'granted',
+              });
+              window.__ycLoadGa();
+            };
+
+            // Defer GA script until idle, first interaction, or prior non-CMP consent.
+            function scheduleGa() {
+              try {
+                if (__ytIsCmpRegion()) {
+                  // Advanced Consent Mode: load the tag; Google's CMP updates consent.
+                } else if (localStorage.getItem('yc_cookie_ok') === '1') {
+                  window.__ycGrantConsent();
+                  return;
+                }
+              } catch (e) {}
+              var armed = false;
+              function arm() {
+                if (armed) return;
+                armed = true;
+                if ('requestIdleCallback' in window) {
+                  requestIdleCallback(
+                    function () {
+                      window.__ycLoadGa();
+                    },
+                    { timeout: 4000 },
+                  );
+                } else {
+                  setTimeout(window.__ycLoadGa, 3500);
+                }
+              }
+              ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+                window.addEventListener(evt, arm, { once: true, passive: true });
+              });
+              setTimeout(arm, 6000);
+            }
+            scheduleGa();
+          }
+        </script>
+      )
+    }
+    {
       siteConfig.adsense.enabled &&
         siteConfig.adsense.publisherId.startsWith('ca-pub-') &&
         !siteConfig.adsense.publisherId.includes('XXXX') && (
@@ -90,77 +200,6 @@ const brand = siteConfig.brandColor;
             crossorigin="anonymous"
           />
         )
-    }
-    {
-      gaId && (
-        <script is:inline define:vars={{ gaId }}>
-          window.dataLayer = window.dataLayer || [];
-          function gtag() {
-            dataLayer.push(arguments);
-          }
-          window.gtag = window.gtag || gtag;
-          // Consent Mode v2 defaults: denied until the cookie notice is accepted.
-          gtag('consent', 'default', {
-            ad_storage: 'denied',
-            ad_user_data: 'denied',
-            ad_personalization: 'denied',
-            analytics_storage: 'denied',
-            wait_for_update: 500,
-          });
-          gtag('js', new Date());
-          gtag('config', gaId, {
-            anonymize_ip: true,
-            send_page_view: true,
-          });
-
-          window.__ycLoadGa = function () {
-            if (window.__ycGaLoaded) return;
-            window.__ycGaLoaded = true;
-            var s = document.createElement('script');
-            s.async = true;
-            s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-            document.head.appendChild(s);
-          };
-
-          window.__ycGrantConsent = function () {
-            gtag('consent', 'update', {
-              ad_storage: 'granted',
-              ad_user_data: 'granted',
-              ad_personalization: 'granted',
-              analytics_storage: 'granted',
-            });
-            window.__ycLoadGa();
-          };
-
-          // Defer GA script until idle, first interaction, or consent — never render-blocking.
-          function scheduleGa() {
-            try {
-              if (localStorage.getItem('yc_cookie_ok') === '1') {
-                window.__ycGrantConsent();
-                return;
-              }
-            } catch (e) {}
-            var armed = false;
-            function arm() {
-              if (armed) return;
-              armed = true;
-              // Still denied until consent; only prefetch the library after engagement.
-              if ('requestIdleCallback' in window) {
-                requestIdleCallback(function () {
-                  window.__ycLoadGa();
-                }, { timeout: 4000 });
-              } else {
-                setTimeout(window.__ycLoadGa, 3500);
-              }
-            }
-            ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
-              window.addEventListener(evt, arm, { once: true, passive: true });
-            });
-            setTimeout(arm, 6000);
-          }
-          scheduleGa();
-        </script>
-      )
     }
   </head>
   <body>
@@ -252,7 +291,7 @@ const brand = siteConfig.brandColor;
         <button type="button" class="btn btn-primary" id="cookie-accept">Accept</button>
       </div>
     </div>
-    <script is:inline>
+    <script is:inline define:vars={{ gdprRegions }}>
       (function () {
         var toggle = document.querySelector('.nav-toggle');
         var nav = document.getElementById('site-nav');
@@ -273,29 +312,109 @@ const brand = siteConfig.brandColor;
             toggle.focus();
           });
         }
+
         var notice = document.getElementById('cookie-notice');
         var accept = document.getElementById('cookie-accept');
         var reject = document.getElementById('cookie-reject');
+        var gdprSet = {};
+        for (var i = 0; i < gdprRegions.length; i++) gdprSet[gdprRegions[i]] = true;
+
         function dismissCookieNotice() {
           if (!notice) return;
           notice.classList.remove('show');
           notice.hidden = true;
           document.body.classList.remove('cookie-visible');
         }
-        try {
-          if (notice && localStorage.getItem('yc_cookie_ok') == null) {
+
+        function readCfCountry() {
+          var meta = document.querySelector('meta[name="yt-geo-country"]');
+          return meta ? String(meta.getAttribute('content') || '').toUpperCase() : '';
+        }
+
+        function isGdprCountry(cc) {
+          return !!(cc && gdprSet[cc]);
+        }
+
+        function isUnknownCountry(cc) {
+          return !cc || cc === 'XX' || cc === 'T1';
+        }
+
+        /** Prefer Cloudflare country; also honor __tcfapi gdprApplies when present. */
+        function enterCmpRegion() {
+          window.__ytCmpRegion = true;
+          dismissCookieNotice();
+        }
+
+        function showSiteBannerIfNeeded() {
+          try {
+            if (window.__ytCmpRegion) return;
+            if (!notice || localStorage.getItem('yc_cookie_ok') != null) return;
             notice.hidden = false;
             notice.classList.add('show');
             document.body.classList.add('cookie-visible');
+          } catch (e) {}
+        }
+
+        function pingTcf(cb) {
+          var tries = 0;
+          function attempt() {
+            if (typeof window.__tcfapi === 'function') {
+              try {
+                window.__tcfapi('ping', 2, function (data) {
+                  cb(!!(data && data.gdprApplies));
+                });
+                return;
+              } catch (e) {
+                cb(false);
+                return;
+              }
+            }
+            if (++tries < 20) setTimeout(attempt, 100);
+            else cb(false);
           }
+          attempt();
+        }
+
+        function decideBanner() {
+          var cc = readCfCountry();
+          if (isGdprCountry(cc)) {
+            enterCmpRegion();
+            return;
+          }
+          // Known non-GDPR country: keep the existing site banner behaviour.
+          if (!isUnknownCountry(cc)) {
+            showSiteBannerIfNeeded();
+            // Still watch TCF in case geo and CMP disagree (rare).
+            pingTcf(function (applies) {
+              if (applies) enterCmpRegion();
+            });
+            return;
+          }
+          // Unknown / Tor: wait briefly for Funding Choices TCF before showing ours.
+          pingTcf(function (applies) {
+            if (applies) enterCmpRegion();
+            else showSiteBannerIfNeeded();
+          });
+        }
+
+        try {
+          decideBanner();
           accept &&
             accept.addEventListener('click', function () {
+              if (window.__ytCmpRegion) {
+                dismissCookieNotice();
+                return;
+              }
               localStorage.setItem('yc_cookie_ok', '1');
               dismissCookieNotice();
               if (typeof window.__ycGrantConsent === 'function') window.__ycGrantConsent();
             });
           reject &&
             reject.addEventListener('click', function () {
+              if (window.__ytCmpRegion) {
+                dismissCookieNotice();
+                return;
+              }
               localStorage.setItem('yc_cookie_ok', '0');
               dismissCookieNotice();
             });

@@ -39,10 +39,35 @@ if (!hasAuthorsPage && !/\/authors\/?\s+\/about\/\s+301/i.test(redirects)) {
 }
 
 const privacy = fs.readFileSync(path.join(DIST, 'privacy/index.html'), 'utf8');
-for (const needle of ['cookie', 'Google', 'Ads Settings', 'aboutads.info', 'personalized']) {
+for (const needle of [
+  'cookie',
+  'Google',
+  'Ads Settings',
+  'aboutads.info',
+  'personalized',
+  'EEA',
+  'Funding Choices',
+  'Consent Mode',
+]) {
   if (!privacy.toLowerCase().includes(needle.toLowerCase())) {
     fail(`privacy page missing disclosure mention: ${needle}`);
   }
+}
+
+const layoutSrc = fs.readFileSync(path.join(process.cwd(), 'src/layouts/BaseLayout.astro'), 'utf8');
+if (!layoutSrc.includes('gdprRegions') || !layoutSrc.includes('__ytCmpRegion')) {
+  fail('BaseLayout missing GDPR CMP region gating (__ytCmpRegion / gdprRegions)');
+}
+if (!layoutSrc.includes("consent', 'default'")) {
+  fail('BaseLayout missing Consent Mode default command');
+}
+
+const headers = fs.readFileSync(path.join(process.cwd(), 'public/_headers'), 'utf8');
+if (!headers.includes('fundingchoicesmessages.google.com')) {
+  fail('CSP missing fundingchoicesmessages.google.com for Google CMP');
+}
+if (!/fonts\.googleapis\.com/.test(headers) || !/fonts\.gstatic\.com/.test(headers)) {
+  fail('CSP missing Funding Choices font hosts (fonts.googleapis.com / fonts.gstatic.com)');
 }
 
 const adsTxt = fs.readFileSync(path.join(DIST, 'ads.txt'), 'utf8');

@@ -50,8 +50,8 @@ export function writeAdsenseReadiness(outPath, generatedUtc) {
     `| Methodology / Authors | ${fileExists('methodology/index.html') && fileExists('authors/index.html') ? 'PASS' : 'FAIL'} | Trust pages present |`,
     `| ads.txt | ${/google\.com|pub-/i.test(adsTxt) ? 'PASS' : 'FAIL'} | \`${adsTxt.slice(0, 80)}${adsTxt.length > 80 ? '…' : ''}\` |`,
     `| Reserved ad slots (CSS) | ${/--ad-slot|ad-slot-h/i.test(css) ? 'PASS' : 'FAIL'} | \`global.css\` / built CSS |`,
-    `| Cookie notice UI | PASS | \`BaseLayout.astro\` cookie banner + localStorage |`,
-    `| Certified CMP (EEA/UK/CH) | DOCUMENTED | Not integrated pre-launch; required before personalized ads — \`docs/ADSENSE.md\` |`,
+    `| Cookie notice UI | PASS | \`BaseLayout.astro\` cookie banner + localStorage (non-CMP regions) |`,
+    `| Certified CMP (EEA/UK/CH) | PASS | Google Funding Choices / Privacy & messaging; geo + TCF gate in \`BaseLayout.astro\` / \`src/worker.ts\` — \`docs/ADSENSE.md\` |`,
     `| No thin tool pages (<500 words) | ${thin.length === 0 ? 'PASS' : 'FAIL'} | ${thin.length} thin page(s) |`,
     `| AdSense script gated | PASS | Loads only when \`adsense.enabled\` + real \`ca-pub-\` in \`site.ts\` |`,
     '',
@@ -68,7 +68,9 @@ export function writeAdsenseReadiness(outPath, generatedUtc) {
   lines.push('## Operator notes');
   lines.push('');
   lines.push('- Apply to AdSense only after real domain, indexing, and traffic.');
-  lines.push('- Install a Google-certified CMP before serving personalized ads in EEA/UK/CH.');
+  lines.push(
+    '- Publish Google’s European regulations message in AdSense Privacy & messaging (Consent Mode on) before personalized ads in EEA/UK/CH.',
+  );
   lines.push('- Full policy copy: [`docs/ADSENSE.md`](../ADSENSE.md).');
   lines.push('');
 

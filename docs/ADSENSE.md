@@ -31,7 +31,16 @@ Apply after launch content is live, Search Console shows impressions, and you ha
 
 ## CMP (EEA / UK / CH)
 
-Personalized ads in the EEA, UK, and Switzerland require a **Google-certified CMP** integrated with IAB TCF. Install your CMP **before** serving personalized ads to those regions. Document the CMP vendor choice in your privacy policy when live.
+Personalized ads in the EEA, UK, and Switzerland require a **Google-certified CMP** integrated with IAB TCF v2.2.
+
+**This site uses Google’s Funding Choices / Privacy & messaging consent message** (served with `adsbygoogle.js` from `fundingchoicesmessages.google.com`) when AdSense is enabled and a European regulations message is published in AdSense.
+
+Implementation notes (see `BaseLayout.astro` + `src/worker.ts`):
+
+- Cloudflare `request.cf.country` is injected as `<meta name="yt-geo-country">` on HTML responses.
+- Visitors in EEA/UK/CH see **only** Google’s message (the first-party cookie bar is suppressed). `__tcfapi` `gdprApplies` is a secondary check when geo is unknown.
+- Consent Mode v2 defaults are **denied** for those regions (`gtag('consent','default',{ region: [...] })`) until Google’s CMP updates consent; other regions keep the site Accept/Reject bar.
+- Publish the message in AdSense → Privacy & messaging, enable Consent Mode on the message, then set `PUBLIC_ADSENSE_ENABLED=true`.
 
 ## Policy pitfalls for tool sites
 

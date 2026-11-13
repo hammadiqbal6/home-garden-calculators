@@ -769,6 +769,9 @@ export const guideBodies: Record<string, string> = {
       <p>At 350 sq ft per gallon: 366 ÷ 350 ≈ <strong>1.05 gallons for one coat</strong>. Two coats ≈ <strong>2.09 gallons</strong>—plan on buying three gallons so tint lots match and touch-up remains, or two gallons plus a quart if the store can match. These figures match the paint calculator for the same inputs.</p>
       <p>If the label’s practical coverage on your textured plaster is closer to 300 sq ft per gallon, two coats need (366 × 2) ÷ 300 ≈ 2.44 gallons—round up accordingly.</p>
 
+      <h2>Worked example: small bathroom (5 × 8 ft)</h2>
+      <p>A compact 5 × 8 ft bath with 8 ft ceilings has perimeter 2 × (5 + 8) = 26 ft and wall area 26 × 8 = <strong>208 sq ft</strong>. Subtract one door (~20 sq ft) and one small window (~9–15 sq ft): paintable walls land around <strong>170–180 sq ft</strong>. At 350 sq ft/gallon, one coat is about half a gallon; two coats are roughly <strong>1.0–1.1 gallons</strong>—so one gallon may finish a same-color refresh, while a deep color change still warrants a second gallon for touch-up and shower-adjacent humidity coats. Confirm openings and ceiling height with the <a href="/calculators/paint-calculator/">paint calculator</a>; skip ceiling and vanity doors unless you measure them separately.</p>
+
       <h2>Coverage planning table</h2>
       <div class="table-scroll">
       <table>
@@ -994,6 +997,110 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Permits, footings, and guards</h2>
       <p>Deck projects commonly require a permit and inspections, and the rules cover items a board count cannot: footing size and depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30 inches above the ground, but local amendments differ, and this is exactly why permit review is worthwhile. Footing depth must reach below the local frost depth in cold climates, which also affects how much concrete you order. Confirm all of this with your building department before buying lumber.</p>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.awc.org/" rel="noopener noreferrer">American Wood Council – Span resources / DCA guidance</a></li>
+        <li><a href="https://hgic.clemson.edu/" rel="noopener noreferrer">Clemson HGIC – Outdoor structure topics</a></li>
+        <li><a href="https://extension.psu.edu/" rel="noopener noreferrer">Penn State Extension</a></li>
+      </ul>
+  `,
+
+  'deck-material-list-16x24': `      <div class="takeaway"><strong>Key takeaway:</strong> A 16×24 ft deck is 384 sq&nbsp;ft of footprint. Board and joist counts depend on decking direction. With YardTally defaults (5.5&nbsp;in face width, 12&nbsp;ft stock, 16&nbsp;in O.C. joists) and boards running the 24&nbsp;ft direction, plan about <strong>70</strong> deck boards and <strong>19</strong> field joists before waste—then add beams, posts, footings, and fasteners. Assumptions below are planning aids, not engineered drawings.</div>
+
+      <h2>Clear assumptions for this material list</h2>
+      <ul>
+        <li><strong>Shape:</strong> simple rectangle, 16&nbsp;ft × 24&nbsp;ft finished decking (no stairs, no picture-frame border, no curves).</li>
+        <li><strong>Decking:</strong> boards run the <strong>24&nbsp;ft</strong> direction; covering width is 16&nbsp;ft; effective face width 5.5&nbsp;in (typical 6&nbsp;in nominal + gap); stock length 12&nbsp;ft (two boards per row).</li>
+        <li><strong>Joists:</strong> 16&nbsp;in on center along the 24&nbsp;ft span direction in the simplified calculator model; +2 rim/band joists counted separately.</li>
+        <li><strong>Not included as structural design:</strong> beam size/species, post size, ledger vs freestanding choice, railing, stairs, lateral bracing, or frost-depth footings—those need span tables, manufacturer charts, or an engineer and local permits.</li>
+        <li><strong>Fasteners:</strong> ~2 exterior screws per board-foot as a shopping ballpark (hidden-clip systems differ).</li>
+      </ul>
+      <p>Run the same dimensions live in the <a href="/calculators/deck-material-calculator/">deck material calculator</a> (set length = 24, width = 16 for this orientation). Compare a smaller takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>. Pier concrete for posts uses the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a> once you know tube diameter and height.</p>
+
+      <h2>Worked example: boards, joists, and fasteners</h2>
+      <p>Using calculator inputs length = 24&nbsp;ft (board direction), width = 16&nbsp;ft (across boards), 5.5&nbsp;in face width, 12&nbsp;ft boards, 16&nbsp;in joist spacing:</p>
+      <ul>
+        <li>Area = <strong>384 sq&nbsp;ft</strong>.</li>
+        <li>Rows = ceil(16 ÷ 5.5/12) = <strong>35 board rows</strong>; boards per row = ceil(24 ÷ 12) = 2 → <strong>70 deck boards</strong>.</li>
+        <li>Joists = floor(24 ÷ 16/12) + 1 = <strong>19 joists</strong>; rim joists = <strong>2</strong> in the tool.</li>
+        <li>Board linear feet = 70 × 12 = <strong>840</strong>; screws ≈ <strong>1,680</strong> at two per board-foot.</li>
+      </ul>
+      <p>If you reverse orientation so boards run the 16&nbsp;ft direction (length = 16, width = 24), the same defaults return about <strong>106</strong> twelve-foot boards and <strong>13</strong> field joists—more decking pieces, fewer joists. Sketch the board direction before ordering.</p>
+
+      <h2>Planning table (YardTally defaults)</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Illustrative 16×24 ft decking counts (5.5&nbsp;in face, 12&nbsp;ft boards, 16&nbsp;in O.C.)</caption>
+        <thead>
+          <tr><th>Board run direction</th><th>Deck boards</th><th>Joists (field)</th><th>Board lin&nbsp;ft</th><th>Screws (est.)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Along 24&nbsp;ft (cover 16&nbsp;ft width)</td><td>70</td><td>19</td><td>840</td><td>1,680</td></tr>
+          <tr><td>Along 16&nbsp;ft (cover 24&nbsp;ft width)</td><td>106</td><td>13</td><td>1,272</td><td>2,544</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Add waste for bad boards, angle cuts, and picture-frame borders. Composite decking may need 12&nbsp;in O.C. joists and brand-specific gapping—follow that installation guide rather than wood defaults.</p>
+
+      <h2>Beams, posts, and layout (planning only)</h2>
+      <p>A board-and-joist list is not a beam schedule. Common DIY patterns place beams under joists with posts at intervals allowed by the beam size and species—but allowable spans change with lumber grade, load (including snow), and whether the deck is attached or freestanding. Treat the following as a <em>shopping conversation starter</em>, not a code-compliant design:</p>
+      <ul>
+        <li><strong>Beams:</strong> count how many beam lines your sketch needs (often one or more under mid-span joists plus a rim or ledger condition). Length each beam to the post layout; include splice hardware if beams are not continuous.</li>
+        <li><strong>Posts:</strong> one post at each beam support point that does not land on a ledger. A rough planning grid for a 16×24 freestanding deck might use posts every 6–8&nbsp;ft along beams—confirm with span tables before buying.</li>
+        <li><strong>Hardware:</strong> post bases, post caps, joist hangers, and structural screws/bolts rated for treated lumber outdoor use.</li>
+      </ul>
+      <p>Elevated decks, ledgers into house bands, and guards over 30&nbsp;in above grade commonly require permits and inspections. Do not scale a ground-level pad detail to a second-story deck.</p>
+
+      <h2>Footings and concrete tubes</h2>
+      <p>Each post that bears on soil needs a footing sized for load and frost depth. Once you know diameter and depth (often to below frost), estimate concrete with tube forms:</p>
+      <ul>
+        <li>Use the <a href="/calculators/sonotube-concrete-calculator/">concrete tube / Sonotube calculator</a> for cardboard forms (diameter × height × count).</li>
+        <li>Bag charts and waste notes: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</li>
+        <li>Round hole intuition for fence-style piers: <a href="/guides/how-much-concrete-for-fence-posts/">concrete for fence posts</a> (different detail than deck piers—still useful for bag math).</li>
+      </ul>
+      <p>Example planning ballpark only: eight 12&nbsp;in × 4&nbsp;ft tubes with 5% waste is on the order of two dozen 80&nbsp;lb bags—recalculate for your actual pier count and frost depth. Never pour on organic topsoil or skip local frost requirements.</p>
+
+      <h2>Fasteners and consumables checklist</h2>
+      <ul>
+        <li>Decking screws or hidden clips for the board lineal footage above.</li>
+        <li>Joist hanger nails/screws per hanger schedule.</li>
+        <li>Structural bolts/lags for post-beam and ledger connections as detailed.</li>
+        <li>Flashing and tape for ledger attachments when the deck ties to the house.</li>
+        <li>Joist tape or preservative on cut treated ends per product guidance.</li>
+      </ul>
+
+      <h2>Step-by-step</h2>
+      <ol>
+        <li>Confirm finished size (16×24), height, ledger vs freestanding, railing, and permit needs.</li>
+        <li>Choose decking direction for appearance and joist span.</li>
+        <li>Run the <a href="/calculators/deck-material-calculator/">deck material calculator</a> with your board width and stock length.</li>
+        <li>Size beams and posts from span tables or an engineer—do not guess from board count alone.</li>
+        <li>Plan footings below frost where required; estimate concrete with the Sonotube tool.</li>
+        <li>Order fasteners rated for the lumber or composite system.</li>
+        <li>Dry-fit patterns, then fasten per manufacturer spacing diagrams.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>16&nbsp;in on-center is a common wood-deck default; some composites require 12&nbsp;in O.C.—check the brand.</li>
+        <li>Crown joists up; keep fastener rows consistent.</li>
+        <li>Flash ledgers properly; ledger failures are a known safety issue when details are skipped.</li>
+        <li>Account for stair stringers and landing framing as extra takeoffs.</li>
+        <li>Compare your counts against the smaller <a href="/guides/deck-material-list-12x16/">12×16 list</a> to sanity-check orientation math.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Ordering boards without deciding orientation and seam layout on a 24&nbsp;ft run.</li>
+        <li>Using interior fasteners on exterior treated lumber.</li>
+        <li>Ignoring post-to-beam hardware and lateral load paths on a larger freestanding footprint.</li>
+        <li>Assuming this list replaces a permit set of drawings.</li>
+        <li>Forgetting that railings can require stronger boundary joists or blocking.</li>
+      </ul>
+
+      <h2>Permits, footings, and guards</h2>
+      <p>Larger decks still live under the same life-safety rules as smaller ones: footing depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30&nbsp;inches above grade, but local amendments differ. Confirm with your building department before buying lumber.</p>
 
       <h2>Sources</h2>
       <ul class="sources">

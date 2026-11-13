@@ -112,7 +112,7 @@ export const toolBodies: Record<string, string> = {
   `,
   'sonotube-concrete-calculator': `
       <h2>Column volume method</h2>
-      <p>Sonotube and similar round cardboard forms use the cylinder formula: π × (inside diameter ÷ 2)² × height × count. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short.</p>
+      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula π × (inside diameter ÷ 2)² × height × count. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short.</p>
       <h2>Worked example</h2>
       <p>Four 10" Sonotubes, each 3 ft: diameter 10" → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd). With 5% waste → 6.87 cu ft, which is ceil(6.87 ÷ 0.60) = 12 bags of 80 lb mix.</p>
       <p>A 12" tube holds about 0.785 cu ft per foot of height. That means a 4 ft pier is roughly 3.14 cu ft—six 80 lb bags (or seven 60 lb bags) before waste—useful for deck footings when paired with proper footing bells or pads as required by code.</p>
@@ -130,7 +130,7 @@ export const toolBodies: Record<string, string> = {
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, and keep a small waste factor for spillage when filling tall forms.</div>
       <h2>Deck pier tips</h2>
-      <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a>.</p>
+      <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size examples such as the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using outside diameter instead of inside diameter.</li>
@@ -502,8 +502,8 @@ export const toolBodies: Record<string, string> = {
       <p>Record pitch as X-in-12 when talking to suppliers—many shingle specifications use that form instead of degrees.</p>
   `,
   'roofing-shingles-calculator': `
-      <h2>Squares method</h2>
-      <p>One roofing square = 100 sq ft of roof surface. Roof area ≈ plan area × pitch factor. Squares = roof area ÷ 100. Add 10–15% waste for starter, hips, valleys, and ridge. Most asphalt bundles cover about ⅓ square (3 bundles per square)—read the wrapper for exact coverage.</p>
+      <h2>Shingle estimator: square feet to squares</h2>
+      <p>One roofing square = 100 square feet of roof surface. This shingle estimator first finds roof square feet (plan length × width × pitch area factor), then divides by 100 for squares. Add 10–15% waste for starter, hips, valleys, and ridge. Most asphalt bundles cover about ⅓ square (3 bundles per square)—read the wrapper for exact coverage.</p>
       <h2>Worked example</h2>
       <p>Plan 40 × 25 ft at 6/12: factor √(1+0.25)=1.118. Roof area ≈ 1,118 sq ft ≈ 11.18 squares. With 10% waste → 12.3 squares ≈ 37 bundles at 3 per square.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Always convert plan area through the pitch factor before dividing by 100. Ordering from footprint alone underbuys shingles.</div>

@@ -228,6 +228,10 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "With 8 ft ceilings, wall area = 2 × (12+12) × 8 = 384 sq ft before openings. Subtract doors/windows, divide by label coverage, then multiply by coats. Run the paint calculator for exact gallons."
     },
     {
+      "question": "How much paint for a small bathroom?",
+      "answer": "A typical 5×8 ft bath with 8 ft ceilings has about 170–180 sq ft of paintable walls after one door and a small window. At 350 sq ft/gallon, two coats are roughly one gallon—buy a second for color changes or touch-up."
+    },
+    {
       "question": "How many square feet does a gallon of paint cover?",
       "answer": "Many interior latex products list about 250–400 sq ft per gallon per coat. Smooth, sealed walls land toward the high end; check your can."
     },
@@ -286,6 +290,28 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     {
       "question": "Can I build from this list alone?",
       "answer": "Use it for shopping ballparks. Structural design, flashing, and guards need code-compliant details."
+    }
+  ],
+  "deck-material-list-16x24": [
+    {
+      "question": "How many deck boards for a 16×24 deck?",
+      "answer": "With YardTally defaults (5.5 in face, 12 ft stock) and boards running the 24 ft direction across a 16 ft width, plan on about 70 boards before waste. Boards the other way need about 106 twelve-foot pieces."
+    },
+    {
+      "question": "How many joists for a 16×24 deck?",
+      "answer": "At 16 in on-center in the simplified model, boards along 24 ft imply about 19 field joists (+2 rim). Boards along 16 ft imply about 13 field joists. Verify spacing for your decking brand and span tables."
+    },
+    {
+      "question": "Does this list include beams, posts, and footings?",
+      "answer": "It discusses them with clear assumptions, but beam/post sizing is not a calculator output. Size members from span tables or an engineer, then estimate pier concrete with the Sonotube calculator."
+    },
+    {
+      "question": "How many screws do I need?",
+      "answer": "About board linear feet × 2 with YardTally defaults—roughly 1,680 screws for the 70-board orientation. Hidden-clip systems use different counts."
+    },
+    {
+      "question": "Is a 16×24 list the same as the 12×16 guide scaled up?",
+      "answer": "Same takeoff method, different orientation math and a larger footing/beam conversation. Use the dedicated 16×24 numbers rather than multiplying the 12×16 list."
     }
   ],
   "retaining-wall-blocks-and-base": [

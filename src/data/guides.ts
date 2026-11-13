@@ -153,12 +153,16 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'grass-seed-per-sq-ft',
-    title: 'Grass Seed per Sq Ft (lb per 1,000)',
+    title: 'Grass Seed per 1,000 Sq Ft (lb Rates)',
     description:
       'Convert grass seed bag rates in lb per 1,000 sq ft into total pounds for new lawns and overseeding, with worked examples and calculator links.',
-    h1: 'How Much Grass Seed per Square Foot?',
+    h1: 'How Much Grass Seed per 1,000 Square Feet?',
     primaryKeyword: 'grass seed per square foot',
-    secondaryKeywords: ['how much grass seed per sq ft', 'grass seed rate per 1000 sq ft'],
+    secondaryKeywords: [
+      'how much grass seed per 1000 sq ft',
+      'grass seed rate per 1000 sq ft',
+      'how much grass seed per sq ft',
+    ],
     answerFirst:
       'Grass seed is usually sold by pounds per 1,000 square feet, not a universal ounces-per-square-foot number. Multiply (lawn sq ft ÷ 1000) by the bag rate. New-lawn and overseed rates differ—always use the rate printed for your species mix and job type.',
     relatedToolSlugs: ['grass-seed-calculator', 'topsoil-calculator', 'fertilizer-calculator'],
@@ -167,6 +171,7 @@ export const guides: GuideDefinition[] = [
       'topsoil-vs-garden-soil',
     ],
     datePublished: '2026-10-23',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'fertilizer-nitrogen-per-1000-sq-ft',
@@ -200,15 +205,20 @@ export const guides: GuideDefinition[] = [
     slug: 'how-much-paint-for-a-room',
     title: 'How Much Paint for a Room?',
     description:
-      'Estimate interior paint gallons from wall area, openings, coats, and label coverage, with worked room examples and a free paint calculator.',
+      'Estimate interior paint gallons from wall area, openings, coats, and label coverage, with worked room and small bathroom examples and a free paint calculator.',
     h1: 'How Much Paint Do I Need for a Room?',
     primaryKeyword: 'how much paint for a room',
-    secondaryKeywords: ['paint gallons for a room', 'how many gallons of paint'],
+    secondaryKeywords: [
+      'paint gallons for a room',
+      'how many gallons of paint',
+      'how much paint for small bathroom',
+    ],
     answerFirst:
       'Paint gallons equal paintable wall area times coats divided by coverage. Wall area is roughly perimeter × height minus doors and windows. Many interior paints cover about 350–400 square feet per gallon per coat as a rule of thumb—confirm the can and use the paint calculator for your room.',
     relatedToolSlugs: ['paint-calculator'],
     relatedGuideSlugs: ['deck-material-list-12x16'],
     datePublished: '2026-10-23',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'paver-base-gravel-and-sand-depth',
@@ -229,7 +239,7 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'deck-material-list-12x16',
-    title: '12×16 Deck Material List & Cost (Boards, Joists)',
+    title: '12×16 Deck Material List (Boards, Joists)',
     description:
       'Planning takeoff for a 12×16 ft deck: footprint, board and joist counting ideas, waste rules of thumb, and links to deck and footing calculators.',
     h1: 'Deck Material List for a 12×16 Deck',
@@ -239,10 +249,35 @@ export const guides: GuideDefinition[] = [
       'A 12×16 ft deck covers 192 square feet of footprint. Board count depends on face width and orientation; joists are commonly 16 inches on center for many lumber decks—verify span tables and the decking brand. Use the deck calculator for boards and joists, then size footings separately.',
     relatedToolSlugs: ['deck-material-calculator', 'sonotube-concrete-calculator'],
     relatedGuideSlugs: [
+      'deck-material-list-16x24',
       'how-to-measure-roof-pitch',
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-10-23',
+    dateModified: '2026-11-13',
+  }),
+  g({
+    slug: 'deck-material-list-16x24',
+    title: '16×24 Deck Material List (Lumber & Footings)',
+    description:
+      '16×24 deck material list: boards, joists, beams, posts, footings, and fasteners with clear assumptions plus links to the deck and Sonotube calculators.',
+    h1: 'Deck Material List for a 16×24 Deck',
+    primaryKeyword: '16x24 deck material list',
+    secondaryKeywords: [
+      '16x24 deck boards',
+      'how many joists for 16x24 deck',
+      '16 by 24 deck lumber list',
+    ],
+    answerFirst:
+      'A 16×24 ft rectangular deck covers 384 square feet of footprint. With YardTally’s planning defaults (5.5 in board face, 12 ft stock, 16 in joist spacing) and boards running the 24 ft direction (covering 16 ft width), plan on about 70 twelve-foot deck boards and 19 field joists before waste—plus beams, posts, footings, and fasteners sized separately.',
+    relatedToolSlugs: ['deck-material-calculator', 'sonotube-concrete-calculator'],
+    relatedGuideSlugs: [
+      'deck-material-list-12x16',
+      'how-many-bags-of-concrete',
+      'how-much-concrete-for-fence-posts',
+    ],
+    datePublished: '2026-11-13',
+    dateModified: '2026-11-13',
   }),
   g({
     slug: 'retaining-wall-blocks-and-base',

@@ -11,6 +11,7 @@ import { sisterUrl } from '../../config/sisterSites';
 import { absoluteUrl, categories, getTool, tools } from '../../data/tools';
 import { getGuide } from '../../data/guides';
 import { toolPageGraph } from '../../lib/schema';
+import { formatPageTitle } from '../../lib/seo';
 
 export function getStaticPaths() {
   return tools.map((tool) => ({ params: { slug: tool.slug } }));
@@ -105,7 +106,7 @@ const jsonLd = [
     name: tool.name,
     description: tool.description,
     path: `/calculators/${tool.slug}/`,
-    title: tool.title,
+    title: formatPageTitle(tool.title),
     applicationCategory: tool.applicationCategory,
     datePublished: tool.datePublished,
     dateModified: tool.dateModified,
@@ -117,11 +118,11 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title={tool.title}
+  title={formatPageTitle(tool.title)}
   description={tool.description}
   canonicalPath={`/calculators/${tool.slug}/`}
   jsonLd={jsonLd}
-  ogImagePath={`/og/calculator-${tool.slug}.svg`}
+  ogImagePath={`/og/calculator-${tool.slug}.png`}
   ogImageAlt={diagram?.alt ?? `${tool.name} — ${siteConfig.name}`}
 >
   <Breadcrumbs

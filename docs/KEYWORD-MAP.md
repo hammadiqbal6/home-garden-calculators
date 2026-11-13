@@ -14,7 +14,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
-| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | column concrete calculator, cardboard form calculator |
+| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete calculator for tubes, concrete tube calculator, column concrete calculator, cardboard form calculator |
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
@@ -24,7 +24,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/fence-calculator/` | fence calculator | fence post calculator, picket fence calculator |
 | `/calculators/deck-material-calculator/` | deck material calculator | deck board calculator, deck joist calculator |
 | `/calculators/roof-pitch-calculator/` | roof pitch calculator | roof slope calculator, roof angle calculator |
-| `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle calculator, roofing squares calculator |
+| `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle estimator square feet, shingle calculator, roofing squares calculator |
 | `/calculators/paint-calculator/` | paint calculator | how much paint do I need, room paint calculator |
 | `/calculators/retaining-wall-calculator/` | retaining wall calculator | retaining wall block calculator |
 | `/calculators/grass-seed-calculator/` | grass seed calculator | overseeding calculator |
@@ -38,12 +38,13 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/gravel-types-for-driveways/` | gravel types for driveways | crushed stone vs pea gravel |
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
 
-| `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per sq ft |
+| `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per 1000 sq ft, grass seed rate per 1000 sq ft |
 | `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | lawn fertilizer rate |
 | `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | soil for 4x8 raised bed |
 | `/guides/how-much-paint-for-a-room/` | how much paint for a room | paint gallons for a room |
 | `/guides/paver-base-gravel-and-sand-depth/` | paver base gravel and sand depth | paver base thickness |
 | `/guides/deck-material-list-12x16/` | deck material list 12x16 | 12x16 deck boards |
+| `/guides/deck-material-list-16x24/` | 16x24 deck material list | 16x24 deck boards, how many joists for 16x24 deck |
 | `/guides/retaining-wall-blocks-and-base/` | retaining wall blocks and base | retaining wall gravel base |
 | `/guides/topsoil-vs-garden-soil/` | topsoil vs garden soil | garden soil vs topsoil |
 | `/about/` | about YardTally | maintainer Hammad Iqbal |

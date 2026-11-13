@@ -7,9 +7,9 @@ alwaysApply: false
 # Consent + CSP
 
 ## Consent (do not “simplify”)
-- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until the CMP updates (`BaseLayout.astro` + `src/lib/gdprRegions.ts`).
-- **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar.
-- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message).
+- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until the CMP updates (`BaseLayout.astro` + `src/lib/gdprRegions.ts`). Defaults must run before any `gtag('config')`.
+- **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar. Load gtag.js with denied defaults (Advanced Consent Mode); do not use the site Accept path.
+- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message). Load gtag.js only after Accept (or a prior Accept in `yc_cookie_ok`); grant Consent Mode **before** the first `config` so `page_view` is not dropped; if already configured under denied, send an explicit `page_view` on Accept.
 - Geo signal: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` (`src/worker.ts`, `src/lib/htmlGeoInject.ts`).
 - Privacy copy must stay aligned with AdSense cookies + opt-out + this split (`src/pages/privacy.astro`, `docs/ADSENSE.md`).
 

@@ -1,3 +1,5 @@
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   GDPR_CONSENT_REGION_CODES,
@@ -74,5 +76,33 @@ describe('HTML geo inject', () => {
       }),
     ).toBe('CH');
     expect(countryFromWorkerRequest({ headers: new Headers() })).toBe('XX');
+  });
+});
+
+describe('BaseLayout GA4 consent gating', () => {
+  const layout = readFileSync(resolve('src/layouts/BaseLayout.astro'), 'utf8');
+
+  it('sets Consent Mode defaults before any gtag config', () => {
+    const firstConsent = layout.indexOf("gtag('consent', 'default'");
+    const firstConfig = layout.indexOf("gtag('config', gaId");
+    expect(firstConsent).toBeGreaterThan(-1);
+    expect(firstConfig).toBeGreaterThan(-1);
+    expect(firstConsent).toBeLessThan(firstConfig);
+  });
+
+  it('configures GA only inside __ycLoadGa (not on every page parse)', () => {
+    const loadFn = layout.indexOf('window.__ycLoadGa = function');
+    const configCall = layout.indexOf("gtag('config', gaId");
+    expect(loadFn).toBeGreaterThan(-1);
+    expect(configCall).toBeGreaterThan(loadFn);
+    // No idle/interaction prefetch outside CMP — wait for Accept / prior Accept.
+    expect(layout).not.toMatch(/pointerdown.*__ycLoadGa|setTimeout\(window\.__ycLoadGa/);
+  });
+
+  it('grants consent before first load and re-sends page_view if already configured', () => {
+    expect(layout).toContain("gtag('event', 'page_view'");
+    expect(layout).toMatch(/if \(configured\)[\s\S]*__ycSendPageView[\s\S]*else[\s\S]*__ycLoadGa/);
+    expect(layout).toMatch(/getItem\(['"]yc_cookie_ok['"]\)/);
+    expect(layout).toMatch(/v === ['"]1['"]/);
   });
 });

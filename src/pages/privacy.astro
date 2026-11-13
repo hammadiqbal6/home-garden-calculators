@@ -57,11 +57,13 @@ const jsonLd = [
     </ul>
     <h2>Cookies, analytics, and advertising</h2>
     <p>
-      We may use Google Analytics 4 to understand aggregate traffic. The GA4 library may load after
-      interaction or idle time. Consent Mode v2 defaults keep <code>analytics_storage</code> and
-      ad-related storage denied until consent is granted. Third-party vendors, including Google, may use
-      cookies to serve ads based on a user’s prior visits to this or other websites when Google AdSense is
-      enabled.
+      We may use Google Analytics 4 to understand aggregate traffic. Consent Mode v2 defaults keep
+      <code>analytics_storage</code> and ad-related storage denied until consent is granted. In the EEA, UK,
+      and Switzerland those defaults are region-scoped and stay denied until Google’s certified CMP updates
+      consent; the GA script may load there with storage denied so Consent Mode can operate. Elsewhere, the
+      GA script loads only after you Accept the site cookie bar (or on later visits if you already accepted),
+      and then a page view is sent. Third-party vendors, including Google, may use cookies to serve ads based
+      on a user’s prior visits to this or other websites when Google AdSense is enabled.
     </p>
     <h2>Which consent tool applies</h2>
     <p>
@@ -74,8 +76,9 @@ const jsonLd = [
     </p>
     <p>
       <strong>Other regions:</strong> the site shows a small first-party cookie notice (Accept / Reject).
-      Analytics and ad-storage Consent Mode signals stay denied until you Accept. Reject keeps them denied.
-      Google’s European regulations CMP message is not used outside the EEA, UK, and Switzerland.
+      Accept grants analytics and ad-storage Consent Mode signals, loads the GA script if needed, and sends a
+      page view. Reject keeps them denied without loading the tag. Google’s European regulations CMP message
+      is not used outside the EEA, UK, and Switzerland.
     </p>
     <p>
       Google’s use of advertising cookies enables it and its partners to serve ads based on your visits to

@@ -14,7 +14,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
-| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete calculator for tubes, concrete tube calculator, column concrete calculator, cardboard form calculator |
+| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator |
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
@@ -24,10 +24,10 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/fence-calculator/` | fence calculator | fence post calculator, picket fence calculator |
 | `/calculators/deck-material-calculator/` | deck material calculator | deck board calculator, deck joist calculator |
 | `/calculators/roof-pitch-calculator/` | roof pitch calculator | roof slope calculator, roof angle calculator |
-| `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle estimator square feet, shingle calculator, roofing squares calculator |
+| `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle estimator square feet, shingle estimator, shingle calculator, roofing squares calculator |
 | `/calculators/paint-calculator/` | paint calculator | how much paint do I need, room paint calculator |
 | `/calculators/retaining-wall-calculator/` | retaining wall calculator | retaining wall block calculator |
-| `/calculators/grass-seed-calculator/` | grass seed calculator | overseeding calculator |
+| `/calculators/grass-seed-calculator/` | grass seed calculator | grass seed per 1000 sq ft, overseeding calculator |
 | `/calculators/fertilizer-calculator/` | fertilizer calculator | lawn fertilizer calculator |
 | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator | garden box soil calculator |
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |

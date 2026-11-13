@@ -530,8 +530,11 @@ export const guideBodies: Record<string, string> = {
 
       <p>Bag labels that claim “covers X square feet” assume a specific lb-per-1,000 rate. Recalculate from the printed rate and your measured area instead of trusting the marketing coverage claim alone.</p>
 
-      <h2>Overseeding vs new lawn</h2>
-      <p>Overseed rates on bags are often lower than bare-soil rates for the same product, but the ratio is not always exactly half. Use the overseed line on your bag. Tall fescue that clumps may need interseeding with the same species every few years; Iowa’s tall fescue guidance discusses that separately from a full new-lawn rate.</p>
+      <h2>Is grass seed sold in pounds per square foot?</h2>
+      <p>Usually no. Bags and extension charts list pounds per 1,000 square feet. To get an approximate pounds-per-square-foot figure, divide the lb-per-1,000 rate by 1,000 (for example, 3.5 lb per 1,000 is 0.0035 lb per sq ft). Keep the 1,000-sq-ft rate as the working number so you match the bag and PM 1072.</p>
+
+      <h2>Is overseeding half the new-lawn rate?</h2>
+      <p>Often lower, but not always exactly half. Use the overseed line on your bag. Tall fescue that clumps may need interseeding with the same species every few years. Iowa’s tall fescue guidance discusses that separately from a full new-lawn rate. Do not invent a universal half-rate rule.</p>
 
       <h2>Step-by-step: buy the right amount of seed</h2>
       <ol>

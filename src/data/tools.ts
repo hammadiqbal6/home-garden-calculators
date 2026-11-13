@@ -477,7 +477,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

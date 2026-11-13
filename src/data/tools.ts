@@ -368,7 +368,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Round column and pier forms by diameter and height.',
     calculatorId: 'sonotube',
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
-    relatedGuideSlugs: ['how-many-bags-of-concrete', 'deck-material-list-16x24'],
+    relatedGuideSlugs: [
+      'how-much-concrete-in-a-sonotube',
+      'how-many-bags-of-concrete',
+      'deck-material-list-16x24',
+    ],
     faq: [
       {
         question: 'Is this a concrete calculator for tubes / cardboard forms?',
@@ -439,6 +443,11 @@ export const tools: ToolDefinition[] = [
         answer:
           'A cubic yard is 27 cu ft, so 27÷2 = 13.5 of the common 2 cu ft bags (plan on 14 at the register) or nine 3 cu ft bags.',
       },
+      {
+        question: 'How many 2 cu ft and 3 cu ft bags for a given mulch volume?',
+        answer:
+          'Divide cubic feet by bag size, then round up. Example: 25 cu ft needs ceil(25÷2) = 13 of the 2 cu ft bags, or ceil(25÷3) = 9 of the 3 cu ft bags. For yards, multiply by 27 first (0.93 cu yd × 27 ≈ 25 cu ft).',
+      },
     ],
     sources: [
       {
@@ -468,7 +477,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -780,7 +789,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Pitch, degrees, percent slope, and area multiplier.',
     calculatorId: 'roof-pitch',
     relatedSlugs: ['roofing-shingles-calculator', 'deck-material-calculator'],
-    relatedGuideSlugs: ['how-to-measure-roof-pitch'],
+    relatedGuideSlugs: ['how-to-measure-roof-pitch', 'how-to-estimate-roofing-shingles'],
     faq: [
       {
         question: 'What is a 6/12 roof pitch?',
@@ -828,7 +837,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Squares and bundles from plan area and pitch.',
     calculatorId: 'roofing',
     relatedSlugs: ['roof-pitch-calculator', 'deck-material-calculator'],
-    relatedGuideSlugs: ['how-to-measure-roof-pitch'],
+    relatedGuideSlugs: ['how-to-estimate-roofing-shingles', 'how-to-measure-roof-pitch'],
     faq: [
       {
         question: 'What is a roofing square vs square feet?',

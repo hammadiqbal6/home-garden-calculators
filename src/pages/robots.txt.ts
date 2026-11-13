@@ -44,7 +44,10 @@ User-agent: CCBot
 ${disallows}
 
 Sitemap: ${siteConfig.siteUrl}/sitemap-index.xml
-# Optional AI / LLM site summary: ${siteConfig.siteUrl}/llms.txt
+# Optional AI / LLM site summaries:
+# ${siteConfig.siteUrl}/llms.txt
+# ${siteConfig.siteUrl}/llms-full.txt
+# ${siteConfig.siteUrl}/.well-known/llms.txt
 `;
 
   return new Response(body, {

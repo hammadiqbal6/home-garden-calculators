@@ -4,7 +4,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { siteConfig } from '../../config/site';
 import { absoluteUrl, getTool } from '../../data/tools';
 import { getGuide, guides } from '../../data/guides';
-import { personRef } from '../../lib/schema';
+import { howToJsonLd, personRef } from '../../lib/schema';
+import { formatPageTitle } from '../../lib/seo';
 
 export function getStaticPaths() {
   return guides.map((g) => ({ params: { slug: g.slug } }));
@@ -17,6 +18,73 @@ const relatedGuides = (guide.relatedGuideSlugs || [])
   .map((s) => getGuide(s))
   .filter(Boolean);
 const faqs = guide.faq || [];
+const ogImagePath = `/og/guide-${guide.slug}.png`;
+
+const howToBySlug: Record<string, { name: string; steps: { name: string; text: string }[] }> = {
+  'how-to-measure-roof-pitch': {
+    name: 'How to measure roof pitch',
+    steps: [
+      {
+        name: 'Prefer an attic or rake measurement',
+        text: 'Measure rise over run on a rafter in the attic when possible. Use the roof surface or rake only with proper fall protection and dry conditions.',
+      },
+      {
+        name: 'Measure rise over 12 inches of run',
+        text: 'Hold a level horizontal and measure the vertical rise at the 12-inch mark along the level. That rise in inches is the X in an X/12 pitch.',
+      },
+      {
+        name: 'Convert to angle and area factor',
+        text: 'Pitch (X-in-12) = (rise ÷ run) × 12. Angle ≈ arctan(rise/run). Area factor ≈ √(1 + (rise/run)²) for estimating roof surface from plan area.',
+      },
+      {
+        name: 'Estimate shingles from plan area',
+        text: 'Multiply plan footprint by the area factor for roof square feet, divide by 100 for squares, then add waste and read bundles per square on the label.',
+      },
+    ],
+  },
+  'how-much-concrete-for-fence-posts': {
+    name: 'How to estimate concrete for fence posts',
+    steps: [
+      {
+        name: 'Count posts',
+        text: 'Include line posts, corners, and gate posts using a fence layout or fence calculator.',
+      },
+      {
+        name: 'Choose hole diameter and depth',
+        text: 'Many residential posts use a hole about three times the post width and depth below frost where required.',
+      },
+      {
+        name: 'Calculate cylinder volume and bags',
+        text: 'Use π × (diameter ÷ 2)² × depth × post count, then convert to 40/60/80 lb bags with waste.',
+      },
+      {
+        name: 'Set posts per the mix instructions',
+        text: 'Add gravel under the post when appropriate, brace plumb, and fill according to the bag or ready-mix guidance.',
+      },
+    ],
+  },
+  'how-much-paint-for-a-room': {
+    name: 'How to estimate paint for a room',
+    steps: [
+      {
+        name: 'Measure the room',
+        text: 'Record length, width, and ceiling height in feet.',
+      },
+      {
+        name: 'Subtract openings',
+        text: 'Count doors and windows (or measure unusual openings) and subtract their areas from wall area.',
+      },
+      {
+        name: 'Apply coverage and coats',
+        text: 'Divide paintable area by label coverage (sq ft per gallon), then multiply by the number of coats.',
+      },
+      {
+        name: 'Round up to matching tint lots',
+        text: 'Buy whole containers from the same tint batch and add primer separately when the label requires it.',
+      },
+    ],
+  },
+};
 
 const jsonLd: Record<string, unknown>[] = [
   {
@@ -38,6 +106,7 @@ const jsonLd: Record<string, unknown>[] = [
     '@type': 'Article',
     headline: guide.h1,
     description: guide.description,
+    image: new URL(ogImagePath, `${siteConfig.siteUrl}/`).toString(),
     datePublished: `${guide.datePublished}T00:00:00+05:00`,
     dateModified: `${guide.dateModified}T00:00:00+05:00`,
     author: [personRef()],
@@ -56,6 +125,19 @@ const jsonLd: Record<string, unknown>[] = [
   },
 ];
 
+const howTo = howToBySlug[guide.slug];
+if (howTo) {
+  jsonLd.push(
+    howToJsonLd({
+      name: howTo.name,
+      description: guide.answerFirst,
+      path: `/guides/${guide.slug}/`,
+      imagePath: ogImagePath,
+      steps: howTo.steps,
+    }),
+  );
+}
+
 if (faqs.length) {
   jsonLd.push({
     '@context': 'https://schema.org',
@@ -70,12 +152,12 @@ if (faqs.length) {
 ---
 
 <BaseLayout
-  title={`${guide.title} | ${siteConfig.name}`}
+  title={formatPageTitle(guide.title)}
   description={guide.description}
   canonicalPath={`/guides/${guide.slug}/`}
   ogType="article"
   jsonLd={jsonLd}
-  ogImagePath={`/og/guide-${guide.slug}.svg`}
+  ogImagePath={ogImagePath}
   ogImageAlt={`${guide.h1} — ${siteConfig.name}`}
 >
   <Breadcrumbs
@@ -90,7 +172,8 @@ if (faqs.length) {
     <p class="answer-first">{guide.answerFirst}</p>
     <p class="meta-row">
       By <a href={siteConfig.author.urlPath} rel="author">{siteConfig.author.name}</a>
-      · Published {guide.datePublished} · Last reviewed {guide.dateModified}
+      · Published <time datetime={guide.datePublished}>{guide.datePublished}</time>
+      · Last reviewed <time datetime={guide.dateModified}>{guide.dateModified}</time>
     </p>
     <Fragment set:html={guide.bodyHtml} />
     {

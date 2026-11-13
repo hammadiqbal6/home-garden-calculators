@@ -107,7 +107,7 @@ export function toolPageGraph(opts: {
       url: pageUrl,
       applicationCategory: opts.applicationCategory,
       operatingSystem: 'Any',
-      browserRequirements: 'Requires JavaScript',
+      browserRequirements: 'Works with or without JavaScript; interactive recalculation uses JavaScript',
       isAccessibleForFree: true,
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
       author: personRef(),
@@ -153,4 +153,34 @@ export function toolPageGraph(opts: {
   }
 
   return { '@context': 'https://schema.org', '@graph': graph };
+}
+
+export function howToJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  imagePath?: string;
+  steps: { name: string; text: string }[];
+  totalTime?: string;
+}) {
+  const pageUrl = absoluteUrl(opts.path);
+  const node: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: opts.name,
+    description: opts.description,
+    url: pageUrl,
+    step: opts.steps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+      url: `${pageUrl}#step-${i + 1}`,
+    })),
+  };
+  if (opts.imagePath) {
+    node.image = new URL(opts.imagePath, `${siteConfig.siteUrl}/`).toString();
+  }
+  if (opts.totalTime) node.totalTime = opts.totalTime;
+  return node;
 }

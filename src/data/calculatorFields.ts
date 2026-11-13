@@ -1,4 +1,29 @@
-/** Server-rendered default fields to prevent CLS (mirrors Calculator.astro defaults). */
+/**
+ * Server-rendered default fields + result rows (mirrors Calculator.astro defaults).
+ * Result placeholders use the same pure math as the client island so crawlers and
+ * AI answer engines see real worked numbers in the static HTML.
+ */
+import {
+  bedMulch,
+  deckMaterials,
+  fenceMaterials,
+  fertilizerNeeded,
+  grassSeed,
+  gravelVolume,
+  paintNeeded,
+  paverCount,
+  postHoleVolume,
+  raisedBedSoil,
+  retainingWallBlocks,
+  roofingSquares,
+  roofPitch,
+  sandVolume,
+  slabVolume,
+  sonotubeVolume,
+  topsoilVolume,
+  treeRingMulch,
+} from '../lib/calculators';
+
 export type SsrField = {
   name: string;
   label: string;
@@ -129,122 +154,223 @@ export const ssrFields: Record<string, SsrField[]> = {
   ],
 };
 
+function concreteRows(
+  r: ReturnType<typeof slabVolume>,
+): [string, string][] {
+  return [
+    ['Volume', `${r.volumeCuFt} cu ft`],
+    ['Cubic yards', String(r.volumeCuYd)],
+    ['Cubic meters', String(r.volumeCuM)],
+    ['40 lb bags', String(r.bags40)],
+    ['60 lb bags', String(r.bags60)],
+    ['80 lb bags', String(r.bags80)],
+  ];
+}
+
+function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
+  const rows: [string, string][] = [
+    ['Area', `${r.areaSqFt} sq ft`],
+    ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+  ];
+  if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+  return rows;
+}
+
+const concreteDefault = slabVolume({
+  length: 10,
+  width: 10,
+  thickness: 4,
+  wasteFactor: 0.1,
+});
+const postHolesDefault = postHoleVolume({
+  diameter: 10,
+  depth: 2.5,
+  count: 8,
+  wasteFactor: 0.1,
+});
+const sonotubeDefault = sonotubeVolume({
+  diameter: 12,
+  height: 4,
+  count: 4,
+  wasteFactor: 0.05,
+});
+const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
+const treeRingDefault = treeRingMulch({
+  outerDiameter: 6,
+  trunkDiameter: 1,
+  depthInches: 3,
+});
+const gravelDefault = gravelVolume({
+  length: 20,
+  width: 10,
+  depthInches: 4,
+  wasteFactor: 0.1,
+});
+const topsoilDefault = topsoilVolume({
+  length: 20,
+  width: 10,
+  depthInches: 4,
+  wasteFactor: 0.1,
+});
+const sandDefault = sandVolume({
+  length: 20,
+  width: 10,
+  depthInches: 1,
+  wasteFactor: 0.1,
+});
+const paverDefault = paverCount({
+  areaLength: 12,
+  areaWidth: 10,
+  paverLengthIn: 12,
+  paverWidthIn: 12,
+  wastePercent: 10,
+});
+const fenceDefault = fenceMaterials({
+  totalLength: 48,
+  postSpacingFt: 8,
+  railsPerSection: 3,
+  picketWidthIn: 5.5,
+  picketGapIn: 0.5,
+});
+const deckDefault = deckMaterials({
+  length: 16,
+  width: 12,
+  boardWidthIn: 5.5,
+  boardLengthFt: 12,
+});
+const pitchDefault = roofPitch({ rise: 6, run: 12 });
+const roofingDefault = roofingSquares({
+  planLength: 40,
+  planWidth: 25,
+  pitchOver12: 6,
+  wastePercent: 10,
+});
+const paintDefault = paintNeeded({
+  length: 14,
+  width: 12,
+  height: 8,
+  doors: 2,
+  windows: 2,
+  coats: 2,
+  coverageSqFtPerGallon: 350,
+});
+const wallDefault = retainingWallBlocks({
+  wallLength: 20,
+  wallHeight: 3,
+  blockLengthIn: 18,
+  blockHeightIn: 6,
+  wastePercent: 5,
+});
+const seedDefault = grassSeed({
+  length: 50,
+  width: 20,
+  newLawnLbPer1000: 3.5,
+  overseedLbPer1000: 1.75,
+});
+const fertDefault = fertilizerNeeded({
+  length: 50,
+  width: 20,
+  nitrogenLbPer1000: 1,
+  nitrogenPercent: 25,
+  bagSizeLbs: 40,
+});
+const bedDefault = raisedBedSoil({ length: 8, width: 4, depthInches: 12 });
+
 export const defaultResultRows: Record<string, [string, string][]> = {
-  concrete: [
-    ['Volume', '—'],
-    ['Cubic yards', '—'],
-    ['Cubic meters', '—'],
-    ['40 lb bags', '—'],
-    ['60 lb bags', '—'],
-    ['80 lb bags', '—'],
-  ],
-  'post-holes': [
-    ['Volume', '—'],
-    ['Cubic yards', '—'],
-    ['Cubic meters', '—'],
-    ['40 lb bags', '—'],
-    ['60 lb bags', '—'],
-    ['80 lb bags', '—'],
-  ],
-  sonotube: [
-    ['Volume', '—'],
-    ['Cubic yards', '—'],
-    ['Cubic meters', '—'],
-    ['40 lb bags', '—'],
-    ['60 lb bags', '—'],
-    ['80 lb bags', '—'],
-  ],
+  concrete: concreteRows(concreteDefault),
+  'post-holes': concreteRows(postHolesDefault),
+  sonotube: concreteRows(sonotubeDefault),
   mulch: [
-    ['Area', '—'],
-    ['Volume', '—'],
-    ['2 cu ft bags', '—'],
-    ['3 cu ft bags', '—'],
+    ['Area', `${mulchDefault.areaSqFt} sq ft`],
+    [
+      'Volume',
+      `${mulchDefault.volumeCuFt} cu ft (${mulchDefault.volumeCuYd} cu yd / ${mulchDefault.volumeCuM} m³)`,
+    ],
+    ['2 cu ft bags', String(mulchDefault.bags2CuFt)],
+    ['3 cu ft bags', String(mulchDefault.bags3CuFt)],
   ],
   'tree-ring-mulch': [
-    ['Ring area', '—'],
-    ['Volume', '—'],
-    ['2 cu ft bags', '—'],
-    ['3 cu ft bags', '—'],
+    ['Ring area', `${treeRingDefault.areaSqFt} sq ft`],
+    ['Volume', `${treeRingDefault.volumeCuFt} cu ft (${treeRingDefault.volumeCuYd} cu yd)`],
+    ['2 cu ft bags', String(treeRingDefault.bags2CuFt)],
+    ['3 cu ft bags', String(treeRingDefault.bags3CuFt)],
   ],
-  gravel: [
-    ['Area', '—'],
-    ['Volume', '—'],
-    ['Est. tons', '—'],
-  ],
-  topsoil: [
-    ['Area', '—'],
-    ['Volume', '—'],
-    ['Est. tons', '—'],
-  ],
-  sand: [
-    ['Area', '—'],
-    ['Volume', '—'],
-    ['Est. tons', '—'],
-  ],
+  gravel: bulkRows(gravelDefault),
+  topsoil: bulkRows(topsoilDefault),
+  sand: bulkRows(sandDefault),
   paver: [
-    ['Area', '—'],
-    ['Pavers (exact)', '—'],
-    ['Pavers with waste', '—'],
-    ['Bedding sand', '—'],
-    ['Base gravel', '—'],
+    ['Area', `${paverDefault.areaSqFt} sq ft (${paverDefault.areaSqM} m²)`],
+    ['Pavers (exact)', String(paverDefault.paversNeeded)],
+    ['Pavers with waste', String(paverDefault.paversWithWaste)],
+    ['Bedding sand', `${paverDefault.edgeSandCuFt} cu ft`],
+    ['Base gravel', `${paverDefault.baseGravelCuYd} cu yd`],
   ],
   fence: [
-    ['Run length', '—'],
-    ['Sections', '—'],
-    ['Posts', '—'],
-    ['Rails', '—'],
-    ['Pickets', '—'],
-    ['80 lb bags for posts (est.)', '—'],
+    ['Run length', `${fenceDefault.lengthFt} ft`],
+    ['Sections', String(fenceDefault.sections)],
+    ['Posts', String(fenceDefault.posts)],
+    ['Rails', String(fenceDefault.rails)],
+    ['Pickets', String(fenceDefault.pickets)],
+    ['80 lb bags for posts (est.)', String(fenceDefault.concreteBags80ForPosts)],
   ],
   deck: [
-    ['Area', '—'],
-    ['Deck boards', '—'],
-    ['Joists (16" o.c.)', '—'],
-    ['Rim joists', '—'],
-    ['Screws (est.)', '—'],
+    ['Area', `${deckDefault.areaSqFt} sq ft`],
+    ['Deck boards', String(deckDefault.deckBoards)],
+    ['Joists (16" o.c.)', String(deckDefault.joists)],
+    ['Rim joists', String(deckDefault.rimJoists)],
+    ['Screws (est.)', String(deckDefault.screws)],
   ],
   'roof-pitch': [
-    ['Pitch', '—'],
-    ['Angle', '—'],
-    ['Slope', '—'],
-    ['Area factor', '—'],
+    ['Pitch', `${pitchDefault.pitchOver12} / 12`],
+    ['Angle', `${pitchDefault.angleDegrees}°`],
+    ['Slope', `${pitchDefault.slopePercent}%`],
+    ['Area factor', String(pitchDefault.areaFactor)],
   ],
   roofing: [
-    ['Plan area', '—'],
-    ['Roof area', '—'],
-    ['Squares', '—'],
-    ['Squares with waste', '—'],
-    ['Bundles (~3/sq)', '—'],
+    ['Plan area', `${roofingDefault.planAreaSqFt} sq ft`],
+    [
+      'Roof area',
+      `${roofingDefault.roofAreaSqFt} sq ft (${roofingDefault.roofAreaSqM} m²)`,
+    ],
+    ['Squares', String(roofingDefault.squares)],
+    ['Squares with waste', String(roofingDefault.squaresWithWaste)],
+    ['Bundles (~3/sq)', String(roofingDefault.bundles3PerSquare)],
   ],
   paint: [
-    ['Wall area', '—'],
-    ['Paintable area', '—'],
-    ['Gallons (1 coat)', '—'],
-    ['Gallons (your coats)', '—'],
-    ['Liters (your coats)', '—'],
+    ['Wall area', `${paintDefault.wallAreaSqFt} sq ft`],
+    [
+      'Paintable area',
+      `${paintDefault.paintableAreaSqFt} sq ft (${paintDefault.paintableAreaSqM} m²)`,
+    ],
+    ['Gallons (1 coat)', String(paintDefault.gallonsOneCoat)],
+    ['Gallons (your coats)', String(paintDefault.gallonsTwoCoats)],
+    ['Liters (your coats)', String(paintDefault.litersTwoCoats)],
   ],
   'retaining-wall': [
-    ['Face area', '—'],
-    ['Courses', '—'],
-    ['Blocks / course', '—'],
-    ['Blocks', '—'],
-    ['Blocks with waste', '—'],
-    ['Base gravel', '—'],
+    ['Face area', `${wallDefault.faceAreaSqFt} sq ft`],
+    ['Courses', String(wallDefault.courses)],
+    ['Blocks / course', String(wallDefault.blocksPerCourse)],
+    ['Blocks', String(wallDefault.blocks)],
+    ['Blocks with waste', String(wallDefault.blocksWithWaste)],
+    ['Base gravel', `${wallDefault.baseGravelCuYd} cu yd`],
   ],
   'grass-seed': [
-    ['Area', '—'],
-    ['Seed (new lawn)', '—'],
-    ['Seed (overseed)', '—'],
+    ['Area', `${seedDefault.areaSqFt} sq ft (${seedDefault.areaSqM} m²)`],
+    ['Seed (new lawn)', `${seedDefault.seedLbsNew} lb / ${seedDefault.seedKgNew} kg`],
+    [
+      'Seed (overseed)',
+      `${seedDefault.seedLbsOverseed} lb / ${seedDefault.seedKgOverseed} kg`,
+    ],
   ],
   fertilizer: [
-    ['Area', '—'],
-    ['Product needed', '—'],
-    ['Bags', '—'],
+    ['Area', `${fertDefault.areaSqFt} sq ft`],
+    ['Product needed', `${fertDefault.productLbs} lb (${fertDefault.productKg} kg)`],
+    ['Bags', String(fertDefault.bagsNeeded)],
   ],
   'raised-bed': [
-    ['Volume', '—'],
-    ['Cubic yards', '—'],
-    ['Cubic meters', '—'],
-    ['1.5 cu ft bags', '—'],
+    ['Volume', `${bedDefault.volumeCuFt} cu ft`],
+    ['Cubic yards', String(bedDefault.volumeCuYd)],
+    ['Cubic meters', String(bedDefault.volumeCuM)],
+    ['1.5 cu ft bags', String(bedDefault.bags15CuFt)],
   ],
 };

@@ -6,7 +6,8 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description: string;
-  canonicalPath: string;
+  /** Omit on error pages so soft-404s do not canonicalize to a crawlable /404/. */
+  canonicalPath?: string;
   ogType?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noIndex?: boolean;
@@ -25,10 +26,12 @@ const {
   ogImageAlt = siteConfig.defaultOgImageAlt,
 } = Astro.props;
 
-const canonical = new URL(
-  canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`,
-  siteConfig.siteUrl.endsWith('/') ? siteConfig.siteUrl : `${siteConfig.siteUrl}/`,
-).toString();
+const canonical = canonicalPath
+  ? new URL(
+      canonicalPath.endsWith('/') ? canonicalPath : `${canonicalPath}/`,
+      siteConfig.siteUrl.endsWith('/') ? siteConfig.siteUrl : `${siteConfig.siteUrl}/`,
+    ).toString()
+  : undefined;
 
 const ogImage = new URL(ogImagePath, siteConfig.siteUrl).toString();
 const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
@@ -46,13 +49,13 @@ const brand = siteConfig.brandColor;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={siteConfig.author.name} />
-    <link rel="canonical" href={canonical} />
+    {canonical && <link rel="canonical" href={canonical} />}
     {noIndex && <meta name="robots" content="noindex,nofollow" />}
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
+    {canonical && <meta property="og:url" content={canonical} />}
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content={String(siteConfig.defaultOgImageWidth)} />
     <meta property="og:image:height" content={String(siteConfig.defaultOgImageHeight)} />

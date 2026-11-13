@@ -154,6 +154,7 @@ export const categories: Record<
       <ul>
         <li><strong>48 ft fence at 8 ft spacing:</strong> 6 sections, 7 posts, 18 rails (3 per bay). For 10&quot; × 2.5 ft holes filled solid, plan ~15 × 80 lb bags after 10% waste—use the post-hole tool, not a flat “one bag per post” rule for cylinder fills.</li>
         <li><strong>12×16 deck:</strong> board and joist takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>; pier concrete via Sonotube diameter × height.</li>
+        <li><strong>16×24 deck:</strong> larger rectangular takeoff in the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a> (boards, joists, beams, posts, footings).</li>
         <li><strong>40×25 plan roof at 6/12:</strong> area factor ≈ 1.118 → ~11.2 squares before waste; with 10% waste and 3 bundles/square, order about 37 bundles.</li>
       </ul>
       <p>Taller retaining walls and load-bearing decks may need a licensed design—follow manufacturer height charts and local code. Paint coverage varies by brand (this site defaults to 350 sq ft/gal); confirm on the can.</p>
@@ -352,18 +353,28 @@ export const tools: ToolDefinition[] = [
     shortName: 'Sonotube',
     category: 'concrete',
     primaryKeyword: 'sonotube concrete calculator',
-    secondaryKeywords: ['cardboard concrete form calculator', 'column concrete calculator'],
-    title: 'Sonotube Concrete Calculator | YardTally',
+    secondaryKeywords: [
+      'concrete calculator for tubes',
+      'concrete tube calculator',
+      'cardboard concrete form calculator',
+      'column concrete calculator',
+    ],
+    title: 'Sonotube / Concrete Tube Calculator (Bags, Yards)',
     description:
-      'Sonotube concrete calculator for round columns and deck piers. Enter tube diameter and height for cubic yards and bag counts.',
-    h1: 'Sonotube Concrete Calculator: Bags by Diameter',
+      'Concrete calculator for tubes and Sonotube forms: enter diameter, height, and tube count for cubic yards and 40/60/80 lb bag estimates.',
+    h1: 'Sonotube / Concrete Tube Calculator: Bags by Diameter',
     answerFirst:
       'Sonotube (round cardboard form) volume is π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
     calculatorId: 'sonotube',
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
-    relatedGuideSlugs: ['how-many-bags-of-concrete'],
+    relatedGuideSlugs: ['how-many-bags-of-concrete', 'deck-material-list-16x24'],
     faq: [
+      {
+        question: 'Is this a concrete calculator for tubes / cardboard forms?',
+        answer:
+          'Yes. It estimates concrete for round cardboard forms (often called Sonotube or concrete tubes): enter inside diameter, height, and how many tubes, then read cubic feet/yards and bag counts.',
+      },
       {
         question: 'Is Sonotube diameter inside or outside?',
         answer:
@@ -373,6 +384,11 @@ export const tools: ToolDefinition[] = [
         question: 'How much concrete for a 12-inch Sonotube?',
         answer:
           'Per foot of height, a 12" tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft—six 80 lb bags before waste (still six after the default 5% waste at 0.60 cu ft/bag).',
+      },
+      {
+        question: 'Cubic feet or cubic yards for tube pours?',
+        answer:
+          'Bag planning usually stays in cubic feet (0.30 / 0.45 / 0.60 cu ft yields for 40 / 60 / 80 lb mixes). Divide by 27 for cubic yards when comparing ready-mix. Four 12" × 4 ft tubes with 5% waste are about 13.2 cu ft (~0.49 cu yd).',
       },
     ],
     sources: [
@@ -391,8 +407,9 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'mulch-calculator',
@@ -401,7 +418,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'mulch calculator',
     secondaryKeywords: ['mulch calculator bags', 'mulch calculator cubic yards', 'how much mulch'],
-    title: 'Mulch Calculator: How Much Mulch Do I Need? (Yards/Bags)',
+    title: 'Mulch Calculator: How Much Mulch Do I Need?',
     description:
       'Enter bed length, width and depth to see how many cubic yards or 2 and 3 cu ft bags of mulch you need. Includes recommended mulch depths for beds and trees.',
     h1: 'Mulch Calculator: Cubic Yards & Bags',
@@ -658,7 +675,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'fence calculator',
     secondaryKeywords: ['fence post calculator', 'picket fence calculator', 'rails and pickets'],
-    title: 'Fence Calculator – Posts, Rails, Pickets & Concrete',
+    title: 'Fence Calculator: Posts, Rails, Pickets',
     description:
       'Fence materials calculator for posts, rails, and pickets from total run length and spacing. Includes concrete bag estimate for posts.',
     h1: 'Fence Calculator: Posts, Rails, Pickets & Concrete',
@@ -716,7 +733,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
     relatedSlugs: ['sonotube-concrete-calculator', 'fence-calculator', 'paint-calculator'],
-    relatedGuideSlugs: ['deck-material-list-12x16', 'how-to-measure-roof-pitch'],
+    relatedGuideSlugs: [
+      'deck-material-list-12x16',
+      'deck-material-list-16x24',
+      'how-to-measure-roof-pitch',
+    ],
     faq: [
       {
         question: 'What board width should I enter?',
@@ -792,11 +813,16 @@ export const tools: ToolDefinition[] = [
     shortName: 'Shingles',
     category: 'outdoor',
     primaryKeyword: 'roofing calculator',
-    secondaryKeywords: ['shingle calculator', 'roofing squares calculator', 'how many squares of shingles'],
-    title: 'Roofing Shingles Calculator – Squares | YardTally',
+    secondaryKeywords: [
+      'shingle estimator square feet',
+      'shingle calculator',
+      'roofing squares calculator',
+      'how many squares of shingles',
+    ],
+    title: 'Shingle Estimator: Squares and Square Feet',
     description:
-      'Calculate roofing squares and shingle bundles from plan dimensions and pitch. Includes waste factor for hips, valleys, and starter.',
-    h1: 'Roofing Shingles & Squares Calculator',
+      'Shingle estimator for roof square feet and squares: convert plan length × width and pitch into roof area, squares, waste, and asphalt bundles (~3 per square).',
+    h1: 'Shingle Estimator: Squares & Square Feet',
     answerFirst:
       'One roofing square covers 100 square feet of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add 10–15% waste. Most asphalt bundles cover about ⅓ square (3 bundles per square).',
     summary: 'Squares and bundles from plan area and pitch.',
@@ -805,9 +831,19 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['how-to-measure-roof-pitch'],
     faq: [
       {
+        question: 'What is a roofing square vs square feet?',
+        answer:
+          'A square is 100 square feet of roof surface. This shingle estimator first finds roof square feet from plan dimensions × the pitch area factor, then divides by 100 to report squares—so you can order by either unit.',
+      },
+      {
         question: 'How many bundles in a square?',
         answer:
-          'Typically three bundles per square for many asphalt products, but always read the bundle label—coverage varies.',
+          'Typically three bundles per square for many asphalt products (about 33.3 sq ft coverage each), but always read the bundle label—coverage varies by brand and laminate vs 3-tab.',
+      },
+      {
+        question: 'How do I estimate shingles from square feet?',
+        answer:
+          'Take roof surface square feet (not just plan footprint), divide by 100 for squares, add waste (often 10–15% for hips/valleys/starter), then multiply squares by bundles per square from the label.',
       },
     ],
     sources: [
@@ -820,8 +856,9 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['roofing-shingles-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'paint-calculator',
@@ -846,6 +883,11 @@ export const tools: ToolDefinition[] = [
         answer:
           'Many interior paints list about 250–400 sq ft per gallon per coat depending on surface and color change. This tool defaults to 350.',
       },
+      {
+        question: 'How many square feet does a gallon of paint cover?',
+        answer:
+          'Use the coverage printed on the can (often ~350–400 sq ft per gallon per coat indoors). Divide paintable wall area × coats by that coverage to get gallons.',
+      },
     ],
     sources: [
       {
@@ -857,7 +899,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['paint-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -883,6 +925,21 @@ export const tools: ToolDefinition[] = [
         answer:
           'Taller walls and surcharged slopes often require engineering and geogrid. Follow the block manufacturer’s height limits and local code.',
       },
+      {
+        question: 'What retaining wall block dimensions should I enter?',
+        answer:
+          'Use the face length and face height of one block (for example 18 in long × 6 in tall). Caps are usually ordered separately by linear feet and are not the same as face-block dimensions.',
+      },
+      {
+        question: 'How deep should the retaining wall base trench be vs a paver base?',
+        answer:
+          'Wall bases and patio paver bases are related (compacted angular gravel) but not interchangeable. Many small landscape walls use several inches of compacted gravel in a trench wider than the block; this tool’s planning default is about 24 in wide × 6 in deep. Follow the wall manufacturer—not patio sand-bed depths—behind retained soil.',
+      },
+      {
+        question: 'Do caps count in the face-block total?',
+        answer:
+          'Usually order caps separately by linear feet of wall. Face-block counts cover the stacked courses, not decorative cap units.',
+      },
     ],
     sources: [
       {
@@ -894,8 +951,9 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['retaining-wall-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
   {
     slug: 'grass-seed-calculator',
@@ -920,6 +978,11 @@ export const tools: ToolDefinition[] = [
         answer:
           'Usually no—overseeding rates are lower. Too much seed increases competition and waste.',
       },
+      {
+        question: 'How much grass seed per 1,000 sq ft?',
+        answer:
+          'Read the bag. Many cool-season blends list about 3–4 lb per 1,000 sq ft for new lawns and a lower overseed rate. This calculator multiplies (area ÷ 1,000) by the rate you enter from the label.',
+      },
     ],
     sources: [
       {
@@ -931,7 +994,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['grass-seed-calculator'],
     datePublished: '2026-10-19',
-    dateModified: UPDATED,
+    dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
   },
   {
@@ -984,7 +1047,7 @@ export const tools: ToolDefinition[] = [
     category: 'landscape',
     primaryKeyword: 'raised bed soil calculator',
     secondaryKeywords: ['garden box soil calculator', 'how much soil for raised bed'],
-    title: 'Raised Bed Soil Calculator – Cubic Feet, Bags & Mix',
+    title: 'Raised Bed Soil Calculator: Cu Ft and Bags',
     description:
       'Calculate soil mix volume for raised beds from interior length, width, and depth. Cubic feet, yards, and bag estimates.',
     h1: 'Raised Bed Soil Calculator: Cubic Feet, Bags & Mix',

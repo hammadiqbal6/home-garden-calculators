@@ -61,6 +61,16 @@ export default {
       return Response.redirect(url.toString(), 308);
     }
 
+    // Never serve /404/ as a soft-200 document. Cloudflare assets may still
+    // emit a crawlable 404/index.html; always respond with HTTP 404 + body.
+    if (url.pathname === '/404' || url.pathname === '/404/') {
+      const notFoundReq = new Request(new URL('/404.html', url.origin), request);
+      const assetRes = await env.ASSETS.fetch(notFoundReq);
+      const headers = new Headers(assetRes.headers);
+      headers.set('Cache-Control', 'no-store');
+      return new Response(assetRes.body, { status: 404, statusText: 'Not Found', headers });
+    }
+
     return env.ASSETS.fetch(request);
   },
 };

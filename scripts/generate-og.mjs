@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Dependency-free OG SVG generator for YardTally.
+ * OG image generator for YardTally.
  * Reads slugs + titles from src/data/tools.ts and src/data/guides.ts via regex
- * (no TypeScript import). Writes 1200×630 SVGs under public/og/.
+ * (no TypeScript import). Writes 1200×630 SVG sources and PNG social previews
+ * under public/og/.
  *
  * Run: node scripts/generate-og.mjs  (also hooked as npm run og / prebuild)
  */
@@ -30,6 +31,16 @@ const SITE_TAGLINE =
 
 const FONT =
   'ui-sans-serif, system-ui, Segoe UI, Helvetica, Arial, sans-serif';
+
+async function loadSharp() {
+  try {
+    return (await import('sharp')).default;
+  } catch {
+    const { execSync } = await import('node:child_process');
+    execSync('npm install --no-save sharp', { cwd: root, stdio: 'inherit' });
+    return (await import('sharp')).default;
+  }
+}
 
 function escapeXml(s) {
   return String(s)
@@ -138,13 +149,21 @@ function ogSvg({ eyebrow, title }) {
 `;
 }
 
-function writeSvg(filename, opts) {
-  const p = path.join(outDir, filename);
-  fs.writeFileSync(p, ogSvg(opts), 'utf8');
-  return p;
+async function writeOg(sharp, filenameBase, opts) {
+  const svg = ogSvg(opts);
+  const svgPath = path.join(outDir, `${filenameBase}.svg`);
+  const pngPath = path.join(outDir, `${filenameBase}.png`);
+  fs.writeFileSync(svgPath, svg, 'utf8');
+  const png = await sharp(Buffer.from(svg))
+    .resize(1200, 630, { fit: 'fill' })
+    .png({ compressionLevel: 9 })
+    .toBuffer();
+  fs.writeFileSync(pngPath, png);
+  return { svgPath, pngPath };
 }
 
-function main() {
+async function main() {
+  const sharp = await loadSharp();
   const toolsSrc = fs.readFileSync(path.join(root, 'src/data/tools.ts'), 'utf8');
   const guidesSrc = fs.readFileSync(path.join(root, 'src/data/guides.ts'), 'utf8');
 
@@ -169,28 +188,28 @@ function main() {
   fs.mkdirSync(outDir, { recursive: true });
 
   let written = 0;
-  writeSvg('home.svg', {
+  await writeOg(sharp, 'home', {
     eyebrow: 'HOME',
     title: SITE_TAGLINE,
   });
   written++;
 
   for (const t of tools) {
-    writeSvg(`calculator-${t.slug}.svg`, {
+    await writeOg(sharp, `calculator-${t.slug}`, {
       eyebrow: 'CALCULATOR',
       title: t.title,
     });
     written++;
   }
   for (const g of guides) {
-    writeSvg(`guide-${g.slug}.svg`, {
+    await writeOg(sharp, `guide-${g.slug}`, {
       eyebrow: 'GUIDE',
       title: g.title,
     });
     written++;
   }
   for (const h of hubs) {
-    writeSvg(`hub-${h.slug}.svg`, {
+    await writeOg(sharp, `hub-${h.slug}`, {
       eyebrow: 'HUB',
       title: h.title,
     });
@@ -198,8 +217,11 @@ function main() {
   }
 
   console.log(
-    `generate-og: wrote ${written} SVG(s) to public/og/ (${tools.length} calculators, ${guides.length} guides, ${hubs.length} hubs + home)`,
+    `generate-og: wrote ${written} SVG+PNG pair(s) to public/og/ (${tools.length} calculators, ${guides.length} guides, ${hubs.length} hubs + home)`,
   );
 }
 
-main();
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

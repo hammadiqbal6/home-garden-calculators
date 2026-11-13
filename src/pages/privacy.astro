@@ -2,12 +2,34 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../data/tools';
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Privacy', item: absoluteUrl('/privacy/') },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: 'Privacy Policy',
+    description: `${siteConfig.name} privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads.`,
+    url: absoluteUrl('/privacy/'),
+    isPartOf: { '@id': `${absoluteUrl('/')}#website` },
+    dateModified: siteConfig.contentUpdated,
+  },
+];
 ---
 
 <BaseLayout
   title={`Privacy Policy | ${siteConfig.name} Cookies & Ads`}
   description={`${siteConfig.name} privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads.`}
   canonicalPath="/privacy/"
+  jsonLd={jsonLd}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Privacy' }]} />
   <article class="container prose panel" style="margin:1rem auto 3rem;max-width:800px">

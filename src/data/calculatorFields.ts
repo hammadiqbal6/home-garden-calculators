@@ -4,16 +4,20 @@
  * AI answer engines see real worked numbers in the static HTML.
  */
 import {
+  asphaltTons,
   bedMulch,
+  brickCount,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
   grassSeed,
   gravelVolume,
+  lumberFromPieces,
   paintNeeded,
   paverCount,
   postHoleVolume,
   raisedBedSoil,
+  rebarForSlab,
   retainingWallBlocks,
   roofingSquares,
   roofPitch,
@@ -152,6 +156,65 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'width', label: 'Interior width', value: '4', hint: 'feet' },
     { name: 'depth', label: 'Fill depth', value: '12', hint: 'inches' },
   ],
+  asphalt: [
+    ...dims('40', '12', 'Compacted depth', '3', 'inches'),
+    { name: 'waste', label: 'Waste / overage %', value: '5' },
+    { name: 'density', label: 'Density', value: '145', hint: 'lb/cu ft compacted' },
+  ],
+  brick: [
+    {
+      name: 'mode',
+      label: 'Unit type',
+      type: 'select',
+      options: [
+        { value: 'brick', label: 'Clay brick' },
+        { value: 'cmu', label: 'Concrete block (CMU)' },
+      ],
+      value: 'brick',
+    },
+    { name: 'length', label: 'Wall length', value: '20', hint: 'feet' },
+    { name: 'height', label: 'Wall height', value: '8', hint: 'feet' },
+    { name: 'unitL', label: 'Unit face length', value: '7.625', hint: 'inches (actual)' },
+    { name: 'unitH', label: 'Unit face height', value: '2.25', hint: 'inches (actual)' },
+    { name: 'joint', label: 'Mortar joint', value: '0.375', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  lumber: [
+    {
+      name: 'mode',
+      label: 'Calculate',
+      type: 'select',
+      options: [
+        { value: 'pieces', label: 'Board feet from pieces' },
+        { value: 'boardFeet', label: 'Pieces from board feet' },
+      ],
+      value: 'pieces',
+    },
+    { name: 'thickness', label: 'Nominal thickness', value: '2', hint: 'inches' },
+    { name: 'width', label: 'Nominal width', value: '4', hint: 'inches' },
+    { name: 'length', label: 'Length', value: '8', hint: 'feet' },
+    { name: 'pieces', label: 'Number of pieces', value: '10' },
+    { name: 'boardFeet', label: 'Target board feet', value: '50' },
+  ],
+  rebar: [
+    { name: 'length', label: 'Slab length', value: '20', hint: 'feet' },
+    { name: 'width', label: 'Slab width', value: '20', hint: 'feet' },
+    { name: 'spacing', label: 'Spacing (o.c.)', value: '18', hint: 'inches each way' },
+    {
+      name: 'barSize',
+      label: 'Bar size',
+      type: 'select',
+      options: [
+        { value: '3', label: '#3 (⅜")' },
+        { value: '4', label: '#4 (½")' },
+        { value: '5', label: '#5 (⅝")' },
+        { value: '6', label: '#6 (¾")' },
+      ],
+      value: '4',
+    },
+    { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
+    { name: 'waste', label: 'Waste / lap %', value: '10' },
+  ],
 };
 
 function concreteRows(
@@ -275,6 +338,35 @@ const fertDefault = fertilizerNeeded({
   bagSizeLbs: 40,
 });
 const bedDefault = raisedBedSoil({ length: 8, width: 4, depthInches: 12 });
+const asphaltDefault = asphaltTons({
+  length: 40,
+  width: 12,
+  depthInches: 3,
+  wasteFactor: 0.05,
+  densityLbPerCuFt: 145,
+});
+const brickDefault = brickCount({
+  wallLength: 20,
+  wallHeight: 8,
+  unitLengthIn: 7.625,
+  unitHeightIn: 2.25,
+  mortarJointIn: 0.375,
+  wastePercent: 5,
+});
+const lumberDefault = lumberFromPieces({
+  thicknessIn: 2,
+  widthIn: 4,
+  length: 8,
+  pieces: 10,
+});
+const rebarDefault = rebarForSlab({
+  length: 20,
+  width: 20,
+  spacingIn: 18,
+  barSize: 4,
+  stickLengthFt: 20,
+  wastePercent: 10,
+});
 
 export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
@@ -372,5 +464,36 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Cubic yards', String(bedDefault.volumeCuYd)],
     ['Cubic meters', String(bedDefault.volumeCuM)],
     ['1.5 cu ft bags', String(bedDefault.bags15CuFt)],
+  ],
+  asphalt: [
+    ['Area', `${asphaltDefault.areaSqFt} sq ft`],
+    [
+      'Volume',
+      `${asphaltDefault.volumeCuFt} cu ft (${asphaltDefault.volumeCuYd} cu yd / ${asphaltDefault.volumeCuM} m³)`,
+    ],
+    ['Tons (compacted)', String(asphaltDefault.tons)],
+    ['Density used', `${asphaltDefault.densityLbPerCuFt} lb/cu ft`],
+  ],
+  brick: [
+    ['Face area', `${brickDefault.faceAreaSqFt} sq ft`],
+    ['Units per sq ft', String(brickDefault.unitsPerSqFt)],
+    ['Courses', String(brickDefault.courses)],
+    ['Units / course', String(brickDefault.unitsPerCourse)],
+    ['Units (exact)', String(brickDefault.unitsExact)],
+    ['Units with waste', String(brickDefault.unitsWithWaste)],
+  ],
+  lumber: [
+    ['Board feet / piece', String(lumberDefault.boardFeetPerPiece)],
+    ['Total board feet', String(lumberDefault.totalBoardFeet)],
+    ['Linear feet', String(lumberDefault.totalLinearFeet)],
+    ['Pieces', String(lumberDefault.pieces)],
+  ],
+  rebar: [
+    ['Bars along length', String(rebarDefault.barsAlongLength)],
+    ['Bars along width', String(rebarDefault.barsAlongWidth)],
+    ['Linear feet', String(rebarDefault.linearFeet)],
+    ['Linear feet + waste', String(rebarDefault.linearFeetWithWaste)],
+    [`${rebarDefault.stickLengthFt} ft sticks`, String(rebarDefault.sticks)],
+    ['Est. weight', `${rebarDefault.weightLbs} lb`],
   ],
 };

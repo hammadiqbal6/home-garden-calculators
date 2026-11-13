@@ -387,4 +387,88 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'asphalt-calculator': {
+    name: 'How to estimate asphalt tons for a driveway or pad',
+    steps: [
+      {
+        name: 'Measure length, width, and compacted depth',
+        text: 'Use the finished paved footprint and the compacted thickness the paving plan calls for (often about 2–3 inches of surface mix over base).',
+      },
+      {
+        name: 'Confirm mix density',
+        text: 'Default density is 145 lb/cu ft for compacted hot-mix asphalt (common FHWA / industry planning weight). Override with the plant mix density when you have it.',
+      },
+      {
+        name: 'Add a small overage',
+        text: 'The calculator default is 5% for edges and thin spots. Irregular driveways may need more.',
+      },
+      {
+        name: 'Read tons and cubic yards',
+        text: 'Tons = (area × depth in feet × density) ÷ 2,000. Order from the plant by the ton and confirm base stone separately with the gravel calculator.',
+      },
+    ],
+  },
+  'brick-calculator': {
+    name: 'How to estimate bricks or concrete blocks for a wall',
+    steps: [
+      {
+        name: 'Choose clay brick or CMU mode',
+        text: 'Clay brick defaults to a modular 7⅝ × 2¼ in face. Concrete block (CMU) defaults to a 15⅝ × 7⅝ in face (nominal 8×16 module with a ⅜ in joint).',
+      },
+      {
+        name: 'Enter wall length and height',
+        text: 'Measure the face area to cover. Subtract door and window openings before you order.',
+      },
+      {
+        name: 'Set unit size, mortar joint, and waste',
+        text: 'Use the actual face sizes from the manufacturer. A ⅜ in joint is the usual modular default. Add about 5% waste for cuts and breakage.',
+      },
+      {
+        name: 'Read courses and unit counts',
+        text: 'Units = courses × units per course from the mortar module. Glen-Gery lists about 6.86 modular bricks per square foot with a ⅜ in joint.',
+      },
+    ],
+  },
+  'lumber-calculator': {
+    name: 'How to calculate board feet and lumber pieces',
+    steps: [
+      {
+        name: 'Enter nominal thickness, width, and length',
+        text: 'Softwood board feet use nominal size (a 2×4 uses 2 and 4, not 1½ × 3½). Length is the actual piece length in feet.',
+      },
+      {
+        name: 'Choose pieces → board feet or board feet → pieces',
+        text: 'Count identical pieces to total board feet, or enter a target board-foot purchase and convert to pieces of that size.',
+      },
+      {
+        name: 'Read board feet and linear feet',
+        text: 'Board feet per piece = (thickness × width × length) ÷ 12. Multiply by piece count for the order total.',
+      },
+      {
+        name: 'Cross-check specialty takeoffs',
+        text: 'For a rectangular deck board and joist list, also use the deck material calculator so spacing rules stay consistent.',
+      },
+    ],
+  },
+  'rebar-calculator': {
+    name: 'How to estimate rebar for a concrete slab',
+    steps: [
+      {
+        name: 'Enter slab length and width',
+        text: 'Use the plan dimensions of the pour. This tool estimates the rebar mat only—use the concrete calculator for yards and bags.',
+      },
+      {
+        name: 'Set on-center spacing and bar size',
+        text: 'Many residential slabs use #3 or #4 bar at 12–18 in on center each way. ACI 318 caps shrinkage/temperature spacing at the lesser of 5× thickness or 18 in for many slabs—confirm with drawings and local code.',
+      },
+      {
+        name: 'Choose stick length and waste',
+        text: 'Yards often stock 20 ft or 40 ft sticks. Add about 10% for laps, cuts, and chairs unless the detail shows exact lengths.',
+      },
+      {
+        name: 'Read bar counts, linear feet, and sticks',
+        text: 'Bars each way = floor(span ÷ spacing) + 1. Total linear feet ÷ stick length (with waste) gives the stick count to buy.',
+      },
+    ],
+  },
 };

@@ -8,3 +8,7 @@ export * from './roof';
 export * from './paint';
 export * from './retainingWall';
 export * from './lawn';
+export * from './asphalt';
+export * from './brick';
+export * from './lumber';
+export * from './rebar';

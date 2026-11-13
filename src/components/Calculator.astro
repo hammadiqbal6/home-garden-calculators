@@ -29,8 +29,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             class="field"
             data-field={field.name}
             hidden={
-              calculatorId === 'concrete' &&
-              ['steps', 'riser', 'tread'].includes(field.name)
+              (calculatorId === 'concrete' &&
+                ['steps', 'riser', 'tread'].includes(field.name)) ||
+              (calculatorId === 'lumber' && field.name === 'boardFeet')
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -86,16 +87,21 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
 
 <script>
   import {
+    asphaltTons,
     bedMulch,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
     grassSeed,
     gravelVolume,
+    lumberFromBoardFeet,
+    lumberFromPieces,
+    masonryUnits,
     paintNeeded,
     paverCount,
     postHoleVolume,
     raisedBedSoil,
+    rebarForSlab,
     retainingWallBlocks,
     roofingSquares,
     roofPitch,
@@ -105,6 +111,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
+    type RebarSize,
   } from '../lib/calculators';
 
   type Units = 'imperial' | 'metric';
@@ -935,6 +942,293 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         ];
       },
     },
+    asphalt: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Compacted depth',
+          imperialDefault: '3',
+          metricDefault: '7.5',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste / overage %', imperialDefault: '5', metricDefault: '5' },
+        {
+          name: 'density',
+          label: 'Density',
+          imperialDefault: '145',
+          metricDefault: '2323',
+          imperialHint: 'lb/cu ft compacted',
+          metricHint: 'kg/m³',
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const densityLbPerCuFt = u === 'imperial' ? v.density : v.density / 16.018463;
+        const r = asphaltTons({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wasteFactor: v.waste / 100,
+          densityLbPerCuFt,
+        });
+        return [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+          ['Tons (compacted)', String(r.tons)],
+          ['Density used', `${r.densityLbPerCuFt} lb/cu ft`],
+        ];
+      },
+    },
+    brick: {
+      fields: [
+        {
+          name: 'mode',
+          label: 'Unit type',
+          type: 'select',
+          options: [
+            { value: 'brick', label: 'Clay brick' },
+            { value: 'cmu', label: 'Concrete block (CMU)' },
+          ],
+          imperialDefault: 'brick',
+          metricDefault: 'brick',
+        },
+        {
+          name: 'length',
+          label: 'Wall length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'height',
+          label: 'Wall height',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'unitL',
+          label: 'Unit face length',
+          imperialDefault: '7.625',
+          metricDefault: '19.4',
+          imperialHint: 'inches (actual)',
+          metricHint: 'cm (actual)',
+        },
+        {
+          name: 'unitH',
+          label: 'Unit face height',
+          imperialDefault: '2.25',
+          metricDefault: '5.7',
+          imperialHint: 'inches (actual)',
+          metricHint: 'cm (actual)',
+        },
+        {
+          name: 'joint',
+          label: 'Mortar joint',
+          imperialDefault: '0.375',
+          metricDefault: '1',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const mode = (selects?.mode ?? (v as any).shapeRaw ?? 'brick') === 'cmu' ? 'cmu' : 'brick';
+        const toIn = (n: number) => (u === 'imperial' ? n : n / 2.54);
+        const r = masonryUnits({
+          wallLength: v.length,
+          wallHeight: v.height,
+          lengthUnit: lengthUnit(u),
+          heightUnit: lengthUnit(u),
+          mode,
+          unitLengthIn: toIn(v.unitL),
+          unitHeightIn: toIn(v.unitH),
+          mortarJointIn: toIn(v.joint),
+          wastePercent: v.waste,
+        });
+        const unitLabel = mode === 'cmu' ? 'Blocks' : 'Bricks';
+        return [
+          ['Face area', `${r.faceAreaSqFt} sq ft`],
+          [`${unitLabel} per sq ft`, String(r.unitsPerSqFt)],
+          ['Courses', String(r.courses)],
+          [`${unitLabel} / course`, String(r.unitsPerCourse)],
+          [`${unitLabel} (exact)`, String(r.unitsExact)],
+          [`${unitLabel} with waste`, String(r.unitsWithWaste)],
+        ];
+      },
+    },
+    lumber: {
+      fields: [
+        {
+          name: 'mode',
+          label: 'Calculate',
+          type: 'select',
+          options: [
+            { value: 'pieces', label: 'Board feet from pieces' },
+            { value: 'boardFeet', label: 'Pieces from board feet' },
+          ],
+          imperialDefault: 'pieces',
+          metricDefault: 'pieces',
+        },
+        {
+          name: 'thickness',
+          label: 'Nominal thickness',
+          imperialDefault: '2',
+          metricDefault: '50',
+          imperialHint: 'inches',
+          metricHint: 'mm (nominal)',
+        },
+        {
+          name: 'width',
+          label: 'Nominal width',
+          imperialDefault: '4',
+          metricDefault: '100',
+          imperialHint: 'inches',
+          metricHint: 'mm (nominal)',
+        },
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'pieces', label: 'Number of pieces', imperialDefault: '10', metricDefault: '10' },
+        { name: 'boardFeet', label: 'Target board feet', imperialDefault: '50', metricDefault: '50' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const mode = selects?.mode ?? (v as any).shapeRaw ?? 'pieces';
+        const thicknessIn = u === 'imperial' ? v.thickness : v.thickness / 25.4;
+        const widthIn = u === 'imperial' ? v.width : v.width / 25.4;
+        if (mode === 'boardFeet') {
+          const r = lumberFromBoardFeet({
+            thicknessIn,
+            widthIn,
+            length: v.length,
+            lengthUnit: lengthUnit(u),
+            targetBoardFeet: v.boardFeet,
+          });
+          return [
+            ['Board feet / piece', String(r.boardFeetPerPiece)],
+            ['Target board feet', String(r.targetBoardFeet)],
+            ['Pieces needed', String(r.piecesNeeded)],
+            ['Board feet ordered', String(r.totalBoardFeetOrdered)],
+            ['Linear feet', String(r.totalLinearFeet)],
+          ];
+        }
+        const r = lumberFromPieces({
+          thicknessIn,
+          widthIn,
+          length: v.length,
+          lengthUnit: lengthUnit(u),
+          pieces: v.pieces,
+        });
+        return [
+          ['Board feet / piece', String(r.boardFeetPerPiece)],
+          ['Total board feet', String(r.totalBoardFeet)],
+          ['Linear feet', String(r.totalLinearFeet)],
+          ['Pieces', String(r.pieces)],
+        ];
+      },
+    },
+    rebar: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Slab length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Slab width',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'spacing',
+          label: 'Spacing (o.c.)',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches each way',
+          metricHint: 'cm each way',
+        },
+        {
+          name: 'barSize',
+          label: 'Bar size',
+          type: 'select',
+          options: [
+            { value: '3', label: '#3 (⅜")' },
+            { value: '4', label: '#4 (½")' },
+            { value: '5', label: '#5 (⅝")' },
+            { value: '6', label: '#6 (¾")' },
+          ],
+          imperialDefault: '4',
+          metricDefault: '4',
+        },
+        {
+          name: 'stick',
+          label: 'Stick length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'waste', label: 'Waste / lap %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const barSize = Number(selects?.barSize ?? (v as any).shapeRaw ?? 4) as RebarSize;
+        const spacingIn = u === 'imperial' ? v.spacing : v.spacing / 2.54;
+        const stickFt = u === 'imperial' ? v.stick : v.stick * 3.280839895;
+        const r = rebarForSlab({
+          length: v.length,
+          width: v.width,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          spacingIn,
+          barSize: ([3, 4, 5, 6].includes(barSize) ? barSize : 4) as RebarSize,
+          stickLengthFt: stickFt,
+          wastePercent: v.waste,
+        });
+        return [
+          ['Bars along length', String(r.barsAlongLength)],
+          ['Bars along width', String(r.barsAlongWidth)],
+          ['Linear feet', String(r.linearFeet)],
+          ['Linear feet + waste', String(r.linearFeetWithWaste)],
+          [`${r.stickLengthFt} ft sticks`, String(r.sticks)],
+          ['Est. weight', `${r.weightLbs} lb`],
+        ];
+      },
+    },
   };
 
   function init(root: HTMLElement) {
@@ -955,7 +1249,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       root.querySelectorAll('input,select').forEach((el) => {
         el.addEventListener('input', calculate);
         el.addEventListener('change', () => {
-          toggleConcreteStepFields();
+          toggleModeFields();
           calculate();
         });
       });
@@ -1003,37 +1297,71 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         grid.appendChild(wrap);
       }
       fieldsEl.replaceChildren(grid);
-      toggleConcreteStepFields();
+      toggleModeFields();
       bindInputs();
     }
 
-    function toggleConcreteStepFields() {
-      if (id !== 'concrete') return;
-      const shape = root.querySelector<HTMLSelectElement>('[name="shape"]')?.value;
-      for (const name of ['steps', 'riser', 'tread']) {
-        const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
-        if (el) el.hidden = shape !== 'steps';
+    function toggleModeFields() {
+      if (id === 'concrete') {
+        const shape = root.querySelector<HTMLSelectElement>('[name="shape"]')?.value;
+        for (const name of ['steps', 'riser', 'tread']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = shape !== 'steps';
+        }
+        for (const name of ['thickness']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = shape === 'steps';
+        }
+        const lengthLabel = root.querySelector<HTMLElement>('[data-field="length"] label');
+        if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
+        return;
       }
-      for (const name of ['thickness']) {
-        const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
-        if (el) el.hidden = shape === 'steps';
+      if (id === 'lumber') {
+        const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'pieces';
+        const piecesEl = root.querySelector<HTMLElement>('[data-field="pieces"]');
+        const bfEl = root.querySelector<HTMLElement>('[data-field="boardFeet"]');
+        if (piecesEl) piecesEl.hidden = mode !== 'pieces';
+        if (bfEl) bfEl.hidden = mode !== 'boardFeet';
+        return;
       }
-      const lengthLabel = root.querySelector<HTMLElement>('[data-field="length"] label');
-      if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
+      if (id === 'brick') {
+        const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'brick';
+        const unitL = root.querySelector<HTMLInputElement>('[name="unitL"]');
+        const unitH = root.querySelector<HTMLInputElement>('[name="unitH"]');
+        if (!unitL || !unitH) return;
+        // Apply modular presets when switching type (imperial defaults).
+        if (units === 'imperial') {
+          if (mode === 'cmu') {
+            if (unitL.value === '7.625' || unitL.dataset.preset === 'brick') {
+              unitL.value = '15.625';
+              unitH.value = '7.625';
+              unitL.dataset.preset = 'cmu';
+              unitH.dataset.preset = 'cmu';
+            }
+          } else if (unitL.value === '15.625' || unitL.dataset.preset === 'cmu') {
+            unitL.value = '7.625';
+            unitH.value = '2.25';
+            unitL.dataset.preset = 'brick';
+            unitH.dataset.preset = 'brick';
+          }
+        }
+      }
     }
 
     function readValues() {
       const values: Record<string, number> = {};
-      let shapeRaw = 'slab';
+      const selectValues: Record<string, string> = {};
       root.querySelectorAll<HTMLInputElement | HTMLSelectElement>('input,select').forEach((el) => {
         if (el instanceof HTMLSelectElement) {
-          shapeRaw = el.value;
-          values.shape = el.selectedIndex;
+          selectValues[el.name] = el.value;
           return;
         }
         values[el.name] = Number(el.value);
       });
-      (values as any).shapeRaw = shapeRaw;
+      (values as any).selectValues = selectValues;
+      // Backward-compatible alias used by the concrete shape branch.
+      (values as any).shapeRaw =
+        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
       return values;
     }
 
@@ -1057,6 +1385,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'doorHeight',
         'windowWidth',
         'windowHeight',
+        'joint',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),
@@ -1107,11 +1436,18 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       const sp = new URLSearchParams();
       sp.set('units', units);
       for (const [k, v] of Object.entries(values)) {
-        if (k === 'shape' || k === 'shapeRaw') continue;
+        if (k === 'shape' || k === 'shapeRaw' || k === 'selectValues') continue;
         if (Number.isFinite(v)) sp.set(k, String(v));
       }
-      const shapeRaw = (values as any).shapeRaw;
-      if (shapeRaw) sp.set('shape', String(shapeRaw));
+      const selectValues = (values as any).selectValues as Record<string, string> | undefined;
+      if (selectValues) {
+        for (const [k, v] of Object.entries(selectValues)) {
+          if (v) sp.set(k, v);
+        }
+      } else {
+        const shapeRaw = (values as any).shapeRaw;
+        if (shapeRaw) sp.set('shape', String(shapeRaw));
+      }
       window.history.replaceState({}, '', `${window.location.pathname}?${sp.toString()}`);
     }
 
@@ -1147,7 +1483,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     if (units === 'metric' || [...params.keys()].some((k) => k !== 'units')) {
       renderFields();
     } else {
-      toggleConcreteStepFields();
+      toggleModeFields();
       bindInputs();
     }
     // Sync unit toggle pressed state

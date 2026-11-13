@@ -1,17 +1,26 @@
 import { describe, expect, it } from 'vitest';
 import {
+  ASPHALT_DENSITY_LB_PER_CUFT,
   BAG_YIELD_CUFT,
   bagsNeeded,
   bedMulch,
+  boardFeetPerPiece,
+  brickCount,
+  cmuCount,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
   grassSeed,
   gravelVolume,
+  lumberFromBoardFeet,
+  lumberFromPieces,
+  masonryUnits,
   paintNeeded,
   paverCount,
   postHoleVolume,
   raisedBedSoil,
+  rebarForSlab,
+  REBAR_LB_PER_FT,
   retainingWallBlocks,
   roofingSquares,
   roofPitch,
@@ -21,6 +30,7 @@ import {
   stepsVolume,
   topsoilVolume,
   treeRingMulch,
+  asphaltTons,
 } from '../src/lib/calculators';
 import { cuFtToCuYd, toFeet } from '../src/lib/units';
 
@@ -242,5 +252,138 @@ describe('roof / paint / wall / lawn', () => {
   it('raised bed soil volume', () => {
     const r = raisedBedSoil({ length: 8, width: 4, depthInches: 12 });
     expect(r.volumeCuFt).toBe(32);
+  });
+});
+
+describe('asphalt', () => {
+  it('uses 145 lb/ft³ planning density for compacted hot mix', () => {
+    expect(ASPHALT_DENSITY_LB_PER_CUFT).toBe(145);
+    // 10×20 ft driveway at 3" compacted, no waste:
+    // 200 × 0.25 = 50 cu ft → 50 × 145 / 2000 = 3.625 tons
+    const r = asphaltTons({
+      length: 20,
+      width: 10,
+      depthInches: 3,
+      wasteFactor: 0,
+    });
+    expect(r.volumeCuFt).toBeCloseTo(50, 3);
+    expect(r.tons).toBeCloseTo(3.63, 2);
+  });
+
+  it('applies waste to volume and tons', () => {
+    const r = asphaltTons({
+      length: 20,
+      width: 10,
+      depthInches: 3,
+      wasteFactor: 0.05,
+    });
+    expect(r.volumeCuFt).toBeCloseTo(52.5, 3);
+    expect(r.tons).toBeCloseTo((52.5 * 145) / 2000, 2);
+  });
+});
+
+describe('brick / CMU', () => {
+  it('modular brick with ⅜" joint is ~6.86 per sq ft (Glen-Gery)', () => {
+    const r = brickCount({
+      wallLength: 10,
+      wallHeight: 10,
+      unitLengthIn: 7.625,
+      unitHeightIn: 2.25,
+      mortarJointIn: 0.375,
+      wastePercent: 0,
+    });
+    expect(r.unitsPerSqFt).toBeCloseTo(6.86, 2);
+    // 10×10 wall: module 8" × 2.625" → ceil(120/8)=15 per course, ceil(120/2.625)=46 courses
+    expect(r.unitsPerCourse).toBe(15);
+    expect(r.courses).toBe(46);
+    expect(r.unitsExact).toBe(15 * 46);
+  });
+
+  it('CMU 8×16 face with ⅜" joint is 1.125 units per sq ft', () => {
+    const r = cmuCount({
+      wallLength: 16,
+      wallHeight: 8,
+      wastePercent: 0,
+    });
+    expect(r.unitsPerSqFt).toBeCloseTo(1.13, 2);
+    expect(r.moduleLengthIn).toBeCloseTo(16, 2);
+    expect(r.moduleHeightIn).toBeCloseTo(8, 2);
+    expect(r.unitsPerCourse).toBe(12); // 16 ft / (16/12) ft
+    expect(r.courses).toBe(12); // 8 ft / (8/12) ft
+    expect(r.unitsExact).toBe(144);
+  });
+
+  it('applies waste percent with ceil', () => {
+    const r = masonryUnits({
+      wallLength: 10,
+      wallHeight: 8,
+      mode: 'brick',
+      wastePercent: 5,
+    });
+    expect(r.unitsWithWaste).toBe(Math.ceil(r.unitsExact * 1.05));
+  });
+});
+
+describe('lumber', () => {
+  it('board feet for a nominal 2×4×8 is 5.33', () => {
+    // (2 × 4 × 8) / 12 = 5.333… → 5.33
+    expect(boardFeetPerPiece({ thicknessIn: 2, widthIn: 4, length: 8 })).toBeCloseTo(5.33, 2);
+  });
+
+  it('tallies softwood under 1" nominal as 1" thick', () => {
+    expect(boardFeetPerPiece({ thicknessIn: 0.75, widthIn: 6, length: 10 })).toBeCloseTo(
+      (1 * 6 * 10) / 12,
+      2,
+    );
+  });
+
+  it('scales board feet by piece count', () => {
+    const r = lumberFromPieces({ thicknessIn: 2, widthIn: 6, length: 12, pieces: 10 });
+    expect(r.boardFeetPerPiece).toBeCloseTo(12, 2);
+    expect(r.totalBoardFeet).toBeCloseTo(120, 2);
+    expect(r.totalLinearFeet).toBe(120);
+  });
+
+  it('converts target board feet to pieces', () => {
+    const r = lumberFromBoardFeet({
+      thicknessIn: 2,
+      widthIn: 4,
+      length: 8,
+      targetBoardFeet: 50,
+    });
+    // 5.33 BF each → ceil(50/5.33) = 10
+    expect(r.piecesNeeded).toBe(10);
+    expect(r.totalBoardFeetOrdered).toBeCloseTo(53.3, 1);
+  });
+});
+
+describe('rebar', () => {
+  it('counts a 20×20 slab at 18" o.c. each way', () => {
+    // floor(240/18)+1 = 14 bars each way; LF = 14*20*2 = 560
+    const r = rebarForSlab({
+      length: 20,
+      width: 20,
+      spacingIn: 18,
+      barSize: 4,
+      stickLengthFt: 20,
+      wastePercent: 0,
+    });
+    expect(r.barsAlongLength).toBe(14);
+    expect(r.barsAlongWidth).toBe(14);
+    expect(r.linearFeet).toBeCloseTo(560, 2);
+    expect(r.sticks).toBe(28); // 560 / 20
+    expect(r.weightLbs).toBeCloseTo(560 * REBAR_LB_PER_FT[4], 1);
+  });
+
+  it('adds waste before stick count', () => {
+    const r = rebarForSlab({
+      length: 20,
+      width: 20,
+      spacingIn: 18,
+      stickLengthFt: 20,
+      wastePercent: 10,
+    });
+    expect(r.linearFeetWithWaste).toBeCloseTo(616, 2);
+    expect(r.sticks).toBe(31); // ceil(616/20)
   });
 });

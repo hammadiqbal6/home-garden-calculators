@@ -83,6 +83,7 @@ export const categories: Record<
           <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Slab / footing calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
+          <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
         </tbody>
       </table>
       </div>
@@ -121,7 +122,7 @@ export const categories: Record<
       <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardTally ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
       <h2>Worked example: 20×10 path at 4 inches</h2>
       <p>Area = 200 sq ft. Depth = 4÷12 = 0.333 ft. Volume = 66.7 cu ft ≈ 2.47 cu yd before waste; with 10% compaction allowance ≈ 2.72 cu yd ≈ 3.67 tons at 2,700 lb/yd³. Run the same dimensions in the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
-      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>.</p>
+      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>. For asphalt driveways, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (planning density ~145 lb/cu ft compacted).</p>
     `,
   },
   outdoor: {
@@ -145,6 +146,8 @@ export const categories: Record<
           <tr><td>Roof / re-roof</td><td><a href="/calculators/roof-pitch-calculator/">Pitch</a> → <a href="/calculators/roofing-shingles-calculator/">Shingles</a></td><td><a href="/guides/how-to-measure-roof-pitch/">Measure pitch safely</a></td></tr>
           <tr><td>Painted walls</td><td><a href="/calculators/paint-calculator/">Paint calculator</a></td><td><a href="/guides/how-much-paint-for-a-room/">Room paint guide</a></td></tr>
           <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a></td></tr>
+          <tr><td>Brick or CMU masonry wall</td><td><a href="/calculators/brick-calculator/">Brick / block calculator</a></td><td>Modular brick ≈ 6.86 / sq ft with ⅜&quot; joint</td></tr>
+          <tr><td>General lumber takeoff</td><td><a href="/calculators/lumber-calculator/">Lumber / board feet</a></td><td>Board feet = T × W × L ÷ 12 (nominal)</td></tr>
         </tbody>
       </table>
       </div>
@@ -226,6 +229,7 @@ export const tools: ToolDefinition[] = [
     relatedSlugs: [
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
+      'rebar-calculator',
       'fence-calculator',
     ],
     relatedGuideSlugs: [
@@ -548,7 +552,7 @@ export const tools: ToolDefinition[] = [
       'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate. Add ~10% for compaction on driveways and paths.',
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
-    relatedSlugs: ['sand-calculator', 'paver-calculator', 'retaining-wall-calculator'],
+    relatedSlugs: ['sand-calculator', 'paver-calculator', 'asphalt-calculator', 'retaining-wall-calculator'],
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -816,7 +820,7 @@ export const tools: ToolDefinition[] = [
       'Deck boards needed ≈ deck width ÷ board face width, times boards along the length. Joists are typically spaced 16 inches on center: count = floor(length ÷ spacing) + 1, plus rim joists. Screw counts scale with linear feet of decking—often about two fasteners per foot of board.',
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
-    relatedSlugs: ['sonotube-concrete-calculator', 'fence-calculator', 'paint-calculator'],
+    relatedSlugs: ['sonotube-concrete-calculator', 'fence-calculator', 'lumber-calculator', 'paint-calculator'],
     relatedGuideSlugs: [
       'deck-material-list-12x16',
       'deck-material-list-16x24',
@@ -1031,7 +1035,7 @@ export const tools: ToolDefinition[] = [
       'Block count ≈ wall face area ÷ block face area, or courses × blocks per course. Courses = ceil(wall height ÷ block height). Add ~5% waste. Include a compacted gravel base trench in your materials list for drainage and leveling.',
     summary: 'SRW blocks, courses, and base gravel.',
     calculatorId: 'retaining-wall',
-    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'concrete-calculator'],
+    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'brick-calculator', 'concrete-calculator'],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -1236,6 +1240,265 @@ export const tools: ToolDefinition[] = [
     datePublished: '2026-10-19',
     dateModified: '2026-11-13',
     applicationCategory: 'UtilitiesApplication',
+  },
+  {
+    slug: 'asphalt-calculator',
+    name: 'Asphalt Calculator',
+    shortName: 'Asphalt',
+    category: 'landscape',
+    primaryKeyword: 'asphalt calculator',
+    secondaryKeywords: [
+      'asphalt driveway calculator',
+      'how much asphalt do I need',
+      'asphalt tons calculator',
+    ],
+    title: 'Asphalt Calculator: Tons from Area & Depth',
+    description:
+      'Free asphalt calculator for driveways and pads. Enter length, width and compacted depth to get cubic yards and tons at ~145 lb/cu ft hot-mix density.',
+    h1: 'Asphalt Calculator: Tons & Cubic Yards',
+    answerFirst:
+      'Asphalt tons ≈ area × compacted depth (ft) × density ÷ 2,000. This tool defaults to 145 lb/cu ft for compacted hot-mix asphalt—a common FHWA / industry planning density. A 40×12 ft drive at 3 inches with 5% waste is about 9.14 tons.',
+    summary: 'Driveway and pad asphalt in tons from area and compacted depth.',
+    calculatorId: 'asphalt',
+    relatedSlugs: ['gravel-calculator', 'concrete-calculator', 'sand-calculator'],
+    relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
+    faq: [
+      {
+        question: 'How much asphalt do I need for a driveway?',
+        answer:
+          'Multiply length × width × compacted depth in feet, then convert with mix density. At 145 lb/cu ft, 480 sq ft at 3 inches is about 8.7 tons before waste; add a few percent for edges.',
+      },
+      {
+        question: 'How many tons of asphalt per square foot?',
+        answer:
+          'At 145 lb/cu ft and 3 inches thick, one square foot weighs about 36.25 lb ≈ 0.018 tons. Multiply by your area, or use this calculator so depth and waste stay consistent.',
+      },
+      {
+        question: 'What density should I use for hot-mix asphalt?',
+        answer:
+          '145 lb/cu ft is a common compacted planning value (FHWA Federal Lands estimating practice; Iowa DOT cites ~145 lb/cu ft for compacted HMA). Override with the plant mix design when you have it.',
+      },
+      {
+        question: 'Is asphalt depth the same as gravel base depth?',
+        answer:
+          'No. Estimate asphalt surface thickness here and crushed-stone base separately with the gravel calculator. Typical residential sections use both layers.',
+      },
+    ],
+    sources: [
+      {
+        label: 'FHWA – WFL Estimating Handbook',
+        href: 'https://highways.dot.gov/federal-lands/estimates/wfl-estimating-handbook',
+        usedFor: 'Federal Lands estimating guidance for paving quantities; 145 lb/cu ft planning density for compacted hot asphalt mix',
+        checked: '2026-11-13',
+      },
+      {
+        label: 'Iowa DOT – Hot Mix Asphalt density (mix properties)',
+        href: 'https://iowadot.gov/media/446/download?inline=',
+        usedFor: 'Compacted HMA approximately 145 lb per cubic foot',
+        checked: '2026-11-13',
+      },
+    ],
+    sectionsHtml: toolBodies['asphalt-calculator'],
+    datePublished: '2026-11-13',
+    dateModified: '2026-11-13',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'brick-calculator',
+    name: 'Brick Calculator',
+    shortName: 'Brick',
+    category: 'outdoor',
+    primaryKeyword: 'brick calculator',
+    secondaryKeywords: [
+      'how many bricks do I need',
+      'concrete block calculator',
+      'CMU calculator',
+      'cinder block calculator',
+    ],
+    title: 'Brick Calculator: Wall Bricks & CMU Blocks',
+    description:
+      'Free brick calculator for walls with mortar joint and waste. Switch to concrete block (CMU) mode for 8×16 nominal units. Get courses and piece counts.',
+    h1: 'Brick Calculator: Bricks & Concrete Blocks',
+    answerFirst:
+      'Bricks needed ≈ wall face ÷ (brick face + mortar joint), counted in full courses. Modular brick with a ⅜ inch joint uses about 6.86 bricks per square foot (Glen-Gery). Switch to CMU mode for standard 8×16 concrete block faces.',
+    summary: 'Clay brick or CMU counts for a wall face with mortar and waste.',
+    calculatorId: 'brick',
+    relatedSlugs: ['retaining-wall-calculator', 'concrete-calculator', 'sand-calculator'],
+    relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
+    faq: [
+      {
+        question: 'How many bricks do I need for a wall?',
+        answer:
+          'Divide the wall into mortar modules: ceil(height ÷ module height) courses × ceil(length ÷ module length) units, then add waste. Modular brick at ⅜ inch joints is about 6.86 per square foot before course rounding.',
+      },
+      {
+        question: 'How much mortar per brick?',
+        answer:
+          'Mortar volume depends on joint width and whether joints are full or face-shell bedded. This calculator counts units, not mortar bags—ask your mason or use the coverage on the mortar mix bag you buy.',
+      },
+      {
+        question: 'Can I calculate concrete blocks (CMU) here?',
+        answer:
+          'Yes. Choose concrete block (CMU) mode. Defaults use a 15⅝ × 7⅝ inch face with a ⅜ inch joint (nominal 8×16 module). Segmental retaining-wall blocks belong in the retaining wall calculator instead.',
+      },
+      {
+        question: 'What waste percent should I add?',
+        answer:
+          'About 5% covers routine cuts and breakage on straight walls. Arches, openings, and blended colors often need more—order from one production run when match matters.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Glen-Gery – Brick sizes & per-square-foot chart',
+        href: 'https://www.glengery.com/brick-sizes',
+        usedFor: 'Modular brick actual face 7⅝ × 2¼ in; ~6.86 bricks/sq ft with ⅜ in joint',
+        checked: '2026-11-13',
+      },
+      {
+        label: 'CMHA – CMU shapes, sizes, and specifications',
+        href: 'https://www.cmha.org/resource/cmu-tec-001/',
+        usedFor: 'Nominal 8×8×16 CMU; specified faces typically ⅜ in less than nominal for modular joints',
+        checked: '2026-11-13',
+      },
+    ],
+    sectionsHtml: toolBodies['brick-calculator'],
+    datePublished: '2026-11-13',
+    dateModified: '2026-11-13',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'lumber-calculator',
+    name: 'Lumber Calculator',
+    shortName: 'Lumber',
+    category: 'outdoor',
+    primaryKeyword: 'lumber calculator',
+    secondaryKeywords: [
+      'board feet calculator',
+      'how many board feet',
+      'what is a board foot',
+      'how much lumber do I need',
+    ],
+    title: 'Lumber Calculator: Board Feet & Pieces',
+    description:
+      'Free lumber calculator for board feet and piece counts. Enter nominal thickness, width and length, or convert a board-foot total into pieces.',
+    h1: 'Lumber Calculator: Board Feet & Pieces',
+    answerFirst:
+      'Board feet = (nominal thickness × nominal width × length in feet) ÷ 12. Ten 2×4×8s are 53.3 board feet. Use the board-feet mode to convert a purchase total into piece counts of that size.',
+    summary: 'Softwood board feet and piece counts from nominal dimensions.',
+    calculatorId: 'lumber',
+    relatedSlugs: ['deck-material-calculator', 'fence-calculator', 'raised-bed-soil-calculator'],
+    relatedGuideSlugs: ['deck-material-list-12x16', 'deck-material-list-16x24'],
+    faq: [
+      {
+        question: 'What is a board foot?',
+        answer:
+          'A board foot is a softwood volume unit equal to 12×12×1 inches (144 cubic inches). Softwood board feet use nominal thickness and width with actual length (7 CFR 1217.4 / American Softwood Lumber Standard).',
+      },
+      {
+        question: 'How many board feet in a 2×4×8?',
+        answer:
+          '(2 × 4 × 8) ÷ 12 = 5.33 board feet. Use nominal 2 and 4 even though a dressed stud measures about 1½ × 3½ inches.',
+      },
+      {
+        question: 'How much lumber do I need for a project?',
+        answer:
+          'List each size, compute board feet or piece counts here, then add cull/waste. For rectangular decks with joist spacing, start with the deck material calculator so layout rules stay consistent.',
+      },
+      {
+        question: 'Should I use actual or nominal dimensions?',
+        answer:
+          'For softwood board-foot pricing, use nominal thickness and width. Structural span checks use actual dressed size—do not mix the two jobs.',
+      },
+    ],
+    sources: [
+      {
+        label: 'eCFR – 7 CFR 1217.4 Board foot',
+        href: 'https://www.ecfr.gov/current/title-7/subtitle-B/chapter-XI/part-1217/subpart-A/subject-group-ECFR2f9f8517fff2bc4/section-1217.4',
+        usedFor: 'Softwood board foot definition; tally uses nominal thickness/width and actual length; under 1 in nominal thickness counts as 1 in',
+        checked: '2026-11-13',
+      },
+      {
+        label: 'American Lumber Standard Committee – PS 20 (board measure)',
+        href: 'https://alsc.org/greenbook%20collection/ps20.pdf',
+        usedFor: 'Board measure: nominal thickness × nominal width × length',
+        checked: '2026-11-13',
+      },
+    ],
+    sectionsHtml: toolBodies['lumber-calculator'],
+    datePublished: '2026-11-13',
+    dateModified: '2026-11-13',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'rebar-calculator',
+    name: 'Rebar Calculator',
+    shortName: 'Rebar',
+    category: 'concrete',
+    primaryKeyword: 'rebar calculator',
+    secondaryKeywords: [
+      'how much rebar for a slab',
+      'concrete slab rebar',
+      'rebar spacing calculator',
+      'rebar for 20x20 slab',
+    ],
+    title: 'Rebar Calculator: Slab Bars, Feet & Sticks',
+    description:
+      'Free rebar calculator for concrete slabs. Enter spacing and bar size for linear feet, sticks and weight. Pairs with the concrete volume calculator.',
+    h1: 'Rebar Calculator: Slab Linear Feet & Sticks',
+    answerFirst:
+      'Rebar for a slab grid ≈ bars each way from on-center spacing, then total linear feet ÷ stick length. A 20×20 ft slab at 18 inch spacing needs 14 bars each way (560 ft); with 10% waste that is about 31 of the 20 ft sticks.',
+    summary: 'Slab rebar mats: bar counts, linear feet, sticks, and weight.',
+    calculatorId: 'rebar',
+    relatedSlugs: [
+      'concrete-calculator',
+      'concrete-calculator-post-holes',
+      'sonotube-concrete-calculator',
+    ],
+    relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
+    faq: [
+      {
+        question: 'How much rebar for a concrete slab?',
+        answer:
+          'Count bars each way as floor(span ÷ spacing) + 1, multiply by bar lengths, then convert to sticks with waste. Pair the steel takeoff with the concrete calculator for yards and bags.',
+      },
+      {
+        question: 'What rebar spacing for a 4-inch slab?',
+        answer:
+          'Many residential pads use #3 or #4 bar at 12–18 inches on center. ACI 318 caps shrinkage/temperature spacing at the lesser of 5× thickness or 18 inches for many slabs—confirm with local code and drawings.',
+      },
+      {
+        question: 'How much rebar for a 20×20 slab?',
+        answer:
+          'At 18 inches on center each way: 14 bars × 20 ft × 2 directions = 560 linear feet before waste. With 10% waste and 20 ft sticks, plan about 31 sticks.',
+      },
+      {
+        question: 'Does this calculator design the slab?',
+        answer:
+          'No. It estimates bar counts and sticks from the spacing you enter. It does not replace engineered details for cover, laps, load, or soil conditions.',
+      },
+    ],
+    sources: [
+      {
+        label: 'ACI 318 – Building Code Requirements for Structural Concrete',
+        href: 'https://www.concrete.org/store/productdetail.aspx?ItemID=318U19',
+        usedFor: 'Maximum spacing context for shrinkage/temperature reinforcement (lesser of 5× thickness or 18 in for many slabs)—confirm edition and local amendments',
+        checked: '2026-11-13',
+      },
+      {
+        label: 'University of Missouri Extension – Concrete basement construction',
+        href: 'https://hdl.handle.net/10355/50810',
+        usedFor: 'Example residential floor note: #4 bars at 18 in each way or 6×6 welded-wire mesh',
+        checked: '2026-11-13',
+      },
+    ],
+    sectionsHtml: toolBodies['rebar-calculator'],
+    datePublished: '2026-11-13',
+    dateModified: '2026-11-13',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
   },
 ];
 

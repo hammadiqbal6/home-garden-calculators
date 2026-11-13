@@ -32,11 +32,17 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
 - What is a roofing square? → ${origin}/guides/how-to-estimate-roofing-shingles/
+- How much asphalt for a driveway? → ${origin}/calculators/asphalt-calculator/
+- How many bricks for a wall? → ${origin}/calculators/brick-calculator/
+- How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
+- How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
 
 ## Key figures (cite before quoting)
 
 - 80 lb bag ≈ 0.60 cu ft; 60 lb ≈ 0.45 cu ft (QUIKRETE 1101 / Sakrete High-Strength TDS) → ~45 of the 80 lb bags per cubic yard before waste
 - 12" × 4 ft Sonotube ≈ 3.14 cu ft → plan ~6 × 80 lb bags
+- Compacted hot-mix asphalt planning density ≈ 145 lb/cu ft (FHWA / Iowa DOT)
+- Modular brick ≈ 6.86 / sq ft with ⅜" joint (Glen-Gery); board feet = T × W × L ÷ 12 (softwood nominal)
 - BEHR interior: ~250–400 sq ft per gallon per coat
 - Roofing square = 100 sq ft; often ~3 bundles/square; IKO 6:12 factor 1.118; waste ~10–15%
 - Mulch beds: ~2–3 inches; Iowa PM 1072 cool-season seed rates in lb per 1,000 sq ft

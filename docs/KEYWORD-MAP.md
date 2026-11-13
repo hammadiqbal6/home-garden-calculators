@@ -30,6 +30,10 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/grass-seed-calculator/` | grass seed calculator | grass seed per 1000 sq ft, overseeding calculator |
 | `/calculators/fertilizer-calculator/` | fertilizer calculator | lawn fertilizer calculator |
 | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator | garden box soil calculator |
+| `/calculators/asphalt-calculator/` | asphalt calculator | asphalt driveway calculator, how much asphalt do I need, asphalt tons calculator |
+| `/calculators/brick-calculator/` | brick calculator | how many bricks do I need, concrete block calculator, CMU calculator, cinder block calculator |
+| `/calculators/lumber-calculator/` | lumber calculator | board feet calculator, how many board feet, what is a board foot, how much lumber do I need |
+| `/calculators/rebar-calculator/` | rebar calculator | how much rebar for a slab, concrete slab rebar, rebar spacing calculator, rebar for 20x20 slab |
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |
 | `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be, mulch depth for gardens |
 | `/guides/how-many-bags-of-concrete/` | how many bags of concrete do I need | 80 lb bags of concrete per yard |
@@ -60,6 +64,9 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 
 - Post holes and Sonotube are **separate intents** (fence holes vs form tubes)—keep separate pages.
 - Main concrete calculator targets **slabs/footings/steps** only—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
+- Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab/footing volume URL.
+- Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.
+- Lumber calculator owns board-foot tally—do not split `/board-feet-calculator/`. Deck board/joist layout stays on the deck-material tool.
 - Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.

@@ -29,7 +29,7 @@ export const toolBodies: Record<string, string> = {
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Convert thickness to feet before multiplying, divide by 27 for cubic yards, then add waste. Bag yields vary slightly by brand—verify on the label.</div>
       <h2>Choosing slab thickness</h2>
-      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it does not design structural thickness, rebar, or base depth.</p>
+      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it does not design structural thickness, rebar, or base depth. For bar counts and sticks, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
       <h2>Waste factor tips</h2>
       <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short; cold joints and mismatched batches are hard to hide.</p>
       <div class="table-scroll">
@@ -741,5 +741,191 @@ export const toolBodies: Record<string, string> = {
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>If you stage soil in bulk bags, note the delivered cubic feet on the receipt and compare it with this estimate after settling.</p>
+  `,
+  'asphalt-calculator': `
+      <h2>How this asphalt calculator works</h2>
+      <p>Enter driveway or pad length, width, and compacted asphalt depth. The tool returns cubic feet, cubic yards, and tons using a compacted hot-mix density you can edit. Default density is 145 lb per cubic foot—a common FHWA Federal Lands / industry planning weight for compacted hot asphalt mix (Iowa DOT also cites about 145 lb/cu ft for compacted HMA). Always confirm the plant mix density on the ticket.</p>
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Volume (cu ft)</strong> = length × width × (depth ÷ 12), then × (1 + waste)</li>
+        <li><strong>Tons</strong> = (volume_cu_ft × density_lb_per_cu_ft) ÷ 2,000</li>
+        <li><strong>Cubic yards</strong> = volume_cu_ft ÷ 27</li>
+      </ul>
+      <p>Depth means the finished compacted thickness, not the loose lift before rolling. Loose truck volume shrinks when the mat is compacted, so ordering from compacted thickness and mix density avoids short loads.</p>
+      <h2>Worked example: 40×12 driveway at 3 inches</h2>
+      <p>Area = 480 sq ft. Depth = 3÷12 = 0.25 ft. Volume before waste = 120 cu ft ≈ 4.44 cu yd. With 5% overage → 126 cu ft. At 145 lb/cu ft: 126 × 145 ÷ 2,000 ≈ 9.14 tons. That is the default result above—change density if your mix design sheet lists a different unit weight.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Planning tons at 145 lb/cu ft (no waste)</caption>
+        <thead><tr><th>Area</th><th>2 in deep</th><th>3 in deep</th></tr></thead>
+        <tbody>
+          <tr><td>200 sq ft</td><td>~2.42 tons</td><td>~3.63 tons</td></tr>
+          <tr><td>480 sq ft</td><td>~5.80 tons</td><td>~8.70 tons</td></tr>
+          <tr><td>1,000 sq ft</td><td>~12.08 tons</td><td>~18.13 tons</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Multiply area by compacted depth in feet, multiply by mix density, divide by 2,000. Do not use loose stockpile density for a finished mat.</div>
+      <h2>Driveway thickness and base</h2>
+      <p>Residential asphalt surface courses are often about 2–3 inches over a compacted stone base, but traffic, climate, and local practice change that. This calculator does not size structural pavement sections. Estimate crushed-stone base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, and read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> before you pick base stone.</p>
+      <h2>Waste factor tips</h2>
+      <p>Straight rectangular pads may only need a few percent extra. Odd-shaped drives, handwork around edges, and thin feathering burn more mix—5–10% is a practical DIY planning band. Cold joints and matched batches matter on multi-day pours; talk to the plant about minimum tonnage and staging.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Entering loose depth instead of compacted thickness.</li>
+        <li>Using gravel density (~100–110 lb/cu ft) for asphalt, which under-orders tons.</li>
+        <li>Forgetting that base stone is a separate order from the asphalt plant.</li>
+        <li>Assuming every mix is exactly 145 lb/cu ft—override with the mix design when available.</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p>Results are planning estimates for rectangular areas with uniform compacted depth. Real driveways have crowns, tapers, and handwork. Confirm density, binder grade, and thickness with the paving contractor or plant before delivery day.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string; the canonical tag stays on the clean page URL.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Write down tons and yards from the calculator and round up for waste.</li>
+        <li>Ask the plant for compacted unit weight and minimum order.</li>
+        <li>Confirm truck access, staging, and whether base stone arrives first.</li>
+        <li>Photograph the layout so helpers measure the same footprint.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
+  'brick-calculator': `
+      <h2>How this brick &amp; block calculator works</h2>
+      <p>Pick clay brick or concrete block (CMU), then enter wall length, height, actual unit face size, mortar joint, and waste. The tool returns face area, units per square foot, courses, and unit counts with waste. Modular clay brick defaults to 7⅝ × 2¼ in with a ⅜ in joint—Glen-Gery publishes about 6.86 modular bricks per square foot at that joint. CMU mode defaults to a 15⅝ × 7⅝ in face (nominal 8×16 module).</p>
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Module</strong> = unit face + mortar joint (each direction)</li>
+        <li><strong>Units per sq ft</strong> = 144 ÷ (module length × module height) in inches</li>
+        <li><strong>Courses</strong> = ceil(wall height ÷ module height)</li>
+        <li><strong>Units per course</strong> = ceil(wall length ÷ module length)</li>
+        <li><strong>Units with waste</strong> = ceil(exact count × (1 + waste))</li>
+      </ul>
+      <p>Use actual (specified) unit sizes from the manufacturer, not the rounded nominal size, then add the joint you will tool. Nominal sizes already include one joint for modular layout—do not double-count by adding a joint on top of nominal dimensions.</p>
+      <h2>Worked example: 20×8 ft modular brick wall</h2>
+      <p>Module = 7.625 + 0.375 = 8 in long and 2.25 + 0.375 = 2.625 in high. Courses = ceil(96 ÷ 2.625) = 37. Units per course = ceil(240 ÷ 8) = 30. Exact = 1,110 bricks. With 5% waste → 1,166 bricks. Face area = 160 sq ft at about 6.86 bricks/sq ft before the course ceil rounds up for full courses.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Published modular planning figures (⅜&quot; joint)</caption>
+        <thead><tr><th>Unit</th><th>Actual face</th><th>Approx. per sq ft</th></tr></thead>
+        <tbody>
+          <tr><td>Modular brick (Glen-Gery)</td><td>7⅝ × 2¼ in</td><td>~6.86</td></tr>
+          <tr><td>Standard brick</td><td>8 × 2¼ in</td><td>~6.55</td></tr>
+          <tr><td>8×8×16 CMU face</td><td>15⅝ × 7⅝ in</td><td>~1.13</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Divide the wall into mortar modules, ceil to whole courses and units, then add waste. Confirm face size on the brick or block you buy.</div>
+      <h2>CMU mode vs retaining-wall blocks</h2>
+      <p>CMU mode counts standard concrete masonry units for a vertical wall face. Segmental landscape retaining-wall blocks use different face sizes and setback rules—use the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> and <a href="/guides/retaining-wall-blocks-and-base/">blocks &amp; base guide</a> for those systems. Bond beams, grout, and rebar in CMU walls are separate takeoffs.</p>
+      <h2>Openings and waste</h2>
+      <p>Subtract door and window openings from the wall area (or shorten length/height inputs) before you order. A 5% waste factor covers routine cuts; arches, soldier courses, and matching blends may need more. Order from one production run when color match matters.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Entering nominal sizes and then adding another mortar joint.</li>
+        <li>Forgetting openings, then overbuying by a full doorway.</li>
+        <li>Using this tool for interlocking retaining-wall blocks instead of masonry brick/CMU.</li>
+        <li>Skipping waste on cut-heavy patterns.</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p>Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume is not estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Confirm actual face dimensions and joint width with the supplier.</li>
+        <li>Order extras from the same lot for repairs.</li>
+        <li>Plan scaffolding, lintels, and flashing before the truck arrives.</li>
+        <li>Stage sand and mortar mix so the crew is not waiting on materials.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
+  'lumber-calculator': `
+      <h2>How this lumber calculator works</h2>
+      <p>Enter nominal thickness, nominal width, length, and either a piece count or a target board-foot total. Softwood board feet follow the American Softwood Lumber Standard / 7 CFR 1217.4 board-measure rule: (thickness × width × length in feet) ÷ 12, using nominal thickness and width. Pieces under 1 inch nominal thickness tally as 1 inch thick.</p>
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Board feet per piece</strong> = (T × W × L) ÷ 12</li>
+        <li><strong>Total board feet</strong> = board feet per piece × piece count</li>
+        <li><strong>Pieces from board feet</strong> = ceil(target board feet ÷ board feet per piece)</li>
+        <li><strong>Linear feet</strong> = piece length × piece count</li>
+      </ul>
+      <p>Use nominal sizes for pricing (a dressed 2×4 is still tallied as 2×4). Hardwood mills sometimes use different tally rules—confirm with the seller when buying hardwood.</p>
+      <h2>Worked example: ten 2×4×8s</h2>
+      <p>Board feet each = (2 × 4 × 8) ÷ 12 = 5.33. Ten pieces = 53.3 board feet and 80 linear feet. Switching to “pieces from board feet” with a 50 board-foot target of the same size returns 10 pieces (ceil(50 ÷ 5.33)).</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Common softwood board-foot values</caption>
+        <thead><tr><th>Nominal size</th><th>8 ft</th><th>10 ft</th><th>12 ft</th></tr></thead>
+        <tbody>
+          <tr><td>2×4</td><td>5.33</td><td>6.67</td><td>8.00</td></tr>
+          <tr><td>2×6</td><td>8.00</td><td>10.00</td><td>12.00</td></tr>
+          <tr><td>2×8</td><td>10.67</td><td>13.33</td><td>16.00</td></tr>
+          <tr><td>4×4</td><td>10.67</td><td>13.33</td><td>16.00</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Board feet price the wood; linear feet and piece counts tell you how many sticks to pull from the rack. Use nominal dimensions for softwood tally.</div>
+      <h2>Deck projects vs general takeoffs</h2>
+      <p>This tool is the general board-foot / piece converter. For a rectangular deck with joist spacing and board face width, use the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and the size lists for a <a href="/guides/deck-material-list-12x16/">12×16 deck</a> or <a href="/guides/deck-material-list-16x24/">16×24 deck</a>. Then convert odd leftover sizes here if the yard prices them by the board foot.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using dressed 1½ × 3½ inches for a 2×4 board-foot tally (undercounts).</li>
+        <li>Mixing meters and inches without converting length to feet for the formula.</li>
+        <li>Assuming hardwood and softwood always use the same tally.</li>
+        <li>Forgetting that board feet already embed thickness—do not also multiply by a separate “depth.”</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p>Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator does not design spans, grades, or species—check span tables and grade stamps for structural use.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>List each size separately (2×4s and 2×6s do not share a board-foot line item usefully at the rack).</li>
+        <li>Note grade and species on the quote.</li>
+        <li>Add a few extras for culls when appearance matters.</li>
+        <li>Measure twice before cutting long stock for headers and beams.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
+  'rebar-calculator': `
+      <h2>How this rebar calculator works</h2>
+      <p>Enter slab length, width, on-center spacing, bar size, stick length, and waste. The tool counts bars each way, total linear feet, stock sticks, and an estimated weight from common CRSI unit weights. It does <em>not</em> size structural reinforcement—confirm spacing, cover, and bar size with drawings and local code. For concrete volume and bags, use the <a href="/calculators/concrete-calculator/">concrete calculator</a> (and the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>).</p>
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Bars along length</strong> = floor((width × 12) ÷ spacing_in) + 1 (each bar is <em>length</em> long)</li>
+        <li><strong>Bars along width</strong> = floor((length × 12) ÷ spacing_in) + 1 (each bar is <em>width</em> long)</li>
+        <li><strong>Linear feet</strong> = bars_along_length × length + bars_along_width × width</li>
+        <li><strong>Sticks</strong> = ceil(linear_feet × (1 + waste) ÷ stick_length)</li>
+      </ul>
+      <p>Equal spacing each way builds a rectangular grid. Lap splices, hooked bars, and chairs consume extra steel—the waste percent is the place to capture that when the detail is not fully drawn.</p>
+      <h2>Worked example: 20×20 slab at 18&quot; o.c.</h2>
+      <p>Across 20 ft (240 in) at 18 in spacing: floor(240÷18)+1 = 14 bars each way. Linear feet = 14×20 + 14×20 = 560 ft. With 10% waste → 616 ft. In 20 ft sticks: ceil(616÷20) = 31 sticks. Using #4 at 0.668 lb/ft ≈ 411 lb after waste.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Common residential planning ranges (confirm with code/drawings)</caption>
+        <thead><tr><th>Use</th><th>Typical bar</th><th>Typical spacing</th></tr></thead>
+        <tbody>
+          <tr><td>Patio / light pad</td><td>#3 or #4</td><td>18 in o.c.</td></tr>
+          <tr><td>Driveway / garage</td><td>#4</td><td>12–18 in o.c.</td></tr>
+          <tr><td>ACI max shrinkage/temp (many slabs)</td><td>—</td><td>≤ lesser of 5× thickness or 18 in</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Count bars each way from spacing, sum linear feet, then convert to sticks with waste. Pair this page with the concrete volume calculator—do not invent a second slab-volume tool.</div>
+      <h2>Cover, chairs, and mesh</h2>
+      <p>Rebar on the dirt does nothing for crack control. Use chairs or dobies so the mat sits near mid-depth (or as detailed). Some light residential slabs use welded-wire mesh instead of bar; this calculator is for bar grids. Footing cages and wall mats need different layouts than a slab mat—start from the structural detail when you have one.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Ordering concrete yards here—use the <a href="/calculators/concrete-calculator/">slab concrete calculator</a> instead.</li>
+        <li>Ignoring laps: a continuous mat needs splice length (often about 40 bar diameters unless the detail says otherwise).</li>
+        <li>Using center-to-center spacing as edge-to-edge clear spacing.</li>
+        <li>Skipping waste on odd-shaped pours with many cuts.</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p>Results assume a single rectangular mat with uniform spacing and full-length bars cut from stock sticks. They are not a substitute for engineered reinforcement schedules. Local amendments may require fiber, mesh, or tighter spacing than the defaults.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Match bar grade (usually Grade 60) and size to the detail.</li>
+        <li>Buy chairs, tie wire, and cutters with the sticks.</li>
+        <li>Confirm stick length the yard stocks (20 ft vs 40 ft) before converting counts.</li>
+        <li>Pour day: keep the mat supported so it does not get walked into the subgrade.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
 };

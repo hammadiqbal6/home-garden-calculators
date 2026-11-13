@@ -67,13 +67,16 @@ From `MORE-IDEAS.md` / Meyerhans census / Calcwright. Prefer these before spinni
 | Metal roofing calculator | Extends roofing squares tool | backlog |
 | Grout calculator | Pairs with paver calculator | backlog |
 | Insulation calculator (R-value / area) | Home improvement ads | backlog |
-| Asphalt / blacktop calculator | Driveway cluster with gravel | backlog |
+| Asphalt / blacktop calculator | Driveway cluster with gravel | **built** (`/calculators/asphalt-calculator/`) |
+| Brick / CMU calculator | Masonry companion to retaining wall | **built** (`/calculators/brick-calculator/`) |
+| Lumber / board feet calculator | General takeoff beside deck materials | **built** (`/calculators/lumber-calculator/`) |
+| Rebar calculator | Slab steel beside concrete volume | **built** (`/calculators/rebar-calculator/`) |
 | Pool volume & pool salt | Pool category ~62.5K searches/mo (Calcwright) | backlog |
 | Pond volume calculator | Adjacent to pool | backlog |
 | Firewood cord calculator | From homestead overlap (#22) | backlog |
 | Propane tank calculator | From homestead overlap (#22) | backlog |
 
-**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube), mulch (+ tree rings), gravel, topsoil, sand, pavers, fence, deck materials, roof pitch, roofing shingles/squares, paint, retaining wall blocks, grass seed, fertilizer, raised bed soil.
+**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube + rebar), mulch (+ tree rings), gravel, topsoil, sand, asphalt, pavers, fence, deck materials, lumber/board feet, roof pitch, roofing shingles/squares, paint, retaining wall blocks, brick/CMU, grass seed, fertilizer, raised bed soil.
 
 ---
 

@@ -117,7 +117,7 @@ export const guides: GuideDefinition[] = [
     secondaryKeywords: ['10x10 concrete slab bags', 'concrete for patio slab'],
     answerFirst:
       'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
-    relatedToolSlugs: ['concrete-calculator', 'gravel-calculator'],
+    relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
     relatedGuideSlugs: [
       'how-many-bags-of-concrete',
       'how-much-concrete-for-fence-posts',
@@ -159,7 +159,7 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons. Treat depth and tons-per-yard figures as planning assumptions.',
-    relatedToolSlugs: ['gravel-calculator', 'sand-calculator', 'paver-calculator'],
+    relatedToolSlugs: ['gravel-calculator', 'asphalt-calculator', 'sand-calculator', 'paver-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'retaining-wall-blocks-and-base',
@@ -299,7 +299,7 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'This is a shopping takeoff for a 12×16 ft deck (192 sq ft), not construction plans or a priced BOM. With YardTally defaults (5.5 in face, 16 in O.C. joists) and boards along 12 ft, plan about 35 twelve-foot boards and 10 field joists before waste; verify current span tables.',
-    relatedToolSlugs: ['deck-material-calculator', 'sonotube-concrete-calculator'],
+    relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
     relatedGuideSlugs: [
       'deck-material-list-16x24',
       'how-to-measure-roof-pitch',
@@ -347,7 +347,7 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'A 20 ft wall that is 3 ft exposed with 18×6 in face blocks needs about 84 face blocks before waste (six courses × 14), plus a compacted gravel trench. YardTally’s 24×6 in trench is a planning default. “Paver base” under a wall means wall base, not patio depths; taller walls need engineering.',
-    relatedToolSlugs: ['retaining-wall-calculator', 'gravel-calculator'],
+    relatedToolSlugs: ['retaining-wall-calculator', 'brick-calculator', 'gravel-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'gravel-types-for-driveways',

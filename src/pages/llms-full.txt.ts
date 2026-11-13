@@ -50,6 +50,14 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Can I use paver base under a retaining wall? → ${origin}/guides/retaining-wall-blocks-and-base/
 - Is a 12x16 deck material list the same as plans? → ${origin}/guides/deck-material-list-12x16/
 - How many boards for a 16x24 deck? → ${origin}/guides/deck-material-list-16x24/
+- How much asphalt do I need for a driveway? → ${origin}/calculators/asphalt-calculator/
+- How many tons of asphalt per square foot? → ${origin}/calculators/asphalt-calculator/
+- How many bricks do I need for a wall? → ${origin}/calculators/brick-calculator/
+- How many concrete blocks (CMU) for a wall? → ${origin}/calculators/brick-calculator/
+- What is a board foot? → ${origin}/calculators/lumber-calculator/
+- How many board feet in a 2x4x8? → ${origin}/calculators/lumber-calculator/
+- How much rebar for a concrete slab? → ${origin}/calculators/rebar-calculator/
+- How much rebar for a 20x20 slab? → ${origin}/calculators/rebar-calculator/
 
 ## Key figures (with citations)
 
@@ -74,6 +82,12 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Bed mulch depth: commonly about 2–3 inches organic (Clemson, UF/IFAS). Pull mulch 2–3 inches back from trunks (Mississippi State). UF/IFAS: about 108 sq ft per cubic yard at 3 inches; do not exceed 3 inches in beds.
 - Iowa State PM 1072 new-lawn lb per 1,000 sq ft: KY bluegrass 1–1.5; 50/50 rye/bluegrass 3–3.5; tall fescue 7–9. Source: https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf
 - Penn State watershed-friendly yard: about 2 lb N per 1,000 sq ft per growing season as a starting rate for many established lawns; Pennsylvania applications limited to 0.9 lb N per 1,000 per application. Sources: https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard ; https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators
+
+### Asphalt, masonry, lumber, rebar
+- Compacted hot-mix asphalt planning density ≈ 145 lb/cu ft (FHWA WFL estimating practice; Iowa DOT mix properties). Tons = area × depth_ft × density ÷ 2,000.
+- Modular clay brick: actual face ~7⅝ × 2¼ in; with ⅜ in joint ≈ 6.86 bricks/sq ft (Glen-Gery). Standard CMU face ~15⅝ × 7⅝ in → nominal 8×16 module (CMHA).
+- Softwood board feet = (nominal T_in × W_in × L_ft) ÷ 12 (7 CFR 1217.4 / ALSC PS 20). Under 1 in nominal thickness tallies as 1 in.
+- Slab rebar: bars each way = floor(span_in ÷ spacing_in) + 1; convert linear feet to sticks with waste. ACI 318 caps many shrinkage/temperature spacings at the lesser of 5× thickness or 18 in—confirm locally. Example: 20×20 at 18 in o.c. → 560 ft before waste.
 
 ## Calculators
 

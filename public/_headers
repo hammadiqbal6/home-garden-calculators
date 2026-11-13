@@ -1,6 +1,12 @@
 # Security + cache for Workers static assets.
 # Do not use empty header values — Workers rejects them; detach with "! Header-Name".
-# CSP includes googletagmanager.com / google-analytics.com so GA4 (gtag) works when enabled.
+# CSP allowlist (keep narrow):
+# - GA4 / Google Signals: googletagmanager, google-analytics, *.g.doubleclick.net, *.google.com
+#   (see https://developers.google.com/tag-platform/security/guides/csp)
+# - AdSense / Funding Choices: googlesyndication, doubleclick, adtrafficquality, fundingchoicesmessages
+#   (Google prefers nonce+strict-dynamic; this static site keeps an allowlist instead)
+# - Cloudflare Web Analytics: static.cloudflareinsights.com + cloudflareinsights.com
+#   (see https://developers.cloudflare.com/web-analytics/faq/)
 
 /*
   X-Content-Type-Options: nosniff
@@ -8,7 +14,7 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Strict-Transport-Security: max-age=31536000; includeSubDomains
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://pagead2.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://pagead2.googlesyndication.com https://api.emailjs.com; frame-src https://googleads.g.doubleclick.net https://tpc.googlesyndication.com; font-src 'self' data:; base-uri 'self'; form-action 'self'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googlesyndication.com https://www.googletagmanager.com https://www.google-analytics.com https://fundingchoicesmessages.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://*.googlesyndication.com https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://cloudflareinsights.com https://api.emailjs.com; frame-src https://*.g.doubleclick.net https://*.googlesyndication.com https://*.adtrafficquality.google https://www.google.com https://fundingchoicesmessages.google.com https://www.googletagmanager.com; font-src 'self' data:; base-uri 'self'; form-action 'self'
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

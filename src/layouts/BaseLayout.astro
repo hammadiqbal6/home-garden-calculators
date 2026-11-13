@@ -141,19 +141,34 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
 
           if (gaId) {
             gtag('js', new Date());
-            gtag('config', gaId, {
-              anonymize_ip: true,
-              send_page_view: true,
-            });
+            gtag('set', 'anonymize_ip', true);
+
+            var configured = false;
 
             window.__ycLoadGa = function () {
-              if (window.__ycGaLoaded) return;
-              window.__ycGaLoaded = true;
-              var s = document.createElement('script');
-              s.async = true;
-              s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
-              document.head.appendChild(s);
+              if (!window.__ycGaLoaded) {
+                window.__ycGaLoaded = true;
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = 'https://www.googletagmanager.com/gtag/js?id=' + gaId;
+                document.head.appendChild(s);
+              }
+              if (!configured) {
+                configured = true;
+                gtag('config', gaId, {
+                  anonymize_ip: true,
+                  send_page_view: true,
+                });
+              }
             };
+
+            function __ycSendPageView() {
+              gtag('event', 'page_view', {
+                page_location: location.href,
+                page_path: location.pathname + location.search,
+                page_title: document.title,
+              });
+            }
 
             window.__ycGrantConsent = function () {
               // Site banner grant — not used in Google CMP regions.
@@ -164,40 +179,39 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
                 ad_personalization: 'granted',
                 analytics_storage: 'granted',
               });
-              window.__ycLoadGa();
+              // Grant BEFORE first config so the initial page_view is not dropped under denied
+              // storage. If config already ran under denied (race), re-send page_view.
+              if (configured) {
+                __ycSendPageView();
+              } else {
+                window.__ycLoadGa();
+              }
             };
 
-            // Defer GA script until idle, first interaction, or prior non-CMP consent.
+            /**
+             * Load gating:
+             * - EEA/UK/CH: load with denied defaults so Consent Mode + Google CMP (TCF) can operate.
+             * - Elsewhere: load only after Accept (or a prior Accept in localStorage).
+             */
             function scheduleGa() {
               try {
                 if (__ytIsCmpRegion()) {
-                  // Advanced Consent Mode: load the tag; Google's CMP updates consent.
-                } else if (localStorage.getItem('yc_cookie_ok') === '1') {
+                  window.__ycLoadGa();
+                  return;
+                }
+                var v = localStorage.getItem('yc_cookie_ok');
+                if (v === '1') {
                   window.__ycGrantConsent();
                   return;
                 }
+                // Reject or no preference: do not load gtag.js until Accept.
               } catch (e) {}
-              var armed = false;
-              function arm() {
-                if (armed) return;
-                armed = true;
-                if ('requestIdleCallback' in window) {
-                  requestIdleCallback(
-                    function () {
-                      window.__ycLoadGa();
-                    },
-                    { timeout: 4000 },
-                  );
-                } else {
-                  setTimeout(window.__ycLoadGa, 3500);
-                }
-              }
-              ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
-                window.addEventListener(evt, arm, { once: true, passive: true });
-              });
-              setTimeout(arm, 6000);
             }
-            scheduleGa();
+            if ('requestIdleCallback' in window) {
+              requestIdleCallback(scheduleGa, { timeout: 4000 });
+            } else {
+              setTimeout(scheduleGa, 1500);
+            }
           }
         </script>
       )
@@ -355,6 +369,9 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
         function enterCmpRegion() {
           window.__ytCmpRegion = true;
           dismissCookieNotice();
+          // Advanced Consent Mode: load with denied defaults once CMP region is confirmed
+          // (including late TCF detection for unknown geo). Site Accept does not apply here.
+          if (typeof window.__ycLoadGa === 'function') window.__ycLoadGa();
         }
 
         function showSiteBannerIfNeeded() {

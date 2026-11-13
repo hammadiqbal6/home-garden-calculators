@@ -1,0 +1,27 @@
+---
+description: Consent Mode v2, Google CMP geo split, and CSP allowlist discipline
+globs: public/_headers, src/layouts/BaseLayout.astro, src/worker.ts, src/lib/gdprRegions.ts, src/pages/privacy.astro
+alwaysApply: false
+---
+
+# Consent + CSP
+
+## Consent (do not “simplify”)
+- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until the CMP updates (`BaseLayout.astro` + `src/lib/gdprRegions.ts`).
+- **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar.
+- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message).
+- Geo signal: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` (`src/worker.ts`, `src/lib/htmlGeoInject.ts`).
+- Privacy copy must stay aligned with AdSense cookies + opt-out + this split (`src/pages/privacy.astro`, `docs/ADSENSE.md`).
+
+## CSP (`public/_headers`)
+Keep the allowlist **narrow**. Comment in `_headers` explains each host. Required families:
+
+| Hosts | Why |
+|---|---|
+| `googletagmanager.com`, `google-analytics.com`, `*.g.doubleclick.net`, `*.google.com` | GA4 / Google Signals |
+| `*.googlesyndication.com`, `*.adtrafficquality.google`, `fundingchoicesmessages.google.com` | AdSense + Funding Choices CMP |
+| `fonts.googleapis.com`, `fonts.gstatic.com` | Funding Choices UI fonts/styles |
+| `static.cloudflareinsights.com`, `cloudflareinsights.com` | Cloudflare Web Analytics |
+
+**Do not** loosen to `*` / broad CDNs “just in case”. Add a host only with a named product reason and a matching comment. CSP changes are their own careful PR — never casual drive-bys.
+---

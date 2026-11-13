@@ -25,5 +25,8 @@ alwaysApply: false
 - Cite primary sources; visible Published / Last updated matching schema.
 - Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; no hardcoded site host.
 - Schema: BreadcrumbList; WebApplication (tools); Article + FAQPage when FAQ is visible; CollectionPage on hubs/indexes.
+- **HowTo JSON-LD only from visible on-page steps** (`guideHowTo.ts` / `toolHowTo.ts`). Never invent steps for schema.
+- Sitemap `lastmod` comes from each page’s real `dateModified` (`astro.config.mjs`) — never `Date.now()`.
+- After publish: IndexNow (`npm run indexnow` / `deploy:indexnow`). Keep Q→URL map in `src/pages/llms.txt.ts` and figures in `llms-full.txt.ts` in sync (`.well-known/llms.txt` aliases `/llms.txt`).
 - Tool pages link ≥1 topical guide high on the page; no thin query-variant duplicates.
 ---

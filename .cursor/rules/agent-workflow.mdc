@@ -1,0 +1,14 @@
+---
+description: Multi-PR agent workflow for YardTally — one concern per PR, no mixing
+alwaysApply: true
+---
+
+# Agent workflow
+
+- **One agent / one concern / one PR.** Content, CMP/consent, calculator SEO, and docs/skills land on **separate** branches from `main`. Do not pile unrelated fixes into an open PR.
+- Branch names: `cursor/<descriptive-name>-c2d2` (lowercase).
+- Open the PR with `ManagePullRequest`; **do not merge** unless the user explicitly asks.
+- After push, watch CI on that branch; fix failures on the same branch.
+- Prefer rebasing/branching from latest `main` when starting a new queued follow-up so PRs stay unmixed.
+- Seasonality: ship evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** search peaks (lawn, mulch, concrete, paint).
+---

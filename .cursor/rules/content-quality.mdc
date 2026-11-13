@@ -1,15 +1,33 @@
 ---
-description: Content quality and E-E-A-T for YardTally tools and guides
-globs: src/data/**/*.ts, src/pages/guides/**/*
+description: Content voice, sourcing, and E-E-A-T for YardTally tools and guides
+globs: src/data/**/*.ts, src/pages/guides/**/*, src/pages/calculators/**/*
 alwaysApply: false
 ---
 
 # Content quality
 
-- Tool pages need unique explanatory content (formula, worked example, tables, FAQ, sources)—not widget-only.
-- Prefer extension services and manufacturer specs over anonymous blogs.
-- AI-assisted drafting must be fact-checked; no mass near-duplicate pages.
-- Keep brand voice practical and neutral; estimates disclaimer where relevant.
-- Link related tools/guides with descriptive anchors.
----
+## Voice
+- Human, contractor-practical. Short sentences. Prefer “enter length × width” over abstract marketing.
+- **Banned filler:** “in today’s world”, “delve”, “it’s important to note”, “whether you’re a beginner or a pro”, “look no further”, “unlock”, “elevate”, “comprehensive guide to”, “game-changer”, “leverage”, “robust solution”, emoji-heavy intros.
+- No fake first-person job-site stories. No invented credentials.
 
+## Facts
+- **No invented stats.** Every number (bag yield, coverage, density, seeding rate, pitch factor) needs a primary source link (manufacturer TDS or extension).
+- Prefer QUIKRETE/Sakrete/BEHR/IKO/GAF TDS and university extension (e.g. Iowa PM 1072, UMN, Penn State) over blogs.
+- Label rules of thumb as such; tell readers to confirm the bag/can/code.
+
+## Page trust chrome
+- Guides: visible **Sources** list + byline `Reviewed by Hammad Iqbal · Last updated {date}` (see `guides/[slug].astro`).
+- Tools: `TrustBlock` Sources list + last reviewed date matching `dateModified`.
+- Bump `dateModified` only when content/math actually changed — never set sitemap lastmod to “now”.
+
+## Structure (guides)
+- Answer-first 40–60 words with a sourced number/verdict in sentence 1 when one exists.
+- Question-style H2s from real PAA/search questions.
+- Worked example with real numbers; FAQ 3–5 items; ≥800 words unique body in `guideBodies.ts`.
+
+## Structure (tools)
+- Answer-first 40–60 words before inputs; calculator above the fold.
+- SSR default worked-example results (no em-dash placeholders) via `src/data/calculatorFields.ts`.
+- FAQ 3–5 sourced items; link ≥1 topical guide.
+---

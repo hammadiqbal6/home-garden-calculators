@@ -27,8 +27,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many 80 lb bags of concrete per cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab? → ${origin}/guides/concrete-for-10x10-slab/
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
+- Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
+- Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
 - What is a roofing square? → ${origin}/guides/how-to-estimate-roofing-shingles/

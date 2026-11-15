@@ -47,7 +47,7 @@ export const guideBodies: Record<string, string> = {
         <li>Call before you dig. Utility locates exist for a reason.</li>
         <li>Keep a spare bag or two on site. Running short mid-set wastes a day.</li>
         <li>Fast-setting mixes are handy for posts. Structural deck footings often need mixed concrete and cardboard forms instead.</li>
-        <li>For cardboard tube forms (deck piers), use the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>. This page is for dug fence holes, not tube forms.</li>
+        <li>For cardboard tube forms (deck piers), run the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> for live bag counts, or read the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide. This page is for dug fence holes, not tube forms.</li>
         <li>Use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> only when you are pouring pads, not round holes.</li>
       </ul>
 
@@ -116,6 +116,14 @@ export const guideBodies: Record<string, string> = {
       <h2>Worked example: tree ring</h2>
       <p>Suppose you mulch a ring with a 6&nbsp;ft outer diameter and leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ 6.6&nbsp;cu&nbsp;ft (about four 2&nbsp;cu&nbsp;ft bags). Keep the trunk flare bare; MSU’s 2–3 inch pull-back is about clearance from bark, not deeper mulch against the wood.</p>
 
+      <h2>How much mulch do I need once depth is set?</h2>
+      <p>Depth answers “how thick”; area × depth answers “how much.” Iowa State’s mulch calculator method is the same math YardTally uses: cubic feet = area × (depth inches ÷ 12). UF/IFAS notes that one cubic yard covers about 108 sq ft at 3 inches. For common rectangles, use the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart; for custom beds and tree rings, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
+      <p>If the bed still needs soil volume under the mulch—raising grade, filling low spots, or choosing bagged blends—read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you order surface cover. Mulch does not replace cubic yards of fill.</p>
+
+      <h2>New plantings vs refresh layers</h2>
+      <p>On bare soil after planting, start at the full target depth (usually 2–3 inches). On established beds, measure what remains after a season of settling and decomposition, then top-dress only the difference so the finished layer stays in the extension range. Seedlings and very small transplants sometimes need a thinner first layer so stems are not buried—UF/IFAS notes seedlings often only need about 1 inch.</p>
+      <p>Replenish on a calendar that matches how fast your product breaks down. Fine shredded hardwood shrinks faster than coarse chips. Budget a light spring top-dress rather than dumping another full 3 inches on top of last year’s mat.</p>
+
       <h2>Tips</h2>
       <ul>
         <li>Match mulch type to the job: shredded hardwood for beds, coarser chips for paths.</li>
@@ -132,6 +140,7 @@ export const guideBodies: Record<string, string> = {
         <li>Measuring length but guessing width.</li>
         <li>Ordering by bags without converting depth to feet (using 3 instead of 0.25).</li>
         <li>Stacking new bags on old matted layers without checking total depth.</li>
+        <li>Buying mulch when the bed still needs soil fill (size soil first, then mulch).</li>
       </ul>
 
       <h2>When to call a pro / safety</h2>
@@ -1301,6 +1310,14 @@ export const guideBodies: Record<string, string> = {
         <li>Using heavy topsoil as the only fill in pots and containers.</li>
       </ul>
 
+      <h2>Bulk yards vs bagged soil</h2>
+      <p>Once you know cubic yards from area × depth, compare unit price. Bulk screened topsoil is usually sold by the cubic yard delivered; bagged garden soil is sold by the cubic foot. Near one cubic yard, short-load delivery fees can erase bulk savings, so ask the yard for the delivered price before you default to bags. Under about half a yard, bags are often simpler to stage and move.</p>
+      <p>Run the same dimensions in the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> for lawns and open beds, or the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> for boxed interiors. After planting, size surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a>—mulch depth guidance lives in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
+
+      <h2>Lawn topdressing vs deep bed fills</h2>
+      <p>Lawn leveling is usually a thin lift (often measured in fractions of an inch to a couple of inches) worked into existing turf after aeration or over bare patches. Burying crowns under a deep dump of new soil smothers grass. Deep vegetable or flower beds are the opposite problem: they need full volume math, often a foot or more of mix, where bagged potting soil priced per small bag becomes expensive fast.</p>
+      <p>If you are seeding bare ground after a soil job, coordinate depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so seed contacts firm soil without being buried too deep. For a worked 4×8 fill recipe, see <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for 4×8</a>.</p>
+
       <h2>Testing and matching soil to the site</h2>
       <p>Before buying any bulk soil, a simple test pays off. State extension services and many labs offer low-cost soil tests that report pH, nutrients, and sometimes organic matter, and the results tell you whether you need lime, sulfur, or fertilizer. Ask the supplier whether the soil has been screened, how much organic material it contains, and whether it may include weed seeds. Inspect it by hand: it should crumble, not form a brick, and not smell sour.</p>
       <p>Also consider what is underneath. Spreading a thin layer of a very different soil over compacted clay can create a perched water layer, so many extension publications recommend loosening the existing surface and mixing the layers rather than stacking them cleanly. For lawn repairs, a modest topdressing is typically worked in; for new beds, deeper fill or blended garden soil works better. Whatever you buy, calculate the cubic yards first, then compare price per yard delivered.</p>
@@ -1317,7 +1334,7 @@ export const guideBodies: Record<string, string> = {
 
       <h2>How much concrete is in a Sonotube?</h2>
       <p>Enough to fill the clear inside cylinder: <strong>Volume (cu&nbsp;ft) = π × (diameter ÷ 2)² × height</strong>, with diameter and height in feet. A 12&quot; ID tube (0.5&nbsp;ft radius) at 4&nbsp;ft tall is π × 0.5² × 4 ≈ 3.14&nbsp;cu&nbsp;ft (~0.12&nbsp;cu&nbsp;yd). Convert to bags with your mix yield, then multiply by pier count.</p>
-      <p>Run the same math live in the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a>. Fence post holes without cardboard forms belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a> instead.</p>
+      <p>For live totals and a bags-per-tube chart covering 40 / 50 / 60 / 80&nbsp;lb mixes, use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This guide explains the formula and common sizes; the calculator is the interactive planning tool. Fence post holes without cardboard forms belong on the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide and the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> instead.</p>
 
       <h2>How many bags of concrete for a 12-inch Sonotube?</h2>
       <p>Per foot of height, a 12&quot; tube needs about 0.785&nbsp;cu&nbsp;ft. A 2&nbsp;ft pier is ~1.57&nbsp;cu&nbsp;ft (three 80&nbsp;lb or four 60&nbsp;lb bags). A 3&nbsp;ft pier is ~2.36&nbsp;cu&nbsp;ft (four 80&nbsp;lb or six 60&nbsp;lb). A 4&nbsp;ft pier is ~3.14&nbsp;cu&nbsp;ft—about 5.2 of the 80&nbsp;lb bags before rounding, so plan on 6, or about 7 of the 60&nbsp;lb bags.</p>

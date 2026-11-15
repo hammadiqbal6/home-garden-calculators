@@ -112,23 +112,53 @@ export const toolBodies: Record<string, string> = {
   `,
   'sonotube-concrete-calculator': `
       <h2>Column volume method</h2>
-      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula π × (inside diameter ÷ 2)² × height × count. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short.</p>
-      <h2>Worked example</h2>
-      <p>Four 10" Sonotubes, each 3 ft: diameter 10" → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd). With 5% waste → 6.87 cu ft, which is ceil(6.87 ÷ 0.60) = 12 bags of 80 lb mix.</p>
-      <p>A 12" tube holds about 0.785 cu ft per foot of height. That means a 4 ft pier is roughly 3.14 cu ft—six 80 lb bags (or seven 60 lb bags) before waste—useful for deck footings when paired with proper footing bells or pads as required by code.</p>
+      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula <strong>π × (inside diameter ÷ 2)² × height × count</strong>. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short. Convert cubic feet to bags with the yield on your mix, then round up.</p>
+      <p>YardTally’s live totals use QUIKRETE Concrete Mix No. 1101 / Sakrete-style planning yields of about <strong>0.30 / 0.45 / 0.60 cu ft</strong> for <strong>40 / 60 / 80 lb</strong> bags, plus a default <strong>5% waste</strong> for tube pours. The reference table below also lists <strong>50 lb</strong> bags at QUIKRETE’s published <strong>0.375 cu ft</strong> yield so you can compare common bag sizes before you shop.</p>
+
+      <h2>Bags per Sonotube (reference table)</h2>
+      <p>Volume before waste = π × (Ø ÷ 24)² × height_ft, with Ø in inches. Bags = ceil(volume ÷ yield). Multiply by pier count, then add a little for spillage (the calculator’s 5% waste covers that).</p>
       <div class="table-scroll">
       <table>
-        <caption>Approx. 80 lb bags per tube (0.60 cu ft/bag, before waste)</caption>
-        <thead><tr><th>Inside Ø</th><th>3 ft deep</th><th>4 ft deep</th></tr></thead>
+        <caption>Bags per tube before waste (yields 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb)</caption>
+        <thead>
+          <tr>
+            <th>Inside Ø × depth</th>
+            <th>Volume</th>
+            <th>40 lb</th>
+            <th>50 lb</th>
+            <th>60 lb</th>
+            <th>80 lb</th>
+          </tr>
+        </thead>
         <tbody>
-          <tr><td>8 in</td><td>2 bags</td><td>3 bags</td></tr>
-          <tr><td>10 in</td><td>3 bags</td><td>4 bags</td></tr>
-          <tr><td>12 in</td><td>4 bags</td><td>6 bags</td></tr>
-          <tr><td>16 in</td><td>7 bags</td><td>10 bags</td></tr>
+          <tr><td>8″ × 2 ft</td><td>0.70 cu ft</td><td>3</td><td>2</td><td>2</td><td>2</td></tr>
+          <tr><td>8″ × 3 ft</td><td>1.05 cu ft</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
+          <tr><td>8″ × 4 ft</td><td>1.40 cu ft</td><td>5</td><td>4</td><td>4</td><td>3</td></tr>
+          <tr><td>10″ × 2 ft</td><td>1.09 cu ft</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
+          <tr><td>10″ × 3 ft</td><td>1.64 cu ft</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
+          <tr><td>10″ × 4 ft</td><td>2.18 cu ft</td><td>8</td><td>6</td><td>5</td><td>4</td></tr>
+          <tr><td>12″ × 2 ft</td><td>1.57 cu ft</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
+          <tr><td>12″ × 3 ft</td><td>2.36 cu ft</td><td>8</td><td>7</td><td>6</td><td>4</td></tr>
+          <tr><td>12″ × 4 ft</td><td>3.14 cu ft</td><td>11</td><td>9</td><td>7</td><td>6</td></tr>
+          <tr><td>16″ × 2 ft</td><td>2.79 cu ft</td><td>10</td><td>8</td><td>7</td><td>5</td></tr>
+          <tr><td>16″ × 3 ft</td><td>4.19 cu ft</td><td>14</td><td>12</td><td>10</td><td>7</td></tr>
+          <tr><td>16″ × 4 ft</td><td>5.59 cu ft</td><td>19</td><td>15</td><td>13</td><td>10</td></tr>
+          <tr><td>18″ × 2 ft</td><td>3.53 cu ft</td><td>12</td><td>10</td><td>8</td><td>6</td></tr>
+          <tr><td>18″ × 3 ft</td><td>5.30 cu ft</td><td>18</td><td>15</td><td>12</td><td>9</td></tr>
+          <tr><td>18″ × 4 ft</td><td>7.07 cu ft</td><td>24</td><td>19</td><td>16</td><td>12</td></tr>
         </tbody>
       </table>
       </div>
-      <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, and keep a small waste factor for spillage when filling tall forms.</div>
+      <p>Example math for a 12″ × 4 ft tube: radius = 0.5 ft → π × 0.5² × 4 ≈ <strong>3.14 cu ft</strong>. At 0.60 cu ft per 80 lb bag that is ceil(3.14 ÷ 0.60) = <strong>6 bags</strong>; at 0.45 cu ft per 60 lb bag, ceil(3.14 ÷ 0.45) = <strong>7 bags</strong>; at 0.375 cu ft per 50 lb bag, <strong>9 bags</strong>; at 0.30 cu ft per 40 lb bag, <strong>11 bags</strong>. Enter your diameter, height, and count above for live totals with waste.</p>
+
+      <h2>Worked example: four 10″ tubes</h2>
+      <p>Four 10″ Sonotubes, each 3 ft: diameter 10″ → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd). With 5% waste → 6.87 cu ft, which is ceil(6.87 ÷ 0.60) = 12 bags of 80 lb mix.</p>
+      <p>A 12″ tube holds about 0.785 cu ft per foot of height—useful for deck footings when paired with proper footing bells or pads as required by code. Narrative charts and pier tips also live in the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide; use this page when you need live bag counts.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, convert with the yield on your bag, and keep a small waste factor for spillage when filling tall forms.</div>
+
+      <h2>Sonotube vs fence post holes</h2>
+      <p>Cardboard tube forms (deck piers, round columns) belong here. Dug fence or sign post holes without a tube belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide—same cylinder math, different default waste and job details.</p>
+
       <h2>Deck pier tips</h2>
       <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size examples such as the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>
       <h2>Common mistakes</h2>
@@ -136,6 +166,7 @@ export const toolBodies: Record<string, string> = {
         <li>Using outside diameter instead of inside diameter.</li>
         <li>Forgetting to multiply by the number of piers.</li>
         <li>Pouring without bracing, which can ovalize thin forms.</li>
+        <li>Using the fence-post bag chart for tube piers (or the reverse) without checking diameter and depth.</li>
       </ul>
 
       <h2>Assumptions and limits</h2>
@@ -168,15 +199,18 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Depth guide (summary)</h2>
-      <p>University extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. Keep mulch a few inches away from tree trunks and woody stems. See our <a href="/guides/mulch-depth-guide/">mulch depth guide</a> and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donut shapes.</p>
+      <p>University extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. Keep mulch a few inches away from tree trunks and woody stems. See our <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donut shapes. Quantity charts for common rectangles live in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Depth in inches must be converted to feet before multiplying by area. Over-mulching can smother roots and trap moisture against bark.</div>
       <h2>Bulk vs bags</h2>
       <p>Bulk is usually cheaper above roughly one cubic yard and reduces plastic waste. Bags are convenient for rooftop beds, small townhouses, and topping up. Ask your yard whether the product is dyed, hardwood, pine bark, or composted—water needs and fade rates differ.</p>
+      <h2>Soil under the mulch</h2>
+      <p>Mulch sits on top of planting soil—it does not replace fill volume. If you still need to raise grade or choose between mineral topsoil and bagged garden blends, read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> first, then size surface cover here.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Volcano mulching against trunks.</li>
         <li>Ordering for the wrong depth after settling (fresh mulch compresses).</li>
         <li>Ignoring pathways that also need coverage.</li>
+        <li>Buying mulch when the bed still needs soil volume (use the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> for fill).</li>
       </ul>
 
       <h2>Assumptions and limits</h2>
@@ -213,7 +247,7 @@ export const toolBodies: Record<string, string> = {
       <p>Piling mulch against bark traps moisture, invites decay organisms and rodents, and can cause roots to grow up into the mulch. Extension services consistently recommend a wide, flat doughnut with the flare visible.</p>
       <h2>Worked comparison</h2>
       <p>A 4 ft outer ring around a 0.5 ft keep-out at 3" needs less than half the mulch of a 6 ft ring at the same depth. Measure what you can maintain—thin, wide coverage usually beats a tall mound.</p>
-      <p>For rectangular beds switch to the <a href="/calculators/mulch-calculator/">bed mulch calculator</a>.</p>
+      <p>For rectangular beds switch to the <a href="/calculators/mulch-calculator/">bed mulch calculator</a>. Depth targets and trunk pull-back notes are in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide. If you are amending the soil under the ring rather than covering it, compare products in <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>.</p>
 
       <h2>Assumptions and limits</h2>
       <p>The mulch calculator tree rings results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
@@ -289,7 +323,7 @@ export const toolBodies: Record<string, string> = {
       </div>
       <p>*Density varies with moisture and blend—confirm with your supplier.</p>
       <h2>Choosing topsoil vs garden soil</h2>
-      <p>For boxed beds use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>. For surface cover after planting, use the <a href="/calculators/mulch-calculator/">mulch calculator</a>.</p>
+      <p>Screened topsoil and bagged “garden soil” are not interchangeable labels—compare use cases in the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide before you order. For boxed beds use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>. For surface cover after planting, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> and the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
 
       <h2>Assumptions and limits</h2>
       <p>The topsoil calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
@@ -503,17 +537,33 @@ export const toolBodies: Record<string, string> = {
   `,
   'roofing-shingles-calculator': `
       <h2>Shingle estimator: square feet to squares</h2>
-      <p>One roofing square = 100 square feet of roof surface. This shingle estimator first finds roof square feet (plan length × width × pitch area factor), then divides by 100 for squares. Add 10–15% waste for starter, hips, valleys, and ridge. Most asphalt bundles cover about ⅓ square (3 bundles per square)—read the wrapper for exact coverage.</p>
+      <p>One roofing square = 100 square feet of roof surface (IKO and GAF both define a square this way). This shingle estimator first finds roof square feet (plan length × width × pitch area factor), then divides by 100 for squares. Add about 10–15% waste for cuts, hips, valleys, and ridge. Most common asphalt bundles cover about ⅓ square (3 bundles per square)—read the wrapper for exact coverage. Step-by-step narrative lives in <a href="/guides/how-to-estimate-roofing-shingles/">how to estimate roofing shingles</a>.</p>
+      <h2>Pitch area factors</h2>
+      <p>Area factor = √(1 + (rise ÷ run)²). Measure rise over 12 inches of run with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a> or the <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> guide, then multiply plan footprint by the factor before converting to squares.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Common pitch area factors (√(1+(rise/12)²))</caption>
+        <thead><tr><th>Pitch</th><th>Area factor</th><th>1,000 sq ft plan → roof surface</th></tr></thead>
+        <tbody>
+          <tr><td>4/12</td><td>1.054</td><td>1,054 sq ft</td></tr>
+          <tr><td>6/12</td><td>1.118</td><td>1,118 sq ft</td></tr>
+          <tr><td>8/12</td><td>1.202</td><td>1,202 sq ft</td></tr>
+          <tr><td>9/12</td><td>1.250</td><td>1,250 sq ft</td></tr>
+          <tr><td>12/12</td><td>1.414</td><td>1,414 sq ft</td></tr>
+        </tbody>
+      </table>
+      </div>
       <h2>Worked example</h2>
       <p>Plan 40 × 25 ft at 6/12: factor √(1+0.25)=1.118. Roof area ≈ 1,118 sq ft ≈ 11.18 squares. With 10% waste → 12.3 squares ≈ 37 bundles at 3 per square.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Always convert plan area through the pitch factor before dividing by 100. Ordering from footprint alone underbuys shingles.</div>
       <h2>Limits of a rectangle model</h2>
-      <p>Complex roofs need plane-by-plane takeoff. Use this estimator for simple gables and quick budgets, then verify with a roofer’s measurements. Find pitch first with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a>.</p>
+      <p>Complex roofs need plane-by-plane takeoff for dormers, valleys, and wrap-around hips. Use this estimator for simple gables and quick budgets, then verify with a roofer’s measurements. Add starter strip and ridge/hip cap as separate line items—do not assume they are inside the field-bundle waste factor alone.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Ignoring starter strip and ridge cap bundles.</li>
         <li>Assuming every bundle is exactly 1/3 square.</li>
         <li>Skipping underlayment and ice-barrier quantities in cold climates.</li>
+        <li>Ordering from plan square footage without a pitch factor.</li>
       </ul>
 
       <div class="table-scroll">
@@ -522,7 +572,7 @@ export const toolBodies: Record<string, string> = {
         <thead><tr><th>Item</th><th>Typical value</th></tr></thead>
         <tbody>
           <tr><td>1 square</td><td>100 sq ft of roof surface</td></tr>
-          <tr><td>Bundles per square</td><td>~3 (asphalt)</td></tr>
+          <tr><td>Bundles per square</td><td>~3 (common asphalt); specialty can be 4–5</td></tr>
           <tr><td>Waste — simple gable</td><td>~10%</td></tr>
           <tr><td>Waste — hip / complex</td><td>~15%</td></tr>
         </tbody>
@@ -709,12 +759,15 @@ export const toolBodies: Record<string, string> = {
       <p>Two 8×4×12" beds need 64 cu ft ≈ 2.4 cu yd. If you buy 1.5 cu ft bags, that is about 43 bags—bulk delivery is usually cheaper at this scale. Mel’s Mix style blends combine compost, aeration material, and soil in recipes you can scale with these volumes.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure the soil cavity, not the outside of the lumber. Thick boards meaningfully reduce interior width.</div>
       <h2>Mulch after planting</h2>
-      <p>After beds are filled and planted, estimate surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a> so you do not starve the soil volume budget.</p>
+      <p>After beds are filled and planted, estimate surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a> so you do not starve the soil volume budget. Depth targets are in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
+      <h2>Choosing fill products</h2>
+      <p>Mineral topsoil, bagged garden soil, and potting mixes are not interchangeable. Compare labels in <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you fill deep boxes with the wrong product.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Filling only with lightweight potting mix in very deep beds (costly and can dry out).</li>
         <li>Using pure play sand as the only fill.</li>
         <li>Forgetting that soil settles—budget a top-up the following season.</li>
+        <li>Assuming every bag labeled “garden soil” matches mineral topsoil.</li>
       </ul>
 
       <div class="table-scroll">

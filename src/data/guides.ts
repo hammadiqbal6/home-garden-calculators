@@ -51,6 +51,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: [
       'concrete-calculator-post-holes',
       'fence-calculator',
+      'sonotube-concrete-calculator',
       'concrete-calculator',
     ],
     relatedGuideSlugs: [
@@ -59,7 +60,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-in-a-sonotube',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
   }),
   g({
     slug: 'mulch-depth-guide',
@@ -75,14 +76,14 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth before you order.',
-    relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
+    relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
     relatedGuideSlugs: [
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -381,7 +382,7 @@ export const guides: GuideDefinition[] = [
       'grass-seed-per-sq-ft',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
   }),
   g({
     slug: 'how-much-concrete-in-a-sonotube',
@@ -399,12 +400,17 @@ export const guides: GuideDefinition[] = [
       'A 12-inch Sonotube that is 4 feet tall holds about 3.14 cubic feet of concrete. That is roughly 5.2 of the 80 lb bags before you round up, so plan on 6 bags, or about 7 of the 60 lb bags. Multiply by pier count, then add a little for spillage.',
     relatedToolSlugs: [
       'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
       'concrete-calculator',
       'deck-material-calculator',
     ],
-    relatedGuideSlugs: ['how-many-bags-of-concrete', 'deck-material-list-16x24'],
+    relatedGuideSlugs: [
+      'how-many-bags-of-concrete',
+      'how-much-concrete-for-fence-posts',
+      'deck-material-list-16x24',
+    ],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
   }),
   g({
     slug: 'how-to-estimate-roofing-shingles',

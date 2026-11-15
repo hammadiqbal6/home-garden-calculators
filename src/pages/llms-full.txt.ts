@@ -30,6 +30,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much concrete is in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
 - How many bags for a 12-inch Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
 - Is this a concrete calculator for tubes? → ${origin}/calculators/sonotube-concrete-calculator/
+- How much concrete for a Sonotube (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
+- Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
+- Is garden soil the same as topsoil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How many 80 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How many 60 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
@@ -62,11 +65,11 @@ Well-known alias: ${origin}/.well-known/llms.txt
 ## Key figures (with citations)
 
 ### Concrete bag yields
-- QUIKRETE Concrete Mix (No. 1101): about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags (90 lb ≈ 0.675 cu ft). Source: https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf
+- QUIKRETE Concrete Mix (No. 1101): about 0.30 / 0.375 / 0.45 / 0.60 / 0.675 cu ft for 40 / 50 / 60 / 80 / 90 lb bags. Source: https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf
 - Sakrete High-Strength: about 0.30 / 0.45 / 0.6 cu ft for 40 / 60 / 80 lb (90 lb 0.66 cu ft). Source: https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf
 - Cubic yard → bags before waste: 27 ÷ 0.60 ≈ 45 of the 80 lb bags; 27 ÷ 0.45 = 60 of the 60 lb bags.
 - Fence post hole starting sizes: QUIKRETE Setting Posts — hole about three times post width; depth about 1/3 to 1/2 of above-ground length. Source: https://quikrete.com/athome/settingposts.asp
-- Example Sonotube: 12-inch × 4 ft ≈ 3.14 cu ft → about 5.2 of the 80 lb bags before waste (plan 6) or about 7 of the 60 lb bags.
+- Example Sonotube: 12-inch × 4 ft ≈ 3.14 cu ft → about 5.2 of the 80 lb bags before waste (plan 6), about 7 of the 60 lb bags, about 9 of the 50 lb bags, or about 11 of the 40 lb bags. Live chart: ${origin}/calculators/sonotube-concrete-calculator/
 
 ### Paint coverage
 - BEHR: one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250–400 sq ft with one coat. Source: https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy

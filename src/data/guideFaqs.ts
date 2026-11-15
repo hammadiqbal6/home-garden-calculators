@@ -5,7 +5,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   "how-much-concrete-for-fence-posts": [
     {
       "question": "How many bags of concrete per fence post?",
-      "answer": "It depends on hole diameter and depth, not post height alone. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—about two 80 lb bags of standard mix after rounding. A 12-inch × 3-foot hole is about 2.36 cu ft (four 80 lb bags before waste). Fast-setting labels can differ, so follow the bag you buy."
+      "answer": "It depends on hole diameter and depth, not post height alone. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—about two 80 lb bags of standard mix after rounding. A 12-inch × 3-foot hole is about 2.36 cu ft (four 80 lb bags before waste). Fast-setting labels can differ, so follow the bag you buy. Cardboard tube forms (deck piers) use the Sonotube concrete calculator instead."
     },
     {
       "question": "Should fence post holes be three times the post width?",
@@ -43,7 +43,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "Does mulch depth change bag counts?",
-      "answer": "Yes. Volume scales with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use a mulch calculator for irregular shapes."
+      "answer": "Yes. Volume scales with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use the mulch calculator for irregular shapes, or the common bed sizes chart for rectangles."
     }
   ],
   "how-many-bags-of-concrete": [
@@ -347,23 +347,23 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   "topsoil-vs-garden-soil": [
     {
       "question": "Is garden soil the same as topsoil?",
-      "answer": "Not reliably. Topsoil emphasizes mineral soil; garden soil bags are often blends with compost. Read ingredients and intended-use statements before swapping them in a recipe."
+      "answer": "Not reliably. Topsoil emphasizes mineral soil for grading and fill; bagged garden soil is often a compost blend for planting beds. Read ingredients and intended-use statements before swapping them in a recipe."
     },
     {
       "question": "How many cubic yards of topsoil do I need?",
-      "answer": "Multiply area by depth in feet, then divide by 27. Example: 100 sq ft at 3 in ≈ 0.93 cu yd. Use the topsoil calculator for odd shapes."
+      "answer": "Multiply area by depth in feet, then divide by 27. Example: 100 sq ft at 3 in ≈ 0.93 cu yd. A 4×8 bed filled 12 inches deep needs 32 cu ft (about 1.2 cu yd). Use the topsoil calculator for open areas and the raised bed soil calculator for boxes."
     },
     {
       "question": "Can I use topsoil in pots?",
-      "answer": "Heavy mineral topsoil often compacts and drains poorly in containers. Use potting mix for pots unless a specific recipe says otherwise."
+      "answer": "Heavy mineral topsoil often compacts and drains poorly in containers. Use potting mix for pots unless a specific recipe says otherwise. Save screened topsoil for grade work, lawns, and blending into in-ground beds."
     },
     {
       "question": "Should I put topsoil over existing grass?",
-      "answer": "Thick layers can smother turf. For leveling, use thin topdressings or kill/remove grass first when installing beds."
+      "answer": "Thick layers can smother turf. For leveling, use thin topdressings after aeration, or kill/remove grass first when installing beds. Do not bury crowns under inches of new soil."
     },
     {
-      "question": "What about “organic” labels?",
-      "answer": "Interpret carefully: marketing language varies. Look for documented compost feedstocks and test results when possible."
+      "question": "When should I buy bulk yards instead of bags?",
+      "answer": "Once you need roughly a cubic yard or more and a truck can access the site, bulk screened topsoil is usually cheaper per cubic foot. Under about half a yard, bags are often simpler. Calculate volume first, then compare delivered yard price to bag totals."
     }
   ],
   "how-much-concrete-in-a-sonotube": [
@@ -385,7 +385,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "Which concrete calculator should I use for tubes?",
-      "answer": "Use the Sonotube / concrete tube calculator for round forms. Enter inside diameter, height, and tube count for cubic feet, yards, and bag estimates. Use the slab calculator for rectangles and the post hole calculator for dug fence holes without cardboard forms."
+      "answer": "Use the Sonotube concrete calculator for round forms. Enter inside diameter, height, and tube count for cubic feet, yards, and a bags-per-tube chart covering 40/50/60/80 lb mixes. Use the slab calculator for rectangles and the post hole calculator for dug fence holes without cardboard forms."
     }
   ],
   "how-to-estimate-roofing-shingles": [

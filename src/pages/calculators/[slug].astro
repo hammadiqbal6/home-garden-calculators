@@ -51,6 +51,22 @@ const diagramByTool: Record<string, { src: string; alt: string }> = {
 
 const diagram = diagramByTool[tool.slug];
 
+/** Structural / load-bearing material tools — show an explicit planning-estimate callout. */
+const STRUCTURAL_SLUGS = new Set([
+  'concrete-calculator',
+  'concrete-calculator-post-holes',
+  'sonotube-concrete-calculator',
+  'rebar-calculator',
+  'retaining-wall-calculator',
+  'deck-material-calculator',
+  'fence-calculator',
+  'brick-calculator',
+  'lumber-calculator',
+]);
+const isStructural = STRUCTURAL_SLUGS.has(tool.slug);
+const structuralDisclaimer =
+  'Planning estimate only—check manufacturer specs and local code before you pour, dig, reinforce, or order materials. Not a substitute for engineered drawings or a building permit review. Not affiliated with QUIKRETE, Sakrete, Sonoco, or any manufacturer named in the sources.';
+
 const sisterByTool: Record<string, { href: string; label: string; why: string }[]> = {
   'concrete-calculator': [
     {
@@ -157,6 +173,15 @@ if (howTo) {
       <h1>{tool.h1}</h1>
       <p class="answer-first">{tool.answerFirst}</p>
       <Calculator calculatorId={tool.calculatorId} />
+      {
+        isStructural && (
+          <p class="planning-note" role="note">
+            <strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour,
+            dig, reinforce, or order materials. This tool does not design structural thickness, frost depth, or
+            reinforcement schedules.
+          </p>
+        )
+      }
       <nav class="on-this-page" aria-label="On this page">
         <h2>On this page</h2>
         <ul>
@@ -261,7 +286,11 @@ if (howTo) {
           </>
         )
       }
-      <TrustBlock sources={tool.sources} lastReviewed={tool.dateModified} />
+      <TrustBlock
+        sources={tool.sources}
+        lastReviewed={tool.dateModified}
+        disclaimer={isStructural ? structuralDisclaimer : undefined}
+      />
       <SisterLinks links={sisterLinks} />
       <div class="author-box">
         <p>

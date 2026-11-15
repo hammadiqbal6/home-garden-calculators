@@ -5,6 +5,7 @@ alwaysApply: true
 
 # Agent workflow
 
+- Before SEO/discovery work, read [AGENTS.md — SEO state (as of 2026-11-15)](../../AGENTS.md#seo-state-as-of-2026-11-15) so you do not re-implement IndexNow, re-fix known jev-seo false alarms, or invent trust theater.
 - **One agent / one concern / one PR.** Content, CMP/consent, calculator SEO, and docs/skills land on **separate** branches from `main`. Do not pile unrelated fixes into an open PR.
 - Branch names: `cursor/<descriptive-name>-c2d2` (lowercase).
 - Open the PR with `ManagePullRequest`; **do not merge** unless the user explicitly asks.

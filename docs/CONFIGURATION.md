@@ -20,7 +20,7 @@ Do **not** put `PUBLIC_*` in top-level wrangler `vars` (breaks `npx wrangler pre
 | `PUBLIC_SITE_SHORT_NAME` | `YardTally` | `apple-mobile-web-app-title`, manifest `short_name` |
 | `PUBLIC_SITE_TAGLINE` | Free home & garden material calculators | Organization / WebSite description |
 | `PUBLIC_MANIFEST_DESCRIPTION` | Free home and garden material calculators | `site.webmanifest` `description` |
-| `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` | Contact, footer, Organization email |
+| `PUBLIC_CONTACT_EMAIL` | `hello@getyardtally.com` | Contact, footer, Organization email |
 | `PUBLIC_COPYRIGHT_OWNER` | _(empty → site name)_ | Footer `©` owner |
 | `PUBLIC_AUTHOR_NAME` | `Hammad Iqbal` | Bylines, About, Person schema |
 | `PUBLIC_AUTHOR_BIO` | _(honest maintainer bio; `{name}` expands)_ | Person / About bio |

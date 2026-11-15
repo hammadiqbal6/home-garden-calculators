@@ -417,6 +417,15 @@ for (const file of pages) {
     if (!/href=["']\/guides\//i.test(html)) {
       fail(`${url}: tool page has no /guides/ link`);
     }
+    // Every tool page: visible embed section + nofollow branded credit (anti–link-scheme).
+    // Snippet lives in a textarea, so quotes may be HTML-escaped (&quot;).
+    if (!/Embed this calculator/i.test(html)) {
+      fail(`${url}: missing visible “Embed this calculator” section`);
+    } else if (
+      !/Powered by[\s\S]{0,400}?rel=(?:["']|&quot;)[^"'&]*nofollow/i.test(html)
+    ) {
+      fail(`${url}: embed credit missing rel="nofollow" on Powered by link`);
+    }
   }
 
   // Guides: ≥800 words in article

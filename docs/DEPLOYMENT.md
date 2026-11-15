@@ -92,7 +92,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `name` | `YardTally` | Public brand in header, titles, JSON-LD. |
 | `tagline` | Short sentence | Home hero and Organization description. |
 | `siteUrl` | `https://www.yourdomain.com` | **Canonical origin** — `https`, **no trailing slash**. Must match the host you will redirect to. |
-| `contactEmail` | `hammadiqbal117@gmail.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
+| `contactEmail` | `hello@getyardtally.com` | Contact page, trust pages, and `mailto:` links. Override with `PUBLIC_CONTACT_EMAIL`. |
 | `contentUpdated` | `2026-10-19` | ISO date for “last updated” stamps and sitemap `lastmod` default. Bump when you ship content changes. |
 | `author.name` / `role` / `bio` | Brand team byline | From `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` (honest defaults; no fake credentials). |
 | `sameAs` | `['https://…']` | Optional social/profile URLs for Organization schema. |
@@ -105,7 +105,7 @@ This file is the **only** place for brand, domain, and third-party IDs at **buil
 | `locale` | `en-US` | `<html lang="…">`. |
 | `defaultOgImage` | `/og-default.png` | Replace image in `public/` if you want custom social preview art. |
 
-**Build env vars:** See [`.env.example`](../.env.example) and [CONFIGURATION.md](./CONFIGURATION.md). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: `https://getyardtally.com` in `siteDefaults.mjs`). Sister origins use `PUBLIC_SITE_URL_*` via `src/config/sisterSites.ts`. `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hammadiqbal117@gmail.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true` ( `/ads.txt` is generated from the publisher id). Optional EmailJS contact form: `PUBLIC_EMAILJS_SERVICE_ID` / `PUBLIC_EMAILJS_TEMPLATE_ID` / `PUBLIC_EMAILJS_PUBLIC_KEY` (public IDs only — see [CONTACT-EMAILJS.md](./CONTACT-EMAILJS.md)). Legacy host 301s use Worker vars `CANONICAL_ORIGIN` + `LEGACY_REDIRECT_HOSTS` (see [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md)).
+**Build env vars:** See [`.env.example`](../.env.example) and [CONFIGURATION.md](./CONFIGURATION.md). `PUBLIC_SITE_URL` drives canonicals, sitemap, `robots.txt`, and `llms.txt` (fallback: `https://getyardtally.com` in `siteDefaults.mjs`). Sister origins use `PUBLIC_SITE_URL_*` via `src/config/sisterSites.ts`. `PUBLIC_CONTACT_EMAIL` overrides the default public inbox (`hello@getyardtally.com`). `PUBLIC_GA4_MEASUREMENT_ID` enables GA4 gtag when set. AdSense stays off until `PUBLIC_ADSENSE_PUBLISHER_ID` is a real `ca-pub-…` **and** `PUBLIC_ADSENSE_ENABLED=true` ( `/ads.txt` is generated from the publisher id). Optional EmailJS contact form: `PUBLIC_EMAILJS_SERVICE_ID` / `PUBLIC_EMAILJS_TEMPLATE_ID` / `PUBLIC_EMAILJS_PUBLIC_KEY` (public IDs only — see [CONTACT-EMAILJS.md](./CONTACT-EMAILJS.md)). Legacy host 301s use Worker vars `CANONICAL_ORIGIN` + `LEGACY_REDIRECT_HOSTS` (see [CUSTOM-DOMAIN.md](./CUSTOM-DOMAIN.md)).
 
 ### 3.2 Public files — replace placeholders
 
@@ -202,7 +202,7 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | `PUBLIC_SITE_URL_HOME_GARDEN` | Sister origin for YardTally (this site) |
 | `PUBLIC_SITE_URL_FIBER_ARTS` | Sister origin for FiberCalc |
 | `PUBLIC_SITE_URL_PET` | Sister origin for PetCalc Tools |
-| `PUBLIC_CONTACT_EMAIL` | `hammadiqbal117@gmail.com` |
+| `PUBLIC_CONTACT_EMAIL` | `hello@getyardtally.com` |
 | `PUBLIC_AUTHOR_NAME` / `PUBLIC_AUTHOR_BIO` | Optional — defaults in `site.ts` (Hammad Iqbal) |
 | `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (or empty to disable gtag) |
 | `PUBLIC_GSC_VERIFICATION` | HTML-tag `content` value (see `.env.example`) |

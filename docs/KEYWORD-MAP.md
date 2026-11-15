@@ -14,7 +14,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
-| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator |
+| `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator, how much concrete for sonotube |
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |

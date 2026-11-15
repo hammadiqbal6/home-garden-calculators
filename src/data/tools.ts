@@ -307,7 +307,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Fence and sign post hole concrete by diameter, depth, and count.',
     calculatorId: 'post-holes',
     relatedSlugs: ['concrete-calculator', 'sonotube-concrete-calculator', 'fence-calculator'],
-    relatedGuideSlugs: ['how-much-concrete-for-fence-posts', 'how-many-bags-of-concrete'],
+    relatedGuideSlugs: [
+      'how-much-concrete-for-fence-posts',
+      'how-many-bags-of-concrete',
+      'how-much-concrete-in-a-sonotube',
+    ],
     faq: [
       {
         question: 'How much concrete for one fence post?',
@@ -362,10 +366,11 @@ export const tools: ToolDefinition[] = [
       'concrete tube calculator',
       'cardboard concrete form calculator',
       'column concrete calculator',
+      'how much concrete for sonotube',
     ],
     title: 'Concrete Tube / Sonotube Calculator (Bags)',
     description:
-      'Concrete calculator for tubes and Sonotube forms: enter diameter, height, and tube count for cubic yards and 40/60/80 lb bag estimates.',
+      'Sonotube concrete calculator: enter diameter, height, and tube count for cubic yards plus 40/50/60/80 lb bag estimates with a bags-per-tube chart.',
     h1: 'Concrete Tube Calculator: Sonotube Bags by Diameter',
     answerFirst:
       'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
@@ -374,6 +379,7 @@ export const tools: ToolDefinition[] = [
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
     relatedGuideSlugs: [
       'how-much-concrete-in-a-sonotube',
+      'how-much-concrete-for-fence-posts',
       'how-many-bags-of-concrete',
       'deck-material-list-16x24',
     ],
@@ -381,7 +387,12 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Is this a concrete calculator for tubes / cardboard forms?',
         answer:
-          'Yes. It estimates concrete for round cardboard forms (often called Sonotube or concrete tubes): enter inside diameter, height, and how many tubes, then read cubic feet/yards and bag counts.',
+          'Yes. It estimates concrete for round cardboard forms (often called Sonotube or concrete tubes): enter inside diameter, height, and how many tubes, then read cubic feet/yards and bag counts. Dug fence posts without a tube use the post hole calculator instead.',
+      },
+      {
+        question: 'How much concrete for a Sonotube?',
+        answer:
+          'Volume = π × r² × height using inside diameter. A 12" × 4 ft tube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste at QUIKRETE 1101 yields. Use the bags-per-tube table below for other sizes, or enter your dimensions above.',
       },
       {
         question: 'Is Sonotube diameter inside or outside?',
@@ -394,9 +405,9 @@ export const tools: ToolDefinition[] = [
           'Per foot of height, a 12" tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft—six 80 lb bags before waste (still six after the default 5% waste at 0.60 cu ft/bag).',
       },
       {
-        question: 'Cubic feet or cubic yards for tube pours?',
+        question: 'Sonotube or fence post hole calculator?',
         answer:
-          'Bag planning usually stays in cubic feet (0.30 / 0.45 / 0.60 cu ft yields for 40 / 60 / 80 lb mixes). Divide by 27 for cubic yards when comparing ready-mix. Four 12" × 4 ft tubes with 5% waste are about 13.2 cu ft (~0.49 cu yd).',
+          'Use this Sonotube tool for cardboard column forms. Use the post hole calculator and the fence post concrete guide for dug fence or sign holes without a tube—same cylinder math, different defaults and job details.',
       },
     ],
     sources: [
@@ -404,18 +415,18 @@ export const tools: ToolDefinition[] = [
         label: 'Sonotube concrete forms – product sizing',
         href: 'https://www.sonotube.com/sonotube-concrete-forms',
         usedFor: 'Inside diameter / form sizing for round tubes',
-        checked: '2026-11-13',
+        checked: '2026-11-15',
       },
       {
         label: 'QUIKRETE Concrete Mix 1101 – Technical data',
         href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
-        usedFor: 'Bag yield (~0.60 cu ft per 80 lb bag) for tube pours',
-        checked: '2026-11-13',
+        usedFor: 'Bag yields (~0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb)',
+        checked: '2026-11-15',
       },
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -435,7 +446,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Bed mulch in cubic yards and bag counts.',
     calculatorId: 'mulch',
     relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide', 'mulch-for-common-garden-beds'],
+    relatedGuideSlugs: [
+      'mulch-depth-guide',
+      'mulch-for-common-garden-beds',
+      'topsoil-vs-garden-soil',
+    ],
     faq: [
       {
         question: 'How much mulch do I need for 100 sq ft?',
@@ -451,6 +466,11 @@ export const tools: ToolDefinition[] = [
         question: 'How many 2 cu ft and 3 cu ft bags for a given mulch volume?',
         answer:
           'Divide cubic feet by bag size, then round up. Example: 25 cu ft needs ceil(25÷2) = 13 of the 2 cu ft bags, or ceil(25÷3) = 9 of the 3 cu ft bags. For yards, multiply by 27 first (0.93 cu yd × 27 ≈ 25 cu ft).',
+      },
+      {
+        question: 'How deep should I set the mulch calculator?',
+        answer:
+          'Most flower beds and gardens use about 2–3 inches of organic mulch. See the mulch depth guide for extension ranges, then enter that depth here for bags and yards.',
       },
     ],
     sources: [
@@ -481,7 +501,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -501,7 +521,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Annular mulch rings around trees by outer and trunk diameter.',
     calculatorId: 'tree-ring-mulch',
     relatedSlugs: ['mulch-calculator', 'topsoil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide'],
+    relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
     faq: [
       {
         question: 'Why subtract the inner circle?',
@@ -534,7 +554,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator-tree-rings'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -627,7 +647,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Is topsoil the same as garden soil or raised-bed mix?',
         answer:
-          'Not always. Screened topsoil is common for lawn leveling; garden blends and raised-bed mixes usually include more compost. Use the raised bed soil calculator when filling boxes.',
+          'Not always. Screened topsoil is common for lawn leveling; garden blends and raised-bed mixes usually include more compost. Compare products in the topsoil vs garden soil guide, and use the raised bed soil calculator when filling boxes.',
       },
     ],
     sources: [
@@ -640,7 +660,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['topsoil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -950,25 +970,41 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How many bundles in a square?',
         answer:
-          'Typically three bundles per square for many asphalt products (about 33.3 sq ft coverage each), but always read the bundle label—coverage varies by brand and laminate vs 3-tab.',
+          'Typically three bundles per square for many asphalt products (about 33.3 sq ft coverage each), but always read the bundle label—coverage varies by brand and laminate vs 3-tab. IKO notes specialty products can need four or five bundles per square.',
       },
       {
         question: 'How do I estimate shingles from square feet?',
         answer:
           'Take roof surface square feet (not just plan footprint), divide by 100 for squares, add waste (often 10–15% for hips/valleys/starter), then multiply squares by bundles per square from the label.',
       },
+      {
+        question: 'How does roof pitch change the shingle order?',
+        answer:
+          'Steeper roofs have more surface on the same footprint. Area factor = √(1 + (rise/run)²). At 6/12 the factor is about 1.118; at 8/12 about 1.202. Measure pitch first with the roof pitch calculator, then finish squares and bundles here.',
+      },
+      {
+        question: 'How much waste should I add for shingles?',
+        answer:
+          'IKO commonly discusses about 10–15% waste for cuts, hips, and valleys. Simple gables can land near the low end; cut-heavy roofs need more. Order starter and ridge products separately from field bundles.',
+      },
     ],
     sources: [
       {
-        label: 'GAF – Manufacturer coverage practice (example)',
-        href: 'https://www.gaf.com/',
-        usedFor: 'Bundles-per-square industry practice; always read the bundle label',
-        checked: '2026-11-07',
+        label: 'IKO – How many shingles in a bundle',
+        href: 'https://www.iko.com/na/blog/how-many-shingles-in-a-bundle/',
+        usedFor: 'Bundles per square and waste guidance',
+        checked: '2026-11-15',
+      },
+      {
+        label: 'GAF – How to measure a roofing square',
+        href: 'https://www.gaf.com/en-us/blog/your-home/how-to-measure-a-roofing-square-3faec381-6f6f-49ff-841f-114c59108f2a',
+        usedFor: 'Square = 100 sq ft definition and coverage practice',
+        checked: '2026-11-15',
       },
     ],
     sectionsHtml: toolBodies['roofing-shingles-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

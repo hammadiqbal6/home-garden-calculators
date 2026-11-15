@@ -77,6 +77,8 @@ export function profilePageJsonLd() {
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfilePage',
+    name: `About ${siteConfig.name}`,
+    url: absoluteUrl('/about/'),
     dateCreated: `${siteConfig.dateCreated}T00:00:00+05:00`,
     dateModified: `${siteConfig.contentUpdated}T00:00:00+05:00`,
     mainEntity: personNode(),
@@ -182,5 +184,71 @@ export function howToJsonLd(opts: {
     node.image = new URL(opts.imagePath, `${siteConfig.siteUrl}/`).toString();
   }
   if (opts.totalTime) node.totalTime = opts.totalTime;
+  return node;
+}
+
+/** Index / hub listing: CollectionPage + ItemList of child URLs. */
+export function collectionPageJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  items: { name: string; path: string }[];
+}) {
+  const pageUrl = absoluteUrl(opts.path);
+  const listId = `${pageUrl}#itemlist`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#webpage`,
+        name: opts.name,
+        description: opts.description,
+        url: pageUrl,
+        isPartOf: { '@id': websiteId() },
+        mainEntity: { '@id': listId },
+      },
+      {
+        '@type': 'ItemList',
+        '@id': listId,
+        numberOfItems: opts.items.length,
+        itemListElement: opts.items.map((item, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: item.name,
+          url: absoluteUrl(item.path),
+        })),
+      },
+    ],
+  };
+}
+
+/** Standalone informational page (methodology, policy-style pages). */
+export function webPageJsonLd(opts: {
+  name: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+  dateModified?: string;
+}) {
+  const pageUrl = absoluteUrl(opts.path);
+  const node: Record<string, unknown> = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    name: opts.name,
+    description: opts.description,
+    url: pageUrl,
+    isPartOf: { '@id': websiteId() },
+    author: { '@id': siteConfig.author.canonicalPersonId },
+    publisher: { '@id': orgId() },
+  };
+  if (opts.datePublished) {
+    node.datePublished = `${opts.datePublished}T00:00:00+05:00`;
+  }
+  if (opts.dateModified) {
+    node.dateModified = `${opts.dateModified}T00:00:00+05:00`;
+    node.lastReviewed = opts.dateModified;
+  }
   return node;
 }

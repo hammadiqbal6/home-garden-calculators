@@ -218,7 +218,7 @@ export const tools: ToolDefinition[] = [
       'how many bags of concrete',
       'concrete calculator yards',
     ],
-    title: 'Concrete Calculator: Bags & Cubic Yards for Slabs',
+    title: 'Concrete Calculator: Bags & Yards for Slabs',
     description:
       'Free concrete calculator for slabs, footings and steps. Enter length, width and depth to get cubic yards and 40, 60 or 80 lb bag counts with waste added.',
     h1: 'Concrete Calculator: Cubic Yards & 40/60/80 lb Bags',
@@ -287,7 +287,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -653,7 +653,7 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['paver sand calculator', 'how much sand do I need'],
     title: 'Sand Calculator – Beds, Pavers & Play | YardTally',
     description:
-      'Sand calculator for paver bedding, leveling, and play areas. Converts dimensions to cubic yards and estimated tons.',
+      'Sand calculator for paver bedding, leveling beds, and play areas. Convert length × width × depth to cubic yards and estimated tons with waste.',
     h1: 'Sand Calculator: Cubic Yards & Bags',
     answerFirst:
       'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding.',
@@ -693,7 +693,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sand-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -706,7 +706,7 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['patio paver calculator', 'how many pavers do I need'],
     title: 'Paver Calculator – Count, Sand & Base | YardTally',
     description:
-      'Estimate pavers needed plus bedding sand and gravel base. Enter patio size and paver dimensions with a waste percent.',
+      'Estimate how many pavers you need plus bedding sand and gravel base volumes. Enter patio size, paver face dimensions, and a waste percent for cuts.',
     h1: 'Paver Calculator: Count, Sand & Base',
     answerFirst:
       'Pavers needed ≈ patio area ÷ paver face area, then add 5–10% waste for cuts. A 10×10 patio with 12×12 inch pavers needs 100 pavers, about 110 with 10% waste. Plan ~1" sand bed and several inches of compacted gravel base.',
@@ -746,7 +746,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['paver-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1205,7 +1205,7 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['garden box soil calculator', 'how much soil for raised bed'],
     title: 'Raised Bed Soil Calculator: Cu Ft and Bags',
     description:
-      'Calculate soil mix volume for raised beds from interior length, width, and depth. Cubic feet, yards, and bag estimates.',
+      'Calculate raised-bed soil volume from interior length, width, and depth. Get cubic feet, cubic yards, and bag estimates for garden boxes.',
     h1: 'Raised Bed Soil Calculator: Cubic Feet, Bags & Mix',
     answerFirst:
       'Raised bed soil volume = interior length × width × fill depth. An 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd). Many gardeners blend topsoil, compost, and aeration materials rather than using a single bagged product.',
@@ -1245,7 +1245,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['raised-bed-soil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

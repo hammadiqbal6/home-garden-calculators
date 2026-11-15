@@ -88,7 +88,7 @@ export const guides: GuideDefinition[] = [
     slug: 'how-many-bags-of-concrete',
     title: 'How Many Bags of Concrete Do I Need?',
     description:
-      'Convert cubic feet and yards to 40, 60, and 80 lb concrete bags with yield tables, waste tips, and free calculators.',
+      'Convert cubic feet and yards to 40, 60, and 80 lb concrete bags with yield tables, waste tips, worked examples, and free calculator links.',
     h1: 'How Many Bags of Concrete Do I Need?',
     primaryKeyword: 'how many bags of concrete do I need',
     secondaryKeywords: ['80 lb bags of concrete per yard', 'concrete bag calculator'],
@@ -105,7 +105,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-in-a-sonotube',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-15',
   }),
   g({
     slug: 'concrete-for-10x10-slab',

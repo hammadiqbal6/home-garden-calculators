@@ -8,6 +8,34 @@
 - **Deploy:** merge to `main` → Workers Builds auto-deploys the Cloudflare Worker (`npx wrangler deploy` + IndexNow). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 - Canonical origin: `PUBLIC_SITE_URL` → `siteConfig.siteUrl` only. Never hardcode the site hostname in pages/scripts.
 
+## SEO state (as of 2026-11-15)
+
+Read this before starting SEO work. Do **not** rediscover or re-implement items marked Done.
+
+### Done (verified in repo unless noted)
+
+- **IndexNow (Bing/Yandex):** Key file `public/c2a68b8b8e7e6ba2253b408fa0fe2c4c.txt` (body = key; matches `DEFAULT_INDEXNOW_KEY` in `src/config/siteDefaults.mjs`). Ping script `scripts/indexnow.mjs` (idempotent; always exits `0`). Runs after production deploy via Workers Builds: `npx wrangler deploy && node scripts/indexnow.mjs` (also `npm run indexnow` / `deploy:indexnow`). **Do not add a second submitter.** Owner note: Bing Webmaster shows IndexNow active (~336 URLs submitted 2026-11-13, source “Self”).
+- **Search consoles (owner-confirmed):** Bing Webmaster Tools verified; sitemap `https://getyardtally.com/sitemap-index.xml` submitted. Google Search Console verified (`PUBLIC_GSC_VERIFICATION` in `.env.example` / Workers Builds). GSC impressions started **2026-11-11**.
+- **Sitemap / trailing slash:** Astro `trailingSlash: 'always'`; `/sitemap.xml` → `/sitemap-index.xml` **301** (`public/_redirects`, Worker). jev-seo trailing-slash **308** findings (R08/R25/R44) and “duplicate schema” counts are **known false alarms** — do not “fix” them. Real jev-seo fixes shipped in **PR #28**.
+- **GSC-impression content (PR #29):** topsoil-vs-garden-soil guide; Sonotube bags-per-tube table + FAQ; mulch depth guide; roofing shingles calculator; internal links; `/embed/` meta descriptions. Embed routes are intentionally **`noindex,follow`** with canonical to the main `/calculators/<slug>/` tool (`src/pages/embed/[slug].astro`).
+- **Embed widgets + trust (this PR / #30):** Calculator pages show “Embed this calculator” with a copy-to-clipboard iframe snippet. Attribution is **Powered by YardTally** with `rel="nofollow"` (`EmbedSnippet.astro` + embed page). **Keep nofollow** — Google treats keyword-rich followed widget links as link schemes. About page names the maintainer and how math works (personal-bio placeholder; no invented credentials). Structural calculators show a planning-estimate note + formula/disclaimer. Contact default: **`hello@getyardtally.com`** (`DEFAULT_CONTACT_EMAIL`); owner notes it is forwarded via Cloudflare Email Routing.
+- **Also in code:** Answer-first tools/guides; TrustBlock sources; FAQ visible on tool/guide pages (FAQPage JSON-LD present — see policy below); HowTo only from `toolHowTo.ts` / `guideHowTo.ts`; `llms.txt` + `llms-full.txt` + `/.well-known/llms.txt` alias; IndexNow audited in `scripts/audit/seo.mjs`.
+
+### Policy / don’t do
+
+- **`llms.txt` does not help Google** — keep it for AI crawlers; do not treat it as a GSC lever.
+- **Don’t rely on FAQ schema for rich results** (may still emit FAQPage when FAQ is on-page).
+- **No thin programmatic variants** (city pages, one URL per bag size, doorway keyword clones).
+- **No invented experts, headshots, credentials, or statistics.**
+- **Branded titles ≤ 60 characters** (owner policy; CI audit still allows 25–65 — prefer ≤60 when writing titles).
+- **Don’t re-ping IndexNow from a second path** or re-open “missing IndexNow” work.
+- **Don’t chase jev-seo R08/R25/R44 trailing-slash 308s or duplicate-schema counts.**
+
+### Open / off-page (not code)
+
+- Directory submissions (Agathox, SaaSHub, others) and the existing Maker Launches listing.
+- Embed outreach, Product Hunt launch, and editorial backlinks — site has essentially **no** editorial backlinks yet. Thread Reader App unrolls from `@hammadiqbal44` are minor.
+
 ## 2. Repo map
 
 | Path | Role |
@@ -53,7 +81,7 @@ npm run proof        # full proof bundle (Lighthouse + audits)
 
 ## 5. SEO / AEO rules
 
-- Titles 25–65 (aim ~30–60); meta 70–160 (aim ~120–160); one H1; og/twitter match title & description.
+- Titles 25–65 (prefer branded ≤60); meta 70–160 (aim ~120–160); one H1; og/twitter match title & description.
 - Answer-first on home/tools/guides; tools link ≥1 topical guide; no doorway/query-variant duplicates.
 - **Schema:** BreadcrumbList; tools → WebApplication (+ FAQPage); guides → Article (+ FAQPage). **HowTo only from visible on-page steps** (`guideHowTo.ts` / `toolHowTo.ts`). No fake `aggregateRating`.
 - **Sitemap `lastmod`:** from each page’s real `dateModified` in `astro.config.mjs` — **never** `Date.now()` / “now”.

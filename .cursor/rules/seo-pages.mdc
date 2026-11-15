@@ -6,6 +6,8 @@ alwaysApply: false
 
 # SEO page rules
 
+**Site SEO state (what’s already done / don’t redo):** [AGENTS.md — SEO state (as of 2026-11-15)](../../AGENTS.md#seo-state-as-of-2026-11-15).
+
 ## Research first (before any new or reworked page)
 
 1. One primary query; check autocomplete / PAA / SERP top 5 format.
@@ -16,7 +18,7 @@ alwaysApply: false
 
 ## On-page structure
 
-- Title 25–65 chars (aim ~30–60), primary keyword near the start; meta description 70–160 (aim ~120–160); og/twitter match.
+- Title 25–65 chars (prefer branded ≤60), primary keyword near the start; meta description 70–160 (aim ~120–160); og/twitter match.
 - Exactly one H1; logical H2/H3 (no skipped levels).
 - Answer first: opening 40–60 words answer the query with a **number or clear verdict** in sentence 1 where one exists.
 - Tools: calculator inputs ≤60 words after H1 and above the fold on mobile (390×844); cookie bar ≤56px.

@@ -10,15 +10,16 @@ interface Props {
 const { slug, name } = Astro.props;
 const embedUrl = absoluteUrl(`/embed/${slug}/`);
 const toolUrl = absoluteUrl(`/calculators/${slug}/`);
+// Branded credit with rel="nofollow" — Google treats keyword-rich followed widget links as link schemes.
 const snippet = `<iframe src="${embedUrl}" title="${name} – ${siteConfig.name}" width="100%" height="640" loading="lazy" style="border:0;border-radius:8px;max-width:100%"></iframe>
-<p style="font-size:12px;margin-top:8px">Calculator by <a href="${toolUrl}">${siteConfig.name}</a></p>`;
+<p style="font-size:12px;margin-top:8px">Powered by <a href="${toolUrl}" rel="nofollow noopener">${siteConfig.name}</a></p>`;
 ---
 
 <section class="embed-box" aria-labelledby="embed-h">
-  <h2 id="embed-h" style="margin-top:0;font-size:1.1rem">Embed this tool</h2>
+  <h2 id="embed-h" style="margin-top:0;font-size:1.1rem">Embed this calculator</h2>
   <p style="margin:0 0 0.75rem;font-size:0.95rem;color:var(--color-ink-muted)">
-    Copy the snippet into your page. Please keep the attribution link so readers can open the full calculator
-    and sources.
+    Copy the one-line iframe snippet into your page. Keep the “Powered by {siteConfig.name}” credit so
+    readers can open the full calculator and sources.
   </p>
   <label class="visually-hidden" for={`embed-code-${slug}`}>Embed HTML</label>
   <textarea id={`embed-code-${slug}`} readonly rows="5" data-embed-snippet>{snippet}</textarea>

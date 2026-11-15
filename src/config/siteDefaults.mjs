@@ -33,7 +33,7 @@ export const DEFAULT_MANIFEST_DESCRIPTION =
   'Free home and garden material calculators';
 
 /** Public contact email (footer, Contact, schema). */
-export const DEFAULT_CONTACT_EMAIL = 'hammadiqbal117@gmail.com';
+export const DEFAULT_CONTACT_EMAIL = 'hello@getyardtally.com';
 
 /** Named maintainer (About, bylines, Person schema). */
 export const DEFAULT_AUTHOR_NAME = 'Hammad Iqbal';

@@ -46,7 +46,12 @@ const jsonLd = [
       estimators that run entirely in your browser.
     </p>
 
-    <h2 id="maintainer">Who I am</h2>
+    <h2 id="maintainer">Who builds {siteConfig.name}</h2>
+    <p>
+      {siteConfig.name} is built and maintained by {siteConfig.author.name} ({siteConfig.author.role}).
+      There is no editorial board, licensed engineering stamp, or contractor certification behind these
+      pages—just one person documenting formulas, bag yields, and sources so DIY estimates are easier to check.
+    </p>
     <p>{siteConfig.author.bio}</p>
     <p>
       Find me on
@@ -62,7 +67,22 @@ const jsonLd = [
       }.
     </p>
 
-    <h2>How the tools are made</h2>
+    <h2 id="personal-bio">Personal bio</h2>
+    <p class="bio-placeholder">
+      <em>
+        [Owner placeholder — replace this paragraph with a short personal bio: background, why you care about
+        home and garden material estimates, or other honest context. Do not invent licenses, job titles, or
+        credentials. Edit <code>about.astro</code> or set <code>PUBLIC_AUTHOR_BIO</code> for the project bio
+        above.]
+      </em>
+    </p>
+
+    <h2>How the calculators work</h2>
+    <p>
+      Each calculator is pure client-side math (TypeScript unit-tested in this repo). You enter dimensions; the
+      page converts units, applies the documented formula, and shows volume, bags, or piece counts. Inputs stay
+      in your browser—nothing is uploaded to size a pour or bed.
+    </p>
     <p>
       Every tool lists its formula and its sources at the bottom of the page. Sources are manufacturer
       coverage pages (for example QUIKRETE bag yields), American Cement Association materials, ACI residential

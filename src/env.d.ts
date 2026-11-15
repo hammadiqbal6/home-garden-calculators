@@ -17,7 +17,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_SISTER_NAME_BUSINESS_DOCS?: string;
   readonly PUBLIC_SISTER_NAME_FIBER_ARTS?: string;
   readonly PUBLIC_SISTER_NAME_PET?: string;
-  /** Public contact email. Optional — falls back to hammadiqbal117@gmail.com. */
+  /** Public contact email. Optional — falls back to DEFAULT_CONTACT_EMAIL in siteDefaults. */
   readonly PUBLIC_CONTACT_EMAIL?: string;
   readonly PUBLIC_COPYRIGHT_OWNER?: string;
   /** Author byline name. Optional — falls back to "Hammad Iqbal". */

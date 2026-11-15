@@ -55,7 +55,7 @@ export const toolBodies: Record<string, string> = {
       <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. For cardboard forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Read <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a> for bag charts.</p>
 
       <h2>Assumptions and limits</h2>
-      <p>The concrete calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool does not size structural thickness, rebar, or frost depth.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -97,7 +97,7 @@ export const toolBodies: Record<string, string> = {
       <p>More detail: <a href="/guides/how-much-concrete-for-fence-posts/">How much concrete for fence posts</a>.</p>
 
       <h2>Assumptions and limits</h2>
-      <p>The concrete calculator post holes results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you dig or pour. Cylinder math assumes uniform diameter and depth; real holes vary. Confirm frost depth, post size, and setting method for your jurisdiction.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -169,8 +169,10 @@ export const toolBodies: Record<string, string> = {
         <li>Using the fence-post bag chart for tube piers (or the reverse) without checking diameter and depth.</li>
       </ul>
 
+      <h2>Formula used</h2>
+      <p>Volume (cu ft) = π × (inside diameter ÷ 2)² × height × count, with diameter and height converted to feet. Bags = ceil(volume × (1 + waste) ÷ bag yield). Default yields follow common QUIKRETE / Sakrete planning charts (about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb).</p>
       <h2>Assumptions and limits</h2>
-      <p>The sonotube concrete calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour deck piers or columns. Use inside diameter, not outside. This tool does not design footing bells, reinforcement, or frost depth.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -436,7 +438,7 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Assumptions and limits</h2>
-      <p>The fence calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and HOA rules) before you set posts or order panels. Post spacing and frost depth vary by wind load and soil; confirm on site.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -476,7 +478,7 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Assumptions and limits</h2>
-      <p>The deck material calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and composite span tables) before you order framing or decking. Results assume a simple rectangular layout; stairs, angles, and multi-level decks need extra takeoff.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -633,8 +635,8 @@ export const toolBodies: Record<string, string> = {
       <p>Buy all finish coats from the same batch when possible, and keep a labeled quart for touch-ups after furniture goes back in place.</p>
   `,
   'retaining-wall-calculator': `
-      <h2>Face-area method</h2>
-      <p>Courses = ceil(wall height ÷ block height). Blocks per course = ceil(wall length ÷ block length). Total = courses × blocks per course, then add waste. Default face size is 18" × 6", a common segmental block module—override with your block’s actual face dimensions.</p>
+      <h2>Formula used</h2>
+      <p>Courses = ceil(wall height ÷ block height). Blocks per course = ceil(wall length ÷ block length). Total blocks = courses × blocks per course × (1 + waste). Base trench gravel ≈ length × trench width × trench depth. Default face size is 18" × 6"—override with your block’s actual face dimensions.</p>
       <h2>Worked example</h2>
       <p>For a 20 ft long, 3 ft high wall with 18×6 inch blocks: courses = 6; blocks/course = ceil(20 ÷ 1.5) = 14; total = 84 blocks before waste. Base trench gravel is estimated from length × base width × base depth.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Taller walls and surcharges often need engineering and geogrid. Stay within manufacturer height limits for gravity walls.</div>
@@ -659,7 +661,7 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Assumptions and limits</h2>
-      <p>The retaining wall calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you build. Segmental gravity walls have rated height limits; taller walls, surcharges, and poor soils often need engineering and geogrid this tool does not design.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
@@ -880,7 +882,7 @@ export const toolBodies: Record<string, string> = {
         <li>Skipping waste on cut-heavy patterns.</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p>Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume is not estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you order. Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume is not estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Confirm actual face dimensions and joint width with the supplier.</li>
@@ -926,7 +928,7 @@ export const toolBodies: Record<string, string> = {
         <li>Forgetting that board feet already embed thickness—do not also multiply by a separate “depth.”</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p>Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator does not design spans, grades, or species—check span tables and grade stamps for structural use.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before structural use. Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator does not design spans, grades, or species—check span tables and grade stamps.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>List each size separately (2×4s and 2×6s do not share a board-foot line item usefully at the rack).</li>
@@ -971,7 +973,7 @@ export const toolBodies: Record<string, string> = {
         <li>Skipping waste on odd-shaped pours with many cuts.</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p>Results assume a single rectangular mat with uniform spacing and full-length bars cut from stock sticks. They are not a substitute for engineered reinforcement schedules. Local amendments may require fiber, mesh, or tighter spacing than the defaults.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and the structural detail) before you order steel. Results assume a single rectangular mat with uniform spacing and full-length bars cut from stock sticks. They are not a substitute for engineered reinforcement schedules. Local amendments may require fiber, mesh, or tighter spacing than the defaults.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Match bar grade (usually Grade 60) and size to the detail.</li>

@@ -10,7 +10,9 @@
 
 ## SEO state (as of 2026-11-15)
 
-Read this before starting SEO work. Do **not** rediscover or re-implement items marked Done.
+**Living growth / SEO tracker:** always read [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) before planning growth, SEO, or content work (baseline metrics, done / in progress / pending, off-repo). Update that file in the **same PR** when you complete, start, or add an item.
+
+Read the snapshot below before rediscovering search setup. Do **not** rediscover or re-implement items marked Done.
 
 ### Done (verified in repo unless noted)
 
@@ -51,6 +53,7 @@ Read this before starting SEO work. Do **not** rediscover or re-implement items 
 | `src/lib/gdprRegions.ts`, `htmlGeoInject.ts`, `src/worker.ts` | EEA/UK/CH geo + HTML inject |
 | `public/_headers` | CSP + cache (Workers static assets) |
 | `astro.config.mjs` | Sitemap `lastmod` from real `dateModified` |
+| `docs/GROWTH-STATUS.md` | Living growth/SEO scoreboard (metrics, done, pending, off-repo) |
 | `docs/KEYWORD-MAP.md`, `SEO-GUARDRAILS.md`, `PAGE-CHECKLIST.md`, `ADSENSE.md` | SEO / AdSense ops |
 | `.cursor/skills/`, `.cursor/rules/` | Agent skills and standing rules |
 
@@ -126,6 +129,7 @@ Research first: one primary query, SERP/PAA, cannibalization check in `docs/KEYW
 - **One agent / one concern / one PR.** Content ≠ CMP/consent ≠ calculator SEO ≠ docs/skills. Do not mix into open unrelated PRs.
 - Branch from latest `main`: `cursor/<descriptive-name>-c2d2` (lowercase).
 - Open PRs with `ManagePullRequest`; **do not merge** unless the user asks.
+- **Growth / SEO / content:** read [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) first; update it in the same PR when status changes.
 - Seasonality: ship evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** peaks (lawn, mulch, concrete, paint).
 - Before merge: run the [pre-merge SEO/AEO checklist](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md) and `npm test && npm run build && npm run audit && npm run check:links`.
 - After deploy: IndexNow; spot-check critical URLs in GSC when indexing matters.

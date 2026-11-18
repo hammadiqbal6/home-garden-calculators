@@ -8,6 +8,7 @@ globs:
   - worker/**/*
   - docs/SEO-GUARDRAILS.md
   - docs/CUSTOM-DOMAIN.md
+  - docs/GROWTH-STATUS.md
 alwaysApply: true
 ---
 
@@ -15,7 +16,9 @@ alwaysApply: true
 
 Follow [docs/SEO-GUARDRAILS.md](docs/SEO-GUARDRAILS.md) and [docs/CUSTOM-DOMAIN.md](docs/CUSTOM-DOMAIN.md).
 
-**Current SEO state (IndexNow, GSC/Bing, shipped PRs, don’t-redo list):** see [AGENTS.md — SEO state (as of 2026-11-15)](../../AGENTS.md#seo-state-as-of-2026-11-15). Read it before rediscovering search setup.
+**Living growth / SEO tracker:** [docs/GROWTH-STATUS.md](../../docs/GROWTH-STATUS.md) — read before planning growth/SEO/content; update in the same PR when status changes.
+
+**Shipped / don’t-redo snapshot (IndexNow, GSC/Bing, schema policy):** see [AGENTS.md — SEO state (as of 2026-11-15)](../../AGENTS.md#seo-state-as-of-2026-11-15). Read it before rediscovering search setup.
 
 - Site origin: `PUBLIC_SITE_URL` / `siteConfig.siteUrl` only (`src/config/site-origin.mjs` holds the workers.dev fallback). Never paste this site’s hostname into pages or scripts.
 - Titles 25–65 (aim ~30–60; **branded titles prefer ≤60**); meta description 70–160 (aim ~120–160); og/twitter match title & description; one H1; answer-first 40–60 words on home/tools/guides.

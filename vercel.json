@@ -21,6 +21,39 @@
   ],
   "redirects": [
     { "source": "/sitemap.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    { "source": "/sitemap_index.xml", "destination": "/sitemap-index.xml", "permanent": true },
+    { "source": "/about-us", "destination": "/about/", "permanent": true },
+    { "source": "/about-us/", "destination": "/about/", "permanent": true },
+    { "source": "/authors", "destination": "/about/", "permanent": true },
+    { "source": "/authors/", "destination": "/about/", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact/", "permanent": true },
+    { "source": "/contact-us/", "destination": "/contact/", "permanent": true },
+    { "source": "/contacts", "destination": "/contact/", "permanent": true },
+    { "source": "/contacts/", "destination": "/contact/", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy/", "permanent": true },
+    { "source": "/privacy-policy/", "destination": "/privacy/", "permanent": true },
+    { "source": "/terms-of-service", "destination": "/terms/", "permanent": true },
+    { "source": "/terms-of-service/", "destination": "/terms/", "permanent": true },
+    {
+      "source": "/guides/16x24-deck-material-list",
+      "destination": "/guides/deck-material-list-16x24/",
+      "permanent": true
+    },
+    {
+      "source": "/guides/16x24-deck-material-list/",
+      "destination": "/guides/deck-material-list-16x24/",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/:slug/embed",
+      "destination": "/embed/:slug/",
+      "permanent": true
+    },
+    {
+      "source": "/calculators/:slug/embed/",
+      "destination": "/embed/:slug/",
+      "permanent": true
+    },
     {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "www.getyardtally.com" }],

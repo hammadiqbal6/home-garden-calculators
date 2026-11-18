@@ -80,9 +80,9 @@ export const categories: Record<
         <caption>Match the pour shape to the right tool</caption>
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
-          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Slab / footing calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
-          <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
-          <tr><td>Cardboard column forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
+          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
+          <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
           <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
         </tbody>
       </table>
@@ -90,7 +90,7 @@ export const categories: Record<
       <h2>How to choose bag mix vs ready-mix</h2>
       <p>Bagged QUIKRETE / Sakrete-style mixes suit posts, small pads, and repairs you can place in batches. Past about one cubic yard—or any pour that must be continuous across a large slab—compare the cost and labor of ready-mix delivery. YardTally bag counts use published standard-mix yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags; lightweight and high-yield products differ, so read the label.</p>
       <h2>Worked example: 10×10 patio</h2>
-      <p>Volume = 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste factor that becomes 36.7 cu ft → 62 bags of 80 lb mix or 82 bags of 60 lb mix. Order gravel base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Full charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete</a>, and <a href="/guides/concrete-for-10x10-slab/">10×10 slab</a>.</p>
+      <p>Volume = 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste factor that becomes 36.7 cu ft → 62 bags of 80 lb mix or 82 bags of 60 lb mix. Order gravel base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Full charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/concrete-for-10x10-slab/">concrete for a 10×10 slab</a>, <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a>, and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>.</p>
       <h2>Waste, frost, and regional caveats</h2>
       <p>Uneven subgrade and spillage routinely consume 5–10% extra on DIY bag mixes. Frost-line depth, soil type, and local code control hole depth and slab thickness—this hub estimates volume only. Confirm reinforcement, joints, and base with local practice before you pour.</p>
     `,
@@ -217,10 +217,11 @@ export const tools: ToolDefinition[] = [
       'concrete slab calculator',
       'how many bags of concrete',
       'concrete calculator yards',
+      'concrete calculator bags',
     ],
-    title: 'Concrete Calculator: Bags & Yards for Slabs',
+    title: 'Concrete Calculator: Yards & Bags',
     description:
-      'Free concrete calculator for slabs, footings and steps. Enter length, width and depth to get cubic yards and 40, 60 or 80 lb bag counts with waste added.',
+      'Free concrete calculator for slabs, footings, and steps. Get cubic yards and 40/60/80 lb bag counts with waste—plan how many bags of concrete you need.',
     h1: 'Concrete Calculator: Cubic Yards & 40/60/80 lb Bags',
     answerFirst:
       'A concrete calculator converts your project dimensions into cubic feet and cubic yards, then into 40, 60, or 80 lb bags. For a slab, multiply length × width × thickness (in feet); divide by 27 for yards. Add about 10% waste. Typical bag yields are 0.30, 0.45, and 0.60 cubic feet.',
@@ -236,27 +237,38 @@ export const tools: ToolDefinition[] = [
       'how-many-bags-of-concrete',
       'concrete-for-10x10-slab',
       'how-much-concrete-for-fence-posts',
+      'how-much-concrete-in-a-sonotube',
     ],
     faq: [
       {
+        question: 'How many bags of concrete do I need?',
+        answer:
+          'Convert your pour to cubic feet, divide by the bag yield, then round up and add waste. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. Example: a 10×10×4″ slab is 33.33 cu ft → about 1.23 cu yd; with 10% waste that is 62 × 80 lb bags or 82 × 60 lb bags. Use this slab calculator for rectangles; round forms need the Sonotube or post-hole tools.',
+      },
+      {
+        question: 'How do I get cubic yards from a concrete calculator?',
+        answer:
+          'Volume (cu ft) = length × width × thickness in feet, then yards = cu ft ÷ 27. A 10×10 ft slab at 4 inches is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd before waste. Enter the same dimensions above to see yards and bags together.',
+      },
+      {
         question: 'How many 80 lb bags of concrete in a yard?',
         answer:
-          'One cubic yard is 27 cubic feet. At about 0.60 cu ft per 80 lb bag, you need roughly 45 bags per cubic yard (27 ÷ 0.60), before waste.',
+          'One cubic yard is 27 cubic feet. At about 0.60 cu ft per 80 lb bag, you need roughly 45 bags per cubic yard (27 ÷ 0.60) before waste—about 50 bags after a 10% waste factor. Confirm the yield printed on the bag you buy.',
       },
       {
         question: 'Should I order ready-mix or use bags?',
         answer:
-          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard.',
+          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix.',
       },
       {
         question: 'How thick should a concrete slab be?',
         answer:
-          'Many residential patio and shed slabs use 4 inches. Driveways and heavier loads often need 5–6 inches plus proper base—confirm with local code.',
+          'Many residential patio and shed slabs use 4 inches over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement—confirm with local code. This tool estimates volume only; it does not design thickness or rebar.',
       },
       {
-        question: 'What waste factor should I use?',
+        question: 'Concrete calculator for slabs vs Sonotube vs post holes?',
         answer:
-          'A 5–10% waste factor covers uneven subgrade, spillage, and over-excavation. Use 10% for DIY bag mixes and irregular forms.',
+          'Use this concrete calculator for rectangular slabs, footings, and solid steps. Use the Sonotube concrete calculator for cardboard tube forms (deck piers). Use the post hole calculator for dug fence or sign holes without a tube. Same bag yields; different shapes.',
       },
     ],
     sources: [
@@ -287,7 +299,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-18',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -367,11 +379,12 @@ export const tools: ToolDefinition[] = [
       'cardboard concrete form calculator',
       'column concrete calculator',
       'how much concrete for sonotube',
+      'how many bags of concrete for sonotube',
     ],
-    title: 'Concrete Tube / Sonotube Calculator (Bags)',
+    title: 'Sonotube Concrete Calculator: Bags',
     description:
-      'Sonotube concrete calculator: enter diameter, height, and tube count for cubic yards plus 40/50/60/80 lb bag estimates with a bags-per-tube chart.',
-    h1: 'Concrete Tube Calculator: Sonotube Bags by Diameter',
+      'Free Sonotube concrete calculator: diameter × height → cubic yards and 40/60/80 lb bags. See how many bags of concrete for 8–18 inch tubes.',
+    h1: 'Sonotube Concrete Calculator: Bags by Diameter',
     answerFirst:
       'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
@@ -385,29 +398,34 @@ export const tools: ToolDefinition[] = [
     ],
     faq: [
       {
-        question: 'Is this a concrete calculator for tubes / cardboard forms?',
+        question: 'How many bags of concrete for a Sonotube?',
         answer:
-          'Yes. It estimates concrete for round cardboard forms (often called Sonotube or concrete tubes): enter inside diameter, height, and how many tubes, then read cubic feet/yards and bag counts. Dug fence posts without a tube use the post hole calculator instead.',
-      },
-      {
-        question: 'How much concrete for a Sonotube?',
-        answer:
-          'Volume = π × r² × height using inside diameter. A 12" × 4 ft tube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste at QUIKRETE 1101 yields. Use the bags-per-tube table below for other sizes, or enter your dimensions above.',
-      },
-      {
-        question: 'Is Sonotube diameter inside or outside?',
-        answer:
-          'Use the inside diameter (the clear form size) for concrete volume. Manufacturers label common sizes such as 8", 10", and 12".',
+          'Volume = π × r² × height using inside diameter, then divide by bag yield and round up. A 12″ × 4 ft Sonotube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste (QUIKRETE 1101 yields). Multiply by pier count; the calculator adds a default 5% waste for spillage.',
       },
       {
         question: 'How much concrete for a 12-inch Sonotube?',
         answer:
-          'Per foot of height, a 12" tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft—six 80 lb bags before waste (still six after the default 5% waste at 0.60 cu ft/bag).',
+          'Per foot of height, a 12″ tube needs about 0.785 cu ft. A 4 ft pier is ~3.14 cu ft (~0.12 cu yd)—six 80 lb bags before waste (still six after the default 5% waste at 0.60 cu ft/bag). Shorter 2 ft and 3 ft piers need about three and four 80 lb bags.',
       },
       {
-        question: 'Sonotube or fence post hole calculator?',
+        question: 'Is this a Sonotube concrete calculator for cardboard forms?',
         answer:
-          'Use this Sonotube tool for cardboard column forms. Use the post hole calculator and the fence post concrete guide for dug fence or sign holes without a tube—same cylinder math, different defaults and job details.',
+          'Yes. Enter inside diameter, height, and tube count to get cubic feet, cubic yards, and bag counts for Sonotube and other round cardboard concrete forms. Dug fence posts without a tube use the post hole concrete calculator instead; rectangular pads use the slab concrete calculator.',
+      },
+      {
+        question: 'How do I convert Sonotube volume to cubic yards?',
+        answer:
+          'Cubic yards = cubic feet ÷ 27. The 12″ × 4 ft example (3.14 cu ft) is about 0.12 cu yd per tube before waste. Enter diameter, height, and count above to see yards and bags together.',
+      },
+      {
+        question: 'Is Sonotube diameter inside or outside?',
+        answer:
+          'Use the inside diameter (the clear form size) for concrete volume. Manufacturers label common sizes such as 8″, 10″, and 12″. Outside cardboard thickness is not filled with concrete.',
+      },
+      {
+        question: 'Sonotube calculator vs slab or post hole calculator?',
+        answer:
+          'Use this Sonotube tool for cardboard column and pier forms. Use the slab concrete calculator for rectangles and steps. Use the post hole calculator and the fence post concrete guide for dug fence or sign holes without a tube—same cylinder math, different defaults and job details.',
       },
     ],
     sources: [
@@ -426,7 +444,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-18',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

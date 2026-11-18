@@ -66,6 +66,50 @@ export function needsTrailingSlashRedirect(pathname: string): boolean {
 }
 
 /**
+ * Exact path aliases (legacy/common misspellings) → canonical paths.
+ * Keys are matched with or without a trailing slash; values are the Location
+ * pathname (trailing slash for HTML routes; bare for file-like sitemap paths).
+ */
+export const PATH_ALIAS_REDIRECTS: Readonly<Record<string, string>> = {
+  '/about-us': '/about/',
+  '/authors': '/about/',
+  '/contact-us': '/contact/',
+  '/contacts': '/contact/',
+  '/privacy-policy': '/privacy/',
+  '/terms-of-service': '/terms/',
+  '/sitemap_index.xml': '/sitemap-index.xml',
+  '/guides/16x24-deck-material-list': '/guides/deck-material-list-16x24/',
+};
+
+/** /calculators/:slug/embed[/] → /embed/:slug/ */
+const CALCULATOR_EMBED_ALIAS = /^\/calculators\/([^/]+)\/embed\/?$/;
+
+/**
+ * If pathname is a known path alias (or calculator embed alias), return the
+ * absolute redirect Location (same origin, query preserved). Otherwise null.
+ * Applied before trailing-slash 308 so aliases are a single 301 hop.
+ */
+export function pathAliasRedirectLocation(requestUrl: string): string | null {
+  const url = new URL(requestUrl);
+  const raw = url.pathname;
+  const key = raw.length > 1 && raw.endsWith('/') ? raw.slice(0, -1) : raw;
+
+  const exact = PATH_ALIAS_REDIRECTS[key];
+  if (exact) {
+    url.pathname = exact;
+    return url.toString();
+  }
+
+  const embed = CALCULATOR_EMBED_ALIAS.exec(raw);
+  if (embed) {
+    url.pathname = `/embed/${embed[1]}/`;
+    return url.toString();
+  }
+
+  return null;
+}
+
+/**
  * If the request Host is in the legacy redirect list, return the single-hop 301
  * Location on the canonical origin (path + query preserved, trailing slash
  * applied in the same hop). Otherwise null.

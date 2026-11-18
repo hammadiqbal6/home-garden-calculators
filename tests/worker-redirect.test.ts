@@ -3,10 +3,12 @@ import {
   DEFAULT_CANONICAL_ORIGIN,
   DEFAULT_LEGACY_REDIRECT_HOSTS,
   LEGACY_WORKERS_DEV_HOST,
+  PATH_ALIAS_REDIRECTS,
   isLegacyRedirectHost,
   legacyHostRedirectLocation,
   needsTrailingSlashRedirect,
   parseLegacyRedirectHosts,
+  pathAliasRedirectLocation,
   withTrailingSlashPath,
 } from '../src/lib/workerRedirect';
 
@@ -106,5 +108,67 @@ describe('trailing-slash helpers (canonical host behavior)', () => {
     expect(withTrailingSlashPath('/og/home.svg')).toBe('/og/home.svg');
     expect(withTrailingSlashPath('/')).toBe('/');
     expect(needsTrailingSlashRedirect('/site.webmanifest')).toBe(false);
+  });
+});
+
+describe('path alias redirects (live 404 cleanup)', () => {
+  it('maps trust-page aliases with or without trailing slash', () => {
+    expect(pathAliasRedirectLocation('https://getyardtally.com/about-us/')).toBe(
+      'https://getyardtally.com/about/',
+    );
+    expect(pathAliasRedirectLocation('https://getyardtally.com/about-us')).toBe(
+      'https://getyardtally.com/about/',
+    );
+    expect(pathAliasRedirectLocation('https://getyardtally.com/contact-us/?x=1')).toBe(
+      'https://getyardtally.com/contact/?x=1',
+    );
+    expect(pathAliasRedirectLocation('https://getyardtally.com/contacts/')).toBe(
+      'https://getyardtally.com/contact/',
+    );
+    expect(pathAliasRedirectLocation('https://getyardtally.com/privacy-policy/')).toBe(
+      'https://getyardtally.com/privacy/',
+    );
+    expect(pathAliasRedirectLocation('https://getyardtally.com/terms-of-service')).toBe(
+      'https://getyardtally.com/terms/',
+    );
+  });
+
+  it('maps sitemap_index.xml and legacy guide slug', () => {
+    expect(pathAliasRedirectLocation('https://getyardtally.com/sitemap_index.xml')).toBe(
+      'https://getyardtally.com/sitemap-index.xml',
+    );
+    expect(
+      pathAliasRedirectLocation('https://getyardtally.com/guides/16x24-deck-material-list/'),
+    ).toBe('https://getyardtally.com/guides/deck-material-list-16x24/');
+  });
+
+  it('maps /calculators/:slug/embed/ → /embed/:slug/', () => {
+    expect(
+      pathAliasRedirectLocation(
+        'https://getyardtally.com/calculators/concrete-calculator/embed/',
+      ),
+    ).toBe('https://getyardtally.com/embed/concrete-calculator/');
+    expect(
+      pathAliasRedirectLocation(
+        'https://getyardtally.com/calculators/mulch-calculator/embed?utm=1',
+      ),
+    ).toBe('https://getyardtally.com/embed/mulch-calculator/?utm=1');
+  });
+
+  it('does not alias real calculator or embed pages', () => {
+    expect(
+      pathAliasRedirectLocation('https://getyardtally.com/calculators/concrete-calculator/'),
+    ).toBeNull();
+    expect(
+      pathAliasRedirectLocation('https://getyardtally.com/embed/concrete-calculator/'),
+    ).toBeNull();
+    expect(pathAliasRedirectLocation('https://getyardtally.com/about/')).toBeNull();
+  });
+
+  it('keeps authors → about in the alias table (also in _redirects)', () => {
+    expect(PATH_ALIAS_REDIRECTS['/authors']).toBe('/about/');
+    expect(pathAliasRedirectLocation('https://getyardtally.com/authors/')).toBe(
+      'https://getyardtally.com/about/',
+    );
   });
 });

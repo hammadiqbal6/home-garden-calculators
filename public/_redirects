@@ -2,13 +2,37 @@
 # https://developers.cloudflare.com/workers/static-assets/redirects/
 # Supported: 301/302/303/307/308 redirects and 200 proxying.
 # Not supported: domain-level (host) redirects — use Cloudflare Redirect Rules for apex↔www.
+#
+# Production uses run_worker_first: path aliases below are mirrored in src/worker.ts
+# (Worker owns redirects when the Worker handles the request). Keep both in sync
+# for asset-only previews that skip the Worker. Host-level 301s (www → apex) are
+# Worker-only — see docs/CUSTOM-DOMAIN.md.
 
-# Prefer the Worker 301 for /sitemap.xml → /sitemap-index.xml (see src/worker.ts).
-# Keep a matching 301 here for asset-only previews that skip the Worker.
-# Host-level 301s (www → apex) are Worker-only — see docs/CUSTOM-DOMAIN.md.
+# —— Static aliases (must appear before dynamic rules) ——
 /sitemap.xml /sitemap-index.xml 301
 /sitemap.xml/ /sitemap-index.xml 301
+/sitemap_index.xml /sitemap-index.xml 301
+/sitemap_index.xml/ /sitemap-index.xml 301
 
-# Single maintainer profile lives on /about/#maintainer (playbook).
+/about-us /about/ 301
+/about-us/ /about/ 301
 /authors /about/ 301
 /authors/ /about/ 301
+
+/contact-us /contact/ 301
+/contact-us/ /contact/ 301
+/contacts /contact/ 301
+/contacts/ /contact/ 301
+
+/privacy-policy /privacy/ 301
+/privacy-policy/ /privacy/ 301
+
+/terms-of-service /terms/ 301
+/terms-of-service/ /terms/ 301
+
+/guides/16x24-deck-material-list /guides/deck-material-list-16x24/ 301
+/guides/16x24-deck-material-list/ /guides/deck-material-list-16x24/ 301
+
+# —— Dynamic aliases ——
+/calculators/:slug/embed /embed/:slug/ 301
+/calculators/:slug/embed/ /embed/:slug/ 301

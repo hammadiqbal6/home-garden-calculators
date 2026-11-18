@@ -2,14 +2,19 @@
  * Cloudflare Worker entry (runs before static assets):
  * 1. Hosts in LEGACY_REDIRECT_HOSTS → single-hop 301 to CANONICAL_ORIGIN
  *    (path + query preserved; trailing slash applied in the same response)
- * 2. /sitemap.xml → /sitemap-index.xml (301)
- * 3. Otherwise permanent trailing-slash redirects (308)
- * 4. HTML responses: inject yt-geo-country meta from request.cf.country so the
+ * 2. Path aliases (legacy URLs / common misspellings) → canonical paths (301)
+ * 3. /sitemap.xml → /sitemap-index.xml (301)
+ * 4. Otherwise permanent trailing-slash redirects (308)
+ * 5. HTML responses: inject yt-geo-country meta from request.cf.country so the
  *    client can hide the site cookie banner in EEA/UK/CH (Google CMP only)
  *
  * Built-in assets html_handling uses temporary 307; this worker upgrades slash
  * consolidation to 308. The retired workers.dev subdomain is disabled in
  * wrangler (`workers_dev` / `preview_urls` false). Localhost is not redirected.
+ *
+ * Path aliases are also listed in public/_redirects for asset-only previews
+ * (run_worker_first means Worker owns production redirects — see Cloudflare
+ * static-assets redirects docs).
  *
  * Runtime config (wrangler `vars` / dashboard Variables — not PUBLIC_*):
  *   CANONICAL_ORIGIN, LEGACY_REDIRECT_HOSTS
@@ -21,6 +26,7 @@ import {
   legacyHostRedirectLocation,
   needsTrailingSlashRedirect,
   parseLegacyRedirectHosts,
+  pathAliasRedirectLocation,
 } from './lib/workerRedirect';
 import { countryFromWorkerRequest, injectGeoCountryMeta } from './lib/htmlGeoInject';
 
@@ -70,7 +76,14 @@ export default {
       return Response.redirect(legacyLocation, 301);
     }
 
+    // Legacy / common-misspelling path aliases (before trailing-slash 308).
+    const aliasLocation = pathAliasRedirectLocation(request.url);
+    if (aliasLocation) {
+      return Response.redirect(aliasLocation, 301);
+    }
+
     // Canonical sitemap URL is Astro's sitemap-index.xml (301, not a 200 copy).
+    // Underscore form (/sitemap_index.xml) is covered by pathAliasRedirectLocation.
     if (url.pathname === '/sitemap.xml' || url.pathname === '/sitemap.xml/') {
       url.pathname = '/sitemap-index.xml';
       return Response.redirect(url.toString(), 301);

@@ -33,10 +33,12 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much concrete for a Sonotube (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - Is garden soil the same as topsoil? → ${origin}/guides/topsoil-vs-garden-soil/
+- How many bags of concrete do I need (yards & bags)? → ${origin}/calculators/concrete-calculator/
 - How many 80 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How many 60 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
 - How many bags of concrete per fence post? → ${origin}/guides/how-much-concrete-for-fence-posts/
+- How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/

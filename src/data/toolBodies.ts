@@ -52,7 +52,7 @@ export const toolBodies: Record<string, string> = {
         <li>Using this slab tool for fence post holes or Sonotubes—use the dedicated calculators instead.</li>
       </ul>
       <h2>Related long-tail jobs</h2>
-      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. For cardboard forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Read <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a> for bag charts.</p>
+      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
 
       <h2>Assumptions and limits</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool does not size structural thickness, rebar, or frost depth.</p>
@@ -156,8 +156,8 @@ export const toolBodies: Record<string, string> = {
       <p>A 12″ tube holds about 0.785 cu ft per foot of height—useful for deck footings when paired with proper footing bells or pads as required by code. Narrative charts and pier tips also live in the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide; use this page when you need live bag counts.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, convert with the yield on your bag, and keep a small waste factor for spillage when filling tall forms.</div>
 
-      <h2>Sonotube vs fence post holes</h2>
-      <p>Cardboard tube forms (deck piers, round columns) belong here. Dug fence or sign post holes without a tube belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide—same cylinder math, different default waste and job details.</p>
+      <h2>Sonotube vs slab vs fence post holes</h2>
+      <p>Cardboard tube forms (deck piers, round columns) belong here. Rectangular pads and steps belong on the <a href="/calculators/concrete-calculator/">concrete calculator for slabs and yards</a> (and the <a href="/guides/concrete-for-10x10-slab/">10×10 slab concrete guide</a>). Dug fence or sign post holes without a tube belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide—same cylinder math, different default waste and job details. Bag yields: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
 
       <h2>Deck pier tips</h2>
       <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size examples such as the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>

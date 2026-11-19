@@ -1,6 +1,7 @@
 export * from './concrete';
 export * from './sonotubeExtras';
 export * from './concreteCost';
+export * from './footing';
 export * from './mulch';
 export * from './volumeMaterials';
 export * from './bulkCost';

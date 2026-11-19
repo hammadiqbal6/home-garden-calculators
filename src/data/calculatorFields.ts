@@ -11,6 +11,7 @@ import {
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
+  footingVolume,
   grassSeed,
   gravelVolume,
   lumberFromPieces,
@@ -158,6 +159,49 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'padDiameter', label: 'Pad diameter', value: '24', hint: 'inches' },
     { name: 'padThickness', label: 'Pad thickness', value: '12', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  footing: [
+    {
+      name: 'footingType',
+      label: 'Footing type',
+      type: 'select',
+      options: [
+        { value: 'strip', label: 'Continuous / strip' },
+        { value: 'pad', label: 'Spread pad' },
+      ],
+      value: 'strip',
+    },
+    { name: 'length', label: 'Length', value: '40', hint: 'feet (run length)' },
+    { name: 'width', label: 'Width', value: '16', hint: 'inches (strip/pad width)' },
+    { name: 'depth', label: 'Depth / thickness', value: '8', hint: 'inches' },
+    { name: 'count', label: 'Number of segments', value: '1', hint: 'segments or pads' },
+    { name: 'waste', label: 'Waste %', value: '10' },
+    {
+      name: 'rebar',
+      label: 'Rebar estimate',
+      type: 'select',
+      options: [
+        { value: 'no', label: 'Off' },
+        { value: 'yes', label: 'On (planning only)' },
+      ],
+      value: 'no',
+    },
+    { name: 'longBars', label: 'Longitudinal bars', value: '2', hint: 'strip only' },
+    { name: 'spacing', label: 'Bar spacing (o.c.)', value: '18', hint: 'inches' },
+    {
+      name: 'barSize',
+      label: 'Bar size',
+      type: 'select',
+      options: [
+        { value: '3', label: '#3 (⅜")' },
+        { value: '4', label: '#4 (½")' },
+        { value: '5', label: '#5 (⅝")' },
+        { value: '6', label: '#6 (¾")' },
+      ],
+      value: '4',
+    },
+    { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
+    { name: 'rebarWaste', label: 'Rebar waste / lap %', value: '10' },
   ],
   'deck-footings': [
     { name: 'length', label: 'Deck length', value: '16', hint: 'feet (along beams)' },
@@ -420,6 +464,16 @@ const deckFootingsDefault = deckFootings({
   layout: 'freestanding',
   wasteFactor: 0.05,
 });
+const footingDefault = footingVolume({
+  footingType: 'strip',
+  length: 40,
+  width: 16,
+  depth: 8,
+  widthUnit: 'in',
+  depthUnit: 'in',
+  count: 1,
+  wasteFactor: 0.1,
+});
 const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
 const treeRingDefault = treeRingMulch({
   outerDiameter: 6,
@@ -544,6 +598,11 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['50 lb bags', String(sonotubeDefault.bags50)],
     ['60 lb bags', String(sonotubeDefault.bags60)],
     ['80 lb bags', String(sonotubeDefault.bags80)],
+  ],
+  footing: [
+    ['Footing type', 'Continuous / strip'],
+    ['Count', String(footingDefault.count)],
+    ...concreteRows(footingDefault),
   ],
   mulch: mulchRows(mulchDefault),
   'deck-footings': [

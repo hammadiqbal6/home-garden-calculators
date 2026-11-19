@@ -19,6 +19,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - **Deck footing calculator** (`/calculators/deck-footing-calculator/`): deck size + beam/post spacing → footing count, frost-depth hole size, concrete per pier / total, bags, optional Sonotube diameter; links to Sonotube tool.
+- **Concrete footing calculator** (`/calculators/concrete-footing-calculator/`): strip/pad volume, waste %, 40/60/80 lb bags, optional rebar estimate.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
 - **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
@@ -28,12 +29,14 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 ### Remaining
 
 - After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
 - Closely related **variants of tools that already get impressions** (beyond this Sonotube upgrade).
 - Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
 - Other closely related tool variants (stair stringer, sod, etc.) still in the ideas backlog.
+- Other impression-adjacent tool variants beyond the footing calculator still open.
 
 ---
 
@@ -51,6 +54,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 | Tool | Path | Primary keyword |
 |---|---|---|
 | Concrete calculator | [`/calculators/concrete-calculator/`](src/pages/calculators/[slug].astro) | concrete calculator |
+| Concrete footings | `/calculators/concrete-footing-calculator/` | concrete footing calculator |
 | Post holes concrete | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes |
 | Sonotube / columns | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator |
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |

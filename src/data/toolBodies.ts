@@ -181,6 +181,63 @@ export const toolBodies: Record<string, string> = {
 
 
   `,
+  'concrete-footing-calculator': `
+      <h2>What this footing calculator measures</h2>
+      <p>Pick continuous/strip or spread pad. Enter length, width, depth, and how many segments or pads you are pouring. The tool multiplies those into cubic feet and cubic yards, adds your waste percent, then converts to 40 / 60 / 80 lb bags using the same QUIKRETE / Sakrete planning yields as the slab calculator (about 0.30 / 0.45 / 0.60 cu ft per bag). Turn on the optional rebar estimate if you want a rough stick count—not a structural design.</p>
+      <p>I'd round ready-mix orders up to the next quarter yard when the truck is coming anyway. Short loads cost more than the extra concrete, and you do not want to finish a footing pour short.</p>
+
+      <h2>How is strip footing volume calculated?</h2>
+      <p>Volume (cu ft) = length × width × depth × count, with every dimension in feet before you multiply. A 40 ft run that is 16 in wide and 8 in thick is 40 × (16÷12) × (8÷12) = 35.56 cu ft ≈ 1.32 cu yd before waste. With the default 10% waste that becomes about 39.1 cu ft → 66 of the 80 lb bags, or 87 of the 60 lb bags.</p>
+      <p>Width and depth often land in inches on the drawing. Convert them first. Mixing “16” as feet with “8” as inches is the classic over-order.</p>
+
+      <h2>Worked example: 40 ft continuous strip</h2>
+      <p>Defaults above match a common light residential strip: 40 ft long, 16 in wide, 8 in deep, one run. Net volume ≈ 35.56 cu ft. After 10% waste → 39.11 cu ft. Bag math uses ceil(volume ÷ yield), so you get whole bags only—no half-bag fiction.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>40 ft × 16 in × 8 in strip after 10% waste</caption>
+        <thead><tr><th>Bag size</th><th>Planning yield</th><th>Bags</th></tr></thead>
+        <tbody>
+          <tr><td>40 lb</td><td>0.30 cu ft</td><td>131</td></tr>
+          <tr><td>60 lb</td><td>0.45 cu ft</td><td>87</td></tr>
+          <tr><td>80 lb</td><td>0.60 cu ft</td><td>66</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Convert width and depth to feet, multiply by run length and count, divide by 27 for yards, then add waste. Confirm bag yield on the label you buy.</div>
+
+      <h2>How much concrete for spread pad footings?</h2>
+      <p>Same rectangle math, multiplied by pad count. Four 3×3 ft pads at 12 in thick: 4 × 3 × 3 × 1 = 36 cu ft ≈ 1.33 cu yd before waste. With 10% waste → about 39.6 cu ft → still in the mid-60s of 80 lb bags. Switch the footing type to Spread pad and set Count to the number of pads so you do not forget one corner.</p>
+      <p>Pads under posts or columns are not the same as a slab. If you are pouring a patio or garage floor, use the <a href="/calculators/concrete-calculator/">concrete calculator</a> instead. Round pier forms belong on the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>.</p>
+
+      <h2>Optional rebar estimate—what it does and does not do</h2>
+      <p>With rebar On, strip mode counts longitudinal bars along the run plus transverse bars at your spacing. Pad mode builds a small each-way grid per pad, then multiplies by count. Linear feet convert to stock sticks with a waste/lap percent. Unit weights follow common CRSI nominal bar weights.</p>
+      <p>This is a shopping takeoff. It does not set cover, lap lengths, bar grade, seismic details, or frost depth. For a full slab mat, the dedicated <a href="/calculators/rebar-calculator/">rebar calculator</a> is clearer. Follow the drawing or local code when those conflict with any default here.</p>
+
+      <h2>When should I use bags vs ready-mix?</h2>
+      <p>Bags work for short footing runs and a handful of pads you can mix in stages. Once you are past about a cubic yard—or the pour has to stay continuous—ready-mix is usually less labor and more consistent. Access still wins: a wheelbarrow path with bags can beat a truck that cannot reach the trench.</p>
+      <p>Bag charts and waste tips: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Slab-sized pads: <a href="/guides/concrete-for-10x10-slab/">concrete for a 10×10 slab</a>.</p>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Entering width in inches while the length field is already in feet—and forgetting to convert.</li>
+        <li>Sizing the trench from outside form faces, then ordering for the clear inside width.</li>
+        <li>Leaving waste at 0% on rocky or uneven bottom trenches.</li>
+        <li>Treating the optional rebar numbers as engineered placement.</li>
+        <li>Using this tool for fence post holes or cardboard tubes—those have their own calculators.</li>
+      </ul>
+
+      <h2>Assumptions and limits</h2>
+      <p><strong>Planning estimate only.</strong> Results assume rectangular footings with uniform depth. Real trenches have over-dig, sloughing, and form bulge. This page does not design footing size for load, soil bearing, frost, or reinforcement. Check manufacturer specs and local code before you dig or pour.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store inputs in the query string; the canonical tag stays on the clean page URL.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Note cubic yards and the bag size you actually plan to buy.</li>
+        <li>Ask the ready-mix plant about minimum load and slump for footing pours.</li>
+        <li>Stage forms, chairs, and rebar before the truck or mixer arrives.</li>
+        <li>Photograph the trench depth against a marked stick so you can re-check before placing concrete.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
   'mulch-calculator': `
       <h2>Mulch formula</h2>
       <p>volume (cu ft) = length (ft) × width (ft) × (depth_inches ÷ 12). Bulk mulch is sold by the cubic yard (27 cu ft). Bagged mulch is usually 2 or 3 cubic feet. This calculator returns both so you can compare bulk delivery versus bags for small beds. Optional price-per-yard and price-per-bag fields multiply your local quotes only—YardTally does not invent retail prices.</p>

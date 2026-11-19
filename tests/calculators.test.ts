@@ -11,6 +11,8 @@ import {
   fenceMaterials,
   fertilizerNeeded,
   grassSeed,
+  frenchDrainGravel,
+  GRAVEL_DENSITY_LB_PER_CUYD,
   gravelVolume,
   lumberFromBoardFeet,
   lumberFromPieces,
@@ -154,6 +156,55 @@ describe('bulk materials', () => {
       100 * (2 / 12) * 1.1,
       2,
     );
+  });
+});
+
+describe('french drain gravel', () => {
+  // Hand check: 50 ft × 12 in × 24 in trench, 4 in pipe, 0% waste
+  // trench = 50 × 1 × 2 = 100 cu ft; pipe = π×(1/6)²×50 = 50π/36 ≈ 4.363
+  // gravel ≈ 95.637 cu ft ≈ 3.542 cu yd; tons ≈ 3.542 × 2700 / 2000 ≈ 4.78
+  it('subtracts pipe displacement from trench volume', () => {
+    const r = frenchDrainGravel({
+      length: 50,
+      trenchWidth: 12,
+      trenchDepth: 24,
+      pipeDiameter: 4,
+      wasteFactor: 0,
+    });
+    const trench = 50 * 1 * 2;
+    const pipe = Math.PI * (1 / 6) ** 2 * 50;
+    const gravel = trench - pipe;
+    expect(r.trenchVolumeCuFt).toBeCloseTo(trench, 3);
+    expect(r.pipeVolumeCuFt).toBeCloseTo(pipe, 3);
+    expect(r.volumeCuFt).toBeCloseTo(gravel, 3);
+    expect(r.volumeCuYd).toBeCloseTo(gravel / 27, 3);
+    expect(r.tons).toBeCloseTo((gravel / 27) * (GRAVEL_DENSITY_LB_PER_CUYD / 2000), 2);
+    expect(r.bags05CuFt).toBe(Math.ceil(gravel / 0.5));
+  });
+
+  it('applies 10% waste after pipe subtraction', () => {
+    const r = frenchDrainGravel({
+      length: 50,
+      trenchWidth: 12,
+      trenchDepth: 24,
+      pipeDiameter: 4,
+      wasteFactor: 0.1,
+    });
+    const gravel = 50 * 1 * 2 - Math.PI * (1 / 6) ** 2 * 50;
+    expect(r.volumeCuFt).toBeCloseTo(gravel * 1.1, 3);
+    expect(r.bags05CuFt).toBe(Math.ceil((gravel * 1.1) / 0.5));
+  });
+
+  it('rejects a pipe that does not fit the trench', () => {
+    expect(() =>
+      frenchDrainGravel({
+        length: 20,
+        trenchWidth: 6,
+        trenchDepth: 18,
+        pipeDiameter: 6,
+        wasteFactor: 0,
+      }),
+    ).toThrow(/fit inside/i);
   });
 });
 

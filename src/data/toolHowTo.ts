@@ -135,6 +135,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'french-drain-gravel-calculator': {
+    name: 'How to estimate French drain gravel',
+    steps: [
+      {
+        name: 'Measure the trench',
+        text: 'Enter trench length, width, and depth for the stone envelope you will dig.',
+      },
+      {
+        name: 'Enter pipe diameter',
+        text: 'Use the outside diameter of the perforated drain pipe so the calculator can subtract πr²L displacement.',
+      },
+      {
+        name: 'Add waste',
+        text: 'Include waste for irregular edges, fabric folds, and spilled stone on long runs.',
+      },
+      {
+        name: 'Order yards or tons',
+        text: 'Read cubic yards for volume pricing and the mid ton estimate when the yard sells by weight—confirm density on the ticket.',
+      },
+    ],
+  },
   'topsoil-calculator': {
     name: 'How to estimate topsoil yards and bags',
     steps: [

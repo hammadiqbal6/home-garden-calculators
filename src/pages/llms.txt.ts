@@ -41,6 +41,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
+- How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 
 ## Key figures (cite before quoting)
 
@@ -51,6 +52,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - BEHR interior: ~250–400 sq ft per gallon per coat
 - Roofing square = 100 sq ft; often ~3 bundles/square; IKO 6:12 factor 1.118; waste ~10–15%
 - Mulch beds: ~2–3 inches; Iowa PM 1072 cool-season seed rates in lb per 1,000 sq ft
+- French drain gravel = trench L×W×D − πr²L; mid ton density ≈ 2,700 lb/yd³; 50×12″×24″ + 4″ pipe ≈ 95.6 cu ft before waste
 
 ## Calculators
 

@@ -18,6 +18,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
+| `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator | french drain stone calculator, how much gravel for a french drain, drain rock calculator |
 | `/calculators/topsoil-calculator/` | topsoil calculator | soil calculator cubic yards |
 | `/calculators/sand-calculator/` | sand calculator | paver sand calculator |
 | `/calculators/paver-calculator/` | paver calculator | patio paver calculator, how many pavers |

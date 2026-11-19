@@ -265,11 +265,50 @@ export const toolBodies: Record<string, string> = {
 
 
   `,
+  'french-drain-gravel-calculator': `
+      <h2>French drain gravel formula</h2>
+      <p>Gravel volume = trench length × width × depth − pipe volume (πr²L), then multiply by (1 + waste). Convert cubic feet to yards by dividing by 27. Ton estimates use about 2,700&nbsp;lb/yd³ as a mid crushed-stone density—label it a mid estimate and confirm with your stone yard ticket because moisture and rock type move weight.</p>
+      <p>Use clean, angular drain rock (often #57 or similar open-graded stone) around perforated pipe so water can move. Rounded decorative pea gravel is a different product; for driveway base stone vs drain rock intuition, see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. Flat pads and paths without a pipe use the <a href="/calculators/gravel-calculator/">gravel calculator</a> instead.</p>
+      <h2>Worked example</h2>
+      <p>A 50&nbsp;ft trench that is 12&nbsp;in wide and 24&nbsp;in deep has a trench volume of 50 × 1 × 2 = 100&nbsp;cu&nbsp;ft. A 4&nbsp;in pipe displaces π × (2÷12)² × 50 ≈ 4.36&nbsp;cu&nbsp;ft. Gravel before waste ≈ 95.6&nbsp;cu&nbsp;ft ≈ 3.54&nbsp;cu&nbsp;yd. With 10% waste ≈ 105.2&nbsp;cu&nbsp;ft ≈ 3.90&nbsp;cu&nbsp;yd ≈ 5.26&nbsp;tons at 2,700&nbsp;lb/yd³, or about 211 bags of 0.5&nbsp;cu&nbsp;ft stone for tiny top-ups.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Subtract the pipe cylinder from the trench box before you order. Skipping that step overshoots stone a little; skipping waste under-orders when edges are irregular.</div>
+      <div class="table-scroll">
+      <table>
+        <caption>Planning check (4 in pipe, 10% waste, 2,700 lb/yd³ mid density)</caption>
+        <thead><tr><th>Trench L × W × D</th><th>Gravel (cu yd)</th><th>Est. tons (mid)</th></tr></thead>
+        <tbody>
+          <tr><td>25 ft × 12 in × 18 in</td><td>~1.35</td><td>~1.8</td></tr>
+          <tr><td>50 ft × 12 in × 24 in</td><td>~3.90</td><td>~5.3</td></tr>
+          <tr><td>100 ft × 18 in × 24 in</td><td>~12.3</td><td>~16.6</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h2>Pipe, fabric, and slope notes</h2>
+      <p>Perforated pipe usually sits near the trench bottom on a thin stone bed, then is covered with more stone. Fabric wraps vary by soil and local practice—some crews wrap the stone envelope, others line the trench before stone. This calculator sizes stone volume only; it does not design hydraulic capacity, outlet details, or code-required depths. Keep a continuous fall toward the outlet (often about 1% as a planning starting point) and daylight the pipe where drainage rules allow.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Ordering trench volume without subtracting the pipe.</li>
+        <li>Using rounded pea gravel where open-graded drain rock is specified.</li>
+        <li>Ignoring compaction / spill waste on long runs and irregular edges.</li>
+        <li>Sizing a driveway pad with this tool instead of the flat <a href="/calculators/gravel-calculator/">gravel calculator</a>.</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p>Results assume a rectangular trench cross-section and a straight cylindrical pipe of constant diameter. Real trenches have over-dig, fabric folds, cleanouts, and fittings that change volume slightly. Always confirm product size, density, and delivery minimums with your supplier before a large order.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store inputs in the query string; the canonical tag stays on the clean page URL.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Write down cubic yards (and tons if buying by weight) and round up for waste.</li>
+        <li>Ask the yard for open-graded drain rock density and truck minimums.</li>
+        <li>Stage fabric, pipe, couplings, and outlet fittings before stone delivery.</li>
+        <li>Confirm trench access for a wheelbarrow or small dump—long runs need staging piles.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
   'gravel-calculator': `
       <h2>Gravel volume &amp; tonnage</h2>
       <p>Cubic yards = cu ft ÷ 27. Tons ≈ yards × (density lb/yd³ ÷ 2000). This tool defaults to about 2,700 lb/yd³ as a mid estimate for crushed stone; wet stone and different geologies vary. Confirm density with your supplier before ordering tons.</p>
       <h2>Worked example</h2>
-      <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
+      <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. For perforated-pipe trenches, use the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> instead of this flat pad tool.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Order by cubic yards for volume, convert to tons with your yard’s density, and include compaction waste for trafficked surfaces.</div>
       <div class="table-scroll">
       <table>

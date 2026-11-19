@@ -92,6 +92,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
+    frenchDrainGravel,
     grassSeed,
     gravelVolume,
     lumberFromBoardFeet,
@@ -447,6 +448,64 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       },
     },
     gravel: bulkConfig('gravel'),
+    'french-drain': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Trench length',
+          imperialDefault: '50',
+          metricDefault: '15',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Trench width',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'depth',
+          label: 'Trench depth',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'pipe',
+          label: 'Pipe diameter',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const small = smallLengthUnit(u);
+        const r = frenchDrainGravel({
+          length: v.length,
+          trenchWidth: v.width,
+          trenchDepth: v.depth,
+          pipeDiameter: v.pipe,
+          lengthUnit: lengthUnit(u),
+          widthUnit: small,
+          depthUnit: small,
+          pipeUnit: small,
+          wasteFactor: v.waste / 100,
+        });
+        return [
+          ['Trench volume', `${r.trenchVolumeCuFt} cu ft`],
+          ['Pipe displacement', `${r.pipeVolumeCuFt} cu ft`],
+          ['Gravel', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+          ['Est. tons (mid)', String(r.tons)],
+          ['0.5 cu ft bags', String(r.bags05CuFt)],
+        ];
+      },
+    },
     topsoil: bulkConfig('topsoil'),
     sand: bulkConfig('sand'),
     paver: {

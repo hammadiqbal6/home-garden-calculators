@@ -124,7 +124,7 @@ export const categories: Record<
       <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardTally ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
       <h2>Worked example: 20×10 path at 4 inches</h2>
       <p>Area = 200 sq ft. Depth = 4÷12 = 0.333 ft. Volume = 66.7 cu ft ≈ 2.47 cu yd before waste; with 10% compaction allowance ≈ 2.72 cu yd ≈ 3.67 tons at 2,700 lb/yd³. Run the same dimensions in the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
-      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>. For asphalt driveways, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (planning density ~145 lb/cu ft compacted).</p>
+      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> for rectangular beds and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>. For perforated-pipe trenches, use the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> (trench minus pipe). For asphalt driveways, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (planning density ~145 lb/cu ft compacted).</p>
     `,
   },
   outdoor: {
@@ -597,6 +597,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
     relatedSlugs: [
+      'french-drain-gravel-calculator',
       'sand-calculator',
       'paver-calculator',
       'asphalt-calculator',
@@ -636,6 +637,74 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['gravel-calculator'],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'french-drain-gravel-calculator',
+    name: 'French Drain Gravel Calculator',
+    shortName: 'French drain',
+    category: 'landscape',
+    primaryKeyword: 'french drain gravel calculator',
+    secondaryKeywords: [
+      'french drain stone calculator',
+      'how much gravel for a french drain',
+      'drain rock calculator',
+    ],
+    title: 'French Drain Gravel Calculator | YardTally',
+    description:
+      'Estimate French drain gravel: trench L×W×D minus pipe volume, then cubic yards, mid tons at 2,700 lb/yd³, and 0.5 cu ft bags with waste.',
+    h1: 'French Drain Gravel Calculator',
+    answerFirst:
+      'French drain gravel equals trench length × width × depth minus the drain pipe volume (πr²L). A 50 ft trench 12 in wide by 24 in deep with a 4 in pipe needs about 95.6 cu ft of stone before waste (~3.5 cu yd). This tool uses ~2,700 lb/yd³ as a mid ton estimate and optional waste.',
+    summary: 'French drain trench gravel after subtracting pipe volume.',
+    calculatorId: 'french-drain',
+    relatedSlugs: [
+      'gravel-calculator',
+      'sand-calculator',
+      'retaining-wall-calculator',
+      'paver-calculator',
+    ],
+    relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
+    faq: [
+      {
+        question: 'How much gravel do I need for a French drain?',
+        answer:
+          'Multiply trench length × width × depth, subtract the pipe cylinder (πr²L), then add waste. A 50 ft × 12 in × 24 in trench with a 4 in pipe is about 95.6 cu ft of stone before waste (~3.5 cu yd).',
+      },
+      {
+        question: 'Why subtract the pipe from the trench volume?',
+        answer:
+          'The perforated pipe occupies space that stone cannot fill. Leaving the pipe in the order overshoots gravel slightly; this calculator removes πr²L so the estimate matches the stone envelope.',
+      },
+      {
+        question: 'What density does the ton estimate use?',
+        answer:
+          'About 2,700 lb per cubic yard as a mid crushed-stone estimate (~1.35 ton/yd³). Wet stone and different rock types vary—confirm density with your supplier when buying by the ton.',
+      },
+      {
+        question: 'Should I use this or the regular gravel calculator?',
+        answer:
+          'Use this tool for perforated-pipe trenches. Use the flat gravel calculator for driveways, paths, and pads without a pipe running through the stone.',
+      },
+    ],
+    sources: [
+      {
+        label: 'USDA NRCS – Aggregate and soil resources (general)',
+        href: 'https://www.nrcs.usda.gov/',
+        usedFor: 'Context on aggregates; French drain tonnage still confirmed with local stone yards',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Clemson HGIC – Drainage problems around the home (context)',
+        href: 'https://hgic.clemson.edu/factsheet/drainage-problems-around-the-home/',
+        usedFor: 'Home drainage context; calculator sizes stone volume only, not hydraulic design',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['french-drain-gravel-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,

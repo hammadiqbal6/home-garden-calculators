@@ -1,6 +1,7 @@
 export * from './concrete';
 export * from './mulch';
 export * from './volumeMaterials';
+export * from './frenchDrain';
 export * from './paver';
 export * from './fence';
 export * from './deck';

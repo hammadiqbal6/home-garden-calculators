@@ -11,6 +11,7 @@ import {
   fenceMaterials,
   fertilizerNeeded,
   grassSeed,
+  frenchDrainGravel,
   gravelVolume,
   lumberFromPieces,
   paintNeeded,
@@ -90,6 +91,13 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'depth', label: 'Depth', value: '3', hint: 'inches' },
   ],
   gravel: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
+  'french-drain': [
+    { name: 'length', label: 'Trench length', value: '50', hint: 'feet' },
+    { name: 'width', label: 'Trench width', value: '12', hint: 'inches' },
+    { name: 'depth', label: 'Trench depth', value: '24', hint: 'inches' },
+    { name: 'pipe', label: 'Pipe diameter', value: '4', hint: 'inches' },
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+  ],
   topsoil: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
   sand: [...dims('20', '10', 'Depth', '1', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
   paver: [
@@ -271,6 +279,13 @@ const gravelDefault = gravelVolume({
   depthInches: 4,
   wasteFactor: 0.1,
 });
+const frenchDrainDefault = frenchDrainGravel({
+  length: 50,
+  trenchWidth: 12,
+  trenchDepth: 24,
+  pipeDiameter: 4,
+  wasteFactor: 0.1,
+});
 const topsoilDefault = topsoilVolume({
   length: 20,
   width: 10,
@@ -392,6 +407,16 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['3 cu ft bags', String(treeRingDefault.bags3CuFt)],
   ],
   gravel: bulkRows(gravelDefault),
+  'french-drain': [
+    ['Trench volume', `${frenchDrainDefault.trenchVolumeCuFt} cu ft`],
+    ['Pipe displacement', `${frenchDrainDefault.pipeVolumeCuFt} cu ft`],
+    [
+      'Gravel',
+      `${frenchDrainDefault.volumeCuFt} cu ft (${frenchDrainDefault.volumeCuYd} cu yd / ${frenchDrainDefault.volumeCuM} m³)`,
+    ],
+    ['Est. tons (mid)', String(frenchDrainDefault.tons)],
+    ['0.5 cu ft bags', String(frenchDrainDefault.bags05CuFt)],
+  ],
   topsoil: bulkRows(topsoilDefault),
   sand: bulkRows(sandDefault),
   paver: [

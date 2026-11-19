@@ -161,13 +161,19 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons. Treat depth and tons-per-yard figures as planning assumptions.',
-    relatedToolSlugs: ['gravel-calculator', 'asphalt-calculator', 'sand-calculator', 'paver-calculator'],
+    relatedToolSlugs: [
+      'gravel-calculator',
+      'french-drain-gravel-calculator',
+      'asphalt-calculator',
+      'sand-calculator',
+      'paver-calculator',
+    ],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'retaining-wall-blocks-and-base',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-to-measure-roof-pitch',

@@ -41,6 +41,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
+- How much does a concrete slab cost? → ${origin}/calculators/concrete-slab-cost-calculator/
+- Concrete slab cost from ready-mix or bags? → ${origin}/calculators/concrete-slab-cost-calculator/
 
 ## Key figures (cite before quoting)
 

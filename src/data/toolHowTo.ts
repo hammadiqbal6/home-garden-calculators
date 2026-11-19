@@ -471,4 +471,25 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'concrete-slab-cost-calculator': {
+    name: 'How to estimate concrete slab cost from your quotes',
+    steps: [
+      {
+        name: 'Enter slab dimensions and waste',
+        text: 'Measure length, width, and thickness. Keep the default 10% waste unless your site is unusually clean or rough.',
+      },
+      {
+        name: 'Choose ready-mix or bags and paste your price',
+        text: 'Replace the labeled example $/yd or $/bag with the plant ticket or store shelf price. Bag yields match the concrete volume calculator.',
+      },
+      {
+        name: 'Add optional line items you have priced',
+        text: 'Enter gravel base, rebar or mesh, forms, delivery/short-load fees, and labor per sq ft only when you have real quotes—leave the rest at $0.',
+      },
+      {
+        name: 'Read volume, material cost, total, and $/sq ft',
+        text: 'Use cost per square foot to compare pad sizes. Double-check yards or bags on the concrete calculator before you order.',
+      },
+    ],
+  },
 };

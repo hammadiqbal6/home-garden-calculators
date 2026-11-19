@@ -31,7 +31,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
-              (calculatorId === 'lumber' && field.name === 'boardFeet')
+              (calculatorId === 'lumber' && field.name === 'boardFeet') ||
+              (calculatorId === 'concrete-slab-cost' &&
+                ['bagSize', 'bagPrice'].includes(field.name))
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -89,9 +91,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
   import {
     asphaltTons,
     bedMulch,
+    concreteSlabCost,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
+    formatUsd,
     grassSeed,
     gravelVolume,
     lumberFromBoardFeet,
@@ -111,6 +115,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
+    type BagSizeLb,
     type RebarSize,
   } from '../lib/calculators';
 
@@ -1249,6 +1254,150 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         ];
       },
     },
+    'concrete-slab-cost': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'thickness',
+          label: 'Thickness',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches',
+          metricHint: 'centimeters',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'purchaseMode',
+          label: 'Buy as',
+          type: 'select',
+          options: [
+            { value: 'ready-mix', label: 'Ready-mix (per yard / m³)' },
+            { value: 'bags', label: 'Bagged mix' },
+          ],
+          imperialDefault: 'ready-mix',
+          metricDefault: 'ready-mix',
+        },
+        {
+          name: 'readyMixPrice',
+          label: 'Ready-mix price',
+          imperialDefault: '160',
+          metricDefault: '210',
+          imperialHint: 'example only — $/cu yd from your plant quote',
+          metricHint: 'example only — $/m³ from your plant quote',
+        },
+        {
+          name: 'bagSize',
+          label: 'Bag size',
+          type: 'select',
+          options: [
+            { value: '40', label: '40 lb' },
+            { value: '60', label: '60 lb' },
+            { value: '80', label: '80 lb' },
+          ],
+          imperialDefault: '80',
+          metricDefault: '80',
+        },
+        {
+          name: 'bagPrice',
+          label: 'Price per bag',
+          imperialDefault: '7',
+          metricDefault: '7',
+          imperialHint: 'example only — replace with your store price',
+          metricHint: 'example only — replace with your store price',
+        },
+        {
+          name: 'gravelBase',
+          label: 'Gravel base (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote for base stone ($ total)',
+          metricHint: 'your quote for base stone ($ total)',
+        },
+        {
+          name: 'rebarMesh',
+          label: 'Rebar / mesh (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote for steel ($ total)',
+          metricHint: 'your quote for steel ($ total)',
+        },
+        {
+          name: 'forms',
+          label: 'Forms (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'lumber / forms you price ($ total)',
+          metricHint: 'lumber / forms you price ($ total)',
+        },
+        {
+          name: 'delivery',
+          label: 'Delivery / short-load fee',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'plant short-load or delivery fee ($)',
+          metricHint: 'plant short-load or delivery fee ($)',
+        },
+        {
+          name: 'labor',
+          label: 'Labor per sq ft (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your labor rate × slab area',
+          metricHint: 'your labor rate × slab area (sq ft)',
+        },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const mode = (selects?.purchaseMode ?? 'ready-mix') as 'ready-mix' | 'bags';
+        const bagSize = Number(selects?.bagSize ?? 80) as BagSizeLb;
+        const r = concreteSlabCost({
+          length: v.length,
+          width: v.width,
+          thickness: v.thickness,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          thicknessUnit: smallLengthUnit(u),
+          wastePercent: v.waste,
+          purchaseMode: mode,
+          readyMixPrice: v.readyMixPrice,
+          readyMixPriceUnit: u === 'imperial' ? 'cuyd' : 'cum',
+          bagSize: ([40, 60, 80].includes(bagSize) ? bagSize : 80) as BagSizeLb,
+          bagPrice: v.bagPrice,
+          gravelBaseCost: v.gravelBase,
+          rebarMeshCost: v.rebarMesh,
+          formsCost: v.forms,
+          deliveryFee: v.delivery,
+          laborPerSqFt: v.labor,
+        });
+        const rows: [string, string][] = [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+        ];
+        if (r.bags != null) rows.push([`${r.bagSize} lb bags`, String(r.bags)]);
+        rows.push(
+          ['Material cost', formatUsd(r.materialCost)],
+          ['Add-ons total', formatUsd(r.addOnsTotal)],
+          ['Total', formatUsd(r.totalCost)],
+          ['Cost per sq ft', formatUsd(r.costPerSqFt)],
+        );
+        return rows;
+      },
+    },
   };
 
   function init(root: HTMLElement) {
@@ -1344,6 +1493,20 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         if (bfEl) bfEl.hidden = mode !== 'boardFeet';
         return;
       }
+      if (id === 'concrete-slab-cost') {
+        const mode =
+          root.querySelector<HTMLSelectElement>('[name="purchaseMode"]')?.value ?? 'ready-mix';
+        const ready = mode === 'ready-mix';
+        for (const name of ['readyMixPrice']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = !ready;
+        }
+        for (const name of ['bagSize', 'bagPrice']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = ready;
+        }
+        return;
+      }
       if (id === 'brick') {
         const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'brick';
         const unitL = root.querySelector<HTMLInputElement>('[name="unitL"]');
@@ -1406,6 +1569,13 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'readyMixPrice',
+        'bagPrice',
+        'gravelBase',
+        'rebarMesh',
+        'forms',
+        'delivery',
+        'labor',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),

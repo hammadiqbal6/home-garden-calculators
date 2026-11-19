@@ -7,9 +7,11 @@ import {
   asphaltTons,
   bedMulch,
   brickCount,
+  concreteSlabCost,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
+  formatUsd,
   grassSeed,
   gravelVolume,
   lumberFromPieces,
@@ -217,6 +219,75 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
     { name: 'waste', label: 'Waste / lap %', value: '10' },
   ],
+  'concrete-slab-cost': [
+    { name: 'length', label: 'Length', value: '10', hint: 'feet' },
+    { name: 'width', label: 'Width', value: '10', hint: 'feet' },
+    { name: 'thickness', label: 'Thickness', value: '4', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '10' },
+    {
+      name: 'purchaseMode',
+      label: 'Buy as',
+      type: 'select',
+      options: [
+        { value: 'ready-mix', label: 'Ready-mix (per yard / m³)' },
+        { value: 'bags', label: 'Bagged mix' },
+      ],
+      value: 'ready-mix',
+    },
+    {
+      name: 'readyMixPrice',
+      label: 'Ready-mix price',
+      value: '160',
+      hint: 'example only — $/cu yd from your plant quote',
+    },
+    {
+      name: 'bagSize',
+      label: 'Bag size',
+      type: 'select',
+      options: [
+        { value: '40', label: '40 lb' },
+        { value: '60', label: '60 lb' },
+        { value: '80', label: '80 lb' },
+      ],
+      value: '80',
+    },
+    {
+      name: 'bagPrice',
+      label: 'Price per bag',
+      value: '7',
+      hint: 'example only — replace with your store price',
+    },
+    {
+      name: 'gravelBase',
+      label: 'Gravel base (optional)',
+      value: '0',
+      hint: 'your quote for base stone ($ total)',
+    },
+    {
+      name: 'rebarMesh',
+      label: 'Rebar / mesh (optional)',
+      value: '0',
+      hint: 'your quote for steel ($ total)',
+    },
+    {
+      name: 'forms',
+      label: 'Forms (optional)',
+      value: '0',
+      hint: 'lumber / forms you price ($ total)',
+    },
+    {
+      name: 'delivery',
+      label: 'Delivery / short-load fee',
+      value: '0',
+      hint: 'plant short-load or delivery fee ($)',
+    },
+    {
+      name: 'labor',
+      label: 'Labor per sq ft (optional)',
+      value: '0',
+      hint: 'your labor rate × slab area',
+    },
+  ],
 };
 
 function concreteRows(
@@ -371,6 +442,19 @@ const rebarDefault = rebarForSlab({
   stickLengthFt: 20,
   wastePercent: 10,
 });
+const slabCostDefault = concreteSlabCost({
+  length: 10,
+  width: 10,
+  thickness: 4,
+  wastePercent: 10,
+  purchaseMode: 'ready-mix',
+  readyMixPrice: 160,
+  gravelBaseCost: 0,
+  rebarMeshCost: 0,
+  formsCost: 0,
+  deliveryFee: 0,
+  laborPerSqFt: 0,
+});
 
 export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
@@ -500,5 +584,16 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Linear feet + waste', String(rebarDefault.linearFeetWithWaste)],
     [`${rebarDefault.stickLengthFt} ft sticks`, String(rebarDefault.sticks)],
     ['Est. weight', `${rebarDefault.weightLbs} lb`],
+  ],
+  'concrete-slab-cost': [
+    ['Area', `${slabCostDefault.areaSqFt} sq ft`],
+    [
+      'Volume',
+      `${slabCostDefault.volumeCuFt} cu ft (${slabCostDefault.volumeCuYd} cu yd / ${slabCostDefault.volumeCuM} m³)`,
+    ],
+    ['Material cost', formatUsd(slabCostDefault.materialCost)],
+    ['Add-ons total', formatUsd(slabCostDefault.addOnsTotal)],
+    ['Total', formatUsd(slabCostDefault.totalCost)],
+    ['Cost per sq ft', formatUsd(slabCostDefault.costPerSqFt)],
   ],
 };

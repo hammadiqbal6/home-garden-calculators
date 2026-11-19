@@ -7,6 +7,7 @@ import {
   asphaltTons,
   bedMulch,
   brickCount,
+  deckFootings,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
@@ -113,6 +114,31 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'boardL', label: 'Board length', value: '12', hint: 'feet' },
     { name: 'joistOC', label: 'Joist spacing', value: '16', hint: 'inches o.c.' },
     { name: 'waste', label: 'Board waste %', value: '10' },
+  ],
+  'deck-footing': [
+    { name: 'length', label: 'Deck length', value: '16', hint: 'feet' },
+    { name: 'width', label: 'Deck width', value: '12', hint: 'feet' },
+    { name: 'spacing', label: 'Beam / post spacing', value: '8', hint: 'feet o.c.' },
+    { name: 'diameter', label: 'Tube / footing diameter', value: '12', hint: 'inches (inside)' },
+    {
+      name: 'depth',
+      label: 'Footing depth (frost line)',
+      value: '4',
+      hint: 'feet — enter local frost depth',
+    },
+    {
+      name: 'bell',
+      label: 'Bell / flare at base',
+      type: 'select',
+      options: [
+        { value: 'none', label: 'No bell (straight tube)' },
+        { value: 'yes', label: 'Yes — enter bell size' },
+      ],
+      value: 'none',
+    },
+    { name: 'bellDiameter', label: 'Bell diameter', value: '24', hint: 'inches at base' },
+    { name: 'bellHeight', label: 'Bell height', value: '12', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '5' },
   ],
   'roof-pitch': [
     { name: 'rise', label: 'Rise', value: '6', hint: 'inches' },
@@ -305,6 +331,14 @@ const deckDefault = deckMaterials({
   joistSpacingIn: 16,
   wastePercent: 10,
 });
+const deckFootingDefault = deckFootings({
+  deckLength: 16,
+  deckWidth: 12,
+  postSpacing: 8,
+  diameter: 12,
+  depth: 4,
+  wasteFactor: 0.05,
+});
 const pitchDefault = roofPitch({ rise: 6, run: 12 });
 const roofingDefault = roofingSquares({
   planLength: 40,
@@ -416,6 +450,20 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     [`Joists (${deckDefault.joistSpacingIn}" o.c.)`, String(deckDefault.joists)],
     ['Rim joists', String(deckDefault.rimJoists)],
     ['Screws (est.)', String(deckDefault.screws)],
+  ],
+  'deck-footing': [
+    ['Footings', String(deckFootingDefault.footingCount)],
+    ['Grid', `${deckFootingDefault.postsAlongLength} × ${deckFootingDefault.postsAlongWidth}`],
+    [
+      'Per footing',
+      `${deckFootingDefault.perFootingCuFt} cu ft (${deckFootingDefault.perFootingCuYd} cu yd)`,
+    ],
+    [
+      'Total volume',
+      `${deckFootingDefault.volumeCuFt} cu ft (${deckFootingDefault.volumeCuYd} cu yd / ${deckFootingDefault.volumeCuM} m³)`,
+    ],
+    ['60 lb bags', String(deckFootingDefault.bags60)],
+    ['80 lb bags', String(deckFootingDefault.bags80)],
   ],
   'roof-pitch': [
     ['Pitch', `${pitchDefault.pitchOver12} / 12`],

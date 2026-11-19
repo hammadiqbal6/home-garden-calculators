@@ -236,7 +236,28 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
       {
         name: 'Pair with footing concrete if needed',
-        text: 'Size pier concrete separately with the Sonotube or post-hole calculator before you order framing lumber.',
+        text: 'Size pier count and bags with the deck footing calculator, or one tube at a time with the Sonotube tool, before you order framing lumber.',
+      },
+    ],
+  },
+  'deck-footing-calculator': {
+    name: 'How to estimate deck footings and concrete',
+    steps: [
+      {
+        name: 'Enter deck length, width, and post spacing',
+        text: 'Use the rectangular footprint and the planned beam/post spacing from your layout (not a substitute for span tables).',
+      },
+      {
+        name: 'Set tube diameter and frost depth',
+        text: 'Enter inside tube diameter and the footing depth required by your plan or local frost line.',
+      },
+      {
+        name: 'Add an optional bell if your detail calls for one',
+        text: 'Choose Yes for a flared base, then enter bell diameter and height shorter than total depth.',
+      },
+      {
+        name: 'Read footing count, volume, and bag totals',
+        text: 'Use the grid count plus per-pier and total cubic feet/yards, then 60/80 lb bag estimates. Confirm sizes with code and the stamped plan.',
       },
     ],
   },

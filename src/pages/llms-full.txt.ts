@@ -39,6 +39,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
 - How many bags of concrete per fence post? → ${origin}/guides/how-much-concrete-for-fence-posts/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
+- How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
+- How much concrete for deck footings (bags)? → ${origin}/calculators/deck-footing-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/
@@ -72,6 +74,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Cubic yard → bags before waste: 27 ÷ 0.60 ≈ 45 of the 80 lb bags; 27 ÷ 0.45 = 60 of the 60 lb bags.
 - Fence post hole starting sizes: QUIKRETE Setting Posts — hole about three times post width; depth about 1/3 to 1/2 of above-ground length. Source: https://quikrete.com/athome/settingposts.asp
 - Example Sonotube: 12-inch × 4 ft ≈ 3.14 cu ft → about 5.2 of the 80 lb bags before waste (plan 6), about 7 of the 60 lb bags, about 9 of the 50 lb bags, or about 11 of the 40 lb bags. Live chart: ${origin}/calculators/sonotube-concrete-calculator/
+- Example deck footings: 12×16 ft deck at 8 ft spacing → 6 piers; six 12-inch × 4 ft tubes with 5% waste ≈ 19.8 cu ft → about 33 × 80 lb or 44 × 60 lb bags. Live tool: ${origin}/calculators/deck-footing-calculator/
 
 ### Paint coverage
 - BEHR: one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250–400 sq ft with one coat. Source: https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy

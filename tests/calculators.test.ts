@@ -7,6 +7,7 @@ import {
   boardFeetPerPiece,
   brickCount,
   cmuCount,
+  deckFootings,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
@@ -111,6 +112,61 @@ describe('concrete', () => {
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+  });
+});
+
+describe('deck footings', () => {
+  it('12×16 deck at 8 ft spacing → 3×2 = 6 footings', () => {
+    const r = deckFootings({
+      deckLength: 16,
+      deckWidth: 12,
+      postSpacing: 8,
+      diameter: 12,
+      depth: 4,
+      wasteFactor: 0,
+    });
+    expect(r.postsAlongLength).toBe(3);
+    expect(r.postsAlongWidth).toBe(2);
+    expect(r.footingCount).toBe(6);
+    // 12" × 4 ft cylinder = π × 0.5² × 4 ≈ 3.142 cu ft each
+    const per = Math.PI * 0.5 ** 2 * 4;
+    expect(r.perFootingCuFt).toBeCloseTo(per, 3);
+    expect(r.volumeCuFt).toBeCloseTo(per * 6, 2);
+  });
+
+  it('applies 5% waste by default on bag totals', () => {
+    const r = deckFootings({
+      deckLength: 16,
+      deckWidth: 12,
+      postSpacing: 8,
+      diameter: 12,
+      depth: 4,
+    });
+    const per = Math.PI * 0.5 ** 2 * 4;
+    const withWaste = per * 6 * 1.05;
+    expect(r.volumeCuFt).toBeCloseTo(withWaste, 2);
+    expect(r.bags80).toBe(Math.ceil(withWaste / 0.6));
+    expect(r.bags60).toBe(Math.ceil(withWaste / 0.45));
+  });
+
+  it('optional bell adds frustum under shaft', () => {
+    // 12" shaft, 4 ft total depth, 24" × 12" bell
+    const r = deckFootings({
+      deckLength: 8,
+      deckWidth: 8,
+      postSpacing: 8,
+      diameter: 12,
+      depth: 4,
+      bellDiameter: 24,
+      bellHeight: 12,
+      wasteFactor: 0,
+    });
+    const shaft = Math.PI * 0.5 ** 2 * 3; // 3 ft shaft
+    const R = 1;
+    const rad = 0.5;
+    const bell = ((Math.PI * 1) / 3) * (R * R + R * rad + rad * rad);
+    expect(r.footingCount).toBe(4); // 2×2
+    expect(r.perFootingCuFt).toBeCloseTo(shaft + bell, 3);
   });
 });
 

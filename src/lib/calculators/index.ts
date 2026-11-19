@@ -4,6 +4,7 @@ export * from './volumeMaterials';
 export * from './paver';
 export * from './fence';
 export * from './deck';
+export * from './deckFooting';
 export * from './roof';
 export * from './paint';
 export * from './retainingWall';

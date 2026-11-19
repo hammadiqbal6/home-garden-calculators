@@ -301,7 +301,12 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'This is a shopping takeoff for a 12×16 ft deck (192 sq ft), not construction plans or a priced BOM. With YardTally defaults (5.5 in face, 16 in O.C. joists) and boards along 12 ft, plan about 35 twelve-foot boards and 10 field joists before waste; verify current span tables.',
-    relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
+    relatedToolSlugs: [
+      'deck-material-calculator',
+      'deck-footing-calculator',
+      'lumber-calculator',
+      'sonotube-concrete-calculator',
+    ],
     relatedGuideSlugs: [
       'deck-material-list-16x24',
       'how-to-measure-roof-pitch',
@@ -325,7 +330,12 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'A 16×24 list is not the 12×16 list scaled by area. With YardTally defaults and boards along 24 ft across a 16 ft width, plan about 70 twelve-foot boards and 19 field joists before waste, then size beams, posts, and footings separately from span tables.',
-    relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
+    relatedToolSlugs: [
+      'deck-material-calculator',
+      'deck-footing-calculator',
+      'lumber-calculator',
+      'sonotube-concrete-calculator',
+    ],
     relatedGuideSlugs: [
       'deck-material-list-12x16',
       'how-many-bags-of-concrete',
@@ -401,6 +411,7 @@ export const guides: GuideDefinition[] = [
       'A 12-inch Sonotube that is 4 feet tall holds about 3.14 cubic feet of concrete. That is roughly 5.2 of the 80 lb bags before you round up, so plan on 6 bags, or about 7 of the 60 lb bags. Multiply by pier count, then add a little for spillage.',
     relatedToolSlugs: [
       'sonotube-concrete-calculator',
+      'deck-footing-calculator',
       'concrete-calculator-post-holes',
       'concrete-calculator',
       'deck-material-calculator',

@@ -23,6 +23,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/paver-calculator/` | paver calculator | patio paver calculator, how many pavers |
 | `/calculators/fence-calculator/` | fence calculator | fence post calculator, picket fence calculator |
 | `/calculators/deck-material-calculator/` | deck material calculator | deck board calculator, deck joist calculator |
+| `/calculators/deck-footing-calculator/` | deck footing calculator | deck pier calculator, how many footings for a deck, deck post footing concrete, deck footing bags of concrete |
 | `/calculators/roof-pitch-calculator/` | roof pitch calculator | roof slope calculator, roof angle calculator |
 | `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle estimator square feet, shingle estimator, shingle calculator, roofing squares calculator |
 | `/calculators/paint-calculator/` | paint calculator | how much paint do I need, room paint calculator |
@@ -67,6 +68,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 - Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab/footing volume URL.
 - Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.
 - Lumber calculator owns board-foot tally—do not split `/board-feet-calculator/`. Deck board/joist layout stays on the deck-material tool.
+- Deck footing calculator owns pier **count + volume** from deck size/spacing; Sonotube owns single-tube / known-count bag math. Do not merge those URLs.
 - Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.

@@ -31,7 +31,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
-              (calculatorId === 'lumber' && field.name === 'boardFeet')
+              (calculatorId === 'lumber' && field.name === 'boardFeet') ||
+              (calculatorId === 'deck-footing' &&
+                ['bellDiameter', 'bellHeight'].includes(field.name))
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -89,6 +91,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
   import {
     asphaltTons,
     bedMulch,
+    deckFootings,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
@@ -559,6 +562,107 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ['Rails', String(r.rails)],
           ['Pickets', String(r.pickets)],
           ['80 lb bags for posts (est.)', String(r.concreteBags80ForPosts)],
+        ];
+      },
+    },
+    'deck-footing': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Deck length',
+          imperialDefault: '16',
+          metricDefault: '5',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Deck width',
+          imperialDefault: '12',
+          metricDefault: '3.6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'spacing',
+          label: 'Beam / post spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet o.c.',
+          metricHint: 'meters o.c.',
+        },
+        {
+          name: 'diameter',
+          label: 'Tube / footing diameter',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches (inside)',
+          metricHint: 'cm (inside)',
+        },
+        {
+          name: 'depth',
+          label: 'Footing depth (frost line)',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet — enter local frost depth',
+          metricHint: 'meters — enter local frost depth',
+        },
+        {
+          name: 'bell',
+          label: 'Bell / flare at base',
+          type: 'select',
+          options: [
+            { value: 'none', label: 'No bell (straight tube)' },
+            { value: 'yes', label: 'Yes — enter bell size' },
+          ],
+          imperialDefault: 'none',
+          metricDefault: 'none',
+        },
+        {
+          name: 'bellDiameter',
+          label: 'Bell diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches at base',
+          metricHint: 'cm at base',
+        },
+        {
+          name: 'bellHeight',
+          label: 'Bell height',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const useBell = (selects?.bell ?? 'none') === 'yes';
+        const r = deckFootings({
+          deckLength: v.length,
+          deckWidth: v.width,
+          postSpacing: v.spacing,
+          diameter: v.diameter,
+          depth: v.depth,
+          bellDiameter: useBell ? v.bellDiameter : 0,
+          bellHeight: useBell ? v.bellHeight : 0,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          spacingUnit: lengthUnit(u),
+          diameterUnit: smallLengthUnit(u),
+          depthUnit: lengthUnit(u),
+          bellDiameterUnit: smallLengthUnit(u),
+          bellHeightUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        return [
+          ['Footings', String(r.footingCount)],
+          ['Grid', `${r.postsAlongLength} × ${r.postsAlongWidth}`],
+          ['Per footing', `${r.perFootingCuFt} cu ft (${r.perFootingCuYd} cu yd)`],
+          ['Total volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
         ];
       },
     },
@@ -1336,6 +1440,14 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
         return;
       }
+      if (id === 'deck-footing') {
+        const bell = root.querySelector<HTMLSelectElement>('[name="bell"]')?.value ?? 'none';
+        for (const name of ['bellDiameter', 'bellHeight']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = bell !== 'yes';
+        }
+        return;
+      }
       if (id === 'lumber') {
         const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'pieces';
         const piecesEl = root.querySelector<HTMLElement>('[data-field="pieces"]');
@@ -1406,6 +1518,8 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'bellDiameter',
+        'bellHeight',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),

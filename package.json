@@ -22,6 +22,7 @@
     "audit:adsense": "node scripts/audit/adsense.mjs",
     "audit:perf": "node scripts/audit/perf.mjs",
     "audit:pages": "node scripts/audit/pages.mjs",
+    "audit:ai-detect": "node scripts/audit/ai-detect.mjs",
     "audit": "npm run audit:seo && npm run audit:indexing && npm run audit:adsense && npm run audit:perf && npm run audit:pages",
     "lighthouse": "lhci autorun",
     "proof": "node scripts/proof/run.mjs",

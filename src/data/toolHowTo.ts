@@ -56,19 +56,44 @@ export const toolHowTo: Record<string, ToolHowTo> = {
     steps: [
       {
         name: 'Enter inside diameter and height',
-        text: 'Use the clear inside diameter labeled on the cardboard concrete tube (Sonotube or equivalent), plus the fill height of the column.',
+        text: 'Use the clear inside diameter labeled on the cardboard concrete tube (Sonotube or equivalent), plus the fill height of the column. Optional size B covers a second diameter on the same pour.',
       },
       {
-        name: 'Set tube count and waste',
-        text: 'Multiply by the number of piers or tubes and add a small waste percent for spillage when filling tall forms.',
+        name: 'Optional footing bell or pad',
+        text: 'If a flared bell or circular pad sits under the tube, choose that base type and enter its dimensions. Leave “none” for a straight cylinder. This adds planning volume only—it does not design the footing.',
+      },
+      {
+        name: 'Set tube counts and waste',
+        text: 'Enter count for each size group and add a small waste percent for spillage when filling tall forms (default about 5%).',
       },
       {
         name: 'Read volume and bag estimates',
-        text: 'The calculator uses π × (radius)² × height × count, then bag yields from your mix label (about 0.60 cu ft per 80 lb bag for QUIKRETE Concrete Mix 1101).',
+        text: 'The calculator uses π × (radius)² × height × count (plus optional base), then bag yields from your mix label (about 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb QUIKRETE 1101). Cross-check tall piers with the bags-per-foot table.',
       },
       {
         name: 'Brace forms before pouring',
         text: 'Place tubes plumb, brace against ovalizing, and confirm footing details required by local code before you pour.',
+      },
+    ],
+  },
+  'concrete-footing-calculator': {
+    name: 'How to estimate concrete for strip and pad footings',
+    steps: [
+      {
+        name: 'Choose strip or pad and enter dimensions',
+        text: 'Select continuous/strip or spread pad. Enter length, width, depth, and the number of segments or pads. Convert width and depth to the units shown before multiplying.',
+      },
+      {
+        name: 'Set waste percent',
+        text: 'Add waste for over-dig and form bulge (default 10%). Round ready-mix up when a short load would cost more than the extra yardage.',
+      },
+      {
+        name: 'Read cubic yards and bag counts',
+        text: 'Cubic feet ÷ 27 = yards. Bags use published planning yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb mixes (QUIKRETE Concrete Mix 1101 / Sakrete)—confirm the bag you buy.',
+      },
+      {
+        name: 'Optional: toggle rebar for a stick estimate',
+        text: 'Turn rebar On for a planning takeoff of longitudinal and cross bars. This is not a structural design—follow drawings and local code for size, spacing, cover, and laps.',
       },
     ],
   },
@@ -132,6 +157,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       {
         name: 'Confirm delivery minimums',
         text: 'Call the yard for product type (base vs decorative), density, and truck minimums before ordering.',
+      },
+    ],
+  },
+  'french-drain-gravel-calculator': {
+    name: 'How to estimate French drain gravel and fabric',
+    steps: [
+      {
+        name: 'Enter trench length, width, and depth',
+        text: 'Measure the excavated run. Width and depth are the clear trench section (often about 12 in wide by 18 in deep as a planning starting point—confirm your detail).',
+      },
+      {
+        name: 'Set pipe diameter, fabric overlap, waste, and density',
+        text: 'Enter the outside diameter of the perforated pipe so gravel volume subtracts the cylinder. Fabric overlap is the extra wrap width beyond bottom + both walls. Confirm stone density with your yard for ton estimates.',
+      },
+      {
+        name: 'Read gravel yards/tons, fabric area, and pipe length',
+        text: 'Order clean drain rock by yards or tons, buy geotextile to cover the wrap width × length, and match pipe length to the trench run (plus fittings).',
+      },
+      {
+        name: 'Plan slope and a legal outlet before you dig',
+        text: 'Keep a continuous fall toward an approved discharge. Call 811 for utility locates. This tool is a materials takeoff, not a drainage design.',
       },
     ],
   },
@@ -236,7 +282,28 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
       {
         name: 'Pair with footing concrete if needed',
-        text: 'Size pier concrete separately with the Sonotube or post-hole calculator before you order framing lumber.',
+        text: 'Size pier concrete separately with the deck footing or Sonotube calculator before you order framing lumber.',
+      },
+    ],
+  },
+  'deck-footing-calculator': {
+    name: 'How to estimate deck footing count and concrete',
+    steps: [
+      {
+        name: 'Enter deck size and post / beam spacing',
+        text: 'Use the rectangular footprint plus how far posts sit apart along each beam and how far beam lines sit across the width.',
+      },
+      {
+        name: 'Choose freestanding or attached layout',
+        text: 'Attached decks omit the house-side post row when a ledger carries that edge. Freestanding decks count posts on all sides of the grid.',
+      },
+      {
+        name: 'Enter frost depth, hole diameter, and optional Sonotube size',
+        text: 'Paste your local frost-line depth for hole depth. Optional Sonotube inside diameter drives concrete volume when the tube sits inside a wider hole.',
+      },
+      {
+        name: 'Read footing count, volumes, and bags',
+        text: 'Confirm bag yields on your mix label (QUIKRETE Concrete Mix 1101 lists about 0.60 cu ft per 80 lb bag). Check local code before you dig.',
       },
     ],
   },
@@ -468,6 +535,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       {
         name: 'Read bar counts, linear feet, and sticks',
         text: 'Bars each way = floor(span ÷ spacing) + 1. Total linear feet ÷ stick length (with waste) gives the stick count to buy.',
+      },
+    ],
+  },
+  'concrete-slab-cost-calculator': {
+    name: 'How to estimate concrete slab cost from your quotes',
+    steps: [
+      {
+        name: 'Enter slab dimensions and waste',
+        text: 'Measure length, width, and thickness. Keep the default 10% waste unless your site is unusually clean or rough.',
+      },
+      {
+        name: 'Choose ready-mix or bags and paste your price',
+        text: 'Replace the labeled example $/yd or $/bag with the plant ticket or store shelf price. Bag yields match the concrete volume calculator.',
+      },
+      {
+        name: 'Add optional line items you have priced',
+        text: 'Enter gravel base, rebar or mesh, forms, delivery/short-load fees, and labor per sq ft only when you have real quotes—leave the rest at $0.',
+      },
+      {
+        name: 'Read volume, material cost, total, and $/sq ft',
+        text: 'Use cost per square foot to compare pad sizes. Double-check yards or bags on the concrete calculator before you order.',
       },
     ],
   },

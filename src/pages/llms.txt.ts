@@ -26,21 +26,33 @@ Well-known alias: ${origin}/.well-known/llms.txt
 
 - How many bags of concrete do I need? → ${origin}/calculators/concrete-calculator/
 - How many 80 lb bags of concrete per cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
+- How much concrete do I need (yards / coverage)? → ${origin}/guides/how-much-concrete-do-i-need/
+- How much will 1 yard of concrete cover at 4 inches? → ${origin}/guides/how-much-concrete-do-i-need/
+- How thick should a concrete slab be? → ${origin}/guides/concrete-slab-thickness/
 - How much concrete for a 10x10 slab? → ${origin}/guides/concrete-for-10x10-slab/
 - Concrete calculator yards and bags? → ${origin}/calculators/concrete-calculator/
+- How much concrete for a strip footing? → ${origin}/calculators/concrete-footing-calculator/
+- Concrete footing calculator (strip and pad)? → ${origin}/calculators/concrete-footing-calculator/
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
+- Do I need a footing under a Sonotube? → ${origin}/guides/sonotube-footing-and-depth/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
+- How much mulch do I need (bags vs bulk)? → ${origin}/guides/how-much-mulch-do-i-need/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
 - What is a roofing square? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - How much asphalt for a driveway? → ${origin}/calculators/asphalt-calculator/
+- How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
+- How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
+- Deck footing calculator (count, frost depth, bags)? → ${origin}/calculators/deck-footing-calculator/
+- How much does a concrete slab cost? → ${origin}/calculators/concrete-slab-cost-calculator/
+- Concrete slab cost from ready-mix or bags? → ${origin}/calculators/concrete-slab-cost-calculator/
 
 ## Key figures (cite before quoting)
 

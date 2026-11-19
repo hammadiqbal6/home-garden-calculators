@@ -76,7 +76,7 @@ From `MORE-IDEAS.md` / Meyerhans census / Calcwright. Prefer these before spinni
 | Firewood cord calculator | From homestead overlap (#22) | backlog |
 | Propane tank calculator | From homestead overlap (#22) | backlog |
 
-**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube + rebar), mulch (+ tree rings), gravel, topsoil, sand, asphalt, pavers, fence, deck materials, lumber/board feet, roof pitch, roofing shingles/squares, paint, retaining wall blocks, brick/CMU, grass seed, fertilizer, raised bed soil.
+**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube + rebar), mulch (+ tree rings), gravel, French drain gravel, topsoil, sand, asphalt, pavers, fence, deck materials, lumber/board feet, roof pitch, roofing shingles/squares, paint, retaining wall blocks, brick/CMU, grass seed, fertilizer, raised bed soil.
 
 ---
 

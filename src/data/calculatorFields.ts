@@ -7,9 +7,14 @@ import {
   asphaltTons,
   bedMulch,
   brickCount,
+  deckFootings,
+  concreteSlabCost,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
+  footingVolume,
+  formatUsd,
+  frenchDrainMaterials,
   grassSeed,
   gravelVolume,
   lumberFromPieces,
@@ -23,7 +28,9 @@ import {
   roofPitch,
   sandVolume,
   slabVolume,
-  sonotubeVolume,
+  concreteCostCompare,
+  mixedSonotubeVolume,
+  roundUpToQuarterYard,
   topsoilVolume,
   treeRingMulch,
 } from '../lib/calculators';
@@ -36,7 +43,57 @@ export type SsrField = {
   value: string;
   hint?: string;
   step?: string;
+  /** When true, empty/zero is allowed (prices, convertTons). */
+  optional?: boolean;
 };
+
+const bulkPriceFields = (): SsrField[] => [
+  {
+    name: 'convertTons',
+    label: 'Convert tons → yards (optional)',
+    value: '',
+    hint: 'leave blank to skip',
+    optional: true,
+  },
+  {
+    name: 'pricePerYard',
+    label: 'Price per cu yd (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerTon',
+    label: 'Price per ton (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerBag',
+    label: 'Price per 0.5 cu ft bag (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+];
+
+const mulchPriceFields = (): SsrField[] => [
+  {
+    name: 'pricePerYard',
+    label: 'Price per cu yd (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerBag',
+    label: 'Price per bag (optional)',
+    value: '',
+    hint: '2 or 3 cu ft bag price',
+    optional: true,
+  },
+];
 
 const dims = (
   length = '10',
@@ -70,6 +127,11 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'riser', label: 'Riser', value: '7', hint: 'inches' },
     { name: 'tread', label: 'Tread', value: '11', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '10' },
+    { name: 'priceBag40', label: 'Price per 40 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceBag60', label: 'Price per 60 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceBag80', label: 'Price per 80 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceYd', label: 'Ready-mix price per cu yd (optional)', value: '0', hint: 'your quote' },
+    { name: 'delivery', label: 'Delivery fee (optional)', value: '0', hint: 'one-time fee' },
   ],
   'post-holes': [
     { name: 'diameter', label: 'Hole diameter', value: '10', hint: 'inches' },
@@ -78,20 +140,137 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'waste', label: 'Waste %', value: '10' },
   ],
   sonotube: [
-    { name: 'diameter', label: 'Tube diameter', value: '12', hint: 'inches' },
-    { name: 'height', label: 'Height', value: '4', hint: 'feet' },
-    { name: 'count', label: 'Number of tubes', value: '4' },
+    { name: 'diameter', label: 'Tube diameter (size A)', value: '12', hint: 'inches' },
+    { name: 'height', label: 'Height (size A)', value: '4', hint: 'feet' },
+    { name: 'count', label: 'Number of tubes (size A)', value: '4' },
+    { name: 'diameterB', label: 'Tube diameter (size B, optional)', value: '0', hint: 'inches — 0 to skip' },
+    { name: 'heightB', label: 'Height (size B)', value: '0', hint: 'feet' },
+    { name: 'countB', label: 'Number of tubes (size B)', value: '0' },
+    {
+      name: 'baseType',
+      label: 'Base under tube',
+      type: 'select',
+      options: [
+        { value: 'none', label: 'None (tube only)' },
+        { value: 'bell', label: 'Bell / flared base' },
+        { value: 'pad', label: 'Circular pad' },
+      ],
+      value: 'none',
+    },
+    { name: 'bellDiameter', label: 'Bell base diameter', value: '24', hint: 'inches' },
+    { name: 'bellHeight', label: 'Bell height', value: '1', hint: 'feet' },
+    { name: 'padDiameter', label: 'Pad diameter', value: '24', hint: 'inches' },
+    { name: 'padThickness', label: 'Pad thickness', value: '12', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
-  mulch: dims('20', '5', 'Depth', '3', 'inches'),
+  footing: [
+    {
+      name: 'footingType',
+      label: 'Footing type',
+      type: 'select',
+      options: [
+        { value: 'strip', label: 'Continuous / strip' },
+        { value: 'pad', label: 'Spread pad' },
+      ],
+      value: 'strip',
+    },
+    { name: 'length', label: 'Length', value: '40', hint: 'feet (run length)' },
+    { name: 'width', label: 'Width', value: '16', hint: 'inches (strip/pad width)' },
+    { name: 'depth', label: 'Depth / thickness', value: '8', hint: 'inches' },
+    { name: 'count', label: 'Number of segments', value: '1', hint: 'segments or pads' },
+    { name: 'waste', label: 'Waste %', value: '10' },
+    {
+      name: 'rebar',
+      label: 'Rebar estimate',
+      type: 'select',
+      options: [
+        { value: 'no', label: 'Off' },
+        { value: 'yes', label: 'On (planning only)' },
+      ],
+      value: 'no',
+    },
+    { name: 'longBars', label: 'Longitudinal bars', value: '2', hint: 'strip only' },
+    { name: 'spacing', label: 'Bar spacing (o.c.)', value: '18', hint: 'inches' },
+    {
+      name: 'barSize',
+      label: 'Bar size',
+      type: 'select',
+      options: [
+        { value: '3', label: '#3 (⅜")' },
+        { value: '4', label: '#4 (½")' },
+        { value: '5', label: '#5 (⅝")' },
+        { value: '6', label: '#6 (¾")' },
+      ],
+      value: '4',
+    },
+    { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
+    { name: 'rebarWaste', label: 'Rebar waste / lap %', value: '10' },
+  ],
+  'deck-footings': [
+    { name: 'length', label: 'Deck length', value: '16', hint: 'feet (along beams)' },
+    { name: 'width', label: 'Deck width', value: '12', hint: 'feet (beam span direction)' },
+    { name: 'postSpacing', label: 'Post spacing', value: '8', hint: 'feet along each beam' },
+    {
+      name: 'beamSpacing',
+      label: 'Beam / post-row spacing',
+      value: '8',
+      hint: 'feet across the deck',
+    },
+    {
+      name: 'layout',
+      label: 'Layout',
+      type: 'select',
+      options: [
+        { value: 'freestanding', label: 'Freestanding (posts on all sides)' },
+        { value: 'attached', label: 'Attached (ledger — no house-side posts)' },
+      ],
+      value: 'freestanding',
+    },
+    {
+      name: 'frostDepth',
+      label: 'Frost depth / hole depth',
+      value: '4',
+      hint: 'feet (your local frost line)',
+    },
+    { name: 'holeDiameter', label: 'Hole diameter', value: '12', hint: 'inches' },
+    {
+      name: 'sonotubeDiameter',
+      label: 'Sonotube diameter (optional)',
+      value: '0',
+      hint: 'inches inside Ø; 0 = use hole diameter',
+    },
+    { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  mulch: [...dims('20', '5', 'Depth', '3', 'inches'), ...mulchPriceFields()],
   'tree-ring-mulch': [
     { name: 'outer', label: 'Outer ring diameter', value: '6', hint: 'feet' },
     { name: 'trunk', label: 'Trunk / keep-out diameter', value: '1', hint: 'feet' },
     { name: 'depth', label: 'Depth', value: '3', hint: 'inches' },
   ],
-  gravel: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
-  topsoil: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
-  sand: [...dims('20', '10', 'Depth', '1', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
+  gravel: [
+    ...dims('20', '10', 'Depth', '4', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
+  'french-drain': [
+    { name: 'length', label: 'Trench length', value: '40', hint: 'feet' },
+    { name: 'width', label: 'Trench width', value: '12', hint: 'inches' },
+    { name: 'depth', label: 'Trench depth', value: '18', hint: 'inches' },
+    { name: 'pipeDia', label: 'Pipe diameter', value: '4', hint: 'inches (OD)' },
+    { name: 'overlap', label: 'Fabric overlap', value: '12', hint: 'inches (fold-over)' },
+    { name: 'waste', label: 'Waste / overage %', value: '10' },
+    { name: 'density', label: 'Gravel density', value: '2700', hint: 'lb/cu yd' },
+  ],
+  topsoil: [
+    ...dims('20', '10', 'Depth', '4', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
+  sand: [
+    ...dims('20', '10', 'Depth', '1', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
   paver: [
     { name: 'length', label: 'Patio length', value: '12', hint: 'feet' },
     { name: 'width', label: 'Patio width', value: '10', hint: 'feet' },
@@ -217,19 +396,94 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
     { name: 'waste', label: 'Waste / lap %', value: '10' },
   ],
+  'concrete-slab-cost': [
+    { name: 'length', label: 'Length', value: '10', hint: 'feet' },
+    { name: 'width', label: 'Width', value: '10', hint: 'feet' },
+    { name: 'thickness', label: 'Thickness', value: '4', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '10' },
+    {
+      name: 'purchaseMode',
+      label: 'Buy as',
+      type: 'select',
+      options: [
+        { value: 'ready-mix', label: 'Ready-mix (per yard / m³)' },
+        { value: 'bags', label: 'Bagged mix' },
+      ],
+      value: 'ready-mix',
+    },
+    {
+      name: 'readyMixPrice',
+      label: 'Ready-mix price',
+      value: '160',
+      hint: 'example only — $/cu yd from your plant quote',
+    },
+    {
+      name: 'bagSize',
+      label: 'Bag size',
+      type: 'select',
+      options: [
+        { value: '40', label: '40 lb' },
+        { value: '60', label: '60 lb' },
+        { value: '80', label: '80 lb' },
+      ],
+      value: '80',
+    },
+    {
+      name: 'bagPrice',
+      label: 'Price per bag',
+      value: '7',
+      hint: 'example only — replace with your store price',
+    },
+    {
+      name: 'gravelBase',
+      label: 'Gravel base (optional)',
+      value: '0',
+      hint: 'your quote for base stone ($ total)',
+    },
+    {
+      name: 'rebarMesh',
+      label: 'Rebar / mesh (optional)',
+      value: '0',
+      hint: 'your quote for steel ($ total)',
+    },
+    {
+      name: 'forms',
+      label: 'Forms (optional)',
+      value: '0',
+      hint: 'lumber / forms you price ($ total)',
+    },
+    {
+      name: 'delivery',
+      label: 'Delivery / short-load fee',
+      value: '0',
+      hint: 'plant short-load or delivery fee ($)',
+    },
+    {
+      name: 'labor',
+      label: 'Labor per sq ft (optional)',
+      value: '0',
+      hint: 'your labor rate × slab area',
+    },
+  ],
 };
 
 function concreteRows(
   r: ReturnType<typeof slabVolume>,
+  withOrder = false,
 ): [string, string][] {
-  return [
+  const rows: [string, string][] = [
     ['Volume', `${r.volumeCuFt} cu ft`],
     ['Cubic yards', String(r.volumeCuYd)],
     ['Cubic meters', String(r.volumeCuM)],
     ['40 lb bags', String(r.bags40)],
+    ['50 lb bags', String(r.bags50)],
     ['60 lb bags', String(r.bags60)],
     ['80 lb bags', String(r.bags80)],
   ];
+  if (withOrder) {
+    rows.push(['Yards to order (↑¼ yd)', String(roundUpToQuarterYard(r.volumeCuYd))]);
+  }
+  return rows;
 }
 
 function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
@@ -237,7 +491,31 @@ function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
     ['Area', `${r.areaSqFt} sq ft`],
     ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
   ];
-  if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+  if (r.tonsFromYards != null) rows.push(['Tons from yards', String(r.tonsFromYards)]);
+  else if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+  if (r.yardsFromTons != null) rows.push(['Yards from tons', String(r.yardsFromTons)]);
+  if (r.bags05CuFt != null) rows.push(['0.5 cu ft bags', String(r.bags05CuFt)]);
+  if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+  if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
+  if (r.costBags != null) rows.push(['Bag cost', `$${r.costBags}`]);
+  if (r.cheapestLabel && r.cheapestCost != null) {
+    const label =
+      r.cheapestLabel === 'yard' ? 'bulk by yard' : r.cheapestLabel === 'ton' ? 'bulk by ton' : 'bags';
+    rows.push(['Cheaper option', `${label} ($${r.cheapestCost})`]);
+  }
+  return rows;
+}
+
+function mulchRows(r: ReturnType<typeof bedMulch>): [string, string][] {
+  const rows: [string, string][] = [
+    ['Area', `${r.areaSqFt} sq ft`],
+    ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+    ['2 cu ft bags', String(r.bags2CuFt)],
+    ['3 cu ft bags', String(r.bags3CuFt)],
+  ];
+  if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+  if (r.costBags2 != null) rows.push(['2 cu ft bag cost', `$${r.costBags2}`]);
+  if (r.costBags3 != null) rows.push(['3 cu ft bag cost', `$${r.costBags3}`]);
   return rows;
 }
 
@@ -253,11 +531,29 @@ const postHolesDefault = postHoleVolume({
   count: 8,
   wasteFactor: 0.1,
 });
-const sonotubeDefault = sonotubeVolume({
-  diameter: 12,
-  height: 4,
-  count: 4,
+const sonotubeDefault = mixedSonotubeVolume(
+  [{ diameter: 12, height: 4, count: 4, baseType: 'none' }],
+  0.05,
+);
+const deckFootingsDefault = deckFootings({
+  length: 16,
+  width: 12,
+  postSpacing: 8,
+  beamSpacing: 8,
+  frostDepth: 4,
+  holeDiameter: 12,
+  layout: 'freestanding',
   wasteFactor: 0.05,
+});
+const footingDefault = footingVolume({
+  footingType: 'strip',
+  length: 40,
+  width: 16,
+  depth: 8,
+  widthUnit: 'in',
+  depthUnit: 'in',
+  count: 1,
+  wasteFactor: 0.1,
 });
 const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
 const treeRingDefault = treeRingMulch({
@@ -270,6 +566,15 @@ const gravelDefault = gravelVolume({
   width: 10,
   depthInches: 4,
   wasteFactor: 0.1,
+});
+const frenchDrainDefault = frenchDrainMaterials({
+  length: 40,
+  width: 12,
+  depth: 18,
+  pipeDiameter: 4,
+  fabricOverlap: 12,
+  wasteFactor: 0.1,
+  densityLbPerCuYd: 2700,
 });
 const topsoilDefault = topsoilVolume({
   length: 20,
@@ -371,19 +676,61 @@ const rebarDefault = rebarForSlab({
   stickLengthFt: 20,
   wastePercent: 10,
 });
+const slabCostDefault = concreteSlabCost({
+  length: 10,
+  width: 10,
+  thickness: 4,
+  wastePercent: 10,
+  purchaseMode: 'ready-mix',
+  readyMixPrice: 160,
+  gravelBaseCost: 0,
+  rebarMeshCost: 0,
+  formsCost: 0,
+  deliveryFee: 0,
+  laborPerSqFt: 0,
+});
 
 export const defaultResultRows: Record<string, [string, string][]> = {
-  concrete: concreteRows(concreteDefault),
+  concrete: concreteRows(concreteDefault, true),
   'post-holes': concreteRows(postHolesDefault),
-  sonotube: concreteRows(sonotubeDefault),
-  mulch: [
-    ['Area', `${mulchDefault.areaSqFt} sq ft`],
+  sonotube: [
+    ['Volume', `${sonotubeDefault.volumeCuFt} cu ft`],
+    ['Cubic yards', String(sonotubeDefault.volumeCuYd)],
+    ['Cubic meters', String(sonotubeDefault.volumeCuM)],
+    ['40 lb bags', String(sonotubeDefault.bags40)],
+    ['50 lb bags', String(sonotubeDefault.bags50)],
+    ['60 lb bags', String(sonotubeDefault.bags60)],
+    ['80 lb bags', String(sonotubeDefault.bags80)],
+  ],
+  footing: [
+    ['Footing type', 'Continuous / strip'],
+    ['Count', String(footingDefault.count)],
+    ...concreteRows(footingDefault),
+  ],
+  mulch: mulchRows(mulchDefault),
+  'deck-footings': [
+    ['Footings (posts)', String(deckFootingsDefault.footingCount)],
+    ['Posts along length', String(deckFootingsDefault.postsAlong)],
+    ['Beam / post rows', String(deckFootingsDefault.beamRows)],
+    ['Hole diameter', `${deckFootingsDefault.holeDiameterIn} in`],
+    ['Hole depth (frost)', `${deckFootingsDefault.holeDepthFt} ft`],
     [
-      'Volume',
-      `${mulchDefault.volumeCuFt} cu ft (${mulchDefault.volumeCuYd} cu yd / ${mulchDefault.volumeCuM} m³)`,
+      'Sonotube / form Ø',
+      deckFootingsDefault.sonotubeDiameterIn != null
+        ? `${deckFootingsDefault.sonotubeDiameterIn} in ID`
+        : `${deckFootingsDefault.formDiameterIn} in (match hole)`,
     ],
-    ['2 cu ft bags', String(mulchDefault.bags2CuFt)],
-    ['3 cu ft bags', String(mulchDefault.bags3CuFt)],
+    [
+      'Concrete per hole',
+      `${deckFootingsDefault.volumePerHoleCuFt} cu ft (${deckFootingsDefault.volumePerHoleCuYd} cu yd)`,
+    ],
+    [
+      'Total concrete',
+      `${deckFootingsDefault.totalVolumeCuFt} cu ft (${deckFootingsDefault.totalVolumeCuYd} cu yd / ${deckFootingsDefault.totalVolumeCuM} m³)`,
+    ],
+    ['40 lb bags', String(deckFootingsDefault.bags40)],
+    ['60 lb bags', String(deckFootingsDefault.bags60)],
+    ['80 lb bags', String(deckFootingsDefault.bags80)],
   ],
   'tree-ring-mulch': [
     ['Ring area', `${treeRingDefault.areaSqFt} sq ft`],
@@ -392,6 +739,20 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['3 cu ft bags', String(treeRingDefault.bags3CuFt)],
   ],
   gravel: bulkRows(gravelDefault),
+  'french-drain': [
+    ['Pipe length', `${frenchDrainDefault.pipeLengthFt} ft`],
+    [
+      'Gravel (pipe subtracted)',
+      `${frenchDrainDefault.gravelCuFt} cu ft (${frenchDrainDefault.gravelCuYd} cu yd / ${frenchDrainDefault.gravelCuM} m³)`,
+    ],
+    ['Est. tons', String(frenchDrainDefault.tons)],
+    ['Fabric width (wrap)', `${frenchDrainDefault.fabricWidthFt} ft`],
+    [
+      'Fabric area',
+      `${frenchDrainDefault.fabricAreaSqFt} sq ft (${frenchDrainDefault.fabricAreaSqM} m²)`,
+    ],
+    ['Density used', `${frenchDrainDefault.densityLbPerCuYd} lb/cu yd`],
+  ],
   topsoil: bulkRows(topsoilDefault),
   sand: bulkRows(sandDefault),
   paver: [
@@ -500,5 +861,16 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Linear feet + waste', String(rebarDefault.linearFeetWithWaste)],
     [`${rebarDefault.stickLengthFt} ft sticks`, String(rebarDefault.sticks)],
     ['Est. weight', `${rebarDefault.weightLbs} lb`],
+  ],
+  'concrete-slab-cost': [
+    ['Area', `${slabCostDefault.areaSqFt} sq ft`],
+    [
+      'Volume',
+      `${slabCostDefault.volumeCuFt} cu ft (${slabCostDefault.volumeCuYd} cu yd / ${slabCostDefault.volumeCuM} m³)`,
+    ],
+    ['Material cost', formatUsd(slabCostDefault.materialCost)],
+    ['Add-ons total', formatUsd(slabCostDefault.addOnsTotal)],
+    ['Total', formatUsd(slabCostDefault.totalCost)],
+    ['Cost per sq ft', formatUsd(slabCostDefault.costPerSqFt)],
   ],
 };

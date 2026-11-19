@@ -1,18 +1,19 @@
 /**
  * Concrete volume estimators.
  * Bag yields follow QUIKRETE Concrete Mix (No. 1101) published coverage
- * for 40 / 60 / 80 lb bags (approx. 0.30 / 0.45 / 0.60 cu ft per bag).
- * Sakrete standard mixes publish the same planning yields; specialty and
+ * for 40 / 50 / 60 / 80 lb bags (approx. 0.30 / 0.375 / 0.45 / 0.60 cu ft per bag).
+ * Sakrete standard mixes publish matching 40 / 60 / 80 planning yields; specialty and
  * high-yield mixes can differ—always read the bag you buy.
  * Default waste: 10% for slabs/steps/post holes, 5% for Sonotube columns.
  */
 import { ceilBags, cuFtToCuM, cuFtToCuYd, round, toFeet, type LengthUnit } from '../units';
 
-export type BagSizeLb = 40 | 60 | 80;
+export type BagSizeLb = 40 | 50 | 60 | 80;
 
 /** Approximate yield in cubic feet per bag (manufacturer typical). */
 export const BAG_YIELD_CUFT: Record<BagSizeLb, number> = {
   40: 0.3,
+  50: 0.375,
   60: 0.45,
   80: 0.6,
 };
@@ -22,6 +23,7 @@ export interface ConcreteVolumeResult {
   volumeCuYd: number;
   volumeCuM: number;
   bags40: number;
+  bags50: number;
   bags60: number;
   bags80: number;
 }
@@ -33,6 +35,7 @@ function resultFromCuFt(volumeCuFt: number, wasteFactor = 0): ConcreteVolumeResu
     volumeCuYd: round(cuFtToCuYd(withWaste), 3),
     volumeCuM: round(cuFtToCuM(withWaste), 3),
     bags40: ceilBags(withWaste, BAG_YIELD_CUFT[40]),
+    bags50: ceilBags(withWaste, BAG_YIELD_CUFT[50]),
     bags60: ceilBags(withWaste, BAG_YIELD_CUFT[60]),
     bags80: ceilBags(withWaste, BAG_YIELD_CUFT[80]),
   };

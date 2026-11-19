@@ -410,4 +410,92 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "IKO commonly discusses about 10–15% waste for cuts, hips, and valleys. GAF notes up to about 10% overage as a planning figure for many jobs. Simple gables can land near the low end. Cut-heavy roofs need more. Order starter and ridge separately."
     }
   ],
+  "concrete-slab-thickness": [
+    {
+      "question": "What is the standard thickness for a concrete slab?",
+      "answer": "For many residential patios and sidewalks, plan on about 4 inches. IRMCA\u2019s residential exterior flatwork guide sets a 4-inch minimum and 5 inches where delivery vehicles or other heavy loads are expected. QUIKRETE\u2019s Crack Resistant mix instructions also say sidewalks and patios should be at least 4 inches thick. Confirm vehicle slabs and structural work with local code."
+    },
+    {
+      "question": "How many yards of concrete for a 30\u00d740 slab at 4 inches?",
+      "answer": "About 400 cu ft or 14.82 cu yd before waste (30 \u00d7 40 \u00d7 4\u00f712). With YardTally\u2019s 10% waste factor that is about 16.3 cu yd\u2014ready-mix territory. Bag counts at that size are a planning check only; use the concrete calculator for other footprints."
+    },
+    {
+      "question": "Does a 4-inch concrete slab need rebar?",
+      "answer": "It depends on drawings, loads, and local rules. Some fiber-reinforced bagged mixes (such as QUIKRETE Crack Resistant) are marketed to reduce the need for wire mesh in typical slab-on-grade work when used as directed. That is not a blanket pass for every pour. If plans call for a rebar mat, estimate linear feet with the rebar calculator and follow the detail."
+    },
+    {
+      "question": "How much concrete for a 12\u00d712 slab at 4 inches?",
+      "answer": "About 48 cu ft or 1.78 cu yd before waste. With 10% waste, YardTally shows about 1.96 cu yd\u201489 of the 80 lb bags or 118 of the 60 lb bags at 0.60 / 0.45 cu ft yields. Run the concrete calculator for live numbers on your thickness."
+    },
+    {
+      "question": "How much concrete for a 20\u00d720 slab at 4 inches?",
+      "answer": "About 133.3 cu ft or 4.94 cu yd before waste. With 10% waste, plan on roughly 5.43 cu yd\u2014245 of the 80 lb bags at standard yields. Most crews order ready-mix at that volume if a truck can reach the pad."
+    },
+  ],
+  "how-much-concrete-do-i-need": [
+    {
+      "question": "How much will 1 yard of concrete cover?",
+      "answer": "About 81 sq ft at 4 inches thick, about 65 sq ft at 5 inches, and about 54 sq ft at 6 inches, for a flat even pour (27 cu ft \u00f7 thickness in feet). Add waste for uneven subgrade and form bulge. Thickened edges and steps need extra volume beyond that coverage rule."
+    },
+    {
+      "question": "How much does 3 yards of concrete cover at 4 inches?",
+      "answer": "About 243 sq ft (3 \u00d7 81). That is roughly a 12\u00d720 or 15\u00d716 rectangle before waste. Three yards is usually a ready-mix order; bag math is on the order of 135 of the 80 lb bags before contingency using a 0.60 cu ft yield."
+    },
+    {
+      "question": "Should I buy bags or order ready-mix?",
+      "answer": "Bags suit small pads and repairs. When the pour approaches or exceeds about one cubic yard\u2014or you need a continuous pour\u2014ready-mix usually wins on labor if the truck can access the site. Call about short-load fees before you assume a truck is cheaper."
+    },
+    {
+      "question": "How do I convert yards to bags of concrete?",
+      "answer": "Multiply yards by 27 for cubic feet, add waste, then divide by bag yield. QUIKRETE 1101 planning yields are about 0.60 cu ft per 80 lb bag and 0.45 per 60 lb bag. For the full chart, use the how many bags of concrete guide; this page focuses on coverage and yards."
+    },
+    {
+      "question": "Which calculator should I use?",
+      "answer": "Use the slab concrete calculator for rectangles and steps, the post hole calculator for dug fence holes, and the Sonotube calculator for cardboard pier forms. Same yields; different shapes."
+    },
+  ],
+  "sonotube-footing-and-depth": [
+    {
+      "question": "Do I need a footing under a Sonotube?",
+      "answer": "Often the concrete pier inside the tube is the footing, so you do not automatically pour a separate pad underneath. Weak soils, large loads, or local details may still require a wider bell or pad. Check the permit and soil bearing\u2014not forum defaults."
+    },
+    {
+      "question": "How deep should a Sonotube be set?",
+      "answer": "Deep enough that the bottom of the concrete meets local frost and footing depth rules. QUIKRETE\u2019s deck footing guidance says footings typically must extend below the frost line. The cardboard tube length follows the hole; it does not set the legal depth."
+    },
+    {
+      "question": "How many bags of concrete for a 4-foot Sonotube?",
+      "answer": "A 12-inch \u00d7 4 ft tube is about 3.14 cu ft before waste\u2014plan on six 80 lb bags (about eight 60 lb bags after YardTally\u2019s 5% waste factor). An 8-inch \u00d7 4 ft tube needs about three 80 lb bags after waste; a 10-inch needs about four. Multiply by pier count."
+    },
+    {
+      "question": "Do I need rebar in a Sonotube?",
+      "answer": "Follow the drawings and local rules. QUIKRETE shows using a piece of rebar or a shovel to consolidate the pour and remove air pockets\u2014that is placement, not a full cage design. If the plan calls for vertical bars or dowels, install what is specified."
+    },
+    {
+      "question": "Is a Sonotube the same as a fence post hole?",
+      "answer": "No. Sonotubes are cardboard forms for round piers. Dug fence holes without a tube use the post hole calculator and fence post guide. Different defaults, depths, and hardware details."
+    },
+  ],
+  "how-much-mulch-do-i-need": [
+    {
+      "question": "How much mulch do I need for 100 sq ft?",
+      "answer": "At 3 inches deep: 100 \u00d7 0.25 = 25 cu ft \u2248 0.93 cu yd, or thirteen 2 cu ft bags (nine 3 cu ft bags). At 2 inches the same bed needs about 16.7 cu ft. UF/IFAS notes one cubic yard covers about 108 sq ft at 3 inches."
+    },
+    {
+      "question": "Is it cheaper to buy mulch by the yard or by the bag?",
+      "answer": "Bulk usually costs less per cubic foot once you need about a cubic yard or more and can take delivery. Bags are better for small beds and touch-ups. Iowa notes bags are commonly 2 or 3 cu ft\u2014divide your cubic feet by the size on the package."
+    },
+    {
+      "question": "How much will 25 bags of mulch cover?",
+      "answer": "If they are 2 cu ft bags, that is 50 cu ft\u2014about 200 sq ft at 3 inches or about 300 sq ft at 2 inches. If they are 3 cu ft bags, 25 bags are 75 cu ft (about 300 sq ft at 3 inches). Always check the bag size."
+    },
+    {
+      "question": "What is the 3-3-3 rule for mulch?",
+      "answer": "UVM Extension cites a 3-3-3 method for mature trees: at least 3 inches from the trunk, no more than 3 inches deep, and about 3 feet of mulch diameter. Keep a donut clear of the bark\u2014never a mulch volcano. Other extensions use similar clearance and depth guidance without the slogan."
+    },
+    {
+      "question": "How deep should mulch be in beds?",
+      "answer": "About 2\u20133 inches of organic mulch for most beds (Clemson, UF/IFAS). See the mulch depth guide for the full depth discussion; this page focuses on quantity, bags vs bulk, and tree-ring mnemonic."
+    },
+  ],
 };

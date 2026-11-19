@@ -67,12 +67,12 @@ export const categories: Record<
   concrete: {
     slug: 'concrete',
     name: 'Concrete calculators',
-    title: 'Concrete Calculators: Slabs, Posts, Sonotubes',
+    title: 'Concrete Calculators: Slabs, Footings, Posts',
     description:
-      'Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.',
+      'Free concrete calculators for slabs, strip/pad footings, posts, Sonotubes and steps. Get cubic yards and 40/60/80 lb bag counts.',
     primaryKeyword: 'concrete calculator hub',
     answerFirst:
-      'Estimate slabs, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈56 × 80 lb bags before waste; ~62 after 10%).',
+      'Estimate slabs, footings, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈56 × 80 lb bags before waste; ~62 after 10%).',
     introHtml: `
       <h2>Which concrete calculator do I need?</h2>
       <div class="table-scroll">
@@ -80,9 +80,12 @@ export const categories: Record<
         <caption>Match the pour shape to the right tool</caption>
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
-          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Patio, slab, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Strip or spread pad footings</td><td><a href="/calculators/concrete-footing-calculator/">Concrete footing calculator</a></td><td>40 ft × 16&quot; × 8&quot; ≈ 1.32 yd³ (~66 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Slab cost (your ready-mix or bag prices)</td><td><a href="/calculators/concrete-slab-cost-calculator/">Concrete slab cost calculator</a></td><td>Volume × your $/yd or $/bag + optional add-ons</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
+          <tr><td>Deck pier count + bags</td><td><a href="/calculators/deck-footing-calculator/">Deck footing calculator</a></td><td>16×12 at 8 ft spacing ≈ 6 piers</td></tr>
           <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
         </tbody>
       </table>
@@ -144,7 +147,7 @@ export const categories: Record<
         <thead><tr><th>If you are building…</th><th>Start here</th><th>Also estimate</th></tr></thead>
         <tbody>
           <tr><td>Fence line</td><td><a href="/calculators/fence-calculator/">Fence calculator</a></td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete</a></td></tr>
-          <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube piers</a></td></tr>
+          <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/deck-footing-calculator/">Deck footings</a> · <a href="/calculators/sonotube-concrete-calculator/">Sonotube piers</a></td></tr>
           <tr><td>Roof / re-roof</td><td><a href="/calculators/roof-pitch-calculator/">Pitch</a> → <a href="/calculators/roofing-shingles-calculator/">Shingles</a></td><td><a href="/guides/how-to-measure-roof-pitch/">Measure pitch safely</a></td></tr>
           <tr><td>Painted walls</td><td><a href="/calculators/paint-calculator/">Paint calculator</a></td><td><a href="/guides/how-much-paint-for-a-room/">Room paint guide</a></td></tr>
           <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a></td></tr>
@@ -232,14 +235,17 @@ export const tools: ToolDefinition[] = [
     summary: 'Slabs, footings, and solid steps with cubic yards and bag counts.',
     calculatorId: 'concrete',
     relatedSlugs: [
+      'concrete-footing-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
       'brick-calculator',
-      'fence-calculator',
     ],
     relatedGuideSlugs: [
       'how-many-bags-of-concrete',
+      'how-much-concrete-do-i-need',
+      'concrete-slab-thickness',
       'concrete-for-10x10-slab',
       'how-much-concrete-for-fence-posts',
       'how-much-concrete-in-a-sonotube',
@@ -248,7 +254,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How many bags of concrete do I need?',
         answer:
-          'Convert your pour to cubic feet, divide by the bag yield, then round up and add waste. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. Example: a 10×10×4″ slab is 33.33 cu ft → about 1.23 cu yd; with 10% waste that is 62 × 80 lb bags or 82 × 60 lb bags. Use this slab calculator for rectangles; round forms need the Sonotube or post-hole tools.',
+          'Convert your pour to cubic feet, divide by the bag yield, then round up and add waste. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. Example: a 10×10×4″ slab is 33.33 cu ft → about 1.23 cu yd; with 10% waste that is 62 × 80 lb bags or 82 × 60 lb bags. Use this slab calculator for rectangles; strip/pad footings have a dedicated footing calculator; round forms need the Sonotube or post-hole tools.',
       },
       {
         question: 'How do I get cubic yards from a concrete calculator?',
@@ -263,7 +269,12 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Should I order ready-mix or use bags?',
         answer:
-          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix.',
+          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix. Enter your local bag and ready-mix prices (plus delivery) above to see which option wins at your numbers—YardTally does not invent regional prices.',
+      },
+      {
+        question: 'How does this calculator round ready-mix yards?',
+        answer:
+          'After waste, the yards-to-order line rounds up to the next ¼ cubic yard (0.25). Example: 1.23 cu yd orders as 1.25. Confirm the plant’s minimum load and short-load fees before you call.',
       },
       {
         question: 'How thick should a concrete slab be?',
@@ -368,7 +379,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator-post-holes'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -388,24 +399,45 @@ export const tools: ToolDefinition[] = [
     ],
     title: 'Sonotube Concrete Calculator: Bags',
     description:
-      'Free Sonotube concrete calculator: diameter × height → cubic yards and 40/60/80 lb bags. See how many bags of concrete for 8–18 inch tubes.',
+      'Free Sonotube calculator: bags for 8–36″ tubes, optional bell/pad footing, mixed sizes, and bags-per-foot. Confirm label yields before you pour.',
     h1: 'Sonotube Concrete Calculator: Bags by Diameter',
     answerFirst:
-      'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
-    summary: 'Round column and pier forms by diameter and height.',
+      'Sonotube volume is π × (inside Ø ÷ 2)² × height. A 12″ × 4 ft tube is about 3.14 cu ft—six 80 lb bags before waste (QUIKRETE 1101). Add an optional bell or pad when required, mix two diameters in one run, and keep about 5% waste for spillage.',
+    summary: 'Round pier forms with optional bell/pad, mixed sizes, and bags-per-foot.',
     calculatorId: 'sonotube',
-    relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
+    relatedSlugs: [
+      'concrete-calculator',
+      'concrete-calculator-post-holes',
+      'deck-footing-calculator',
+      'deck-material-calculator',
+    ],
     relatedGuideSlugs: [
       'how-much-concrete-in-a-sonotube',
+      'sonotube-footing-and-depth',
       'how-much-concrete-for-fence-posts',
       'how-many-bags-of-concrete',
       'deck-material-list-16x24',
     ],
     faq: [
       {
+        question: 'How many bags of concrete per foot of Sonotube?',
+        answer:
+          'Per foot before waste, bags = ceil(π × (Ø÷24)² ÷ yield) with QUIKRETE 1101 yields of about 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb. A 12″ tube is about 0.785 cu ft/ft → 3 / 3 / 2 / 2 bags. Multiply by height and pier count, then add waste. See the bags-per-foot table on this page.',
+      },
+      {
+        question: 'Can this Sonotube calculator include a footing bell or pad?',
+        answer:
+          'Yes. Choose bell (truncated cone) or circular pad under the tube to add that volume before waste. Required sizes come from local code or a plan—this tool only estimates concrete volume. Rectangular strip footings use the main concrete calculator.',
+      },
+      {
+        question: 'Can I mix different Sonotube diameters in one run?',
+        answer:
+          'Yes. Enter size A diameter/height/count, then optional size B. Volumes are summed before bag conversion. Example: two 12″×4 ft plus two 10″×3 ft is about 12.8 cu ft before waste.',
+      },
+      {
         question: 'How many bags of concrete for a Sonotube?',
         answer:
-          'Volume = π × r² × height using inside diameter, then divide by bag yield and round up. A 12″ × 4 ft Sonotube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste (QUIKRETE 1101 yields). Multiply by pier count; the calculator adds a default 5% waste for spillage.',
+          'Volume = π × r² × height using inside diameter, then divide by bag yield and round up. A 12″ × 4 ft Sonotube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste (QUIKRETE 1101 yields). Multiply by pier count; the calculator adds a default 5% waste for spillage. Optional bell/pad volume is extra when selected.',
       },
       {
         question: 'How much concrete for a 12-inch Sonotube?',
@@ -449,7 +481,92 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'concrete-footing-calculator',
+    name: 'Concrete Footing Calculator',
+    shortName: 'Footings',
+    category: 'concrete',
+    primaryKeyword: 'concrete footing calculator',
+    secondaryKeywords: [
+      'strip footing calculator',
+      'footing concrete calculator',
+      'pad footing calculator',
+      'continuous footing calculator',
+      'how much concrete for a footing',
+    ],
+    title: 'Concrete Footing Calculator: Yards & Bags',
+    description:
+      'Free concrete footing calculator for strip and pad footings. Get cubic yards, waste %, 40/60/80 lb bags, and an optional rebar estimate.',
+    h1: 'Concrete Footing Calculator: Strip & Pad',
+    answerFirst:
+      'Strip and pad footings use length × width × depth × count. A 40 ft run 16 in wide by 8 in deep is about 35.6 cu ft (1.32 cu yd) before waste—about 66 × 80 lb bags after 10%. Bag yields follow QUIKRETE/Sakrete (~0.30/0.45/0.60 cu ft). Optional rebar is a planning takeoff, not a design.',
+    summary: 'Strip and pad footing yards, bags, and optional rebar.',
+    calculatorId: 'footing',
+    relatedSlugs: [
+      'concrete-calculator',
+      'rebar-calculator',
+      'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: [
+      'how-many-bags-of-concrete',
+      'concrete-for-10x10-slab',
+      'how-much-concrete-in-a-sonotube',
+    ],
+    faq: [
+      {
+        question: 'How much concrete for a strip footing?',
+        answer:
+          'Multiply length × width × depth (all in feet) × number of segments. A 40 ft × 16 in × 8 in strip is about 35.6 cu ft (1.32 cu yd) before waste; with 10% waste plan about 66 × 80 lb bags at 0.60 cu ft per bag. Enter the same dimensions above for live totals.',
+      },
+      {
+        question: 'How do I calculate pad footing concrete?',
+        answer:
+          'Use the same rectangle formula per pad, then multiply by pad count. Four 3×3×12 in pads are 36 cu ft (~1.33 cu yd) before waste. Switch footing type to Spread pad and set Count to the number of pads.',
+      },
+      {
+        question: 'How many bags of concrete for a footing?',
+        answer:
+          'Convert the footing to cubic feet with waste, then divide by bag yield and round up. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags (QUIKRETE / Sakrete). Confirm the yield printed on the bag you buy.',
+      },
+      {
+        question: 'Does this footing calculator include rebar?',
+        answer:
+          'Optionally. Turn Rebar estimate On for a planning stick count (longitudinal + transverse for strip; each-way grid for pads). It does not design bar size, spacing, cover, or laps—follow drawings and local code. Full slab mats also have a dedicated rebar calculator.',
+      },
+      {
+        question: 'Footing calculator vs slab or Sonotube calculator?',
+        answer:
+          'Use this page for continuous/strip and spread pad footings with count and optional rebar. Use the slab concrete calculator for patio/garage slabs and solid steps. Use the Sonotube calculator for round cardboard pier forms, and the post-hole tool for dug fence holes.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE Concrete Mix 1101 – Technical data',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+        usedFor: '40/60/80 lb bag yield planning figures (~0.30 / 0.45 / 0.60 cu ft)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sakrete High-Strength Concrete Mix – TDS',
+        href: 'https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf',
+        usedFor: 'Cross-check bag coverage for bagged concrete (~0.30 / 0.45 / 0.60 cu ft)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'ACI 332.1R-18 preview – Guide to Residential Concrete Construction',
+        href: 'https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf',
+        usedFor: 'Residential concrete practice overview (preview PDF); footing design is not performed here',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-footing-calculator'],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -465,11 +582,12 @@ export const tools: ToolDefinition[] = [
       'Enter bed length, width and depth to see how many cubic yards or 2 and 3 cu ft bags of mulch you need. Includes recommended mulch depths for beds and trees.',
     h1: 'Mulch Calculator: Cubic Yards & Bags',
     answerFirst:
-      'Mulch volume equals area times depth. Convert depth to feet (3 inches = 0.25 ft), then multiply by square feet. Divide cubic feet by 27 for yards, or by 2 or 3 for bag counts. Most beds need 2–3 inches of organic mulch; keep mulch off tree trunks.',
+      'Mulch volume equals area times depth. Convert depth to feet (3 inches = 0.25 ft), then multiply by square feet. Divide cubic feet by 27 for yards, or by 2 or 3 for bag counts. Optional local prices compare bulk vs bags—no invented prices. Most beds need 2–3 inches; keep mulch off trunks.',
     summary: 'Bed mulch in cubic yards and bag counts.',
     calculatorId: 'mulch',
     relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],
     relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
       'mulch-depth-guide',
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
@@ -494,6 +612,11 @@ export const tools: ToolDefinition[] = [
         question: 'How deep should I set the mulch calculator?',
         answer:
           'Most flower beds and gardens use about 2–3 inches of organic mulch. See the mulch depth guide for extension ranges, then enter that depth here for bags and yards.',
+      },
+      {
+        question: 'How do I compare bag vs bulk mulch cost?',
+        answer:
+          'Enter your local price per cubic yard and per bag (leave blank if you only need volume). The calculator multiplies volume × yard price and bag count × bag price so you can compare—YardTally does not invent retail prices.',
       },
     ],
     sources: [
@@ -524,7 +647,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -544,7 +667,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Annular mulch rings around trees by outer and trunk diameter.',
     calculatorId: 'tree-ring-mulch',
     relatedSlugs: ['mulch-calculator', 'topsoil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
+    relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
+      'mulch-depth-guide',
+      'topsoil-vs-garden-soil',
+    ],
     faq: [
       {
         question: 'Why subtract the inner circle?',
@@ -577,7 +704,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator-tree-rings'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -590,13 +717,14 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['crushed stone calculator', 'how much gravel do I need'],
     title: 'Gravel Calculator – Tons & Cubic Yards | YardTally',
     description:
-      'Gravel and crushed stone calculator: length, width, and depth to cubic yards and estimated tons. Useful for driveways, paths, and bases.',
+      'Gravel and crushed stone calculator: length, width, and depth to cubic yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk cost compare.',
     h1: 'Gravel Calculator: Tons & Cubic Yards',
     answerFirst:
-      'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate. Add ~10% for compaction on driveways and paths.',
+      'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate and converts tons↔yards both ways. Optional prices compare bulk yards/tons vs 0.5 cu ft bags. Add ~10% for compaction on driveways and paths.',
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
     relatedSlugs: [
+      'french-drain-gravel-calculator',
       'sand-calculator',
       'paver-calculator',
       'asphalt-calculator',
@@ -606,9 +734,19 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
-        question: 'How do I convert gravel cubic feet to tons?',
+        question: 'How do I convert gravel tons to cubic yards?',
         answer:
-          'Tons ≈ (cubic feet × density lb/cu ft) ÷ 2,000. Density varies with rock type and moisture—confirm with your supplier rather than assuming one number for every product.',
+          'Yards ≈ tons × 2000 ÷ density (lb/cu yd). YardTally’s mid crushed-stone density is about 2,700 lb/cu yd (~1.35 ton/yd)—confirm with your stone yard ticket. Enter tons in the optional converter, or read tons from the volume result.',
+      },
+      {
+        question: 'Is bagged gravel cheaper than bulk by the yard?',
+        answer:
+          'Enter your local $/yd, $/ton, and per-bag prices above. Bulk usually wins past about a cubic yard when a truck can dump; bags win for small patches or tight access. This tool does not invent regional prices.',
+      },
+      {
+        question: 'How do I convert gravel cubic yards to tons (and back)?',
+        answer:
+          'Tons from yards ≈ yards × (density lb/yd³ ÷ 2,000). Yards from tons ≈ tons × 2,000 ÷ density. This tool uses ~2,700 lb/yd³ (~1.35 ton/yd³) as a mid estimate—confirm with your stone yard ticket.',
       },
       {
         question: 'What depth should I use for a driveway base?',
@@ -616,9 +754,9 @@ export const tools: ToolDefinition[] = [
           'Depth depends on soil, traffic, and local practice. Enter the compacted depth your plan calls for; decorative surface stone is often shallower than structural base.',
       },
       {
-        question: 'Should I order by the yard or by the ton?',
+        question: 'Should I order by the yard, by the ton, or in bags?',
         answer:
-          'Use cubic yards when pricing by volume and tons when the quarry sells by weight. This calculator reports both when you supply a density.',
+          'Use cubic yards when pricing by volume, tons when the quarry sells by weight, and 0.5 cu ft bags for small patches. Optional price fields compare those options using your local quotes only—no invented retail prices.',
       },
       {
         question: 'Do I need a waste factor?',
@@ -641,6 +779,86 @@ export const tools: ToolDefinition[] = [
     embeddable: true,
   },
   {
+    slug: 'french-drain-gravel-calculator',
+    name: 'French Drain Gravel Calculator',
+    shortName: 'French drain',
+    category: 'landscape',
+    primaryKeyword: 'french drain gravel calculator',
+    secondaryKeywords: [
+      'french drain calculator',
+      'how much gravel for a french drain',
+      'french drain fabric calculator',
+    ],
+    title: 'French Drain Gravel Calculator | YardTally',
+    description:
+      'French drain gravel calculator: trench size and pipe diameter to cubic yards and tons, plus landscape fabric area and pipe length. Free planning takeoff.',
+    h1: 'French Drain Gravel Calculator',
+    answerFirst:
+      'French drain gravel equals trench volume minus the perforated pipe cylinder, then ÷27 for cubic yards. LSU AgCenter cites residential trenches about 12–18 in wide and 18–24 in deep with ~4 in pipe. Enter your sizes, density for tons (default ~2,700 lb/yd³), and read fabric wrap area plus pipe length.',
+    summary: 'French drain trench gravel (pipe subtracted), tons, fabric area, and pipe length.',
+    calculatorId: 'french-drain',
+    relatedSlugs: [
+      'gravel-calculator',
+      'retaining-wall-calculator',
+      'sand-calculator',
+      'topsoil-calculator',
+    ],
+    relatedGuideSlugs: ['gravel-types-for-driveways', 'retaining-wall-blocks-and-base'],
+    faq: [
+      {
+        question: 'How much gravel do I need for a French drain?',
+        answer:
+          'Multiply trench length × width × depth, subtract the perforated pipe volume (π × radius² × length), add waste, then divide by 27 for cubic yards. A 40 ft × 12 in × 18 in trench with 4 in pipe and 10% waste is about 2.3 cu yd at the defaults on this page.',
+      },
+      {
+        question: 'Do I subtract the pipe from the gravel volume?',
+        answer:
+          'Yes for a materials takeoff. The pipe occupies space inside the trench, so ordering the full trench box overbuys rock. This calculator subtracts the cylinder automatically.',
+      },
+      {
+        question: 'How much landscape fabric for a French drain?',
+        answer:
+          'Plan a wrap: fabric width ≈ trench width + 2 × depth + fold-over overlap, then multiply by trench length. The overlap field covers the top fold; buy the roll width your supplier stocks that meets or exceeds that wrap width.',
+      },
+      {
+        question: 'What pipe size is typical for a yard French drain?',
+        answer:
+          'Residential yard drains often use about 4 inch perforated pipe inside a gravel trench (LSU AgCenter; similar minimums appear on municipal DIY sheets). Confirm diameter for the flow and fittings you need—this tool does not size hydraulics.',
+      },
+      {
+        question: 'What density should I use for drain rock tons?',
+        answer:
+          'Ask your stone yard. The default ~2,700 lb/cu yd matches YardTally’s crushed-stone mid estimate on the gravel calculator. Moisture and rock type change delivered weight more than volume.',
+      },
+    ],
+    sources: [
+      {
+        label: 'LSU AgCenter – Installing and Maintaining a French Drain',
+        href: 'https://www.lsuagcenter.com/articles/page1684941508413',
+        usedFor:
+          'Residential trench width/depth ranges (~12–18 in × 18–24 in), ~4 in perforated pipe, washed gravel, geotextile wrap context',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'City of Norfolk – Infiltration / French drain DIY notes',
+        href: 'https://www.norfolk.gov/DocumentCenter/View/77565/Infiltration',
+        usedFor: 'Minimum trench size band, non-woven geotextile, washed gravel, slope notes',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Washington State University Extension – Improving Drainage (PDF)',
+        href: 'https://wpcdn.web.wsu.edu/wp-extension/uploads/sites/2079/2014/02/water-diversion.pdf',
+        usedFor: 'Geotextile-lined trench with perforated pipe in gravel; ~0.5–1% slope guidance',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['french-drain-gravel-calculator'],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
     slug: 'topsoil-calculator',
     name: 'Topsoil Calculator',
     shortName: 'Topsoil',
@@ -649,10 +867,10 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['soil calculator cubic yards', 'how much topsoil'],
     title: 'Topsoil Calculator – Cubic Yards & Bags | YardTally',
     description:
-      'Calculate topsoil for lawns and beds: enter length, width and depth to get cubic yards, cubic meters and bag estimates with waste. Free planning tool.',
+      'Topsoil calculator: length, width, and depth to cubic yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk cost compare.',
     h1: 'Topsoil Calculator: Yards, Bags & Tons',
     answerFirst:
-      'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; bagged soil is handy for small beds. Include ~10% for settling.',
+      'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. This tool estimates tons at ~2,200 lb/yd³, counts 0.5 cu ft bags, and converts tons↔yards both ways. Optional prices compare bulk vs bags—no invented retail prices. Include ~10% for settling.',
     summary: 'Lawn and garden topsoil depth to yards.',
     calculatorId: 'topsoil',
     relatedSlugs: ['mulch-calculator', 'raised-bed-soil-calculator', 'sand-calculator'],
@@ -664,9 +882,9 @@ export const tools: ToolDefinition[] = [
           'Measure average fill depth across the area. Even 1 inch over 1,000 sq ft is 1,000 × (1 ÷ 12) ≈ 83 cu ft (~3.1 cu yd). Deep low spots should be measured separately.',
       },
       {
-        question: 'How do I convert topsoil cubic feet to yards or bags?',
+        question: 'How do I convert topsoil yards to tons or bags?',
         answer:
-          'Divide cubic feet by 27 for cubic yards. For bags, divide cubic feet by the cubic feet printed on the bag—bagged topsoil sizes vary by brand, so do not assume a universal bag volume.',
+          'Tons ≈ yards × (2,200 ÷ 2,000) with this tool’s mid density (~1.1 ton/yd³)—confirm moisture with your yard. For common 0.5 cu ft bags, divide cubic feet by 0.5 and round up. Optional convert-tons and price fields compare weight, volume, and bag totals.',
       },
       {
         question: 'Should I add waste for settling?',
@@ -689,7 +907,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['topsoil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -702,10 +920,10 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['paver sand calculator', 'how much sand do I need'],
     title: 'Sand Calculator – Beds, Pavers & Play | YardTally',
     description:
-      'Sand calculator for paver bedding, leveling beds, and play areas. Convert length × width × depth to cubic yards and estimated tons with waste.',
+      'Sand calculator for paver beds and play areas: length × width × depth to yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk costs.',
     h1: 'Sand Calculator: Cubic Yards & Bags',
     answerFirst:
-      'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding.',
+      'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Tons use ~2,700 lb/yd³; optional prices compare bulk vs 0.5 cu ft bags. Add waste for screeding.',
     summary: 'Bedding and fill sand by area and depth.',
     calculatorId: 'sand',
     relatedSlugs: ['paver-calculator', 'gravel-calculator', 'asphalt-calculator', 'concrete-calculator'],
@@ -722,9 +940,9 @@ export const tools: ToolDefinition[] = [
           'Usually no. Play sand, masonry sand, and concrete/bedding sand are not interchangeable. Use the product specified for pavers or the mix design.',
       },
       {
-        question: 'How do I convert sand volume to cubic yards?',
+        question: 'How do I convert sand yards to tons or bags?',
         answer:
-          'Volume = length × width × depth. Divide cubic feet by 27 for cubic yards. A 10×10 ft area at 1 inch is about 8.3 cu ft (~0.31 cu yd) before waste.',
+          'Tons ≈ yards × (2,700 ÷ 2,000) with this tool’s mid density (~1.35 ton/yd³)—moisture swings weight. For 0.5 cu ft bags, divide cubic feet by 0.5 and round up. Enter optional convert-tons or local prices to compare bulk vs bags.',
       },
       {
         question: 'Why does sand migrate at the edges?',
@@ -864,6 +1082,91 @@ export const tools: ToolDefinition[] = [
     embeddable: true,
   },
   {
+    slug: 'deck-footing-calculator',
+    name: 'Deck Footing Calculator',
+    shortName: 'Deck footings',
+    category: 'outdoor',
+    primaryKeyword: 'deck footing calculator',
+    secondaryKeywords: [
+      'deck pier calculator',
+      'how many footings for a deck',
+      'deck post footing calculator',
+      'deck concrete footings',
+    ],
+    title: 'Deck Footing Calculator: Count & Bags',
+    description:
+      'Free deck footing calculator: deck size and beam/post spacing → footing count, frost-depth hole size, concrete per pier, bags, and optional Sonotube diameter.',
+    h1: 'Deck Footing Calculator: Count, Depth & Bags',
+    answerFirst:
+      'Footing count comes from a spacing grid: posts along = floor(length ÷ post spacing) + 1, times beam rows across the width. Enter your local frost depth for hole depth, plus hole or Sonotube diameter for πr²h volume and 40/60/80 lb bags. Check local code—this is a planning estimate, not a structural design.',
+    summary: 'Deck pier count, frost-depth holes, and bag totals.',
+    calculatorId: 'deck-footings',
+    relatedSlugs: [
+      'sonotube-concrete-calculator',
+      'deck-material-calculator',
+      'concrete-calculator-post-holes',
+      'concrete-calculator',
+    ],
+    relatedGuideSlugs: [
+      'how-much-concrete-in-a-sonotube',
+      'how-many-bags-of-concrete',
+      'deck-material-list-12x16',
+      'deck-material-list-16x24',
+    ],
+    faq: [
+      {
+        question: 'How many footings does a deck need?',
+        answer:
+          'It depends on span limits for your beams and joists, not deck area alone. This calculator builds a rectangular grid from the post and beam spacing you enter (posts along = floor(length ÷ spacing) + 1). Confirm the layout against span tables, hardware instructions, and local code before you dig.',
+      },
+      {
+        question: 'How deep should deck footings be?',
+        answer:
+          'Depth usually must reach below the local frost line where frost heave is a risk, unless your jurisdiction allows a frost-protected shallow foundation detail. Enter that frost depth here as hole depth. Do not guess from a national average—ask the building department or read the frost map they enforce.',
+      },
+      {
+        question: 'How much concrete per deck footing?',
+        answer:
+          'Volume per round pier is π × (form radius)² × depth. A 12-inch form 4 feet deep holds about 3.14 cu ft before waste—roughly six 80 lb bags of standard mix at ~0.60 cu ft per bag (QUIKRETE Concrete Mix 1101). Multiply by footing count and add a small waste factor.',
+      },
+      {
+        question: 'Should I use a Sonotube for deck posts?',
+        answer:
+          'Cardboard tube forms are common for round deck piers when the plan calls for them. Enter optional Sonotube inside diameter so volume uses the tube, not a wider dug hole. For tube-only takeoffs with a known count, use the Sonotube concrete calculator.',
+      },
+      {
+        question: 'Does this design beams or post size?',
+        answer:
+          'No. It estimates footing count and concrete volume from the spacing and diameters you provide. Beam size, post size, lateral bracing, and footing bells need code tables, manufacturer charts, or an engineer.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE Concrete Mix 1101 – Technical data',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+        usedFor: 'Bag yields (~0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sonotube concrete forms – product sizing',
+        href: 'https://www.sonotube.com/sonotube-concrete-forms',
+        usedFor: 'Inside diameter / form sizing for round tubes',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'AWC – Deck Construction Guide resources',
+        href: 'https://www.awc.org/',
+        usedFor: 'Deck framing practice context (not a substitute for code or frost maps)',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['deck-footing-calculator'],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
     slug: 'deck-material-calculator',
     name: 'Deck Material Calculator',
     shortName: 'Deck',
@@ -879,6 +1182,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
     relatedSlugs: [
+      'deck-footing-calculator',
       'sonotube-concrete-calculator',
       'fence-calculator',
       'lumber-calculator',
@@ -905,7 +1209,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Does this design beams, footings, or stairs?',
         answer:
-          'No. It is a rectangular decking and joist takeoff. Size beams, posts, footings, and stairs from code and manufacturer tables—or a qualified designer.',
+          'No. It is a rectangular decking and joist takeoff. Size beams, posts, and stairs from code and manufacturer tables—or a qualified designer. For pier count and bag totals, use the deck footing calculator.',
       },
       {
         question: 'How are screw counts estimated?',
@@ -1117,7 +1421,13 @@ export const tools: ToolDefinition[] = [
       'Block count ≈ wall face area ÷ block face area, or courses × blocks per course. Courses = ceil(wall height ÷ block height). Add ~5% waste. Include a compacted gravel base trench in your materials list for drainage and leveling.',
     summary: 'SRW blocks, courses, and base gravel.',
     calculatorId: 'retaining-wall',
-    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'brick-calculator', 'concrete-calculator'],
+    relatedSlugs: [
+      'gravel-calculator',
+      'french-drain-gravel-calculator',
+      'paver-calculator',
+      'brick-calculator',
+      'concrete-calculator',
+    ],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -1151,7 +1461,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['retaining-wall-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1210,7 +1520,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['grass-seed-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1322,7 +1632,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['raised-bed-soil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1550,11 +1860,17 @@ export const tools: ToolDefinition[] = [
     calculatorId: 'rebar',
     relatedSlugs: [
       'concrete-calculator',
+      'concrete-footing-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'brick-calculator',
     ],
-    relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
+    relatedGuideSlugs: [
+      'concrete-slab-thickness',
+      'concrete-for-10x10-slab',
+      'how-many-bags-of-concrete',
+    ],
     faq: [
       {
         question: 'How much rebar for a concrete slab?',
@@ -1593,6 +1909,87 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['rebar-calculator'],
     datePublished: '2026-11-13',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'concrete-slab-cost-calculator',
+    name: 'Concrete Slab Cost Calculator',
+    shortName: 'Slab cost',
+    category: 'concrete',
+    primaryKeyword: 'concrete slab cost calculator',
+    secondaryKeywords: [
+      'concrete slab cost',
+      'cost of concrete slab',
+      'concrete patio cost calculator',
+      'ready mix concrete cost calculator',
+    ],
+    title: 'Concrete Slab Cost Calculator | YardTally',
+    description:
+      'Estimate concrete slab cost from your ready-mix or bag prices. Add optional gravel, rebar, forms, delivery, and labor—defaults are labeled examples only.',
+    h1: 'Concrete Slab Cost Calculator',
+    answerFirst:
+      'This concrete slab cost calculator turns length × width × thickness into cubic yards (or bags), then multiplies by the ready-mix or bag price you enter. Add optional line items you price yourself—gravel base, rebar or mesh, forms, delivery/short-load fees, and labor per square foot. Defaults are labeled examples only; replace them with your plant or store quotes.',
+    summary: 'Slab volume priced with your ready-mix or bag quotes plus optional add-ons.',
+    calculatorId: 'concrete-slab-cost',
+    relatedSlugs: [
+      'concrete-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+      'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
+    faq: [
+      {
+        question: 'How do I estimate concrete slab cost?',
+        answer:
+          'Convert the slab to cubic yards (or bags), multiply by the ready-mix or bag price from your quote, then add gravel, steel, forms, delivery, and labor you have priced. This tool does the volume math and the dollar math from numbers you enter—it does not invent local market rates.',
+      },
+      {
+        question: 'Should I use ready-mix or bag prices?',
+        answer:
+          'Bags work for small pads you can mix in batches. Around one cubic yard or any continuous patio pour, compare a ready-mix short-load ticket—including delivery fees—against bag count × shelf price and your mixing time. Run both modes with your real quotes.',
+      },
+      {
+        question: 'Are the default dollar amounts real market prices?',
+        answer:
+          'No. Ready-mix and bag defaults are labeled examples so the form shows a worked total. Replace every price field with your plant ticket or store tag before you budget. Optional add-ons start at $0 until you paste a quote.',
+      },
+      {
+        question: 'Does cost per square foot include labor?',
+        answer:
+          'Only if you enter a labor rate per sq ft. Leave labor at $0 for a materials-only estimate. Cost per sq ft is total ÷ slab area for whatever line items you filled in.',
+      },
+      {
+        question: 'Where do I get yards and bags without pricing?',
+        answer:
+          'Use the concrete calculator for volume and 40/60/80 lb bag counts, then return here with those quantities and your quotes. Charts for a 10×10 slab are in the concrete-for-10x10-slab guide.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE – Concrete Mix (No. 1101) bag yields',
+        href: 'https://www.quikrete.com/calculator/main.asp',
+        usedFor: '40/60/80 lb bag yield planning figures used when bag mode prices material',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sakrete – Concrete calculator',
+        href: 'https://sakrete.com/resources/calculators/',
+        usedFor: 'Cross-check bag coverage estimates for bagged concrete',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'American Cement Association (formerly PCA)',
+        href: 'https://www.cement.org/',
+        usedFor: 'Industry context on cement and concrete materials (not regional price data)',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-slab-cost-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,

@@ -31,7 +31,13 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
-              (calculatorId === 'lumber' && field.name === 'boardFeet')
+              (calculatorId === 'sonotube' &&
+                ['bellDiameter', 'bellHeight', 'padDiameter', 'padThickness'].includes(field.name)) ||
+              (calculatorId === 'lumber' && field.name === 'boardFeet') ||
+              (calculatorId === 'footing' &&
+                ['longBars', 'spacing', 'barSize', 'stick', 'rebarWaste'].includes(field.name)) ||
+              (calculatorId === 'concrete-slab-cost' &&
+                ['bagSize', 'bagPrice'].includes(field.name))
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -52,7 +58,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
                 step={field.step || 'any'}
                 min="0"
                 value={field.value}
-                required
+                required={!field.optional}
               />
             )}
             {field.hint && <p class="hint">{field.hint}</p>}
@@ -88,11 +94,18 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
 <script>
   import {
     asphaltTons,
+    concreteCostCompare,
     bedMulch,
+    deckFootings,
+    concreteSlabCost,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
+    footingRebar,
+    footingVolume,
+    formatUsd,
     grassSeed,
+    frenchDrainMaterials,
     gravelVolume,
     lumberFromBoardFeet,
     lumberFromPieces,
@@ -107,10 +120,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     roofPitch,
     sandVolume,
     slabVolume,
-    sonotubeVolume,
+    mixedSonotubeVolume,
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
+    type BagSizeLb,
     type RebarSize,
   } from '../lib/calculators';
 
@@ -127,7 +141,105 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     metricDefault: string;
     imperialHint?: string;
     metricHint?: string;
+    /** Empty / zero allowed (convertTons, local prices). */
+    optional?: boolean;
   };
+
+  const bulkOptionalFields = (): Field[] => [
+    {
+      name: 'convertTons',
+      label: 'Convert tons → yards (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'leave blank to skip',
+      metricHint: 'leave blank to skip',
+      optional: true,
+    },
+    {
+      name: 'pricePerYard',
+      label: 'Price per cu yd (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+    {
+      name: 'pricePerTon',
+      label: 'Price per ton (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+    {
+      name: 'pricePerBag',
+      label: 'Price per 0.5 cu ft bag (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+  ];
+
+  function bulkResultRows(r: {
+    areaSqFt: number;
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    tons?: number;
+    tonsFromYards?: number;
+    yardsFromTons?: number;
+    bags05CuFt?: number;
+    costYards?: number;
+    costTons?: number;
+    costBags?: number;
+    cheapestLabel?: 'yard' | 'ton' | 'bags';
+    cheapestCost?: number;
+  }): [string, string][] {
+    const rows: [string, string][] = [
+      ['Area', `${r.areaSqFt} sq ft`],
+      ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+    ];
+    if (r.tonsFromYards != null) rows.push(['Tons from yards', String(r.tonsFromYards)]);
+    else if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+    if (r.yardsFromTons != null) rows.push(['Yards from tons', String(r.yardsFromTons)]);
+    if (r.bags05CuFt != null) rows.push(['0.5 cu ft bags', String(r.bags05CuFt)]);
+    if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+    if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
+    if (r.costBags != null) rows.push(['Bag cost', `$${r.costBags}`]);
+    if (r.cheapestLabel && r.cheapestCost != null) {
+      const label =
+        r.cheapestLabel === 'yard' ? 'bulk by yard' : r.cheapestLabel === 'ton' ? 'bulk by ton' : 'bags';
+      rows.push(['Cheaper option', `${label} ($${r.cheapestCost})`]);
+    }
+    return rows;
+  }
+
+  function mulchResultRows(r: {
+    areaSqFt: number;
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    bags2CuFt: number;
+    bags3CuFt: number;
+    costYards?: number;
+    costBags2?: number;
+    costBags3?: number;
+  }): [string, string][] {
+    const rows: [string, string][] = [
+      ['Area', `${r.areaSqFt} sq ft`],
+      ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+      ['2 cu ft bags', String(r.bags2CuFt)],
+      ['3 cu ft bags', String(r.bags3CuFt)],
+    ];
+    if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+    if (r.costBags2 != null) rows.push(['2 cu ft bag cost', `$${r.costBags2}`]);
+    if (r.costBags3 != null) rows.push(['3 cu ft bag cost', `$${r.costBags3}`]);
+    return rows;
+  }
 
   type CalculatorConfig = {
     fields: Field[];
@@ -165,6 +277,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           metricHint: 'cm',
         },
         { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
+        ...bulkOptionalFields(),
       ],
       compute(v, u) {
         const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
@@ -176,13 +289,12 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           lengthUnit: lengthUnit(u),
           widthUnit: lengthUnit(u),
           wasteFactor: v.waste / 100,
+          convertTons: v.convertTons > 0 ? v.convertTons : undefined,
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerTon: v.pricePerTon > 0 ? v.pricePerTon : undefined,
+          pricePerBag: v.pricePerBag > 0 ? v.pricePerBag : undefined,
         });
-        const rows: [string, string][] = [
-          ['Area', `${r.areaSqFt} sq ft`],
-          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
-        ];
-        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
-        return rows;
+        return bulkResultRows(r);
       },
     };
   }
@@ -192,6 +304,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     volumeCuYd: number;
     volumeCuM: number;
     bags40: number;
+    bags50: number;
     bags60: number;
     bags80: number;
   }): [string, string][] {
@@ -200,6 +313,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       ['Cubic yards', String(r.volumeCuYd)],
       ['Cubic meters', String(r.volumeCuM)],
       ['40 lb bags', String(r.bags40)],
+      ['50 lb bags', String(r.bags50)],
       ['60 lb bags', String(r.bags60)],
       ['80 lb bags', String(r.bags80)],
     ];
@@ -262,12 +376,53 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           metricHint: 'cm',
         },
         { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'priceBag40',
+          label: 'Price per 40 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceBag60',
+          label: 'Price per 60 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceBag80',
+          label: 'Price per 80 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceYd',
+          label: 'Ready-mix price per cu yd (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote',
+          metricHint: 'your quote',
+        },
+        {
+          name: 'delivery',
+          label: 'Delivery fee (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'one-time fee',
+          metricHint: 'one-time fee',
+        },
       ],
       compute(v, u) {
         const waste = v.waste / 100;
         const shape = String((v as any).shapeRaw ?? 'slab');
+        let r;
         if (shape === 'steps') {
-          const r = stepsVolume({
+          r = stepsVolume({
             numberOfSteps: v.steps,
             riser: v.riser,
             tread: v.tread,
@@ -277,18 +432,41 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             widthUnit: lengthUnit(u),
             wasteFactor: waste,
           });
-          return resultRows(r);
+        } else {
+          r = slabVolume({
+            length: v.length,
+            width: v.width,
+            thickness: v.thickness,
+            lengthUnit: lengthUnit(u),
+            widthUnit: lengthUnit(u),
+            thicknessUnit: smallLengthUnit(u),
+            wasteFactor: waste,
+          });
         }
-        const r = slabVolume({
-          length: v.length,
-          width: v.width,
-          thickness: v.thickness,
-          lengthUnit: lengthUnit(u),
-          widthUnit: lengthUnit(u),
-          thicknessUnit: smallLengthUnit(u),
-          wasteFactor: waste,
+        const rows = resultRows(r);
+        const cost = concreteCostCompare({
+          volumeCuYd: r.volumeCuYd,
+          bags40: r.bags40,
+          bags60: r.bags60,
+          bags80: r.bags80,
+          pricePerBag40: v.priceBag40,
+          pricePerBag60: v.priceBag60,
+          pricePerBag80: v.priceBag80,
+          pricePerCuYd: v.priceYd,
+          deliveryFee: v.delivery,
         });
-        return resultRows(r);
+        rows.push(['Yards to order (↑¼ yd)', String(cost.orderCuYdQuarter)]);
+        if (cost.bagCost40 != null) rows.push(['Bag cost (40 lb)', `$${cost.bagCost40}`]);
+        if (cost.bagCost60 != null) rows.push(['Bag cost (60 lb)', `$${cost.bagCost60}`]);
+        if (cost.bagCost80 != null) rows.push(['Bag cost (80 lb)', `$${cost.bagCost80}`]);
+        if (cost.readyMixCost != null) rows.push(['Ready-mix + delivery', `$${cost.readyMixCost}`]);
+        if (cost.readyMixCheaperThanBags != null) {
+          rows.push([
+            'Cheaper option',
+            cost.readyMixCheaperThanBags ? 'Ready-mix (at your prices)' : 'Bags (at your prices)',
+          ]);
+        }
+        return rows;
       },
     },
     'post-holes': {
@@ -329,7 +507,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       fields: [
         {
           name: 'diameter',
-          label: 'Tube diameter',
+          label: 'Tube diameter (size A)',
           imperialDefault: '12',
           metricDefault: '30',
           imperialHint: 'inches',
@@ -337,26 +515,380 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         },
         {
           name: 'height',
-          label: 'Height',
+          label: 'Height (size A)',
           imperialDefault: '4',
           metricDefault: '1.2',
           imperialHint: 'feet',
           metricHint: 'meters',
         },
-        { name: 'count', label: 'Number of tubes', imperialDefault: '4', metricDefault: '4' },
+        { name: 'count', label: 'Number of tubes (size A)', imperialDefault: '4', metricDefault: '4' },
+        {
+          name: 'diameterB',
+          label: 'Tube diameter (size B, optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'inches — 0 to skip',
+          metricHint: 'cm — 0 to skip',
+        },
+        {
+          name: 'heightB',
+          label: 'Height (size B)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'countB', label: 'Number of tubes (size B)', imperialDefault: '0', metricDefault: '0' },
+        {
+          name: 'baseType',
+          label: 'Base under tube',
+          type: 'select',
+          options: [
+            { value: 'none', label: 'None (tube only)' },
+            { value: 'bell', label: 'Bell / flared base' },
+            { value: 'pad', label: 'Circular pad' },
+          ],
+          imperialDefault: 'none',
+          metricDefault: 'none',
+        },
+        {
+          name: 'bellDiameter',
+          label: 'Bell base diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'bellHeight',
+          label: 'Bell height',
+          imperialDefault: '1',
+          metricDefault: '0.3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'padDiameter',
+          label: 'Pad diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'padThickness',
+          label: 'Pad thickness',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
         { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
       ],
       compute(v, u) {
-        return resultRows(
-          sonotubeVolume({
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const baseType = (selects?.baseType ?? 'none') as 'none' | 'bell' | 'pad';
+        const groups = [
+          {
             diameter: v.diameter,
             height: v.height,
             count: v.count,
-            diameterUnit: smallLengthUnit(u),
-            heightUnit: lengthUnit(u),
-            wasteFactor: v.waste / 100,
-          }),
-        );
+            diameterUnit: smallLengthUnit(u) as any,
+            heightUnit: lengthUnit(u) as any,
+            baseType,
+            bellDiameter: v.bellDiameter,
+            bellHeight: v.bellHeight,
+            padDiameter: v.padDiameter,
+            padThickness: v.padThickness,
+          },
+        ];
+        if (v.countB > 0 && v.diameterB > 0 && v.heightB > 0) {
+          groups.push({
+            diameter: v.diameterB,
+            height: v.heightB,
+            count: v.countB,
+            diameterUnit: smallLengthUnit(u) as any,
+            heightUnit: lengthUnit(u) as any,
+            baseType,
+            bellDiameter: v.bellDiameter,
+            bellHeight: v.bellHeight,
+            padDiameter: v.padDiameter,
+            padThickness: v.padThickness,
+          });
+        }
+        const r = mixedSonotubeVolume(groups, v.waste / 100);
+        return [
+          ['Volume', `${r.volumeCuFt} cu ft`],
+          ['Cubic yards', String(r.volumeCuYd)],
+          ['Cubic meters', String(r.volumeCuM)],
+          ['40 lb bags', String(r.bags40)],
+          ['50 lb bags', String(r.bags50)],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
+        ];
+      },
+    },
+    'deck-footings': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Deck length',
+          imperialDefault: '16',
+          metricDefault: '4.9',
+          imperialHint: 'feet (along beams)',
+          metricHint: 'meters (along beams)',
+        },
+        {
+          name: 'width',
+          label: 'Deck width',
+          imperialDefault: '12',
+          metricDefault: '3.7',
+          imperialHint: 'feet (beam span direction)',
+          metricHint: 'meters (beam span direction)',
+        },
+        {
+          name: 'postSpacing',
+          label: 'Post spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet along each beam',
+          metricHint: 'meters along each beam',
+        },
+        {
+          name: 'beamSpacing',
+          label: 'Beam / post-row spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet across the deck',
+          metricHint: 'meters across the deck',
+        },
+        {
+          name: 'layout',
+          label: 'Layout',
+          type: 'select',
+          options: [
+            { value: 'freestanding', label: 'Freestanding (posts on all sides)' },
+            { value: 'attached', label: 'Attached (ledger — no house-side posts)' },
+          ],
+          imperialDefault: 'freestanding',
+          metricDefault: 'freestanding',
+        },
+        {
+          name: 'frostDepth',
+          label: 'Frost depth / hole depth',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet (your local frost line)',
+          metricHint: 'meters (your local frost line)',
+        },
+        {
+          name: 'holeDiameter',
+          label: 'Hole diameter',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'sonotubeDiameter',
+          label: 'Sonotube diameter (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'inches inside Ø; 0 = use hole diameter',
+          metricHint: 'cm inside Ø; 0 = use hole diameter',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const layout =
+          (selects?.layout ?? (v as any).shapeRaw) === 'attached' ? 'attached' : 'freestanding';
+        const r = deckFootings({
+          length: v.length,
+          width: v.width,
+          postSpacing: v.postSpacing,
+          beamSpacing: v.beamSpacing,
+          frostDepth: v.frostDepth,
+          holeDiameter: v.holeDiameter,
+          sonotubeDiameter: v.sonotubeDiameter > 0 ? v.sonotubeDiameter : undefined,
+          layout,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          postSpacingUnit: lengthUnit(u),
+          beamSpacingUnit: lengthUnit(u),
+          frostDepthUnit: lengthUnit(u),
+          holeDiameterUnit: smallLengthUnit(u),
+          sonotubeDiameterUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const sonoLabel =
+          r.sonotubeDiameterIn != null
+            ? `${r.sonotubeDiameterIn} in ID`
+            : `${r.formDiameterIn} in (match hole)`;
+        return [
+          ['Footings (posts)', String(r.footingCount)],
+          ['Posts along length', String(r.postsAlong)],
+          ['Beam / post rows', String(r.beamRows)],
+          ['Hole diameter', `${r.holeDiameterIn} in`],
+          ['Hole depth (frost)', `${r.holeDepthFt} ft`],
+          ['Sonotube / form Ø', sonoLabel],
+          ['Concrete per hole', `${r.volumePerHoleCuFt} cu ft (${r.volumePerHoleCuYd} cu yd)`],
+          [
+            'Total concrete',
+            `${r.totalVolumeCuFt} cu ft (${r.totalVolumeCuYd} cu yd / ${r.totalVolumeCuM} m³)`,
+          ],
+          ['40 lb bags', String(r.bags40)],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
+        ];
+      },
+    },
+    footing: {
+      fields: [
+        {
+          name: 'footingType',
+          label: 'Footing type',
+          type: 'select',
+          options: [
+            { value: 'strip', label: 'Continuous / strip' },
+            { value: 'pad', label: 'Spread pad' },
+          ],
+          imperialDefault: 'strip',
+          metricDefault: 'strip',
+        },
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet (run length)',
+          metricHint: 'meters (run length)',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '16',
+          metricDefault: '40',
+          imperialHint: 'inches (strip/pad width)',
+          metricHint: 'centimeters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth / thickness',
+          imperialDefault: '8',
+          metricDefault: '20',
+          imperialHint: 'inches',
+          metricHint: 'centimeters',
+        },
+        {
+          name: 'count',
+          label: 'Count',
+          imperialDefault: '1',
+          metricDefault: '1',
+          imperialHint: 'segments or pads',
+          metricHint: 'segments or pads',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'rebar',
+          label: 'Rebar estimate',
+          type: 'select',
+          options: [
+            { value: 'no', label: 'Off' },
+            { value: 'yes', label: 'On (planning only)' },
+          ],
+          imperialDefault: 'no',
+          metricDefault: 'no',
+        },
+        {
+          name: 'longBars',
+          label: 'Longitudinal bars',
+          imperialDefault: '2',
+          metricDefault: '2',
+          imperialHint: 'strip only',
+          metricHint: 'strip only',
+        },
+        {
+          name: 'spacing',
+          label: 'Bar spacing (o.c.)',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches (transverse / each-way)',
+          metricHint: 'cm (transverse / each-way)',
+        },
+        {
+          name: 'barSize',
+          label: 'Bar size',
+          type: 'select',
+          options: [
+            { value: '3', label: '#3 (⅜")' },
+            { value: '4', label: '#4 (½")' },
+            { value: '5', label: '#5 (⅝")' },
+            { value: '6', label: '#6 (¾")' },
+          ],
+          imperialDefault: '4',
+          metricDefault: '4',
+        },
+        {
+          name: 'stick',
+          label: 'Stick length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'rebarWaste',
+          label: 'Rebar waste / lap %',
+          imperialDefault: '10',
+          metricDefault: '10',
+        },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const footingType = (selects?.footingType ?? 'strip') === 'pad' ? 'pad' : 'strip';
+        const widthUnit = u === 'imperial' ? 'in' : 'cm';
+        const vol = footingVolume({
+          footingType,
+          length: v.length,
+          width: v.width,
+          depth: v.depth,
+          count: v.count,
+          lengthUnit: lengthUnit(u),
+          widthUnit,
+          depthUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const rows = resultRows(vol);
+        rows.unshift(['Footing type', footingType === 'pad' ? 'Spread pad' : 'Continuous / strip']);
+        rows.splice(1, 0, ['Count', String(vol.count)]);
+        if ((selects?.rebar ?? 'no') !== 'yes') return rows;
+
+        const barSize = Number(selects?.barSize ?? 4) as RebarSize;
+        const spacingIn = u === 'imperial' ? v.spacing : v.spacing / 2.54;
+        const stickFt = u === 'imperial' ? v.stick : v.stick * 3.280839895;
+        const steel = footingRebar({
+          footingType,
+          length: v.length,
+          width: v.width,
+          count: v.count,
+          lengthUnit: lengthUnit(u),
+          widthUnit,
+          longitudinalBars: v.longBars,
+          spacingIn,
+          barSize: ([3, 4, 5, 6].includes(barSize) ? barSize : 4) as RebarSize,
+          stickLengthFt: stickFt,
+          wastePercent: v.rebarWaste,
+        });
+        return [
+          ...rows,
+          ['Longitudinal bars', String(steel.longitudinalBars)],
+          ['Transverse / cross bars', String(steel.transverseBars)],
+          ['Rebar linear feet', String(steel.linearFeet)],
+          ['Rebar + waste', String(steel.linearFeetWithWaste)],
+          [`${steel.stickLengthFt} ft sticks`, String(steel.sticks)],
+          ['Est. rebar weight', `${steel.weightLbs} lb`],
+        ];
       },
     },
     mulch: {
@@ -385,6 +917,24 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           imperialHint: 'inches',
           metricHint: 'cm',
         },
+        {
+          name: 'pricePerYard',
+          label: 'Price per cu yd (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'your local quote',
+          metricHint: 'your local quote',
+          optional: true,
+        },
+        {
+          name: 'pricePerBag',
+          label: 'Price per bag (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: '2 or 3 cu ft bag price',
+          metricHint: '2 or 3 cu ft bag price',
+          optional: true,
+        },
       ],
       compute(v, u) {
         const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
@@ -394,13 +944,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           depthInches,
           lengthUnit: lengthUnit(u),
           widthUnit: lengthUnit(u),
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerBag: v.pricePerBag > 0 ? v.pricePerBag : undefined,
         });
-        return [
-          ['Area', `${r.areaSqFt} sq ft`],
-          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
-          ['2 cu ft bags', String(r.bags2CuFt)],
-          ['3 cu ft bags', String(r.bags3CuFt)],
-        ];
+        return mulchResultRows(r);
       },
     },
     'tree-ring-mulch': {
@@ -1249,6 +1796,236 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         ];
       },
     },
+    'concrete-slab-cost': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'thickness',
+          label: 'Thickness',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches',
+          metricHint: 'centimeters',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'purchaseMode',
+          label: 'Buy as',
+          type: 'select',
+          options: [
+            { value: 'ready-mix', label: 'Ready-mix (per yard / m³)' },
+            { value: 'bags', label: 'Bagged mix' },
+          ],
+          imperialDefault: 'ready-mix',
+          metricDefault: 'ready-mix',
+        },
+        {
+          name: 'readyMixPrice',
+          label: 'Ready-mix price',
+          imperialDefault: '160',
+          metricDefault: '210',
+          imperialHint: 'example only — $/cu yd from your plant quote',
+          metricHint: 'example only — $/m³ from your plant quote',
+        },
+        {
+          name: 'bagSize',
+          label: 'Bag size',
+          type: 'select',
+          options: [
+            { value: '40', label: '40 lb' },
+            { value: '60', label: '60 lb' },
+            { value: '80', label: '80 lb' },
+          ],
+          imperialDefault: '80',
+          metricDefault: '80',
+        },
+        {
+          name: 'bagPrice',
+          label: 'Price per bag',
+          imperialDefault: '7',
+          metricDefault: '7',
+          imperialHint: 'example only — replace with your store price',
+          metricHint: 'example only — replace with your store price',
+        },
+        {
+          name: 'gravelBase',
+          label: 'Gravel base (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote for base stone ($ total)',
+          metricHint: 'your quote for base stone ($ total)',
+        },
+        {
+          name: 'rebarMesh',
+          label: 'Rebar / mesh (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote for steel ($ total)',
+          metricHint: 'your quote for steel ($ total)',
+        },
+        {
+          name: 'forms',
+          label: 'Forms (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'lumber / forms you price ($ total)',
+          metricHint: 'lumber / forms you price ($ total)',
+        },
+        {
+          name: 'delivery',
+          label: 'Delivery / short-load fee',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'plant short-load or delivery fee ($)',
+          metricHint: 'plant short-load or delivery fee ($)',
+        },
+        {
+          name: 'labor',
+          label: 'Labor per sq ft (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your labor rate × slab area',
+          metricHint: 'your labor rate × slab area (sq ft)',
+        },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const mode = (selects?.purchaseMode ?? 'ready-mix') as 'ready-mix' | 'bags';
+        const bagSize = Number(selects?.bagSize ?? 80) as BagSizeLb;
+        const r = concreteSlabCost({
+          length: v.length,
+          width: v.width,
+          thickness: v.thickness,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          thicknessUnit: smallLengthUnit(u),
+          wastePercent: v.waste,
+          purchaseMode: mode,
+          readyMixPrice: v.readyMixPrice,
+          readyMixPriceUnit: u === 'imperial' ? 'cuyd' : 'cum',
+          bagSize: ([40, 60, 80].includes(bagSize) ? bagSize : 80) as BagSizeLb,
+          bagPrice: v.bagPrice,
+          gravelBaseCost: v.gravelBase,
+          rebarMeshCost: v.rebarMesh,
+          formsCost: v.forms,
+          deliveryFee: v.delivery,
+          laborPerSqFt: v.labor,
+        });
+        const rows: [string, string][] = [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+        ];
+        if (r.bags != null) rows.push([`${r.bagSize} lb bags`, String(r.bags)]);
+        rows.push(
+          ['Material cost', formatUsd(r.materialCost)],
+          ['Add-ons total', formatUsd(r.addOnsTotal)],
+          ['Total', formatUsd(r.totalCost)],
+          ['Cost per sq ft', formatUsd(r.costPerSqFt)],
+        );
+        return rows;
+      },
+    },
+    'french-drain': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Trench length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Trench width',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'depth',
+          label: 'Trench depth',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'pipeDia',
+          label: 'Pipe diameter',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches (OD)',
+          metricHint: 'cm (OD)',
+        },
+        {
+          name: 'overlap',
+          label: 'Fabric overlap',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches (fold-over)',
+          metricHint: 'cm (fold-over)',
+        },
+        { name: 'waste', label: 'Waste / overage %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'density',
+          label: 'Gravel density',
+          imperialDefault: '2700',
+          metricDefault: '1602',
+          imperialHint: 'lb/cu yd',
+          metricHint: 'kg/m³',
+        },
+      ],
+      compute(v, u) {
+        const widthUnit = u === 'imperial' ? 'in' : 'cm';
+        const depthUnit = widthUnit;
+        const pipeUnit = widthUnit;
+        const overlapUnit = widthUnit;
+        // kg/m³ → lb/cu yd ≈ × 1.68555 (0.764555 m³/yd³ ÷ 0.453592 kg/lb)
+        const densityLbPerCuYd = u === 'imperial' ? v.density : v.density * 1.68555;
+        const r = frenchDrainMaterials({
+          length: v.length,
+          lengthUnit: lengthUnit(u),
+          width: v.width,
+          widthUnit,
+          depth: v.depth,
+          depthUnit,
+          pipeDiameter: v.pipeDia,
+          pipeDiameterUnit: pipeUnit,
+          fabricOverlap: v.overlap,
+          fabricOverlapUnit: overlapUnit,
+          wasteFactor: v.waste / 100,
+          densityLbPerCuYd,
+        });
+        return [
+          ['Pipe length', `${r.pipeLengthFt} ft`],
+          [
+            'Gravel (pipe subtracted)',
+            `${r.gravelCuFt} cu ft (${r.gravelCuYd} cu yd / ${r.gravelCuM} m³)`,
+          ],
+          ['Est. tons', String(r.tons)],
+          ['Fabric width (wrap)', `${r.fabricWidthFt} ft`],
+          ['Fabric area', `${r.fabricAreaSqFt} sq ft (${r.fabricAreaSqM} m²)`],
+          ['Density used', `${r.densityLbPerCuYd} lb/cu yd`],
+        ];
+      },
+    },
   };
 
   function init(root: HTMLElement) {
@@ -1302,7 +2079,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           input.inputMode = 'decimal';
           input.step = field.step || 'any';
           input.min = field.min || '0';
-          input.required = true;
+          input.required = !field.optional;
         }
         input.id = `${id}-${field.name}`;
         input.name = field.name;
@@ -1322,6 +2099,18 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     }
 
     function toggleModeFields() {
+      if (id === 'sonotube') {
+        const baseType = root.querySelector<HTMLSelectElement>('[name="baseType"]')?.value ?? 'none';
+        for (const name of ['bellDiameter', 'bellHeight']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = baseType !== 'bell';
+        }
+        for (const name of ['padDiameter', 'padThickness']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = baseType !== 'pad';
+        }
+        return;
+      }
       if (id === 'concrete') {
         const shape = root.querySelector<HTMLSelectElement>('[name="shape"]')?.value;
         for (const name of ['steps', 'riser', 'tread']) {
@@ -1336,12 +2125,43 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
         return;
       }
+      if (id === 'footing') {
+        const rebarOn =
+          root.querySelector<HTMLSelectElement>('[name="rebar"]')?.value === 'yes';
+        const footingType =
+          root.querySelector<HTMLSelectElement>('[name="footingType"]')?.value ?? 'strip';
+        for (const name of ['spacing', 'barSize', 'stick', 'rebarWaste']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = !rebarOn;
+        }
+        const longEl = root.querySelector<HTMLElement>('[data-field="longBars"]');
+        if (longEl) longEl.hidden = !rebarOn || footingType !== 'strip';
+        const countLabel = root.querySelector<HTMLElement>('[data-field="count"] label');
+        if (countLabel) {
+          countLabel.textContent = footingType === 'pad' ? 'Number of pads' : 'Number of segments';
+        }
+        return;
+      }
       if (id === 'lumber') {
         const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'pieces';
         const piecesEl = root.querySelector<HTMLElement>('[data-field="pieces"]');
         const bfEl = root.querySelector<HTMLElement>('[data-field="boardFeet"]');
         if (piecesEl) piecesEl.hidden = mode !== 'pieces';
         if (bfEl) bfEl.hidden = mode !== 'boardFeet';
+        return;
+      }
+      if (id === 'concrete-slab-cost') {
+        const mode =
+          root.querySelector<HTMLSelectElement>('[name="purchaseMode"]')?.value ?? 'ready-mix';
+        const ready = mode === 'ready-mix';
+        for (const name of ['readyMixPrice']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = !ready;
+        }
+        for (const name of ['bagSize', 'bagPrice']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = ready;
+        }
         return;
       }
       if (id === 'brick') {
@@ -1381,7 +2201,12 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       (values as any).selectValues = selectValues;
       // Backward-compatible alias used by the concrete shape branch.
       (values as any).shapeRaw =
-        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
+        selectValues.shape ??
+        selectValues.footingType ??
+        selectValues.mode ??
+        selectValues.barSize ??
+        selectValues.layout ??
+        'slab';
       return values;
     }
 
@@ -1397,6 +2222,8 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     function markInvalidFields(message: string) {
       const allowZero = new Set([
         'waste',
+        'sonotubeDiameter',
+        'rebarWaste',
         'doors',
         'windows',
         'rise',
@@ -1406,6 +2233,29 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'diameterB',
+        'heightB',
+        'countB',
+        'bellDiameter',
+        'bellHeight',
+        'padDiameter',
+        'padThickness',
+        'priceBag40',
+        'priceBag60',
+        'priceBag80',
+        'priceYd',
+        'delivery',
+        'convertTons',
+        'pricePerYard',
+        'pricePerTon',
+        'pricePerBag',
+        'readyMixPrice',
+        'bagPrice',
+        'gravelBase',
+        'rebarMesh',
+        'forms',
+        'delivery',
+        'labor',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),
@@ -1415,6 +2265,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       });
       let marked = false;
       for (const el of inputs) {
+        const raw = el.value.trim();
+        const optionalEmpty = allowZero.has(el.name) && raw === '';
+        if (optionalEmpty) continue;
         const v = Number(el.value);
         const zeroOk = allowZero.has(el.name);
         const bad = !Number.isFinite(v) || v < 0 || (!zeroOk && v <= 0);

@@ -14,19 +14,38 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-19)
 
+- Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
+- Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
+- **Concrete slab cost calculator** (`/calculators/concrete-slab-cost-calculator/`): volume × user ready-mix or bag prices + optional gravel/rebar/forms/delivery/labor; example defaults labeled, not market facts.
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
+- **Deck footing calculator** (`/calculators/deck-footing-calculator/`): deck size + beam/post spacing → footing count, frost-depth hole size, concrete per pier / total, bags, optional Sonotube diameter; links to Sonotube tool.
+- **Concrete footing calculator** (`/calculators/concrete-footing-calculator/`): strip/pad volume, waste %, 40/60/80 lb bags, optional rebar estimate.
+- **PAA guides (this PR):** `/guides/concrete-slab-thickness/`, `/guides/how-much-concrete-do-i-need/`, `/guides/sonotube-footing-and-depth/`, `/guides/how-much-mulch-do-i-need/` — AlsoAsked/PAA question pages with cited bodies, FAQs, HowTo, KEYWORD-MAP rows, and llms Q→URL lines.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
+- **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
+- **This PR:** gravel / topsoil / sand / mulch calculators — tons↔yards both ways, optional convertTons, 0.5 cu ft (bulk) or 2/3 cu ft (mulch) bag counts, optional local price fields for bag-vs-bulk cost compare (no invented prices).
+- **French drain gravel calculator** (`/calculators/french-drain-gravel-calculator/`): trench − pipe gravel yards/tons, fabric wrap area, pipe length; linked from gravel + retaining-wall tools.
+- **Human writing rewrite:** all `guideBodies.ts` + `toolBodies.ts` rewritten to practitioner voice per [`docs/WRITING-GUIDE.md`](docs/WRITING-GUIDE.md); local AI detector (`npm run audit:ai-detect`) with scores in [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) (target AI &lt; 30%).
 
 ### Remaining
 
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets.
+- After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new French drain URL).
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, discovered-not-indexed buckets, and the four new guides.
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
+- Closely related **variants of tools that already get impressions** (beyond this Sonotube upgrade).
 - Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
+- Other closely related tool variants (stair stringer, sod, etc.) still in the ideas backlog.
+- Other impression-adjacent tool variants beyond the footing calculator still open.
+- Closely related tool variants beyond French drain (see `docs/GROWTH-STATUS.md` Remaining).
+- Re-score bodies with `npm run audit:ai-detect` when copy changes; keep [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) in sync (not part of CI).
 
 ---
 
@@ -44,16 +63,20 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 | Tool | Path | Primary keyword |
 |---|---|---|
 | Concrete calculator | [`/calculators/concrete-calculator/`](src/pages/calculators/[slug].astro) | concrete calculator |
+| Concrete footings | `/calculators/concrete-footing-calculator/` | concrete footing calculator |
+| Concrete slab cost | `/calculators/concrete-slab-cost-calculator/` | concrete slab cost calculator |
 | Post holes concrete | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes |
 | Sonotube / columns | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator |
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |
 | Tree ring mulch | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings |
 | Gravel | `/calculators/gravel-calculator/` | gravel calculator |
+| French drain gravel | `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator |
 | Topsoil | `/calculators/topsoil-calculator/` | topsoil calculator |
 | Sand | `/calculators/sand-calculator/` | sand calculator |
 | Pavers | `/calculators/paver-calculator/` | paver calculator |
 | Fence materials | `/calculators/fence-calculator/` | fence calculator |
 | Deck materials | `/calculators/deck-material-calculator/` | deck material calculator |
+| Deck footings | `/calculators/deck-footing-calculator/` | deck footing calculator |
 | Roof pitch | `/calculators/roof-pitch-calculator/` | roof pitch calculator |
 | Roofing shingles / squares | `/calculators/roofing-shingles-calculator/` | roofing calculator |
 | Paint | `/calculators/paint-calculator/` | paint calculator |

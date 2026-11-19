@@ -7,10 +7,14 @@ import {
   boardFeetPerPiece,
   brickCount,
   cmuCount,
+  deckFootings,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
+  footingRebar,
+  footingVolume,
   grassSeed,
+  frenchDrainMaterials,
   gravelVolume,
   lumberFromBoardFeet,
   lumberFromPieces,
@@ -31,6 +35,8 @@ import {
   topsoilVolume,
   treeRingMulch,
   asphaltTons,
+  concreteSlabCost,
+  formatUsd,
 } from '../src/lib/calculators';
 import { cuFtToCuYd, toFeet } from '../src/lib/units';
 
@@ -105,12 +111,124 @@ describe('concrete', () => {
     expect(r.volumeCuFt).toBeCloseTo(expected, 3);
   });
 
-  it('bag yields match 40/60/80 lb published coverage', () => {
+  it('bag yields match 40/50/60/80 lb published coverage', () => {
     expect(BAG_YIELD_CUFT[40]).toBe(0.3);
+    expect(BAG_YIELD_CUFT[50]).toBe(0.375);
     expect(BAG_YIELD_CUFT[60]).toBe(0.45);
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+    expect(bagsNeeded(1.2, 50)).toBe(4);
+  });
+
+  it('sonotube results include bags50', () => {
+    const r = sonotubeVolume({
+      diameter: 12,
+      height: 4,
+      wasteFactor: 0,
+    });
+    expect(r.bags50).toBe(9);
+    expect(r.bags80).toBe(6);
+  });
+});
+
+describe('footing', () => {
+  it('strip 40 ft × 16 in × 8 in is ~35.56 cu ft before waste', () => {
+    // 40 × (16/12) × (8/12) = 5120/144 ≈ 35.556 cu ft ≈ 1.317 cu yd
+    const r = footingVolume({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      depth: 8,
+      widthUnit: 'in',
+      depthUnit: 'in',
+      wasteFactor: 0,
+    });
+    expect(r.volumeCuFt).toBeCloseTo(35.556, 2);
+    expect(r.volumeCuYd).toBeCloseTo(cuFtToCuYd(35.556), 2);
+  });
+
+  it('applies 10% waste and bag yields (QUIKRETE/Sakrete planning)', () => {
+    const r = footingVolume({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      depth: 8,
+      widthUnit: 'in',
+      depthUnit: 'in',
+    });
+    expect(r.volumeCuFt).toBeCloseTo(35.556 * 1.1, 2);
+    // ceil(39.111 / 0.60) = 66 × 80 lb; ceil(39.111 / 0.45) = 87 × 60 lb
+    expect(r.bags80).toBe(66);
+    expect(r.bags60).toBe(87);
+    expect(r.bags40).toBe(131);
+  });
+
+  it('pad count multiplies rectangular volume', () => {
+    const one = footingVolume({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      depth: 12,
+      depthUnit: 'in',
+      count: 1,
+      wasteFactor: 0,
+    });
+    const four = footingVolume({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      depth: 12,
+      depthUnit: 'in',
+      count: 4,
+      wasteFactor: 0,
+    });
+    expect(one.volumeCuFt).toBeCloseTo(9, 3);
+    expect(four.volumeCuFt).toBeCloseTo(36, 3);
+  });
+
+  it('strip rebar: 2 long bars + transverse at spacing', () => {
+    // 2 × 40 + (floor(480/18)+1) × (16/12) = 80 + 27 × 1.333… = 116 lf
+    const r = footingRebar({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      widthUnit: 'in',
+      longitudinalBars: 2,
+      spacingIn: 18,
+      barSize: 4,
+      stickLengthFt: 20,
+      wastePercent: 10,
+    });
+    expect(r.longitudinalBars).toBe(2);
+    expect(r.transverseBars).toBe(27);
+    expect(r.linearFeet).toBeCloseTo(116, 1);
+    expect(r.linearFeetWithWaste).toBeCloseTo(127.6, 1);
+    expect(r.sticks).toBe(7);
+    expect(r.weightLbs).toBeCloseTo(127.6 * REBAR_LB_PER_FT[4], 0);
+  });
+
+  it('pad rebar scales a each-way mat by count', () => {
+    const one = footingRebar({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      spacingIn: 12,
+      barSize: 4,
+      wastePercent: 0,
+    });
+    const two = footingRebar({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      count: 2,
+      spacingIn: 12,
+      barSize: 4,
+      wastePercent: 0,
+    });
+    // floor(36/12)+1 = 4 bars each way → 4×3 + 4×3 = 24 lf
+    expect(one.linearFeet).toBeCloseTo(24, 2);
+    expect(two.linearFeet).toBeCloseTo(48, 2);
   });
 });
 
@@ -120,6 +238,22 @@ describe('mulch', () => {
     expect(r.areaSqFt).toBe(100);
     expect(r.volumeCuFt).toBeCloseTo(25, 3);
     expect(r.volumeCuYd).toBeCloseTo(25 / 27, 3);
+    expect(r.bags2CuFt).toBe(13);
+    expect(r.bags3CuFt).toBe(9);
+  });
+
+  it('optional mulch prices compare bulk vs bags when > 0', () => {
+    const r = bedMulch({
+      length: 20,
+      width: 5,
+      depthInches: 3,
+      pricePerYard: 40,
+      pricePerBag: 5,
+    });
+    expect(r.costYards).toBeCloseTo(r.volumeCuYd * 40, 2);
+    expect(r.costBags2).toBe(13 * 5);
+    expect(r.costBags3).toBe(9 * 5);
+    expect(bedMulch({ length: 20, width: 5, depthInches: 3, pricePerYard: 0 }).costYards).toBeUndefined();
   });
 
   it('tree ring is annular area × depth', () => {
@@ -142,10 +276,52 @@ describe('mulch', () => {
 });
 
 describe('bulk materials', () => {
-  it('gravel includes density tonnage', () => {
+  it('gravel includes density tonnage both ways', () => {
     const r = gravelVolume({ length: 20, width: 10, depthInches: 4, wasteFactor: 0 });
     expect(r.volumeCuYd).toBeCloseTo((200 * (4 / 12)) / 27, 3);
     expect(r.tons).toBeGreaterThan(0);
+    expect(r.tonsFromYards).toBe(r.tons);
+    // 2700 lb/yd³ → 1.35 ton/yd³; 2.469 yd × 1.35 ≈ 3.33 tons
+    expect(r.tonsFromYards).toBeCloseTo((r.volumeCuYd * 2700) / 2000, 2);
+    expect(r.bags05CuFt).toBe(Math.ceil(r.volumeCuFt / 0.5));
+  });
+
+  it('convertTons yields yardsFromTons at material density', () => {
+    const r = gravelVolume({
+      length: 20,
+      width: 10,
+      depthInches: 4,
+      wasteFactor: 0,
+      convertTons: 2.7,
+    });
+    // 2.7 tons × 2000 / 2700 = 2 cu yd
+    expect(r.yardsFromTons).toBeCloseTo(2, 3);
+    expect(
+      topsoilVolume({
+        length: 10,
+        width: 10,
+        depthInches: 6,
+        convertTons: 2.2,
+      }).yardsFromTons,
+    ).toBeCloseTo(2, 3); // 2.2 × 2000 / 2200
+  });
+
+  it('optional prices compare bag vs bulk when > 0', () => {
+    const r = sandVolume({
+      length: 10,
+      width: 10,
+      depthInches: 2,
+      wasteFactor: 0,
+      pricePerYard: 50,
+      pricePerTon: 40,
+      pricePerBag: 4,
+    });
+    expect(r.costYards).toBeCloseTo(r.volumeCuYd! * 50, 2);
+    expect(r.costTons).toBeCloseTo(r.tons! * 40, 2);
+    expect(r.costBags).toBe(r.bags05CuFt! * 4);
+    expect(
+      gravelVolume({ length: 10, width: 10, depthInches: 4, pricePerYard: 0 }).costYards,
+    ).toBeUndefined();
   });
 
   it('topsoil and sand return positive volumes', () => {
@@ -154,6 +330,57 @@ describe('bulk materials', () => {
       100 * (2 / 12) * 1.1,
       2,
     );
+  });
+});
+
+describe('french drain', () => {
+  it('subtracts pipe volume and reports fabric + pipe length', () => {
+    // 40 ft × 12 in × 18 in trench, 4 in pipe, 12 in fabric overlap, 0% waste
+    // trench = 40 × 1 × 1.5 = 60 cu ft
+    // pipe = π × (2/12)² × 40 ≈ 3.4907 cu ft
+    // gravel = 56.5093 cu ft ≈ 2.093 cu yd
+    // fabric width = 1 + 2×1.5 + 1 = 5 ft → area 200 sq ft
+    const r = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      fabricOverlap: 12,
+      wasteFactor: 0,
+      densityLbPerCuYd: 2700,
+    });
+    expect(r.trenchVolumeCuFt).toBeCloseTo(60, 3);
+    expect(r.pipeVolumeCuFt).toBeCloseTo(Math.PI * (2 / 12) ** 2 * 40, 3);
+    expect(r.gravelCuFt).toBeCloseTo(60 - Math.PI * (2 / 12) ** 2 * 40, 3);
+    expect(r.gravelCuYd).toBeCloseTo(r.gravelCuFt / 27, 3);
+    expect(r.tons).toBeCloseTo((r.gravelCuYd * 2700) / 2000, 2);
+    expect(r.fabricWidthFt).toBeCloseTo(5, 2);
+    expect(r.fabricAreaSqFt).toBeCloseTo(200, 2);
+    expect(r.pipeLengthFt).toBe(40);
+  });
+
+  it('applies waste after pipe subtraction', () => {
+    const base = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      wasteFactor: 0,
+    });
+    const withWaste = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      wasteFactor: 0.1,
+    });
+    expect(withWaste.gravelCuFt).toBeCloseTo(base.gravelCuFt * 1.1, 3);
+  });
+
+  it('rejects pipe larger than trench width', () => {
+    expect(() =>
+      frenchDrainMaterials({ length: 10, width: 4, depth: 18, pipeDiameter: 4 }),
+    ).toThrow();
   });
 });
 
@@ -204,6 +431,73 @@ describe('paver / fence / deck', () => {
     expect(at12.joists).toBe(Math.floor(16 / (12 / 12)) + 1);
     expect(at12.joists).toBeGreaterThan(at16.joists);
     expect(at12.deckBoardsWithWaste).toBe(Math.ceil(at12.deckBoards * 1.1));
+  });
+
+  it('deck footings: 16×12 freestanding at 8 ft spacing → 6 piers', () => {
+    // postsAlong = floor(16/8)+1 = 3; beamRows = floor(12/8)+1 = 2; count = 6
+    const r = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      wasteFactor: 0,
+    });
+    expect(r.postsAlong).toBe(3);
+    expect(r.beamRows).toBe(2);
+    expect(r.footingCount).toBe(6);
+    expect(r.holeDepthFt).toBe(4);
+    expect(r.formDiameterIn).toBe(12);
+    const per = Math.PI * 0.5 ** 2 * 4;
+    expect(r.volumePerHoleCuFt).toBeCloseTo(per, 3);
+    expect(r.totalVolumeCuFt).toBeCloseTo(per * 6, 2);
+    // QUIKRETE 1101: 0.60 cu ft per 80 lb → ceil(18.85 / 0.60) = 32
+    expect(r.bags80).toBe(Math.ceil((per * 6) / 0.6));
+  });
+
+  it('deck footings: attached layout drops the ledger-side row', () => {
+    const free = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      layout: 'freestanding',
+      wasteFactor: 0,
+    });
+    const attached = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      layout: 'attached',
+      wasteFactor: 0,
+    });
+    expect(attached.beamRows).toBe(1);
+    expect(attached.footingCount).toBe(3);
+    expect(attached.footingCount).toBeLessThan(free.footingCount);
+  });
+
+  it('deck footings: optional Sonotube diameter drives concrete volume', () => {
+    const r = deckFootings({
+      length: 8,
+      width: 8,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 3,
+      holeDiameter: 14,
+      sonotubeDiameter: 12,
+      wasteFactor: 0,
+    });
+    expect(r.footingCount).toBe(4);
+    expect(r.holeDiameterIn).toBe(14);
+    expect(r.sonotubeDiameterIn).toBe(12);
+    expect(r.formDiameterIn).toBe(12);
+    expect(r.volumePerHoleCuFt).toBeCloseTo(Math.PI * 0.5 ** 2 * 3, 3);
   });
 });
 
@@ -408,5 +702,70 @@ describe('rebar', () => {
     });
     expect(r.linearFeetWithWaste).toBeCloseTo(616, 2);
     expect(r.sticks).toBe(31); // ceil(616/20)
+  });
+});
+
+describe('concrete slab cost', () => {
+  it('prices a 10×10×4" slab from ready-mix $/yd with waste', () => {
+    // 10*10*(4/12)*1.1 = 36.667 cu ft ≈ 1.358 cu yd
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'ready-mix',
+      readyMixPrice: 160,
+      gravelBaseCost: 0,
+      rebarMeshCost: 0,
+      formsCost: 0,
+      deliveryFee: 0,
+      laborPerSqFt: 0,
+    });
+    expect(r.areaSqFt).toBeCloseTo(100, 3);
+    expect(r.volumeCuYd).toBeCloseTo(cuFtToCuYd(33.333 * 1.1), 2);
+    expect(r.materialCost).toBeCloseTo(r.volumeCuYd * 160, 2);
+    expect(r.totalCost).toBeCloseTo(r.materialCost, 2);
+    expect(r.costPerSqFt).toBeCloseTo(r.totalCost / 100, 2);
+    expect(r.bags).toBeNull();
+  });
+
+  it('prices the same slab from 80 lb bag count × bag price', () => {
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'bags',
+      bagSize: 80,
+      bagPrice: 7,
+    });
+    // ceil(36.667 / 0.60) = 62 bags → 62 * 7 = 434
+    expect(r.bags).toBe(62);
+    expect(r.materialCost).toBe(434);
+    expect(r.totalCost).toBe(434);
+  });
+
+  it('adds optional line items and labor per sq ft', () => {
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'ready-mix',
+      readyMixPrice: 100,
+      gravelBaseCost: 50,
+      rebarMeshCost: 40,
+      formsCost: 30,
+      deliveryFee: 75,
+      laborPerSqFt: 2,
+    });
+    expect(r.laborCost).toBe(200);
+    expect(r.addOnsTotal).toBe(50 + 40 + 30 + 75 + 200);
+    expect(r.totalCost).toBeCloseTo(r.materialCost + r.addOnsTotal, 2);
+  });
+
+  it('formats money with two decimals', () => {
+    expect(formatUsd(12)).toBe('$12.00');
+    expect(formatUsd(12.5)).toBe('$12.50');
   });
 });

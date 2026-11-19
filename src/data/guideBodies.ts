@@ -3,8 +3,8 @@ export const guideBodies: Record<string, string> = {
   'how-much-concrete-for-fence-posts': `      <div class="takeaway"><strong>Key takeaway:</strong> Size each hole as a cylinder (π × r² × depth), convert cubic feet to bags with the yield on your mix, then multiply by post count and add about 10% waste. Hole diameter and depth drive the order, not the post height alone.</div>
 
       <h2>How much concrete do I need per fence post?</h2>
-      <p>Most residential line posts take about one to three 60–80&nbsp;lb bags each once you dig a proper hole. An 8-inch-wide, 2-foot-deep hole holds roughly 0.70&nbsp;cu&nbsp;ft, which is about two 80&nbsp;lb bags after you round up. Wider or deeper holes climb fast, so measure the hole you actually dig before you leave the store.</p>
-      <p>Treat the hole as a cylinder. Convert diameter to feet, then use <strong>Volume (cu&nbsp;ft) ≈ π × (diameter ÷ 2)² × depth</strong>. Bags = ceil(volume ÷ bag yield). Common planning yields for general-purpose mix are about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb bags (QUIKRETE Concrete Mix 1101 and Sakrete High Strength TDS). Confirm the bag you buy.</p>
+      <p>Most residential line posts take about one to three 60–80&nbsp;lb bags once you dig a real hole. An 8-inch-wide, 2-foot-deep hole holds roughly 0.70&nbsp;cu&nbsp;ft. That's about two 80&nbsp;lb bags after you round up. Dig wider or deeper and the count climbs fast. Tape the hole you actually dug before you buy.</p>
+      <p>Treat the hole as a cylinder. Convert diameter to feet, then use <strong>Volume (cu&nbsp;ft) ≈ π × (diameter ÷ 2)² × depth</strong>. Bags = ceil(volume ÷ bag yield). Planning yields for general-purpose mix land around 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb bags (QUIKRETE Concrete Mix 1101 and Sakrete High Strength TDS). Still confirm the bag on the shelf.</p>
       <p>Post count comes from fence length and spacing. A 96&nbsp;ft run with 8&nbsp;ft bays needs 13 posts if you count both ends. Use the <a href="/calculators/fence-calculator/">fence calculator</a> for layout, then feed hole size into the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>, not the rectangular <a href="/calculators/concrete-calculator/">slab calculator</a>.</p>
 
       <h2>How many bags of concrete per fence post?</h2>
@@ -42,16 +42,16 @@ export const guideBodies: Record<string, string> = {
         <li>Optional: place a few inches of gravel under the post for drainage, then set, brace, and fill per the bag instructions. Fast-set products often firm up in about 20–40 minutes once watered.</li>
       </ol>
 
-      <h2>Tips</h2>
+      <h2>Field notes</h2>
       <ul>
         <li>Call before you dig. Utility locates exist for a reason.</li>
         <li>Keep a spare bag or two on site. Running short mid-set wastes a day.</li>
         <li>Fast-setting mixes are handy for posts. Structural deck footings often need mixed concrete and cardboard forms instead.</li>
         <li>For cardboard tube forms (deck piers), run the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> for live bag counts, or read the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide. This page is for dug fence holes, not tube forms.</li>
-        <li>Use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> only when you are pouring pads, not round holes.</li>
+        <li>Use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> only when you're pouring pads, not round holes.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Setting posts too shallow for wind load or frost heave.</li>
         <li>Filling flat to the top without sloping water away from the post.</li>
@@ -61,6 +61,8 @@ export const guideBodies: Record<string, string> = {
         <li>Forgetting that gravel in the hole bottom displaces some concrete.</li>
       </ul>
 
+      <p>Keep two spare bags. Mid-line runs that stop for a store trip never look as good as a continuous set.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://quikrete.com/athome/settingposts.asp" rel="noopener noreferrer">QUIKRETE – Setting posts in concrete (hole size, depth, fast-set timing)</a></li>
@@ -68,12 +70,11 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-
   'mulch-depth-guide': `      <div class="takeaway"><strong>Key takeaway:</strong> For most flower beds and gardens, plan on about 2–3 inches of organic mulch. Keep mulch pulled back from trunks, refresh by measuring what is already there, and size bags from area × depth.</div>
 
       <h2>How deep should mulch be in flower beds / for gardens?</h2>
-      <p>Most flower beds and gardens do well with about 2–3 inches of organic mulch. That depth suppresses weeds and holds moisture without smothering roots. Mississippi State says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and says not to exceed 3 inches in beds. Clemson lists 2–3 inches for many wood and bark mulches.</p>
-      <p>This page answers “how deep,” not only “how many bags.” For quantities on common rectangles, see the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>. For custom shapes, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
+      <p>Two to three inches. That's the working range for most flower beds and gardens. It knocks weeds back and holds moisture without smothering roots. Mississippi State says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and says don't exceed 3 inches in beds. Clemson lists 2–3 inches for many wood and bark mulches.</p>
+      <p>This page answers “how deep,” not only “how many bags.” For quantities on common rectangles, see the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>. Odd shapes? Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
 
       <h2>Recommended depths by area</h2>
       <div class="table-scroll">
@@ -88,22 +89,22 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Organic mulch feeds soil life as it breaks down. Inorganic rock mulch behaves differently: it does not add organic matter the way shredded bark does, it can heat beds in full sun, and it is harder to remove later. Choose organic mulch when soil improvement is part of the goal. Season also matters. Hot, dry beds often benefit from a full 3-inch organic layer; wet, poorly drained beds may do better closer to 2 inches so the surface stays less soggy.</p>
+      <p>Organic mulch feeds soil life as it breaks down. Inorganic rock mulch behaves differently: it doesn't add organic matter the way shredded bark does, it can heat beds in full sun, and it's harder to remove later. Choose organic mulch when soil improvement is part of the goal. Season also matters. Hot, dry beds often benefit from a full 3-inch organic layer. Wet, poorly drained beds may do better closer to 2 inches so the surface stays less soggy.</p>
 
       <h2>Is 4 inches of mulch too much?</h2>
-      <p>For most ornamental beds, yes. Layers much deeper than about 3 inches can shed water and cut oxygen to roots. UF/IFAS says not to apply more than 3 inches in beds because excess mulch can divert rain and irrigation. Wood-chip paths sometimes run thicker under foot traffic; that is a different job than a planting bed.</p>
+      <p>For most ornamental beds, yes. Layers much deeper than about 3 inches can shed water and cut oxygen to roots. UF/IFAS says not to apply more than 3 inches in beds because excess mulch can divert rain and irrigation. Wood-chip paths sometimes run thicker under foot traffic. That is a different job than a planting bed.</p>
       <p>Ordering for 4 inches when you only need 3 inches wastes about one-third extra material. Measure the depth you intend to maintain after settling, not the fluffy height right out of the bag.</p>
 
       <h2>Should I remove old mulch before adding new?</h2>
-      <p>Not always. If the old layer is thin and well decomposed, rake it and top-dress only enough to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, thin or remove it first so new mulch does not create an anaerobic blanket. Light replenishment is preferred when depth falls below about 2 inches.</p>
+      <p>Not always. If the old layer is thin and well decomposed, rake it and top-dress only enough to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, thin or remove it first so new mulch doesn't create an anaerobic blanket. Light replenishment is preferred when depth falls below about 2 inches.</p>
       <p>Mississippi State Extension also warns that years of heavy mulching can build soil against plant bases. After a few seasons, rake off excess before you lay a fresh, even layer.</p>
 
       <h2>How to measure depth and refresh mulch (step-by-step)</h2>
       <ol>
-        <li>Pull weeds and water dry soil so you are not sealing dust under a new blanket.</li>
+        <li>Pull weeds and water dry soil so you aren't sealing dust under a new blanket.</li>
         <li>Push a ruler or marked trowel through the mulch to the soil surface and read the current depth in several spots.</li>
         <li>Decide the target depth (usually 2–3 inches in beds; about 3 inches where UF/IFAS Florida-Friendly guidance applies).</li>
-        <li>If you already have close to target depth, rake to loosen mats and stop; if you are short, order only the difference.</li>
+        <li>If you already have close to target depth, rake to loosen mats and stop; if you're short, order only the difference.</li>
         <li>Measure bed length and width (or break curves into rectangles). Area (sq&nbsp;ft) × (depth inches ÷ 12) = cubic feet needed.</li>
         <li>Convert to bags (÷ bag size, often 2 or 3 cu&nbsp;ft) or yards (÷ 27). Round up a little for settling.</li>
         <li>Spread evenly, keep mulch a few inches off trunks and stems, and water lightly so the layer settles to the measured depth.</li>
@@ -118,13 +119,13 @@ export const guideBodies: Record<string, string> = {
 
       <h2>How much mulch do I need once depth is set?</h2>
       <p>Depth answers “how thick”; area × depth answers “how much.” Iowa State’s mulch calculator method is the same math YardTally uses: cubic feet = area × (depth inches ÷ 12). UF/IFAS notes that one cubic yard covers about 108 sq ft at 3 inches. For common rectangles, use the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart; for custom beds and tree rings, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
-      <p>If the bed still needs soil volume under the mulch—raising grade, filling low spots, or choosing bagged blends—read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you order surface cover. Mulch does not replace cubic yards of fill.</p>
+      <p>If the bed still needs soil volume under the mulch—raising grade, filling low spots, or choosing bagged blends—read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you order surface cover. Mulch doesn't replace cubic yards of fill.</p>
 
       <h2>New plantings vs refresh layers</h2>
-      <p>On bare soil after planting, start at the full target depth (usually 2–3 inches). On established beds, measure what remains after a season of settling and decomposition, then top-dress only the difference so the finished layer stays in the extension range. Seedlings and very small transplants sometimes need a thinner first layer so stems are not buried—UF/IFAS notes seedlings often only need about 1 inch.</p>
+      <p>On bare soil after planting, start at the full target depth (usually 2–3 inches). On established beds, measure what remains after a season of settling and decomposition, then top-dress only the difference so the finished layer stays in the extension range. Seedlings and very small transplants sometimes need a thinner first layer so stems aren't buried—UF/IFAS notes seedlings often only need about 1 inch.</p>
       <p>Replenish on a calendar that matches how fast your product breaks down. Fine shredded hardwood shrinks faster than coarse chips. Budget a light spring top-dress rather than dumping another full 3 inches on top of last year’s mat.</p>
 
-      <h2>Tips</h2>
+      <h2>Field notes</h2>
       <ul>
         <li>Match mulch type to the job: shredded hardwood for beds, coarser chips for paths.</li>
         <li>Keep mulch off siding and stems to reduce moisture and pest issues.</li>
@@ -133,7 +134,7 @@ export const guideBodies: Record<string, string> = {
         <li>If you mulch food gardens with dyed product, read the label and ask what the colorant and base wood are.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Volcano mulching against trunks.</li>
         <li>Installing 6&nbsp;inches “so it lasts longer,” then watching water shed off the surface.</li>
@@ -144,7 +145,9 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>When to call a pro / safety</h2>
-      <p>Call an arborist if trees show girdling roots, buried root flares, or decline after years of deep mulch. Large properties may justify a crew for bulk delivery and even spreading. Wear dust protection when dumping dry bulk mulch, and spread large deliveries promptly so piles do not heat against building walls.</p>
+      <p>Call an arborist if trees show girdling roots, buried root flares, or decline after years of deep mulch. Large properties may justify a crew for bulk delivery and even spreading. Wear dust protection when dumping dry bulk mulch, and spread large deliveries promptly so piles don't heat against building walls.</p>
+
+      <p>Measure what's already there before you dump another full layer. Most beds need a top-dress, not a restart.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -153,12 +156,11 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
         <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed</a></li>
       </ul>
-`,
-
+  `,
   'how-many-bags-of-concrete': `      <div class="takeaway"><strong>Key takeaway:</strong> Divide project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb), round up, then add waste. An 80&nbsp;lb bag yields about 0.60&nbsp;cu&nbsp;ft—roughly 45 bags per cubic yard before waste.</div>
 
       <h2>How many 80 lb bags of concrete are in a cubic yard?</h2>
-      <p>About 45 bags before waste, using a 0.60&nbsp;cu&nbsp;ft yield per 80&nbsp;lb bag (27 ÷ 0.60). After a 10% waste factor, plan closer to 50 bags for one cubic yard of placed concrete. Confirm the yield printed on the bag you buy. Lightweight and specialty mixes can list different coverage.</p>
+      <p>About 45 bags before waste—using 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag (27 ÷ 0.60). Add 10% waste and you're closer to 50 for one cubic yard placed. Read the yield on your bag. Lightweight and specialty mixes don't always match that coverage.</p>
       <div class="table-scroll">
       <table>
         <caption>Typical bagged concrete yields (QUIKRETE 1101 / Sakrete High Strength planning figures)</caption>
@@ -173,12 +175,12 @@ export const guideBodies: Record<string, string> = {
       <p>QUIKRETE Concrete Mix No. 1101 lists about 0.30 / 0.375 / 0.45 / 0.60 / 0.675&nbsp;cu&nbsp;ft for 40 / 50 / 60 / 80 / 90&nbsp;lb bags. Sakrete High Strength TDS lists about 0.30 / 0.45 / 0.6 / 0.66&nbsp;cu&nbsp;ft for 40 / 60 / 80 / 90&nbsp;lb. YardTally’s calculators use the shared 40 / 60 / 80 planning yields above.</p>
 
       <h2>How many 60 lb bags per cubic yard?</h2>
-      <p>About 60 bags before waste at a 0.45&nbsp;cu&nbsp;ft yield (27 ÷ 0.45). After 10% waste, plan closer to 66 bags per cubic yard of placed concrete. Sixty-pound bags trade a higher bag count for easier lifting, which matters when you are mixing by hand all day.</p>
+      <p>About 60 bags before waste at a 0.45&nbsp;cu&nbsp;ft yield (27 ÷ 0.45). After 10% waste, plan closer to 66 bags per cubic yard of placed concrete. Sixty-pound bags trade a higher bag count for easier lifting, which matters when you're mixing by hand all day.</p>
 
       <h2>How do I convert cubic feet to bags of concrete?</h2>
-      <p>Bags = ceil(volume_cu_ft ÷ yield). Get volume from the shape first, add waste, then divide. Slabs use length × width × (thickness inches ÷ 12). Post holes and Sonotubes use π × r² × height × count. Divide cubic feet by 27 for cubic yards when you are comparing ready-mix quotes.</p>
+      <p>Bags = ceil(volume_cu_ft ÷ yield). Get volume from the shape first, add waste, then divide. Slabs use length × width × (thickness inches ÷ 12). Post holes and Sonotubes use π × r² × height × count. Divide cubic feet by 27 for cubic yards when you're comparing ready-mix quotes.</p>
       <p>Pick the right tool: <a href="/calculators/concrete-calculator/">concrete calculator</a> for slabs and steps, <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> for fence posts, and <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> for cardboard forms. Tube charts live in the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>.</p>
-      <p>Weight matters for logistics. Forty-five 80&nbsp;lb bags are about 3,600&nbsp;lb of dry mix before water. If you are working alone, factor mixing time. That labor math is why the “about one cubic yard” ready-mix threshold is a practical rule of thumb, not a hard law.</p>
+      <p>Weight matters for logistics. Forty-five 80&nbsp;lb bags are about 3,600&nbsp;lb of dry mix before water. If you're working alone, factor mixing time. That labor math is why the “about one cubic yard” ready-mix threshold is a practical rule of thumb, not a hard law.</p>
 
       <h2>Worked example: 10×10×4&quot; slab</h2>
       <p>10 × 10 × (4÷12) = 33.33&nbsp;cu&nbsp;ft ≈ 1.23&nbsp;cu&nbsp;yd. With 10% waste → 36.7&nbsp;cu&nbsp;ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80&nbsp;lb or ceil(36.7 ÷ 0.45) = 82 bags of 60&nbsp;lb. See the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> for thickness charts.</p>
@@ -189,7 +191,7 @@ export const guideBodies: Record<string, string> = {
       <h2>When should I order ready-mix instead of bags?</h2>
       <p>When the pour approaches or exceeds about one cubic yard, ready-mix often wins on labor and consistency if a truck can reach the site. Smaller pads, repairs, and fence posts usually stay on bags. Call the plant about short-load fees before you assume a truck is cheaper than bags.</p>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Buy all bags from the same product line so color and strength stay consistent on visible slabs.</li>
         <li>Stage water, a tub or mixer, and wheelbarrow routes before you open bags.</li>
@@ -206,13 +208,22 @@ export const guideBodies: Record<string, string> = {
         <li>Ignoring that gravel base under a slab is a separate material order.</li>
       </ul>
 
-      <h2>Sources</h2>
+      <p>I'd rather haul one extra 80 lb bag than stop mid-spread with a wet slab waiting.</p>
+      <h2>Does bag brand change the count?</h2>
+      <p>Yes, a little. QUIKRETE 1101 and Sakrete High Strength sit close on the 40 / 60 / 80 lb planning yields YardTally uses, but lightweight, crack-resistant, and high-early mixes often print different coverage. If the store only has a specialty bag, don't force the 0.60 cu ft assumption. Re-divide with the number on that bag.</p>
+      <p>Color and finish matter on visible slabs. Mixing two brands in one pour can show as a shade or texture change when it cures. Fence posts buried underground care less about color and more about outdoor mix vs interior patching compound.</p>
+
+
+      
+      <h2>What if the bag yield on my sack is different?</h2>
+      <p>Trust the printed yield. QUIKRETE 1101 is the planning baseline we use (0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb), but high-early, crack-resistant, and lightweight mixes list different coverage. If the sack says 0.60 cu ft and you assume 0.45, you overbuy. Flip it and you run short mid-pour. When brands mix on one pad, calculate each stack separately, then add waste once on the combined volume.</p>
+
+<h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-
   'concrete-for-10x10-slab': `      <div class="takeaway"><strong>Key takeaway:</strong> A 10×10&nbsp;ft slab at 4&nbsp;inches is about 1.23&nbsp;cu&nbsp;yd (33.3&nbsp;cu&nbsp;ft) before waste. With YardTally’s 10% waste factor, plan on roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix. Gravel base is ordered separately.</div>
 
       <p>This page is a size-specific chart. For other footprints use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Round holes belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>. Bag yields follow the <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a>.</p>
@@ -221,7 +232,7 @@ export const guideBodies: Record<string, string> = {
       </figure>
 
       <h2>How much concrete for a 10×10 slab at 4 inches?</h2>
-      <p>About 33.3&nbsp;cu&nbsp;ft or 1.23&nbsp;cu&nbsp;yd before waste. With a 10% waste factor that becomes about 36.7&nbsp;cu&nbsp;ft—roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix at 0.60 and 0.45&nbsp;cu&nbsp;ft yields. Those bag counts match QUIKRETE 1101 and Sakrete planning yields. Confirm the label on the bags you buy.</p>
+      <p>You're looking at about 33.3&nbsp;cu&nbsp;ft—1.23&nbsp;cu&nbsp;yd—before waste. Fold in YardTally's 10% and you're near 36.7&nbsp;cu&nbsp;ft. That's roughly 62 bags of 80&nbsp;lb mix or 82 of 60&nbsp;lb at 0.60 and 0.45&nbsp;cu&nbsp;ft yields. Those track QUIKRETE 1101 and Sakrete planning numbers. Still: check the label on the bags in the cart.</p>
       <p><strong>Volume (cu&nbsp;ft) = 10 × 10 × (thickness_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. With waste: bags = ceil(cu&nbsp;ft × 1.10 ÷ yield). At 4&nbsp;inches, thickness in feet is 4÷12 ≈ 0.333&nbsp;ft, so volume = 100 × 0.333 = 33.3&nbsp;cu&nbsp;ft.</p>
 
       <h2>How much concrete for a 10×10 slab at 6 inches?</h2>
@@ -255,10 +266,10 @@ export const guideBodies: Record<string, string> = {
       <p>Near or above one cubic yard, ready-mix often wins on labor if a truck can access the site. Compact a gravel base separately. Estimate base with the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
 
       <h2>How do I order concrete for a 10×10 pad?</h2>
-      <p>Measure the formed length and width, lock the slab thickness, convert to cubic feet, add about 10% waste, then divide by bag yield or call for ready-mix yards. Order gravel as a second line item. Forms, joints, and any thickened edges are not free volume. Sketch those extras before you shop.</p>
+      <p>Measure the formed length and width, lock the slab thickness, convert to cubic feet, add about 10% waste, then divide by bag yield or call for ready-mix yards. Order gravel as a second line item. Forms, joints, and any thickened edges aren't free volume. Sketch those extras before you shop.</p>
       <ol>
         <li>Confirm finished slab size and thickness (many patios and shed pads use about 4&nbsp;inches over compacted base).</li>
-        <li>Build and brace forms so they do not belly out when you place concrete.</li>
+        <li>Build and brace forms so they don't belly out when you place concrete.</li>
         <li>Compute volume: length × width × (thickness ÷ 12). For 10×10×4&quot;, that is 33.3&nbsp;cu&nbsp;ft.</li>
         <li>Multiply by 1.10 for waste, then divide by 0.60 (80&nbsp;lb) or 0.45 (60&nbsp;lb) and round up, or quote ready-mix in yards.</li>
         <li>Order gravel base separately. Keep water, tools, and helpers staged before the first bag opens.</li>
@@ -267,15 +278,15 @@ export const guideBodies: Record<string, string> = {
       <h2>Worked example: 10×10×4&quot; with base</h2>
       <p>Concrete: 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd) before waste → 36.7&nbsp;cu&nbsp;ft with 10% → about sixty-two 80&nbsp;lb bags. If you also place 4&nbsp;inches of compacted gravel under the slab, gravel volume before waste is also 33.3&nbsp;cu&nbsp;ft (1.23&nbsp;cu&nbsp;yd). With 10% compaction allowance ≈ 1.35&nbsp;cu&nbsp;yd. Confirm density with your yard when converting to tons.</p>
 
-      <h2>Tips</h2>
+      <h2>Field notes</h2>
       <ul>
         <li>Form carefully. Bowed forms steal concrete and ruin edges.</li>
-        <li>Plan control joints. Local practice varies; do not invent a spacing rule from this volume chart.</li>
+        <li>Plan control joints. Local practice varies; don't invent a spacing rule from this volume chart.</li>
         <li>Dampening the subgrade helps in hot weather. Avoid standing puddles.</li>
-        <li>Order extra bags for steps or thickened edges. They are not in the flat 10×10 chart.</li>
+        <li>Order extra bags for steps or thickened edges. They aren't in the flat 10×10 chart.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Forgetting waste and finishing one corner short.</li>
         <li>Including gravel depth inside the concrete thickness input.</li>
@@ -284,17 +295,26 @@ export const guideBodies: Record<string, string> = {
         <li>Assuming ~45 bags of 80&nbsp;lb mix covers a 10×10×4&quot; slab with waste. That under-orders versus 0.60&nbsp;cu&nbsp;ft yields (you need about 62).</li>
       </ul>
 
-      <h2>Sources</h2>
+      <p>Round up a little. Running short on a patio corner costs more than the spare bag.</p>
+      <h2>Bags or a short-load truck?</h2>
+      <p>A 10×10 at 4 inches with waste is already past a cubic yard of concrete. That's a long day with a wheelbarrow and bags if you're working alone. Call the plant about short-load fees before you assume a truck is automatically more expensive. Access matters: if the chute can't reach, bags or a trailer mixer may still win.</p>
+      <p>Either way, gravel base is a separate order. Don't fold base depth into the concrete thickness field on the calculator or you'll buy the wrong thing twice.</p>
+
+
+      
+      <h2>Should I thicken the edges of a 10×10 slab?</h2>
+      <p>Many patio and shed pads keep a 4-inch field and thicken the perimeter a few inches where the load sits on frost-prone ground. That edge detail adds volume the flat L×W×D math misses. Measure the thickened strip separately (or treat the whole pad as the thicker depth if you want a simple overbuy), then convert with the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Local frost depth and soil still set the real detail—this is planning math, not a footing design.</p>
+
+<h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-
   'mulch-for-common-garden-beds': `      <div class="takeaway"><strong>Key takeaway:</strong> At 3&nbsp;inches deep, a 4×8&nbsp;ft bed needs about 8&nbsp;cu&nbsp;ft of mulch (four 2&nbsp;cu&nbsp;ft bags). A 20×5 bed needs about 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). Depth targets live in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide; this page is the quantity chart.</div>
 
       <h2>How much mulch for a 4×8 garden bed?</h2>
-      <p>At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (about 0.30 cu yd). That is four 2 cu ft bags, or about three 3 cu ft bags. At 2 inches, the same bed needs about 5.3 cu ft. Measure inside the frame so lumber thickness does not inflate the order.</p>
+      <p>At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (about 0.30 cu yd). Four 2 cu ft bags, or about three 3 cu ft bags. Drop to 2 inches and the same bed needs about 5.3 cu ft. Measure inside the frame so the lumber thickness doesn't inflate the order.</p>
       <p>Customize odd shapes with the <a href="/calculators/mulch-calculator/">mulch calculator</a>. For trees, use the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the trunk opening.</p>
       <figure class="diagram">
         <img src="/diagrams/mulch-bed-dimensions.svg" width="960" height="540" alt="Diagram of a garden bed mulch layer showing length, width and depth" loading="lazy" />
@@ -306,7 +326,7 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Bags vs bulk mulch</h2>
       <p>Bags win for small beds and color-matched touch-ups. Iowa State Extension notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size on the package. Bulk usually costs less per cubic foot once you need roughly a cubic yard or more, if you can stage a pile and move it quickly.</p>
-      <p>Under about 0.5 cu yd, bags are often simpler. Between 0.5 and 1 cu yd, compare delivery fees; short-load premiums can erase bulk savings. Whatever you buy, spread to the target depth from the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide rather than emptying every bag onto one corner.</p>
+      <p>Under about 0.5 cu yd, bags are often simpler. Between 0.5 and 1 cu yd, compare delivery fees. Short-load premiums can erase bulk savings. Whatever you buy, spread to the target depth from the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide rather than emptying every bag onto one corner.</p>
 
       <h2>How to calculate mulch from area × depth (step-by-step)</h2>
       <ol>
@@ -318,7 +338,7 @@ export const guideBodies: Record<string, string> = {
         <li>For bags, divide cubic feet by bag size (commonly 2 or 3 cu ft per Iowa’s bag method) and round up.</li>
         <li>For bulk, divide cubic feet by 27 for cubic yards. As a check, UF/IFAS coverage is about 108 sq ft per cu yd at 3 inches.</li>
       </ol>
-      <p><strong>Cu&nbsp;ft = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. If you are only top-dressing an existing 1-inch layer up to 3 inches, order the 2-inch difference, not a full new 3-inch blanket.</p>
+      <p><strong>Cu&nbsp;ft = length × width × (depth_inches ÷ 12).</strong> Yards = cu&nbsp;ft ÷ 27. If you're only top-dressing an existing 1-inch layer up to 3 inches, order the 2-inch difference, not a full new 3-inch blanket.</p>
 
       <h2>Common bed chart at 3&quot; depth</h2>
       <div class="table-scroll">
@@ -336,12 +356,12 @@ export const guideBodies: Record<string, string> = {
       </div>
 
       <h2>Worked example: two 4×8 beds</h2>
-      <p>Two raised beds, each 4×8 at 3&nbsp;inches: 2 × 8 = 16&nbsp;cu&nbsp;ft → eight 2&nbsp;cu&nbsp;ft bags. If you prefer 2&nbsp;inches for a lighter look, 2 × 5.33 ≈ 10.7&nbsp;cu&nbsp;ft → six bags. Buy one extra bag when color-matching matters; dye lots can vary between store runs.</p>
+      <p>Two raised beds, each 4×8 at 3&nbsp;inches: 2 × 8 = 16&nbsp;cu&nbsp;ft → eight 2&nbsp;cu&nbsp;ft bags. If you prefer 2&nbsp;inches for a lighter look, 2 × 5.33 ≈ 10.7&nbsp;cu&nbsp;ft → six bags. Buy one extra bag when color-matching matters. Dye lots can vary between store runs.</p>
 
       <h2>Worked example: 12×3 border at 2&quot;</h2>
-      <p>A long border: 12 × 3 = 36&nbsp;sq&nbsp;ft × (2÷12) = 6&nbsp;cu&nbsp;ft → three 2&nbsp;cu&nbsp;ft bags. The same border at 3&nbsp;inches needs 9&nbsp;cu&nbsp;ft (five bags). Paths beside the border often want thicker wood chips; price those separately so bed mulch and path chips can differ.</p>
+      <p>A long border: 12 × 3 = 36&nbsp;sq&nbsp;ft × (2÷12) = 6&nbsp;cu&nbsp;ft → three 2&nbsp;cu&nbsp;ft bags. The same border at 3&nbsp;inches needs 9&nbsp;cu&nbsp;ft (five bags). Paths beside the border often want thicker wood chips. Price those separately so bed mulch and path chips can differ.</p>
 
-      <h2>Tips</h2>
+      <h2>Field notes</h2>
       <ul>
         <li>Fluffed bag mulch settles; rake to the target depth after watering.</li>
         <li>When several beds share a truck, add the chart rows first, then round the combined yards upward.</li>
@@ -350,7 +370,7 @@ export const guideBodies: Record<string, string> = {
         <li>Read the <a href="/guides/mulch-depth-guide/">depth guide</a> before deciding that more mulch will end weeding forever.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Using 3 as a multiplier instead of 0.25 when depth is 3&nbsp;inches.</li>
         <li>Ordering for tree rings with the rectangle chart and covering the trunk flare.</li>
@@ -362,7 +382,9 @@ export const guideBodies: Record<string, string> = {
       <p>Most real beds curve. Stretch a tape along the centerline for length, measure width every few feet, and average those readings. Multiply length by average width for square footage. Or break the shape into rectangles and triangles, calculate each, and add. Write the square footage down so next season’s top-dress is a thirty-second calculation.</p>
 
       <h2>When to call a pro / safety</h2>
-      <p>Large estate beds, steep slopes, or sites with irrigation and lighting may need a landscape crew. Mulch deliveries can weigh well over a ton per cubic yard of dense product; protect lawns with plywood if a truck dumps on turf. Follow local fire-safe landscaping rules where they apply near structures.</p>
+      <p>Large estate beds, steep slopes, or sites with irrigation and lighting may need a landscape crew. Mulch deliveries can weigh well over a ton per cubic yard of dense product. Protect lawns with plywood if a truck dumps on turf. Follow local fire-safe landscaping rules where they apply near structures.</p>
+
+      <p>Order for the depth you'll keep after settling—not the fluffy pile right out of the bag.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -370,30 +392,29 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Mulch coverage (~108 sq ft per cu yd at 3 inches)</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
       </ul>
-`,
-
+  `,
   'gravel-types-for-driveways': `      <div class="takeaway"><strong>Key takeaway:</strong> Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) topped with a stable surface aggregate. Rounded pea gravel looks tidy but rolls under tires. Estimate volume with length × width × depth, then convert to tons using your yard’s compacted density.</div>
 
       <h2>What is the best gravel for a driveway?</h2>
-      <p>The best driveway gravel is usually angular crushed stone that locks when compacted, not rounded decorative rock. Most DIY drives use a dense-grade or crusher-run base under a surface course sized for traffic. Pea gravel alone is a poor sole driving surface because rounded particles migrate under tires. Ask the quarry for compactable base stone and a drive-rated surface.</p>
-      <p>Think in layers. A thicker compacted base carries loads; a thinner angular surface course provides traction and a finished look. Mixing those jobs into one uncompacted lift is a common reason drives rut in the first winter. On soft clay, contractors often add geotextile under the base so stone does not punch into mud.</p>
+      <p>Start with angular crushed stone that locks when you compact it—dense grade / crusher run for the base, then a stable surface aggregate on top. Rounded pea gravel looks neat. It also rolls under tires. I'd keep pea gravel for paths, not drive lanes.</p>
+      <p>Think in layers. A thicker compacted base carries loads. A thinner angular surface course provides traction and a finished look. Mixing those jobs into one uncompacted lift is a common reason drives rut in the first winter. On soft clay, contractors often add geotextile under the base so stone doesn't punch into mud.</p>
 
       <h2>What is dense gravel / dense grade?</h2>
       <p>Dense grade (also sold as crusher run or road base) is angular crushed stone mixed with stone dust and fines. The fines fill voids so the blend locks into a firm mat when compacted in lifts. Clean stone such as #57 has fewer fines, drains well, and may not lock as tightly for a base. Product names vary by quarry.</p>
-      <p>Drainage and crown matter as much as stone type. Water that sits in wheel paths pumps fines upward and creates potholes. A slight crown, open edges, or a defined ditch keeps the section drier. Clemson’s porous-pavement overview is useful context when you are comparing impermeable pavement with gravel or permeable systems that let water infiltrate.</p>
+      <p>Drainage and crown matter as much as stone type. Water that sits in wheel paths pumps fines upward and creates potholes. A slight crown, open edges, or a defined ditch keeps the section drier. Clemson’s porous-pavement overview is useful context when you're comparing impermeable pavement with gravel or permeable systems that let water infiltrate.</p>
 
       <h2>How do I convert driveway gravel to tons?</h2>
-      <p>First compute cubic yards: length × width × (depth inches ÷ 12) ÷ 27. Then multiply by the density your quarry quotes. Yards sell by the ton or by the yard; moisture and rock type change the weight. YardTally uses a mid-range planning density near 2,700 lb per cu yd. Treat that as a planning assumption, not a universal rule.</p>
-      <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you are building a paver driveway instead of loose gravel, you will also need a sand setting bed. See the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
+      <p>First compute cubic yards: length × width × (depth inches ÷ 12) ÷ 27. Then multiply by the density your quarry quotes. Yards sell by the ton or by the yard. Moisture and rock type change the weight. YardTally uses a mid-range planning density near 2,700 lb per cu yd. Treat that as a planning assumption, not a universal rule.</p>
+      <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you're building a paver driveway instead of loose gravel, you'll also need a sand setting bed. See the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
 
       <h2>Planning depths (assumptions, not a design code)</h2>
-      <p>Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a thinner surface course, often landing somewhere in a broad 4–8 inch total range before soft soils or heavier vehicles. Soft clay, steep grades, and delivery trucks can need deeper stone or fabric. Confirm with local practice or a contractor; this guide does not design structural thickness.</p>
+      <p>Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a thinner surface course, often landing somewhere in a broad 4–8 inch total range before soft soils or heavier vehicles. Soft clay, steep grades, and delivery trucks can need deeper stone or fabric. Confirm with local practice or a contractor. This guide doesn't design structural thickness.</p>
 
       <h2>Worked example: 40 × 10 ft drive</h2>
       <p>Area = 400&nbsp;sq&nbsp;ft. Using a 4-inch planning depth: 400 × (4÷12) = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With a 10% compaction/crowning allowance ≈ 5.4&nbsp;cu&nbsp;yd. At a mid-range planning density of 2,700&nbsp;lb/cu&nbsp;yd that is about 7.3&nbsp;tons after waste. Re-run the ton math with the quarry’s density before you pay the ticket.</p>
 
       <h2>Worked example: base plus surface</h2>
-      <p>Same 40 × 10 footprint with a planning section of 6&nbsp;inches dense-grade base and 2&nbsp;inches clean surface stone: base = 400 × 0.5 = 200&nbsp;cu&nbsp;ft ≈ 7.4&nbsp;cu&nbsp;yd; surface = 400 × (2÷12) ≈ 66.7&nbsp;cu&nbsp;ft ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before placing the surface course.</p>
+      <p>Same 40 × 10 footprint with a planning section of 6&nbsp;inches dense-grade base and 2&nbsp;inches clean surface stone: base = 400 × 0.5 = 200&nbsp;cu&nbsp;ft ≈ 7.4&nbsp;cu&nbsp;yd. Surface = 400 × (2÷12) ≈ 66.7&nbsp;cu&nbsp;ft ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before placing the surface course.</p>
 
       <h2>Layer volume reference for a 40 × 10 ft drive</h2>
       <div class="table-scroll">
@@ -410,12 +431,12 @@ export const guideBodies: Record<string, string> = {
       <p>The tonnage column is a planning aid only. Your quarry’s weight per cubic yard decides the actual ticket.</p>
 
       <h2>Questions to ask the quarry</h2>
-      <p>Which stone do they recommend for a compacted base, and which for a surface layer? What is the maximum stone size, and how many fines does it contain? Is it sold by the ton or by the yard, and what density should you use after compaction? Share length, width, slope, and soil type. Steeper drives wash out faster with rounded stone; snow plowing favors a rigid base and stone that resists blade scrape.</p>
+      <p>Which stone do they recommend for a compacted base, and which for a surface layer? What is the maximum stone size, and how many fines does it contain? Is it sold by the ton or by the yard, and what density should you use after compaction? Share length, width, slope, and soil type. Steeper drives wash out faster with rounded stone. Snow plowing favors a rigid base and stone that resists blade scrape.</p>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Crown the drive slightly so water sheds to the edges.</li>
-        <li>Compact in lifts; dumping one deep pile and driving over it once is not compaction.</li>
+        <li>Compact in lifts; dumping one deep pile and driving over it once isn't compaction.</li>
         <li>Edge restraints reduce shoulder washout.</li>
         <li>Keep organic soil and mulch out of the stone.</li>
         <li>For paver conversions, plan gravel base and sand bedding as separate line items.</li>
@@ -431,21 +452,22 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Maintenance expectations</h2>
-      <p>No gravel drive is permanent. Expect to rake it level, fill ruts, and add a thin top-up of stone as traffic and winter weather demand. Weeds establish more easily in loose fines; good compaction and a crown slow that process. Budget a little stone each year rather than treating the first delivery as the last.</p>
+      <p>No gravel drive is permanent. Expect to rake it level, fill ruts, and add a thin top-up of stone as traffic and winter weather demand. Weeds establish more easily in loose fines. Good compaction and a crown slow that process. Budget a little stone each year rather than treating the first delivery as the last.</p>
 
       <h2>When to call a pro / safety / codes</h2>
       <p>Call an excavator or paving contractor for long drives, steep grades, poor soils, heavy vehicles, or when stormwater rules limit runoff onto the street. Utility locates are mandatory before excavating. Confirm driveway aprons and septic locations can handle delivery trucks. Local jurisdictions may regulate curb cuts and drainage.</p>
+
+      <p>Ask the yard which stone they actually compact for drives. Pretty pea gravel and a durable base aren't the same ticket.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://hgic.clemson.edu/factsheet/an-introduction-to-porous-pavement/" rel="noopener noreferrer">Clemson HGIC – An introduction to porous pavement</a></li>
       </ul>
-`,
-
+  `,
   'how-to-measure-roof-pitch': `      <div class="takeaway"><strong>Key takeaway:</strong> Roof pitch is inches of rise per 12&nbsp;inches of run. Measure with a level and tape on a rafter or rake when possible. A 6-inch rise over 12&nbsp;inches of run is a 6/12 pitch (about 26.6°). Prefer attic measurements when climbing is unsafe.</div>
 
       <h2>What does a 6/12 roof pitch mean?</h2>
-      <p>It means 6&nbsp;inches of vertical rise for every 12&nbsp;inches of horizontal run. That is about 26.6° and an area factor near 1.118. Multiply plan (footprint) area by that factor to estimate slope surface area before you convert to roofing squares. IKO uses the same 6:12 factor of 1.118 when explaining shingle quantity math.</p>
+      <p>Six inches of rise for every 12 inches of run. About 26.6°. Area factor near 1.118. Multiply plan (footprint) area by that factor before you talk in roofing squares. IKO uses the same 6:12 factor of 1.118 in its shingle quantity examples.</p>
       <div class="table-scroll">
       <table>
         <caption>Common pitches with approximate angle and area factor</caption>
@@ -461,7 +483,7 @@ export const guideBodies: Record<string, string> = {
       <p><strong>Pitch (X-in-12) = (rise ÷ run) × 12</strong> when rise and run use the same units. <strong>Angle ≈ arctan(rise/run)</strong>. <strong>Area factor ≈ √(1 + (rise/run)²)</strong>. Convert interactively with the <a href="/calculators/roof-pitch-calculator/">roof pitch calculator</a>.</p>
 
       <h2>How do I measure roof pitch from the attic?</h2>
-      <p>Place a level against the underside of a rafter so the bubble is centered. Mark 12&nbsp;inches along the level, then measure the vertical rise from the level up to the rafter at that mark. That rise in inches is the X in X/12. Attic measurements avoid walking the roof and are the safest option for many homeowners.</p>
+      <p>Pitch is inches of rise per 12 inches of run. Grab a level and a tape. On a rafter or rake board, mark 12 inches of level run and read the rise. A 6-inch rise over 12 inches of run is a 6/12 pitch (about 26.6°). Prefer attic measurements when climbing outside isn't safe.</p>
       <ol>
         <li>Pick a straight rafter away from hips, valleys, and damaged members.</li>
         <li>Hold a level true horizontal against the rafter bottom (or along a level line).</li>
@@ -480,12 +502,12 @@ export const guideBodies: Record<string, string> = {
 
       <div class="takeaway"><strong>Safety:</strong> Never walk a wet, frosty, or steep roof without training and fall protection. Hire a pro when in doubt.</div>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Measure more than one rafter. Renovations sometimes mix pitches.</li>
         <li>Keep units consistent. Mixing centimeters of rise with inches of run ruins the ratio.</li>
         <li>Run is horizontal, not along the slope of the rafter.</li>
-        <li>Use pitch together with plan dimensions. Pitch alone does not tell you how many squares to buy.</li>
+        <li>Use pitch together with plan dimensions. Pitch alone doesn't tell you how many squares to buy.</li>
       </ul>
 
       <h2>Common mistakes</h2>
@@ -496,17 +518,25 @@ export const guideBodies: Record<string, string> = {
         <li>Measuring along the rafter slope and calling that “run.”</li>
       </ul>
 
+      <p>Get the pitch from a rafter when you can. Guessing from the curb is how square counts go sideways.</p>
+      <h2>Pitch vs slope percent</h2>
+      <p>Roofers talk X-in-12. Some drawings show degrees or percent slope. They're related, not interchangeable on a purchase order. A 6/12 pitch is about 26.6° and roughly a 50% grade (6÷12). If a supplier asks for pitch and you answer in degrees, expect a callback.</p>
+      <p>Hip and valley roofs can mix pitches. Measure more than one rafter. Renovations and additions sometimes leave you with a 4/12 wing against a 6/12 main—your shingle count needs both area factors, not an average that exists only on paper.</p>
+
+      <h2>What tools do I need for a clean reading?</h2>
+      <p>A 24-inch level (or longer), a tape, and a pencil beat phone apps for a purchase order. Mark the 12-inch run on the level if the tool doesn't already show it. Hold the bubble dead center before you read rise. On a dusty rafter, wipe a clean strip so the level isn't sitting on a nail head. Write the pitch on a scrap of paper taped to the level so you don't forget which reading belonged to which plane.</p>
+      <p>If attic access is blocked, a rake-board measurement from a ladder can work on a low eave—still treat wet shingles as off-limits. When the roof is too steep or too high, hire the measurement. A wrong pitch factor is cheaper to fix on paper than after the truck leaves short.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.iko.com/na/blog/how-many-shingles-in-a-bundle/" rel="noopener noreferrer">IKO – How many shingles in a bundle (squares, bundles, 6:12 factor 1.118, waste)</a></li>
         <li><a href="https://www.gaf.com/en-us/blog/your-home/how-to-measure-a-roofing-square-3faec381-6f6f-49ff-841f-114c59108f2a" rel="noopener noreferrer">GAF – How to measure a roofing square (100 sq ft, bundles per square, overage)</a></li>
       </ul>
   `,
-
   'grass-seed-per-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Bag labels and extension charts list grass seed in pounds per 1,000 square feet. Convert with (lawn sq&nbsp;ft ÷ 1,000) × rate. Iowa State PM 1072 publishes exact cool-season mixture rates; warm-season grasses need a Southern extension source.</div>
 
       <h2>How much grass seed per 1,000 sq ft?</h2>
-      <p>Use pounds of seed per 1,000 square feet, then scale to your lawn. Seed (lb) = (area ÷ 1,000) × label or extension rate. Iowa State Extension PM 1072 lists rates from 1–1.5 lb per 1,000 for 100% Kentucky bluegrass up to 7–9 lb for 100% tall fescue. There is no single universal ounces-per-square-foot figure.</p>
+      <p>Bags and extension charts list seed in pounds per 1,000 square feet, not per single square foot. Convert with (lawn sq&nbsp;ft ÷ 1,000) × rate. Iowa State PM 1072 publishes cool-season mixture rates. Warm-season grasses need a Southern extension source for the right chart.</p>
       <p>YardTally’s <a href="/calculators/grass-seed-calculator/">grass seed calculator</a> uses adjustable defaults in a common cool-season blend ballpark (about 3.5 lb per 1,000 for new lawn and about 1.75 lb per 1,000 for overseed). Those defaults are planning aids only. Replace them with the PM 1072 row for your mix or the rate printed on the seed you buy.</p>
 
       <h2>Iowa PM 1072 seeding rates (lb per 1,000 sq ft)</h2>
@@ -526,7 +556,7 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Iowa’s tall fescue page repeats the 7–9 lb per 1,000 recommendation and notes a 90–95% tall fescue / 5–10% Kentucky bluegrass mix can help uniformity. Warm-season grasses such as bermudagrass and zoysia often use vegetative planting or different seed products. Do not invent rates here; check a Southern university extension fact sheet for your species and county.</p>
+      <p>Iowa’s tall fescue page repeats the 7–9 lb per 1,000 recommendation and notes a 90–95% tall fescue / 5–10% Kentucky bluegrass mix can help uniformity. Warm-season grasses such as bermudagrass and zoysia often use vegetative planting or different seed products. Don't invent rates here. Check a Southern university extension fact sheet for your species and county.</p>
 
       <h2>Worked example: 50 × 40 ft lawn</h2>
       <p>A 50 × 40 ft lawn is 2,000 square feet (2 × 1,000). Using the calculator’s default new-lawn rate of 3.5 lb per 1,000:</p>
@@ -543,7 +573,7 @@ export const guideBodies: Record<string, string> = {
       <p>Usually no. Bags and extension charts list pounds per 1,000 square feet. To get an approximate pounds-per-square-foot figure, divide the lb-per-1,000 rate by 1,000 (for example, 3.5 lb per 1,000 is 0.0035 lb per sq ft). Keep the 1,000-sq-ft rate as the working number so you match the bag and PM 1072.</p>
 
       <h2>Is overseeding half the new-lawn rate?</h2>
-      <p>Often lower, but not always exactly half. Use the overseed line on your bag. Tall fescue that clumps may need interseeding with the same species every few years. Iowa’s tall fescue guidance discusses that separately from a full new-lawn rate. Do not invent a universal half-rate rule.</p>
+      <p>Often lower, but not always exactly half. Use the overseed line on your bag. Tall fescue that clumps may need interseeding with the same species every few years. Iowa’s tall fescue guidance discusses that separately from a full new-lawn rate. Don't invent a universal half-rate rule.</p>
 
       <h2>Step-by-step: buy the right amount of seed</h2>
       <ol>
@@ -559,8 +589,8 @@ export const guideBodies: Record<string, string> = {
       <h2>Tips for even coverage</h2>
       <ul>
         <li>Match spreader settings to the bag chart when provided.</li>
-        <li>Mix seed in the hopper so fines do not settle and stripe the lawn.</li>
-        <li>Flag irrigation heads and edges so corners do not get a double dump.</li>
+        <li>Mix seed in the hopper so fines don't settle and stripe the lawn.</li>
+        <li>Flag irrigation heads and edges so corners don't get a double dump.</li>
         <li>Read purity and germination on the seed tag; cheap bags with high inert matter deliver less live seed per pound.</li>
         <li>Pair seeding with soil testing before heavy fertilizer programs.</li>
       </ul>
@@ -574,17 +604,18 @@ export const guideBodies: Record<string, string> = {
         <li>Watering so heavily that seed washes into clumps.</li>
       </ul>
 
+      <p>Match the bag rate to new lawn vs overseed. Buying “enough seed” without that split is how bags go stale in the garage.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf" rel="noopener noreferrer">Iowa State Extension – Establishing a Lawn from Seed (PM 1072)</a></li>
         <li><a href="https://yardandgarden.extension.iastate.edu/how-to/all-about-tall-fescue-low-maintenance-alternative-kentucky-bluegrass" rel="noopener noreferrer">Iowa State Extension – Turf-type tall fescue seeding rates</a></li>
       </ul>
-`,
-
+  `,
   'fertilizer-nitrogen-per-1000-sq-ft': `      <div class="takeaway"><strong>Key takeaway:</strong> Product pounds = (nitrogen pounds you want per 1,000 sq&nbsp;ft) ÷ (N% as a decimal). Example: 1&nbsp;lb&nbsp;N with a 30-0-4 bag → 1 ÷ 0.30 ≈ 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Follow the label, soil test, and any local turf nutrient law.</div>
 
       <h2>How do I calculate fertilizer for 1 lb N per 1000?</h2>
-      <p>Divide 1 by the nitrogen decimal from the bag. For 30-0-4, 1 ÷ 0.30 ≈ 3.3 lb of product per 1,000 sq ft. Multiply by (lawn sq ft ÷ 1,000) for the whole lawn. That is the same math behind YardTally’s <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>. Defaults are for planning; your soil test and product label override them.</p>
+      <p>Product pounds = (nitrogen pounds you want per 1,000 sq&nbsp;ft) ÷ (N% as a decimal). Want 1&nbsp;lb&nbsp;N from a 30-0-4 bag? That's 1 ÷ 0.30 ≈ 3.3&nbsp;lb of product per 1,000&nbsp;sq&nbsp;ft. Follow the label, a soil test, and any local turf nutrient law. Don't chase a "more is greener" hunch.</p>
       <p>Plain-language formulas:</p>
       <p><strong>Product lb per 1,000 sq ft = N lb desired per 1,000 ÷ (N percent ÷ 100).</strong></p>
       <p><strong>Total product lb = (lawn sq ft ÷ 1,000) × product lb per 1,000.</strong></p>
@@ -632,7 +663,7 @@ export const guideBodies: Record<string, string> = {
         <li>Water in if the label says to; avoid applying before heavy runoff-producing storms.</li>
       </ol>
 
-      <h2>Tips</h2>
+      <h2>Field notes</h2>
       <ul>
         <li>Prefer products with a meaningful slow-release nitrogen fraction when the label offers that option.</li>
         <li>Raise mowing height within the grass’s recommended range.</li>
@@ -641,7 +672,7 @@ export const guideBodies: Record<string, string> = {
         <li>For low-maintenance tall fescue, Iowa’s late-fall 1 lb N application is a species-specific option, not a rule for every lawn.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Spreading “one bag per lawn” without doing N math.</li>
         <li>Confusing product pounds with nitrogen pounds.</li>
@@ -650,27 +681,28 @@ export const guideBodies: Record<string, string> = {
         <li>Fertilizing drought-dormant turf expecting a miracle green-up.</li>
       </ul>
 
+      <p>Do the N math once on paper, then set the spreader. More product isn't more lawn if you've already hit the nitrogen target.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard" rel="noopener noreferrer">Penn State Extension – Spring tips for a watershed-friendly yard (~2 lb N/1,000 starting annual rate)</a></li>
         <li><a href="https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators" rel="noopener noreferrer">Pennsylvania PDA – Homeowner fertilizer limits (0.9 lb total N/application)</a></li>
         <li><a href="https://yardandgarden.extension.iastate.edu/how-to/all-about-tall-fescue-low-maintenance-alternative-kentucky-bluegrass" rel="noopener noreferrer">Iowa State Extension – Tall fescue fertility (about 1 lb N late fall for low-maintenance lawns)</a></li>
       </ul>
-`,
-
+  `,
   'raised-bed-soil-mix-4x8': `      <div class="takeaway"><strong>Key takeaway:</strong> Soil volume for a raised bed is length × width × depth using interior dimensions. A 4×8 ft bed 12 in deep holds 32 cu ft (about 1.19 cu yd). Iowa State Extension describes equal parts topsoil, organic matter, and coarse sand, or about 70% topsoil and 30% compost.</div>
 
       <h2>How much soil for a 4×8?</h2>
-      <p>At 12 inches deep, a 4×8 ft bed needs 32 cubic feet of mix, about 1.19 cubic yards. At 18 inches, it needs 48 cubic feet, about 1.78 cubic yards. Multiply interior length × width × depth in feet. Measure inside the frame before you order bags or bulk so board thickness does not inflate the volume.</p>
+      <p>Volume is length × width × depth using interior dimensions. A 4×8 ft bed 12 in deep holds 32 cu ft (about 1.19 cu yd). Iowa State Extension describes equal parts topsoil, organic matter, and coarse sand, or about 70% topsoil and 30% compost. Measure inside the boards, not outside.</p>
       <p>The <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> returns cubic feet, yards, and an approximate count of 1.5 cu ft bags. For paths or topping beside the bed, use the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>. After planting, see the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide and the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart. Choosing bagged products is easier once you understand <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>.</p>
 
       <h2>What is a good soil mix?</h2>
-      <p>Iowa State Extension’s raised-bed FAQ describes an excellent mix as equal parts topsoil, organic matter (compost, well-rotted manure, or peat), and coarse sand. Another option listed there is about 70% topsoil and 30% compost. Use mature compost that is not overly salty, and avoid contaminated fill soil.</p>
+      <p>Iowa State Extension’s raised-bed FAQ describes an excellent mix as equal parts topsoil, organic matter (compost, well-rotted manure, or peat), and coarse sand. Another option listed there is about 70% topsoil and 30% compost. Use mature compost that isn't overly salty, and avoid contaminated fill soil.</p>
       <p>At 12 inches depth (32 cu ft total), an equal-parts mix is about 10.7 cu ft of each component. A 70/30 mix is about 22.4 cu ft topsoil and 9.6 cu ft compost. Pick one coherent recipe and stick to it rather than stacking every internet blend at once.</p>
 
       <h2>How deep should the soil be?</h2>
-      <p>Depth depends on crops and whether roots can enter native soil below. Many vegetables grow well in about a foot of improved media; deep-rooted crops appreciate more. If the bed sits on open ground and you loosen native soil below, a 10–12 inch fill may behave deeper than the same fill on a sealed patio.</p>
-      <p>On hardscape, plan the full root depth inside the box and favor mixes that drain freely so the bed does not become a stagnant tub after storms. Width matters for access: many gardeners keep beds near 3–4 ft wide so they never step on the growing media.</p>
+      <p>Depth depends on crops and whether roots can enter native soil below. Many vegetables grow well in about a foot of improved media. Deep-rooted crops appreciate more. If the bed sits on open ground and you loosen native soil below, a 10–12 inch fill may behave deeper than the same fill on a sealed patio.</p>
+      <p>On hardscape, plan the full root depth inside the box and favor mixes that drain freely so the bed doesn't become a stagnant tub after storms. Width matters for access: many gardeners keep beds near 3–4 ft wide so they never step on the growing media.</p>
 
       <h2>How bed volume is calculated</h2>
       <p><strong>Cubic feet = length (ft) × width (ft) × (depth in inches ÷ 12).</strong></p>
@@ -706,12 +738,12 @@ export const guideBodies: Record<string, string> = {
         <li>Choose crop-appropriate depth (many gardeners start near 10–12 in of quality media).</li>
         <li>Calculate volume with the formula or raised-bed calculator.</li>
         <li>Select an Iowa-style mix (equal parts topsoil / organic matter / coarse sand, or ~70% topsoil / ~30% compost) or a reputable bagged raised-bed mix.</li>
-        <li>Remove sod if present and loosen native soil at the base when the bed sits on ground so layers do not perch water.</li>
+        <li>Remove sod if present and loosen native soil at the base when the bed sits on ground so layers don't perch water.</li>
         <li>Add mix in lifts and incorporate into the existing soil as Iowa recommends, lightly firming without compacting like a road base.</li>
         <li>Water to settle, top off, soil-test after settling, then mulch paths and bed surfaces as appropriate.</li>
       </ol>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Order a little extra; mixes settle and compost volume shrinks over a season.</li>
         <li>Ask bulk yards about screening, weed seeds, and whether the “topsoil” is sandy loam or heavy clay.</li>
@@ -730,23 +762,24 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Settling, top-offs, and weight</h2>
-      <p>Freshly filled beds settle as air pockets collapse and organic matter breaks down, so it is normal to top off an inch or two after the first season. Fill to just below the rim at first so water does not wash soil over the edge. Mix components thoroughly rather than stacking abrupt layers that can slow water movement.</p>
+      <p>Freshly filled beds settle as air pockets collapse and organic matter breaks down, so it's normal to top off an inch or two after the first season. Fill to just below the rim at first so water doesn't wash soil over the edge. Mix components thoroughly rather than stacking abrupt layers that can slow water movement.</p>
       <p>Soil is heavy when wet. A full 4×8 bed is a substantial load for a deck or rooftop not designed for it. For deliveries over about one cubic yard, bulk soil is typically less expensive per cubic foot than bagged product, but you need a place for the pile and a plan to move it promptly.</p>
+
+      <p>Use interior dimensions. Outside board measurements quietly inflate the soil order.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://yardandgarden.extension.iastate.edu/faq/what-would-be-good-soil-mix-raised-bed" rel="noopener noreferrer">Iowa State Extension – What would be a good soil mix for a raised bed?</a></li>
       </ul>
-`,
-
+  `,
   'how-much-paint-for-a-room': `      <div class="takeaway"><strong>Key takeaway:</strong> Estimate wall area as perimeter × ceiling height, subtract doors and windows, then divide by label coverage per coat. BEHR lists about 250–400 sq ft per gallon per coat for several ULTRA and PREMIUM PLUS interior paints; YardTally defaults to 350. Multiply by the number of coats and read your can.</div>
 
       <h2>How many square feet does a gallon of paint cover?</h2>
-      <p>BEHR states that one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250 to 400 square feet in one coat. Textured walls, bare surfaces, and big color changes use more paint. YardTally’s paint calculator defaults to 350 square feet per gallon, which sits in that Behr range. Confirm the can for your product.</p>
+      <p>BEHR lists about 250–400 sq ft per gallon per coat for several ULTRA and PREMIUM PLUS interior paints. YardTally defaults to 350. Rough texture, primer needs, and big color changes push you toward the low end. Read the can in your hand—not a generic blog chart.</p>
       <p>Coverage is never a single magic number. Smooth, primed drywall often lands toward the high end of a label range. Porous new drywall, heavy texture, or a dark-to-light color change lands toward the low end and may need primer plus extra finish coats. Always use the coverage printed on the product you buy, then run the <a href="/calculators/paint-calculator/">paint calculator</a> with that number.</p>
 
       <h2>How much area will one gallon of paint cover?</h2>
-      <p>Plan with the same 250–400 sq ft per gallon band Behr publishes for those interior lines, and treat 350 as a mid-range planning default until your can says otherwise. One gallon covers one coat on that area; two coats roughly double the gallons. Keep ceilings, trim, and doors as separate takeoffs so wall gallons stay accurate.</p>
+      <p>Plan with the same 250–400 sq ft per gallon band Behr publishes for those interior lines, and treat 350 as a mid-range planning default until your can says otherwise. One gallon covers one coat on that area. Two coats roughly double the gallons. Keep ceilings, trim, and doors as separate takeoffs so wall gallons stay accurate.</p>
       <p>Closets, hall returns, and accent walls should be measured on their own when the color differs. Open-concept rooms work better as separate wall planes than as one vague “living area” guess.</p>
 
       <h2>How room paint quantity is calculated</h2>
@@ -758,8 +791,8 @@ export const guideBodies: Record<string, string> = {
       <p>YardTally’s paint calculator uses that layout with default door and window sizes (about 20 and 15 sq ft each unless you override) and a default coverage of 350 sq ft per gallon. That default sits inside Behr’s published 250–400 range for several ULTRA and PREMIUM PLUS interior products. The can in your hand still controls the buy.</p>
 
       <h2>How much paint for a 12×12 room?</h2>
-      <p>With 8 ft ceilings, wall area is 2 × (12 + 12) × 8 = 384 sq ft before openings. After one door and two windows (~50 sq ft), about 334 sq ft remains. At 350 sq ft per gallon, one coat is about 1.0 gallon and two coats about 1.9; plan on two gallons of the same tint batch.</p>
-      <p>If your surface eats paint closer to 300 sq ft per gallon, two coats need (334 × 2) ÷ 300 ≈ 2.2 gallons. Round up so you do not split dye lots mid-wall. Run the same length, width, height, openings, and coverage in the paint calculator to match these numbers.</p>
+      <p>With 8 ft ceilings, wall area is 2 × (12 + 12) × 8 = 384 sq ft before openings. After one door and two windows (~50 sq ft), about 334 sq ft remains. At 350 sq ft per gallon, one coat is about 1.0 gallon and two coats about 1.9. Plan on two gallons of the same tint batch.</p>
+      <p>If your surface eats paint closer to 300 sq ft per gallon, two coats need (334 × 2) ÷ 300 ≈ 2.2 gallons. Round up so you don't split dye lots mid-wall. Run the same length, width, height, openings, and coverage in the paint calculator to match these numbers.</p>
 
       <h2>Worked example: 12 × 14 ft room, 8 ft ceilings</h2>
       <p>Perimeter contribution: 2 × (12 + 14) = 52 ft. Wall area = 52 × 8 = <strong>416 sq ft</strong>.</p>
@@ -767,7 +800,7 @@ export const guideBodies: Record<string, string> = {
       <p>At 350 sq ft per gallon: 366 ÷ 350 ≈ <strong>1.05 gallons for one coat</strong>. Two coats ≈ <strong>2.09 gallons</strong>. Buy three gallons if you want matching touch-up stock, or two gallons plus a quart when the store can match. These figures match the paint calculator for the same inputs.</p>
 
       <h2>How much paint for a small bathroom?</h2>
-      <p>A compact 5 × 8 ft bath with 8 ft ceilings has about 208 sq ft of wall before openings. After one door and a small window, paintable walls land around 170–180 sq ft. At 350 sq ft per gallon, one coat is about half a gallon; two coats are roughly 1.0–1.1 gallons.</p>
+      <p>A compact 5 × 8 ft bath with 8 ft ceilings has about 208 sq ft of wall before openings. After one door and a small window, paintable walls land around 170–180 sq ft. At 350 sq ft per gallon, one coat is about half a gallon. Two coats are roughly 1.0–1.1 gallons.</p>
       <p>One gallon may finish a same-color refresh. A deep color change or humid shower-adjacent walls still warrant a second gallon for touch-up and an extra coat. Confirm openings and ceiling height with the paint calculator; skip the ceiling and vanity doors unless you measure them separately.</p>
 
       <h2>Do I include the ceiling?</h2>
@@ -775,8 +808,8 @@ export const guideBodies: Record<string, string> = {
       <p>Accent walls use the single-wall formula: wall width × height, minus openings on that wall only. Saturated accent colors often sit toward the low end of the label coverage range, so a test quart first is wise.</p>
 
       <h2>How much do doors and windows subtract?</h2>
-      <p>YardTally defaults to about 20 sq ft per standard door and 15 sq ft per typical window. Measure oversized patio doors, sidelights, or picture windows and override those defaults. On small baths, openings remove a large share of wall area; on open plans with many windows, skipping openings underbuys paint.</p>
-      <p>Do not subtract cabinets you plan to paint, and do not add openings you will not paint around. Only remove surfaces that stay unpainted.</p>
+      <p>YardTally defaults to about 20 sq ft per standard door and 15 sq ft per typical window. Measure oversized patio doors, sidelights, or picture windows and override those defaults. On small baths, openings remove a large share of wall area. On open plans with many windows, skipping openings underbuys paint.</p>
+      <p>Don't subtract cabinets you plan to paint, and don't add openings you won't paint around. Only remove surfaces that stay unpainted.</p>
 
       <h2>Coverage planning table</h2>
       <div class="table-scroll">
@@ -793,7 +826,7 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Dark-to-light color changes, unrepaired drywall, and bare wood often need primer plus two finish coats. “Paint-and-primer” marketing does not erase surface preparation requirements printed on the label.</p>
+      <p>Dark-to-light color changes, unrepaired drywall, and bare wood often need primer plus two finish coats. “Paint-and-primer” marketing doesn't erase surface preparation requirements printed on the label.</p>
 
       <h2>Step-by-step</h2>
       <ol>
@@ -803,11 +836,11 @@ export const guideBodies: Record<string, string> = {
         <li>Read coverage and recommended coats on the product data sheet or can (Behr’s how-to notes 250–400 sq ft per gallon for several ULTRA and PREMIUM PLUS interior products).</li>
         <li>Divide and multiply for total gallons; round up to whole containers of the same tint batch.</li>
         <li>Add primer quantity separately when the label calls for it.</li>
-        <li>Estimate trim linear feet later if you are brushing a contrasting enamel.</li>
+        <li>Estimate trim linear feet later if you're brushing a contrasting enamel.</li>
       </ol>
 
       <h2>Surface prep that changes how much paint you need</h2>
-      <p>Patched drywall, bare paper facing, glossy enamel, and nicotine-stained walls all affect how far a gallon goes. Sanding gloss, washing grease, and priming repairs usually improves finish uniformity and can reduce the urge to apply a third finish coat “just to hide.” Skipping prep rarely saves paint; it usually wastes it on uneven absorption and flashing.</p>
+      <p>Patched drywall, bare paper facing, glossy enamel, and nicotine-stained walls all affect how far a gallon goes. Sanding gloss, washing grease, and priming repairs usually improves finish uniformity and can reduce the urge to apply a third finish coat “just to hide.” Skipping prep rarely saves paint. It usually wastes it on uneven absorption and flashing.</p>
       <p>Roller nap thickness matters on texture: deeper texture holds more paint in the first pass. When in doubt, use the lower coverage number from the manufacturer’s range for the first coat estimate, then adjust after you see how the wall looks when dry.</p>
 
       <h2>Tips</h2>
@@ -820,7 +853,7 @@ export const guideBodies: Record<string, string> = {
         <li>Box multiple gallons together in a clean pail so slight tint differences blend.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Ordering from floor area (length × width) instead of wall area.</li>
         <li>Forgetting a second coat in the gallon math.</li>
@@ -830,30 +863,34 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Sheen, application method, and waste</h2>
-      <p>Sheen and tools influence how far paint goes. Flat finishes hide wall flaws but scuff more easily; satin and eggshell wipe clean in kitchens and hallways. A roller with a thicker nap holds more paint and suits textured walls, but it applies more paint per square foot than a thin nap on smooth drywall. Airless sprayers cover fast but typically waste more paint to overspray and cleanup than rolling does, so plan extra if you spray.</p>
+      <p>Sheen and tools influence how far paint goes. Flat finishes hide wall flaws but scuff more easily. Satin and eggshell wipe clean in kitchens and hallways. A roller with a thicker nap holds more paint and suits textured walls, but it applies more paint per square foot than a thin nap on smooth drywall. Airless sprayers cover fast but typically waste more paint to overspray and cleanup than rolling does, so plan extra if you spray.</p>
       <p>Cutting in around trim and corners adds to usage, and so does paint left in trays, rollers, and brushes. A small buffer of around 10 percent is a common planning allowance. When a room has a dramatic color change, tinted primer can reduce the number of finish coats needed.</p>
+
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
+
+      <p>Same batch on walls that meet. Touch-up from a different lot shows up in afternoon light.</p>
+
 
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy" rel="noopener noreferrer">BEHR – How much interior paint to buy (250–400 sq ft/gal guidance)</a></li>
       </ul>
   `,
-
   'paver-base-gravel-and-sand-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> YardTally’s paver calculator defaults to about 4 inches of compacted gravel paver base plus about 1 inch of bedding sand under concrete pavers, then the paver thickness on top. Those depths are planning assumptions, not a universal standard. Exact depths depend on soil, traffic, climate, and the paver manufacturer’s installation sheet or local code. Calculate each layer’s volume separately.</div>
 
       <h2>How deep should paver base gravel be?</h2>
-      <p>YardTally’s patio planning default is 4 inches of compacted angular paver base gravel; many DIY worksheets also use about 4 to 6 inches. That is a calculator starting point, not a code claim. Soft soils and freeze-thaw sites may need more on the manufacturer sheet. Driveway assemblies differ; do not copy patio defaults onto a driveway.</p>
+      <p>YardTally's paver calculator defaults to about 4 inches of compacted gravel paver base under concrete pavers. That's a planning assumption, not a universal standard. Soil, traffic, climate, and the manufacturer's sheet set the real depth. Soft clay and vehicle pads usually want more base than a quiet patio.</p>
       <p>Paver projects are stacked systems: compacted subgrade, aggregate base, bedding sand, pavers, and joint sand. Volume for any uniform layer is:</p>
       <p><strong>Cubic feet = area (sq ft) × (depth inches ÷ 12).</strong></p>
       <p><strong>Cubic yards = cubic feet ÷ 27.</strong></p>
       <p>The <a href="/calculators/paver-calculator/">paver calculator</a> counts pavers and also estimates bedding sand and gravel base using adjustable depths (defaults: 1 in sand, 4 in base). Refine bulk orders with the <a href="/calculators/gravel-calculator/">gravel calculator</a> and <a href="/calculators/sand-calculator/">sand calculator</a>. Choosing angular crushed stone versus decorative rounded rock is covered in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. The same angular-versus-rounded logic applies to patio bases that must lock under compaction.</p>
 
       <h2>How much sand under pavers?</h2>
-      <p>YardTally’s bedding-sand default is 1 inch of screeded sand under concrete pavers. Joint sand is extra and much smaller in volume. Do not thicken the sand bed to hide a wavy base; that is a common settlement failure. Confirm the bedding depth on your paver brand’s current installation guide before you excavate.</p>
+      <p>YardTally’s bedding-sand default is 1 inch of screeded sand under concrete pavers. Joint sand is extra and much smaller in volume. Don't thicken the sand bed to hide a wavy base. That is a common settlement failure. Confirm the bedding depth on your paver brand’s current installation guide before you excavate.</p>
       <p>Sand should stay a consistent thickness across the field. Major low spots belong in the compacted gravel paver base, not in a deep sand pocket that will settle later.</p>
 
       <h2>How do I convert inches of base to tons?</h2>
-      <p>Convert depth to cubic yards first: area × (inches ÷ 12) ÷ 27. Then ask your stone yard for tons per cubic yard for that specific aggregate, because density varies with rock type and moisture. The gravel calculator helps with volume; your supplier converts volume to tons for delivery.</p>
+      <p>Convert depth to cubic yards first: area × (inches ÷ 12) ÷ 27. Then ask your stone yard for tons per cubic yard for that specific aggregate, because density varies with rock type and moisture. The gravel calculator helps with volume. Your supplier converts volume to tons for delivery.</p>
       <p>Example: 120 sq ft of 4-inch paver base is 120 × (4÷12) ÷ 27 ≈ 1.48 cu yd. If that yard quotes about 1.3 tons per yard for dense-grade base, order roughly 1.9 tons before waste, then add a little for edges and uneven excavation.</p>
 
       <h2>Worked example: 12 × 10 ft patio</h2>
@@ -862,7 +899,7 @@ export const guideBodies: Record<string, string> = {
         <li>Sand: 120 × (1÷12) = <strong>10 cu ft</strong> (about 0.37 cu yd).</li>
         <li>Base: 120 × (4÷12) ÷ 27 ≈ <strong>1.48 cu yd</strong> of gravel.</li>
       </ul>
-      <p>If you thicken the paver base to 6 in because the manufacturer sheet or soil conditions call for it: 120 × 0.5 ÷ 27 ≈ <strong>2.22 cu yd</strong> gravel, with sand unchanged at 10 cu ft. Order extra aggregate for edge restraints, compaction loss, and uneven excavation. Paver count for 12×12 in units on this footprint is 120 pieces before waste; with 10% waste the calculator returns 132. Buy the waste factor your pattern needs (diagonal cuts need more).</p>
+      <p>If you thicken the paver base to 6 in because the manufacturer sheet or soil conditions call for it: 120 × 0.5 ÷ 27 ≈ <strong>2.22 cu yd</strong> gravel, with sand unchanged at 10 cu ft. Order extra aggregate for edge restraints, compaction loss, and uneven excavation. Paver count for 12×12 in units on this footprint is 120 pieces before waste. With 10% waste the calculator returns 132. Buy the waste factor your pattern needs (diagonal cuts need more).</p>
 
       <h2>Layer depth reference table</h2>
       <div class="table-scroll">
@@ -879,16 +916,16 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Excavation depth must also create the finished surface elevation you want relative to doors and yard drainage. Slope pavers to shed water per manufacturer guidance. Do not trap runoff against siding.</p>
+      <p>Excavation depth must also create the finished surface elevation you want relative to doors and yard drainage. Slope pavers to shed water per manufacturer guidance. Don't trap runoff against siding.</p>
 
       <h2>Patio paver base vs driveway sections</h2>
-      <p>Driveway gravel depths and patio paver base depths are not interchangeable. A driveway carries vehicle loads and often uses a thicker aggregate section, different edge details, and sometimes a different stone gradation. If you came from the driveway gravel types guide for material intuition, keep the angular-stone lesson and still read the patio or driveway detail that matches the traffic you expect.</p>
-      <p>Retaining-wall trenches are another assembly again. Compacted gravel under wall blocks is related in material choice but not the same thickness or trench shape as a patio paver base. Compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide when you are holding soil, not paving a patio.</p>
+      <p>Driveway gravel depths and patio paver base depths aren't interchangeable. A driveway carries vehicle loads and often uses a thicker aggregate section, different edge details, and sometimes a different stone gradation. If you came from the driveway gravel types guide for material intuition, keep the angular-stone lesson and still read the patio or driveway detail that matches the traffic you expect.</p>
+      <p>Retaining-wall trenches are another assembly again. Compacted gravel under wall blocks is related in material choice but not the same thickness or trench shape as a patio paver base. Compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide when you're holding soil, not paving a patio.</p>
 
       <h2>Subgrade, geotextile, and edge restraint</h2>
-      <p>Even perfect gravel depth fails on pumping mud. Excavate soft organic soil, compact the subgrade, and consider a geotextile separator when fines from below will migrate into the open-graded stone. Follow site conditions and manufacturer notes rather than treating fabric as mandatory everywhere. Edge restraint (plastic spike-down, concrete curb, or other approved systems) keeps perimeter pavers from migrating; without it, joint lines open and the sand bed creeps.</p>
-      <p>Compaction equipment should match the job size. Plate compactors are standard for residential patios; compact the base in lifts instead of placing all the stone at once and buzzing the top. When compacting on top of pavers, use protective pads if the paver producer requires them so you do not spall the surface.</p>
-      <p>Climate matters. Freeze-thaw regions punish trapped water. Drainage should move water through and out of the system, not store it in a bathtub excavation. In arid climates, dust control and joint sand loss from wind can be the bigger maintenance issue. Still build a competent paver base so irrigation runoff does not undermine edges.</p>
+      <p>Even perfect gravel depth fails on pumping mud. Excavate soft organic soil, compact the subgrade, and consider a geotextile separator when fines from below will migrate into the open-graded stone. Follow site conditions and manufacturer notes rather than treating fabric as mandatory everywhere. Edge restraint (plastic spike-down, concrete curb, or other approved systems) keeps perimeter pavers from migrating. Without it, joint lines open and the sand bed creeps.</p>
+      <p>Compaction equipment should match the job size. Plate compactors are standard for residential patios. Compact the base in lifts instead of placing all the stone at once and buzzing the top. When compacting on top of pavers, use protective pads if the paver producer requires them so you don't spall the surface.</p>
+      <p>Climate matters. Freeze-thaw regions punish trapped water. Drainage should move water through and out of the system, not store it in a bathtub excavation. In arid climates, dust control and joint sand loss from wind can be the bigger maintenance issue. Still build a competent paver base so irrigation runoff doesn't undermine edges.</p>
 
       <h2>Step-by-step</h2>
       <ol>
@@ -901,7 +938,7 @@ export const guideBodies: Record<string, string> = {
         <li>Lay pavers, install edge restraint, compact, and sweep joint sand (polymeric only if the product instructions fit your climate and joints).</li>
       </ol>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Use crushed stone with fines (often sold as dense grade / crusher run) for bases that must lock. See the driveway gravel guide for material intuition, not for copying driveway thickness onto a patio.</li>
         <li>Keep sand bedding consistent; thick sand pockets settle and telegraph dips.</li>
@@ -924,20 +961,21 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Slope, compaction, and joint sand</h2>
       <p>Patios should shed water. A frequently cited guideline is a slope of about one-quarter inch per foot (roughly 2 percent) directed away from buildings, but follow your paver manufacturer's instructions and any local requirements. Build that slope into the compacted paver base and screeded bedding layer instead of trying to correct it with sand, which should stay at a uniform depth. Compact the base in lifts, commonly in layers no thicker than about four inches, with a plate compactor, moistening dry aggregate slightly if the manufacturer advises.</p>
-      <p>After the pavers are laid and cut, edge restraints keep the field from spreading, and joint sand is swept into the gaps and compacted. Polymeric sand can reduce weed growth and sand loss when it is installed according to its directions, while plain sand is cheaper but may require refilling. Order a bit more joint sand than the bedding estimate suggests, because it gets swept off the surface and into the joints repeatedly.</p>
+      <p>After the pavers are laid and cut, edge restraints keep the field from spreading, and joint sand is swept into the gaps and compacted. Polymeric sand can reduce weed growth and sand loss when it's installed according to its directions, while plain sand is cheaper but may require refilling. Order a bit more joint sand than the bedding estimate suggests, because it gets swept off the surface and into the joints repeatedly.</p>
+
+      <p>Don't use sand to fix a bad gravel base. Screed sand is a bedding layer, not structural fill.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
         <li>Follow the current installation sheet for your paver brand for paver base gravel depth, bedding sand thickness, edge restraint, and joint sand. YardTally’s 4 in base / 1 in sand figures are calculator planning defaults until that sheet says otherwise.</li>
       </ul>
   `,
-
   'deck-material-list-12x16': `      <div class="takeaway"><strong>Key takeaway:</strong> This page is a shopping takeoff for a 12×16 ft rectangular deck, not a set of construction plans and not a priced bill of materials. Board count follows covering width ÷ board face width; joists follow span ÷ spacing + 1. YardTally defaults use about 5.5 in effective board width and 16 in on-center joists as planning assumptions. Orientation of the 12 and 16 matters.</div>
 
       <h2>Is this a 12×16 deck plan or a material list?</h2>
-      <p>It is a material-list starting point for shopping, not construction plans and not a priced BOM. Board, joist, and fastener counts help you order lumber. Verify joist and beam sizes against current AWC or DCA span tables, the decking brand, and local permits before you build.</p>
+      <p>It's a material-list starting point for shopping, not construction plans and not a priced BOM. Board, joist, and fastener counts help you order lumber. Verify joist and beam sizes against current AWC or DCA span tables, the decking brand, and local permits before you build.</p>
       <p>The <a href="/calculators/deck-material-calculator/">deck material calculator</a> encodes that simplified model with defaults of 5.5 in board width (dimensional 6 in decking allowance for gap), 12 ft board length, 16 in joist spacing, and about two screws per board-foot. Real decks also need beams, posts, footings, ledger details, flashing, railings, and lateral bracing. None of those are fully designed here.</p>
-      <p>For a larger sister takeoff, see the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>. Ground-level pads and stairs often need concrete; see <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> and the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a> when estimating footing mix. Low retaining edges beside a patio-to-deck transition are a different system; compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide if you are holding soil, not framing lumber.</p>
+      <p>For a larger sister takeoff, see the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>. Ground-level pads and stairs often need concrete; see <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> and the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a> when estimating footing mix. Low retaining edges beside a patio-to-deck transition are a different system; compare with the <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> guide if you're holding soil, not framing lumber.</p>
 
       <h2>How a basic deck takeoff works</h2>
       <p>For a rectangular deck with boards running along the length dimension:</p>
@@ -949,7 +987,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>How many deck boards for a 12×16 deck?</h2>
-      <p>With YardTally defaults (5.5 in face, 12 ft stock) and boards running 12 ft across a 16 ft width, plan on about 35 twelve-foot boards before waste. Boards the other way need about 54 twelve-foot pieces because you splice along the longer run. Sketch board direction before you order.</p>
+      <p>This page is a shopping takeoff for a 12×16 ft rectangular deck. It isn't construction plans and it isn't a priced BOM. Board count follows covering width ÷ board face width. Joists follow span ÷ spacing + 1. YardTally defaults use about 5.5 in effective board width and 16 in on-center joists. Which way you run the 12 and 16 changes the count.</p>
       <p>Using calculator inputs length = 12 ft (board direction), width = 16 ft (across boards), 5.5 in face width, 12 ft boards, 16 in joist spacing:</p>
       <ul>
         <li>Area = <strong>192 sq ft</strong>.</li>
@@ -959,8 +997,8 @@ export const guideBodies: Record<string, string> = {
       <p>Add waste for bad boards, picture-frame borders, and angle cuts. Composite decking may use different widths, hidden clips, and gapping rules. Follow that brand’s installation guide rather than wood defaults.</p>
 
       <h2>What joist spacing should I use?</h2>
-      <p>YardTally’s calculator default is 16 inches on center, a planning assumption for many wood decks. Some composites require 12 in O.C., and spans change with species, grade, and load. Check current AWC or DCA tables and your decking brand; a standards homepage is not a span table.</p>
-      <p>For the 12 ft board-run orientation above, field joists = floor(12 ÷ 16/12) + 1 = <strong>10 joists</strong>; rim joists are counted separately as 2 in the tool. Reverse the orientation (length = 16, width = 12) and the same defaults return 13 field joists because the joist span direction changed.</p>
+      <p>YardTally’s calculator default is 16 inches on center, a planning assumption for many wood decks. Some composites require 12 in O.C., and spans change with species, grade, and load. Check current AWC or DCA tables and your decking brand. A standards homepage isn't a span table.</p>
+      <p>For the 12 ft board-run orientation above, field joists = floor(12 ÷ 16/12) + 1 = <strong>10 joists</strong>. Rim joists are counted separately as 2 in the tool. Reverse the orientation (length = 16, width = 12) and the same defaults return 13 field joists because the joist span direction changed.</p>
 
       <h2>Does this include railings and stairs?</h2>
       <p>No. Railings, guards, stairs, and landings are separate takeoffs with their own post layout, baluster spacing, and rise/run rules. This list covers rectangular field decking and a simplified joist count only. Add those systems on the sketch before you call the material list “complete.”</p>
@@ -981,8 +1019,8 @@ export const guideBodies: Record<string, string> = {
       </div>
 
       <h2>Beyond boards: beams, posts, and footings</h2>
-      <p>A board-and-joist shopping list is only the deck skin and ribs. Beams that carry joists, posts that carry beams, and footings that carry posts must be sized for tributary load, snow load where applicable, and species/grade. Many jurisdictions require permits and inspections for elevated decks. Ledger connections to houses need correct flashing and tension hardware; free-standing decks need adequate bracing against lateral movement.</p>
-      <p>Footing volume is a concrete problem, not a decking problem. Once you know diameter and depth (often to below frost), estimate bags or yards with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a> and guides such as <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Do not pour footings on organic topsoil.</p>
+      <p>A board-and-joist shopping list is only the deck skin and ribs. Beams that carry joists, posts that carry beams, and footings that carry posts must be sized for tributary load, snow load where applicable, and species/grade. Many jurisdictions require permits and inspections for elevated decks. Ledger connections to houses need correct flashing and tension hardware. Free-standing decks need adequate bracing against lateral movement.</p>
+      <p>Footing volume is a concrete problem, not a decking problem. Once you know diameter and depth (often to below frost), estimate bags or yards with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube / concrete tube calculator</a> and guides such as <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Don't pour footings on organic topsoil.</p>
       <p>If your deck meets a grade change or patio, you may also be holding soil with a short wall. That is a different system. See <a href="/guides/retaining-wall-blocks-and-base/">retaining wall blocks and base</a> rather than improvising landscape blocks as structural deck foundations.</p>
 
       <h2>Step-by-step</h2>
@@ -990,7 +1028,7 @@ export const guideBodies: Record<string, string> = {
         <li>Confirm finished deck size, height, ledger vs freestanding, and railing needs with local code.</li>
         <li>Choose decking direction for appearance and span.</li>
         <li>Run the <a href="/calculators/deck-material-calculator/">deck material calculator</a> with your board width and joist spacing.</li>
-        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Do not guess from board count alone.</li>
+        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Don't guess from board count alone.</li>
         <li>Plan footings below frost where required; estimate concrete separately.</li>
         <li>Order fasteners rated for the lumber or composite system (and treated lumber compatibility).</li>
         <li>Dry-fit patterns, then fasten per manufacturer spacing diagrams.</li>
@@ -1003,10 +1041,10 @@ export const guideBodies: Record<string, string> = {
         <li>Flash ledgers properly; deck ledger failures are a known safety issue when details are skipped.</li>
         <li>Account for stair stringers and landing framing as extra takeoffs.</li>
         <li>Stain or seal according to product instructions after moisture targets are met.</li>
-        <li>Compare counts with the larger <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a> if you are sizing up later.</li>
+        <li>Compare counts with the larger <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a> if you're sizing up later.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Ordering boards without deciding orientation and seam layout.</li>
         <li>Using interior fasteners on exterior treated lumber.</li>
@@ -1017,18 +1055,22 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Permits, footings, and guards</h2>
-      <p>Deck projects commonly require a permit and inspections, and the rules cover items a board count cannot: footing size and depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30 inches above the ground, but local amendments differ. Footing depth must reach below the local frost depth in cold climates, which also affects how much concrete you order. Confirm all of this with your building department before buying lumber.</p>
+      <p>Deck projects commonly require a permit and inspections, and the rules cover items a board count can't: footing size and depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30 inches above the ground, but local amendments differ. Footing depth must reach below the local frost depth in cold climates, which also affects how much concrete you order. Confirm all of this with your building department before buying lumber.</p>
+
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
+
+      <p>Count joists as span ÷ spacing + 1. Forget the +1 and you're short a stick at the lumber yard.</p>
+
 
       <h2>Sources</h2>
       <ul class="sources">
         <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
-
   'deck-material-list-16x24': `      <div class="takeaway"><strong>Key takeaway:</strong> A 16×24 ft deck is 384 sq&nbsp;ft of footprint. Board and joist counts depend on decking direction. With YardTally defaults (5.5&nbsp;in face width, 12&nbsp;ft stock, 16&nbsp;in O.C. joists) and boards running the 24&nbsp;ft direction, plan about <strong>70</strong> deck boards and <strong>19</strong> field joists before waste, then add beams, posts, footings, and fasteners. This is a takeoff starting point, not construction plans.</div>
 
       <h2>Is a 16×24 list the same as 12×16 scaled?</h2>
-      <p>No. Same takeoff method, but you cannot multiply the 12×16 counts by area and call it done. Orientation, stock splices, and joist span direction change the math, and a 16×24 usually needs a larger footing and beam plan. Use these numbers or set length = 24 and width = 16 in the deck calculator.</p>
+      <p>No. Same takeoff method, but you can't multiply the 12×16 counts by area and call it done. Orientation, stock splices, and joist span direction change the math, and a 16×24 usually needs a larger footing and beam plan. Use these numbers or set length = 24 and width = 16 in the deck calculator.</p>
       <p>Compare the smaller sister takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a> to sanity-check orientation logic, not to scale counts. Run the live tool in the <a href="/calculators/deck-material-calculator/">deck material calculator</a> when your board width or joist spacing differs from YardTally defaults.</p>
 
       <h2>Clear assumptions for this material list</h2>
@@ -1041,7 +1083,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>How many deck boards for a 16×24 deck?</h2>
-      <p>With YardTally defaults (5.5 in face, 12 ft stock) and boards running the 24 ft direction across a 16 ft width, plan on about 70 twelve-foot boards before waste. Boards the other way need about 106 twelve-foot pieces because you cover 24 ft of width with more rows. Add waste for bad boards, angle cuts, and borders.</p>
+      <p>A 16×24 ft deck is 384 sq&nbsp;ft of footprint. Board and joist counts depend on decking direction. With YardTally defaults (5.5&nbsp;in face width, 12&nbsp;ft stock, 16&nbsp;in O.C. joists) and boards running the 24&nbsp;ft direction, plan about <strong>70</strong> deck boards and <strong>19</strong> field joists before waste. Then add beams, posts, footings, and fasteners. Starting point only—not plans.</p>
       <p>Using calculator inputs length = 24&nbsp;ft (board direction), width = 16&nbsp;ft (across boards), 5.5&nbsp;in face width, 12&nbsp;ft boards, 16&nbsp;in joist spacing:</p>
       <ul>
         <li>Area = <strong>384 sq&nbsp;ft</strong>.</li>
@@ -1051,7 +1093,7 @@ export const guideBodies: Record<string, string> = {
       <p>Composite decking may need different face widths, 12&nbsp;in O.C. joists, and brand-specific gapping. Follow that installation guide rather than wood defaults.</p>
 
       <h2>How many joists for a 16×24 deck?</h2>
-      <p>At YardTally’s 16 in on-center planning default, boards along 24 ft imply about 19 field joists (+2 rim in the tool). Boards along 16 ft imply about 13 field joists. Verify spacing against current AWC/DCA span tables and your decking brand; some composites require 12 in O.C.</p>
+      <p>At YardTally’s 16 in on-center planning default, boards along 24 ft imply about 19 field joists (+2 rim in the tool). Boards along 16 ft imply about 13 field joists. Verify spacing against current AWC/DCA span tables and your decking brand. Some composites require 12 in O.C.</p>
       <p>Joists = floor(24 ÷ 16/12) + 1 = <strong>19 joists</strong> for the primary orientation above. Treat that as a shopping count, not a stamped framing plan.</p>
 
       <h2>Planning table (YardTally defaults)</h2>
@@ -1069,13 +1111,13 @@ export const guideBodies: Record<string, string> = {
       </div>
 
       <h2>Beams, posts, and layout (planning only)</h2>
-      <p>A board-and-joist list is not a beam schedule. Common DIY patterns place beams under joists with posts at intervals allowed by the beam size and species, but allowable spans change with lumber grade, load (including snow), and whether the deck is attached or freestanding. Treat the following as a shopping conversation starter, not a code-compliant design:</p>
+      <p>A board-and-joist list isn't a beam schedule. Common DIY patterns place beams under joists with posts at intervals allowed by the beam size and species, but allowable spans change with lumber grade, load (including snow), and whether the deck is attached or freestanding. Treat the following as a shopping conversation starter, not a code-compliant design:</p>
       <ul>
-        <li><strong>Beams:</strong> count how many beam lines your sketch needs (often one or more under mid-span joists plus a rim or ledger condition). Length each beam to the post layout; include splice hardware if beams are not continuous.</li>
-        <li><strong>Posts:</strong> one post at each beam support point that does not land on a ledger. A rough planning grid for a 16×24 freestanding deck might use posts every 6–8&nbsp;ft along beams. Confirm with span tables before buying.</li>
+        <li><strong>Beams:</strong> count how many beam lines your sketch needs (often one or more under mid-span joists plus a rim or ledger condition). Length each beam to the post layout; include splice hardware if beams aren't continuous.</li>
+        <li><strong>Posts:</strong> one post at each beam support point that doesn't land on a ledger. A rough planning grid for a 16×24 freestanding deck might use posts every 6–8&nbsp;ft along beams. Confirm with span tables before buying.</li>
         <li><strong>Hardware:</strong> post bases, post caps, joist hangers, and structural screws/bolts rated for treated lumber outdoor use.</li>
       </ul>
-      <p>Elevated decks, ledgers into house bands, and guards over 30&nbsp;in above grade commonly require permits and inspections. Do not scale a ground-level pad detail to a second-story deck.</p>
+      <p>Elevated decks, ledgers into house bands, and guards over 30&nbsp;in above grade commonly require permits and inspections. Don't scale a ground-level pad detail to a second-story deck.</p>
 
       <h2>Footings and concrete tubes</h2>
       <p>Each post that bears on soil needs a footing sized for load and frost depth. Once you know diameter and depth (often to below frost), estimate concrete with tube forms:</p>
@@ -1101,7 +1143,7 @@ export const guideBodies: Record<string, string> = {
         <li>Confirm finished size (16×24), height, ledger vs freestanding, railing, and permit needs.</li>
         <li>Choose decking direction for appearance and joist span.</li>
         <li>Run the <a href="/calculators/deck-material-calculator/">deck material calculator</a> with your board width and stock length.</li>
-        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Do not guess from board count alone.</li>
+        <li>Size beams and posts from current AWC/DCA span tables or an engineer. Don't guess from board count alone.</li>
         <li>Plan footings below frost where required; estimate concrete with the Sonotube tool and the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>.</li>
         <li>Order fasteners rated for the lumber or composite system.</li>
         <li>Dry-fit patterns, then fasten per manufacturer spacing diagrams.</li>
@@ -1116,7 +1158,7 @@ export const guideBodies: Record<string, string> = {
         <li>Compare your counts against the smaller <a href="/guides/deck-material-list-12x16/">12×16 list</a> to sanity-check orientation math, not to scale the list.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Scaling the 12×16 list by area instead of re-running orientation math.</li>
         <li>Ordering boards without deciding orientation and seam layout on a 24&nbsp;ft run.</li>
@@ -1129,12 +1171,16 @@ export const guideBodies: Record<string, string> = {
       <h2>Permits, footings, and guards</h2>
       <p>Larger decks still live under the same life-safety rules as smaller ones: footing depth, ledger attachment, joist and beam spans, stair geometry, and guards. Model codes generally call for guards when the walking surface is more than 30&nbsp;inches above grade, but local amendments differ. Confirm with your building department before buying lumber.</p>
 
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
+
+      <p>Sort boards for crown before you leave the yard. A cheap board with a bad twist isn't a bargain mid-span.</p>
+
+
       <h2>Sources</h2>
       <ul class="sources">
         <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
-
   'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Key takeaway:</strong> Block count ≈ courses × blocks per course, where courses = ceil(wall height ÷ block height) and blocks per course = ceil(wall length ÷ block length). YardTally’s gravel trench defaults (about 24 in wide by 6 in deep) are planning assumptions for the calculator, not a universal code. Taller walls, surcharges, and poor soils need engineering. Follow the block manufacturer’s installation manual and local codes.</div>
 
       <figure class="diagram">
@@ -1143,10 +1189,10 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Can I use paver base under a retaining wall?</h2>
       <p>Yes for a compacted gravel trench under wall blocks, people often call that “paver base.” Treat it as wall base, not a patio sand-and-gravel section. Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
-      <p>Related ideas (compacted angular gravel) transfer; the assembly does not. Patio bedding sand is not a substitute for wall drainage stone, and patio base thickness is not a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+      <p>Related ideas (compacted angular gravel) transfer. The assembly doesn't. Patio bedding sand isn't a substitute for wall drainage stone, and patio base thickness isn't a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
 
       <h2>How many retaining wall blocks do I need?</h2>
-      <p>Divide wall length by block face length and height by face height, multiply courses by blocks per course, then add waste. Example: 20 ft × 3 ft exposed with 18×6 in blocks is 6 × 14 = 84 face blocks before waste (about 89 with 5%). Order caps separately by linear feet.</p>
+      <p>Block count ≈ courses × blocks per course. Courses = ceil(wall height ÷ block height). Blocks per course = ceil(wall length ÷ block length). YardTally's gravel trench defaults (about 24 in wide by 6 in deep) are calculator planning numbers, not a universal code. Taller walls, surcharges, and soft soils need engineering. Follow the block maker's manual and local rules.</p>
       <p>Formulas for a straight wall with uniform rectangular face blocks:</p>
       <p><strong>Courses = ceil(wall height ÷ block face height).</strong></p>
       <p><strong>Blocks per course = ceil(wall length ÷ block face length).</strong></p>
@@ -1155,8 +1201,8 @@ export const guideBodies: Record<string, string> = {
       <p>YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Those trench numbers are planning defaults for the tool. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
 
       <h2>What are typical retaining wall block dimensions?</h2>
-      <p>Use the face length and face height on the pallet tag or cut sheet. Many retail landscape blocks are near 18 in long by 6 in tall, which is YardTally’s planning default, not a rule. Courses = ceil(height ÷ face height); blocks per course = ceil(length ÷ face length).</p>
-      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Do not scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
+      <p>Use the face length and face height on the pallet tag or cut sheet. Many retail landscape blocks are near 18 in long by 6 in tall, which is YardTally’s planning default, not a rule. Courses = ceil(height ÷ face height). Blocks per course = ceil(length ÷ face length).</p>
+      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Don't scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
 
       <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
       <p>With 18 in long × 6 in tall face blocks (YardTally calculator defaults):</p>
@@ -1167,7 +1213,7 @@ export const guideBodies: Record<string, string> = {
         <li>Face area = 20 × 3 = 60 sq ft.</li>
         <li>Base gravel at the calculator’s planning trench of 20 ft × 2 ft wide × 0.5 ft deep = 20 cu ft ≈ <strong>0.74 cu yd</strong>.</li>
       </ul>
-      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it does not show in the exposed height.</p>
+      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it doesn't show in the exposed height.</p>
 
       <h2>Block planning table</h2>
       <div class="table-scroll">
@@ -1187,13 +1233,13 @@ export const guideBodies: Record<string, string> = {
       <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item.</p>
 
       <h2>When do I need an engineer?</h2>
-      <p>Call for engineered design when the wall gets taller than the manufacturer’s gravity (unreinforced) chart, when a driveway, slope, or structure sits above the wall, when soils are poor or wet, or when your building department says a permit needs stamped drawings. Local height triggers vary. Do not invent a legal cap from a blog rule of thumb.</p>
-      <p>Geogrid type, length, and vertical spacing are not guesswork; they come from the manufacturer’s engineered charts or a site-specific design. If your project exceeds the published maximum for an unreinforced stack, stop and get qualified help.</p>
+      <p>Call for engineered design when the wall gets taller than the manufacturer’s gravity (unreinforced) chart, when a driveway, slope, or structure sits above the wall, when soils are poor or wet, or when your building department says a permit needs stamped drawings. Local height triggers vary. Don't invent a legal cap from a blog rule of thumb.</p>
+      <p>Geogrid type, length, and vertical spacing aren't guesswork. They come from the manufacturer’s engineered charts or a site-specific design. If your project exceeds the published maximum for an unreinforced stack, stop and get qualified help.</p>
 
       <h2>Drainage, geogrid, and base preparation</h2>
       <p>Water is the quiet load behind many wall failures. A perforated drainpipe at the base of the drainage stone, outlets to daylight or an approved system, and free-draining backfill keep hydrostatic pressure down. Compacted clay jammed against the back of hollow blocks is a common mistake. Follow the block producer’s backfill specification, which often calls for clean stone in a drainage zone.</p>
       <p>Base preparation deserves as much care as the visible face. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. For patio-only thin-layer bases (not wall backfill), see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
-      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage will not send water onto a neighbor’s foundation.</p>
+      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage won't send water onto a neighbor’s foundation.</p>
 
       <h2>Step-by-step</h2>
       <ol>
@@ -1216,7 +1262,7 @@ export const guideBodies: Record<string, string> = {
         <li>Dry-stack a mockup course on the driveway to confirm pattern and cap overhang before trench day.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Building “as tall as the slope” without drainage or grid when the system requires them.</li>
         <li>Setting the first course on native dirt without compacted aggregate.</li>
@@ -1230,23 +1276,27 @@ export const guideBodies: Record<string, string> = {
       <h2>Permits, utilities, and site checks</h2>
       <p>Many local codes treat taller retaining walls as engineered structures that need a permit, and surcharge from driveways, slopes, or buildings can trigger review earlier than a short garden edge. Call your building department before design, and schedule a utility locate before digging. Mark property lines, since walls near boundaries can raise drainage and access issues with neighbors. Where the soil is poor or the wall holds back water, a professional designer is worth the cost.</p>
 
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
+
+      <p>If the wall is tall, surcharge-loaded, or on soft soil, stop shopping blocks and talk to someone who stamps drawings.</p>
+
+
       <h2>Sources</h2>
       <ul class="sources">
         <li>Follow the current installation manual and height charts for your retaining-wall block system for trench size, drainage, geogrid, and maximum unreinforced height. YardTally’s 18×6 in face blocks and 24×6 in gravel trench figures are calculator planning defaults until that manual says otherwise.</li>
       </ul>
   `,
-
   'topsoil-vs-garden-soil': `      <div class="takeaway"><strong>Key takeaway:</strong> Topsoil is primarily mineral soil from the upper earth layer; bagged “garden soil” and raised-bed mixes usually blend mineral soil or composted organics for planting beds. Neither label is federally standardized in everyday retail speech, so read ingredients. Buy by cubic yards (bulk) or cubic feet (bags) after you compute volume from area × depth.</div>
 
       <h2>Is garden soil the same as topsoil?</h2>
-      <p>Not reliably. Topsoil usually means mineral soil for grading and fill. Bagged garden soil is often a blend with compost or other organics meant for planting beds. Raised-bed and potting mixes can be lighter still. Read the ingredient list and intended-use statement on the bag or bulk ticket before you treat the names as interchangeable.</p>
+      <p>Not really. Topsoil is mostly mineral soil from the upper earth layer. Bagged “garden soil” and raised-bed mixes usually blend mineral soil or composted organics for planting beds. Neither everyday retail label is federally standardized, so read the ingredients before you trust the front of the bag.</p>
       <p><strong>Topsoil</strong> in landscape yards often means screened mineral soil with some organic matter, used to fill low spots, establish lawns, or blend into beds. Quality varies: ask about texture (sandy loam vs clay), screening, weed seeds, and contaminants.</p>
       <p><strong>Garden soil</strong> on bag labels frequently denotes a blended product intended for in-ground beds, commonly topsoil plus compost or other organics. <strong>Raised-bed</strong> or <strong>potting</strong> mixes may be lighter, with bark, peat or coir, perlite, and compost, and may contain little true mineral topsoil.</p>
       <p>Extension sources stress matching the material to the job. Iowa State’s raised-bed FAQ discusses topsoil, compost, and sand combinations. Clemson HGIC’s soil-conditioning and raised-bed fact sheets discuss topsoil-plus-compost fills and warn that compost fractions that are too high or too low can cause problems.</p>
       <p>Estimate quantities with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a>. After planting, cover beds using the <a href="/calculators/mulch-calculator/">mulch calculator</a>, depth norms in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>, and size charts in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. Filling boxed beds is covered in <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for 4×8</a>.</p>
 
       <h2>How many cubic yards of topsoil do I need?</h2>
-      <p>Multiply area in square feet by depth in feet, then divide by 27. Example: 100 sq ft at 3 inches (0.25 ft) is 25 cu ft, about 0.93 cu yd. At 2 cu ft per bag that is about thirteen bags; bulk delivery usually wins near a yard. Lawn leveling often uses thinner lifts than deep bed fills.</p>
+      <p>Multiply area in square feet by depth in feet, then divide by 27. Example: 100 sq ft at 3 inches (0.25 ft) is 25 cu ft, about 0.93 cu yd. At 2 cu ft per bag that is about thirteen bags. Bulk delivery usually wins near a yard. Lawn leveling often uses thinner lifts than deep bed fills.</p>
       <p><strong>Cu ft = length × width × (depth_inches ÷ 12).</strong></p>
       <p><strong>Cu yd = cu ft ÷ 27.</strong></p>
       <p>Deep raised beds need full volume math, not a “few bags” guess. A 4×8 bed filled 12 inches deep is 32 cu ft (about 1.2 cu yd), which is a different order of magnitude from a 2-inch top-dress on the same footprint.</p>
@@ -1256,9 +1306,9 @@ export const guideBodies: Record<string, string> = {
       <p>On roofs, decks, and sealed patios, weight and drainage matter even more. Confirm structural load limits before placing deep wet soil on structures, and prefer lighter manufactured mixes when the container sits above grade.</p>
 
       <h2>When to choose which product</h2>
-      <p>Use screened topsoil when you need to raise grade, fill ruts, or establish a lawn seedbed where mineral soil continuity matters. Use bagged garden soil when you are amending an existing border and want convenient organic matter in small quantities. Use a raised-bed or planter mix when weight, drainage, and a manufactured blend matter more than matching native mineral soil.</p>
+      <p>Use screened topsoil when you need to raise grade, fill ruts, or establish a lawn seedbed where mineral soil continuity matters. Use bagged garden soil when you're amending an existing border and want convenient organic matter in small quantities. Use a raised-bed or planter mix when weight, drainage, and a manufactured blend matter more than matching native mineral soil.</p>
       <p>Compost alone is a powerful amendment but a mediocre structural fill for deep boxes: it continues to decompose and shrink, and excessive organic fractions can cause water and nutrient imbalances. Extension sheets that discuss compost percentages in beds are reacting to that reality. Likewise, “black dirt” sold cheaply without screening may be fill, not a planting medium.</p>
-      <p>For lawns, thin topdressings after aeration differ from burying turf under inches of new soil. If you are seeding bare ground, coordinate soil depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so you do not strand seed on cloddy clay or bury it too deep.</p>
+      <p>For lawns, thin topdressings after aeration differ from burying turf under inches of new soil. If you're seeding bare ground, coordinate soil depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so you don't strand seed on cloddy clay or bury it too deep.</p>
 
       <h2>Comparison table</h2>
       <div class="table-scroll">
@@ -1278,7 +1328,7 @@ export const guideBodies: Record<string, string> = {
       </div>
 
       <h2>Worked example: topping a 4×8 bed with 2 in of compost-rich garden soil</h2>
-      <p>Area = 32 sq ft. Depth = 2 in → 32 × (2÷12) ≈ <strong>5.33 cu ft</strong> (about 0.20 cu yd). That might be three to four 1.5–2.0 cu ft bags depending on bag size, far less than rebuilding the same bed 12 in deep (32 cu ft). Use garden soil or compost blends for top-ups when the mineral base already exists; use calculated topsoil/mix volumes when filling empty frames.</p>
+      <p>Area = 32 sq ft. Depth = 2 in → 32 × (2÷12) ≈ <strong>5.33 cu ft</strong> (about 0.20 cu yd). That might be three to four 1.5–2.0 cu ft bags depending on bag size, far less than rebuilding the same bed 12 in deep (32 cu ft). Use garden soil or compost blends for top-ups when the mineral base already exists. Use calculated topsoil/mix volumes when filling empty frames.</p>
 
       <h2>Step-by-step</h2>
       <ol>
@@ -1295,12 +1345,12 @@ export const guideBodies: Record<string, string> = {
       <ul>
         <li>Soil-test before heavy fertilizer additions. New soil can still be off-pH.</li>
         <li>For food gardens, ask about lead testing if the site or imported soil is suspect.</li>
-        <li>“Black dirt” marketing is not a specification; texture matters more than color.</li>
+        <li>“Black dirt” marketing isn't a specification; texture matters more than color.</li>
         <li>Keep delivery trucks off septic fields and wet lawns.</li>
-        <li>Store bagged soil elevated and covered so bags do not sit in puddles.</li>
+        <li>Store bagged soil elevated and covered so bags don't sit in puddles.</li>
       </ul>
 
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Filling deep raised beds only with potting mix priced per small bag (cost shock).</li>
         <li>Spreading unscreened fill full of rocks under new sod.</li>
@@ -1311,16 +1361,21 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <h2>Bulk yards vs bagged soil</h2>
-      <p>Once you know cubic yards from area × depth, compare unit price. Bulk screened topsoil is usually sold by the cubic yard delivered; bagged garden soil is sold by the cubic foot. Near one cubic yard, short-load delivery fees can erase bulk savings, so ask the yard for the delivered price before you default to bags. Under about half a yard, bags are often simpler to stage and move.</p>
+      <p>Once you know cubic yards from area × depth, compare unit price. Bulk screened topsoil is usually sold by the cubic yard delivered. Bagged garden soil is sold by the cubic foot. Near one cubic yard, short-load delivery fees can erase bulk savings, so ask the yard for the delivered price before you default to bags. Under about half a yard, bags are often simpler to stage and move.</p>
       <p>Run the same dimensions in the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> for lawns and open beds, or the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a> for boxed interiors. After planting, size surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a>—mulch depth guidance lives in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
 
       <h2>Lawn topdressing vs deep bed fills</h2>
       <p>Lawn leveling is usually a thin lift (often measured in fractions of an inch to a couple of inches) worked into existing turf after aeration or over bare patches. Burying crowns under a deep dump of new soil smothers grass. Deep vegetable or flower beds are the opposite problem: they need full volume math, often a foot or more of mix, where bagged potting soil priced per small bag becomes expensive fast.</p>
-      <p>If you are seeding bare ground after a soil job, coordinate depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so seed contacts firm soil without being buried too deep. For a worked 4×8 fill recipe, see <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for 4×8</a>.</p>
+      <p>If you're seeding bare ground after a soil job, coordinate depth with the <a href="/guides/grass-seed-per-sq-ft/">grass seed per square foot</a> guide so seed contacts firm soil without being buried too deep. For a worked 4×8 fill recipe, see <a href="/guides/raised-bed-soil-mix-4x8/">raised bed soil mix for 4×8</a>.</p>
 
       <h2>Testing and matching soil to the site</h2>
       <p>Before buying any bulk soil, a simple test pays off. State extension services and many labs offer low-cost soil tests that report pH, nutrients, and sometimes organic matter, and the results tell you whether you need lime, sulfur, or fertilizer. Ask the supplier whether the soil has been screened, how much organic material it contains, and whether it may include weed seeds. Inspect it by hand: it should crumble, not form a brick, and not smell sour.</p>
-      <p>Also consider what is underneath. Spreading a thin layer of a very different soil over compacted clay can create a perched water layer, so many extension publications recommend loosening the existing surface and mixing the layers rather than stacking them cleanly. For lawn repairs, a modest topdressing is typically worked in; for new beds, deeper fill or blended garden soil works better. Whatever you buy, calculate the cubic yards first, then compare price per yard delivered.</p>
+      <p>Also consider what is underneath. Spreading a thin layer of a very different soil over compacted clay can create a perched water layer, so many extension publications recommend loosening the existing surface and mixing the layers rather than stacking them cleanly. For lawn repairs, a modest topdressing is typically worked in. For new beds, deeper fill or blended garden soil works better. Whatever you buy, calculate the cubic yards first, then compare price per yard delivered.</p>
+
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
+
+      <p>Read the ingredients. “Garden soil” on a bag isn't a federal grade—it's a blend name.</p>
+
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -1329,12 +1384,11 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://hgic.clemson.edu/factsheet/soil-conditioning-establishing-a-successful-gardening-foundation/" rel="noopener noreferrer">Clemson HGIC – Soil conditioning</a></li>
       </ul>
   `,
-
   'how-much-concrete-in-a-sonotube': `      <div class="takeaway"><strong>Key takeaway:</strong> Sonotube volume is π × r² × height using inside diameter. A 12-inch tube 4&nbsp;ft tall holds about 3.14&nbsp;cu&nbsp;ft—plan on six 80&nbsp;lb bags or seven 60&nbsp;lb bags before waste. Multiply by pier count, then add a little for spillage.</div>
 
       <h2>How much concrete is in a Sonotube?</h2>
-      <p>Enough to fill the clear inside cylinder: <strong>Volume (cu&nbsp;ft) = π × (diameter ÷ 2)² × height</strong>, with diameter and height in feet. A 12&quot; ID tube (0.5&nbsp;ft radius) at 4&nbsp;ft tall is π × 0.5² × 4 ≈ 3.14&nbsp;cu&nbsp;ft (~0.12&nbsp;cu&nbsp;yd). Convert to bags with your mix yield, then multiply by pier count.</p>
-      <p>For live totals and a bags-per-tube chart covering 40 / 50 / 60 / 80&nbsp;lb mixes, use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This guide explains the formula and common sizes; the calculator is the interactive planning tool. Fence post holes without cardboard forms belong on the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide and the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> instead.</p>
+      <p>Sonotube volume is π × r² × height using inside diameter. A 12-inch tube 4&nbsp;ft tall holds about 3.14&nbsp;cu&nbsp;ft. Plan on six 80&nbsp;lb bags or seven 60&nbsp;lb bags before waste. Multiply by pier count, then add a little for spillage. I'd rather carry one spare bag than stop a pour short.</p>
+      <p>For live totals and a bags-per-tube chart covering 40 / 50 / 60 / 80&nbsp;lb mixes, use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This guide explains the formula and common sizes. The calculator is the interactive planning tool. Fence post holes without cardboard forms belong on the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide and the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> instead.</p>
 
       <h2>How many bags of concrete for a 12-inch Sonotube?</h2>
       <p>Per foot of height, a 12&quot; tube needs about 0.785&nbsp;cu&nbsp;ft. A 2&nbsp;ft pier is ~1.57&nbsp;cu&nbsp;ft (three 80&nbsp;lb or four 60&nbsp;lb bags). A 3&nbsp;ft pier is ~2.36&nbsp;cu&nbsp;ft (four 80&nbsp;lb or six 60&nbsp;lb). A 4&nbsp;ft pier is ~3.14&nbsp;cu&nbsp;ft—about 5.2 of the 80&nbsp;lb bags before rounding, so plan on 6, or about 7 of the 60&nbsp;lb bags.</p>
@@ -1372,7 +1426,7 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Use inside diameter. Manufacturers label common sizes such as 8&quot;, 10&quot;, and 12&quot;. Outside cardboard thickness does not get filled with concrete.</p>
+      <p>Use inside diameter. Manufacturers label common sizes such as 8&quot;, 10&quot;, and 12&quot;. Outside cardboard thickness doesn't get filled with concrete.</p>
 
       <h2>Worked example: eight 12&quot; × 4 ft piers</h2>
       <p>One tube ≈ 3.14&nbsp;cu&nbsp;ft. Eight tubes ≈ 25.1&nbsp;cu&nbsp;ft before waste. With 5% waste ≈ 26.4&nbsp;cu&nbsp;ft → ceil(26.4 ÷ 0.60) = 44 bags of 80&nbsp;lb mix. That is near one cubic yard, so price ready-mix if the truck can reach the pour. Full bag math context: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
@@ -1381,7 +1435,7 @@ export const guideBodies: Record<string, string> = {
       <p>Not always. Cardboard tube forms give a clean round pier with a known diameter and a consistent column. Many decks still use square formed footings or poured holes when the detail allows it. Follow the footing size on your plan or local practice. This page only sizes concrete once you choose a tube.</p>
 
       <h2>Do Sonotubes need rebar?</h2>
-      <p>That depends on the structural detail, local code, and load, not on a volume chart. Some pier details call for vertical bars and a cage. Others are plain concrete for light loads. Check the plan, the deck hardware instructions, and your building department. Do not invent a rebar schedule from bag counts.</p>
+      <p>That depends on the structural detail, local code, and load, not on a volume chart. Some pier details call for vertical bars and a cage. Others are plain concrete for light loads. Check the plan, the deck hardware instructions, and your building department. Don't invent a rebar schedule from bag counts.</p>
 
       <h2>How do I use a concrete calculator for tubes?</h2>
       <p>Enter inside diameter, height, and tube count in the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Read cubic feet, yards, and 40 / 60 / 80&nbsp;lb bag estimates. For rectangular pads use the <a href="/calculators/concrete-calculator/">slab calculator</a> instead. Deck lumber takeoffs are separate in the <a href="/calculators/deck-material-calculator/">deck material calculator</a>.</p>
@@ -1393,7 +1447,7 @@ export const guideBodies: Record<string, string> = {
         <li>Brace tubes plumb before you place concrete. Strip cardboard only when the mix has set per the form and mix instructions.</li>
       </ol>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
         <li>Buy one product line for the whole pour so color and strength stay consistent.</li>
         <li>Stage water and a mixing plan before the first bag opens. Tube pours go fast once you start.</li>
@@ -1408,17 +1462,18 @@ export const guideBodies: Record<string, string> = {
         <li>Ordering from a slab chart that assumes a rectangle.</li>
       </ul>
 
+      <p>Inside diameter only. Outside diameter will short every pier on the list.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-
   'how-to-estimate-roofing-shingles': `      <div class="takeaway"><strong>Key takeaway:</strong> One roofing square covers 100&nbsp;sq&nbsp;ft of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add about 10–15% waste. Most common asphalt products use about 3 bundles per square. Specialty laminates can need 4–5.</div>
 
       <h2>How do I estimate roofing shingles for a roof?</h2>
-      <p>Find roof surface area, convert to squares, add waste, then multiply by bundles per square from the product you are buying. Surface area is plan footprint times the pitch factor, not the house length × width alone. Measure pitch first if you do not already know it. Then run the numbers in the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a>.</p>
+      <p>One roofing square covers 100&nbsp;sq&nbsp;ft of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add about 10–15% waste. Most common asphalt products use about 3 bundles per square. Specialty laminates can need 4–5. Bundle count is where DIY orders usually go wrong. Run the live math in the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a>.</p>
       <ol>
         <li>Measure plan length and width of each roof plane (or the simple rectangle footprint for a basic gable).</li>
         <li>Find pitch as X-in-12. See <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> if you need a safe method.</li>
@@ -1451,9 +1506,9 @@ export const guideBodies: Record<string, string> = {
       <h2>Worked example: 40 × 30 ft plan at 6/12</h2>
       <p>Plan area = 1,200&nbsp;sq&nbsp;ft. Roof surface ≈ 1,200 × 1.118 = 1,342&nbsp;sq&nbsp;ft = 13.42 squares. With 10% waste → about 14.76 squares. At 3 bundles per square → about 45 bundles before starter and ridge. Complex hips and valleys often need more waste than a simple gable.</p>
 
-      <h2>Tips</h2>
+      <h2>What usually bites people</h2>
       <ul>
-        <li>Order starter and ridge pieces as separate line items. They are not always included in field-shingle bundle math.</li>
+        <li>Order starter and ridge pieces as separate line items. They aren't always included in field-shingle bundle math.</li>
         <li>Match dye lots. Buying a few extra bundles later can show a color shift.</li>
         <li>Low-slope roofs may need different underlayment or systems. Pitch drives product choice, not only quantity.</li>
       </ul>
@@ -1466,6 +1521,17 @@ export const guideBodies: Record<string, string> = {
         <li>Measuring pitch along the rafter slope instead of horizontal run.</li>
       </ul>
 
+      <p>Pitch factor first, then squares, then bundles. Skipping the factor is the classic under-order on a steep gable.</p>
+      <h2>Starter, ridge, and drip edge</h2>
+      <p>Field-shingle squares aren't the whole truck. Starter course along eaves, ridge cap along the peaks, and often drip edge and underlayment sit on separate lines. Manufacturer wrappers and IKO/GAF planning sheets spell out how ridge and starter relate to squares for that product line. Budget them explicitly so the “bundles per square” field-shingle math doesn't leave you short on the ridge.</p>
+      <p>Waste climbs on cut-up roofs—dormers, valleys, lots of hips. A simple gable can live near 10%. Busy roofs lean toward 15%. The <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a> lets you set waste; don't leave it at zero to make the number look pretty.</p>
+      <h2>Worked example: 30×40 gable at 6/12</h2>
+      <p>Plan area = 30 × 40 = 1,200&nbsp;sq&nbsp;ft. At 6/12 the area factor is about 1.118 (IKO). Roof area ≈ 1,200 × 1.118 = 1,341.6&nbsp;sq&nbsp;ft → 13.42 squares. Add 10% waste → about 14.8 squares. At 3 bundles per square that's roughly 45 field bundles before starter and ridge. Bump waste toward 15% if the roof is cut up with dormers or valleys.</p>
+
+      <h2>How should I stage the order on delivery day?</h2>
+      <p>Count bundles off the truck against your takeoff before the driver leaves. Keep field shingles, starter, and ridge in labeled stacks so nobody opens a ridge bundle for a field course. Store them flat, covered, and off wet ground. If you're tearing off and re-roofing in sections, stage enough for one plane at a time so color lots stay consistent on faces that meet at a hip.</p>
+      <p>I'd rather have two spare field bundles than a mid-afternoon hardware-store run in a different dye lot. Leftover bundles from the same lot make future repairs blend. Underlayment, ice barrier in cold eaves, nails, and drip edge still sit outside the field-shingle square math—put them on the same shopping list so the install doesn't stall for fasteners.</p>
+
       <h2>Sources</h2>
       <ul class="sources">
         <li><a href="https://www.iko.com/na/blog/how-many-shingles-in-a-bundle/" rel="noopener noreferrer">IKO – How many shingles in a bundle (square = 100 sq ft, bundles, 6:12 factor, waste)</a></li>
@@ -1473,4 +1539,280 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
+
+  'concrete-slab-thickness': `      <div class="takeaway"><strong>Key takeaway:</strong> Plan most residential patio and sidewalk slabs at about 4&nbsp;inches thick. IRMCA’s exterior flatwork guide sets a 4-inch minimum and bumps to 5&nbsp;inches where delivery traffic or other heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4&nbsp;inches. Thickness drives yards: a 12×12 at 4&nbsp;inches is about 1.78&nbsp;cu&nbsp;yd before waste.</div>
+
+      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+
+      <h2>What is the standard thickness for a concrete slab?</h2>
+      <p>For residential exterior flatwork—patios, sidewalks, many shed pads—4&nbsp;inches is the usual starting point. The Illinois Ready Mixed Concrete Association guide for residential exterior flatwork states a minimum recommended thickness of 4&nbsp;inches. Where traffic includes delivery vehicles or other heavy loads, that same guide moves the minimum to 5&nbsp;inches. QUIKRETE’s Crack Resistant mix instructions say sidewalks and patios should be at least 4&nbsp;inches thick.</p>
+      <p>Driveways and garage floors often run thicker or get edge thickening. Some homeowners jump straight to 6&nbsp;inches when they expect a heavy truck or RV. That can be reasonable planning, but it is not a code stamp from this page. Ask the building department before you form anything that carries vehicles or supports a structure.</p>
+      <p>Thickness is only one piece. Compacted base, joints, drainage slope, and reinforcement details matter as much as the pour depth. Skip those and a “thick enough” slab still cracks or ponds water.</p>
+
+      <h2>How thick should a patio or sidewalk slab be?</h2>
+      <p>Most DIY patio and sidewalk pours I see stick with 4&nbsp;inches over a compacted gravel or crushed-stone base. That matches IRMCA’s 4-inch residential flatwork minimum and QUIKRETE’s patio/sidewalk note. If the pad doubles as a path for delivery trucks, budget 5&nbsp;inches per IRMCA’s heavy-load line instead of guessing.</p>
+      <p>Interior garage slabs and commercial work follow different rules. Do not copy a patio thickness onto a public apron or a driveway without checking the local spec. Right-of-way pours often have their own thickness tables.</p>
+
+      <h2>How many yards for 12×12, 20×20, and 30×40 at 4 inches?</h2>
+      <p>Volume is length × width × (thickness ÷ 12), then ÷ 27 for cubic yards. YardTally’s slab tool adds a default 10% waste for bags. Before waste, the common sizes look like this:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Slab volume at 4 inches before waste (YardTally slab math)</caption>
+        <thead><tr><th>Size</th><th>Cu ft</th><th>Cu yd</th><th>80 lb bags (+10% waste)</th></tr></thead>
+        <tbody>
+          <tr><td>12×12</td><td>48.0</td><td>1.78</td><td>89</td></tr>
+          <tr><td>20×20</td><td>133.3</td><td>4.94</td><td>245</td></tr>
+          <tr><td>30×40</td><td>400.0</td><td>14.82</td><td>734</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>A 30×40 at 4&nbsp;inches is roughly fifteen yards before waste. That is ready-mix territory for almost every crew. Bag counts that high are a planning check, not a shopping list you want to mix by hand. At 6&nbsp;inches, the same 12×12 jumps to 72&nbsp;cu&nbsp;ft (2.67&nbsp;cu&nbsp;yd) before waste—about 132 of the 80&nbsp;lb bags after 10% waste in the calculator.</p>
+      <p>Need a different footprint? Plug it into the <a href="/calculators/concrete-calculator/">concrete calculator</a> rather than scaling these rows by eye. Uneven thickness, thickened edges, and steps all eat extra concrete.</p>
+
+      <h2>Does a 4-inch concrete slab need rebar?</h2>
+      <p>People Also Ask this on almost every thickness SERP. Short answer: sometimes mesh or rebar is specified, sometimes fiber mixes are marketed as a mesh alternative for typical slabs, and sometimes the job is light enough that the local inspector focuses on thickness, base, and joints instead. This guide will not invent a “always” or “never” rule.</p>
+      <p>QUIKRETE’s Crack Resistant Concrete Mix product literature says that mix is intended to eliminate the need for wire mesh in typical slab-on-grade applications such as driveways, floors, patios, and sidewalks—when you use that product as directed. That is a manufacturer claim for a specific mix, not a blanket pass for every 4-inch pour with plain bags.</p>
+      <p>If drawings or the building department call for a rebar mat, estimate bar count with the <a href="/calculators/rebar-calculator/">rebar calculator</a>. Example planning takeoff only: a 20×20 grid at 18&nbsp;in on center is 560 linear feet before waste (about 616&nbsp;ft with 10% waste)—still subject to cover, lap, and size rules on the plans. Volume and steel are separate orders.</p>
+
+      <h2>How do thickness and joints work together?</h2>
+      <p>IRMCA’s flatwork guide ties joint spacing to slab thickness. It describes control joints spaced at intervals equal to about 2 to 2.5 times the slab thickness in inches, converted to feet—so a 4-inch slab lands near 8 to 10&nbsp;ft panels—and it wants panels kept fairly square. Joint depth is at least one-quarter of the slab thickness (about 1&nbsp;inch on a 4-inch pour). Those are association recommendations, not a substitute for the detail on your permit set.</p>
+      <p>Thicker slabs can take wider joint spacing under that rule of thumb, but only if the layout still keeps panels reasonably square. Long skinny strips crack between joints no matter how deep you poured.</p>
+
+      <h2>Worked example: 20×20 patio at 4 inches</h2>
+      <p>Area = 400&nbsp;sq&nbsp;ft. Thickness = 4÷12 ≈ 0.333&nbsp;ft. Volume = 400 × 0.333 = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With YardTally’s 10% waste factor → 146.7&nbsp;cu&nbsp;ft ≈ 5.43&nbsp;cu&nbsp;yd, which the calculator rounds to 245 of the 80&nbsp;lb bags or 326 of the 60&nbsp;lb bags at QUIKRETE 1101 planning yields (0.60 / 0.45&nbsp;cu&nbsp;ft). I’d price a short-load truck against that bag wall before I schedule a Saturday of mixing.</p>
+      <p>Order gravel base as a second line. A 4-inch compacted base under the same footprint is roughly another 4.9&nbsp;cu&nbsp;yd before compaction allowance—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>, not the concrete thickness input.</p>
+
+      <h2>How to pick thickness and order concrete (step-by-step)</h2>
+      <ol>
+        <li>Decide what the slab carries (foot traffic, shed, cars, delivery trucks).</li>
+        <li>Start from IRMCA/QUIKRETE planning thickness (often 4&nbsp;inches; 5&nbsp;inches for heavier residential traffic per IRMCA) and confirm with local code.</li>
+        <li>Measure formed length and width; lock thickness in inches.</li>
+        <li>Run length × width × (thickness ÷ 12) ÷ 27 for yards, or use the concrete calculator for bags with waste.</li>
+        <li>Plan joints, base, and any rebar/mesh from drawings or product sheets—not from volume alone.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>I’d rather pour 4&nbsp;inches on a well-compacted base than 6&nbsp;inches on mush. Soft fill shows up as cracks later.</li>
+        <li>Slope outdoor slabs so water leaves the surface. IRMCA calls for about 1/4&nbsp;inch per foot of drainage slope on exterior flatwork.</li>
+        <li>Match bag product lines on visible slabs so color does not shift mid-pour.</li>
+        <li>For bag math detail, lean on the <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> guide instead of reinventing yields here.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Treating “4 inches” as a universal driveway and garage rule without checking loads or local specs.</li>
+        <li>Entering gravel depth into the concrete calculator thickness field.</li>
+        <li>Skipping joints on a big rectangle and hoping thickness alone prevents cracks.</li>
+        <li>Assuming every 4-inch slab can skip steel because one fiber mix markets itself that way.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf" rel="noopener noreferrer">Illinois Ready Mixed Concrete Association – Concrete guide for residential exterior flatwork (4&quot; / 5&quot; thickness, joints, slope)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-crackresistantconcretemix.pdf" rel="noopener noreferrer">QUIKRETE Crack Resistant Concrete Mix – patio/sidewalk thickness and mesh note (product literature)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.miconcrete.org/hubfs/MCA%20Driveway%20%26%20Sidewalk%202026.pdf" rel="noopener noreferrer">Michigan Concrete Association – Driveway &amp; sidewalk guidelines (4&quot; / 5&quot; thickness)</a></li>
+      </ul>
+  `,
+
+  'how-much-concrete-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> One cubic yard covers about 81&nbsp;sq&nbsp;ft at 4&nbsp;inches thick, or about 54&nbsp;sq&nbsp;ft at 6&nbsp;inches. Three yards cover about 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. Past roughly one yard, ready-mix usually beats mixing bags all day. Stay on bags? Convert with QUIKRETE 1101 yields and the bags guide.</div>
+
+      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+
+      <h2>How much will 1 yard of concrete cover?</h2>
+      <p>Coverage depends on thickness. One cubic yard is 27 cubic feet. At a uniform 4-inch depth (4÷12 = 1/3&nbsp;ft), area = 27 ÷ (1/3) = 81&nbsp;sq&nbsp;ft. At 6&nbsp;inches, the same yard covers 54&nbsp;sq&nbsp;ft. At 5&nbsp;inches you get about 64.8&nbsp;sq&nbsp;ft. Those are flat, even pours with no thickened edges or steps.</p>
+      <p>Real slabs waste a little to form bulge, uneven subgrade, and spillage. YardTally’s slab calculator defaults to about 10% extra when it counts bags. Ready-mix plants often round tickets up to the next quarter yard anyway, so treat 81&nbsp;sq&nbsp;ft as a clean geometric ceiling, not a promise you will finish exactly flush with one ticketed yard.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Approximate coverage per cubic yard at common thicknesses</caption>
+        <thead><tr><th>Thickness</th><th>Sq ft per cu yd</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>4"</td><td>~81</td><td>Common patio / sidewalk planning depth</td></tr>
+          <tr><td>5"</td><td>~65</td><td>Heavier residential flatwork planning depth in some guides</td></tr>
+          <tr><td>6"</td><td>~54</td><td>Thicker pads / some driveway planning</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>How much does 3 yards of concrete cover at 4 inches?</h2>
+      <p>Three yards × 81&nbsp;sq&nbsp;ft ≈ 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. That is a little larger than a 15×16 rectangle, or roughly a 12×20 pad. Flip the math when you already know area: yards ≈ (sq&nbsp;ft × thickness_inches ÷ 12) ÷ 27. A 243&nbsp;sq&nbsp;ft pad at 4&nbsp;inches is exactly 3.0&nbsp;cu&nbsp;yd before waste.</p>
+      <p>Three yards is firmly in truck territory for most homeowners. Bag math at QUIKRETE’s 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag is about 45 bags per yard before waste—so three yards is on the order of 135 bags before you add contingency. I would not schedule that as a hand-mix day unless the site has no truck access at all.</p>
+
+      <h2>Bags vs yards: when do I switch?</h2>
+      <p>Bags win on small pads, pier tops, and repairs you can mix in a wheelbarrow. Ready-mix wins when volume climbs toward or past about one cubic yard, when you need a continuous pour, or when labor time costs more than the short-load fee. The plant’s minimum load charge can erase the savings on a 1.5-yard ticket, so call before you assume “truck = cheaper.”</p>
+      <p>If you stay on bags, do not reinvent yields here. QUIKRETE Concrete Mix 1101 lists about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb bags. Sakrete High-Strength publishes the same planning band for those sizes. The <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a> walks the divide-and-round-up steps. This page stays focused on how many yards the job wants.</p>
+
+      <h2>How do I calculate concrete for a slab?</h2>
+      <p>Measure the formed length and width in feet. Convert thickness to feet (inches ÷ 12). Multiply for cubic feet. Divide by 27 for cubic yards. Add waste. Example: a 12×12 patio at 4&nbsp;inches is 12 × 12 × (4÷12) = 48&nbsp;cu&nbsp;ft ≈ 1.78&nbsp;cu&nbsp;yd before waste. With 10% waste the calculator shows about 1.96&nbsp;cu&nbsp;yd and 89 of the 80&nbsp;lb bags.</p>
+      <p>Round holes are different shapes. Fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a>. Cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Same bag yields, different volume formulas.</p>
+      <ol>
+        <li>Sketch the pour and mark thickness.</li>
+        <li>Compute cubic feet for each rectangle (or use the matching shape calculator).</li>
+        <li>Sum the pieces, convert to yards, then add about 5–10% for waste.</li>
+        <li>Decide bags vs ready-mix from total yards, access, and labor.</li>
+        <li>Order gravel base separately if the slab sits on stone.</li>
+      </ol>
+
+      <h2>Worked example: shed pad that feels like “about a yard”</h2>
+      <p>Suppose the pad is 9×9 at 4&nbsp;inches. Volume = 81 × (4÷12) = 27&nbsp;cu&nbsp;ft = 1.00&nbsp;cu&nbsp;yd before waste. That is the geometric twin of “one yard covers 81&nbsp;sq&nbsp;ft at 4&nbsp;inches.” Add 10% and you are closer to 1.1&nbsp;yd—often a short-load conversation, or about fifty 80&nbsp;lb bags after waste using 0.60&nbsp;cu&nbsp;ft yields (27 × 1.10 ÷ 0.60 ≈ 49.5 → 50 bags). I’d rather pay for the extra tenth of a yard than finish a corner with a frantic hardware-store run.</p>
+
+      <h2>What about cost questions on the SERP?</h2>
+      <p>People Also Ask often pivots into “how much does a 20×20 slab cost?” YardTally does not invent regional price-per-yard figures. Prices swing with fuel, plant minimums, fiber or air entrainment, and weekend pours. Size the yards first with the calculator, then call two plants with the same ticket description. Thickness and reinforcement choices change the bid more than a generic internet average will admit.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Write thickness in inches on the sketch so nobody treats “4” as feet.</li>
+        <li>If the chute cannot reach, pump fees can dwarf the concrete line item—ask early.</li>
+        <li>Match the tool to the shape: slab, post hole, or Sonotube.</li>
+        <li>For a fixed 10×10 chart, jump to the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using the 81&nbsp;sq&nbsp;ft rule at 6&nbsp;inches (that coverage is ~54&nbsp;sq&nbsp;ft).</li>
+        <li>Ordering exactly the geometric yards with zero waste on a rough subgrade.</li>
+        <li>Hand-mixing a three-yard pour because bag unit price looked cheaper on the shelf.</li>
+        <li>Applying slab coverage rules to fence post holes or Sonotubes.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
+        <li><a href="https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf" rel="noopener noreferrer">IRMCA – Residential exterior flatwork guide (thickness context for coverage planning)</a></li>
+        <li><a href="https://www.quikrete.com/calculator/main.asp" rel="noopener noreferrer">QUIKRETE – Concrete calculator</a></li>
+      </ul>
+  `,
+
+  'sonotube-footing-and-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> A Sonotube is a cardboard form. For many deck posts the concrete poured inside the tube <em>is</em> the footing, so you do not automatically pour a separate pad under every tube—local frost depth, soil bearing, and the permit still control diameter and depth. QUIKRETE’s deck-footing steps say footings typically must extend below frost. A 12-inch × 4&nbsp;ft tube needs about six 80&nbsp;lb bags after 5% waste.</div>
+
+      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches.</p>
+
+      <h2>Do I need a footing under a Sonotube?</h2>
+      <p>Often, no separate “footing under the tube” is required because the poured pier itself is the footing. The tube shapes the column; the concrete bears on firm soil at the bottom of the hole. Some jobs still use a wider poured bell, a Bigfoot-style base form, or a pad poured first with the tube set into plastic concrete when soil is weak or the post carries a large tributary area.</p>
+      <p>Building departments care about bearing area and frost depth, not the brand printed on the cardboard. Lake County, Indiana’s deck handout (citing IRC-style deck footing language) notes posts can sit on concrete columns such as Sonotube pours, and it points readers to minimum footing sizes and frost depth. Your county’s table may differ. Pull the local deck footing sheet before you dig a grid of holes from a forum sketch.</p>
+      <p>If the inspector wants a wider footing than the tube diameter, that is when a bell form or a poured pad under the tube enters the plan. Guessing is how piers heave or punch into soft fill.</p>
+
+      <h2>How deep should a Sonotube be?</h2>
+      <p>Depth is a code and frost question, not a tube-size question. QUIKRETE’s deck footing guidance says to check local minimum diameter and depth, and that footings typically must extend below the frost line so freeze–thaw cycles do not shift the support. Dig the hole to the required depth, then cut the tube to fit.</p>
+      <p>QUIKRETE’s step list digs about 6&nbsp;inches deeper than the required footing depth, places and compacts about 6&nbsp;inches of gravel, then sets the cut QUIK-Tube (their cardboard form) on that base. That gravel is a leveling and drainage detail in their how-to—not a license to stop the concrete short of frost depth. The bottom of the structural concrete still needs to land where the jurisdiction says frost protection starts.</p>
+      <p>Frost lines jump a lot across the country. Warm-climate sheds freestanding on grade are not the same job as a ledger-attached deck in a cold county. When the permit says 36&nbsp;inches or 42&nbsp;inches to the bottom of the footing, that number overrides any “rule of thumb” height you saw on a product page.</p>
+
+      <h2>Do I need rebar in a Sonotube?</h2>
+      <p>Maybe. Plans and local rules decide. QUIKRETE’s deck footing video/article shows consolidating the pour with a piece of rebar or a shovel to knock out air pockets after the form is partly filled—that is placement technique, not a full structural cage design. Many deck piers use vertical bars or a cage when the engineer or manufacturer hardware details call for it. This page will not invent bar counts.</p>
+      <p>If the drawings show a mat or dowels into a pad, size the steel from those notes. For slab mats on a separate patio pour, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>. Round pier cages are a different takeoff.</p>
+
+      <h2>How many bags of concrete for a 4-foot Sonotube?</h2>
+      <p>Use inside diameter and height. A 12-inch tube 4&nbsp;feet tall holds about 3.14&nbsp;cu&nbsp;ft before waste (π × 0.5² × 4). YardTally’s Sonotube tool adds a default 5% spillage factor → about 3.30&nbsp;cu&nbsp;ft, which lands on six 80&nbsp;lb bags or eight 60&nbsp;lb bags at 0.60 / 0.45&nbsp;cu&nbsp;ft yields. Before waste you still round to six 80&nbsp;lb bags because 3.14 ÷ 0.60 ≈ 5.2.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Approximate bags for a 4 ft Sonotube with 5% waste (YardTally defaults)</caption>
+        <thead><tr><th>Inside diameter</th><th>Cu ft (+5%)</th><th>80 lb bags</th><th>60 lb bags</th></tr></thead>
+        <tbody>
+          <tr><td>8"</td><td>1.47</td><td>3</td><td>4</td></tr>
+          <tr><td>10"</td><td>2.29</td><td>4</td><td>6</td></tr>
+          <tr><td>12"</td><td>3.30</td><td>6</td><td>8</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Multiply by pier count. Four 12-inch × 4&nbsp;ft piers are about 24 of the 80&nbsp;lb bags after the calculator’s waste factor, before you add any separate bell or pad volume. Full diameter charts sit on the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube volume guide</a>.</p>
+
+      <h2>Worked example: four deck piers at frost depth</h2>
+      <p>Say the county wants 48&nbsp;inches to the bottom of the footing and you choose 12-inch tubes with QUIKRETE’s gravel detail under each. The concrete column height inside the tube is still about 4&nbsp;feet if the tube sits on the compacted gravel at that depth—confirm the section on your sketch so gravel does not steal structural depth. One tube ≈ 3.14&nbsp;cu&nbsp;ft; four tubes ≈ 12.6&nbsp;cu&nbsp;ft before waste (~0.47&nbsp;cu&nbsp;yd). With 5% waste ≈ 13.2&nbsp;cu&nbsp;ft → about twenty-two 80&nbsp;lb bags (ceil(13.2 ÷ 0.60)). Brace tubes plumb, place hardware before the mix sets, and keep wood posts off damp soil with the approved base connector.</p>
+
+      <h2>How to set depth and estimate bags (step-by-step)</h2>
+      <ol>
+        <li>Read the local frost depth and minimum footing diameter for the deck or structure.</li>
+        <li>Decide whether the tube alone provides bearing area or whether a wider bell/pad is required.</li>
+        <li>Dig to the required depth; add gravel only as the product or plan details allow without shortening structural depth.</li>
+        <li>Cut and brace the tube plumb on firm bearing.</li>
+        <li>Run diameter × height × count through the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>, then add any separate footing volume.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Leave the cardboard in place when the maker allows it; stripping early can scar green concrete.</li>
+        <li>Do not vibrate cardboard forms with a mechanical vibrator if the form maker forbids it—hand rod instead.</li>
+        <li>Deck lumber lists come after the piers. Pair this page with the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a> when you move above grade.</li>
+        <li>Dug fence holes without a tube belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a>, not here.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Stopping the hole above frost because the tube was only sold in a short length.</li>
+        <li>Pouring a fancy bell “just because” when the soil and permit already accept the tube diameter.</li>
+        <li>Using outside diameter for bag math.</li>
+        <li>Treating QUIKRETE’s consolidating-with-rebar tip as a full engineered cage.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.quikrete.com/athome/video-deck-footings.asp" rel="noopener noreferrer">QUIKRETE – Building deck footings (frost depth, gravel, QUIK-Tube steps)</a></li>
+        <li><a href="https://lakecountyin.gov/departments/planning-commission/building-department-forms-c/forms/code%20requirements%20for%20design%20and%20construction%20of%20residential%20decks.pdf" rel="noopener noreferrer">Lake County, IN – Code requirements for residential decks (Sonotube columns, frost, footing size pointers)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sonotube.com/sonotube-concrete-forms" rel="noopener noreferrer">Sonotube – Concrete forms product sizing</a></li>
+      </ul>
+  `,
+
+  'how-much-mulch-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> Mulch volume equals area × depth. At 3&nbsp;inches, UF/IFAS notes one cubic yard covers about 108&nbsp;sq&nbsp;ft. A 10×10 bed at 3&nbsp;inches needs 25&nbsp;cu&nbsp;ft—thirteen 2&nbsp;cu&nbsp;ft bags. Bags fit small beds; bulk usually costs less around a yard or more. UVM Extension cites a 3-3-3 tree mulch mnemonic for mature trees.</div>
+
+      <p>Depth targets (about 2–3&nbsp;inches in most beds) live in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>. Rectangle charts for common frames sit in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. This page answers the broad “how much mulch do I need?” question: coverage math, bags vs bulk, and the 3-3-3 tree reminder.</p>
+
+      <h2>How do I calculate how much mulch I need?</h2>
+      <p>Measure length and width of the planting surface in feet. Multiply for square feet. Choose depth in inches—Clemson and UF/IFAS both land near 2–3&nbsp;inches for many organic mulches in beds. Convert depth to feet (inches ÷ 12) and multiply. Cubic feet ÷ 27 = cubic yards. Iowa State’s mulch calculator method is the same area × depth approach YardTally uses.</p>
+      <p><strong>Cu&nbsp;ft = area_sq&nbsp;ft × (depth_inches ÷ 12).</strong> At 3&nbsp;inches, every 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). UF/IFAS’s check figure—about 108&nbsp;sq&nbsp;ft per cubic yard at 3&nbsp;inches—matches that math: 27 ÷ 0.25 = 108.</p>
+      <p>Odd shapes? Split them into rectangles, or run the <a href="/calculators/mulch-calculator/">mulch calculator</a> twice and add. Tree rings need the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the bare collar at the trunk.</p>
+
+      <h2>Is it cheaper to buy mulch by the yard or by the bag?</h2>
+      <p>Usually bulk wins on price per cubic foot once you need roughly a cubic yard or more and you can stage a delivery. Bags win for small beds, color-matched touch-ups, and sites where a dump truck cannot sit. Iowa State notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size printed on the package—not by a memory of last year’s brand.</p>
+      <p>Do the napkin math before you chase a “sale” on bags. Twenty-five 2&nbsp;cu&nbsp;ft bags is 50&nbsp;cu&nbsp;ft—almost two cubic yards of bagged product after you haul them one-by-one. If bulk is $45/yd delivered and bags pencil out higher for the same volume, the truck wins. If the dealer’s short-load fee is brutal and you only need half a yard, bags can still be the cheaper day.</p>
+
+      <h2>How much will 25 bags of mulch cover?</h2>
+      <p>It depends on bag size and depth. Twenty-five bags × 2&nbsp;cu&nbsp;ft = 50&nbsp;cu&nbsp;ft. At 3&nbsp;inches (0.25&nbsp;ft), coverage ≈ 50 ÷ 0.25 = 200&nbsp;sq&nbsp;ft. At 2&nbsp;inches, the same 50&nbsp;cu&nbsp;ft spreads over about 300&nbsp;sq&nbsp;ft. If the bags are 3&nbsp;cu&nbsp;ft, twenty-five bags are 75&nbsp;cu&nbsp;ft—about 300&nbsp;sq&nbsp;ft at 3&nbsp;inches.</p>
+      <p>Read the bag. “25 bags” without a size is not a coverage number.</p>
+
+      <h2>What is the 3-3-3 rule for mulch?</h2>
+      <p>University of Vermont Extension describes a 3-3-3 method many arborists recommend for mature trees: at least 3&nbsp;inches of clearance from the trunk, no more than 3&nbsp;inches deep, and about 3&nbsp;feet of mulch diameter to protect a meaningful share of the root zone. Think donut, not volcano. UVM’s mulch-volcano article is explicit that mulch should never be piled against bark.</p>
+      <p>That mnemonic lines up with other extension advice even when they do not use the “3-3-3” label. Mississippi State says pull mulch 2–3&nbsp;inches back from trunks and keep a wide ring. Clemson wants a few inches of clearance and warns against volcanoes. UF/IFAS Florida-Friendly guidance keeps mulch farther back from tree bases (on the order of a foot or more in their principle sheet) and caps bed mulch near 2–3&nbsp;inches. Use 3-3-3 as a memorable floor for tree rings, then read the local extension sheet when palms, new transplants, or Florida-Friendly program rules apply.</p>
+
+      <h2>Worked example: front bed plus one tree</h2>
+      <p>Front bed: 20×10&nbsp;ft at 3&nbsp;inches. Area = 200&nbsp;sq&nbsp;ft. Volume = 200 × 0.25 = 50&nbsp;cu&nbsp;ft ≈ 1.85&nbsp;cu&nbsp;yd. That is twenty-five 2&nbsp;cu&nbsp;ft bags or seventeen 3&nbsp;cu&nbsp;ft bags after rounding up—same numbers the mulch calculator returns. At this size I would price a bulk scoop before I fill the SUV with bags.</p>
+      <p>Tree: apply UVM’s 3-3-3 idea as a starting ring—about 3&nbsp;inches deep, kept ~3&nbsp;inches off the bark, roughly 3&nbsp;feet across for a young mature tree, wider toward the drip line when you can. Size the donut with the tree-ring calculator so the trunk opening is not part of the order. Keep the flare visible.</p>
+
+      <h2>How to order mulch without overbuying (step-by-step)</h2>
+      <ol>
+        <li>Measure each bed; split L-shapes into rectangles.</li>
+        <li>Pick depth from the depth guide (often 2–3&nbsp;inches organic).</li>
+        <li>Compute cubic feet, then yards or bags.</li>
+        <li>Compare bag unit price × count against bulk yards + delivery.</li>
+        <li>Subtract existing mulch depth if you are only top-dressing.</li>
+        <li>Stage the pile on a tarp and spread the same week so it does not bleach into a heap against siding.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Top-dressing from 1&nbsp;inch up to 3&nbsp;inches means ordering the 2-inch difference, not a full new blanket.</li>
+        <li>Dyed mulches vary. Buy enough from one batch for the whole visible bed.</li>
+        <li>Rock mulch is a different coverage and heat story—do not reuse bark bag math blindly.</li>
+        <li>If the bed still needs fill soil, size soil first with the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide, then mulch.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Volcano mulching against trunks (UVM, Clemson, MSU, and UF all warn against it).</li>
+        <li>Assuming every bag is 2&nbsp;cu&nbsp;ft.</li>
+        <li>Ordering a full 3-inch blanket on top of 2&nbsp;inches that is already there.</li>
+        <li>Using the bed chart for a tree ring without subtracting the clear collar.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.uvm.edu/extension/news/beware-mulch-volcano" rel="noopener noreferrer">University of Vermont Extension – Beware the mulch volcano (3-3-3 method)</a></li>
+        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches (~108 sq ft per cu yd at 3&quot;)</a></li>
+        <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch (2–3 inch depths for many wood/bark mulches)</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed (area × depth; 2 / 3 cu ft bags)</a></li>
+        <li><a href="https://extension.msstate.edu/blogs/extension-for-real-life/how-mulch" rel="noopener noreferrer">Mississippi State Extension – How to mulch (pull mulch back from trunks)</a></li>
+      </ul>
+  `,
 };

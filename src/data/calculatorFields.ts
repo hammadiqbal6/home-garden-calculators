@@ -306,6 +306,11 @@ function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
   if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
   if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
   if (r.costBags != null) rows.push(['Bag cost', `$${r.costBags}`]);
+  if (r.cheapestLabel && r.cheapestCost != null) {
+    const label =
+      r.cheapestLabel === 'yard' ? 'bulk by yard' : r.cheapestLabel === 'ton' ? 'bulk by ton' : 'bags';
+    rows.push(['Cheaper option', `${label} ($${r.cheapestCost})`]);
+  }
   return rows;
 }
 

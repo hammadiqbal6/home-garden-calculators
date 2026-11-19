@@ -5,6 +5,7 @@
  * Optional local prices support bag-vs-bulk cost compare (no default prices).
  */
 import { ceilBags, cuFtToCuM, cuFtToCuYd, round, toFeet, type LengthUnit } from '../units';
+import { bulkCostCompare } from './bulkCost';
 
 export interface MulchResult {
   areaSqFt: number;
@@ -16,6 +17,8 @@ export interface MulchResult {
   costYards?: number;
   costBags2?: number;
   costBags3?: number;
+  cheapestLabel?: 'yard' | 'bags';
+  cheapestCost?: number;
 }
 
 export interface MulchPriceOpts {
@@ -35,12 +38,21 @@ function fromVolume(areaSqFt: number, volumeCuFt: number, prices?: MulchPriceOpt
     bags2CuFt,
     bags3CuFt,
   };
-  if (prices?.pricePerYard != null && prices.pricePerYard > 0) {
-    result.costYards = round(volumeCuYd * prices.pricePerYard, 2);
-  }
+  // Compare bulk yards vs 2 cu ft bags (primary bag size); also show 3 cu ft bag total.
+  const costs = bulkCostCompare({
+    volumeCuYd,
+    bagCount: bags2CuFt,
+    pricePerYard: prices?.pricePerYard,
+    pricePerBag: prices?.pricePerBag,
+  });
+  if (costs.costByYard != null) result.costYards = costs.costByYard;
   if (prices?.pricePerBag != null && prices.pricePerBag > 0) {
     result.costBags2 = round(bags2CuFt * prices.pricePerBag, 2);
     result.costBags3 = round(bags3CuFt * prices.pricePerBag, 2);
+  }
+  if (costs.cheapestLabel === 'yard' || costs.cheapestLabel === 'bags') {
+    result.cheapestLabel = costs.cheapestLabel;
+    result.cheapestCost = costs.cheapestCost;
   }
   return result;
 }

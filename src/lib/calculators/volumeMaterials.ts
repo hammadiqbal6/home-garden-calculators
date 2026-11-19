@@ -5,6 +5,7 @@
  * (prices are user-supplied; never invent defaults).
  */
 import { ceilBags, cuFtToCuM, cuFtToCuYd, round, toFeet, type LengthUnit } from '../units';
+import { bulkCostCompare, tonsToYards, yardsToTons } from './bulkCost';
 
 /** Common bagged gravel / sand / topsoil size at big-box retailers (0.5 cu ft). */
 export const BULK_BAG_CU_FT = 0.5;
@@ -25,52 +26,14 @@ export const TOPSOIL_DENSITY_LB_PER_CUYD = 2200;
  */
 export const SAND_DENSITY_LB_PER_CUYD = 2700;
 
-/** Tons → cubic yards at a stated dry bulk density (lb/cu yd). */
+/** Tons → cubic yards (alias of tonsToYards). */
 export function yardsFromTons(tons: number, densityLbPerCuYd: number): number {
-  if (tons < 0) throw new Error('Tons must be non-negative');
-  if (densityLbPerCuYd <= 0) throw new Error('Density must be positive');
-  return round((tons * 2000) / densityLbPerCuYd, 3);
+  return tonsToYards(tons, densityLbPerCuYd);
 }
 
-/** Cubic yards → tons at a stated dry bulk density (lb/cu yd). */
+/** Cubic yards → tons (alias of yardsToTons). */
 export function tonsFromYards(yards: number, densityLbPerCuYd: number): number {
-  if (yards < 0) throw new Error('Yards must be non-negative');
-  if (densityLbPerCuYd <= 0) throw new Error('Density must be positive');
-  return round((yards * densityLbPerCuYd) / 2000, 2);
-}
-
-export interface BulkCostOpts {
-  volumeCuYd: number;
-  volumeCuFt: number;
-  tons?: number;
-  bagCuFt?: number;
-  pricePerYard?: number;
-  pricePerTon?: number;
-  pricePerBag?: number;
-}
-
-export interface BulkCostResult {
-  bags: number;
-  costYards?: number;
-  costTons?: number;
-  costBags?: number;
-}
-
-/** Bag count + optional costs when the matching price is > 0. */
-export function bagVsBulkCosts(opts: BulkCostOpts): BulkCostResult {
-  const bagCuFt = opts.bagCuFt ?? BULK_BAG_CU_FT;
-  const bags = ceilBags(opts.volumeCuFt, bagCuFt);
-  const result: BulkCostResult = { bags };
-  if (opts.pricePerYard != null && opts.pricePerYard > 0) {
-    result.costYards = round(opts.volumeCuYd * opts.pricePerYard, 2);
-  }
-  if (opts.pricePerTon != null && opts.pricePerTon > 0 && opts.tons != null) {
-    result.costTons = round(opts.tons * opts.pricePerTon, 2);
-  }
-  if (opts.pricePerBag != null && opts.pricePerBag > 0) {
-    result.costBags = round(bags * opts.pricePerBag, 2);
-  }
-  return result;
+  return yardsToTons(yards, densityLbPerCuYd);
 }
 
 export interface BulkVolumeResult {
@@ -87,6 +50,8 @@ export interface BulkVolumeResult {
   costYards?: number;
   costTons?: number;
   costBags?: number;
+  cheapestLabel?: 'yard' | 'ton' | 'bags';
+  cheapestCost?: number;
 }
 
 export function rectangularBulkVolume(opts: {
@@ -111,34 +76,47 @@ export function rectangularBulkVolume(opts: {
   const area = L * W;
   const volumeCuFt = area * depthFt * (1 + (opts.wasteFactor ?? 0));
   const volumeCuYd = cuFtToCuYd(volumeCuFt);
+  const bags05CuFt = ceilBags(volumeCuFt, BULK_BAG_CU_FT);
   const result: BulkVolumeResult = {
     areaSqFt: round(area, 2),
     volumeCuFt: round(volumeCuFt, 3),
     volumeCuYd: round(volumeCuYd, 3),
     volumeCuM: round(cuFtToCuM(volumeCuFt), 3),
-    bags05CuFt: ceilBags(volumeCuFt, BULK_BAG_CU_FT),
+    bags05CuFt,
   };
   const density = opts.densityLbPerCuYd;
   if (density) {
-    const tons = tonsFromYards(volumeCuYd, density);
+    const tons = yardsToTons(volumeCuYd, density);
     result.tons = tons;
-    result.tonsFromYards = tons;
-    if (opts.convertTons != null && opts.convertTons > 0) {
-      result.yardsFromTons = yardsFromTons(opts.convertTons, density);
-    }
+    const costs = bulkCostCompare({
+      volumeCuYd: result.volumeCuYd,
+      tons,
+      bagCount: bags05CuFt,
+      pricePerYard: opts.pricePerYard,
+      pricePerTon: opts.pricePerTon,
+      pricePerBag: opts.pricePerBag,
+      convertTons: opts.convertTons,
+      densityLbPerCuYd: density,
+    });
+    result.tonsFromYards = costs.tonsFromYards ?? tons;
+    if (costs.yardsFromTons != null) result.yardsFromTons = costs.yardsFromTons;
+    if (costs.costByYard != null) result.costYards = costs.costByYard;
+    if (costs.costByTon != null) result.costTons = costs.costByTon;
+    if (costs.costByBags != null) result.costBags = costs.costByBags;
+    if (costs.cheapestLabel) result.cheapestLabel = costs.cheapestLabel;
+    if (costs.cheapestCost != null) result.cheapestCost = costs.cheapestCost;
+  } else {
+    const costs = bulkCostCompare({
+      volumeCuYd: result.volumeCuYd,
+      bagCount: bags05CuFt,
+      pricePerYard: opts.pricePerYard,
+      pricePerBag: opts.pricePerBag,
+    });
+    if (costs.costByYard != null) result.costYards = costs.costByYard;
+    if (costs.costByBags != null) result.costBags = costs.costByBags;
+    if (costs.cheapestLabel) result.cheapestLabel = costs.cheapestLabel;
+    if (costs.cheapestCost != null) result.cheapestCost = costs.cheapestCost;
   }
-  const costs = bagVsBulkCosts({
-    volumeCuYd: result.volumeCuYd,
-    volumeCuFt: result.volumeCuFt,
-    tons: result.tons,
-    bagCuFt: BULK_BAG_CU_FT,
-    pricePerYard: opts.pricePerYard,
-    pricePerTon: opts.pricePerTon,
-    pricePerBag: opts.pricePerBag,
-  });
-  if (costs.costYards != null) result.costYards = costs.costYards;
-  if (costs.costTons != null) result.costTons = costs.costTons;
-  if (costs.costBags != null) result.costBags = costs.costBags;
   return result;
 }
 

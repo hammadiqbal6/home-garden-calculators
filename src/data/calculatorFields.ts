@@ -23,7 +23,9 @@ import {
   roofPitch,
   sandVolume,
   slabVolume,
+  concreteCostCompare,
   mixedSonotubeVolume,
+  roundUpToQuarterYard,
   topsoilVolume,
   treeRingMulch,
 } from '../lib/calculators';
@@ -70,6 +72,11 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'riser', label: 'Riser', value: '7', hint: 'inches' },
     { name: 'tread', label: 'Tread', value: '11', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '10' },
+    { name: 'priceBag40', label: 'Price per 40 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceBag60', label: 'Price per 60 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceBag80', label: 'Price per 80 lb bag (optional)', value: '0', hint: 'your local price' },
+    { name: 'priceYd', label: 'Ready-mix price per cu yd (optional)', value: '0', hint: 'your quote' },
+    { name: 'delivery', label: 'Delivery fee (optional)', value: '0', hint: 'one-time fee' },
   ],
   'post-holes': [
     { name: 'diameter', label: 'Hole diameter', value: '10', hint: 'inches' },
@@ -239,8 +246,9 @@ export const ssrFields: Record<string, SsrField[]> = {
 
 function concreteRows(
   r: ReturnType<typeof slabVolume>,
+  withOrder = false,
 ): [string, string][] {
-  return [
+  const rows: [string, string][] = [
     ['Volume', `${r.volumeCuFt} cu ft`],
     ['Cubic yards', String(r.volumeCuYd)],
     ['Cubic meters', String(r.volumeCuM)],
@@ -249,6 +257,10 @@ function concreteRows(
     ['60 lb bags', String(r.bags60)],
     ['80 lb bags', String(r.bags80)],
   ];
+  if (withOrder) {
+    rows.push(['Yards to order (↑¼ yd)', String(roundUpToQuarterYard(r.volumeCuYd))]);
+  }
+  return rows;
 }
 
 function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
@@ -390,7 +402,7 @@ const rebarDefault = rebarForSlab({
 });
 
 export const defaultResultRows: Record<string, [string, string][]> = {
-  concrete: concreteRows(concreteDefault),
+  concrete: concreteRows(concreteDefault, true),
   'post-holes': concreteRows(postHolesDefault),
   sonotube: [
     ['Volume', `${sonotubeDefault.volumeCuFt} cu ft`],

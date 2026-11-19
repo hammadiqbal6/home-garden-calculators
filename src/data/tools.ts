@@ -93,6 +93,8 @@ export const categories: Record<
       <p>Volume = 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste factor that becomes 36.7 cu ft → 62 bags of 80 lb mix or 82 bags of 60 lb mix. Order gravel base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Full charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>, <a href="/guides/concrete-for-10x10-slab/">concrete for a 10×10 slab</a>, <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a>, and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>.</p>
       <h2>Waste, frost, and regional caveats</h2>
       <p>Uneven subgrade and spillage routinely consume 5–10% extra on DIY bag mixes. Frost-line depth, soil type, and local code control hole depth and slab thickness—this hub estimates volume only. Confirm reinforcement, joints, and base with local practice before you pour.</p>
+      <h2>Related materials outside this hub</h2>
+      <p>Masonry walls use the <a href="/calculators/brick-calculator/">brick / CMU calculator</a> (outdoor structures hub). For a paved driveway instead of a concrete pad, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (landscape hub) and base stone with the gravel tool.</p>
     `,
   },
   landscape: {
@@ -161,6 +163,8 @@ export const categories: Record<
         <li><strong>40×25 plan roof at 6/12:</strong> area factor ≈ 1.118 → ~11.2 squares before waste; with 10% waste and 3 bundles/square, order about 37 bundles.</li>
       </ul>
       <p>Taller retaining walls and load-bearing decks may need a licensed design—follow manufacturer height charts and local code. Paint coverage varies by brand (this site defaults to 350 sq ft/gal); confirm on the can.</p>
+      <h2>Related materials outside this hub</h2>
+      <p>Slab reinforcement for deck pads and garage floors: <a href="/calculators/rebar-calculator/">rebar calculator</a> (concrete hub). Driveway paving next to outdoor projects: <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (landscape hub) with gravel base from the landscape tools.</p>
     `,
   },
   lawn: {
@@ -187,9 +191,9 @@ export const categories: Record<
         <caption>Typical cool-season timing—confirm with local extension</caption>
         <thead><tr><th>Season</th><th>Common tasks</th><th>YardTally tools</th></tr></thead>
         <tbody>
-          <tr><td>Early spring</td><td>Soil test, light cleanup, pre-emergent where appropriate</td><td><a href="/calculators/fertilizer-calculator/">Fertilizer</a></td></tr>
-          <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a></td></tr>
-          <tr><td>Fall</td><td>Nitrogen feeding per local calendar; topdress thin spots</td><td><a href="/calculators/topsoil-calculator/">Topsoil</a></td></tr>
+          <tr><td>Early spring</td><td>Soil test, light cleanup, pre-emergent where appropriate</td><td><a href="/calculators/fertilizer-calculator/">Fertilizer</a> · <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">N per 1,000 sq&nbsp;ft guide</a></td></tr>
+          <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a> · <a href="/guides/grass-seed-per-sq-ft/">Seed rates guide</a></td></tr>
+          <tr><td>Fall</td><td>Nitrogen feeding per local calendar; topdress thin spots</td><td><a href="/calculators/topsoil-calculator/">Topsoil</a> · <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">Fertilizer nitrogen guide</a></td></tr>
           <tr><td>Anytime (beds)</td><td>Raised-bed fills next to the lawn</td><td><a href="/calculators/raised-bed-soil-calculator/">Raised bed soil</a></td></tr>
         </tbody>
       </table>
@@ -201,7 +205,7 @@ export const categories: Record<
         <li>Skipping a soil test when pH or phosphorus limits growth more than nitrogen.</li>
         <li>Assuming one national calendar fits every USDA hardiness zone.</li>
       </ul>
-      <p>Guides: <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">nitrogen per 1,000&nbsp;sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a>.</p>
+      <p>Start with the <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000&nbsp;sq&nbsp;ft</a> guide for label math, then the <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, and <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a> guides.</p>
     `,
   },
 };
@@ -231,6 +235,7 @@ export const tools: ToolDefinition[] = [
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
+      'brick-calculator',
       'fence-calculator',
     ],
     relatedGuideSlugs: [
@@ -299,7 +304,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -591,7 +596,13 @@ export const tools: ToolDefinition[] = [
       'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate. Add ~10% for compaction on driveways and paths.',
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
-    relatedSlugs: ['sand-calculator', 'paver-calculator', 'asphalt-calculator', 'retaining-wall-calculator'],
+    relatedSlugs: [
+      'sand-calculator',
+      'paver-calculator',
+      'asphalt-calculator',
+      'concrete-calculator',
+      'retaining-wall-calculator',
+    ],
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -625,7 +636,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['gravel-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -697,7 +708,7 @@ export const tools: ToolDefinition[] = [
       'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding.',
     summary: 'Bedding and fill sand by area and depth.',
     calculatorId: 'sand',
-    relatedSlugs: ['paver-calculator', 'gravel-calculator', 'concrete-calculator'],
+    relatedSlugs: ['paver-calculator', 'gravel-calculator', 'asphalt-calculator', 'concrete-calculator'],
     relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
@@ -731,7 +742,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sand-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -750,7 +761,7 @@ export const tools: ToolDefinition[] = [
       'Pavers needed ≈ patio area ÷ paver face area, then add 5–10% waste for cuts. A 10×10 patio with 12×12 inch pavers needs 100 pavers, about 110 with 10% waste. Plan ~1" sand bed and several inches of compacted gravel base.',
     summary: 'Patio paver counts with sand and base volumes.',
     calculatorId: 'paver',
-    relatedSlugs: ['sand-calculator', 'gravel-calculator', 'retaining-wall-calculator'],
+    relatedSlugs: ['sand-calculator', 'gravel-calculator', 'asphalt-calculator', 'retaining-wall-calculator'],
     relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
@@ -784,7 +795,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['paver-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -803,8 +814,13 @@ export const tools: ToolDefinition[] = [
       'Fence posts usually equal the number of sections plus one end post. At 8 ft spacing, a 48 ft run needs 6 sections and 7 posts. Rails are sections × rails per bay (often 2–3). Pickets ≈ total inches of run ÷ (picket width + gap).',
     summary: 'Posts, rails, pickets, and post concrete bags.',
     calculatorId: 'fence',
-    relatedSlugs: ['concrete-calculator-post-holes', 'deck-material-calculator', 'paint-calculator'],
-    relatedGuideSlugs: ['how-much-concrete-for-fence-posts'],
+    relatedSlugs: [
+      'concrete-calculator-post-holes',
+      'deck-material-calculator',
+      'lumber-calculator',
+      'paint-calculator',
+    ],
+    relatedGuideSlugs: ['how-much-concrete-for-fence-posts', 'how-much-paint-for-a-room'],
     faq: [
       {
         question: 'How far apart should fence posts be?',
@@ -843,7 +859,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['fence-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -862,11 +878,18 @@ export const tools: ToolDefinition[] = [
       'Deck boards needed ≈ deck width ÷ board face width, times boards along the length. Joists are typically spaced 16 inches on center: count = floor(length ÷ spacing) + 1, plus rim joists. Screw counts scale with linear feet of decking—often about two fasteners per foot of board.',
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
-    relatedSlugs: ['sonotube-concrete-calculator', 'fence-calculator', 'lumber-calculator', 'paint-calculator'],
+    relatedSlugs: [
+      'sonotube-concrete-calculator',
+      'fence-calculator',
+      'lumber-calculator',
+      'paint-calculator',
+      'roof-pitch-calculator',
+    ],
     relatedGuideSlugs: [
       'deck-material-list-12x16',
       'deck-material-list-16x24',
       'how-to-measure-roof-pitch',
+      'how-much-paint-for-a-room',
     ],
     faq: [
       {
@@ -900,7 +923,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['deck-material-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -919,7 +942,7 @@ export const tools: ToolDefinition[] = [
       'Roof pitch is rise over run, usually stated as inches of rise per 12 inches of run (for example 6/12). Angle = arctan(rise÷run). The area factor √(1+(rise/run)²) converts horizontal plan area to actual roof surface area for material estimates.',
     summary: 'Pitch, degrees, percent slope, and area multiplier.',
     calculatorId: 'roof-pitch',
-    relatedSlugs: ['roofing-shingles-calculator', 'deck-material-calculator'],
+    relatedSlugs: ['roofing-shingles-calculator', 'deck-material-calculator', 'lumber-calculator'],
     relatedGuideSlugs: ['how-to-measure-roof-pitch', 'how-to-estimate-roofing-shingles'],
     faq: [
       {
@@ -953,7 +976,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['roof-pitch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -977,7 +1000,7 @@ export const tools: ToolDefinition[] = [
       'One roofing square covers 100 square feet of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add 10–15% waste. Most asphalt bundles cover about ⅓ square (3 bundles per square).',
     summary: 'Squares and bundles from plan area and pitch.',
     calculatorId: 'roofing',
-    relatedSlugs: ['roof-pitch-calculator', 'deck-material-calculator'],
+    relatedSlugs: ['roof-pitch-calculator', 'deck-material-calculator', 'lumber-calculator'],
     relatedGuideSlugs: ['how-to-estimate-roofing-shingles', 'how-to-measure-roof-pitch'],
     faq: [
       {
@@ -1022,7 +1045,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['roofing-shingles-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1041,7 +1064,7 @@ export const tools: ToolDefinition[] = [
       'Paint gallons ≈ paintable wall area × coats ÷ coverage. Wall area is perimeter × height (or 2×(L+W)×H for a rectangular room). Subtract doors (~20 sq ft) and windows (~15 sq ft each). At 350 sq ft/gallon, two coats on 400 sq ft need about 2.3 gallons.',
     summary: 'Room paint in gallons and liters with openings deducted.',
     calculatorId: 'paint',
-    relatedSlugs: ['fence-calculator', 'deck-material-calculator'],
+    relatedSlugs: ['fence-calculator', 'deck-material-calculator', 'lumber-calculator'],
     relatedGuideSlugs: ['how-much-paint-for-a-room'],
     faq: [
       {
@@ -1075,7 +1098,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['paint-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1206,7 +1229,7 @@ export const tools: ToolDefinition[] = [
       'Product fertilizer = (area÷1000) × (desired lb nitrogen per 1000 ÷ nitrogen fraction). Example: 1 lb N/1000 sq ft using a 25-0-5 product needs 4 lb of product per 1,000 sq ft because 1 ÷ 0.25 = 4. Match timing to local extension calendars.',
     summary: 'Product pounds from N rate and analysis.',
     calculatorId: 'fertilizer',
-    relatedSlugs: ['grass-seed-calculator', 'topsoil-calculator'],
+    relatedSlugs: ['grass-seed-calculator', 'topsoil-calculator', 'raised-bed-soil-calculator'],
     relatedGuideSlugs: ['fertilizer-nitrogen-per-1000-sq-ft', 'grass-seed-per-sq-ft'],
     faq: [
       {
@@ -1246,7 +1269,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['fertilizer-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1322,7 +1345,7 @@ export const tools: ToolDefinition[] = [
       'Asphalt tons ≈ area × compacted depth (ft) × density ÷ 2,000. This tool defaults to 145 lb/cu ft for compacted hot-mix asphalt—a common FHWA / industry planning density. A 40×12 ft drive at 3 inches with 5% waste is about 9.14 tons.',
     summary: 'Driveway and pad asphalt in tons from area and compacted depth.',
     calculatorId: 'asphalt',
-    relatedSlugs: ['gravel-calculator', 'concrete-calculator', 'sand-calculator'],
+    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'concrete-calculator', 'sand-calculator'],
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -1362,7 +1385,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['asphalt-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1386,7 +1409,12 @@ export const tools: ToolDefinition[] = [
       'Bricks needed ≈ wall face ÷ (brick face + mortar joint), counted in full courses. Modular brick with a ⅜ inch joint uses about 6.86 bricks per square foot (Glen-Gery). Switch to CMU mode for standard 8×16 concrete block faces.',
     summary: 'Clay brick or CMU counts for a wall face with mortar and waste.',
     calculatorId: 'brick',
-    relatedSlugs: ['retaining-wall-calculator', 'concrete-calculator', 'sand-calculator'],
+    relatedSlugs: [
+      'retaining-wall-calculator',
+      'concrete-calculator',
+      'rebar-calculator',
+      'sand-calculator',
+    ],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
@@ -1426,7 +1454,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['brick-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1450,7 +1478,13 @@ export const tools: ToolDefinition[] = [
       'Board feet = (nominal thickness × nominal width × length in feet) ÷ 12. Ten 2×4×8s are 53.3 board feet. Use the board-feet mode to convert a purchase total into piece counts of that size.',
     summary: 'Softwood board feet and piece counts from nominal dimensions.',
     calculatorId: 'lumber',
-    relatedSlugs: ['deck-material-calculator', 'fence-calculator', 'raised-bed-soil-calculator'],
+    relatedSlugs: [
+      'deck-material-calculator',
+      'fence-calculator',
+      'roof-pitch-calculator',
+      'paint-calculator',
+      'raised-bed-soil-calculator',
+    ],
     relatedGuideSlugs: ['deck-material-list-12x16', 'deck-material-list-16x24'],
     faq: [
       {
@@ -1490,7 +1524,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['lumber-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1518,6 +1552,7 @@ export const tools: ToolDefinition[] = [
       'concrete-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
+      'brick-calculator',
     ],
     relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
     faq: [
@@ -1558,7 +1593,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['rebar-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

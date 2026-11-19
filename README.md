@@ -3,7 +3,28 @@
 Production-ready **static** website of free DIY / landscaping material calculators. Built to rank in Google, be citable by AI search, pass AdSense review, and stay fast on mobile.
 
 **Brand:** YardTally · **Site:** https://getyardtally.com · **Config:** [`src/config/site.ts`](src/config/site.ts)  
-**Governing research:** [`docs/SEO-PLAYBOOK.md`](docs/SEO-PLAYBOOK.md) · [`docs/MARKET-RESEARCH.md`](docs/MARKET-RESEARCH.md) · [`docs/ideas/README.md`](docs/ideas/README.md)
+**Governing research:** [`docs/SEO-PLAYBOOK.md`](docs/SEO-PLAYBOOK.md) · [`docs/MARKET-RESEARCH.md`](docs/MARKET-RESEARCH.md) · [`docs/ideas/README.md`](docs/ideas/README.md)  
+**Living growth tracker:** [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md) (update Done/Remaining in the **same PR** as every change)
+
+---
+
+## Done / Remaining (summary)
+
+Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md).
+
+### Done (as of 2026-11-19)
+
+- Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
+- Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
+- TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
+- YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
+
+### Remaining
+
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets.
+- `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
+- **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
+- GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
 
 ---
 
@@ -38,9 +59,13 @@ Production-ready **static** website of free DIY / landscaping material calculato
 | Grass seed | `/calculators/grass-seed-calculator/` | grass seed calculator |
 | Fertilizer | `/calculators/fertilizer-calculator/` | fertilizer calculator |
 | Raised bed soil | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator |
+| Asphalt | `/calculators/asphalt-calculator/` | asphalt calculator |
+| Brick / CMU | `/calculators/brick-calculator/` | brick calculator |
+| Lumber / board feet | `/calculators/lumber-calculator/` | lumber calculator |
+| Rebar | `/calculators/rebar-calculator/` | rebar calculator |
 
 **Hubs:** `/hubs/concrete/` · `/hubs/landscape/` · `/hubs/outdoor-structures/` · `/hubs/lawn/`  
-**Guides:** `/guides/` (concrete bags, fence posts, mulch depth, driveway gravel, roof pitch)  
+**Guides:** `/guides/` (concrete bags, fence posts, mulch depth, driveway gravel, roof pitch, paint, fertilizer, …)  
 **Full keyword map:** [`docs/KEYWORD-MAP.md`](docs/KEYWORD-MAP.md)  
 **Ideas backlog (23 niches + add-ons):** [`docs/ideas/README.md`](docs/ideas/README.md)
 
@@ -161,6 +186,7 @@ Open the printed localhost URL. Edit `src/config/site.ts` before any public laun
 | `npm run test:watch` | Vitest watch mode |
 | `npm run check:links` | Broken internal link check on `dist/` |
 | `npm run audit:seo` | SEO auditor (titles, H1, canonical, JSON-LD, orphans…) |
+| `npm run audit:indexing` | Sitemap self-canonical / noindex / redirect-alias audit |
 | `npm run audit:adsense` | AdSense readiness auditor |
 | `npm run audit:perf` | First-party JS gzip budget (≤50KB/page) |
 | `npm run audit` | Run all auditors |

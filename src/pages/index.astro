@@ -5,21 +5,6 @@ import { categories, tools } from '../data/tools';
 import { guides } from '../data/guides';
 import { homeGraph } from '../lib/schema';
 
-const featured = [
-  'concrete-calculator',
-  'concrete-calculator-post-holes',
-  'sonotube-concrete-calculator',
-  'mulch-calculator',
-  'mulch-calculator-tree-rings',
-  'gravel-calculator',
-  'fence-calculator',
-  'deck-material-calculator',
-  'roof-pitch-calculator',
-  'roofing-shingles-calculator',
-  'paint-calculator',
-  'retaining-wall-calculator',
-].map((s) => tools.find((t) => t.slug === s)!);
-
 const jsonLd = [homeGraph()];
 ---
 
@@ -51,27 +36,40 @@ const jsonLd = [homeGraph()];
   </section>
 
   <section class="container" style="padding-bottom:2rem">
-    <h2>Popular calculators</h2>
-    <div class="card-grid cols-3" style="margin-top:1rem">
-      {
-        featured.slice(0, 5).map((t) => (
-          <a class="tool-card" href={`/calculators/${t.slug}/`}>
-            <h3>{t.name}</h3>
-            <p>{t.summary}</p>
-          </a>
-        ))
-      }
-    </div>
-    <p style="margin-top:1rem">
-      Concrete project starters:
+    <h2>All {tools.length} calculators</h2>
+    <p style="margin-top:0.5rem;max-width:42rem">
+      Every tool is linked below by project type. Concrete project starters:
       <a href="/calculators/concrete-calculator/">concrete calculator for slabs in yards and bags</a>,
       <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator (bags by diameter)</a>,
       <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>,
       <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>,
       and the <a href="/hubs/concrete/">concrete calculators hub</a>.
     </p>
-    <p style="margin-top:0.75rem">
-      <a href="/calculators/">Browse all {tools.length} calculators →</a>
+  </section>
+
+  {
+    Object.entries(categories).map(([key, cat]) => (
+      <section class="container" style="padding-bottom:1.5rem">
+        <h2 style="font-size:1.25rem;margin:0">
+          <a href={`/hubs/${cat.slug}/`}>{cat.name}</a>
+        </h2>
+        <div class="card-grid cols-3" style="margin-top:0.75rem">
+          {tools
+            .filter((t) => t.category === key)
+            .map((t) => (
+              <a class="tool-card" href={`/calculators/${t.slug}/`}>
+                <h3>{t.name}</h3>
+                <p>{t.summary}</p>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="container" style="padding-bottom:2rem">
+    <p>
+      <a href="/calculators/">Browse the full calculators index →</a>
     </p>
   </section>
 

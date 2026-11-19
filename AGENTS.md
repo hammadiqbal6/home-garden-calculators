@@ -12,6 +12,8 @@
 
 **Living growth / SEO tracker:** always read [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) before planning growth, SEO, or content work (baseline metrics, done / in progress / pending, off-repo). Update that file in the **same PR** when you complete, start, or add an item.
 
+**Mandatory docs on every change/PR:** update [README.md](README.md) and [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) with what was done and what remains (**Done** / **Remaining**), in the **same PR**. Do not leave status docs stale relative to the code change.
+
 Read the snapshot below before rediscovering search setup. Do **not** rediscover or re-implement items marked Done.
 
 ### Done (verified in repo unless noted)
@@ -130,6 +132,7 @@ Research first: one primary query, SERP/PAA, cannibalization check in `docs/KEYW
 - Branch from latest `main`: `cursor/<descriptive-name>-c2d2` (lowercase).
 - Open PRs with `ManagePullRequest`; **do not merge** unless the user asks.
 - **Growth / SEO / content:** read [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) first; update it in the same PR when status changes.
+- **Every PR (mandatory):** update [README.md](README.md) **and** [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) Done/Remaining to match what this PR ships and what is still open. No exceptions for “small” fixes.
 - Seasonality: ship evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** peaks (lawn, mulch, concrete, paint).
 - Before merge: run the [pre-merge SEO/AEO checklist](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md) and `npm test && npm run build && npm run audit && npm run check:links`.
 - After deploy: IndexNow; spot-check critical URLs in GSC when indexing matters.

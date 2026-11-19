@@ -15,6 +15,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
 | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator, how much concrete for sonotube |
+| `/calculators/deck-footing-calculator/` | deck footing calculator | deck pier calculator, how many footings for a deck, deck sonotube calculator, concrete for deck footings, deck post footing calculator |
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
@@ -63,6 +64,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 ## Cannibalization rules
 
 - Post holes and Sonotube are **separate intents** (fence holes vs form tubes)—keep separate pages.
+- Deck footing calculator owns **pier grid count + optional pad/bell**; Sonotube owns tube-only volume when count is already known—do not merge those URLs.
 - Main concrete calculator targets **slabs/footings/steps** only—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
 - Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab/footing volume URL.
 - Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.

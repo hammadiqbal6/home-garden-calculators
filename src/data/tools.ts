@@ -83,6 +83,7 @@ export const categories: Record<
           <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
+          <tr><td>Deck pier grid + tube concrete</td><td><a href="/calculators/deck-footing-calculator/">Deck footing calculator</a></td><td>16×12 at 8 ft spacing → 6 piers</td></tr>
           <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
         </tbody>
       </table>
@@ -144,7 +145,7 @@ export const categories: Record<
         <thead><tr><th>If you are building…</th><th>Start here</th><th>Also estimate</th></tr></thead>
         <tbody>
           <tr><td>Fence line</td><td><a href="/calculators/fence-calculator/">Fence calculator</a></td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete</a></td></tr>
-          <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube piers</a></td></tr>
+          <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/deck-footing-calculator/">Deck footings</a> · <a href="/calculators/sonotube-concrete-calculator/">Sonotube</a></td></tr>
           <tr><td>Roof / re-roof</td><td><a href="/calculators/roof-pitch-calculator/">Pitch</a> → <a href="/calculators/roofing-shingles-calculator/">Shingles</a></td><td><a href="/guides/how-to-measure-roof-pitch/">Measure pitch safely</a></td></tr>
           <tr><td>Painted walls</td><td><a href="/calculators/paint-calculator/">Paint calculator</a></td><td><a href="/guides/how-much-paint-for-a-room/">Room paint guide</a></td></tr>
           <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a></td></tr>
@@ -158,7 +159,7 @@ export const categories: Record<
       <h2>Worked examples</h2>
       <ul>
         <li><strong>48 ft fence at 8 ft spacing:</strong> 6 sections, 7 posts, 18 rails (3 per bay). For 10&quot; × 2.5 ft holes filled solid, plan ~15 × 80 lb bags after 10% waste—use the post-hole tool, not a flat “one bag per post” rule for cylinder fills.</li>
-        <li><strong>12×16 deck:</strong> board and joist takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>; pier concrete via Sonotube diameter × height.</li>
+        <li><strong>12×16 deck:</strong> board and joist takeoff in the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a>; pier count and bags via the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>.</li>
         <li><strong>16×24 deck:</strong> larger rectangular takeoff in the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a> (boards, joists, beams, posts, footings).</li>
         <li><strong>40×25 plan roof at 6/12:</strong> area factor ≈ 1.118 → ~11.2 squares before waste; with 10% waste and 3 bundles/square, order about 37 bundles.</li>
       </ul>
@@ -394,7 +395,12 @@ export const tools: ToolDefinition[] = [
       'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
     summary: 'Round column and pier forms by diameter and height.',
     calculatorId: 'sonotube',
-    relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
+    relatedSlugs: [
+      'concrete-calculator',
+      'concrete-calculator-post-holes',
+      'deck-footing-calculator',
+      'deck-material-calculator',
+    ],
     relatedGuideSlugs: [
       'how-much-concrete-in-a-sonotube',
       'how-much-concrete-for-fence-posts',
@@ -879,6 +885,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Boards, joists, and screws for a rectangular deck.',
     calculatorId: 'deck',
     relatedSlugs: [
+      'deck-footing-calculator',
       'sonotube-concrete-calculator',
       'fence-calculator',
       'lumber-calculator',
@@ -905,7 +912,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Does this design beams, footings, or stairs?',
         answer:
-          'No. It is a rectangular decking and joist takeoff. Size beams, posts, footings, and stairs from code and manufacturer tables—or a qualified designer.',
+          'No. It is a rectangular decking and joist takeoff. Size beams, posts, footings, and stairs from code and manufacturer tables—or a qualified designer. For pier count and bag estimates, use the deck footing calculator.',
       },
       {
         question: 'How are screw counts estimated?',
@@ -923,6 +930,93 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['deck-material-calculator'],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'deck-footing-calculator',
+    name: 'Deck Footing Calculator',
+    shortName: 'Deck footings',
+    category: 'outdoor',
+    primaryKeyword: 'deck footing calculator',
+    secondaryKeywords: [
+      'deck pier calculator',
+      'how many footings for a deck',
+      'deck sonotube calculator',
+      'concrete for deck footings',
+      'deck post footing calculator',
+    ],
+    title: 'Deck Footing Calculator: Piers & Bags | YardTally',
+    description:
+      'Free deck footing calculator: pier count from deck size and spacing, plus Sonotube concrete with optional pad or bell. Bags for 40/60/80 lb mix.',
+    h1: 'Deck Footing Calculator: Pier Count & Bags',
+    answerFirst:
+      'Footing count = (floor(L÷spacing)+1) × (floor(W÷spacing)+1). Each pier is a Sonotube cylinder; add an optional circular pad or bell frustum. A 16×12 deck at 8 ft spacing needs 6 piers. A 12″×4 ft tube is about 3.14 cu ft—QUIKRETE 40/60/80 lb bags yield about 0.30/0.45/0.60 cu ft.',
+    summary: 'Deck pier grid count plus Sonotube concrete with optional pad or bell.',
+    calculatorId: 'deck-footing',
+    relatedSlugs: [
+      'deck-material-calculator',
+      'sonotube-concrete-calculator',
+      'concrete-calculator',
+      'concrete-calculator-post-holes',
+      'lumber-calculator',
+    ],
+    relatedGuideSlugs: [
+      'how-much-concrete-in-a-sonotube',
+      'deck-material-list-12x16',
+      'deck-material-list-16x24',
+      'how-many-bags-of-concrete',
+    ],
+    faq: [
+      {
+        question: 'How many footings does a deck need?',
+        answer:
+          'On a rectangular grid, count = (floor(length ÷ spacing) + 1) × (floor(width ÷ spacing) + 1). A 16×12 deck at 8 ft spacing is 3 × 2 = 6 piers. Spacing must still satisfy beam span tables and local code—this tool counts posts, it does not size beams.',
+      },
+      {
+        question: 'How much concrete for deck footings?',
+        answer:
+          'Each pier shaft is π × r² × height using Sonotube inside diameter. Multiply by footing count, add optional pad or bell volume, then divide by bag yield. QUIKRETE Concrete Mix 1101 planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. The calculator adds a default 5% waste.',
+      },
+      {
+        question: 'Deck footing calculator vs Sonotube calculator?',
+        answer:
+          'Use this deck footing calculator when you need pier count from deck size and spacing, plus optional pad or bell volume. Use the Sonotube calculator when you already know tube count and only need cylinder volume and bags.',
+      },
+      {
+        question: 'What is a bell footing vs a circular pad?',
+        answer:
+          'A circular pad is a flat cylinder under the tube (diameter × thickness). A bell is a conical frustum that widens from the tube diameter to a larger base over the bell height. Both add concrete under the shaft; choose the detail your plans or code call for.',
+      },
+      {
+        question: 'Does this replace engineered footing design?',
+        answer:
+          'No. It is a planning volume and grid-count estimator. Frost depth, soil bearing, reinforcement, and post hardware must follow local code and manufacturer tables—or a qualified designer.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE Concrete Mix 1101 – Technical data',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+        usedFor: 'Bag yields (~0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sonotube concrete forms – product sizing',
+        href: 'https://www.sonotube.com/sonotube-concrete-forms',
+        usedFor: 'Inside diameter / form sizing for round pier tubes',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'AWC – Deck guide resources',
+        href: 'https://www.awc.org/',
+        usedFor: 'Deck framing practice context (not a substitute for code footing design)',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['deck-footing-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,

@@ -7,8 +7,10 @@ import {
   boardFeetPerPiece,
   brickCount,
   cmuCount,
+  deckFootingConcrete,
   deckMaterials,
   fenceMaterials,
+  footingGridCount,
   fertilizerNeeded,
   grassSeed,
   gravelVolume,
@@ -111,6 +113,101 @@ describe('concrete', () => {
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+  });
+});
+
+describe('deck footing', () => {
+  it('grid count is floor(span/spacing)+1 each way', () => {
+    // 16×12 deck at 8 ft spacing → 3 × 2 = 6 piers
+    const g = footingGridCount({
+      length: 16,
+      width: 12,
+      spacingAlongLength: 8,
+      spacingAlongWidth: 8,
+    });
+    expect(g.alongLength).toBe(3);
+    expect(g.alongWidth).toBe(2);
+    expect(g.count).toBe(6);
+  });
+
+  it('tube-only pier matches Sonotube cylinder × count', () => {
+    const r = deckFootingConcrete({
+      length: 16,
+      width: 12,
+      spacingAlongLength: 8,
+      spacingAlongWidth: 8,
+      tubeDiameter: 12,
+      tubeHeight: 4,
+      baseStyle: 'none',
+      wasteFactor: 0,
+    });
+    const shaft = Math.PI * 0.5 ** 2 * 4;
+    expect(r.footings).toBe(6);
+    expect(r.shaftCuFt).toBeCloseTo(shaft, 3);
+    expect(r.baseCuFt).toBe(0);
+    expect(r.volumePerPierCuFt).toBeCloseTo(shaft, 3);
+    expect(r.volumeCuFt).toBeCloseTo(shaft * 6, 3);
+    // QUIKRETE 1101: 0.60 cu ft per 80 lb → ceil(18.85 / 0.60) = 32
+    expect(r.bags80).toBe(Math.ceil((shaft * 6) / 0.6));
+  });
+
+  it('circular pad adds π R² t under each pier', () => {
+    const r = deckFootingConcrete({
+      length: 8,
+      width: 8,
+      spacingAlongLength: 8,
+      spacingAlongWidth: 8,
+      tubeDiameter: 12,
+      tubeHeight: 3,
+      baseStyle: 'pad',
+      padDiameter: 24,
+      padThickness: 8,
+      wasteFactor: 0,
+    });
+    // 8×8 at 8 ft → 2×2 = 4 piers
+    const shaft = Math.PI * 0.5 ** 2 * 3;
+    const pad = Math.PI * 1 ** 2 * (8 / 12);
+    expect(r.footings).toBe(4);
+    expect(r.shaftCuFt).toBeCloseTo(shaft, 3);
+    expect(r.baseCuFt).toBeCloseTo(pad, 3);
+    expect(r.volumeCuFt).toBeCloseTo((shaft + pad) * 4, 3);
+  });
+
+  it('bell footing uses conical frustum under the tube', () => {
+    const r = deckFootingConcrete({
+      length: 8,
+      width: 8,
+      spacingAlongLength: 8,
+      spacingAlongWidth: 8,
+      tubeDiameter: 12,
+      tubeHeight: 3,
+      baseStyle: 'bell',
+      bellBaseDiameter: 24,
+      bellHeight: 12,
+      wasteFactor: 0,
+    });
+    const shaft = Math.PI * 0.5 ** 2 * 3;
+    const rTop = 0.5;
+    const rBase = 1;
+    const h = 1; // 12 in
+    const frustum = (Math.PI * h * (rBase ** 2 + rBase * rTop + rTop ** 2)) / 3;
+    expect(r.footings).toBe(4);
+    expect(r.baseCuFt).toBeCloseTo(frustum, 3);
+    expect(r.volumePerPierCuFt).toBeCloseTo(shaft + frustum, 3);
+  });
+
+  it('applies default 5% waste on bag totals', () => {
+    const r = deckFootingConcrete({
+      length: 16,
+      width: 12,
+      spacingAlongLength: 8,
+      spacingAlongWidth: 8,
+      tubeDiameter: 12,
+      tubeHeight: 4,
+      baseStyle: 'none',
+    });
+    const shaft = Math.PI * 0.5 ** 2 * 4;
+    expect(r.volumeCuFt).toBeCloseTo(shaft * 6 * 1.05, 3);
   });
 });
 

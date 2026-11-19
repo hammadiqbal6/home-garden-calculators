@@ -7,6 +7,7 @@ import {
   asphaltTons,
   bedMulch,
   brickCount,
+  deckFootingConcrete,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
@@ -81,6 +82,30 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'diameter', label: 'Tube diameter', value: '12', hint: 'inches' },
     { name: 'height', label: 'Height', value: '4', hint: 'feet' },
     { name: 'count', label: 'Number of tubes', value: '4' },
+    { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  'deck-footing': [
+    { name: 'length', label: 'Deck length', value: '16', hint: 'feet' },
+    { name: 'width', label: 'Deck width', value: '12', hint: 'feet' },
+    { name: 'spacingL', label: 'Spacing along length', value: '8', hint: 'feet' },
+    { name: 'spacingW', label: 'Spacing along width', value: '8', hint: 'feet' },
+    { name: 'tubeDiameter', label: 'Tube diameter', value: '12', hint: 'inches' },
+    { name: 'tubeHeight', label: 'Tube / pier height', value: '4', hint: 'feet' },
+    {
+      name: 'baseStyle',
+      label: 'Footing base',
+      type: 'select',
+      options: [
+        { value: 'none', label: 'Tube only (no base)' },
+        { value: 'pad', label: 'Circular pad' },
+        { value: 'bell', label: 'Bell / frustum' },
+      ],
+      value: 'none',
+    },
+    { name: 'padDiameter', label: 'Pad diameter', value: '24', hint: 'inches' },
+    { name: 'padThickness', label: 'Pad thickness', value: '8', hint: 'inches' },
+    { name: 'bellBaseDiameter', label: 'Bell base diameter', value: '24', hint: 'inches' },
+    { name: 'bellHeight', label: 'Bell height', value: '12', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
   mulch: dims('20', '5', 'Depth', '3', 'inches'),
@@ -259,6 +284,16 @@ const sonotubeDefault = sonotubeVolume({
   count: 4,
   wasteFactor: 0.05,
 });
+const deckFootingDefault = deckFootingConcrete({
+  length: 16,
+  width: 12,
+  spacingAlongLength: 8,
+  spacingAlongWidth: 8,
+  tubeDiameter: 12,
+  tubeHeight: 4,
+  baseStyle: 'none',
+  wasteFactor: 0.05,
+});
 const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
 const treeRingDefault = treeRingMulch({
   outerDiameter: 6,
@@ -376,6 +411,22 @@ export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
   'post-holes': concreteRows(postHolesDefault),
   sonotube: concreteRows(sonotubeDefault),
+  'deck-footing': [
+    [
+      'Footings (grid)',
+      `${deckFootingDefault.footings} (${deckFootingDefault.alongLength} × ${deckFootingDefault.alongWidth})`,
+    ],
+    ['Concrete / pier', `${deckFootingDefault.volumePerPierCuFt} cu ft`],
+    ['Shaft (tube)', `${deckFootingDefault.shaftCuFt} cu ft`],
+    ['Base (pad/bell)', `${deckFootingDefault.baseCuFt} cu ft`],
+    [
+      'Total volume',
+      `${deckFootingDefault.volumeCuFt} cu ft (${deckFootingDefault.volumeCuYd} cu yd / ${deckFootingDefault.volumeCuM} m³)`,
+    ],
+    ['40 lb bags', String(deckFootingDefault.bags40)],
+    ['60 lb bags', String(deckFootingDefault.bags60)],
+    ['80 lb bags', String(deckFootingDefault.bags80)],
+  ],
   mulch: [
     ['Area', `${mulchDefault.areaSqFt} sq ft`],
     [

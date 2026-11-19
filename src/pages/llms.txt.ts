@@ -31,6 +31,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
+- How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
+- How much concrete for deck footings? → ${origin}/calculators/deck-footing-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/

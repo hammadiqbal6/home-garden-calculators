@@ -31,7 +31,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
-              (calculatorId === 'lumber' && field.name === 'boardFeet')
+              (calculatorId === 'lumber' && field.name === 'boardFeet') ||
+              (calculatorId === 'deck-footing' &&
+                ['padDiameter', 'padThickness', 'bellBaseDiameter', 'bellHeight'].includes(
+                  field.name,
+                ))
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -89,6 +93,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
   import {
     asphaltTons,
     bedMulch,
+    deckFootingConcrete,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
@@ -357,6 +362,144 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             wasteFactor: v.waste / 100,
           }),
         );
+      },
+    },
+    'deck-footing': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Deck length',
+          imperialDefault: '16',
+          metricDefault: '4.9',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Deck width',
+          imperialDefault: '12',
+          metricDefault: '3.7',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'spacingL',
+          label: 'Spacing along length',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'spacingW',
+          label: 'Spacing along width',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'tubeDiameter',
+          label: 'Tube diameter',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'tubeHeight',
+          label: 'Tube / pier height',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'baseStyle',
+          label: 'Footing base',
+          type: 'select',
+          options: [
+            { value: 'none', label: 'Tube only (no base)' },
+            { value: 'pad', label: 'Circular pad' },
+            { value: 'bell', label: 'Bell / frustum' },
+          ],
+          imperialDefault: 'none',
+          metricDefault: 'none',
+        },
+        {
+          name: 'padDiameter',
+          label: 'Pad diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'padThickness',
+          label: 'Pad thickness',
+          imperialDefault: '8',
+          metricDefault: '20',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'bellBaseDiameter',
+          label: 'Bell base diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'bellHeight',
+          label: 'Bell height',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const baseStyle = (selects?.baseStyle ?? (v as any).shapeRaw ?? 'none') as
+          | 'none'
+          | 'pad'
+          | 'bell';
+        const r = deckFootingConcrete({
+          length: v.length,
+          width: v.width,
+          spacingAlongLength: v.spacingL,
+          spacingAlongWidth: v.spacingW,
+          tubeDiameter: v.tubeDiameter,
+          tubeHeight: v.tubeHeight,
+          baseStyle,
+          padDiameter: v.padDiameter,
+          padThickness: v.padThickness,
+          bellBaseDiameter: v.bellBaseDiameter,
+          bellHeight: v.bellHeight,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          spacingAlongLengthUnit: lengthUnit(u),
+          spacingAlongWidthUnit: lengthUnit(u),
+          tubeDiameterUnit: smallLengthUnit(u),
+          tubeHeightUnit: lengthUnit(u),
+          padDiameterUnit: smallLengthUnit(u),
+          padThicknessUnit: smallLengthUnit(u),
+          bellBaseDiameterUnit: smallLengthUnit(u),
+          bellHeightUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        return [
+          ['Footings (grid)', `${r.footings} (${r.alongLength} × ${r.alongWidth})`],
+          ['Concrete / pier', `${r.volumePerPierCuFt} cu ft`],
+          ['Shaft (tube)', `${r.shaftCuFt} cu ft`],
+          ['Base (pad/bell)', `${r.baseCuFt} cu ft`],
+          ['Total volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+          ['40 lb bags', String(r.bags40)],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
+        ];
       },
     },
     mulch: {
@@ -1336,6 +1479,19 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
         return;
       }
+      if (id === 'deck-footing') {
+        const base =
+          root.querySelector<HTMLSelectElement>('[name="baseStyle"]')?.value ?? 'none';
+        for (const name of ['padDiameter', 'padThickness']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = base !== 'pad';
+        }
+        for (const name of ['bellBaseDiameter', 'bellHeight']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = base !== 'bell';
+        }
+        return;
+      }
       if (id === 'lumber') {
         const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'pieces';
         const piecesEl = root.querySelector<HTMLElement>('[data-field="pieces"]');
@@ -1381,7 +1537,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       (values as any).selectValues = selectValues;
       // Backward-compatible alias used by the concrete shape branch.
       (values as any).shapeRaw =
-        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
+        selectValues.shape ??
+        selectValues.baseStyle ??
+        selectValues.mode ??
+        selectValues.barSize ??
+        'slab';
       return values;
     }
 

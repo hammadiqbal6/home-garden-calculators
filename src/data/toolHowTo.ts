@@ -219,6 +219,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'deck-footing-calculator': {
+    name: 'How to estimate deck footing count and concrete',
+    steps: [
+      {
+        name: 'Enter deck length, width, and pier spacing',
+        text: 'Use the rectangular deck footprint and the planned post spacing along each axis. Count = floor(span ÷ spacing) + 1 each way.',
+      },
+      {
+        name: 'Set Sonotube diameter and height',
+        text: 'Enter inside tube diameter and fill height for each pier shaft (cardboard concrete form).',
+      },
+      {
+        name: 'Choose a footing base if needed',
+        text: 'Leave tube-only, or add a circular pad (diameter × thickness) or a bell frustum (base diameter × height) under each pier.',
+      },
+      {
+        name: 'Read pier count, volume, and bags',
+        text: 'Totals use QUIKRETE-style yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags, plus your waste percent. Confirm frost depth and footing size with local code.',
+      },
+    ],
+  },
   'deck-material-calculator': {
     name: 'How to estimate deck boards and joists',
     steps: [
@@ -236,7 +257,7 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
       {
         name: 'Pair with footing concrete if needed',
-        text: 'Size pier concrete separately with the Sonotube or post-hole calculator before you order framing lumber.',
+        text: 'Size pier count and concrete with the deck footing calculator (or Sonotube alone when you already know pier count) before you order framing lumber.',
       },
     ],
   },

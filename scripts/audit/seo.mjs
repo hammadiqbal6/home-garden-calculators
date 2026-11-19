@@ -337,6 +337,11 @@ for (const file of pages) {
           `${url}: canonical host ${u.host} != PUBLIC_SITE_URL / SITE_ORIGIN host ${SITE_HOST}`,
         );
       }
+      // Indexable HTML pages must self-canonicalize to the trailing-slash URL we serve.
+      const expectedPath = url.endsWith('/') || url === '/' ? url : `${url}/`;
+      if (u.pathname !== expectedPath) {
+        fail(`${url}: canonical path ${u.pathname} != self ${expectedPath}`);
+      }
     } catch {
       fail(`${url}: canonical not absolute URL`);
     }

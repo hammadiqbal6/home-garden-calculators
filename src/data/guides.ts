@@ -99,6 +99,7 @@ export const guides: GuideDefinition[] = [
       'concrete-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
+      'rebar-calculator',
     ],
     relatedGuideSlugs: [
       'how-much-concrete-for-fence-posts',
@@ -106,7 +107,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-in-a-sonotube',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'concrete-for-10x10-slab',
@@ -258,10 +259,10 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'BEHR says one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250–400 sq ft per coat. YardTally’s paint calculator defaults to 350, in that range. Gallons equal paintable wall area times coats divided by coverage; confirm the can for your room.',
-    relatedToolSlugs: ['paint-calculator'],
-    relatedGuideSlugs: ['deck-material-list-12x16'],
+    relatedToolSlugs: ['paint-calculator', 'fence-calculator', 'deck-material-calculator'],
+    relatedGuideSlugs: ['deck-material-list-12x16', 'retaining-wall-blocks-and-base'],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'paver-base-gravel-and-sand-depth',
@@ -324,14 +325,14 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'A 16×24 list is not the 12×16 list scaled by area. With YardTally defaults and boards along 24 ft across a 16 ft width, plan about 70 twelve-foot boards and 19 field joists before waste, then size beams, posts, and footings separately from span tables.',
-    relatedToolSlugs: ['deck-material-calculator', 'sonotube-concrete-calculator'],
+    relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
     relatedGuideSlugs: [
       'deck-material-list-12x16',
       'how-many-bags-of-concrete',
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'retaining-wall-blocks-and-base',

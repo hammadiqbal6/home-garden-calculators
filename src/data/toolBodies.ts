@@ -283,7 +283,7 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Base vs surface stone</h2>
-      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—do not assume one stone type does every job.</p>
+      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—do not assume one stone type does every job. For a hot-mix surface course instead of loose stone, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> after you size the crushed-stone base here.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Skipping fabric or drainage details on soft soils.</li>
@@ -417,7 +417,7 @@ export const toolBodies: Record<string, string> = {
       <p>A 48 ft run at 8 ft spacing needs 6 sections, 7 posts, and 18 rails if you use 3 rails per bay. With 5.5" pickets and 0.5" gaps, picket pitch is 6", so pickets ≈ (48×12)/6 = 96. For seven 10" × 2.5 ft holes filled solid, plan roughly fifteen 80 lb bags after 10% waste—not seven.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Posts equal sections plus one. Forget the end post and your rails will not land correctly.</div>
       <h2>Gates and corners</h2>
-      <p>This estimator models a straight run. Add extra posts for gates, corners, and elevation breaks. Gate posts often use larger posts and more concrete—calculate those holes individually.</p>
+      <p>This estimator models a straight run. Add extra posts for gates, corners, and elevation breaks. Gate posts often use larger posts and more concrete—calculate those holes individually. Convert odd post and rail sizes to board feet with the <a href="/calculators/lumber-calculator/">lumber calculator</a>, and estimate stain or paint gallons with the <a href="/calculators/paint-calculator/">paint calculator</a> (see <a href="/guides/how-much-paint-for-a-room/">how much paint for a room</a> for coverage math).</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Ignoring slope (rackable panels vs stepped panels).</li>
@@ -458,7 +458,7 @@ export const toolBodies: Record<string, string> = {
       <p>A 16 × 12 ft deck with 5.5" face boards needs ceil(12 ÷ (5.5/12)) ≈ 27 rows. With 12 ft boards matching the length, that is 27 deck boards, plus joists at 16" o.c. along 16 ft (13 joists) and 2 rim joists. Screw counts scale with linear feet—budget extras for leftovers and misdrives.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Enter the actual face width including gap. Using nominal 6" without the gap under-orders boards.</div>
       <h2>What this tool does not design</h2>
-      <p>Stairs, multi-level decks, ledgers, beams, and footings need separate structural planning. Pair piers with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> when estimating footing concrete.</p>
+      <p>Stairs, multi-level decks, ledgers, beams, and footings need separate structural planning. Pair piers with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> when estimating footing concrete. Convert leftover framing sizes with the <a href="/calculators/lumber-calculator/">lumber / board-feet calculator</a>, and estimate stain gallons with the <a href="/calculators/paint-calculator/">paint calculator</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Ignoring picture-frame borders that change board counts.</li>
@@ -503,7 +503,7 @@ export const toolBodies: Record<string, string> = {
       <p>Rise 8", run 12" → pitch 8/12, angle ≈ 33.7°, area factor ≈ 1.202. A 40 × 25 ft plan footprint has 1,000 sq ft horizontal and about 1,202 sq ft of roof surface before dormers and overhangs.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Pitch is rise over run, not “steepness” alone. The area factor is what connects geometry to material quantity.</div>
       <h2>Measuring safely</h2>
-      <p>Prefer attic rafter measurements or drawings when possible. Roof surfaces are fall hazards—read <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> before climbing.</p>
+      <p>Prefer attic rafter measurements or drawings when possible. Roof surfaces are fall hazards—read <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> before climbing. After you know pitch, estimate bundles with the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a> and convert fascia or framing leftovers with the <a href="/calculators/lumber-calculator/">lumber calculator</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using degrees when a supplier asks for X-in-12 pitch.</li>
@@ -601,7 +601,7 @@ export const toolBodies: Record<string, string> = {
       <p>A 14 × 12 × 8 ft room has wall area 2×(14+12)×8 = 416 sq ft. Minus 2 doors and 2 windows (40+30) → 346 sq ft paintable. Two coats at 350 sq ft/gal ≈ 1.98 gallons—buy 2 gallons plus a little for touch-ups, or 3 if changing from dark to light.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Coats multiply paint need linearly. Primer can reduce finish coats when covering stains or stark color shifts.</div>
       <h2>Ceilings and exteriors</h2>
-      <p>This tool focuses on four walls. Add ceiling area (L×W) separately if you are painting it. Exterior siding with texture can cut effective coverage sharply—check the can.</p>
+      <p>This tool focuses on four walls. Add ceiling area (L×W) separately if you are painting it. Exterior siding with texture can cut effective coverage sharply—check the can. Room-by-room examples and Behr coverage ranges are in <a href="/guides/how-much-paint-for-a-room/">how much paint for a room</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using only floor area instead of wall area.</li>
@@ -720,7 +720,7 @@ export const toolBodies: Record<string, string> = {
       <p>For 2,000 sq ft at 1 lb N/1000 with 30% nitrogen fertilizer: product per 1000 = 1/0.30 ≈ 3.33 lb; total ≈ 6.67 lb. A 40 lb bag covers multiple applications—store dry and calibrate your spreader.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> The first number in N-P-K is percent nitrogen by weight. That percentage is the bridge from agronomic N rates to bag pounds.</div>
       <h2>Environmental notes</h2>
-      <p>Follow local fertilizer ordinances and keep product off hard surfaces. Pair timing with extension calendars for your grass type. Overseeding plans can use the <a href="/calculators/grass-seed-calculator/">grass seed calculator</a>.</p>
+      <p>Follow local fertilizer ordinances and keep product off hard surfaces. Pair timing with extension calendars for your grass type. Overseeding plans can use the <a href="/calculators/grass-seed-calculator/">grass seed calculator</a>. Step-by-step label math lives in <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000 sq&nbsp;ft</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Applying “bags per lawn” without reading N percent.</li>
@@ -822,7 +822,7 @@ export const toolBodies: Record<string, string> = {
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Multiply area by compacted depth in feet, multiply by mix density, divide by 2,000. Do not use loose stockpile density for a finished mat.</div>
       <h2>Driveway thickness and base</h2>
-      <p>Residential asphalt surface courses are often about 2–3 inches over a compacted stone base, but traffic, climate, and local practice change that. This calculator does not size structural pavement sections. Estimate crushed-stone base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, and read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> before you pick base stone.</p>
+      <p>Residential asphalt surface courses are often about 2–3 inches over a compacted stone base, but traffic, climate, and local practice change that. This calculator does not size structural pavement sections. Estimate crushed-stone base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, and read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> before you pick base stone. For a concrete pad instead of asphalt, use the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
       <h2>Waste factor tips</h2>
       <p>Straight rectangular pads may only need a few percent extra. Odd-shaped drives, handwork around edges, and thin feathering burn more mix—5–10% is a practical DIY planning band. Cold joints and matched batches matter on multi-day pours; talk to the plant about minimum tonnage and staging.</p>
       <h2>Common mistakes</h2>
@@ -871,7 +871,7 @@ export const toolBodies: Record<string, string> = {
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Divide the wall into mortar modules, ceil to whole courses and units, then add waste. Confirm face size on the brick or block you buy.</div>
       <h2>CMU mode vs retaining-wall blocks</h2>
-      <p>CMU mode counts standard concrete masonry units for a vertical wall face. Segmental landscape retaining-wall blocks use different face sizes and setback rules—use the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> and <a href="/guides/retaining-wall-blocks-and-base/">blocks &amp; base guide</a> for those systems. Bond beams, grout, and rebar in CMU walls are separate takeoffs.</p>
+      <p>CMU mode counts standard concrete masonry units for a vertical wall face. Segmental landscape retaining-wall blocks use different face sizes and setback rules—use the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> and <a href="/guides/retaining-wall-blocks-and-base/">blocks &amp; base guide</a> for those systems. Bond beams, grout, and rebar in CMU walls are separate takeoffs—estimate slab or pad mats with the <a href="/calculators/rebar-calculator/">rebar calculator</a>, and footing concrete with the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
       <h2>Openings and waste</h2>
       <p>Subtract door and window openings from the wall area (or shorten length/height inputs) before you order. A 5% waste factor covers routine cuts; arches, soldier courses, and matching blends may need more. Order from one production run when color match matters.</p>
       <h2>Common mistakes</h2>

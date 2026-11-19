@@ -135,6 +135,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'french-drain-gravel-calculator': {
+    name: 'How to estimate French drain gravel and fabric',
+    steps: [
+      {
+        name: 'Enter trench length, width, and depth',
+        text: 'Measure the excavated run. Width and depth are the clear trench section (often about 12 in wide by 18 in deep as a planning starting point—confirm your detail).',
+      },
+      {
+        name: 'Set pipe diameter, fabric overlap, waste, and density',
+        text: 'Enter the outside diameter of the perforated pipe so gravel volume subtracts the cylinder. Fabric overlap is the extra wrap width beyond bottom + both walls. Confirm stone density with your yard for ton estimates.',
+      },
+      {
+        name: 'Read gravel yards/tons, fabric area, and pipe length',
+        text: 'Order clean drain rock by yards or tons, buy geotextile to cover the wrap width × length, and match pipe length to the trench run (plus fittings).',
+      },
+      {
+        name: 'Plan slope and a legal outlet before you dig',
+        text: 'Keep a continuous fall toward an approved discharge. Call 811 for utility locates. This tool is a materials takeoff, not a drainage design.',
+      },
+    ],
+  },
   'topsoil-calculator': {
     name: 'How to estimate topsoil yards and bags',
     steps: [

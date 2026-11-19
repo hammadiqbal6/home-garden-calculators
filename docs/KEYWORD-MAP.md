@@ -18,6 +18,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
+| `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator | french drain calculator, how much gravel for a french drain, french drain fabric calculator |
 | `/calculators/topsoil-calculator/` | topsoil calculator | soil calculator cubic yards |
 | `/calculators/sand-calculator/` | sand calculator | paver sand calculator |
 | `/calculators/paver-calculator/` | paver calculator | patio paver calculator, how many pavers |
@@ -68,6 +69,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 - Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.
 - Lumber calculator owns board-foot tally—do not split `/board-feet-calculator/`. Deck board/joist layout stays on the deck-material tool.
 - Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.
+- French drain gravel (trench − pipe + fabric) ≠ flat-pad gravel calculator—keep `/calculators/french-drain-gravel-calculator/` separate; link to `/calculators/gravel-calculator/` for pads/drives.
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.
 - Long-tail size guides (`10x10 slab`, `common garden beds`) must link to the primary calculator and not duplicate its primary keyword.

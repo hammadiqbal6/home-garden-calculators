@@ -19,14 +19,16 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
+- **French drain gravel calculator** (`/calculators/french-drain-gravel-calculator/`): trench − pipe gravel yards/tons, fabric wrap area, pipe length; linked from gravel + retaining-wall tools.
 
 ### Remaining
 
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets.
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new French drain URL).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
 - Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
+- Closely related tool variants beyond French drain (see `docs/GROWTH-STATUS.md` Remaining).
 
 ---
 
@@ -49,6 +51,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |
 | Tree ring mulch | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings |
 | Gravel | `/calculators/gravel-calculator/` | gravel calculator |
+| French drain gravel | `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator |
 | Topsoil | `/calculators/topsoil-calculator/` | topsoil calculator |
 | Sand | `/calculators/sand-calculator/` | sand calculator |
 | Pavers | `/calculators/paver-calculator/` | paver calculator |

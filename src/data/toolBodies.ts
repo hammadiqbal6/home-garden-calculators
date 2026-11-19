@@ -268,6 +268,7 @@ export const toolBodies: Record<string, string> = {
   'gravel-calculator': `
       <h2>Gravel volume &amp; tonnage</h2>
       <p>Cubic yards = cu ft ÷ 27. Tons ≈ yards × (density lb/yd³ ÷ 2000). This tool defaults to about 2,700 lb/yd³ as a mid estimate for crushed stone; wet stone and different geologies vary. Confirm density with your supplier before ordering tons.</p>
+      <p>Need gravel for a perforated-pipe trench instead of a flat pad? Use the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a>—it subtracts pipe volume and sizes wrap fabric.</p>
       <h2>Worked example</h2>
       <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Order by cubic yards for volume, convert to tons with your yard’s density, and include compaction waste for trafficked surfaces.</div>
@@ -981,6 +982,45 @@ export const toolBodies: Record<string, string> = {
         <li>Confirm stick length the yard stocks (20 ft vs 40 ft) before converting counts.</li>
         <li>Pour day: keep the mat supported so it does not get walked into the subgrade.</li>
       </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
+  'french-drain-gravel-calculator': `
+      <h2>How the French drain gravel math works</h2>
+      <p>Start with the trench box: length × width × depth. Convert everything to feet first so a 12&nbsp;in × 18&nbsp;in section is 1&nbsp;ft × 1.5&nbsp;ft. Subtract the perforated pipe cylinder (π × radius² × length) so you are not paying for rock that the pipe displaces. Divide cubic feet by 27 for yards. Tons = yards × (your density lb/yd³ ÷ 2,000). I default density to about 2,700&nbsp;lb/yd³—the same mid crushed-stone figure as the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Wet loads and different rock types swing that number, so ask the yard.</p>
+      <p>Fabric area is the wrap sheet: trench length × (width + 2 × depth + overlap). That is the burrito fold—bottom, both walls, plus the fold-over you enter. Pipe length matches trench length; buy a little extra for fittings and the outlet run if your layout needs them.</p>
+
+      <h2>What size trench and pipe should I use?</h2>
+      <p>This calculator does not pick hydraulics for you. LSU AgCenter describes residential French drains as trenches about 12–18&nbsp;inches wide and 18–24&nbsp;inches deep with a typically 4&nbsp;inch perforated pipe in washed gravel, often lined with geotextile. Norfolk’s stormwater sheet uses a similar minimum (about 12&nbsp;in wide by 18–24&nbsp;in deep) and calls for non-woven fabric. Those are planning ranges, not a design stamp. Soft soils, foundation work, and municipal discharge rules change the detail. Call 811 before you dig.</p>
+
+      <h2>Worked example (40 ft run)</h2>
+      <p>Defaults on this page: 40&nbsp;ft long, 12&nbsp;in wide, 18&nbsp;in deep, 4&nbsp;in pipe, 12&nbsp;in fabric overlap, 10% waste, 2,700&nbsp;lb/yd³.</p>
+      <ul>
+        <li>Trench volume: 40 × 1 × 1.5 = 60&nbsp;cu&nbsp;ft.</li>
+        <li>Pipe volume: π × (2/12)² × 40 ≈ 3.49&nbsp;cu&nbsp;ft.</li>
+        <li>Gravel before waste: ≈56.5&nbsp;cu&nbsp;ft. With 10%: ≈62.2&nbsp;cu&nbsp;ft ≈ <strong>2.30&nbsp;cu&nbsp;yd</strong>.</li>
+        <li>Tons at 2,700&nbsp;lb/yd³: ≈ <strong>3.11&nbsp;tons</strong>.</li>
+        <li>Fabric width: 1 + 2×1.5 + 1 = 5&nbsp;ft → <strong>200&nbsp;sq&nbsp;ft</strong> of cloth. Pipe: <strong>40&nbsp;ft</strong>.</li>
+      </ul>
+      <p>I'd round the rock order up to the next quarter yard or the yard’s delivery minimum—short loads cost more than the spare stone. Keep clean drain rock for the trench; crusher-run fines belong in driveway bases, not inside a French drain that needs open voids. Material intuition for angular vs rounded stone is in the <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> guide; use washed drain rock here even when the driveway guide talks about dense grade.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Order gravel after subtracting pipe volume, convert to tons with the yard’s density, and buy fabric wide enough to wrap bottom, walls, and fold-over.</div>
+
+      <h2>Slope, outlet, and fabric tips</h2>
+      <p>Gravity has to win. Extension notes often target roughly 0.5–1% slope toward a legal daylight or storm connection (WSU’s drainage sheet uses that band). Flat runs silt up. Point perforations down on solid wall pipe with holes, keep socked corrugated pipe continuous, and do not crush the line with heavy equipment after backfill. Fold fabric over the gravel before any soil cap so fines do not migrate into the voids.</p>
+      <p>Retaining-wall drain rock behind blocks is a cousin assembly with different trench rules—compare the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> and <a href="/guides/retaining-wall-blocks-and-base/">blocks and base guide</a> when you are holding soil, not daylighting a soggy lawn.</p>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Ordering flat-pad gravel yards without subtracting the pipe.</li>
+        <li>Using dense-grade / crusher-run fines that clog the trench instead of clean drain rock.</li>
+        <li>Skipping fabric on silty soils so the voids fill with mud in one season.</li>
+        <li>Daylighting into a neighbor’s yard or a closed storm system without checking local rules.</li>
+      </ul>
+
+      <h2>Assumptions and limits</h2>
+      <p><strong>Planning estimate only.</strong> I treat the trench as a straight box with one round pipe and a simple fabric burrito. That is enough for a materials ticket. It will not size catch basins, cleanouts, a pump pit, or frost depth. If the trench hugs a foundation or you need a permitted discharge, bring in a drainage contractor—or at least get the city to say the outlet is legal—before you open the ground.</p>
+
+      <h2>What to buy before you dig</h2>
+      <p>Call the yard for washed drain rock (open-graded, not crusher-run fines) and ask what they stock near your pipe size. Grab the perforated pipe plus a couple of couplings and whatever fitting daylights the run. Cut geotextile to the wrap width this tool prints, or buy the next wider roll they sell. Do the 811 locate first. Stretch a slope string so the trench actually falls toward the outlet instead of becoming a long bathtub.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
 };

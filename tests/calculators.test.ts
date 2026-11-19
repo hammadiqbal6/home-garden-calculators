@@ -11,6 +11,7 @@ import {
   fenceMaterials,
   fertilizerNeeded,
   grassSeed,
+  frenchDrainMaterials,
   gravelVolume,
   lumberFromBoardFeet,
   lumberFromPieces,
@@ -154,6 +155,57 @@ describe('bulk materials', () => {
       100 * (2 / 12) * 1.1,
       2,
     );
+  });
+});
+
+describe('french drain', () => {
+  it('subtracts pipe volume and reports fabric + pipe length', () => {
+    // 40 ft × 12 in × 18 in trench, 4 in pipe, 12 in fabric overlap, 0% waste
+    // trench = 40 × 1 × 1.5 = 60 cu ft
+    // pipe = π × (2/12)² × 40 ≈ 3.4907 cu ft
+    // gravel = 56.5093 cu ft ≈ 2.093 cu yd
+    // fabric width = 1 + 2×1.5 + 1 = 5 ft → area 200 sq ft
+    const r = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      fabricOverlap: 12,
+      wasteFactor: 0,
+      densityLbPerCuYd: 2700,
+    });
+    expect(r.trenchVolumeCuFt).toBeCloseTo(60, 3);
+    expect(r.pipeVolumeCuFt).toBeCloseTo(Math.PI * (2 / 12) ** 2 * 40, 3);
+    expect(r.gravelCuFt).toBeCloseTo(60 - Math.PI * (2 / 12) ** 2 * 40, 3);
+    expect(r.gravelCuYd).toBeCloseTo(r.gravelCuFt / 27, 3);
+    expect(r.tons).toBeCloseTo((r.gravelCuYd * 2700) / 2000, 2);
+    expect(r.fabricWidthFt).toBeCloseTo(5, 2);
+    expect(r.fabricAreaSqFt).toBeCloseTo(200, 2);
+    expect(r.pipeLengthFt).toBe(40);
+  });
+
+  it('applies waste after pipe subtraction', () => {
+    const base = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      wasteFactor: 0,
+    });
+    const withWaste = frenchDrainMaterials({
+      length: 40,
+      width: 12,
+      depth: 18,
+      pipeDiameter: 4,
+      wasteFactor: 0.1,
+    });
+    expect(withWaste.gravelCuFt).toBeCloseTo(base.gravelCuFt * 1.1, 3);
+  });
+
+  it('rejects pipe larger than trench width', () => {
+    expect(() =>
+      frenchDrainMaterials({ length: 10, width: 4, depth: 18, pipeDiameter: 4 }),
+    ).toThrow();
   });
 });
 

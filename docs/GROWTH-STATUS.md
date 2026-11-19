@@ -25,7 +25,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
-- **2026-11-19 — CI / build speed (this PR):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
+- **2026-11-19 — French drain gravel calculator (this PR):** `/calculators/french-drain-gravel-calculator/` — trench L×W×D minus perforated pipe volume → gravel cu yd + tons (density input), geotextile wrap fabric area, pipe length; Vitest coverage; linked from gravel + retaining-wall tools and landscape hub via `tools[]`; keyword map + llms Q→URL updated.
+- **2026-11-19 — CI / build speed (merged #34):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
 - **2026-11-19 — PR #33 merged (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
@@ -52,7 +53,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 6. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
 7. Free-tool / calculator **directory submissions** beyond TinyLaunch (owner says some may be done; only record confirmed names + URLs here).
 8. **Embed-widget outreach** to DIY / landscaping bloggers.
-9. Add closely related **variants of tools that already get impressions**, rather than new topics.
+9. Add closely related **variants of tools that already get impressions**, rather than new topics (French drain gravel calculator shipped 2026-11-19; other variants still open).
 10. **Weekly GSC check** and refresh baseline metrics in this file.
 11. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
 12. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
@@ -60,7 +61,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.
+- _(none for this French-drain tool PR)_
 
 ## Off-repo work
 

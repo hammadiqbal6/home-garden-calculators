@@ -25,13 +25,12 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
-- **2026-11-19 — this PR:** Sonotube upgrade: optional bell/pad footing, mixed tube sizes, bags-per-foot table (8–36″), 50 lb bag counts.
-- **2026-11-19 — this PR (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
+- **2026-11-19 — this PR (Sonotube upgrade):** Optional footing base (`none` / bell frustum / pad cylinder); mixed tube sizes (size B count 0 = unused); live `bags50` (QUIKRETE 0.375 cu ft); bags-per-foot HTML table for 8–36″; `toggleModeFields` hides unused bell/pad inputs; FAQ/body/HowTo refresh; `dateModified` 2026-11-19; unit tests.
+- **2026-11-19 — PR #33 merged:** Homepage full calculator grid; hub cross-links; stronger internal links; `npm run audit:indexing`; embed `X-Robots-Tag: noindex, follow`.
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
-- **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
-- **2026-11-18 — PR #31 also:** SEO for GSC-impression pages (concrete calculator + Sonotube calculator): stronger titles/metas, 6-item visible FAQ + FAQPage JSON-LD, internal links from homepage/hubs/cross-links, `llms.txt` updates.
-- **2026-11-18 — Reddit:** `r/SideProject` YardTally launch post by `u/ihammadiqbal117` — https://www.reddit.com/r/SideProject/comments/1xz9yzs/ (do **not** mark removed unless verified). Advice-only comments (no links) in `r/landscaping` and `r/gardening`.
-- Earlier technical SEO baseline (IndexNow, GSC/Bing verification, sitemap 301, embed noindex, trust/embed widgets, GSC-impression content PRs #28–#30): see [AGENTS.md — SEO state](../AGENTS.md#seo-state-as-of-2026-11-15). Do not re-implement those.
+- **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects`; `public/favicon.png`; `security.txt`; SEO for GSC-impression pages (concrete + Sonotube).
+- **2026-11-18 — Reddit:** `r/SideProject` YardTally launch post by `u/ihammadiqbal117` — https://www.reddit.com/r/SideProject/comments/1xz9yzs/ (do **not** mark removed unless verified).
+- Earlier technical SEO baseline (IndexNow, GSC/Bing, sitemap 301, embed noindex, trust/embed, PRs #28–#30): see [AGENTS.md — SEO state](../AGENTS.md#seo-state-as-of-2026-11-15).
 
 ### GSC exclusion buckets (code audit 2026-11-19)
 
@@ -40,7 +39,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 | Page with redirect (~4) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slug, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
 | Excluded by noindex (~2) | `/embed/<slug>/` (`noindex,follow`) and `/404.html` | Intentional. Not in sitemap. |
 | Alternate page with proper canonical | Embed pages canonicalize to `/calculators/<slug>/` | Intentional widget pattern. |
-| Discovered - currently not indexed (~13) | Weak internal linking historically | Addressed in this PR via homepage grid + hubs + related/contextual links; request indexing after deploy. |
+| Discovered - currently not indexed (~13) | Weak internal linking historically | Addressed in PR #33 via homepage grid + hubs + related/contextual links; request indexing after deploy. |
 
 ## Remaining / risks
 

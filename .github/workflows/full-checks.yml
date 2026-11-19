@@ -2,6 +2,8 @@ name: Full checks
 
 # Manual-only suite: link check, SEO/AdSense/perf/pages audits, Lighthouse, and proof.
 # Run locally before PRs; trigger here from Actions → Full checks → Run workflow.
+# Two jobs stay parallel (each installs once). A shared build artifact would add a
+# serial install+build prefix and usually worsen wall time when install dominates.
 on:
   workflow_dispatch:
 
@@ -30,7 +32,17 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Install
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit --fund=false
+      - name: Cache Astro / Vite build caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+          key: astro-${{ runner.os }}-node22-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
+          restore-keys: |
+            astro-${{ runner.os }}-node22-
       - name: Build
         run: npm run build
       - name: Link check
@@ -51,10 +63,31 @@ jobs:
           node-version: '22'
           cache: npm
       - name: Install
-        run: npm ci
+        run: npm ci --prefer-offline --no-audit --fund=false
+      - name: Cache Astro / Vite build caches
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+          key: astro-${{ runner.os }}-node22-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
+          restore-keys: |
+            astro-${{ runner.os }}-node22-
+      - name: Resolve Playwright version
+        id: pw
+        run: echo "version=$(node -p "require('playwright/package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.pw.outputs.version }}
+          restore-keys: |
+            playwright-${{ runner.os }}-
       - name: Install Playwright Chromium
         timeout-minutes: 5
         # ubuntu-24.04 already ships the system libs; skip --with-deps (apt is slow).
+        # Only Chromium (not Firefox/WebKit). Cache hit skips re-download.
         run: npx playwright install chromium
       - name: Build
         run: npm run build

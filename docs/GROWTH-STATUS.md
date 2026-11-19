@@ -31,6 +31,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 - **2026-11-19 — CI / build speed (merged #34):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
 - **2026-11-19 — this PR (PAA / AlsoAsked guides, Site B):** Four new question-driven guides — `concrete-slab-thickness`, `how-much-concrete-do-i-need`, `sonotube-footing-and-depth`, `how-much-mulch-do-i-need` — with bodies/FAQs/HowTo, reciprocal tool `relatedGuideSlugs`, KEYWORD-MAP cannibalization notes, and `llms.txt` / `llms-full.txt` Q→URL lines. Primaries avoid colliding with bags / 10×10 / Sonotube volume / mulch-depth / common-beds guides.
 - **2026-11-19 — CI / build speed (PR #34):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s. `.npmrc` + `npm ci --prefer-offline`; Astro/Vite cache; parallel build+test; docs-only path skip; Playwright Chromium cache on Full checks.
+- **2026-11-19 — this PR (human-writing rewrite):** Added [`docs/WRITING-GUIDE.md`](WRITING-GUIDE.md) + AGENTS.md rule (future copy must follow it; detector target AI &lt;30%). Rewrote all `guideBodies.ts` (18) and `toolBodies.ts` (22) for practitioner voice (burstiness, contractions, banned AI tells). Local HF detectors via `scripts/audit/ai-detect.mjs` / `.py` (`Hello-SimpleAI/chatgpt-detector-roberta` + `openai-community/roberta-base-openai-detector`); scores in [`docs/ai-detect-scores.md`](ai-detect-scores.md). Kept URLs, keywords, sourced numbers, internal links.
+- **2026-11-19 — PR #34 merged (CI / build speed):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
 - **2026-11-19 — PR #33 merged (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
 - **2026-11-19 — this PR:** Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
 - **2026-11-19 — this PR (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
@@ -77,6 +79,20 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 11. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
 12. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
 13. **CI follow-up (optional, off-repo):** if Workers Builds install still dominates, tune dashboard Node/cache settings (not expressible in-repo beyond `.npmrc`).
+1. **Re-run `npm run audit:ai-detect`** after any future guide/tool body rewrite; keep [`docs/ai-detect-scores.md`](ai-detect-scores.md) in sync. Commercial detectors (GPTZero, etc.) may still differ from local HF models.
+2. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
+3. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
+4. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
+5. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
+6. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
+7. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
+8. Free-tool / calculator **directory submissions** beyond TinyLaunch (owner says some may be done; only record confirmed names + URLs here).
+9. **Embed-widget outreach** to DIY / landscaping bloggers.
+10. Add closely related **variants of tools that already get impressions**, rather than new topics.
+11. **Weekly GSC check** and refresh baseline metrics in this file.
+12. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
+13. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
+14. **CI follow-up (optional, off-repo):** if Workers Builds install still dominates, tune dashboard Node/cache settings (not expressible in-repo beyond `.npmrc`).
 
 ## In progress
 
@@ -90,6 +106,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 - **2026-11-19:** PAA guides PR (`cursor/paa-guides-410c`) — four AlsoAsked/PAA guides shipping; pending merge/deploy + IndexNow.
 - Upgrade PRs #35–#37 (Sonotube / concrete cost / bulk cost) — owner merging separately.
 - Human-writing rewrite + detector PR — separate branch.
+- **2026-11-19:** Human-writing rewrite PR (`cursor/human-writing-rewrite-410c`) — shipping in this PR; detector scores in `docs/ai-detect-scores.md`.
+- **2026-11-19:** PAA guides PR #46 (`cursor/paa-guides-410c`) — separate branch; CI green; pending merge.
 
 ## Off-repo work
 

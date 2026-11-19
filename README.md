@@ -28,6 +28,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
 - **This PR:** gravel / topsoil / sand / mulch calculators — tons↔yards both ways, optional convertTons, 0.5 cu ft (bulk) or 2/3 cu ft (mulch) bag counts, optional local price fields for bag-vs-bulk cost compare (no invented prices).
 - **French drain gravel calculator** (`/calculators/french-drain-gravel-calculator/`): trench − pipe gravel yards/tons, fabric wrap area, pipe length; linked from gravel + retaining-wall tools.
+- **Human writing rewrite:** all `guideBodies.ts` + `toolBodies.ts` rewritten to practitioner voice per [`docs/WRITING-GUIDE.md`](docs/WRITING-GUIDE.md); local AI detector (`npm run audit:ai-detect`) with scores in [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) (target AI &lt; 30%).
 
 ### Remaining
 
@@ -44,6 +45,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Other closely related tool variants (stair stringer, sod, etc.) still in the ideas backlog.
 - Other impression-adjacent tool variants beyond the footing calculator still open.
 - Closely related tool variants beyond French drain (see `docs/GROWTH-STATUS.md` Remaining).
+- Re-score bodies with `npm run audit:ai-detect` when copy changes; keep [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) in sync (not part of CI).
 
 ---
 

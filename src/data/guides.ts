@@ -60,7 +60,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-in-a-sonotube',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'mulch-depth-guide',
@@ -84,7 +84,7 @@ export const guides: GuideDefinition[] = [
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -129,7 +129,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-10-20',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'mulch-for-common-garden-beds',
@@ -148,7 +148,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
     relatedGuideSlugs: ['how-much-mulch-do-i-need', 'mulch-depth-guide', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-20',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'gravel-types-for-driveways',
@@ -170,7 +170,7 @@ export const guides: GuideDefinition[] = [
       'retaining-wall-blocks-and-base',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-to-measure-roof-pitch',
@@ -185,7 +185,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['roof-pitch-calculator', 'roofing-shingles-calculator'],
     relatedGuideSlugs: ['how-to-estimate-roofing-shingles', 'deck-material-list-12x16'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'grass-seed-per-sq-ft',
@@ -207,7 +207,7 @@ export const guides: GuideDefinition[] = [
       'topsoil-vs-garden-soil',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'fertilizer-nitrogen-per-1000-sq-ft',
@@ -226,7 +226,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['fertilizer-calculator', 'grass-seed-calculator'],
     relatedGuideSlugs: ['grass-seed-per-sq-ft', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'raised-bed-soil-mix-4x8',
@@ -245,7 +245,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['raised-bed-soil-calculator', 'topsoil-calculator'],
     relatedGuideSlugs: ['topsoil-vs-garden-soil', 'mulch-depth-guide'],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-much-paint-for-a-room',
@@ -288,7 +288,7 @@ export const guides: GuideDefinition[] = [
       'retaining-wall-blocks-and-base',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'deck-material-list-12x16',
@@ -311,7 +311,7 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'deck-material-list-16x24',
@@ -358,7 +358,7 @@ export const guides: GuideDefinition[] = [
       'gravel-types-for-driveways',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'topsoil-vs-garden-soil',
@@ -386,7 +386,7 @@ export const guides: GuideDefinition[] = [
       'grass-seed-per-sq-ft',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-much-concrete-in-a-sonotube',
@@ -415,7 +415,7 @@ export const guides: GuideDefinition[] = [
       'deck-material-list-16x24',
     ],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'how-to-estimate-roofing-shingles',
@@ -434,7 +434,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['roofing-shingles-calculator', 'roof-pitch-calculator'],
     relatedGuideSlugs: ['how-to-measure-roof-pitch'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-13',
+    dateModified: '2026-11-19',
   }),
   g({
     slug: 'concrete-slab-thickness',

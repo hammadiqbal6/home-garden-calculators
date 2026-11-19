@@ -77,8 +77,9 @@ npm run proof        # full proof bundle (Lighthouse + audits)
 
 ## 4. Content rules
 
+- **Human writing (required):** All new and refreshed guide/tool copy must follow [`docs/WRITING-GUIDE.md`](docs/WRITING-GUIDE.md). Voice is DIY practitioner (homeowner / landscaper), bursty sentence rhythm, contractions, no banned AI tells. **Detector target:** AI probability **&lt; 30%** on `node scripts/audit/ai-detect.mjs`; keep [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) updated when bodies change.
 - **Voice:** human, contractor-practical; short sentences; no fake job-site stories or credentials.
-- **Banned filler:** “in today’s world”, “delve”, “it’s important to note”, “whether you’re a beginner or a pro”, “look no further”, “unlock”, “elevate”, “comprehensive guide to”, “game-changer”, “leverage”, “robust solution”, emoji-heavy intros. See `.cursor/rules/content-quality.mdc`.
+- **Banned filler:** “in today’s world”, “delve”, “it’s important to note”, “whether you’re a beginner or a pro”, “look no further”, “unlock”, “elevate”, “comprehensive guide to”, “game-changer”, “leverage”, “robust solution”, emoji-heavy intros. See `.cursor/rules/content-quality.mdc` and `docs/WRITING-GUIDE.md`.
 - **No invented stats.** Every number (bag yield, coverage, density, seed rate, pitch factor) needs a manufacturer TDS or extension URL.
 - **Sources:** visible Sources list; guides show `Reviewed by Hammad Iqbal · Last updated {date}`; tools use `TrustBlock`.
 - **Guides:** answer-first 40–60 words (sourced verdict first); question H2s from real search/PAA; worked example; FAQ 3–5; body ≥800 words in `guideBodies.ts`.

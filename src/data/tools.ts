@@ -485,7 +485,7 @@ export const tools: ToolDefinition[] = [
       'Enter bed length, width and depth to see how many cubic yards or 2 and 3 cu ft bags of mulch you need. Includes recommended mulch depths for beds and trees.',
     h1: 'Mulch Calculator: Cubic Yards & Bags',
     answerFirst:
-      'Mulch volume equals area times depth. Convert depth to feet (3 inches = 0.25 ft), then multiply by square feet. Divide cubic feet by 27 for yards, or by 2 or 3 for bag counts. Most beds need 2–3 inches of organic mulch; keep mulch off tree trunks.',
+      'Mulch volume equals area times depth. Convert depth to feet (3 inches = 0.25 ft), then multiply by square feet. Divide cubic feet by 27 for yards, or by 2 or 3 for bag counts. Optional local prices compare bulk vs bags—no invented prices. Most beds need 2–3 inches; keep mulch off trunks.',
     summary: 'Bed mulch in cubic yards and bag counts.',
     calculatorId: 'mulch',
     relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],
@@ -514,6 +514,11 @@ export const tools: ToolDefinition[] = [
         question: 'How deep should I set the mulch calculator?',
         answer:
           'Most flower beds and gardens use about 2–3 inches of organic mulch. See the mulch depth guide for extension ranges, then enter that depth here for bags and yards.',
+      },
+      {
+        question: 'How do I compare bag vs bulk mulch cost?',
+        answer:
+          'Enter your local price per cubic yard and per bag (leave blank if you only need volume). The calculator multiplies volume × yard price and bag count × bag price so you can compare—YardTally does not invent retail prices.',
       },
     ],
     sources: [
@@ -544,7 +549,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['mulch-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -610,10 +615,10 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['crushed stone calculator', 'how much gravel do I need'],
     title: 'Gravel Calculator – Tons & Cubic Yards | YardTally',
     description:
-      'Gravel and crushed stone calculator: length, width, and depth to cubic yards and estimated tons. Useful for driveways, paths, and bases.',
+      'Gravel and crushed stone calculator: length, width, and depth to cubic yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk cost compare.',
     h1: 'Gravel Calculator: Tons & Cubic Yards',
     answerFirst:
-      'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate. Add ~10% for compaction on driveways and paths.',
+      'Gravel needed equals length × width × depth, converted to cubic yards (÷27). Many crushed-stone products weigh about 1.3–1.4 tons per cubic yard; this tool uses ~2,700 lb/yd³ as a mid estimate and converts tons↔yards both ways. Optional prices compare bulk yards/tons vs 0.5 cu ft bags. Add ~10% for compaction on driveways and paths.',
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
     relatedSlugs: [
@@ -626,9 +631,19 @@ export const tools: ToolDefinition[] = [
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
-        question: 'How do I convert gravel cubic feet to tons?',
+        question: 'How do I convert gravel tons to cubic yards?',
         answer:
-          'Tons ≈ (cubic feet × density lb/cu ft) ÷ 2,000. Density varies with rock type and moisture—confirm with your supplier rather than assuming one number for every product.',
+          'Yards ≈ tons × 2000 ÷ density (lb/cu yd). YardTally’s mid crushed-stone density is about 2,700 lb/cu yd (~1.35 ton/yd)—confirm with your stone yard ticket. Enter tons in the optional converter, or read tons from the volume result.',
+      },
+      {
+        question: 'Is bagged gravel cheaper than bulk by the yard?',
+        answer:
+          'Enter your local $/yd, $/ton, and per-bag prices above. Bulk usually wins past about a cubic yard when a truck can dump; bags win for small patches or tight access. This tool does not invent regional prices.',
+      },
+      {
+        question: 'How do I convert gravel cubic yards to tons (and back)?',
+        answer:
+          'Tons from yards ≈ yards × (density lb/yd³ ÷ 2,000). Yards from tons ≈ tons × 2,000 ÷ density. This tool uses ~2,700 lb/yd³ (~1.35 ton/yd³) as a mid estimate—confirm with your stone yard ticket.',
       },
       {
         question: 'What depth should I use for a driveway base?',
@@ -636,9 +651,9 @@ export const tools: ToolDefinition[] = [
           'Depth depends on soil, traffic, and local practice. Enter the compacted depth your plan calls for; decorative surface stone is often shallower than structural base.',
       },
       {
-        question: 'Should I order by the yard or by the ton?',
+        question: 'Should I order by the yard, by the ton, or in bags?',
         answer:
-          'Use cubic yards when pricing by volume and tons when the quarry sells by weight. This calculator reports both when you supply a density.',
+          'Use cubic yards when pricing by volume, tons when the quarry sells by weight, and 0.5 cu ft bags for small patches. Optional price fields compare those options using your local quotes only—no invented retail prices.',
       },
       {
         question: 'Do I need a waste factor?',
@@ -669,10 +684,10 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['soil calculator cubic yards', 'how much topsoil'],
     title: 'Topsoil Calculator – Cubic Yards & Bags | YardTally',
     description:
-      'Calculate topsoil for lawns and beds: enter length, width and depth to get cubic yards, cubic meters and bag estimates with waste. Free planning tool.',
+      'Topsoil calculator: length, width, and depth to cubic yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk cost compare.',
     h1: 'Topsoil Calculator: Yards, Bags & Tons',
     answerFirst:
-      'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; bagged soil is handy for small beds. Include ~10% for settling.',
+      'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. This tool estimates tons at ~2,200 lb/yd³, counts 0.5 cu ft bags, and converts tons↔yards both ways. Optional prices compare bulk vs bags—no invented retail prices. Include ~10% for settling.',
     summary: 'Lawn and garden topsoil depth to yards.',
     calculatorId: 'topsoil',
     relatedSlugs: ['mulch-calculator', 'raised-bed-soil-calculator', 'sand-calculator'],
@@ -684,9 +699,9 @@ export const tools: ToolDefinition[] = [
           'Measure average fill depth across the area. Even 1 inch over 1,000 sq ft is 1,000 × (1 ÷ 12) ≈ 83 cu ft (~3.1 cu yd). Deep low spots should be measured separately.',
       },
       {
-        question: 'How do I convert topsoil cubic feet to yards or bags?',
+        question: 'How do I convert topsoil yards to tons or bags?',
         answer:
-          'Divide cubic feet by 27 for cubic yards. For bags, divide cubic feet by the cubic feet printed on the bag—bagged topsoil sizes vary by brand, so do not assume a universal bag volume.',
+          'Tons ≈ yards × (2,200 ÷ 2,000) with this tool’s mid density (~1.1 ton/yd³)—confirm moisture with your yard. For common 0.5 cu ft bags, divide cubic feet by 0.5 and round up. Optional convert-tons and price fields compare weight, volume, and bag totals.',
       },
       {
         question: 'Should I add waste for settling?',
@@ -709,7 +724,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['topsoil-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-15',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -722,10 +737,10 @@ export const tools: ToolDefinition[] = [
     secondaryKeywords: ['paver sand calculator', 'how much sand do I need'],
     title: 'Sand Calculator – Beds, Pavers & Play | YardTally',
     description:
-      'Sand calculator for paver bedding, leveling beds, and play areas. Convert length × width × depth to cubic yards and estimated tons with waste.',
+      'Sand calculator for paver beds and play areas: length × width × depth to yards, tons, 0.5 cu ft bags, and optional bag-vs-bulk costs.',
     h1: 'Sand Calculator: Cubic Yards & Bags',
     answerFirst:
-      'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding.',
+      'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Tons use ~2,700 lb/yd³; optional prices compare bulk vs 0.5 cu ft bags. Add waste for screeding.',
     summary: 'Bedding and fill sand by area and depth.',
     calculatorId: 'sand',
     relatedSlugs: ['paver-calculator', 'gravel-calculator', 'asphalt-calculator', 'concrete-calculator'],
@@ -742,9 +757,9 @@ export const tools: ToolDefinition[] = [
           'Usually no. Play sand, masonry sand, and concrete/bedding sand are not interchangeable. Use the product specified for pavers or the mix design.',
       },
       {
-        question: 'How do I convert sand volume to cubic yards?',
+        question: 'How do I convert sand yards to tons or bags?',
         answer:
-          'Volume = length × width × depth. Divide cubic feet by 27 for cubic yards. A 10×10 ft area at 1 inch is about 8.3 cu ft (~0.31 cu yd) before waste.',
+          'Tons ≈ yards × (2,700 ÷ 2,000) with this tool’s mid density (~1.35 ton/yd³)—moisture swings weight. For 0.5 cu ft bags, divide cubic feet by 0.5 and round up. Enter optional convert-tons or local prices to compare bulk vs bags.',
       },
       {
         question: 'Why does sand migrate at the edges?',

@@ -15,12 +15,14 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 ### Done (as of 2026-11-19)
 
 - Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
+- Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
 - **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
+- **This PR:** gravel / topsoil / sand / mulch calculators — tons↔yards both ways, optional convertTons, 0.5 cu ft (bulk) or 2/3 cu ft (mulch) bag counts, optional local price fields for bag-vs-bulk cost compare (no invented prices).
 
 ### Remaining
 

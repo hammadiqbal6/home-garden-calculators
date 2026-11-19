@@ -3,6 +3,7 @@ export * from './sonotubeExtras';
 export * from './concreteCost';
 export * from './mulch';
 export * from './volumeMaterials';
+export * from './bulkCost';
 export * from './paver';
 export * from './fence';
 export * from './deck';

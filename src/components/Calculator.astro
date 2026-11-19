@@ -54,7 +54,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
                 step={field.step || 'any'}
                 min="0"
                 value={field.value}
-                required
+                required={!field.optional}
               />
             )}
             {field.hint && <p class="hint">{field.hint}</p>}
@@ -130,7 +130,105 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     metricDefault: string;
     imperialHint?: string;
     metricHint?: string;
+    /** Empty / zero allowed (convertTons, local prices). */
+    optional?: boolean;
   };
+
+  const bulkOptionalFields = (): Field[] => [
+    {
+      name: 'convertTons',
+      label: 'Convert tons → yards (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'leave blank to skip',
+      metricHint: 'leave blank to skip',
+      optional: true,
+    },
+    {
+      name: 'pricePerYard',
+      label: 'Price per cu yd (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+    {
+      name: 'pricePerTon',
+      label: 'Price per ton (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+    {
+      name: 'pricePerBag',
+      label: 'Price per 0.5 cu ft bag (optional)',
+      imperialDefault: '',
+      metricDefault: '',
+      imperialHint: 'your local quote',
+      metricHint: 'your local quote',
+      optional: true,
+    },
+  ];
+
+  function bulkResultRows(r: {
+    areaSqFt: number;
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    tons?: number;
+    tonsFromYards?: number;
+    yardsFromTons?: number;
+    bags05CuFt?: number;
+    costYards?: number;
+    costTons?: number;
+    costBags?: number;
+    cheapestLabel?: 'yard' | 'ton' | 'bags';
+    cheapestCost?: number;
+  }): [string, string][] {
+    const rows: [string, string][] = [
+      ['Area', `${r.areaSqFt} sq ft`],
+      ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+    ];
+    if (r.tonsFromYards != null) rows.push(['Tons from yards', String(r.tonsFromYards)]);
+    else if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+    if (r.yardsFromTons != null) rows.push(['Yards from tons', String(r.yardsFromTons)]);
+    if (r.bags05CuFt != null) rows.push(['0.5 cu ft bags', String(r.bags05CuFt)]);
+    if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+    if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
+    if (r.costBags != null) rows.push(['Bag cost', `$${r.costBags}`]);
+    if (r.cheapestLabel && r.cheapestCost != null) {
+      const label =
+        r.cheapestLabel === 'yard' ? 'bulk by yard' : r.cheapestLabel === 'ton' ? 'bulk by ton' : 'bags';
+      rows.push(['Cheaper option', `${label} ($${r.cheapestCost})`]);
+    }
+    return rows;
+  }
+
+  function mulchResultRows(r: {
+    areaSqFt: number;
+    volumeCuFt: number;
+    volumeCuYd: number;
+    volumeCuM: number;
+    bags2CuFt: number;
+    bags3CuFt: number;
+    costYards?: number;
+    costBags2?: number;
+    costBags3?: number;
+  }): [string, string][] {
+    const rows: [string, string][] = [
+      ['Area', `${r.areaSqFt} sq ft`],
+      ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+      ['2 cu ft bags', String(r.bags2CuFt)],
+      ['3 cu ft bags', String(r.bags3CuFt)],
+    ];
+    if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+    if (r.costBags2 != null) rows.push(['2 cu ft bag cost', `$${r.costBags2}`]);
+    if (r.costBags3 != null) rows.push(['3 cu ft bag cost', `$${r.costBags3}`]);
+    return rows;
+  }
 
   type CalculatorConfig = {
     fields: Field[];
@@ -168,6 +266,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           metricHint: 'cm',
         },
         { name: 'waste', label: 'Waste / compaction %', imperialDefault: '10', metricDefault: '10' },
+        ...bulkOptionalFields(),
       ],
       compute(v, u) {
         const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
@@ -179,13 +278,12 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           lengthUnit: lengthUnit(u),
           widthUnit: lengthUnit(u),
           wasteFactor: v.waste / 100,
+          convertTons: v.convertTons > 0 ? v.convertTons : undefined,
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerTon: v.pricePerTon > 0 ? v.pricePerTon : undefined,
+          pricePerBag: v.pricePerBag > 0 ? v.pricePerBag : undefined,
         });
-        const rows: [string, string][] = [
-          ['Area', `${r.areaSqFt} sq ft`],
-          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
-        ];
-        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
-        return rows;
+        return bulkResultRows(r);
       },
     };
   }
@@ -545,6 +643,24 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           imperialHint: 'inches',
           metricHint: 'cm',
         },
+        {
+          name: 'pricePerYard',
+          label: 'Price per cu yd (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'your local quote',
+          metricHint: 'your local quote',
+          optional: true,
+        },
+        {
+          name: 'pricePerBag',
+          label: 'Price per bag (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: '2 or 3 cu ft bag price',
+          metricHint: '2 or 3 cu ft bag price',
+          optional: true,
+        },
       ],
       compute(v, u) {
         const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
@@ -554,13 +670,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           depthInches,
           lengthUnit: lengthUnit(u),
           widthUnit: lengthUnit(u),
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerBag: v.pricePerBag > 0 ? v.pricePerBag : undefined,
         });
-        return [
-          ['Area', `${r.areaSqFt} sq ft`],
-          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
-          ['2 cu ft bags', String(r.bags2CuFt)],
-          ['3 cu ft bags', String(r.bags3CuFt)],
-        ];
+        return mulchResultRows(r);
       },
     },
     'tree-ring-mulch': {
@@ -1462,7 +1575,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           input.inputMode = 'decimal';
           input.step = field.step || 'any';
           input.min = field.min || '0';
-          input.required = true;
+          input.required = !field.optional;
         }
         input.id = `${id}-${field.name}`;
         input.name = field.name;
@@ -1590,6 +1703,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'priceBag80',
         'priceYd',
         'delivery',
+        'convertTons',
+        'pricePerYard',
+        'pricePerTon',
+        'pricePerBag',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),
@@ -1599,6 +1716,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       });
       let marked = false;
       for (const el of inputs) {
+        const raw = el.value.trim();
+        const optionalEmpty = allowZero.has(el.name) && raw === '';
+        if (optionalEmpty) continue;
         const v = Number(el.value);
         const zeroOk = allowZero.has(el.name);
         const bad = !Number.isFinite(v) || v < 0 || (!zeroOk && v <= 0);

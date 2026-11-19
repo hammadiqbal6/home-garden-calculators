@@ -26,12 +26,14 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
 - **This PR:** gravel / topsoil / sand / mulch calculators — tons↔yards both ways, optional convertTons, 0.5 cu ft (bulk) or 2/3 cu ft (mulch) bag counts, optional local price fields for bag-vs-bulk cost compare (no invented prices).
+- **French drain gravel calculator** (`/calculators/french-drain-gravel-calculator/`): trench − pipe gravel yards/tons, fabric wrap area, pipe length; linked from gravel + retaining-wall tools.
 
 ### Remaining
 
 - After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new French drain URL).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
@@ -39,6 +41,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
 - Other closely related tool variants (stair stringer, sod, etc.) still in the ideas backlog.
 - Other impression-adjacent tool variants beyond the footing calculator still open.
+- Closely related tool variants beyond French drain (see `docs/GROWTH-STATUS.md` Remaining).
 
 ---
 
@@ -63,6 +66,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |
 | Tree ring mulch | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings |
 | Gravel | `/calculators/gravel-calculator/` | gravel calculator |
+| French drain gravel | `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator |
 | Topsoil | `/calculators/topsoil-calculator/` | topsoil calculator |
 | Sand | `/calculators/sand-calculator/` | sand calculator |
 | Pavers | `/calculators/paver-calculator/` | paver calculator |

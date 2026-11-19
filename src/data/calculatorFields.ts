@@ -14,6 +14,7 @@ import {
   fertilizerNeeded,
   footingVolume,
   formatUsd,
+  frenchDrainMaterials,
   grassSeed,
   gravelVolume,
   lumberFromPieces,
@@ -250,6 +251,15 @@ export const ssrFields: Record<string, SsrField[]> = {
     ...dims('20', '10', 'Depth', '4', 'inches'),
     { name: 'waste', label: 'Waste / compaction %', value: '10' },
     ...bulkPriceFields(),
+  ],
+  'french-drain': [
+    { name: 'length', label: 'Trench length', value: '40', hint: 'feet' },
+    { name: 'width', label: 'Trench width', value: '12', hint: 'inches' },
+    { name: 'depth', label: 'Trench depth', value: '18', hint: 'inches' },
+    { name: 'pipeDia', label: 'Pipe diameter', value: '4', hint: 'inches (OD)' },
+    { name: 'overlap', label: 'Fabric overlap', value: '12', hint: 'inches (fold-over)' },
+    { name: 'waste', label: 'Waste / overage %', value: '10' },
+    { name: 'density', label: 'Gravel density', value: '2700', hint: 'lb/cu yd' },
   ],
   topsoil: [
     ...dims('20', '10', 'Depth', '4', 'inches'),
@@ -557,6 +567,15 @@ const gravelDefault = gravelVolume({
   depthInches: 4,
   wasteFactor: 0.1,
 });
+const frenchDrainDefault = frenchDrainMaterials({
+  length: 40,
+  width: 12,
+  depth: 18,
+  pipeDiameter: 4,
+  fabricOverlap: 12,
+  wasteFactor: 0.1,
+  densityLbPerCuYd: 2700,
+});
 const topsoilDefault = topsoilVolume({
   length: 20,
   width: 10,
@@ -720,6 +739,20 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['3 cu ft bags', String(treeRingDefault.bags3CuFt)],
   ],
   gravel: bulkRows(gravelDefault),
+  'french-drain': [
+    ['Pipe length', `${frenchDrainDefault.pipeLengthFt} ft`],
+    [
+      'Gravel (pipe subtracted)',
+      `${frenchDrainDefault.gravelCuFt} cu ft (${frenchDrainDefault.gravelCuYd} cu yd / ${frenchDrainDefault.gravelCuM} m³)`,
+    ],
+    ['Est. tons', String(frenchDrainDefault.tons)],
+    ['Fabric width (wrap)', `${frenchDrainDefault.fabricWidthFt} ft`],
+    [
+      'Fabric area',
+      `${frenchDrainDefault.fabricAreaSqFt} sq ft (${frenchDrainDefault.fabricAreaSqM} m²)`,
+    ],
+    ['Density used', `${frenchDrainDefault.densityLbPerCuYd} lb/cu yd`],
+  ],
   topsoil: bulkRows(topsoilDefault),
   sand: bulkRows(sandDefault),
   paver: [

@@ -105,6 +105,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     footingVolume,
     formatUsd,
     grassSeed,
+    frenchDrainMaterials,
     gravelVolume,
     lumberFromBoardFeet,
     lumberFromPieces,
@@ -1937,6 +1938,92 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ['Cost per sq ft', formatUsd(r.costPerSqFt)],
         );
         return rows;
+      },
+    },
+    'french-drain': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Trench length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Trench width',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'depth',
+          label: 'Trench depth',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'pipeDia',
+          label: 'Pipe diameter',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches (OD)',
+          metricHint: 'cm (OD)',
+        },
+        {
+          name: 'overlap',
+          label: 'Fabric overlap',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches (fold-over)',
+          metricHint: 'cm (fold-over)',
+        },
+        { name: 'waste', label: 'Waste / overage %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'density',
+          label: 'Gravel density',
+          imperialDefault: '2700',
+          metricDefault: '1602',
+          imperialHint: 'lb/cu yd',
+          metricHint: 'kg/m³',
+        },
+      ],
+      compute(v, u) {
+        const widthUnit = u === 'imperial' ? 'in' : 'cm';
+        const depthUnit = widthUnit;
+        const pipeUnit = widthUnit;
+        const overlapUnit = widthUnit;
+        // kg/m³ → lb/cu yd ≈ × 1.68555 (0.764555 m³/yd³ ÷ 0.453592 kg/lb)
+        const densityLbPerCuYd = u === 'imperial' ? v.density : v.density * 1.68555;
+        const r = frenchDrainMaterials({
+          length: v.length,
+          lengthUnit: lengthUnit(u),
+          width: v.width,
+          widthUnit,
+          depth: v.depth,
+          depthUnit,
+          pipeDiameter: v.pipeDia,
+          pipeDiameterUnit: pipeUnit,
+          fabricOverlap: v.overlap,
+          fabricOverlapUnit: overlapUnit,
+          wasteFactor: v.waste / 100,
+          densityLbPerCuYd,
+        });
+        return [
+          ['Pipe length', `${r.pipeLengthFt} ft`],
+          [
+            'Gravel (pipe subtracted)',
+            `${r.gravelCuFt} cu ft (${r.gravelCuYd} cu yd / ${r.gravelCuM} m³)`,
+          ],
+          ['Est. tons', String(r.tons)],
+          ['Fabric width (wrap)', `${r.fabricWidthFt} ft`],
+          ['Fabric area', `${r.fabricAreaSqFt} sq ft (${r.fabricAreaSqM} m²)`],
+          ['Density used', `${r.densityLbPerCuYd} lb/cu yd`],
+        ];
       },
     },
   };

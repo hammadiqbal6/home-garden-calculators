@@ -6,6 +6,7 @@ export * from './concreteSlabCost';
 export * from './mulch';
 export * from './volumeMaterials';
 export * from './bulkCost';
+export * from './frenchDrain';
 export * from './paver';
 export * from './fence';
 export * from './deck';

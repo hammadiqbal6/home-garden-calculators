@@ -55,6 +55,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How to figure shingles for a roof? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - How many bundles in a square? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - What is dense gravel / best gravel for a driveway? → ${origin}/guides/gravel-types-for-driveways/
+- How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
+- How much landscape fabric for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - Can I use paver base under a retaining wall? → ${origin}/guides/retaining-wall-blocks-and-base/
 - Is a 12x16 deck material list the same as plans? → ${origin}/guides/deck-material-list-12x16/
 - How many boards for a 16x24 deck? → ${origin}/guides/deck-material-list-16x24/
@@ -97,6 +99,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Bed mulch depth: commonly about 2–3 inches organic (Clemson, UF/IFAS). Pull mulch 2–3 inches back from trunks (Mississippi State). UF/IFAS: about 108 sq ft per cubic yard at 3 inches; do not exceed 3 inches in beds.
 - Iowa State PM 1072 new-lawn lb per 1,000 sq ft: KY bluegrass 1–1.5; 50/50 rye/bluegrass 3–3.5; tall fescue 7–9. Source: https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf
 - Penn State watershed-friendly yard: about 2 lb N per 1,000 sq ft per growing season as a starting rate for many established lawns; Pennsylvania applications limited to 0.9 lb N per 1,000 per application. Sources: https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard ; https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators
+
+### Gravel / French drain
+- Flat pads: volume = L × W × depth; tons ≈ yards × (density lb/yd³ ÷ 2000); YardTally mid crushed-stone density ≈ 2,700 lb/yd³ (confirm with yard).
+- French drain: gravel = trench volume − πr²L pipe cylinder; fabric wrap width ≈ W + 2D + overlap. Residential planning ranges often ~12–18 in wide × 18–24 in deep with ~4 in pipe (LSU AgCenter).
 
 ### Asphalt, masonry, lumber, rebar
 - Compacted hot-mix asphalt planning density ≈ 145 lb/cu ft (FHWA WFL estimating practice; Iowa DOT mix properties). Tons = area × depth_ft × density ÷ 2,000.

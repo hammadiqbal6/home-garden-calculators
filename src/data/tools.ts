@@ -716,6 +716,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Driveway and path gravel in yards and tons.',
     calculatorId: 'gravel',
     relatedSlugs: [
+      'french-drain-gravel-calculator',
       'sand-calculator',
       'paver-calculator',
       'asphalt-calculator',
@@ -765,6 +766,86 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['gravel-calculator'],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'french-drain-gravel-calculator',
+    name: 'French Drain Gravel Calculator',
+    shortName: 'French drain',
+    category: 'landscape',
+    primaryKeyword: 'french drain gravel calculator',
+    secondaryKeywords: [
+      'french drain calculator',
+      'how much gravel for a french drain',
+      'french drain fabric calculator',
+    ],
+    title: 'French Drain Gravel Calculator | YardTally',
+    description:
+      'French drain gravel calculator: trench size and pipe diameter to cubic yards and tons, plus landscape fabric area and pipe length. Free planning takeoff.',
+    h1: 'French Drain Gravel Calculator',
+    answerFirst:
+      'French drain gravel equals trench volume minus the perforated pipe cylinder, then ÷27 for cubic yards. LSU AgCenter cites residential trenches about 12–18 in wide and 18–24 in deep with ~4 in pipe. Enter your sizes, density for tons (default ~2,700 lb/yd³), and read fabric wrap area plus pipe length.',
+    summary: 'French drain trench gravel (pipe subtracted), tons, fabric area, and pipe length.',
+    calculatorId: 'french-drain',
+    relatedSlugs: [
+      'gravel-calculator',
+      'retaining-wall-calculator',
+      'sand-calculator',
+      'topsoil-calculator',
+    ],
+    relatedGuideSlugs: ['gravel-types-for-driveways', 'retaining-wall-blocks-and-base'],
+    faq: [
+      {
+        question: 'How much gravel do I need for a French drain?',
+        answer:
+          'Multiply trench length × width × depth, subtract the perforated pipe volume (π × radius² × length), add waste, then divide by 27 for cubic yards. A 40 ft × 12 in × 18 in trench with 4 in pipe and 10% waste is about 2.3 cu yd at the defaults on this page.',
+      },
+      {
+        question: 'Do I subtract the pipe from the gravel volume?',
+        answer:
+          'Yes for a materials takeoff. The pipe occupies space inside the trench, so ordering the full trench box overbuys rock. This calculator subtracts the cylinder automatically.',
+      },
+      {
+        question: 'How much landscape fabric for a French drain?',
+        answer:
+          'Plan a wrap: fabric width ≈ trench width + 2 × depth + fold-over overlap, then multiply by trench length. The overlap field covers the top fold; buy the roll width your supplier stocks that meets or exceeds that wrap width.',
+      },
+      {
+        question: 'What pipe size is typical for a yard French drain?',
+        answer:
+          'Residential yard drains often use about 4 inch perforated pipe inside a gravel trench (LSU AgCenter; similar minimums appear on municipal DIY sheets). Confirm diameter for the flow and fittings you need—this tool does not size hydraulics.',
+      },
+      {
+        question: 'What density should I use for drain rock tons?',
+        answer:
+          'Ask your stone yard. The default ~2,700 lb/cu yd matches YardTally’s crushed-stone mid estimate on the gravel calculator. Moisture and rock type change delivered weight more than volume.',
+      },
+    ],
+    sources: [
+      {
+        label: 'LSU AgCenter – Installing and Maintaining a French Drain',
+        href: 'https://www.lsuagcenter.com/articles/page1684941508413',
+        usedFor:
+          'Residential trench width/depth ranges (~12–18 in × 18–24 in), ~4 in perforated pipe, washed gravel, geotextile wrap context',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'City of Norfolk – Infiltration / French drain DIY notes',
+        href: 'https://www.norfolk.gov/DocumentCenter/View/77565/Infiltration',
+        usedFor: 'Minimum trench size band, non-woven geotextile, washed gravel, slope notes',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Washington State University Extension – Improving Drainage (PDF)',
+        href: 'https://wpcdn.web.wsu.edu/wp-extension/uploads/sites/2079/2014/02/water-diversion.pdf',
+        usedFor: 'Geotextile-lined trench with perforated pipe in gravel; ~0.5–1% slope guidance',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['french-drain-gravel-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
@@ -1332,7 +1413,13 @@ export const tools: ToolDefinition[] = [
       'Block count ≈ wall face area ÷ block face area, or courses × blocks per course. Courses = ceil(wall height ÷ block height). Add ~5% waste. Include a compacted gravel base trench in your materials list for drainage and leveling.',
     summary: 'SRW blocks, courses, and base gravel.',
     calculatorId: 'retaining-wall',
-    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'brick-calculator', 'concrete-calculator'],
+    relatedSlugs: [
+      'gravel-calculator',
+      'french-drain-gravel-calculator',
+      'paver-calculator',
+      'brick-calculator',
+      'concrete-calculator',
+    ],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {

@@ -40,6 +40,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
 - What is a roofing square? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - How much asphalt for a driveway? → ${origin}/calculators/asphalt-calculator/
+- How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/

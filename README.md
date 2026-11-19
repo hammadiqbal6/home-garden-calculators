@@ -19,6 +19,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
 - **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
+- **Human writing rewrite:** all `guideBodies.ts` + `toolBodies.ts` rewritten to practitioner voice per [`docs/WRITING-GUIDE.md`](docs/WRITING-GUIDE.md); local AI detector (`npm run audit:ai-detect`) with scores in [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) (target AI &lt; 30%).
 
 ### Remaining
 
@@ -27,6 +28,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
 - Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
+- Re-score bodies with `npm run audit:ai-detect` when copy changes; keep [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) in sync (not part of CI).
 
 ---
 

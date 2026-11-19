@@ -5,9 +5,9 @@
 export const toolBodies: Record<string, string> = {
   'concrete-calculator': `
       <h2>How this concrete calculator works</h2>
-      <p>Enter the shape (slab, footing, or steps), dimensions, and optional waste percent. The tool returns volume in cubic feet, cubic yards, and cubic meters, plus bag counts for common 40, 60, and 80 lb mixes. All math runs in your browser—inputs are not uploaded.</p>
+      <p>Pick the shape (slab, footing, or steps), enter dimensions, and set an optional waste percent. You get volume in cubic feet, cubic yards, and cubic meters, plus bag counts for common 40, 60, and 80 lb mixes. Math stays in your browser. Nothing uploads.</p>
       <p>Use feet (or meters) for length and width. Enter slab thickness in inches (or centimeters). The calculator converts everything to a consistent unit system before multiplying, which prevents the classic mistake of treating a 4-inch slab as 4 feet thick.</p>
-      <h2>How it's calculated</h2>
+      <h2>The math</h2>
       <ul>
         <li><strong>Slab / footing:</strong> volume = length × width × thickness (all in feet)</li>
         <li><strong>Solid steps:</strong> volume = width × tread × riser × n(n+1)/2</li>
@@ -29,9 +29,9 @@ export const toolBodies: Record<string, string> = {
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Convert thickness to feet before multiplying, divide by 27 for cubic yards, then add waste. Bag yields vary slightly by brand—verify on the label.</div>
       <h2>Choosing slab thickness</h2>
-      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it does not design structural thickness, rebar, or base depth. For bar counts and sticks, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
+      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it doesn't design structural thickness, rebar, or base depth. For bar counts and sticks, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
       <h2>Waste factor tips</h2>
-      <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short; cold joints and mismatched batches are hard to hide.</p>
+      <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short. Cold joints and mismatched batches are hard to hide.</p>
       <div class="table-scroll">
       <table>
         <caption>10×10 slab bag counts at standard yields (after 10% waste)</caption>
@@ -42,8 +42,8 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Gravel or crushed-stone base under the slab is ordered separately—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Regional frost depth and soil type change how thick that base should be; this tool does not size base for your climate.</p>
-      <h2>Common mistakes</h2>
+      <p>Gravel or crushed-stone base under the slab is ordered separately—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Regional frost depth and soil type change how thick that base should be; this tool doesn't size base for your climate.</p>
+      <h2>Skip these</h2>
       <ul>
         <li>Mixing inches and feet in the same product (4 must mean 0.333 ft for thickness).</li>
         <li>Forgetting that gravel base is separate from concrete volume.</li>
@@ -51,26 +51,27 @@ export const toolBodies: Record<string, string> = {
         <li>Ignoring manufacturer yield notes on specialty mixes.</li>
         <li>Using this slab tool for fence post holes or Sonotubes—use the dedicated calculators instead.</li>
       </ul>
-      <h2>Related long-tail jobs</h2>
+      <h2>Related jobs</h2>
       <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
 
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool does not size structural thickness, rebar, or frost depth.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool doesn't size structural thickness, rebar, or frost depth.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'concrete-calculator-post-holes': `
       <h2>Post hole concrete formula</h2>
-      <p>Treat each hole as a cylinder. Convert diameter to feet, then volume (cu ft) = π × r² × depth × posts. Example: 10 posts, 10" diameter (r = 5/12 ft), 30" deep (2.5 ft): π × (5/12)² × 2.5 × 10 ≈ 13.6 cu ft (~0.50 cu yd).</p>
+      <p>Treat each hole as a cylinder. Convert diameter to feet, then volume (cu ft) = π × r² × depth × posts. Example: 10 posts, 10" diameter (r = 5/12 ft), 30" deep (2.5 ft): π × (5/12)² × 2.5 × 10 ≈ 13.6 cu ft (~0.50 cu yd). Dig the diameter you plan to buy for—guessing wide holes burns bags.</p>
       <p>Hole diameter is often about three times the post width for wood posts, but wind load, frost depth, and panel weight matter more than rules of thumb. Dig below the local frost line when frost heave is a concern, and slope the top of the concrete so water drains away from the post.</p>
       <h2>Typical bag counts</h2>
       <div class="table-scroll">
@@ -98,7 +99,7 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Assumptions and limits</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you dig or pour. Cylinder math assumes uniform diameter and depth; real holes vary. Confirm frost depth, post size, and setting method for your jurisdiction.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
@@ -106,13 +107,14 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>When the math is close, buy the extra unit. Leftovers beat a second trip.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'sonotube-concrete-calculator': `
       <h2>Column volume method</h2>
-      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula <strong>π × (inside diameter ÷ 2)² × height × count</strong>. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short. Convert cubic feet to bags with the yield on your mix, then round up.</p>
+      <p>Enter tube diameter, height, and pier count. The tool treats each form as a cylinder and returns cubic feet, yards, and bag counts. Use inside diameter. That's the pour volume that matches the bags you'll need.</p>
       <p>YardTally’s live totals use QUIKRETE Concrete Mix No. 1101 / Sakrete-style planning yields of about <strong>0.30 / 0.45 / 0.60 cu ft</strong> for <strong>40 / 60 / 80 lb</strong> bags, plus a default <strong>5% waste</strong> for tube pours. The reference table below also lists <strong>50 lb</strong> bags at QUIKRETE’s published <strong>0.375 cu ft</strong> yield so you can compare common bag sizes before you shop.</p>
 
       <h2>Bags per Sonotube (reference table)</h2>
@@ -171,23 +173,24 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Formula used</h2>
       <p>Volume (cu ft) = π × (inside diameter ÷ 2)² × height × count, with diameter and height converted to feet. Bags = ceil(volume × (1 + waste) ÷ bag yield). Default yields follow common QUIKRETE / Sakrete planning charts (about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb).</p>
-      <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour deck piers or columns. Use inside diameter, not outside. This tool does not design footing bells, reinforcement, or frost depth.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <h2>Limits (read before you order)</h2>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour deck piers or columns. Use inside diameter, not outside. This tool doesn't design footing bells, reinforcement, or frost depth.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'mulch-calculator': `
       <h2>Mulch formula</h2>
-      <p>volume (cu ft) = length (ft) × width (ft) × (depth_inches ÷ 12). Bulk mulch is sold by the cubic yard (27 cu ft). Bagged mulch is usually 2 or 3 cubic feet. This calculator returns both so you can compare bulk delivery versus bags for small beds.</p>
+      <p>Cubic feet = area (sq ft) × (depth inches ÷ 12). Enter length, width, and depth; the calculator returns cubic feet, yards, and bag counts for common 2 and 3 cu ft bags. Depth is the big lever—jumping from 2 inches to 3 inches adds about 50% more material.</p>
       <h2>Worked example</h2>
       <p>A 20 × 5 ft bed at 3 inches needs 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, or thirteen 2 cu ft bags. At 2 inches the same bed needs about 16.7 cu ft—useful when refreshing an existing layer rather than starting bare soil.</p>
       <div class="table-scroll">
@@ -206,8 +209,8 @@ export const toolBodies: Record<string, string> = {
       <h2>Bulk vs bags</h2>
       <p>Bulk is usually cheaper above roughly one cubic yard and reduces plastic waste. Bags are convenient for rooftop beds, small townhouses, and topping up. Ask your yard whether the product is dyed, hardwood, pine bark, or composted—water needs and fade rates differ.</p>
       <h2>Soil under the mulch</h2>
-      <p>Mulch sits on top of planting soil—it does not replace fill volume. If you still need to raise grade or choose between mineral topsoil and bagged garden blends, read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> first, then size surface cover here.</p>
-      <h2>Common mistakes</h2>
+      <p>Mulch sits on top of planting soil—it doesn't replace fill volume. If you still need to raise grade or choose between mineral topsoil and bagged garden blends, read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> first, then size surface cover here.</p>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Volcano mulching against trunks.</li>
         <li>Ordering for the wrong depth after settling (fresh mulch compresses).</li>
@@ -217,22 +220,23 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Assumptions and limits</h2>
       <p>The mulch calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'mulch-calculator-tree-rings': `
       <h2>Tree ring formula</h2>
-      <p>Area = π(R² − r²). Volume = area × depth. Example: outer diameter 6 ft (R=3), trunk keep-out 1 ft (r=0.5), depth 3": area ≈ 27.5 sq ft; volume ≈ 6.9 cu ft (~3–4 bags of 2 cu ft mulch).</p>
-      <p>The inner diameter is not the trunk bark alone—leave a bare gap so mulch does not pile against the flare. Wider rings toward the dripline generally help roots more than deep piles near the stem.</p>
+      <p>Outer circle area minus the clear trunk opening, then multiply by depth. Keep mulch off the bark. Mississippi State's pull-back guidance is about clearance from the trunk, not a mulch volcano.</p>
+      <p>The inner diameter isn't the trunk bark alone—leave a bare gap so mulch doesn't pile against the flare. Wider rings toward the dripline generally help roots more than deep piles near the stem.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Tree mulch is a donut, not a disk. Subtract the keep-out circle or you will overestimate volume and risk volcano mulching.</div>
       <div class="table-scroll">
       <table>
@@ -253,21 +257,22 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Assumptions and limits</h2>
       <p>The mulch calculator tree rings results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'gravel-calculator': `
       <h2>Gravel volume &amp; tonnage</h2>
-      <p>Cubic yards = cu ft ÷ 27. Tons ≈ yards × (density lb/yd³ ÷ 2000). This tool defaults to about 2,700 lb/yd³ as a mid estimate for crushed stone; wet stone and different geologies vary. Confirm density with your supplier before ordering tons.</p>
+      <p>Length × width × depth gives volume. Convert to tons with your yard's density for that rock. Compacted crushed stone doesn't weigh the same as loose decorative gravel, so ask the yard instead of inventing a factor.</p>
       <h2>Worked example</h2>
       <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Order by cubic yards for volume, convert to tons with your yard’s density, and include compaction waste for trafficked surfaces.</div>
@@ -283,8 +288,8 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Base vs surface stone</h2>
-      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—do not assume one stone type does every job. For a hot-mix surface course instead of loose stone, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> after you size the crushed-stone base here.</p>
-      <h2>Common mistakes</h2>
+      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—don't assume one stone type does every job. For a hot-mix surface course instead of loose stone, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> after you size the crushed-stone base here.</p>
+      <h2>Skip these</h2>
       <ul>
         <li>Skipping fabric or drainage details on soft soils.</li>
         <li>Ordering surface stone without enough base depth.</li>
@@ -293,23 +298,24 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Assumptions and limits</h2>
       <p>The gravel calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
   `,
   'topsoil-calculator': `
       <h2>Topsoil depth tips</h2>
-      <p>Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; bagged soil helps small beds. Include ~10% for settling when filling raised grades.</p>
+      <p>Area × depth in feet = cubic feet; divide by 27 for yards. Bagged soils list cubic feet on the bag. Bulk is sold by the yard. If you're filling beds, skim <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you order the wrong blend.</p>
       <p>New garden beds often receive 4–8 inches of quality topsoil over subsoil. For lawn repair, thinner dressings (½–2") are common—avoid burying existing grass crowns too deeply. Ask whether the product is screened, blended, or compost-rich.</p>
-      <div class="takeaway"><strong>Key takeaway:</strong> Measure average fill depth across the whole area. Deep low spots should be calculated separately so you do not under-order.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Measure average fill depth across the whole area. Deep low spots should be calculated separately so you don't under-order.</div>
       <h2>Worked example</h2>
       <p>Leveling 1,000 sq ft by an average of 1 inch needs about 83 cu ft ≈ 3.1 cu yd. Raising a 10 × 10 bed by 6 inches needs 50 cu ft ≈ 1.85 cu yd before waste.</p>
       <div class="table-scroll">
@@ -325,25 +331,26 @@ export const toolBodies: Record<string, string> = {
       </div>
       <p>*Density varies with moisture and blend—confirm with your supplier.</p>
       <h2>Choosing topsoil vs garden soil</h2>
-      <p>Screened topsoil and bagged “garden soil” are not interchangeable labels—compare use cases in the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide before you order. For boxed beds use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>. For surface cover after planting, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> and the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
+      <p>Screened topsoil and bagged “garden soil” aren't interchangeable labels—compare use cases in the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide before you order. For boxed beds use the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>. For surface cover after planting, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> and the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
 
-      <h2>Assumptions and limits</h2>
+      <h2>Limits (read before you order)</h2>
       <p>The topsoil calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
   `,
   'sand-calculator': `
       <h2>Sand vs gravel base</h2>
-      <p>Sand volume uses length × width × depth. Paver bedding sand is often about 1 inch deep over a compacted gravel base. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding and corner cuts.</p>
-      <p>Play sand, masonry sand, and concrete sand are not interchangeable. Use the product specified by your paver manufacturer or mix design. Pair this tool with the <a href="/calculators/paver-calculator/">paver calculator</a> for full patio takeoffs.</p>
+      <p>Same volume math as other bulk materials: length × width × depth. Bedding sand under pavers is usually a thin layer—about an inch in YardTally's paver defaults—so small depth errors still move the order.</p>
+      <p>Play sand, masonry sand, and concrete sand aren't interchangeable. Use the product specified by your paver manufacturer or mix design. Pair this tool with the <a href="/calculators/paver-calculator/">paver calculator</a> for full patio takeoffs.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Sand is usually the leveling layer—structural support comes from compacted crushed stone beneath.</div>
       <h2>Worked example</h2>
       <p>A 12 × 10 ft patio with a 1" sand bed needs 120 × (1/12) = 10 cu ft ≈ 0.37 cu yd before waste. With 10% extra, budget about 0.41 cu yd.</p>
@@ -356,7 +363,7 @@ export const toolBodies: Record<string, string> = {
 
       <h2>Assumptions and limits</h2>
       <p>The sand calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
@@ -364,13 +371,14 @@ export const toolBodies: Record<string, string> = {
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>When the math is close, buy the extra unit. Leftovers beat a second trip.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Keep bedding sand dry while screeding; wet sand changes volume and makes consistent depth harder to hold.</p>
   `,
   'paver-calculator': `
       <h2>Counting method</h2>
-      <p>Convert paver length and width to feet, divide total square footage by one paver’s area, then ceil to whole units. Add 5–10% waste for cuts (more for diagonal herringbone). Always buy a few extras for future repairs with the same dye lot when possible.</p>
+      <p>It sizes the gravel base, bedding sand, and paver face area from your dimensions and layer depths. Defaults are planning numbers (about 4 in base + 1 in sand). Match the paver maker's sheet when it disagrees.</p>
       <h2>Worked example</h2>
       <p>A 10×10 patio with 12×12 inch pavers needs 100 pavers exactly, about 110 with 10% waste. Plan ~1" sand bed and several inches of compacted gravel base—this calculator estimates those volumes too.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Pattern choice changes waste more than most people expect. Straight stack is efficient; diagonals need a thicker waste budget.</div>
@@ -378,7 +386,7 @@ export const toolBodies: Record<string, string> = {
       <ul>
         <li>Excavate to design depth including base and sand.</li>
         <li>Compact crushed stone in lifts.</li>
-        <li>Screed bedding sand; do not use sand to correct a bad base.</li>
+        <li>Screed bedding sand; don't use sand to correct a bad base.</li>
         <li>Install edge restraints before vibrating the surface.</li>
       </ul>
       <p>See also the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
@@ -396,14 +404,15 @@ export const toolBodies: Record<string, string> = {
       </div>
       <h2>Assumptions and limits</h2>
       <p>The paver calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Dry-lay a few rows to confirm the bond pattern before cutting edge pieces so your waste percentage stays realistic.</p>
@@ -411,11 +420,11 @@ export const toolBodies: Record<string, string> = {
   `,
   'fence-calculator': `
       <h2>Material takeoff logic</h2>
-      <p>sections = ceil(length ÷ post spacing); posts = sections + 1; rails = sections × rails per section; pickets from face width and gap along the run. Default spacing of 8 ft is common for wood privacy panels; heavier or taller panels may need 6 ft.</p>
+      <p>Enter run length, post spacing, and height-related options. You get post counts (including ends), rail estimates, and related piece counts for a straight run. Gate openings still need a manual subtract—don't double-count posts.</p>
       <p>The optional “bags per post” field defaults to one 80 lb bag as a <em>Fast-Setting dry-pour planning heuristic</em> for small holes—not a full cylinder fill. A typical 10" × 2.5 ft hole filled solid needs about three 80 lb bags of standard concrete mix after waste. For accurate concrete volume, use the <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> with your diameter and depth, then override bags-per-post here if you want a single materials list.</p>
       <h2>Worked example</h2>
       <p>A 48 ft run at 8 ft spacing needs 6 sections, 7 posts, and 18 rails if you use 3 rails per bay. With 5.5" pickets and 0.5" gaps, picket pitch is 6", so pickets ≈ (48×12)/6 = 96. For seven 10" × 2.5 ft holes filled solid, plan roughly fifteen 80 lb bags after 10% waste—not seven.</p>
-      <div class="takeaway"><strong>Key takeaway:</strong> Posts equal sections plus one. Forget the end post and your rails will not land correctly.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Posts equal sections plus one. Forget the end post and your rails won't land correctly.</div>
       <h2>Gates and corners</h2>
       <p>This estimator models a straight run. Add extra posts for gates, corners, and elevation breaks. Gate posts often use larger posts and more concrete—calculate those holes individually. Convert odd post and rail sizes to board feet with the <a href="/calculators/lumber-calculator/">lumber calculator</a>, and estimate stain or paint gallons with the <a href="/calculators/paint-calculator/">paint calculator</a> (see <a href="/guides/how-much-paint-for-a-room/">how much paint for a room</a> for coverage math).</p>
       <h2>Common mistakes</h2>
@@ -437,29 +446,30 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <h2>Assumptions and limits</h2>
+      <h2>Limits (read before you order)</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and HOA rules) before you set posts or order panels. Post spacing and frost depth vary by wind load and soil; confirm on site.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Print or screenshot the results before you shop so post counts and picket estimates stay aligned when a second person helps load materials.</p>
   `,
   'deck-material-calculator': `
       <h2>Simple rectangular takeoff</h2>
-      <p>Board rows ≈ deck width ÷ board face width (include the gap you will leave). Boards along the length depend on stock length. Joists at 16" on center are common, but composites and some spans require 12" o.c.—follow manufacturer span tables and local code.</p>
+      <p>It estimates deck boards and joists from footprint, board face width, and joist spacing. Orientation matters. Flip which side the boards run and the stick count changes. Pair it with the size guides for 12×16 and 16×24 takeoffs.</p>
       <h2>Worked example</h2>
       <p>A 16 × 12 ft deck with 5.5" face boards needs ceil(12 ÷ (5.5/12)) ≈ 27 rows. With 12 ft boards matching the length, that is 27 deck boards, plus joists at 16" o.c. along 16 ft (13 joists) and 2 rim joists. Screw counts scale with linear feet—budget extras for leftovers and misdrives.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Enter the actual face width including gap. Using nominal 6" without the gap under-orders boards.</div>
-      <h2>What this tool does not design</h2>
+      <h2>What this tool doesn't design</h2>
       <p>Stairs, multi-level decks, ledgers, beams, and footings need separate structural planning. Pair piers with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> when estimating footing concrete. Convert leftover framing sizes with the <a href="/calculators/lumber-calculator/">lumber / board-feet calculator</a>, and estimate stain gallons with the <a href="/calculators/paint-calculator/">paint calculator</a>.</p>
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Ignoring picture-frame borders that change board counts.</li>
         <li>Forgetting that hidden fastener systems change scrap rates.</li>
@@ -479,14 +489,15 @@ export const toolBodies: Record<string, string> = {
       </div>
       <h2>Assumptions and limits</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and composite span tables) before you order framing or decking. Results assume a simple rectangular layout; stairs, angles, and multi-level decks need extra takeoff.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
@@ -500,11 +511,11 @@ export const toolBodies: Record<string, string> = {
       </ul>
       <p>A 6/12 pitch rises 6 inches for every 12 inches of run—about 26.6°. Multiply horizontal plan area by the area factor to estimate roof surface for shingles. Continue with the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a>.</p>
       <h2>Worked example</h2>
-      <p>Rise 8", run 12" → pitch 8/12, angle ≈ 33.7°, area factor ≈ 1.202. A 40 × 25 ft plan footprint has 1,000 sq ft horizontal and about 1,202 sq ft of roof surface before dormers and overhangs.</p>
+      <p>Enter rise and run (or an angle) to get pitch as X/12 plus related factors. Use that pitch factor when you estimate shingles. Measuring in the attic beats walking a steep roof when you can.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Pitch is rise over run, not “steepness” alone. The area factor is what connects geometry to material quantity.</div>
       <h2>Measuring safely</h2>
       <p>Prefer attic rafter measurements or drawings when possible. Roof surfaces are fall hazards—read <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a> before climbing. After you know pitch, estimate bundles with the <a href="/calculators/roofing-shingles-calculator/">roofing shingles calculator</a> and convert fascia or framing leftovers with the <a href="/calculators/lumber-calculator/">lumber calculator</a>.</p>
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Using degrees when a supplier asks for X-in-12 pitch.</li>
         <li>Forgetting that hips, valleys, and overhangs add surface beyond a simple rectangle.</li>
@@ -525,14 +536,15 @@ export const toolBodies: Record<string, string> = {
       </div>
       <h2>Assumptions and limits</h2>
       <p>The roof pitch calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Record pitch as X-in-12 when talking to suppliers—many shingle specifications use that form instead of degrees.</p>
@@ -559,7 +571,7 @@ export const toolBodies: Record<string, string> = {
       <p>Plan 40 × 25 ft at 6/12: factor √(1+0.25)=1.118. Roof area ≈ 1,118 sq ft ≈ 11.18 squares. With 10% waste → 12.3 squares ≈ 37 bundles at 3 per square.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Always convert plan area through the pitch factor before dividing by 100. Ordering from footprint alone underbuys shingles.</div>
       <h2>Limits of a rectangle model</h2>
-      <p>Complex roofs need plane-by-plane takeoff for dormers, valleys, and wrap-around hips. Use this estimator for simple gables and quick budgets, then verify with a roofer’s measurements. Add starter strip and ridge/hip cap as separate line items—do not assume they are inside the field-bundle waste factor alone.</p>
+      <p>Complex roofs need plane-by-plane takeoff for dormers, valleys, and wrap-around hips. Use this estimator for simple gables and quick budgets, then verify with a roofer’s measurements. Add starter strip and ridge/hip cap as separate line items—don't assume they are inside the field-bundle waste factor alone.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Ignoring starter strip and ridge cap bundles.</li>
@@ -580,29 +592,30 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <h2>Assumptions and limits</h2>
+      <h2>Planning bounds</h2>
       <p>The roofing shingles calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Separate ridge, hip, and starter products from field bundles when you place the order so waste factors stay clear.</p>
   `,
   'paint-calculator': `
       <h2>Coverage formula</h2>
-      <p>Wall area for a rectangular room = 2 × (length + width) × height. Subtract doors (~20 sq ft) and windows (~15 sq ft each, adjustable). Gallons = paintable area × coats ÷ coverage. Default coverage is 350 sq ft/gallon per coat—porous or dramatic color changes may need more.</p>
+      <p>Wall area from perimeter × height, minus openings, divided by coverage per coat, times coats. YardTally defaults to about 350 sq ft/gallon based on common BEHR ranges (250–400). Dark-over-light and rough texture drink more paint.</p>
       <h2>Worked example</h2>
       <p>A 14 × 12 × 8 ft room has wall area 2×(14+12)×8 = 416 sq ft. Minus 2 doors and 2 windows (40+30) → 346 sq ft paintable. Two coats at 350 sq ft/gal ≈ 1.98 gallons—buy 2 gallons plus a little for touch-ups, or 3 if changing from dark to light.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Coats multiply paint need linearly. Primer can reduce finish coats when covering stains or stark color shifts.</div>
       <h2>Ceilings and exteriors</h2>
       <p>This tool focuses on four walls. Add ceiling area (L×W) separately if you are painting it. Exterior siding with texture can cut effective coverage sharply—check the can. Room-by-room examples and Behr coverage ranges are in <a href="/guides/how-much-paint-for-a-room/">how much paint for a room</a>.</p>
-      <h2>Common mistakes</h2>
+      <h2>Skip these</h2>
       <ul>
         <li>Using only floor area instead of wall area.</li>
         <li>Forgetting closets and hall returns.</li>
@@ -622,27 +635,28 @@ export const toolBodies: Record<string, string> = {
       </div>
       <h2>Assumptions and limits</h2>
       <p>The paint calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Buy all finish coats from the same batch when possible, and keep a labeled quart for touch-ups after furniture goes back in place.</p>
   `,
   'retaining-wall-calculator': `
       <h2>Formula used</h2>
-      <p>Courses = ceil(wall height ÷ block height). Blocks per course = ceil(wall length ÷ block length). Total blocks = courses × blocks per course × (1 + waste). Base trench gravel ≈ length × trench width × trench depth. Default face size is 18" × 6"—override with your block’s actual face dimensions.</p>
+      <p>It estimates block counts from wall length, height, and block size, plus a gravel trench volume from the defaults. Short garden walls and engineered tall walls aren't the same job. Stay inside the product's height limits.</p>
       <h2>Worked example</h2>
       <p>For a 20 ft long, 3 ft high wall with 18×6 inch blocks: courses = 6; blocks/course = ceil(20 ÷ 1.5) = 14; total = 84 blocks before waste. Base trench gravel is estimated from length × base width × base depth.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Taller walls and surcharges often need engineering and geogrid. Stay within manufacturer height limits for gravity walls.</div>
       <h2>Drainage matters</h2>
-      <p>Segmental walls usually need free-draining backfill and outlet pipes. Do not backfill with heavy clay against the blocks. Use the <a href="/calculators/gravel-calculator/">gravel calculator</a> for larger drain-rock volumes.</p>
-      <h2>Common mistakes</h2>
+      <p>Segmental walls usually need free-draining backfill and outlet pipes. Don't backfill with heavy clay against the blocks. Use the <a href="/calculators/gravel-calculator/">gravel calculator</a> for larger drain-rock volumes.</p>
+      <h2>Skip these</h2>
       <ul>
         <li>Skipping compacted base leveling pads.</li>
         <li>Ignoring setback/batter requirements per course.</li>
@@ -661,22 +675,23 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you build. Segmental gravity walls have rated height limits; taller walls, surcharges, and poor soils often need engineering and geogrid this tool does not design.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you build. Segmental gravity walls have rated height limits; taller walls, surcharges, and poor soils often need engineering and geogrid this tool doesn't design.</p>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>Stake the wall alignment and check the first course with a level; block counts assume a level base trench.</p>
   `,
   'grass-seed-calculator': `
       <h2>Seeding rates</h2>
-      <p>Seed needed = (lawn sq ft ÷ 1000) × rate. Cool-season blends often use about 3–4 lb/1000 sq ft for new lawns and roughly half that for overseeding. Species differ—tall fescue, Kentucky bluegrass, and ryegrass labels vary, so prefer the bag rate when it conflicts with defaults.</p>
+      <p>Lawn area ÷ 1,000 × the lb/1,000 sq ft rate from your bag or extension chart. Overlap patterns on a broadcast spreader waste seed if you double-cover by accident—calibrate once on a driveway first.</p>
       <h2>Worked example</h2>
       <p>A 50 × 20 ft yard is 1,000 sq ft. At 3.5 lb/1000 for a new lawn you need 3.5 lb of seed. Overseeding the same lawn at 1.75 lb/1000 needs 1.75 lb. Split large bags across multiple passes for even coverage.</p>
       <div class="table-scroll">
@@ -689,7 +704,7 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <div class="takeaway"><strong>Key takeaway:</strong> Do not use new-lawn rates when overseeding—excess seed increases competition and waste.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Don't use new-lawn rates when overseeding—excess seed increases competition and waste.</div>
       <h2>Timing and soil</h2>
       <p>Match species to sun, shade, and your region’s cool- or warm-season window. Topdressing with a light soil mix can improve seed-to-soil contact—estimate soil with the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> if you are spreading a wider dressing.</p>
       <h2>Common mistakes</h2>
@@ -699,23 +714,24 @@ export const toolBodies: Record<string, string> = {
         <li>Ignoring irrigation during establishment.</li>
       </ul>
 
-      <h2>Assumptions and limits</h2>
+      <h2>Limits (read before you order)</h2>
       <p>The grass seed calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>After seeding, keep the surface evenly moist through establishment; the calculator only sizes seed, not water or starter fertilizer.</p>
   `,
   'fertilizer-calculator': `
       <h2>Nitrogen math</h2>
-      <p>Product fertilizer = (area÷1000) × (desired lb nitrogen per 1000 ÷ nitrogen fraction). Example: 1 lb N/1000 sq ft using a 25-0-5 product needs 4 lb of product per 1,000 sq ft because 1 ÷ 0.25 = 4. Never exceed label rates; slow-release nitrogen reduces burn risk.</p>
+      <p>It backs out product pounds from the nitrogen you want per 1,000 sq ft and the bag's N%. Example path: 1 lb N with 30% N → about 3.3 lb of product per 1,000 sq ft. Local nutrient rules can cap what you're allowed to put down.</p>
       <h2>Worked example</h2>
       <p>For 2,000 sq ft at 1 lb N/1000 with 30% nitrogen fertilizer: product per 1000 = 1/0.30 ≈ 3.33 lb; total ≈ 6.67 lb. A 40 lb bag covers multiple applications—store dry and calibrate your spreader.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> The first number in N-P-K is percent nitrogen by weight. That percentage is the bridge from agronomic N rates to bag pounds.</div>
@@ -740,30 +756,31 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <h2>Assumptions and limits</h2>
+      <h2>Planning bounds</h2>
       <p>The fertilizer calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>If your bag lists coverage in square feet instead of an N rate, convert using the label math, then confirm the nitrogen percent still matches what you typed.</p>
   `,
   'raised-bed-soil-calculator': `
       <h2>Measuring interior dimensions</h2>
-      <p>Raised bed soil volume = interior length × width × fill depth. Use inside dimensions. An 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd). Deep beds can use bulk blends for most of the volume and a finer mix near the root zone.</p>
+      <p>Interior length × width × depth. A 4×8×12 in bed is 32 cu ft. Mix recipes (topsoil/compost/sand) change weight and cost more than they change the cubic feet, so lock volume first.</p>
       <h2>Worked example</h2>
       <p>Two 8×4×12" beds need 64 cu ft ≈ 2.4 cu yd. If you buy 1.5 cu ft bags, that is about 43 bags—bulk delivery is usually cheaper at this scale. Mel’s Mix style blends combine compost, aeration material, and soil in recipes you can scale with these volumes.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure the soil cavity, not the outside of the lumber. Thick boards meaningfully reduce interior width.</div>
       <h2>Mulch after planting</h2>
-      <p>After beds are filled and planted, estimate surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a> so you do not starve the soil volume budget. Depth targets are in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
+      <p>After beds are filled and planted, estimate surface mulch separately with the <a href="/calculators/mulch-calculator/">mulch calculator</a> so you don't starve the soil volume budget. Depth targets are in the <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide.</p>
       <h2>Choosing fill products</h2>
-      <p>Mineral topsoil, bagged garden soil, and potting mixes are not interchangeable. Compare labels in <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you fill deep boxes with the wrong product.</p>
+      <p>Mineral topsoil, bagged garden soil, and potting mixes aren't interchangeable. Compare labels in <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you fill deep boxes with the wrong product.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Filling only with lightweight potting mix in very deep beds (costly and can dry out).</li>
@@ -783,24 +800,25 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <h2>Assumptions and limits</h2>
+      <h2>Limits (read before you order)</h2>
       <p>The raised bed soil calculator results are planning estimates for rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. Always confirm coverage with the manufacturer label and local building practices before you buy large quantities.</p>
-      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
-      <h2>Shopping checklist</h2>
+      <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
+      <h2>Load-out checklist</h2>
       <ul>
         <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
         <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
         <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
         <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
       <p>If you stage soil in bulk bags, note the delivered cubic feet on the receipt and compare it with this estimate after settling.</p>
   `,
   'asphalt-calculator': `
       <h2>How this asphalt calculator works</h2>
-      <p>Enter driveway or pad length, width, and compacted asphalt depth. The tool returns cubic feet, cubic yards, and tons using a compacted hot-mix density you can edit. Default density is 145 lb per cubic foot—a common FHWA Federal Lands / industry planning weight for compacted hot asphalt mix (Iowa DOT also cites about 145 lb/cu ft for compacted HMA). Always confirm the plant mix density on the ticket.</p>
-      <h2>How it's calculated</h2>
+      <p>Area × thickness for volume, then tons from a density your supplier confirms. Hot-mix densities vary. Don't trust a random web factor when the plant will quote you in tons anyway.</p>
+      <h2>The math</h2>
       <ul>
         <li><strong>Volume (cu ft)</strong> = length × width × (depth ÷ 12), then × (1 + waste)</li>
         <li><strong>Tons</strong> = (volume_cu_ft × density_lb_per_cu_ft) ÷ 2,000</li>
@@ -820,12 +838,12 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <div class="takeaway"><strong>Key takeaway:</strong> Multiply area by compacted depth in feet, multiply by mix density, divide by 2,000. Do not use loose stockpile density for a finished mat.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Multiply area by compacted depth in feet, multiply by mix density, divide by 2,000. Don't use loose stockpile density for a finished mat.</div>
       <h2>Driveway thickness and base</h2>
-      <p>Residential asphalt surface courses are often about 2–3 inches over a compacted stone base, but traffic, climate, and local practice change that. This calculator does not size structural pavement sections. Estimate crushed-stone base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, and read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> before you pick base stone. For a concrete pad instead of asphalt, use the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+      <p>Residential asphalt surface courses are often about 2–3 inches over a compacted stone base, but traffic, climate, and local practice change that. This calculator doesn't size structural pavement sections. Estimate crushed-stone base separately with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, and read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a> before you pick base stone. For a concrete pad instead of asphalt, use the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
       <h2>Waste factor tips</h2>
       <p>Straight rectangular pads may only need a few percent extra. Odd-shaped drives, handwork around edges, and thin feathering burn more mix—5–10% is a practical DIY planning band. Cold joints and matched batches matter on multi-day pours; talk to the plant about minimum tonnage and staging.</p>
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Entering loose depth instead of compacted thickness.</li>
         <li>Using gravel density (~100–110 lb/cu ft) for asphalt, which under-orders tons.</li>
@@ -835,19 +853,20 @@ export const toolBodies: Record<string, string> = {
       <h2>Assumptions and limits</h2>
       <p>Results are planning estimates for rectangular areas with uniform compacted depth. Real driveways have crowns, tapers, and handwork. Confirm density, binder grade, and thickness with the paving contractor or plant before delivery day.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string; the canonical tag stays on the clean page URL.</p>
-      <h2>Shopping checklist</h2>
+      <h2>Before you buy</h2>
       <ul>
         <li>Write down tons and yards from the calculator and round up for waste.</li>
         <li>Ask the plant for compacted unit weight and minimum order.</li>
         <li>Confirm truck access, staging, and whether base stone arrives first.</li>
         <li>Photograph the layout so helpers measure the same footprint.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
   'brick-calculator': `
       <h2>How this brick &amp; block calculator works</h2>
-      <p>Pick clay brick or concrete block (CMU), then enter wall length, height, actual unit face size, mortar joint, and waste. The tool returns face area, units per square foot, courses, and unit counts with waste. Modular clay brick defaults to 7⅝ × 2¼ in with a ⅜ in joint—Glen-Gery publishes about 6.86 modular bricks per square foot at that joint. CMU mode defaults to a 15⅝ × 7⅝ in face (nominal 8×16 module).</p>
-      <h2>How it's calculated</h2>
+      <p>Wall or patio area ÷ area per brick, plus waste. Mortar joint width changes the effective brick module. Dry-lay a small mockup if the pattern is tricky before you buy the whole cube.</p>
+      <h2>The math</h2>
       <ul>
         <li><strong>Module</strong> = unit face + mortar joint (each direction)</li>
         <li><strong>Units per sq ft</strong> = 144 ÷ (module length × module height) in inches</li>
@@ -855,7 +874,7 @@ export const toolBodies: Record<string, string> = {
         <li><strong>Units per course</strong> = ceil(wall length ÷ module length)</li>
         <li><strong>Units with waste</strong> = ceil(exact count × (1 + waste))</li>
       </ul>
-      <p>Use actual (specified) unit sizes from the manufacturer, not the rounded nominal size, then add the joint you will tool. Nominal sizes already include one joint for modular layout—do not double-count by adding a joint on top of nominal dimensions.</p>
+      <p>Use actual (specified) unit sizes from the manufacturer, not the rounded nominal size, then add the joint you will tool. Nominal sizes already include one joint for modular layout—don't double-count by adding a joint on top of nominal dimensions.</p>
       <h2>Worked example: 20×8 ft modular brick wall</h2>
       <p>Module = 7.625 + 0.375 = 8 in long and 2.25 + 0.375 = 2.625 in high. Courses = ceil(96 ÷ 2.625) = 37. Units per course = ceil(240 ÷ 8) = 30. Exact = 1,110 bricks. With 5% waste → 1,166 bricks. Face area = 160 sq ft at about 6.86 bricks/sq ft before the course ceil rounds up for full courses.</p>
       <div class="table-scroll">
@@ -882,20 +901,21 @@ export const toolBodies: Record<string, string> = {
         <li>Skipping waste on cut-heavy patterns.</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you order. Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume is not estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you order. Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume isn't estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Confirm actual face dimensions and joint width with the supplier.</li>
         <li>Order extras from the same lot for repairs.</li>
         <li>Plan scaffolding, lintels, and flashing before the truck arrives.</li>
-        <li>Stage sand and mortar mix so the crew is not waiting on materials.</li>
+        <li>Stage sand and mortar mix so the crew isn't waiting on materials.</li>
       </ul>
+      <p>When the math is close, buy the extra unit. Leftovers beat a second trip.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
   'lumber-calculator': `
       <h2>How this lumber calculator works</h2>
-      <p>Enter nominal thickness, nominal width, length, and either a piece count or a target board-foot total. Softwood board feet follow the American Softwood Lumber Standard / 7 CFR 1217.4 board-measure rule: (thickness × width × length in feet) ÷ 12, using nominal thickness and width. Pieces under 1 inch nominal thickness tally as 1 inch thick.</p>
-      <h2>How it's calculated</h2>
+      <p>It converts board counts and dimensions into board feet and piece lists for common framing/decking takeoffs. Species and grade still come from your plan or code—not from this page.</p>
+      <h2>The math</h2>
       <ul>
         <li><strong>Board feet per piece</strong> = (T × W × L) ÷ 12</li>
         <li><strong>Total board feet</strong> = board feet per piece × piece count</li>
@@ -925,30 +945,31 @@ export const toolBodies: Record<string, string> = {
         <li>Using dressed 1½ × 3½ inches for a 2×4 board-foot tally (undercounts).</li>
         <li>Mixing meters and inches without converting length to feet for the formula.</li>
         <li>Assuming hardwood and softwood always use the same tally.</li>
-        <li>Forgetting that board feet already embed thickness—do not also multiply by a separate “depth.”</li>
+        <li>Forgetting that board feet already embed thickness—don't also multiply by a separate “depth.”</li>
       </ul>
-      <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before structural use. Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator does not design spans, grades, or species—check span tables and grade stamps.</p>
-      <h2>Shopping checklist</h2>
+      <h2>Limits (read before you order)</h2>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before structural use. Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator doesn't design spans, grades, or species—check span tables and grade stamps.</p>
+      <h2>Load-out checklist</h2>
       <ul>
-        <li>List each size separately (2×4s and 2×6s do not share a board-foot line item usefully at the rack).</li>
+        <li>List each size separately (2×4s and 2×6s don't share a board-foot line item usefully at the rack).</li>
         <li>Note grade and species on the quote.</li>
         <li>Add a few extras for culls when appearance matters.</li>
         <li>Measure twice before cutting long stock for headers and beams.</li>
       </ul>
+      <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
   'rebar-calculator': `
       <h2>How this rebar calculator works</h2>
       <p>Enter slab length, width, on-center spacing, bar size, stick length, and waste. The tool counts bars each way, total linear feet, stock sticks, and an estimated weight from common CRSI unit weights. It does <em>not</em> size structural reinforcement—confirm spacing, cover, and bar size with drawings and local code. For concrete volume and bags, use the <a href="/calculators/concrete-calculator/">concrete calculator</a> (and the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>).</p>
-      <h2>How it's calculated</h2>
+      <h2>The math</h2>
       <ul>
         <li><strong>Bars along length</strong> = floor((width × 12) ÷ spacing_in) + 1 (each bar is <em>length</em> long)</li>
         <li><strong>Bars along width</strong> = floor((length × 12) ÷ spacing_in) + 1 (each bar is <em>width</em> long)</li>
         <li><strong>Linear feet</strong> = bars_along_length × length + bars_along_width × width</li>
         <li><strong>Sticks</strong> = ceil(linear_feet × (1 + waste) ÷ stick_length)</li>
       </ul>
-      <p>Equal spacing each way builds a rectangular grid. Lap splices, hooked bars, and chairs consume extra steel—the waste percent is the place to capture that when the detail is not fully drawn.</p>
+      <p>Equal spacing each way builds a rectangular grid. Lap splices, hooked bars, and chairs consume extra steel—the waste percent is the place to capture that when the detail isn't fully drawn.</p>
       <h2>Worked example: 20×20 slab at 18&quot; o.c.</h2>
       <p>Across 20 ft (240 in) at 18 in spacing: floor(240÷18)+1 = 14 bars each way. Linear feet = 14×20 + 14×20 = 560 ft. With 10% waste → 616 ft. In 20 ft sticks: ceil(616÷20) = 31 sticks. Using #4 at 0.668 lb/ft ≈ 411 lb after waste.</p>
       <div class="table-scroll">
@@ -962,10 +983,10 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <div class="takeaway"><strong>Key takeaway:</strong> Count bars each way from spacing, sum linear feet, then convert to sticks with waste. Pair this page with the concrete volume calculator—do not invent a second slab-volume tool.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Count bars each way from spacing, sum linear feet, then convert to sticks with waste. Pair this page with the concrete volume calculator—don't invent a second slab-volume tool.</div>
       <h2>Cover, chairs, and mesh</h2>
       <p>Rebar on the dirt does nothing for crack control. Use chairs or dobies so the mat sits near mid-depth (or as detailed). Some light residential slabs use welded-wire mesh instead of bar; this calculator is for bar grids. Footing cages and wall mats need different layouts than a slab mat—start from the structural detail when you have one.</p>
-      <h2>Common mistakes</h2>
+      <h2>Mistakes I see a lot</h2>
       <ul>
         <li>Ordering concrete yards here—use the <a href="/calculators/concrete-calculator/">slab concrete calculator</a> instead.</li>
         <li>Ignoring laps: a continuous mat needs splice length (often about 40 bar diameters unless the detail says otherwise).</li>
@@ -973,14 +994,15 @@ export const toolBodies: Record<string, string> = {
         <li>Skipping waste on odd-shaped pours with many cuts.</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and the structural detail) before you order steel. Results assume a single rectangular mat with uniform spacing and full-length bars cut from stock sticks. They are not a substitute for engineered reinforcement schedules. Local amendments may require fiber, mesh, or tighter spacing than the defaults.</p>
-      <h2>Shopping checklist</h2>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code (and the structural detail) before you order steel. Results assume a single rectangular mat with uniform spacing and full-length bars cut from stock sticks. They aren't a substitute for engineered reinforcement schedules. Local amendments may require fiber, mesh, or tighter spacing than the defaults.</p>
+      <h2>Before you buy</h2>
       <ul>
         <li>Match bar grade (usually Grade 60) and size to the detail.</li>
         <li>Buy chairs, tie wire, and cutters with the sticks.</li>
         <li>Confirm stick length the yard stocks (20 ft vs 40 ft) before converting counts.</li>
-        <li>Pour day: keep the mat supported so it does not get walked into the subgrade.</li>
+        <li>Pour day: keep the mat supported so it doesn't get walked into the subgrade.</li>
       </ul>
+      <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
 };

@@ -55,6 +55,7 @@ function cylinderFromCuFt(volumeCuFt: number, wasteFactor: number): ConcreteVolu
     volumeCuYd: round(cuFtToCuYd(withWaste), 3),
     volumeCuM: round(cuFtToCuM(withWaste), 3),
     bags40: ceilBags(withWaste, BAG_YIELD_CUFT[40]),
+    bags50: ceilBags(withWaste, BAG_YIELD_CUFT[50]),
     bags60: ceilBags(withWaste, BAG_YIELD_CUFT[60]),
     bags80: ceilBags(withWaste, BAG_YIELD_CUFT[80]),
   };

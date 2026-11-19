@@ -18,9 +18,11 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
+- **Staging copy** for four new calculators under `src/data/staging/` (footing, deck-footing, slab-cost, french-drain) + `KEYWORD-MAP-additions.md` — not live yet.
 
 ### Remaining
 
+- Wire staging calculators into `tools.ts` / UI / math; merge keyword-map additions when shipping.
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets.
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.

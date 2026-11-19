@@ -23,7 +23,7 @@ import {
   roofPitch,
   sandVolume,
   slabVolume,
-  sonotubeVolume,
+  mixedSonotubeVolume,
   topsoilVolume,
   treeRingMulch,
 } from '../lib/calculators';
@@ -78,9 +78,27 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'waste', label: 'Waste %', value: '10' },
   ],
   sonotube: [
-    { name: 'diameter', label: 'Tube diameter', value: '12', hint: 'inches' },
-    { name: 'height', label: 'Height', value: '4', hint: 'feet' },
-    { name: 'count', label: 'Number of tubes', value: '4' },
+    { name: 'diameter', label: 'Tube diameter (size A)', value: '12', hint: 'inches' },
+    { name: 'height', label: 'Height (size A)', value: '4', hint: 'feet' },
+    { name: 'count', label: 'Number of tubes (size A)', value: '4' },
+    { name: 'diameterB', label: 'Tube diameter (size B, optional)', value: '0', hint: 'inches — 0 to skip' },
+    { name: 'heightB', label: 'Height (size B)', value: '0', hint: 'feet' },
+    { name: 'countB', label: 'Number of tubes (size B)', value: '0' },
+    {
+      name: 'baseType',
+      label: 'Base under tube',
+      type: 'select',
+      options: [
+        { value: 'none', label: 'None (tube only)' },
+        { value: 'bell', label: 'Bell / flared base' },
+        { value: 'pad', label: 'Circular pad' },
+      ],
+      value: 'none',
+    },
+    { name: 'bellDiameter', label: 'Bell base diameter', value: '24', hint: 'inches' },
+    { name: 'bellHeight', label: 'Bell height', value: '1', hint: 'feet' },
+    { name: 'padDiameter', label: 'Pad diameter', value: '24', hint: 'inches' },
+    { name: 'padThickness', label: 'Pad thickness', value: '12', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
   mulch: dims('20', '5', 'Depth', '3', 'inches'),
@@ -227,6 +245,7 @@ function concreteRows(
     ['Cubic yards', String(r.volumeCuYd)],
     ['Cubic meters', String(r.volumeCuM)],
     ['40 lb bags', String(r.bags40)],
+    ['50 lb bags', String(r.bags50)],
     ['60 lb bags', String(r.bags60)],
     ['80 lb bags', String(r.bags80)],
   ];
@@ -253,12 +272,10 @@ const postHolesDefault = postHoleVolume({
   count: 8,
   wasteFactor: 0.1,
 });
-const sonotubeDefault = sonotubeVolume({
-  diameter: 12,
-  height: 4,
-  count: 4,
-  wasteFactor: 0.05,
-});
+const sonotubeDefault = mixedSonotubeVolume(
+  [{ diameter: 12, height: 4, count: 4, baseType: 'none' }],
+  0.05,
+);
 const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
 const treeRingDefault = treeRingMulch({
   outerDiameter: 6,
@@ -375,7 +392,15 @@ const rebarDefault = rebarForSlab({
 export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
   'post-holes': concreteRows(postHolesDefault),
-  sonotube: concreteRows(sonotubeDefault),
+  sonotube: [
+    ['Volume', `${sonotubeDefault.volumeCuFt} cu ft`],
+    ['Cubic yards', String(sonotubeDefault.volumeCuYd)],
+    ['Cubic meters', String(sonotubeDefault.volumeCuM)],
+    ['40 lb bags', String(sonotubeDefault.bags40)],
+    ['50 lb bags', String(sonotubeDefault.bags50)],
+    ['60 lb bags', String(sonotubeDefault.bags60)],
+    ['80 lb bags', String(sonotubeDefault.bags80)],
+  ],
   mulch: [
     ['Area', `${mulchDefault.areaSqFt} sq ft`],
     [

@@ -31,6 +31,8 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
+              (calculatorId === 'sonotube' &&
+                ['bellDiameter', 'bellHeight', 'padDiameter', 'padThickness'].includes(field.name)) ||
               (calculatorId === 'lumber' && field.name === 'boardFeet')
             }
           >
@@ -107,7 +109,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     roofPitch,
     sandVolume,
     slabVolume,
-    sonotubeVolume,
+    mixedSonotubeVolume,
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
@@ -192,6 +194,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     volumeCuYd: number;
     volumeCuM: number;
     bags40: number;
+    bags50: number;
     bags60: number;
     bags80: number;
   }): [string, string][] {
@@ -200,6 +203,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       ['Cubic yards', String(r.volumeCuYd)],
       ['Cubic meters', String(r.volumeCuM)],
       ['40 lb bags', String(r.bags40)],
+      ['50 lb bags', String(r.bags50)],
       ['60 lb bags', String(r.bags60)],
       ['80 lb bags', String(r.bags80)],
     ];
@@ -329,7 +333,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       fields: [
         {
           name: 'diameter',
-          label: 'Tube diameter',
+          label: 'Tube diameter (size A)',
           imperialDefault: '12',
           metricDefault: '30',
           imperialHint: 'inches',
@@ -337,26 +341,117 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         },
         {
           name: 'height',
-          label: 'Height',
+          label: 'Height (size A)',
           imperialDefault: '4',
           metricDefault: '1.2',
           imperialHint: 'feet',
           metricHint: 'meters',
         },
-        { name: 'count', label: 'Number of tubes', imperialDefault: '4', metricDefault: '4' },
+        { name: 'count', label: 'Number of tubes (size A)', imperialDefault: '4', metricDefault: '4' },
+        {
+          name: 'diameterB',
+          label: 'Tube diameter (size B, optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'inches — 0 to skip',
+          metricHint: 'cm — 0 to skip',
+        },
+        {
+          name: 'heightB',
+          label: 'Height (size B)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'countB', label: 'Number of tubes (size B)', imperialDefault: '0', metricDefault: '0' },
+        {
+          name: 'baseType',
+          label: 'Base under tube',
+          type: 'select',
+          options: [
+            { value: 'none', label: 'None (tube only)' },
+            { value: 'bell', label: 'Bell / flared base' },
+            { value: 'pad', label: 'Circular pad' },
+          ],
+          imperialDefault: 'none',
+          metricDefault: 'none',
+        },
+        {
+          name: 'bellDiameter',
+          label: 'Bell base diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'bellHeight',
+          label: 'Bell height',
+          imperialDefault: '1',
+          metricDefault: '0.3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'padDiameter',
+          label: 'Pad diameter',
+          imperialDefault: '24',
+          metricDefault: '60',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'padThickness',
+          label: 'Pad thickness',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
         { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
       ],
       compute(v, u) {
-        return resultRows(
-          sonotubeVolume({
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const baseType = (selects?.baseType ?? 'none') as 'none' | 'bell' | 'pad';
+        const groups = [
+          {
             diameter: v.diameter,
             height: v.height,
             count: v.count,
-            diameterUnit: smallLengthUnit(u),
-            heightUnit: lengthUnit(u),
-            wasteFactor: v.waste / 100,
-          }),
-        );
+            diameterUnit: smallLengthUnit(u) as any,
+            heightUnit: lengthUnit(u) as any,
+            baseType,
+            bellDiameter: v.bellDiameter,
+            bellHeight: v.bellHeight,
+            padDiameter: v.padDiameter,
+            padThickness: v.padThickness,
+          },
+        ];
+        if (v.countB > 0 && v.diameterB > 0 && v.heightB > 0) {
+          groups.push({
+            diameter: v.diameterB,
+            height: v.heightB,
+            count: v.countB,
+            diameterUnit: smallLengthUnit(u) as any,
+            heightUnit: lengthUnit(u) as any,
+            baseType,
+            bellDiameter: v.bellDiameter,
+            bellHeight: v.bellHeight,
+            padDiameter: v.padDiameter,
+            padThickness: v.padThickness,
+          });
+        }
+        const r = mixedSonotubeVolume(groups, v.waste / 100);
+        return [
+          ['Volume', `${r.volumeCuFt} cu ft`],
+          ['Cubic yards', String(r.volumeCuYd)],
+          ['Cubic meters', String(r.volumeCuM)],
+          ['40 lb bags', String(r.bags40)],
+          ['50 lb bags', String(r.bags50)],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
+        ];
       },
     },
     mulch: {
@@ -1322,6 +1417,18 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     }
 
     function toggleModeFields() {
+      if (id === 'sonotube') {
+        const baseType = root.querySelector<HTMLSelectElement>('[name="baseType"]')?.value ?? 'none';
+        for (const name of ['bellDiameter', 'bellHeight']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = baseType !== 'bell';
+        }
+        for (const name of ['padDiameter', 'padThickness']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = baseType !== 'pad';
+        }
+        return;
+      }
       if (id === 'concrete') {
         const shape = root.querySelector<HTMLSelectElement>('[name="shape"]')?.value;
         for (const name of ['steps', 'riser', 'tread']) {
@@ -1406,6 +1513,13 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'diameterB',
+        'heightB',
+        'countB',
+        'bellDiameter',
+        'bellHeight',
+        'padDiameter',
+        'padThickness',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),

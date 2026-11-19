@@ -112,18 +112,18 @@ export const toolBodies: Record<string, string> = {
   `,
   'sonotube-concrete-calculator': `
       <h2>Column volume method</h2>
-      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula <strong>π × (inside diameter ÷ 2)² × height × count</strong>. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short. Convert cubic feet to bags with the yield on your mix, then round up.</p>
-      <p>YardTally’s live totals use QUIKRETE Concrete Mix No. 1101 / Sakrete-style planning yields of about <strong>0.30 / 0.45 / 0.60 cu ft</strong> for <strong>40 / 60 / 80 lb</strong> bags, plus a default <strong>5% waste</strong> for tube pours. The reference table below also lists <strong>50 lb</strong> bags at QUIKRETE’s published <strong>0.375 cu ft</strong> yield so you can compare common bag sizes before you shop.</p>
+      <p>This is a concrete calculator for tubes as well as branded Sonotube forms: any round cardboard concrete tube uses the cylinder formula <strong>π × (inside diameter ÷ 2)² × height × count</strong>. Use the inside diameter printed on the form. Height is the concrete column length you will fill—not necessarily the full tube length if you stop short. Optional footing bells (frustum) or circular pads add volume under each pier. A second diameter/height/count (set count to 0 to skip) covers mixed pier sizes on one takeoff.</p>
+      <p>YardTally’s live totals use QUIKRETE Concrete Mix No. 1101 planning yields of about <strong>0.30 / 0.375 / 0.45 / 0.60 cu ft</strong> for <strong>40 / 50 / 60 / 80 lb</strong> bags, plus a default <strong>5% waste</strong> for tube pours.</p>
 
-      <h2>Bags per Sonotube (reference table)</h2>
-      <p>Volume before waste = π × (Ø ÷ 24)² × height_ft, with Ø in inches. Bags = ceil(volume ÷ yield). Multiply by pier count, then add a little for spillage (the calculator’s 5% waste covers that).</p>
+      <h2>Bags per foot of Sonotube (8–36 in)</h2>
+      <p>Volume per foot = π × (Ø ÷ 24)² with Ø in inches. Bags = ceil(cu ft per ft ÷ yield). Multiply by height and pier count, then add waste. Yields: 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb.</p>
       <div class="table-scroll">
       <table>
-        <caption>Bags per tube before waste (yields 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb)</caption>
+        <caption>Bags per foot of height before waste (QUIKRETE 1101 yields)</caption>
         <thead>
           <tr>
-            <th>Inside Ø × depth</th>
-            <th>Volume</th>
+            <th>Inside Ø</th>
+            <th>Cu ft / ft</th>
             <th>40 lb</th>
             <th>50 lb</th>
             <th>60 lb</th>
@@ -131,30 +131,25 @@ export const toolBodies: Record<string, string> = {
           </tr>
         </thead>
         <tbody>
-          <tr><td>8″ × 2 ft</td><td>0.70 cu ft</td><td>3</td><td>2</td><td>2</td><td>2</td></tr>
-          <tr><td>8″ × 3 ft</td><td>1.05 cu ft</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
-          <tr><td>8″ × 4 ft</td><td>1.40 cu ft</td><td>5</td><td>4</td><td>4</td><td>3</td></tr>
-          <tr><td>10″ × 2 ft</td><td>1.09 cu ft</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
-          <tr><td>10″ × 3 ft</td><td>1.64 cu ft</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
-          <tr><td>10″ × 4 ft</td><td>2.18 cu ft</td><td>8</td><td>6</td><td>5</td><td>4</td></tr>
-          <tr><td>12″ × 2 ft</td><td>1.57 cu ft</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
-          <tr><td>12″ × 3 ft</td><td>2.36 cu ft</td><td>8</td><td>7</td><td>6</td><td>4</td></tr>
-          <tr><td>12″ × 4 ft</td><td>3.14 cu ft</td><td>11</td><td>9</td><td>7</td><td>6</td></tr>
-          <tr><td>16″ × 2 ft</td><td>2.79 cu ft</td><td>10</td><td>8</td><td>7</td><td>5</td></tr>
-          <tr><td>16″ × 3 ft</td><td>4.19 cu ft</td><td>14</td><td>12</td><td>10</td><td>7</td></tr>
-          <tr><td>16″ × 4 ft</td><td>5.59 cu ft</td><td>19</td><td>15</td><td>13</td><td>10</td></tr>
-          <tr><td>18″ × 2 ft</td><td>3.53 cu ft</td><td>12</td><td>10</td><td>8</td><td>6</td></tr>
-          <tr><td>18″ × 3 ft</td><td>5.30 cu ft</td><td>18</td><td>15</td><td>12</td><td>9</td></tr>
-          <tr><td>18″ × 4 ft</td><td>7.07 cu ft</td><td>24</td><td>19</td><td>16</td><td>12</td></tr>
+          <tr><td>8″</td><td>0.349</td><td>2</td><td>1</td><td>1</td><td>1</td></tr>
+          <tr><td>10″</td><td>0.545</td><td>2</td><td>2</td><td>2</td><td>1</td></tr>
+          <tr><td>12″</td><td>0.785</td><td>3</td><td>3</td><td>2</td><td>2</td></tr>
+          <tr><td>14″</td><td>1.069</td><td>4</td><td>3</td><td>3</td><td>2</td></tr>
+          <tr><td>16″</td><td>1.396</td><td>5</td><td>4</td><td>4</td><td>3</td></tr>
+          <tr><td>18″</td><td>1.767</td><td>6</td><td>5</td><td>4</td><td>3</td></tr>
+          <tr><td>20″</td><td>2.182</td><td>8</td><td>6</td><td>5</td><td>4</td></tr>
+          <tr><td>24″</td><td>3.142</td><td>11</td><td>9</td><td>7</td><td>6</td></tr>
+          <tr><td>30″</td><td>4.909</td><td>17</td><td>14</td><td>11</td><td>9</td></tr>
+          <tr><td>36″</td><td>7.069</td><td>24</td><td>19</td><td>16</td><td>12</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Example math for a 12″ × 4 ft tube: radius = 0.5 ft → π × 0.5² × 4 ≈ <strong>3.14 cu ft</strong>. At 0.60 cu ft per 80 lb bag that is ceil(3.14 ÷ 0.60) = <strong>6 bags</strong>; at 0.45 cu ft per 60 lb bag, ceil(3.14 ÷ 0.45) = <strong>7 bags</strong>; at 0.375 cu ft per 50 lb bag, <strong>9 bags</strong>; at 0.30 cu ft per 40 lb bag, <strong>11 bags</strong>. Enter your diameter, height, and count above for live totals with waste.</p>
+      <p>Example: a 12″ × 4 ft tube is 0.785 × 4 ≈ <strong>3.14 cu ft</strong> → ceil(3.14 ÷ 0.60) = <strong>6</strong> of the 80 lb bags, <strong>7</strong> of the 60 lb, <strong>9</strong> of the 50 lb, or <strong>11</strong> of the 40 lb before waste. Enter diameter, height, count, and optional base above for live totals.</p>
 
       <h2>Worked example: four 10″ tubes</h2>
       <p>Four 10″ Sonotubes, each 3 ft: diameter 10″ → r = 5/12 ft. Volume each = π × (5/12)² × 3 ≈ 1.64 cu ft. Four tubes ≈ 6.54 cu ft (~0.24 cu yd). With 5% waste → 6.87 cu ft, which is ceil(6.87 ÷ 0.60) = 12 bags of 80 lb mix.</p>
-      <p>A 12″ tube holds about 0.785 cu ft per foot of height—useful for deck footings when paired with proper footing bells or pads as required by code. Narrative charts and pier tips also live in the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide; use this page when you need live bag counts.</p>
-      <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count, convert with the yield on your bag, and keep a small waste factor for spillage when filling tall forms.</div>
+      <p>When plans call for a footing bell or round pad under the tube, choose that base type in the calculator. The bell uses a frustum (tube diameter at the top, larger base diameter at the bottom); the pad is a cylinder under the shaft. Narrative charts also live in the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Measure inside diameter, multiply by pier count (and a second size if needed), add optional bell or pad volume, convert with the yield on your bag, and keep a small waste factor for spillage.</div>
 
       <h2>Sonotube vs slab vs fence post holes</h2>
       <p>Cardboard tube forms (deck piers, round columns) belong here. Rectangular pads and steps belong on the <a href="/calculators/concrete-calculator/">concrete calculator for slabs and yards</a> (and the <a href="/guides/concrete-for-10x10-slab/">10×10 slab concrete guide</a>). Dug fence or sign post holes without a tube belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide—same cylinder math, different default waste and job details. Bag yields: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
@@ -164,15 +159,16 @@ export const toolBodies: Record<string, string> = {
       <h2>Common mistakes</h2>
       <ul>
         <li>Using outside diameter instead of inside diameter.</li>
-        <li>Forgetting to multiply by the number of piers.</li>
+        <li>Forgetting to multiply by the number of piers (or a second mixed size).</li>
+        <li>Leaving footing bell/pad volume out when the detail calls for it.</li>
         <li>Pouring without bracing, which can ovalize thin forms.</li>
         <li>Using the fence-post bag chart for tube piers (or the reverse) without checking diameter and depth.</li>
       </ul>
 
       <h2>Formula used</h2>
-      <p>Volume (cu ft) = π × (inside diameter ÷ 2)² × height × count, with diameter and height converted to feet. Bags = ceil(volume × (1 + waste) ÷ bag yield). Default yields follow common QUIKRETE / Sakrete planning charts (about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb).</p>
+      <p>Shaft volume (cu ft) = π × (inside diameter ÷ 2)² × height × count. Optional bell = (π h / 3)(R² + R r + r²) per tube; optional pad = π R² × thickness per tube. Bags = ceil(total × (1 + waste) ÷ bag yield). Default yields follow QUIKRETE 1101 (about 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb).</p>
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour deck piers or columns. Use inside diameter, not outside. This tool does not design footing bells, reinforcement, or frost depth.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour deck piers or columns. Use inside diameter, not outside. This tool estimates volume for a chosen tube and optional base shape—it does not design footing size, reinforcement, or frost depth.</p>
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines do not index every parameter combination.</p>
       <h2>Shopping checklist</h2>
       <ul>

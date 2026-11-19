@@ -388,11 +388,11 @@ export const tools: ToolDefinition[] = [
     ],
     title: 'Sonotube Concrete Calculator: Bags',
     description:
-      'Free Sonotube concrete calculator: diameter × height → cubic yards and 40/60/80 lb bags. See how many bags of concrete for 8–18 inch tubes.',
+      'Free Sonotube calculator: bags for 8–36″ tubes, optional bell/pad footing, mixed sizes, and bags-per-foot. Confirm label yields before you pour.',
     h1: 'Sonotube Concrete Calculator: Bags by Diameter',
     answerFirst:
-      'This concrete calculator for tubes (Sonotube and other cardboard concrete forms) uses π × (inside diameter ÷ 2)² × height. A 12-inch tube 4 feet tall holds about 3.14 cu ft (~0.12 cu yd), roughly six 80 lb bags (or seven 60 lb) before waste. Multiply by pier count and add 5% for spillage.',
-    summary: 'Round column and pier forms by diameter and height.',
+      'Sonotube volume is π × (inside Ø ÷ 2)² × height. A 12″ × 4 ft tube is about 3.14 cu ft—six 80 lb bags before waste (QUIKRETE 1101). Add an optional bell or pad when required, mix two diameters in one run, and keep about 5% waste for spillage.',
+    summary: 'Round pier forms with optional bell/pad, mixed sizes, and bags-per-foot.',
     calculatorId: 'sonotube',
     relatedSlugs: ['concrete-calculator', 'concrete-calculator-post-holes', 'deck-material-calculator'],
     relatedGuideSlugs: [
@@ -403,9 +403,24 @@ export const tools: ToolDefinition[] = [
     ],
     faq: [
       {
+        question: 'How many bags of concrete per foot of Sonotube?',
+        answer:
+          'Per foot before waste, bags = ceil(π × (Ø÷24)² ÷ yield) with QUIKRETE 1101 yields of about 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb. A 12″ tube is about 0.785 cu ft/ft → 3 / 3 / 2 / 2 bags. Multiply by height and pier count, then add waste. See the bags-per-foot table on this page.',
+      },
+      {
+        question: 'Can this Sonotube calculator include a footing bell or pad?',
+        answer:
+          'Yes. Choose bell (truncated cone) or circular pad under the tube to add that volume before waste. Required sizes come from local code or a plan—this tool only estimates concrete volume. Rectangular strip footings use the main concrete calculator.',
+      },
+      {
+        question: 'Can I mix different Sonotube diameters in one run?',
+        answer:
+          'Yes. Enter size A diameter/height/count, then optional size B. Volumes are summed before bag conversion. Example: two 12″×4 ft plus two 10″×3 ft is about 12.8 cu ft before waste.',
+      },
+      {
         question: 'How many bags of concrete for a Sonotube?',
         answer:
-          'Volume = π × r² × height using inside diameter, then divide by bag yield and round up. A 12″ × 4 ft Sonotube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste (QUIKRETE 1101 yields). Multiply by pier count; the calculator adds a default 5% waste for spillage.',
+          'Volume = π × r² × height using inside diameter, then divide by bag yield and round up. A 12″ × 4 ft Sonotube is about 3.14 cu ft—plan on six 80 lb bags, seven 60 lb bags, nine 50 lb bags, or eleven 40 lb bags before waste (QUIKRETE 1101 yields). Multiply by pier count; the calculator adds a default 5% waste for spillage. Optional bell/pad volume is extra when selected.',
       },
       {
         question: 'How much concrete for a 12-inch Sonotube?',
@@ -449,7 +464,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-18',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

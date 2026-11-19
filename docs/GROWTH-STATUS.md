@@ -25,6 +25,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
+- **2026-11-19 — this PR:** Sonotube upgrade: optional bell/pad footing, mixed tube sizes, bags-per-foot table (8–36″), 50 lb bag counts.
 - **2026-11-19 — this PR (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
@@ -58,7 +59,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- **2026-11-19:** Internal linking + indexing audit PR (this branch) — code done pending merge/deploy + GSC validation.
+- **2026-11-19:** Sonotube calculator upgrade PR (this branch) — footing/bell, mixed sizes, bags50, bags-per-foot table.
 
 ## Off-repo work
 

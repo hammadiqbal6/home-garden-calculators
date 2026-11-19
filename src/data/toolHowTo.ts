@@ -56,15 +56,19 @@ export const toolHowTo: Record<string, ToolHowTo> = {
     steps: [
       {
         name: 'Enter inside diameter and height',
-        text: 'Use the clear inside diameter labeled on the cardboard concrete tube (Sonotube or equivalent), plus the fill height of the column.',
+        text: 'Use the clear inside diameter labeled on the cardboard concrete tube (Sonotube or equivalent), plus the fill height of the column. Optional size B covers a second diameter on the same pour.',
       },
       {
-        name: 'Set tube count and waste',
-        text: 'Multiply by the number of piers or tubes and add a small waste percent for spillage when filling tall forms.',
+        name: 'Optional footing bell or pad',
+        text: 'If a flared bell or circular pad sits under the tube, choose that base type and enter its dimensions. Leave “none” for a straight cylinder. This adds planning volume only—it does not design the footing.',
+      },
+      {
+        name: 'Set tube counts and waste',
+        text: 'Enter count for each size group and add a small waste percent for spillage when filling tall forms (default about 5%).',
       },
       {
         name: 'Read volume and bag estimates',
-        text: 'The calculator uses π × (radius)² × height × count, then bag yields from your mix label (about 0.60 cu ft per 80 lb bag for QUIKRETE Concrete Mix 1101).',
+        text: 'The calculator uses π × (radius)² × height × count (plus optional base), then bag yields from your mix label (about 0.30 / 0.375 / 0.45 / 0.60 cu ft for 40 / 50 / 60 / 80 lb QUIKRETE 1101). Cross-check tall piers with the bags-per-foot table.',
       },
       {
         name: 'Brace forms before pouring',

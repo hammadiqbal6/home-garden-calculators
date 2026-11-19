@@ -105,12 +105,24 @@ describe('concrete', () => {
     expect(r.volumeCuFt).toBeCloseTo(expected, 3);
   });
 
-  it('bag yields match 40/60/80 lb published coverage', () => {
+  it('bag yields match 40/50/60/80 lb published coverage', () => {
     expect(BAG_YIELD_CUFT[40]).toBe(0.3);
+    expect(BAG_YIELD_CUFT[50]).toBe(0.375);
     expect(BAG_YIELD_CUFT[60]).toBe(0.45);
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+    expect(bagsNeeded(1.2, 50)).toBe(4);
+  });
+
+  it('sonotube results include bags50', () => {
+    const r = sonotubeVolume({
+      diameter: 12,
+      height: 4,
+      wasteFactor: 0,
+    });
+    expect(r.bags50).toBe(9);
+    expect(r.bags80).toBe(6);
   });
 });
 

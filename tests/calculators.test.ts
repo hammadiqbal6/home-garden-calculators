@@ -10,6 +10,8 @@ import {
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
+  footingRebar,
+  footingVolume,
   grassSeed,
   gravelVolume,
   lumberFromBoardFeet,
@@ -111,6 +113,106 @@ describe('concrete', () => {
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+  });
+});
+
+describe('footing', () => {
+  it('strip 40 ft × 16 in × 8 in is ~35.56 cu ft before waste', () => {
+    // 40 × (16/12) × (8/12) = 5120/144 ≈ 35.556 cu ft ≈ 1.317 cu yd
+    const r = footingVolume({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      depth: 8,
+      widthUnit: 'in',
+      depthUnit: 'in',
+      wasteFactor: 0,
+    });
+    expect(r.volumeCuFt).toBeCloseTo(35.556, 2);
+    expect(r.volumeCuYd).toBeCloseTo(cuFtToCuYd(35.556), 2);
+  });
+
+  it('applies 10% waste and bag yields (QUIKRETE/Sakrete planning)', () => {
+    const r = footingVolume({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      depth: 8,
+      widthUnit: 'in',
+      depthUnit: 'in',
+    });
+    expect(r.volumeCuFt).toBeCloseTo(35.556 * 1.1, 2);
+    // ceil(39.111 / 0.60) = 66 × 80 lb; ceil(39.111 / 0.45) = 87 × 60 lb
+    expect(r.bags80).toBe(66);
+    expect(r.bags60).toBe(87);
+    expect(r.bags40).toBe(131);
+  });
+
+  it('pad count multiplies rectangular volume', () => {
+    const one = footingVolume({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      depth: 12,
+      depthUnit: 'in',
+      count: 1,
+      wasteFactor: 0,
+    });
+    const four = footingVolume({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      depth: 12,
+      depthUnit: 'in',
+      count: 4,
+      wasteFactor: 0,
+    });
+    expect(one.volumeCuFt).toBeCloseTo(9, 3);
+    expect(four.volumeCuFt).toBeCloseTo(36, 3);
+  });
+
+  it('strip rebar: 2 long bars + transverse at spacing', () => {
+    // 2 × 40 + (floor(480/18)+1) × (16/12) = 80 + 27 × 1.333… = 116 lf
+    const r = footingRebar({
+      footingType: 'strip',
+      length: 40,
+      width: 16,
+      widthUnit: 'in',
+      longitudinalBars: 2,
+      spacingIn: 18,
+      barSize: 4,
+      stickLengthFt: 20,
+      wastePercent: 10,
+    });
+    expect(r.longitudinalBars).toBe(2);
+    expect(r.transverseBars).toBe(27);
+    expect(r.linearFeet).toBeCloseTo(116, 1);
+    expect(r.linearFeetWithWaste).toBeCloseTo(127.6, 1);
+    expect(r.sticks).toBe(7);
+    expect(r.weightLbs).toBeCloseTo(127.6 * REBAR_LB_PER_FT[4], 0);
+  });
+
+  it('pad rebar scales a each-way mat by count', () => {
+    const one = footingRebar({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      spacingIn: 12,
+      barSize: 4,
+      wastePercent: 0,
+    });
+    const two = footingRebar({
+      footingType: 'pad',
+      length: 3,
+      width: 3,
+      count: 2,
+      spacingIn: 12,
+      barSize: 4,
+      wastePercent: 0,
+    });
+    // floor(36/12)+1 = 4 bars each way → 4×3 + 4×3 = 24 lf
+    expect(one.linearFeet).toBeCloseTo(24, 2);
+    expect(two.linearFeet).toBeCloseTo(48, 2);
   });
 });
 

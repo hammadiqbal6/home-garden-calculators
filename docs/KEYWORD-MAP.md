@@ -13,6 +13,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/hubs/outdoor-structures/` | outdoor project calculator | fence deck roof calculators |
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
+| `/calculators/concrete-footing-calculator/` | concrete footing calculator | strip footing calculator, pad footing calculator, continuous footing calculator, how much concrete for a footing |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
 | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator, how much concrete for sonotube |
 | `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
@@ -63,8 +64,9 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 ## Cannibalization rules
 
 - Post holes and Sonotube are **separate intents** (fence holes vs form tubes)—keep separate pages.
-- Main concrete calculator targets **slabs/footings/steps** only—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
-- Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab/footing volume URL.
+- Main concrete calculator targets **slabs/steps** (and generic rectangular volume)—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
+- Strip/pad **footing volume** is a distinct intent from slab volume—keep `/calculators/concrete-footing-calculator/`; do not clone doorway size URLs (e.g. `/16-inch-footing-calculator/`).
+- Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab-volume URL under a rebar slug.
 - Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.
 - Lumber calculator owns board-foot tally—do not split `/board-feet-calculator/`. Deck board/joist layout stays on the deck-material tool.
 - Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.

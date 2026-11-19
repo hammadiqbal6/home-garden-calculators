@@ -31,7 +31,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             hidden={
               (calculatorId === 'concrete' &&
                 ['steps', 'riser', 'tread'].includes(field.name)) ||
-              (calculatorId === 'lumber' && field.name === 'boardFeet')
+              (calculatorId === 'lumber' && field.name === 'boardFeet') ||
+              (calculatorId === 'footing' &&
+                ['longBars', 'spacing', 'barSize', 'stick', 'rebarWaste'].includes(field.name))
             }
           >
             <label for={`${calculatorId}-${field.name}`}>{field.label}</label>
@@ -92,6 +94,8 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
+    footingRebar,
+    footingVolume,
     grassSeed,
     gravelVolume,
     lumberFromBoardFeet,
@@ -357,6 +361,154 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             wasteFactor: v.waste / 100,
           }),
         );
+      },
+    },
+    footing: {
+      fields: [
+        {
+          name: 'footingType',
+          label: 'Footing type',
+          type: 'select',
+          options: [
+            { value: 'strip', label: 'Continuous / strip' },
+            { value: 'pad', label: 'Spread pad' },
+          ],
+          imperialDefault: 'strip',
+          metricDefault: 'strip',
+        },
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '40',
+          metricDefault: '12',
+          imperialHint: 'feet (run length)',
+          metricHint: 'meters (run length)',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '16',
+          metricDefault: '40',
+          imperialHint: 'inches (strip/pad width)',
+          metricHint: 'centimeters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth / thickness',
+          imperialDefault: '8',
+          metricDefault: '20',
+          imperialHint: 'inches',
+          metricHint: 'centimeters',
+        },
+        {
+          name: 'count',
+          label: 'Count',
+          imperialDefault: '1',
+          metricDefault: '1',
+          imperialHint: 'segments or pads',
+          metricHint: 'segments or pads',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'rebar',
+          label: 'Rebar estimate',
+          type: 'select',
+          options: [
+            { value: 'no', label: 'Off' },
+            { value: 'yes', label: 'On (planning only)' },
+          ],
+          imperialDefault: 'no',
+          metricDefault: 'no',
+        },
+        {
+          name: 'longBars',
+          label: 'Longitudinal bars',
+          imperialDefault: '2',
+          metricDefault: '2',
+          imperialHint: 'strip only',
+          metricHint: 'strip only',
+        },
+        {
+          name: 'spacing',
+          label: 'Bar spacing (o.c.)',
+          imperialDefault: '18',
+          metricDefault: '45',
+          imperialHint: 'inches (transverse / each-way)',
+          metricHint: 'cm (transverse / each-way)',
+        },
+        {
+          name: 'barSize',
+          label: 'Bar size',
+          type: 'select',
+          options: [
+            { value: '3', label: '#3 (⅜")' },
+            { value: '4', label: '#4 (½")' },
+            { value: '5', label: '#5 (⅝")' },
+            { value: '6', label: '#6 (¾")' },
+          ],
+          imperialDefault: '4',
+          metricDefault: '4',
+        },
+        {
+          name: 'stick',
+          label: 'Stick length',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'rebarWaste',
+          label: 'Rebar waste / lap %',
+          imperialDefault: '10',
+          metricDefault: '10',
+        },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const footingType = (selects?.footingType ?? 'strip') === 'pad' ? 'pad' : 'strip';
+        const widthUnit = u === 'imperial' ? 'in' : 'cm';
+        const vol = footingVolume({
+          footingType,
+          length: v.length,
+          width: v.width,
+          depth: v.depth,
+          count: v.count,
+          lengthUnit: lengthUnit(u),
+          widthUnit,
+          depthUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const rows = resultRows(vol);
+        rows.unshift(['Footing type', footingType === 'pad' ? 'Spread pad' : 'Continuous / strip']);
+        rows.splice(1, 0, ['Count', String(vol.count)]);
+        if ((selects?.rebar ?? 'no') !== 'yes') return rows;
+
+        const barSize = Number(selects?.barSize ?? 4) as RebarSize;
+        const spacingIn = u === 'imperial' ? v.spacing : v.spacing / 2.54;
+        const stickFt = u === 'imperial' ? v.stick : v.stick * 3.280839895;
+        const steel = footingRebar({
+          footingType,
+          length: v.length,
+          width: v.width,
+          count: v.count,
+          lengthUnit: lengthUnit(u),
+          widthUnit,
+          longitudinalBars: v.longBars,
+          spacingIn,
+          barSize: ([3, 4, 5, 6].includes(barSize) ? barSize : 4) as RebarSize,
+          stickLengthFt: stickFt,
+          wastePercent: v.rebarWaste,
+        });
+        return [
+          ...rows,
+          ['Longitudinal bars', String(steel.longitudinalBars)],
+          ['Transverse / cross bars', String(steel.transverseBars)],
+          ['Rebar linear feet', String(steel.linearFeet)],
+          ['Rebar + waste', String(steel.linearFeetWithWaste)],
+          [`${steel.stickLengthFt} ft sticks`, String(steel.sticks)],
+          ['Est. rebar weight', `${steel.weightLbs} lb`],
+        ];
       },
     },
     mulch: {
@@ -1336,6 +1488,23 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         if (lengthLabel) lengthLabel.textContent = shape === 'steps' ? 'Stair width' : 'Length';
         return;
       }
+      if (id === 'footing') {
+        const rebarOn =
+          root.querySelector<HTMLSelectElement>('[name="rebar"]')?.value === 'yes';
+        const footingType =
+          root.querySelector<HTMLSelectElement>('[name="footingType"]')?.value ?? 'strip';
+        for (const name of ['spacing', 'barSize', 'stick', 'rebarWaste']) {
+          const el = root.querySelector<HTMLElement>(`[data-field="${name}"]`);
+          if (el) el.hidden = !rebarOn;
+        }
+        const longEl = root.querySelector<HTMLElement>('[data-field="longBars"]');
+        if (longEl) longEl.hidden = !rebarOn || footingType !== 'strip';
+        const countLabel = root.querySelector<HTMLElement>('[data-field="count"] label');
+        if (countLabel) {
+          countLabel.textContent = footingType === 'pad' ? 'Number of pads' : 'Number of segments';
+        }
+        return;
+      }
       if (id === 'lumber') {
         const mode = root.querySelector<HTMLSelectElement>('[name="mode"]')?.value ?? 'pieces';
         const piecesEl = root.querySelector<HTMLElement>('[data-field="pieces"]');
@@ -1381,7 +1550,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       (values as any).selectValues = selectValues;
       // Backward-compatible alias used by the concrete shape branch.
       (values as any).shapeRaw =
-        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
+        selectValues.shape ??
+        selectValues.footingType ??
+        selectValues.mode ??
+        selectValues.barSize ??
+        'slab';
       return values;
     }
 
@@ -1397,6 +1570,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     function markInvalidFields(message: string) {
       const allowZero = new Set([
         'waste',
+        'rebarWaste',
         'doors',
         'windows',
         'rise',

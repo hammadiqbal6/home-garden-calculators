@@ -72,6 +72,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'concrete-footing-calculator': {
+    name: 'How to estimate concrete for strip and pad footings',
+    steps: [
+      {
+        name: 'Choose strip or pad and enter dimensions',
+        text: 'Select continuous/strip or spread pad. Enter length, width, depth, and the number of segments or pads. Convert width and depth to the units shown before multiplying.',
+      },
+      {
+        name: 'Set waste percent',
+        text: 'Add waste for over-dig and form bulge (default 10%). Round ready-mix up when a short load would cost more than the extra yardage.',
+      },
+      {
+        name: 'Read cubic yards and bag counts',
+        text: 'Cubic feet ÷ 27 = yards. Bags use published planning yields of about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb mixes (QUIKRETE Concrete Mix 1101 / Sakrete)—confirm the bag you buy.',
+      },
+      {
+        name: 'Optional: toggle rebar for a stick estimate',
+        text: 'Turn rebar On for a planning takeoff of longitudinal and cross bars. This is not a structural design—follow drawings and local code for size, spacing, cover, and laps.',
+      },
+    ],
+  },
   'mulch-calculator': {
     name: 'How to estimate mulch by area and depth',
     steps: [

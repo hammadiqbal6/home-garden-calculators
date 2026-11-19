@@ -28,6 +28,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many 80 lb bags of concrete per cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab? → ${origin}/guides/concrete-for-10x10-slab/
 - Concrete calculator yards and bags? → ${origin}/calculators/concrete-calculator/
+- How much concrete for a strip footing? → ${origin}/calculators/concrete-footing-calculator/
+- Concrete footing calculator (strip and pad)? → ${origin}/calculators/concrete-footing-calculator/
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/

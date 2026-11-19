@@ -67,12 +67,12 @@ export const categories: Record<
   concrete: {
     slug: 'concrete',
     name: 'Concrete calculators',
-    title: 'Concrete Calculators: Slabs, Posts, Sonotubes',
+    title: 'Concrete Calculators: Slabs, Footings, Posts',
     description:
-      'Free concrete calculators for slabs, footings, fence post holes, Sonotubes and steps. Get cubic yards and bag counts, plus guides on mixing and waste allowance.',
+      'Free concrete calculators for slabs, strip/pad footings, posts, Sonotubes and steps. Get cubic yards and 40/60/80 lb bag counts.',
     primaryKeyword: 'concrete calculator hub',
     answerFirst:
-      'Estimate slabs, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈56 × 80 lb bags before waste; ~62 after 10%).',
+      'Estimate slabs, footings, post holes, and Sonotubes in cubic yards and 40/60/80 lb bags. A 10×10 ft patio at 4 inches needs about 1.23 cu yd (≈56 × 80 lb bags before waste; ~62 after 10%).',
     introHtml: `
       <h2>Which concrete calculator do I need?</h2>
       <div class="table-scroll">
@@ -80,7 +80,8 @@ export const categories: Record<
         <caption>Match the pour shape to the right tool</caption>
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
-          <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Patio, slab, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Strip or spread pad footings</td><td><a href="/calculators/concrete-footing-calculator/">Concrete footing calculator</a></td><td>40 ft × 16&quot; × 8&quot; ≈ 1.32 yd³ (~66 × 80 lb after 10% waste)</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
           <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
@@ -232,11 +233,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Slabs, footings, and solid steps with cubic yards and bag counts.',
     calculatorId: 'concrete',
     relatedSlugs: [
+      'concrete-footing-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
       'brick-calculator',
-      'fence-calculator',
     ],
     relatedGuideSlugs: [
       'how-many-bags-of-concrete',
@@ -248,7 +249,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How many bags of concrete do I need?',
         answer:
-          'Convert your pour to cubic feet, divide by the bag yield, then round up and add waste. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. Example: a 10×10×4″ slab is 33.33 cu ft → about 1.23 cu yd; with 10% waste that is 62 × 80 lb bags or 82 × 60 lb bags. Use this slab calculator for rectangles; round forms need the Sonotube or post-hole tools.',
+          'Convert your pour to cubic feet, divide by the bag yield, then round up and add waste. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags. Example: a 10×10×4″ slab is 33.33 cu ft → about 1.23 cu yd; with 10% waste that is 62 × 80 lb bags or 82 × 60 lb bags. Use this slab calculator for rectangles; strip/pad footings have a dedicated footing calculator; round forms need the Sonotube or post-hole tools.',
       },
       {
         question: 'How do I get cubic yards from a concrete calculator?',
@@ -450,6 +451,91 @@ export const tools: ToolDefinition[] = [
     sectionsHtml: toolBodies['sonotube-concrete-calculator'],
     datePublished: '2026-10-19',
     dateModified: '2026-11-18',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'concrete-footing-calculator',
+    name: 'Concrete Footing Calculator',
+    shortName: 'Footings',
+    category: 'concrete',
+    primaryKeyword: 'concrete footing calculator',
+    secondaryKeywords: [
+      'strip footing calculator',
+      'footing concrete calculator',
+      'pad footing calculator',
+      'continuous footing calculator',
+      'how much concrete for a footing',
+    ],
+    title: 'Concrete Footing Calculator: Yards & Bags',
+    description:
+      'Free concrete footing calculator for strip and pad footings. Get cubic yards, waste %, 40/60/80 lb bags, and an optional rebar estimate.',
+    h1: 'Concrete Footing Calculator: Strip & Pad',
+    answerFirst:
+      'Strip and pad footings use length × width × depth × count. A 40 ft run 16 in wide by 8 in deep is about 35.6 cu ft (1.32 cu yd) before waste—about 66 × 80 lb bags after 10%. Bag yields follow QUIKRETE/Sakrete (~0.30/0.45/0.60 cu ft). Optional rebar is a planning takeoff, not a design.',
+    summary: 'Strip and pad footing yards, bags, and optional rebar.',
+    calculatorId: 'footing',
+    relatedSlugs: [
+      'concrete-calculator',
+      'rebar-calculator',
+      'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: [
+      'how-many-bags-of-concrete',
+      'concrete-for-10x10-slab',
+      'how-much-concrete-in-a-sonotube',
+    ],
+    faq: [
+      {
+        question: 'How much concrete for a strip footing?',
+        answer:
+          'Multiply length × width × depth (all in feet) × number of segments. A 40 ft × 16 in × 8 in strip is about 35.6 cu ft (1.32 cu yd) before waste; with 10% waste plan about 66 × 80 lb bags at 0.60 cu ft per bag. Enter the same dimensions above for live totals.',
+      },
+      {
+        question: 'How do I calculate pad footing concrete?',
+        answer:
+          'Use the same rectangle formula per pad, then multiply by pad count. Four 3×3×12 in pads are 36 cu ft (~1.33 cu yd) before waste. Switch footing type to Spread pad and set Count to the number of pads.',
+      },
+      {
+        question: 'How many bags of concrete for a footing?',
+        answer:
+          'Convert the footing to cubic feet with waste, then divide by bag yield and round up. Standard planning yields are about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb bags (QUIKRETE / Sakrete). Confirm the yield printed on the bag you buy.',
+      },
+      {
+        question: 'Does this footing calculator include rebar?',
+        answer:
+          'Optionally. Turn Rebar estimate On for a planning stick count (longitudinal + transverse for strip; each-way grid for pads). It does not design bar size, spacing, cover, or laps—follow drawings and local code. Full slab mats also have a dedicated rebar calculator.',
+      },
+      {
+        question: 'Footing calculator vs slab or Sonotube calculator?',
+        answer:
+          'Use this page for continuous/strip and spread pad footings with count and optional rebar. Use the slab concrete calculator for patio/garage slabs and solid steps. Use the Sonotube calculator for round cardboard pier forms, and the post-hole tool for dug fence holes.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE Concrete Mix 1101 – Technical data',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+        usedFor: '40/60/80 lb bag yield planning figures (~0.30 / 0.45 / 0.60 cu ft)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sakrete High-Strength Concrete Mix – TDS',
+        href: 'https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf',
+        usedFor: 'Cross-check bag coverage for bagged concrete (~0.30 / 0.45 / 0.60 cu ft)',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'ACI 332.1R-18 preview – Guide to Residential Concrete Construction',
+        href: 'https://www.concrete.org/Portals/0/Files/PDF/Previews/332.1R-18_preview.pdf',
+        usedFor: 'Residential concrete practice overview (preview PDF); footing design is not performed here',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-footing-calculator'],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1550,6 +1636,7 @@ export const tools: ToolDefinition[] = [
     calculatorId: 'rebar',
     relatedSlugs: [
       'concrete-calculator',
+      'concrete-footing-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'brick-calculator',

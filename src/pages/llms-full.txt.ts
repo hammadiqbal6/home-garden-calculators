@@ -37,6 +37,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many 80 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How many 60 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
+- How much concrete for a strip footing? → ${origin}/calculators/concrete-footing-calculator/
+- How much concrete for pad footings? → ${origin}/calculators/concrete-footing-calculator/
+- Concrete footing calculator (yards, bags, optional rebar)? → ${origin}/calculators/concrete-footing-calculator/
 - How many bags of concrete per fence post? → ${origin}/guides/how-much-concrete-for-fence-posts/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
@@ -72,6 +75,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Cubic yard → bags before waste: 27 ÷ 0.60 ≈ 45 of the 80 lb bags; 27 ÷ 0.45 = 60 of the 60 lb bags.
 - Fence post hole starting sizes: QUIKRETE Setting Posts — hole about three times post width; depth about 1/3 to 1/2 of above-ground length. Source: https://quikrete.com/athome/settingposts.asp
 - Example Sonotube: 12-inch × 4 ft ≈ 3.14 cu ft → about 5.2 of the 80 lb bags before waste (plan 6), about 7 of the 60 lb bags, about 9 of the 50 lb bags, or about 11 of the 40 lb bags. Live chart: ${origin}/calculators/sonotube-concrete-calculator/
+- Strip footing example: 40 ft × 16 in × 8 in ≈ 35.56 cu ft (1.32 cu yd) before waste → about 66 × 80 lb bags after 10% waste. Live: ${origin}/calculators/concrete-footing-calculator/
 
 ### Paint coverage
 - BEHR: one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250–400 sq ft with one coat. Source: https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy

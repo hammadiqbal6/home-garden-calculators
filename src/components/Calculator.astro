@@ -88,6 +88,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
 <script>
   import {
     asphaltTons,
+    concreteCostCompare,
     bedMulch,
     deckMaterials,
     fenceMaterials,
@@ -262,12 +263,53 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           metricHint: 'cm',
         },
         { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'priceBag40',
+          label: 'Price per 40 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceBag60',
+          label: 'Price per 60 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceBag80',
+          label: 'Price per 80 lb bag (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local price',
+          metricHint: 'your local price',
+        },
+        {
+          name: 'priceYd',
+          label: 'Ready-mix price per cu yd (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your quote',
+          metricHint: 'your quote',
+        },
+        {
+          name: 'delivery',
+          label: 'Delivery fee (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'one-time fee',
+          metricHint: 'one-time fee',
+        },
       ],
       compute(v, u) {
         const waste = v.waste / 100;
         const shape = String((v as any).shapeRaw ?? 'slab');
+        let r;
         if (shape === 'steps') {
-          const r = stepsVolume({
+          r = stepsVolume({
             numberOfSteps: v.steps,
             riser: v.riser,
             tread: v.tread,
@@ -277,18 +319,41 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             widthUnit: lengthUnit(u),
             wasteFactor: waste,
           });
-          return resultRows(r);
+        } else {
+          r = slabVolume({
+            length: v.length,
+            width: v.width,
+            thickness: v.thickness,
+            lengthUnit: lengthUnit(u),
+            widthUnit: lengthUnit(u),
+            thicknessUnit: smallLengthUnit(u),
+            wasteFactor: waste,
+          });
         }
-        const r = slabVolume({
-          length: v.length,
-          width: v.width,
-          thickness: v.thickness,
-          lengthUnit: lengthUnit(u),
-          widthUnit: lengthUnit(u),
-          thicknessUnit: smallLengthUnit(u),
-          wasteFactor: waste,
+        const rows = resultRows(r);
+        const cost = concreteCostCompare({
+          volumeCuYd: r.volumeCuYd,
+          bags40: r.bags40,
+          bags60: r.bags60,
+          bags80: r.bags80,
+          pricePerBag40: v.priceBag40,
+          pricePerBag60: v.priceBag60,
+          pricePerBag80: v.priceBag80,
+          pricePerCuYd: v.priceYd,
+          deliveryFee: v.delivery,
         });
-        return resultRows(r);
+        rows.push(['Yards to order (↑¼ yd)', String(cost.orderCuYdQuarter)]);
+        if (cost.bagCost40 != null) rows.push(['Bag cost (40 lb)', `$${cost.bagCost40}`]);
+        if (cost.bagCost60 != null) rows.push(['Bag cost (60 lb)', `$${cost.bagCost60}`]);
+        if (cost.bagCost80 != null) rows.push(['Bag cost (80 lb)', `$${cost.bagCost80}`]);
+        if (cost.readyMixCost != null) rows.push(['Ready-mix + delivery', `$${cost.readyMixCost}`]);
+        if (cost.readyMixCheaperThanBags != null) {
+          rows.push([
+            'Cheaper option',
+            cost.readyMixCheaperThanBags ? 'Ready-mix (at your prices)' : 'Bags (at your prices)',
+          ]);
+        }
+        return rows;
       },
     },
     'post-holes': {
@@ -1406,6 +1471,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'priceBag40',
+        'priceBag60',
+        'priceBag80',
+        'priceYd',
+        'delivery',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),

@@ -5,7 +5,7 @@
 export const toolBodies: Record<string, string> = {
   'concrete-calculator': `
       <h2>How this concrete calculator works</h2>
-      <p>Enter the shape (slab, footing, or steps), dimensions, and optional waste percent. The tool returns volume in cubic feet, cubic yards, and cubic meters, plus bag counts for common 40, 60, and 80 lb mixes. All math runs in your browser—inputs are not uploaded.</p>
+      <p>Enter the shape (slab, footing, or steps), dimensions, and optional waste percent. The tool returns volume in cubic feet, cubic yards, and cubic meters, plus bag counts for common 40, 60, and 80 lb mixes. Ready-mix “yards to order” rounds up to the next quarter yard. Optional price fields (bag prices, $/yd, delivery) compare bag vs ready-mix using only the numbers you enter—no invented regional prices. All math runs in your browser—inputs are not uploaded.</p>
       <p>Use feet (or meters) for length and width. Enter slab thickness in inches (or centimeters). The calculator converts everything to a consistent unit system before multiplying, which prevents the classic mistake of treating a 4-inch slab as 4 feet thick.</p>
       <h2>How it's calculated</h2>
       <ul>

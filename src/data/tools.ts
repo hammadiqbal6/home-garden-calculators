@@ -263,7 +263,12 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Should I order ready-mix or use bags?',
         answer:
-          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix.',
+          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix. Enter your local bag and ready-mix prices (plus delivery) above to see which option wins at your numbers—YardTally does not invent regional prices.',
+      },
+      {
+        question: 'How does this calculator round ready-mix yards?',
+        answer:
+          'After waste, the yards-to-order line rounds up to the next ¼ cubic yard (0.25). Example: 1.23 cu yd orders as 1.25. Confirm the plant’s minimum load and short-load fees before you call.',
       },
       {
         question: 'How thick should a concrete slab be?',

@@ -240,7 +240,28 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
       {
         name: 'Pair with footing concrete if needed',
-        text: 'Size pier concrete separately with the Sonotube or post-hole calculator before you order framing lumber.',
+        text: 'Size pier concrete separately with the deck footing or Sonotube calculator before you order framing lumber.',
+      },
+    ],
+  },
+  'deck-footing-calculator': {
+    name: 'How to estimate deck footing count and concrete',
+    steps: [
+      {
+        name: 'Enter deck size and post / beam spacing',
+        text: 'Use the rectangular footprint plus how far posts sit apart along each beam and how far beam lines sit across the width.',
+      },
+      {
+        name: 'Choose freestanding or attached layout',
+        text: 'Attached decks omit the house-side post row when a ledger carries that edge. Freestanding decks count posts on all sides of the grid.',
+      },
+      {
+        name: 'Enter frost depth, hole diameter, and optional Sonotube size',
+        text: 'Paste your local frost-line depth for hole depth. Optional Sonotube inside diameter drives concrete volume when the tube sits inside a wider hole.',
+      },
+      {
+        name: 'Read footing count, volumes, and bags',
+        text: 'Confirm bag yields on your mix label (QUIKRETE Concrete Mix 1101 lists about 0.60 cu ft per 80 lb bag). Check local code before you dig.',
       },
     ],
   },

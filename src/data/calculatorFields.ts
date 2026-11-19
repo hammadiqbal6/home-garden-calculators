@@ -7,6 +7,7 @@ import {
   asphaltTons,
   bedMulch,
   brickCount,
+  deckFootings,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
@@ -156,6 +157,41 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'bellHeight', label: 'Bell height', value: '1', hint: 'feet' },
     { name: 'padDiameter', label: 'Pad diameter', value: '24', hint: 'inches' },
     { name: 'padThickness', label: 'Pad thickness', value: '12', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  'deck-footings': [
+    { name: 'length', label: 'Deck length', value: '16', hint: 'feet (along beams)' },
+    { name: 'width', label: 'Deck width', value: '12', hint: 'feet (beam span direction)' },
+    { name: 'postSpacing', label: 'Post spacing', value: '8', hint: 'feet along each beam' },
+    {
+      name: 'beamSpacing',
+      label: 'Beam / post-row spacing',
+      value: '8',
+      hint: 'feet across the deck',
+    },
+    {
+      name: 'layout',
+      label: 'Layout',
+      type: 'select',
+      options: [
+        { value: 'freestanding', label: 'Freestanding (posts on all sides)' },
+        { value: 'attached', label: 'Attached (ledger — no house-side posts)' },
+      ],
+      value: 'freestanding',
+    },
+    {
+      name: 'frostDepth',
+      label: 'Frost depth / hole depth',
+      value: '4',
+      hint: 'feet (your local frost line)',
+    },
+    { name: 'holeDiameter', label: 'Hole diameter', value: '12', hint: 'inches' },
+    {
+      name: 'sonotubeDiameter',
+      label: 'Sonotube diameter (optional)',
+      value: '0',
+      hint: 'inches inside Ø; 0 = use hole diameter',
+    },
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
   mulch: [...dims('20', '5', 'Depth', '3', 'inches'), ...mulchPriceFields()],
@@ -374,6 +410,16 @@ const sonotubeDefault = mixedSonotubeVolume(
   [{ diameter: 12, height: 4, count: 4, baseType: 'none' }],
   0.05,
 );
+const deckFootingsDefault = deckFootings({
+  length: 16,
+  width: 12,
+  postSpacing: 8,
+  beamSpacing: 8,
+  frostDepth: 4,
+  holeDiameter: 12,
+  layout: 'freestanding',
+  wasteFactor: 0.05,
+});
 const mulchDefault = bedMulch({ length: 20, width: 5, depthInches: 3 });
 const treeRingDefault = treeRingMulch({
   outerDiameter: 6,
@@ -500,6 +546,30 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['80 lb bags', String(sonotubeDefault.bags80)],
   ],
   mulch: mulchRows(mulchDefault),
+  'deck-footings': [
+    ['Footings (posts)', String(deckFootingsDefault.footingCount)],
+    ['Posts along length', String(deckFootingsDefault.postsAlong)],
+    ['Beam / post rows', String(deckFootingsDefault.beamRows)],
+    ['Hole diameter', `${deckFootingsDefault.holeDiameterIn} in`],
+    ['Hole depth (frost)', `${deckFootingsDefault.holeDepthFt} ft`],
+    [
+      'Sonotube / form Ø',
+      deckFootingsDefault.sonotubeDiameterIn != null
+        ? `${deckFootingsDefault.sonotubeDiameterIn} in ID`
+        : `${deckFootingsDefault.formDiameterIn} in (match hole)`,
+    ],
+    [
+      'Concrete per hole',
+      `${deckFootingsDefault.volumePerHoleCuFt} cu ft (${deckFootingsDefault.volumePerHoleCuYd} cu yd)`,
+    ],
+    [
+      'Total concrete',
+      `${deckFootingsDefault.totalVolumeCuFt} cu ft (${deckFootingsDefault.totalVolumeCuYd} cu yd / ${deckFootingsDefault.totalVolumeCuM} m³)`,
+    ],
+    ['40 lb bags', String(deckFootingsDefault.bags40)],
+    ['60 lb bags', String(deckFootingsDefault.bags60)],
+    ['80 lb bags', String(deckFootingsDefault.bags80)],
+  ],
   'tree-ring-mulch': [
     ['Ring area', `${treeRingDefault.areaSqFt} sq ft`],
     ['Volume', `${treeRingDefault.volumeCuFt} cu ft (${treeRingDefault.volumeCuYd} cu yd)`],

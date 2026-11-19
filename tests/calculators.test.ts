@@ -7,6 +7,7 @@ import {
   boardFeetPerPiece,
   brickCount,
   cmuCount,
+  deckFootings,
   deckMaterials,
   fenceMaterials,
   fertilizerNeeded,
@@ -274,6 +275,73 @@ describe('paver / fence / deck', () => {
     expect(at12.joists).toBe(Math.floor(16 / (12 / 12)) + 1);
     expect(at12.joists).toBeGreaterThan(at16.joists);
     expect(at12.deckBoardsWithWaste).toBe(Math.ceil(at12.deckBoards * 1.1));
+  });
+
+  it('deck footings: 16×12 freestanding at 8 ft spacing → 6 piers', () => {
+    // postsAlong = floor(16/8)+1 = 3; beamRows = floor(12/8)+1 = 2; count = 6
+    const r = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      wasteFactor: 0,
+    });
+    expect(r.postsAlong).toBe(3);
+    expect(r.beamRows).toBe(2);
+    expect(r.footingCount).toBe(6);
+    expect(r.holeDepthFt).toBe(4);
+    expect(r.formDiameterIn).toBe(12);
+    const per = Math.PI * 0.5 ** 2 * 4;
+    expect(r.volumePerHoleCuFt).toBeCloseTo(per, 3);
+    expect(r.totalVolumeCuFt).toBeCloseTo(per * 6, 2);
+    // QUIKRETE 1101: 0.60 cu ft per 80 lb → ceil(18.85 / 0.60) = 32
+    expect(r.bags80).toBe(Math.ceil((per * 6) / 0.6));
+  });
+
+  it('deck footings: attached layout drops the ledger-side row', () => {
+    const free = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      layout: 'freestanding',
+      wasteFactor: 0,
+    });
+    const attached = deckFootings({
+      length: 16,
+      width: 12,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 4,
+      holeDiameter: 12,
+      layout: 'attached',
+      wasteFactor: 0,
+    });
+    expect(attached.beamRows).toBe(1);
+    expect(attached.footingCount).toBe(3);
+    expect(attached.footingCount).toBeLessThan(free.footingCount);
+  });
+
+  it('deck footings: optional Sonotube diameter drives concrete volume', () => {
+    const r = deckFootings({
+      length: 8,
+      width: 8,
+      postSpacing: 8,
+      beamSpacing: 8,
+      frostDepth: 3,
+      holeDiameter: 14,
+      sonotubeDiameter: 12,
+      wasteFactor: 0,
+    });
+    expect(r.footingCount).toBe(4);
+    expect(r.holeDiameterIn).toBe(14);
+    expect(r.sonotubeDiameterIn).toBe(12);
+    expect(r.formDiameterIn).toBe(12);
+    expect(r.volumePerHoleCuFt).toBeCloseTo(Math.PI * 0.5 ** 2 * 3, 3);
   });
 });
 

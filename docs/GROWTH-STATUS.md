@@ -33,6 +33,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 - **2026-11-19 — this PR:** Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
 - **2026-11-19 — this PR (bulk cost upgrade):** Gravel, topsoil, sand, and mulch calculators — tons↔yards both ways (gravel/sand 2,700 lb/yd³, topsoil 2,200 lb/yd³); optional `convertTons` → `yardsFromTons` / `tonsFromYards` result rows; bag counts (0.5 cu ft for gravel/sand/topsoil; 2 & 3 cu ft for mulch); optional `pricePerYard` / `pricePerTon` / `pricePerBag` cost compare when >0 (no invented prices); FAQ/body notes + `dateModified` bump on those four tools.
 - **2026-11-19 — PR #33 merged:** Homepage full calculator grid (all tools by category); hub cross-links; stronger `relatedSlugs` / body links; `npm run audit:indexing`; embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
+- **2026-11-19 — deck footing calculator (this PR):** New `/calculators/deck-footing-calculator/` — deck size + beam/post spacing → footing count, frost-depth hole depth, hole/Sonotube diameter, concrete per pier and total, 40/60/80 lb bags; links to Sonotube calculator; outdoor + concrete hub rows; keyword map + llms Q→URL; unit tests.
+- **2026-11-19 — internal links + indexing audit (PR #33):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools; `npm run audit:indexing` over `dist/`; embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
 - **2026-11-18 — PR #31 also:** SEO for GSC-impression pages (concrete calculator + Sonotube calculator): stronger titles/metas, 6-item visible FAQ + FAQPage JSON-LD, internal links from homepage/hubs/cross-links, `llms.txt` updates.
@@ -50,7 +52,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Remaining / risks
 
-1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
+1. **After deploy:** ping IndexNow (include new deck footing URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
 2. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
 3. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
 4. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
@@ -58,7 +60,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 6. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
 7. Free-tool / calculator **directory submissions** beyond TinyLaunch (owner says some may be done; only record confirmed names + URLs here).
 8. **Embed-widget outreach** to DIY / landscaping bloggers.
-9. Add closely related **variants of tools that already get impressions**, rather than new topics.
+9. Add closely related **variants of tools that already get impressions** (stair stringer, sod, etc. still in `docs/ideas/README.md`) — deck footing variant shipped 2026-11-19.
 10. **Weekly GSC check** and refresh baseline metrics in this file.
 11. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
 12. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
@@ -69,6 +71,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 - **2026-11-19:** Sonotube calculator upgrade PR (this branch) — footing/bell, mixed sizes, bags50, bags-per-foot table.
 - **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.
 - **2026-11-19:** Bulk cost upgrade for gravel/topsoil/sand/mulch (this branch) — pending merge/deploy + IndexNow.
+- _(none for this PR — deck footing calculator shipping as Done above)_
 
 ## Off-repo work
 

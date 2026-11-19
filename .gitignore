@@ -2,6 +2,8 @@
 dist/
 # generated types
 .astro/
+# local audit caches (AI text detector samples, etc.)
+.cache/
 
 # dependencies
 node_modules

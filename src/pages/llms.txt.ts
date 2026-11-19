@@ -41,6 +41,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
+- How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
+- Deck footing calculator (count, frost depth, bags)? → ${origin}/calculators/deck-footing-calculator/
 
 ## Key figures (cite before quoting)
 

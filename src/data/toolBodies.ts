@@ -155,7 +155,7 @@ export const toolBodies: Record<string, string> = {
       <p>Cardboard tube forms (deck piers, round columns) belong here. Rectangular pads and steps belong on the <a href="/calculators/concrete-calculator/">concrete calculator for slabs and yards</a> (and the <a href="/guides/concrete-for-10x10-slab/">10×10 slab concrete guide</a>). Dug fence or sign post holes without a tube belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide—same cylinder math, different default waste and job details. Bag yields: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
 
       <h2>Deck pier tips</h2>
-      <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size examples such as the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>
+      <p>Place tubes plumb on compacted base or footing details specified for your deck. Brace forms before pouring. When you still need a pier count from deck size and spacing, start with the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>. For full framing takeoffs continue with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size examples such as the <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using outside diameter instead of inside diameter.</li>
@@ -447,6 +447,61 @@ export const toolBodies: Record<string, string> = {
 
       <p>Print or screenshot the results before you shop so post counts and picket estimates stay aligned when a second person helps load materials.</p>
   `,
+  'deck-footing-calculator': `
+      <h2>How this deck footing calculator works</h2>
+      <p>Enter the deck footprint, how far posts sit apart along each beam, and how far beam lines (post rows) sit across the width. The tool builds a simple rectangular grid: posts along a line = floor(length ÷ post spacing) + 1, and rows = floor(width ÷ beam spacing) + 1 for a freestanding frame. Attached decks drop the house-side row because the ledger carries that edge. That count is a shopping-grid estimate, not an engineered pier schedule.</p>
+      <p>Hole depth comes from the frost-depth number you type in. I don't invent frost maps here—look up your local frost line (building department, IRC frost-depth maps, or a frost-protected shallow foundation detail your inspector accepts) and paste that depth. Diameter is whatever hole or cardboard form you plan to pour. Optional Sonotube size overrides the diameter used for concrete volume when the tube sits inside a wider dug hole.</p>
+
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Footing count:</strong> postsAlong × beamRows (attached layout omits the ledger-side row)</li>
+        <li><strong>Hole depth:</strong> equals the frost-depth input you provide</li>
+        <li><strong>Volume per pier:</strong> π × (form radius)² × depth</li>
+        <li><strong>Bags:</strong> ceil(total volume ÷ bag yield), with yields ~0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb QUIKRETE Concrete Mix 1101-style bags</li>
+      </ul>
+      <p>Default waste is 5%, the same planning cushion used on the Sonotube tool for formed cylinders. Rough-dug holes without a tube often need a bit more—bump waste if the sides cave.</p>
+
+      <h2>Worked example: 16×12 freestanding deck</h2>
+      <p>Length 16 ft, width 12 ft, posts every 8 ft, beam rows every 8 ft. Posts along = floor(16÷8)+1 = 3. Rows = floor(12÷8)+1 = 2. Footings = 6. With a 12-inch form and 4 ft frost depth, each pier is π × 0.5² × 4 ≈ 3.14 cu ft. Six piers ≈ 18.85 cu ft before waste; with 5% waste ≈ 19.79 cu ft → ceil(19.79 ÷ 0.60) = 33 bags of 80 lb mix (or 44 of the 60 lb bags). Switch layout to attached and the same spacings drop to three posts on the outer beam line only.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Grid the posts from spacing first, then pour πr²h per hole at your real frost depth. Confirm the layout and pier size with local code before you dig.</div>
+
+      <h2>Frost depth, hole size, and Sonotubes</h2>
+      <p>Frost depth varies hard by climate and soil. A number that works in one county can be illegal one county over. Enter the depth your jurisdiction requires—not a blog average. Hole diameter is often driven by post size and the footing detail on the plan (many light residential piers land near 10–12 inches, but that is not a rule). Cardboard forms (Sonotube and equivalents) need the inside diameter for volume. When you already know tube size and count, you can skip the grid and run the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> directly.</p>
+      <p>Some decks use a belled footing or a pad under the tube. This page models a straight cylinder only. If your detail flares at the bottom, volume goes up—order extra bags or ask the ready-mix driver for a short load.</p>
+
+      <h2>When to use which concrete tool</h2>
+      <p>Use this page when you still need a footing count from deck size and spacing. Use the Sonotube tool when pier count and tube size are already set. Dug fence posts without cardboard forms belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. Rectangular pads and steps stay on the <a href="/calculators/concrete-calculator/">slab concrete calculator</a>. Bag yield charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Tube charts: <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>.</p>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Treating a spacing grid as a stamped structural plan.</li>
+        <li>Guessing frost depth instead of checking the building department.</li>
+        <li>Using outside tube diameter for volume.</li>
+        <li>Forgetting the ledger on an attached deck and double-counting house-side posts.</li>
+        <li>Ordering exact bag counts with zero waste on soft soil.</li>
+      </ul>
+
+      <h2>Formula used</h2>
+      <pre><code>postsAlong = floor(length_ft / postSpacing_ft) + 1
+beamRows_free = floor(width_ft / beamSpacing_ft) + 1
+beamRows_attached = max(1, floor(width_ft / beamSpacing_ft))
+footingCount = postsAlong × beamRows
+volume_each = π × (formØ_ft / 2)² × frostDepth_ft
+bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+
+      <h2>Assumptions and limits</h2>
+      <p><strong>Planning estimate only.</strong> This tool does not size beams, posts, joists, lateral bracing, or footing bells. It does not replace IRC tables, AWC DCA 6 guidance, manufacturer hardware instructions, or a permit review. Check local code for frost depth, pier diameter, and embedment before you dig or pour.</p>
+      <p>Pair framing takeoffs with the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and size lists such as the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a> or <a href="/guides/deck-material-list-16x24/">16×24 deck material list</a>.</p>
+
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Write down footing count, hole diameter, depth, and bag totals before you leave for the yard.</li>
+        <li>Confirm frost depth and pier detail with the building department or stamped plans.</li>
+        <li>Buy cardboard forms by inside diameter; brace them plumb before the pour.</li>
+        <li>Stage water, mixing tubs, and braces so you are not short mid-pier.</li>
+      </ul>
+  `,
   'deck-material-calculator': `
       <h2>Simple rectangular takeoff</h2>
       <p>Board rows ≈ deck width ÷ board face width (include the gap you will leave). Boards along the length depend on stock length. Joists at 16" on center are common, but composites and some spans require 12" o.c.—follow manufacturer span tables and local code.</p>
@@ -454,7 +509,7 @@ export const toolBodies: Record<string, string> = {
       <p>A 16 × 12 ft deck with 5.5" face boards needs ceil(12 ÷ (5.5/12)) ≈ 27 rows. With 12 ft boards matching the length, that is 27 deck boards, plus joists at 16" o.c. along 16 ft (13 joists) and 2 rim joists. Screw counts scale with linear feet—budget extras for leftovers and misdrives.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Enter the actual face width including gap. Using nominal 6" without the gap under-orders boards.</div>
       <h2>What this tool does not design</h2>
-      <p>Stairs, multi-level decks, ledgers, beams, and footings need separate structural planning. Pair piers with the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> when estimating footing concrete. Convert leftover framing sizes with the <a href="/calculators/lumber-calculator/">lumber / board-feet calculator</a>, and estimate stain gallons with the <a href="/calculators/paint-calculator/">paint calculator</a>.</p>
+      <p>Stairs, multi-level decks, ledgers, beams, and footings need separate structural planning. Count piers and bag totals with the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>, or pour known tube sizes in the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Convert leftover framing sizes with the <a href="/calculators/lumber-calculator/">lumber / board-feet calculator</a>, and estimate stain gallons with the <a href="/calculators/paint-calculator/">paint calculator</a>.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Ignoring picture-frame borders that change board counts.</li>

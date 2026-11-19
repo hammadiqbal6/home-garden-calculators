@@ -63,6 +63,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many board feet in a 2x4x8? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a concrete slab? → ${origin}/calculators/rebar-calculator/
 - How much rebar for a 20x20 slab? → ${origin}/calculators/rebar-calculator/
+- How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
+- How much concrete per deck footing? → ${origin}/calculators/deck-footing-calculator/
+- Deck footing calculator (count, frost depth, bags)? → ${origin}/calculators/deck-footing-calculator/
 
 ## Key figures (with citations)
 
@@ -72,6 +75,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Cubic yard → bags before waste: 27 ÷ 0.60 ≈ 45 of the 80 lb bags; 27 ÷ 0.45 = 60 of the 60 lb bags.
 - Fence post hole starting sizes: QUIKRETE Setting Posts — hole about three times post width; depth about 1/3 to 1/2 of above-ground length. Source: https://quikrete.com/athome/settingposts.asp
 - Example Sonotube: 12-inch × 4 ft ≈ 3.14 cu ft → about 5.2 of the 80 lb bags before waste (plan 6), about 7 of the 60 lb bags, about 9 of the 50 lb bags, or about 11 of the 40 lb bags. Live chart: ${origin}/calculators/sonotube-concrete-calculator/
+- Deck footing grid example: 16×12 freestanding deck at 8 ft post and beam spacing → 6 piers; 12″ × 4 ft each ≈ 3.14 cu ft before waste. Live tool: ${origin}/calculators/deck-footing-calculator/
 
 ### Paint coverage
 - BEHR: one gallon of BEHR ULTRA or PREMIUM PLUS interior paint and primer covers about 250–400 sq ft with one coat. Source: https://www.behr.com/how-to/interior/determine-how-much-interior-paint-to-buy

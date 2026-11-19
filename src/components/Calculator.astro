@@ -92,6 +92,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     asphaltTons,
     concreteCostCompare,
     bedMulch,
+    deckFootings,
     deckMaterials,
     fenceMaterials,
     fertilizerNeeded,
@@ -612,6 +613,121 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ['Cubic meters', String(r.volumeCuM)],
           ['40 lb bags', String(r.bags40)],
           ['50 lb bags', String(r.bags50)],
+          ['60 lb bags', String(r.bags60)],
+          ['80 lb bags', String(r.bags80)],
+        ];
+      },
+    },
+    'deck-footings': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Deck length',
+          imperialDefault: '16',
+          metricDefault: '4.9',
+          imperialHint: 'feet (along beams)',
+          metricHint: 'meters (along beams)',
+        },
+        {
+          name: 'width',
+          label: 'Deck width',
+          imperialDefault: '12',
+          metricDefault: '3.7',
+          imperialHint: 'feet (beam span direction)',
+          metricHint: 'meters (beam span direction)',
+        },
+        {
+          name: 'postSpacing',
+          label: 'Post spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet along each beam',
+          metricHint: 'meters along each beam',
+        },
+        {
+          name: 'beamSpacing',
+          label: 'Beam / post-row spacing',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet across the deck',
+          metricHint: 'meters across the deck',
+        },
+        {
+          name: 'layout',
+          label: 'Layout',
+          type: 'select',
+          options: [
+            { value: 'freestanding', label: 'Freestanding (posts on all sides)' },
+            { value: 'attached', label: 'Attached (ledger — no house-side posts)' },
+          ],
+          imperialDefault: 'freestanding',
+          metricDefault: 'freestanding',
+        },
+        {
+          name: 'frostDepth',
+          label: 'Frost depth / hole depth',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet (your local frost line)',
+          metricHint: 'meters (your local frost line)',
+        },
+        {
+          name: 'holeDiameter',
+          label: 'Hole diameter',
+          imperialDefault: '12',
+          metricDefault: '30',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'sonotubeDiameter',
+          label: 'Sonotube diameter (optional)',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'inches inside Ø; 0 = use hole diameter',
+          metricHint: 'cm inside Ø; 0 = use hole diameter',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '5', metricDefault: '5' },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const layout =
+          (selects?.layout ?? (v as any).shapeRaw) === 'attached' ? 'attached' : 'freestanding';
+        const r = deckFootings({
+          length: v.length,
+          width: v.width,
+          postSpacing: v.postSpacing,
+          beamSpacing: v.beamSpacing,
+          frostDepth: v.frostDepth,
+          holeDiameter: v.holeDiameter,
+          sonotubeDiameter: v.sonotubeDiameter > 0 ? v.sonotubeDiameter : undefined,
+          layout,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          postSpacingUnit: lengthUnit(u),
+          beamSpacingUnit: lengthUnit(u),
+          frostDepthUnit: lengthUnit(u),
+          holeDiameterUnit: smallLengthUnit(u),
+          sonotubeDiameterUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        const sonoLabel =
+          r.sonotubeDiameterIn != null
+            ? `${r.sonotubeDiameterIn} in ID`
+            : `${r.formDiameterIn} in (match hole)`;
+        return [
+          ['Footings (posts)', String(r.footingCount)],
+          ['Posts along length', String(r.postsAlong)],
+          ['Beam / post rows', String(r.beamRows)],
+          ['Hole diameter', `${r.holeDiameterIn} in`],
+          ['Hole depth (frost)', `${r.holeDepthFt} ft`],
+          ['Sonotube / form Ø', sonoLabel],
+          ['Concrete per hole', `${r.volumePerHoleCuFt} cu ft (${r.volumePerHoleCuYd} cu yd)`],
+          [
+            'Total concrete',
+            `${r.totalVolumeCuFt} cu ft (${r.totalVolumeCuYd} cu yd / ${r.totalVolumeCuM} m³)`,
+          ],
+          ['40 lb bags', String(r.bags40)],
           ['60 lb bags', String(r.bags60)],
           ['80 lb bags', String(r.bags80)],
         ];
@@ -1666,7 +1782,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       (values as any).selectValues = selectValues;
       // Backward-compatible alias used by the concrete shape branch.
       (values as any).shapeRaw =
-        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
+        selectValues.shape ??
+        selectValues.mode ??
+        selectValues.barSize ??
+        selectValues.layout ??
+        'slab';
       return values;
     }
 
@@ -1682,6 +1802,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     function markInvalidFields(message: string) {
       const allowZero = new Set([
         'waste',
+        'sonotubeDiameter',
         'doors',
         'windows',
         'rise',

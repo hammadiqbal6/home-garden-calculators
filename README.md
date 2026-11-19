@@ -14,7 +14,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-19)
 
-- **Deck footing calculator** (`/calculators/deck-footing-calculator/`): pier grid count + Sonotube concrete with optional pad/bell; QUIKRETE 0.30/0.45/0.60 yields; embeddable; linked from deck materials + Sonotube + hubs.
+- **Deck footing calculator** ([PR #40](https://github.com/hammadiqbal6/home-garden-calculators/pull/40)): `/calculators/deck-footing-calculator/` — pier grid count + Sonotube concrete with optional pad/bell; QUIKRETE 0.30/0.45/0.60 yields; embeddable; linked from deck materials + Sonotube + hubs.
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.

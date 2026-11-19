@@ -25,7 +25,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
-- **2026-11-19 — this PR (deck footing calculator):** New `/calculators/deck-footing-calculator/` — pier grid count (`floor(span/spacing)+1` each way) + Sonotube cylinder concrete with optional circular pad or bell frustum; QUIKRETE bag yields 0.30/0.45/0.60; Vitest coverage; SSR defaults; HowTo; embeddable; KEYWORD-MAP + llms Q→URL; reciprocal links with deck materials + Sonotube; hub table rows (concrete + outdoor).
+- **2026-11-19 — PR #40 (deck footing calculator):** New `/calculators/deck-footing-calculator/` — pier grid count (`floor(span/spacing)+1` each way) + Sonotube cylinder concrete with optional circular pad or bell frustum; QUIKRETE bag yields 0.30/0.45/0.60; Vitest coverage; SSR defaults; HowTo; embeddable; KEYWORD-MAP + llms Q→URL; reciprocal links with deck materials + Sonotube; hub table rows (concrete + outdoor).
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-19 — Internal links + indexing audit (prior PR):** Homepage full calculator grid; hub cross-links; stronger `relatedSlugs` / body links; `npm run audit:indexing`; embed `X-Robots-Tag: noindex, follow`.
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
@@ -59,7 +59,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- **2026-11-19:** Deck footing calculator PR (this branch) — code complete pending merge/deploy + IndexNow / GSC.
+- **2026-11-19:** Deck footing calculator ([PR #40](https://github.com/hammadiqbal6/home-garden-calculators/pull/40)) — CI green; pending merge/deploy + IndexNow / GSC.
 
 ## Off-repo work
 

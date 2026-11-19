@@ -34,14 +34,23 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - Is garden soil the same as topsoil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How many bags of concrete do I need (yards & bags)? → ${origin}/calculators/concrete-calculator/
+- How much concrete do I need (1 yard / 3 yards coverage)? → ${origin}/guides/how-much-concrete-do-i-need/
+- How much will 1 yard of concrete cover at 4 inches? → ${origin}/guides/how-much-concrete-do-i-need/
 - How many 80 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How many 60 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
+- How thick should a concrete slab be? → ${origin}/guides/concrete-slab-thickness/
+- Does a 4-inch concrete slab need rebar? → ${origin}/guides/concrete-slab-thickness/
+- How many yards for a 30x40 slab at 4 inches? → ${origin}/guides/concrete-slab-thickness/
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
 - How many bags of concrete per fence post? → ${origin}/guides/how-much-concrete-for-fence-posts/
+- Do I need a footing under a Sonotube? → ${origin}/guides/sonotube-footing-and-depth/
+- How deep should a Sonotube be? → ${origin}/guides/sonotube-footing-and-depth/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/
+- How much mulch do I need (bags vs bulk)? → ${origin}/guides/how-much-mulch-do-i-need/
+- What is the 3-3-3 rule for mulch? → ${origin}/guides/how-much-mulch-do-i-need/
 - How much mulch for a 4x8 garden bed? → ${origin}/guides/mulch-for-common-garden-beds/
 - How many 2 cu ft and 3 cu ft bags of mulch? → ${origin}/calculators/mulch-calculator/
 - How much grass seed per 1,000 square feet? → ${origin}/guides/grass-seed-per-sq-ft/
@@ -85,6 +94,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 
 ### Mulch & lawn
 - Bed mulch depth: commonly about 2–3 inches organic (Clemson, UF/IFAS). Pull mulch 2–3 inches back from trunks (Mississippi State). UF/IFAS: about 108 sq ft per cubic yard at 3 inches; do not exceed 3 inches in beds.
+- UVM Extension 3-3-3 tree mulch mnemonic: at least 3 inches from the trunk, no more than 3 inches deep, about 3 feet diameter (donut, not volcano). Source: https://www.uvm.edu/extension/news/beware-mulch-volcano
+- One cubic yard of concrete covers about 81 sq ft at 4 inches (27 ÷ 1/3). Three yards ≈ 243 sq ft at 4 inches.
+- IRMCA residential exterior flatwork: minimum 4 inches thickness; 5 inches where delivery vehicles / heavy loads expected. Source: https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf
 - Iowa State PM 1072 new-lawn lb per 1,000 sq ft: KY bluegrass 1–1.5; 50/50 rye/bluegrass 3–3.5; tall fescue 7–9. Source: https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf
 - Penn State watershed-friendly yard: about 2 lb N per 1,000 sq ft per growing season as a starting rate for many established lawns; Pennsylvania applications limited to 0.9 lb N per 1,000 per application. Sources: https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard ; https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators
 

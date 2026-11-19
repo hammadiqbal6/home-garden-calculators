@@ -25,8 +25,10 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
-- **2026-11-19 — CI / build speed (this PR):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
+- **2026-11-19 — this PR (PAA / AlsoAsked guides, Site B):** Four new question-driven guides — `concrete-slab-thickness`, `how-much-concrete-do-i-need`, `sonotube-footing-and-depth`, `how-much-mulch-do-i-need` — with bodies/FAQs/HowTo, reciprocal tool `relatedGuideSlugs`, KEYWORD-MAP cannibalization notes, and `llms.txt` / `llms-full.txt` Q→URL lines. Primaries avoid colliding with bags / 10×10 / Sonotube volume / mulch-depth / common-beds guides.
+- **2026-11-19 — CI / build speed (PR #34):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s. `.npmrc` + `npm ci --prefer-offline`; Astro/Vite cache; parallel build+test; docs-only path skip; Playwright Chromium cache on Full checks.
 - **2026-11-19 — PR #33 merged (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
+
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
 - **2026-11-18 — PR #31 also:** SEO for GSC-impression pages (concrete calculator + Sonotube calculator): stronger titles/metas, 6-item visible FAQ + FAQPage JSON-LD, internal links from homepage/hubs/cross-links, `llms.txt` updates.
@@ -60,7 +62,9 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.
+- **2026-11-19:** PAA guides PR (`cursor/paa-guides-410c`) — four AlsoAsked/PAA guides shipping; pending merge/deploy + IndexNow.
+- Upgrade PRs #35–#37 (Sonotube / concrete cost / bulk cost) — owner merging separately.
+- Human-writing rewrite + detector PR — separate branch.
 
 ## Off-repo work
 

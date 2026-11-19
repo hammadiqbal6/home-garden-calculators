@@ -327,4 +327,88 @@ export const guideHowTo: Record<string, GuideHowTo> = {
       },
     ],
   },
+  'concrete-slab-thickness': {
+    name: 'How to pick slab thickness and order concrete',
+    steps: [
+      {
+        name: 'Decide what the slab carries',
+        text: 'Foot traffic, shed pads, cars, and delivery trucks need different planning thicknesses.',
+      },
+      {
+        name: 'Start from published planning thickness',
+        text: 'IRMCA recommends 4 inches for residential exterior flatwork and 5 inches where delivery vehicles or other heavy loads are expected; QUIKRETE lists sidewalks and patios at least 4 inches. Confirm with local code.',
+      },
+      {
+        name: 'Measure and convert to yards or bags',
+        text: 'Volume = length × width × (thickness ÷ 12). Divide by 27 for yards, or use the concrete calculator for bags with waste.',
+      },
+      {
+        name: 'Plan joints, base, and reinforcement separately',
+        text: 'Order gravel base as its own line item. Follow drawings or product sheets for joints and any rebar or mesh—volume alone is not a structural design.',
+      },
+    ],
+  },
+  'how-much-concrete-do-i-need': {
+    name: 'How to calculate how much concrete you need',
+    steps: [
+      {
+        name: 'Sketch the pour and mark thickness',
+        text: 'Write thickness in inches so nobody treats “4” as feet.',
+      },
+      {
+        name: 'Compute cubic feet for each shape',
+        text: 'Rectangles use length × width × thickness in feet. Round holes use the post hole or Sonotube calculator instead.',
+      },
+      {
+        name: 'Convert to yards and add waste',
+        text: 'Yards = cubic feet ÷ 27. Add about 5–10% for waste, then decide bags vs ready-mix from total yards and site access.',
+      },
+      {
+        name: 'Convert to bags only if you stay on bags',
+        text: 'Divide cubic feet by the yield on your mix (about 0.60 cu ft per 80 lb QUIKRETE 1101 bag) and round up. See the bags guide for full charts.',
+      },
+    ],
+  },
+  'sonotube-footing-and-depth': {
+    name: 'How to set Sonotube depth and estimate bags',
+    steps: [
+      {
+        name: 'Read local frost depth and footing diameter',
+        text: 'QUIKRETE says deck footings typically must extend below the frost line. Confirm minimum diameter with the permit or local deck handout.',
+      },
+      {
+        name: 'Decide tube-only vs wider bell or pad',
+        text: 'Many piers use the poured tube as the footing. Weak soil or large loads may need a wider base form or pad under the tube.',
+      },
+      {
+        name: 'Dig, add gravel only as detailed, and brace the tube',
+        text: 'QUIKRETE’s deck footing steps dig about 6 inches deeper, compact about 6 inches of gravel, then set the cut form plumb on firm bearing without shortening required concrete depth.',
+      },
+      {
+        name: 'Calculate bags from diameter × height × count',
+        text: 'Use the Sonotube calculator. A 12-inch × 4 ft tube is about six 80 lb bags after the default 5% waste factor; multiply by pier count and add any separate bell volume.',
+      },
+    ],
+  },
+  'how-much-mulch-do-i-need': {
+    name: 'How to calculate how much mulch you need',
+    steps: [
+      {
+        name: 'Measure each bed',
+        text: 'Split L-shapes into rectangles and record length and width in feet.',
+      },
+      {
+        name: 'Pick depth',
+        text: 'Most beds use about 2–3 inches of organic mulch (Clemson, UF/IFAS). See the mulch depth guide for details.',
+      },
+      {
+        name: 'Compute cubic feet, then yards or bags',
+        text: 'Cu ft = area × (depth inches ÷ 12). Divide by 27 for yards, or by 2 or 3 for common bag sizes (Iowa).',
+      },
+      {
+        name: 'Compare bags vs bulk and subtract existing depth',
+        text: 'Bulk often wins near a cubic yard or more. If you are only top-dressing, order the depth difference, not a full new blanket.',
+      },
+    ],
+  },
 };

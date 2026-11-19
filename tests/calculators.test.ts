@@ -34,6 +34,8 @@ import {
   topsoilVolume,
   treeRingMulch,
   asphaltTons,
+  concreteSlabCost,
+  formatUsd,
 } from '../src/lib/calculators';
 import { cuFtToCuYd, toFeet } from '../src/lib/units';
 
@@ -648,5 +650,70 @@ describe('rebar', () => {
     });
     expect(r.linearFeetWithWaste).toBeCloseTo(616, 2);
     expect(r.sticks).toBe(31); // ceil(616/20)
+  });
+});
+
+describe('concrete slab cost', () => {
+  it('prices a 10×10×4" slab from ready-mix $/yd with waste', () => {
+    // 10*10*(4/12)*1.1 = 36.667 cu ft ≈ 1.358 cu yd
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'ready-mix',
+      readyMixPrice: 160,
+      gravelBaseCost: 0,
+      rebarMeshCost: 0,
+      formsCost: 0,
+      deliveryFee: 0,
+      laborPerSqFt: 0,
+    });
+    expect(r.areaSqFt).toBeCloseTo(100, 3);
+    expect(r.volumeCuYd).toBeCloseTo(cuFtToCuYd(33.333 * 1.1), 2);
+    expect(r.materialCost).toBeCloseTo(r.volumeCuYd * 160, 2);
+    expect(r.totalCost).toBeCloseTo(r.materialCost, 2);
+    expect(r.costPerSqFt).toBeCloseTo(r.totalCost / 100, 2);
+    expect(r.bags).toBeNull();
+  });
+
+  it('prices the same slab from 80 lb bag count × bag price', () => {
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'bags',
+      bagSize: 80,
+      bagPrice: 7,
+    });
+    // ceil(36.667 / 0.60) = 62 bags → 62 * 7 = 434
+    expect(r.bags).toBe(62);
+    expect(r.materialCost).toBe(434);
+    expect(r.totalCost).toBe(434);
+  });
+
+  it('adds optional line items and labor per sq ft', () => {
+    const r = concreteSlabCost({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      wastePercent: 10,
+      purchaseMode: 'ready-mix',
+      readyMixPrice: 100,
+      gravelBaseCost: 50,
+      rebarMeshCost: 40,
+      formsCost: 30,
+      deliveryFee: 75,
+      laborPerSqFt: 2,
+    });
+    expect(r.laborCost).toBe(200);
+    expect(r.addOnsTotal).toBe(50 + 40 + 30 + 75 + 200);
+    expect(r.totalCost).toBeCloseTo(r.materialCost + r.addOnsTotal, 2);
+  });
+
+  it('formats money with two decimals', () => {
+    expect(formatUsd(12)).toBe('$12.00');
+    expect(formatUsd(12.5)).toBe('$12.50');
   });
 });

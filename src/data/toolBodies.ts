@@ -1091,4 +1091,50 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
       </ul>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
+  'concrete-slab-cost-calculator': `
+      <h2>What this slab cost calculator does</h2>
+      <p>It prices a rectangular slab from dimensions you already trust. Volume comes first—same length × width × thickness math as the <a href="/calculators/concrete-calculator/">concrete calculator</a>—then the tool multiplies by the ready-mix or bag price <em>you</em> type in. Optional add-ons (gravel base, rebar or mesh, forms, delivery / short-load fee, labor per sq ft) are blank dollar fields so you can paste quotes without pretending YardTally knows your market.</p>
+      <p>The starter ready-mix and bag numbers in the form are labeled examples. Swap them for the plant ticket or store shelf tag before you treat the total as a budget. I would not email a contractor a screenshot of example defaults and call it a bid.</p>
+      <h2>How the dollars are calculated</h2>
+      <p>Volume with waste (cu ft) = length × width × (thickness in feet) × (1 + waste%). Cubic yards = that volume ÷ 27. Ready-mix material cost = yards × your $/yd (or m³ × your $/m³ in metric). Bagged material cost = ceil(cu ft ÷ bag yield) × your bag price, using the same planning yields as the volume tool (about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb standard mixes—confirm the bag).</p>
+      <p>Add-ons sum as: gravel quote + steel quote + forms quote + delivery/short-load fee + (labor $/sq ft × slab area). Total ÷ area gives cost per square foot for the numbers you entered. Leave any add-on at $0 if you are only comparing concrete material.</p>
+      <h2>Worked example: 10×10 patio at 4 inches</h2>
+      <p>Raw volume is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With the default 10% waste that becomes about 36.7 cu ft / 1.36 cu yd—same bag path as the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a> (roughly sixty-two 80 lb bags). If you leave the example ready-mix price at $160 per cubic yard and keep add-ons at $0, material and total both land near $217, or about $2.17 per sq ft. Change the $160 to your plant quote and the total moves with it. Flip “Buy as” to bags, type your shelf price, and the material line switches to bag count × price instead.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Same 10×10×4&quot; slab — what changes when you switch purchase mode</caption>
+        <thead><tr><th>Mode</th><th>Quantity (after 10% waste)</th><th>What you multiply</th></tr></thead>
+        <tbody>
+          <tr><td>Ready-mix</td><td>~1.36 cu yd</td><td>Your $/cu yd (plus short-load if the plant charges one)</td></tr>
+          <tr><td>80 lb bags</td><td>62 bags</td><td>Your $/bag (labor to mix is separate)</td></tr>
+          <tr><td>60 lb bags</td><td>82 bags</td><td>Your $/bag</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Volume is fixed by geometry; cost is only as good as the prices you paste in. Treat every dollar field as a quote placeholder, not a national average.</div>
+      <h2>When ready-mix wins vs bags</h2>
+      <p>Bags are fine for a small pad you can mix in batches. Past about one cubic yard—or any pour that must stay continuous across a patio—most people price a short-load truck even when the yardage looks “small.” Short-load fees often hurt more than the extra concrete on the ticket; I round up to the next quarter yard when the plant bills that way. Run both modes here with your real numbers before you decide.</p>
+      <p>Need a volume-only check without money fields? Stay on the <a href="/calculators/concrete-calculator/">yards &amp; bags calculator</a>. Bag charts without pricing live in <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
+      <h2>Pricing the add-ons without guessing</h2>
+      <p>Gravel base is a separate order. Measure base depth, convert with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, then paste the yard’s ton or yard quote into the gravel field. Steel can be rebar sticks (see the <a href="/calculators/rebar-calculator/">rebar calculator</a>) or welded-wire mesh from a lumber yard—enter the cash total, not a made-up $/sq ft “industry rate.” Forms are usually 2× lumber you already price per board foot. Delivery and short-load fees come straight off the batch plant’s quote sheet. Labor per sq ft is optional; use it only if you are comparing DIY vs hired finishing, and use <em>your</em> rate.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Leaving example $/yd or $/bag in place and sharing the total as if it were a local bid.</li>
+        <li>Forgetting the short-load fee that turns a “cheap” small truck into the expensive option.</li>
+        <li>Pricing concrete but omitting base stone, then wondering why the job ran over.</li>
+        <li>Mixing inches and feet in thickness (4 must mean 4 inches, not 4 feet).</li>
+        <li>Using this rectangular cost tool for fence post holes or Sonotubes—those shapes need their own volume calculators first.</li>
+      </ul>
+      <h2>Assumptions and limits</h2>
+      <p><strong>Planning estimate only.</strong> This page does not publish market prices, does not design slab thickness or reinforcement, and does not include tax, permits, pump trucks, color, or stamped finishes unless you fold those dollars into an add-on field yourself. Results assume a single rectangle with uniform thickness. Real pads have thickened edges, steps, and odd corners—price those extras after you sketch them.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Lock length, width, and thickness; run volume on the concrete calculator if you want a second check.</li>
+        <li>Call the plant for $/yd, minimum load, and short-load/delivery fees; paste them above.</li>
+        <li>Or walk the bag aisle, note size and shelf price, and switch to bag mode.</li>
+        <li>Add gravel, steel, forms, and labor only after you have written quotes—not memory.</li>
+        <li>Compare cost per sq ft when sizing two pad options, not just the raw total.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
+  `,
 };

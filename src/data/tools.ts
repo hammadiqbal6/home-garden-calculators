@@ -82,6 +82,7 @@ export const categories: Record<
         <tbody>
           <tr><td>Patio, slab, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
           <tr><td>Strip or spread pad footings</td><td><a href="/calculators/concrete-footing-calculator/">Concrete footing calculator</a></td><td>40 ft × 16&quot; × 8&quot; ≈ 1.32 yd³ (~66 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Slab cost (your ready-mix or bag prices)</td><td><a href="/calculators/concrete-slab-cost-calculator/">Concrete slab cost calculator</a></td><td>Volume × your $/yd or $/bag + optional add-ons</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
           <tr><td>Deck pier count + bags</td><td><a href="/calculators/deck-footing-calculator/">Deck footing calculator</a></td><td>16×12 at 8 ft spacing ≈ 6 piers</td></tr>
@@ -235,6 +236,7 @@ export const tools: ToolDefinition[] = [
     calculatorId: 'concrete',
     relatedSlugs: [
       'concrete-footing-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
@@ -1764,6 +1766,7 @@ export const tools: ToolDefinition[] = [
     relatedSlugs: [
       'concrete-calculator',
       'concrete-footing-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'brick-calculator',
@@ -1807,6 +1810,87 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['rebar-calculator'],
     datePublished: '2026-11-13',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'concrete-slab-cost-calculator',
+    name: 'Concrete Slab Cost Calculator',
+    shortName: 'Slab cost',
+    category: 'concrete',
+    primaryKeyword: 'concrete slab cost calculator',
+    secondaryKeywords: [
+      'concrete slab cost',
+      'cost of concrete slab',
+      'concrete patio cost calculator',
+      'ready mix concrete cost calculator',
+    ],
+    title: 'Concrete Slab Cost Calculator | YardTally',
+    description:
+      'Estimate concrete slab cost from your ready-mix or bag prices. Add optional gravel, rebar, forms, delivery, and labor—defaults are labeled examples only.',
+    h1: 'Concrete Slab Cost Calculator',
+    answerFirst:
+      'This concrete slab cost calculator turns length × width × thickness into cubic yards (or bags), then multiplies by the ready-mix or bag price you enter. Add optional line items you price yourself—gravel base, rebar or mesh, forms, delivery/short-load fees, and labor per square foot. Defaults are labeled examples only; replace them with your plant or store quotes.',
+    summary: 'Slab volume priced with your ready-mix or bag quotes plus optional add-ons.',
+    calculatorId: 'concrete-slab-cost',
+    relatedSlugs: [
+      'concrete-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+      'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
+    faq: [
+      {
+        question: 'How do I estimate concrete slab cost?',
+        answer:
+          'Convert the slab to cubic yards (or bags), multiply by the ready-mix or bag price from your quote, then add gravel, steel, forms, delivery, and labor you have priced. This tool does the volume math and the dollar math from numbers you enter—it does not invent local market rates.',
+      },
+      {
+        question: 'Should I use ready-mix or bag prices?',
+        answer:
+          'Bags work for small pads you can mix in batches. Around one cubic yard or any continuous patio pour, compare a ready-mix short-load ticket—including delivery fees—against bag count × shelf price and your mixing time. Run both modes with your real quotes.',
+      },
+      {
+        question: 'Are the default dollar amounts real market prices?',
+        answer:
+          'No. Ready-mix and bag defaults are labeled examples so the form shows a worked total. Replace every price field with your plant ticket or store tag before you budget. Optional add-ons start at $0 until you paste a quote.',
+      },
+      {
+        question: 'Does cost per square foot include labor?',
+        answer:
+          'Only if you enter a labor rate per sq ft. Leave labor at $0 for a materials-only estimate. Cost per sq ft is total ÷ slab area for whatever line items you filled in.',
+      },
+      {
+        question: 'Where do I get yards and bags without pricing?',
+        answer:
+          'Use the concrete calculator for volume and 40/60/80 lb bag counts, then return here with those quantities and your quotes. Charts for a 10×10 slab are in the concrete-for-10x10-slab guide.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE – Concrete Mix (No. 1101) bag yields',
+        href: 'https://www.quikrete.com/calculator/main.asp',
+        usedFor: '40/60/80 lb bag yield planning figures used when bag mode prices material',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sakrete – Concrete calculator',
+        href: 'https://sakrete.com/resources/calculators/',
+        usedFor: 'Cross-check bag coverage estimates for bagged concrete',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'American Cement Association (formerly PCA)',
+        href: 'https://www.cement.org/',
+        usedFor: 'Industry context on cement and concrete materials (not regional price data)',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-slab-cost-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,

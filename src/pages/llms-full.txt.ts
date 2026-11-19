@@ -69,6 +69,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
 - How much concrete per deck footing? → ${origin}/calculators/deck-footing-calculator/
 - Deck footing calculator (count, frost depth, bags)? → ${origin}/calculators/deck-footing-calculator/
+- How much does a concrete slab cost? → ${origin}/calculators/concrete-slab-cost-calculator/
+- Concrete slab cost calculator (ready-mix or bags)? → ${origin}/calculators/concrete-slab-cost-calculator/
 
 ## Key figures (with citations)
 
@@ -101,6 +103,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Modular clay brick: actual face ~7⅝ × 2¼ in; with ⅜ in joint ≈ 6.86 bricks/sq ft (Glen-Gery). Standard CMU face ~15⅝ × 7⅝ in → nominal 8×16 module (CMHA).
 - Softwood board feet = (nominal T_in × W_in × L_ft) ÷ 12 (7 CFR 1217.4 / ALSC PS 20). Under 1 in nominal thickness tallies as 1 in.
 - Slab rebar: bars each way = floor(span_in ÷ spacing_in) + 1; convert linear feet to sticks with waste. ACI 318 caps many shrinkage/temperature spacings at the lesser of 5× thickness or 18 in—confirm locally. Example: 20×20 at 18 in o.c. → 560 ft before waste.
+- Concrete slab cost: volume × user-entered ready-mix $/yd (or bag count × $/bag) + optional add-ons the user prices. YardTally does not publish regional concrete prices; example form defaults are placeholders only. Live tool: ${origin}/calculators/concrete-slab-cost-calculator/
 
 ## Calculators
 

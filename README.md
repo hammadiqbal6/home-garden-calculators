@@ -16,6 +16,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 - Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
 - Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
+- **Concrete slab cost calculator** (`/calculators/concrete-slab-cost-calculator/`): volume × user ready-mix or bag prices + optional gravel/rebar/forms/delivery/labor; example defaults labeled, not market facts.
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - **Deck footing calculator** (`/calculators/deck-footing-calculator/`): deck size + beam/post spacing → footing count, frost-depth hole size, concrete per pier / total, bags, optional Sonotube diameter; links to Sonotube tool.
@@ -30,6 +31,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 - After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
@@ -55,6 +57,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 |---|---|---|
 | Concrete calculator | [`/calculators/concrete-calculator/`](src/pages/calculators/[slug].astro) | concrete calculator |
 | Concrete footings | `/calculators/concrete-footing-calculator/` | concrete footing calculator |
+| Concrete slab cost | `/calculators/concrete-slab-cost-calculator/` | concrete slab cost calculator |
 | Post holes concrete | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes |
 | Sonotube / columns | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator |
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |

@@ -120,6 +120,22 @@ describe('mulch', () => {
     expect(r.areaSqFt).toBe(100);
     expect(r.volumeCuFt).toBeCloseTo(25, 3);
     expect(r.volumeCuYd).toBeCloseTo(25 / 27, 3);
+    expect(r.bags2CuFt).toBe(13);
+    expect(r.bags3CuFt).toBe(9);
+  });
+
+  it('optional mulch prices compare bulk vs bags when > 0', () => {
+    const r = bedMulch({
+      length: 20,
+      width: 5,
+      depthInches: 3,
+      pricePerYard: 40,
+      pricePerBag: 5,
+    });
+    expect(r.costYards).toBeCloseTo(r.volumeCuYd * 40, 2);
+    expect(r.costBags2).toBe(13 * 5);
+    expect(r.costBags3).toBe(9 * 5);
+    expect(bedMulch({ length: 20, width: 5, depthInches: 3, pricePerYard: 0 }).costYards).toBeUndefined();
   });
 
   it('tree ring is annular area × depth', () => {
@@ -142,10 +158,52 @@ describe('mulch', () => {
 });
 
 describe('bulk materials', () => {
-  it('gravel includes density tonnage', () => {
+  it('gravel includes density tonnage both ways', () => {
     const r = gravelVolume({ length: 20, width: 10, depthInches: 4, wasteFactor: 0 });
     expect(r.volumeCuYd).toBeCloseTo((200 * (4 / 12)) / 27, 3);
     expect(r.tons).toBeGreaterThan(0);
+    expect(r.tonsFromYards).toBe(r.tons);
+    // 2700 lb/yd³ → 1.35 ton/yd³; 2.469 yd × 1.35 ≈ 3.33 tons
+    expect(r.tonsFromYards).toBeCloseTo((r.volumeCuYd * 2700) / 2000, 2);
+    expect(r.bags05CuFt).toBe(Math.ceil(r.volumeCuFt / 0.5));
+  });
+
+  it('convertTons yields yardsFromTons at material density', () => {
+    const r = gravelVolume({
+      length: 20,
+      width: 10,
+      depthInches: 4,
+      wasteFactor: 0,
+      convertTons: 2.7,
+    });
+    // 2.7 tons × 2000 / 2700 = 2 cu yd
+    expect(r.yardsFromTons).toBeCloseTo(2, 3);
+    expect(
+      topsoilVolume({
+        length: 10,
+        width: 10,
+        depthInches: 6,
+        convertTons: 2.2,
+      }).yardsFromTons,
+    ).toBeCloseTo(2, 3); // 2.2 × 2000 / 2200
+  });
+
+  it('optional prices compare bag vs bulk when > 0', () => {
+    const r = sandVolume({
+      length: 10,
+      width: 10,
+      depthInches: 2,
+      wasteFactor: 0,
+      pricePerYard: 50,
+      pricePerTon: 40,
+      pricePerBag: 4,
+    });
+    expect(r.costYards).toBeCloseTo(r.volumeCuYd! * 50, 2);
+    expect(r.costTons).toBeCloseTo(r.tons! * 40, 2);
+    expect(r.costBags).toBe(r.bags05CuFt! * 4);
+    expect(
+      gravelVolume({ length: 10, width: 10, depthInches: 4, pricePerYard: 0 }).costYards,
+    ).toBeUndefined();
   });
 
   it('topsoil and sand return positive volumes', () => {

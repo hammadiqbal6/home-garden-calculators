@@ -187,7 +187,7 @@ export const toolBodies: Record<string, string> = {
   `,
   'mulch-calculator': `
       <h2>Mulch formula</h2>
-      <p>volume (cu ft) = length (ft) × width (ft) × (depth_inches ÷ 12). Bulk mulch is sold by the cubic yard (27 cu ft). Bagged mulch is usually 2 or 3 cubic feet. This calculator returns both so you can compare bulk delivery versus bags for small beds.</p>
+      <p>volume (cu ft) = length (ft) × width (ft) × (depth_inches ÷ 12). Bulk mulch is sold by the cubic yard (27 cu ft). Bagged mulch is usually 2 or 3 cubic feet. This calculator returns both so you can compare bulk delivery versus bags for small beds. Optional price-per-yard and price-per-bag fields multiply your local quotes only—YardTally does not invent retail prices.</p>
       <h2>Worked example</h2>
       <p>A 20 × 5 ft bed at 3 inches needs 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, or thirteen 2 cu ft bags. At 2 inches the same bed needs about 16.7 cu ft—useful when refreshing an existing layer rather than starting bare soil.</p>
       <div class="table-scroll">
@@ -267,7 +267,7 @@ export const toolBodies: Record<string, string> = {
   `,
   'gravel-calculator': `
       <h2>Gravel volume &amp; tonnage</h2>
-      <p>Cubic yards = cu ft ÷ 27. Tons ≈ yards × (density lb/yd³ ÷ 2000). This tool defaults to about 2,700 lb/yd³ as a mid estimate for crushed stone; wet stone and different geologies vary. Confirm density with your supplier before ordering tons.</p>
+      <p>Cubic yards = cu ft ÷ 27. Tons from yards ≈ yards × (density lb/yd³ ÷ 2000); yards from tons ≈ tons × 2000 ÷ density. This tool defaults to about 2,700 lb/yd³ as a mid estimate for crushed stone and also counts common 0.5 cu ft bags. Optional convert-tons and local price fields compare bulk yards, tons, and bags—no invented retail prices. Confirm density with your supplier before ordering tons.</p>
       <h2>Worked example</h2>
       <p>A 20 × 10 ft path at 4 inches with 10% compaction allowance: area 200 sq ft; depth 0.333 ft; volume ≈ 73.3 cu ft ≈ 2.7 cu yd—roughly 3.6 tons at 2,700 lb/yd³. Driveways often need a thicker compacted section; see <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Order by cubic yards for volume, convert to tons with your yard’s density, and include compaction waste for trafficked surfaces.</div>
@@ -307,7 +307,7 @@ export const toolBodies: Record<string, string> = {
   `,
   'topsoil-calculator': `
       <h2>Topsoil depth tips</h2>
-      <p>Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; bagged soil helps small beds. Include ~10% for settling when filling raised grades.</p>
+      <p>Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. Screened topsoil is often sold by the yard; common bagged soil is about 0.5 cu ft. Tons use ~2,200 lb/yd³ mid density with tons↔yards both ways; optional prices compare bulk vs bags using your quotes only. Include ~10% for settling when filling raised grades.</p>
       <p>New garden beds often receive 4–8 inches of quality topsoil over subsoil. For lawn repair, thinner dressings (½–2") are common—avoid burying existing grass crowns too deeply. Ask whether the product is screened, blended, or compost-rich.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Measure average fill depth across the whole area. Deep low spots should be calculated separately so you do not under-order.</div>
       <h2>Worked example</h2>
@@ -342,7 +342,7 @@ export const toolBodies: Record<string, string> = {
   `,
   'sand-calculator': `
       <h2>Sand vs gravel base</h2>
-      <p>Sand volume uses length × width × depth. Paver bedding sand is often about 1 inch deep over a compacted gravel base. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Add waste for screeding and corner cuts.</p>
+      <p>Sand volume uses length × width × depth. Paver bedding sand is often about 1 inch deep over a compacted gravel base. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Tons use ~2,700 lb/yd³ with tons↔yards both ways, plus 0.5 cu ft bag counts; optional prices compare bulk vs bags from your local quotes. Add waste for screeding and corner cuts.</p>
       <p>Play sand, masonry sand, and concrete sand are not interchangeable. Use the product specified by your paver manufacturer or mix design. Pair this tool with the <a href="/calculators/paver-calculator/">paver calculator</a> for full patio takeoffs.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Sand is usually the leveling layer—structural support comes from compacted crushed stone beneath.</div>
       <h2>Worked example</h2>

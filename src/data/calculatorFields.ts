@@ -36,7 +36,57 @@ export type SsrField = {
   value: string;
   hint?: string;
   step?: string;
+  /** When true, empty/zero is allowed (prices, convertTons). */
+  optional?: boolean;
 };
+
+const bulkPriceFields = (): SsrField[] => [
+  {
+    name: 'convertTons',
+    label: 'Convert tons → yards (optional)',
+    value: '',
+    hint: 'leave blank to skip',
+    optional: true,
+  },
+  {
+    name: 'pricePerYard',
+    label: 'Price per cu yd (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerTon',
+    label: 'Price per ton (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerBag',
+    label: 'Price per 0.5 cu ft bag (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+];
+
+const mulchPriceFields = (): SsrField[] => [
+  {
+    name: 'pricePerYard',
+    label: 'Price per cu yd (optional)',
+    value: '',
+    hint: 'your local quote',
+    optional: true,
+  },
+  {
+    name: 'pricePerBag',
+    label: 'Price per bag (optional)',
+    value: '',
+    hint: '2 or 3 cu ft bag price',
+    optional: true,
+  },
+];
 
 const dims = (
   length = '10',
@@ -83,15 +133,27 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'count', label: 'Number of tubes', value: '4' },
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
-  mulch: dims('20', '5', 'Depth', '3', 'inches'),
+  mulch: [...dims('20', '5', 'Depth', '3', 'inches'), ...mulchPriceFields()],
   'tree-ring-mulch': [
     { name: 'outer', label: 'Outer ring diameter', value: '6', hint: 'feet' },
     { name: 'trunk', label: 'Trunk / keep-out diameter', value: '1', hint: 'feet' },
     { name: 'depth', label: 'Depth', value: '3', hint: 'inches' },
   ],
-  gravel: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
-  topsoil: [...dims('20', '10', 'Depth', '4', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
-  sand: [...dims('20', '10', 'Depth', '1', 'inches'), { name: 'waste', label: 'Waste / compaction %', value: '10' }],
+  gravel: [
+    ...dims('20', '10', 'Depth', '4', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
+  topsoil: [
+    ...dims('20', '10', 'Depth', '4', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
+  sand: [
+    ...dims('20', '10', 'Depth', '1', 'inches'),
+    { name: 'waste', label: 'Waste / compaction %', value: '10' },
+    ...bulkPriceFields(),
+  ],
   paver: [
     { name: 'length', label: 'Patio length', value: '12', hint: 'feet' },
     { name: 'width', label: 'Patio width', value: '10', hint: 'feet' },
@@ -237,7 +299,26 @@ function bulkRows(r: ReturnType<typeof gravelVolume>): [string, string][] {
     ['Area', `${r.areaSqFt} sq ft`],
     ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
   ];
-  if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+  if (r.tonsFromYards != null) rows.push(['Tons from yards', String(r.tonsFromYards)]);
+  else if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+  if (r.yardsFromTons != null) rows.push(['Yards from tons', String(r.yardsFromTons)]);
+  if (r.bags05CuFt != null) rows.push(['0.5 cu ft bags', String(r.bags05CuFt)]);
+  if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+  if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
+  if (r.costBags != null) rows.push(['Bag cost', `$${r.costBags}`]);
+  return rows;
+}
+
+function mulchRows(r: ReturnType<typeof bedMulch>): [string, string][] {
+  const rows: [string, string][] = [
+    ['Area', `${r.areaSqFt} sq ft`],
+    ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+    ['2 cu ft bags', String(r.bags2CuFt)],
+    ['3 cu ft bags', String(r.bags3CuFt)],
+  ];
+  if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+  if (r.costBags2 != null) rows.push(['2 cu ft bag cost', `$${r.costBags2}`]);
+  if (r.costBags3 != null) rows.push(['3 cu ft bag cost', `$${r.costBags3}`]);
   return rows;
 }
 
@@ -376,15 +457,7 @@ export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
   'post-holes': concreteRows(postHolesDefault),
   sonotube: concreteRows(sonotubeDefault),
-  mulch: [
-    ['Area', `${mulchDefault.areaSqFt} sq ft`],
-    [
-      'Volume',
-      `${mulchDefault.volumeCuFt} cu ft (${mulchDefault.volumeCuYd} cu yd / ${mulchDefault.volumeCuM} m³)`,
-    ],
-    ['2 cu ft bags', String(mulchDefault.bags2CuFt)],
-    ['3 cu ft bags', String(mulchDefault.bags3CuFt)],
-  ],
+  mulch: mulchRows(mulchDefault),
   'tree-ring-mulch': [
     ['Ring area', `${treeRingDefault.areaSqFt} sq ft`],
     ['Volume', `${treeRingDefault.volumeCuFt} cu ft (${treeRingDefault.volumeCuYd} cu yd)`],

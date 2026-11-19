@@ -47,6 +47,10 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/how-to-measure-roof-pitch/` | how to measure roof pitch | measure roof slope |
 | `/guides/how-much-concrete-in-a-sonotube/` | how much concrete in a sonotube | sonotube bags of concrete, concrete for 12 inch sonotube |
 | `/guides/how-to-estimate-roofing-shingles/` | how to estimate roofing shingles | how to figure shingles for a roof, roofing squares vs square feet |
+| `/guides/concrete-slab-thickness/` | concrete slab thickness | what is the standard thickness for a concrete slab, how thick should a concrete slab be, does a 4 inch concrete slab need rebar, how many yards for 30x40 slab |
+| `/guides/how-much-concrete-do-i-need/` | how much concrete do I need | how much will 1 yard of concrete cover, how much does 3 yards of concrete cover, bags vs ready mix concrete |
+| `/guides/sonotube-footing-and-depth/` | sonotube footing | do I need a footing under a Sonotube, how deep should a Sonotube be, bags for a 4 foot sonotube |
+| `/guides/how-much-mulch-do-i-need/` | how much mulch do I need | mulch bags vs bulk cost, how much will 25 bags of mulch cover, 3-3-3 rule for mulch |
 
 | `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per 1000 sq ft, grass seed rate per 1000 sq ft |
 | `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | what does 30-0-4 mean, lawn fertilizer rate |
@@ -79,4 +83,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.
 - Long-tail size guides (`10x10 slab`, `common garden beds`) must link to the primary calculator and not duplicate its primary keyword.
+- **Concrete slab thickness** (how thick / 12×12·20×20·30×40 yards) ≠ **10×10 slab** size chart ≠ **how much concrete do I need** (1-yard / 3-yard coverage + bags vs yards) ≠ **how many bags of concrete** (bag-yield tables) ≠ main concrete calculator primary.
+- **Sonotube footing & depth** (do I need a footing / frost depth) ≠ **how much concrete in a Sonotube** (πr²h bag charts).
+- **How much mulch do I need** (bags vs bulk + coverage + 3-3-3) ≠ **mulch depth** ≠ **common garden bed** quantity chart ≠ mulch calculator primary.
 - Expanded guide bodies live in `src/data/guideExpansions.ts`. Related tools must be **topic-matched** (fence→post-hole/fence; mulch→mulch tools; gravel→gravel/sand/paver; roof→pitch/shingles)—never a fixed concrete/gravel/mulch set on every guide.

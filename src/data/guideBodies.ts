@@ -1473,4 +1473,280 @@ export const guideBodies: Record<string, string> = {
       </ul>
   `,
 
+
+  'concrete-slab-thickness': `      <div class="takeaway"><strong>Key takeaway:</strong> Plan most residential patio and sidewalk slabs at about 4&nbsp;inches thick. IRMCA’s exterior flatwork guide sets a 4-inch minimum and bumps to 5&nbsp;inches where delivery traffic or other heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4&nbsp;inches. Thickness drives yards: a 12×12 at 4&nbsp;inches is about 1.78&nbsp;cu&nbsp;yd before waste.</div>
+
+      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+
+      <h2>What is the standard thickness for a concrete slab?</h2>
+      <p>For residential exterior flatwork—patios, sidewalks, many shed pads—4&nbsp;inches is the usual starting point. The Illinois Ready Mixed Concrete Association guide for residential exterior flatwork states a minimum recommended thickness of 4&nbsp;inches. Where traffic includes delivery vehicles or other heavy loads, that same guide moves the minimum to 5&nbsp;inches. QUIKRETE’s Crack Resistant mix instructions say sidewalks and patios should be at least 4&nbsp;inches thick.</p>
+      <p>Driveways and garage floors often run thicker or get edge thickening. Some homeowners jump straight to 6&nbsp;inches when they expect a heavy truck or RV. That can be reasonable planning, but it is not a code stamp from this page. Ask the building department before you form anything that carries vehicles or supports a structure.</p>
+      <p>Thickness is only one piece. Compacted base, joints, drainage slope, and reinforcement details matter as much as the pour depth. Skip those and a “thick enough” slab still cracks or ponds water.</p>
+
+      <h2>How thick should a patio or sidewalk slab be?</h2>
+      <p>Most DIY patio and sidewalk pours I see stick with 4&nbsp;inches over a compacted gravel or crushed-stone base. That matches IRMCA’s 4-inch residential flatwork minimum and QUIKRETE’s patio/sidewalk note. If the pad doubles as a path for delivery trucks, budget 5&nbsp;inches per IRMCA’s heavy-load line instead of guessing.</p>
+      <p>Interior garage slabs and commercial work follow different rules. Do not copy a patio thickness onto a public apron or a driveway without checking the local spec. Right-of-way pours often have their own thickness tables.</p>
+
+      <h2>How many yards for 12×12, 20×20, and 30×40 at 4 inches?</h2>
+      <p>Volume is length × width × (thickness ÷ 12), then ÷ 27 for cubic yards. YardTally’s slab tool adds a default 10% waste for bags. Before waste, the common sizes look like this:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Slab volume at 4 inches before waste (YardTally slab math)</caption>
+        <thead><tr><th>Size</th><th>Cu ft</th><th>Cu yd</th><th>80 lb bags (+10% waste)</th></tr></thead>
+        <tbody>
+          <tr><td>12×12</td><td>48.0</td><td>1.78</td><td>89</td></tr>
+          <tr><td>20×20</td><td>133.3</td><td>4.94</td><td>245</td></tr>
+          <tr><td>30×40</td><td>400.0</td><td>14.82</td><td>734</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>A 30×40 at 4&nbsp;inches is roughly fifteen yards before waste. That is ready-mix territory for almost every crew. Bag counts that high are a planning check, not a shopping list you want to mix by hand. At 6&nbsp;inches, the same 12×12 jumps to 72&nbsp;cu&nbsp;ft (2.67&nbsp;cu&nbsp;yd) before waste—about 132 of the 80&nbsp;lb bags after 10% waste in the calculator.</p>
+      <p>Need a different footprint? Plug it into the <a href="/calculators/concrete-calculator/">concrete calculator</a> rather than scaling these rows by eye. Uneven thickness, thickened edges, and steps all eat extra concrete.</p>
+
+      <h2>Does a 4-inch concrete slab need rebar?</h2>
+      <p>People Also Ask this on almost every thickness SERP. Short answer: sometimes mesh or rebar is specified, sometimes fiber mixes are marketed as a mesh alternative for typical slabs, and sometimes the job is light enough that the local inspector focuses on thickness, base, and joints instead. This guide will not invent a “always” or “never” rule.</p>
+      <p>QUIKRETE’s Crack Resistant Concrete Mix product literature says that mix is intended to eliminate the need for wire mesh in typical slab-on-grade applications such as driveways, floors, patios, and sidewalks—when you use that product as directed. That is a manufacturer claim for a specific mix, not a blanket pass for every 4-inch pour with plain bags.</p>
+      <p>If drawings or the building department call for a rebar mat, estimate bar count with the <a href="/calculators/rebar-calculator/">rebar calculator</a>. Example planning takeoff only: a 20×20 grid at 18&nbsp;in on center is 560 linear feet before waste (about 616&nbsp;ft with 10% waste)—still subject to cover, lap, and size rules on the plans. Volume and steel are separate orders.</p>
+
+      <h2>How do thickness and joints work together?</h2>
+      <p>IRMCA’s flatwork guide ties joint spacing to slab thickness. It describes control joints spaced at intervals equal to about 2 to 2.5 times the slab thickness in inches, converted to feet—so a 4-inch slab lands near 8 to 10&nbsp;ft panels—and it wants panels kept fairly square. Joint depth is at least one-quarter of the slab thickness (about 1&nbsp;inch on a 4-inch pour). Those are association recommendations, not a substitute for the detail on your permit set.</p>
+      <p>Thicker slabs can take wider joint spacing under that rule of thumb, but only if the layout still keeps panels reasonably square. Long skinny strips crack between joints no matter how deep you poured.</p>
+
+      <h2>Worked example: 20×20 patio at 4 inches</h2>
+      <p>Area = 400&nbsp;sq&nbsp;ft. Thickness = 4÷12 ≈ 0.333&nbsp;ft. Volume = 400 × 0.333 = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With YardTally’s 10% waste factor → 146.7&nbsp;cu&nbsp;ft ≈ 5.43&nbsp;cu&nbsp;yd, which the calculator rounds to 245 of the 80&nbsp;lb bags or 326 of the 60&nbsp;lb bags at QUIKRETE 1101 planning yields (0.60 / 0.45&nbsp;cu&nbsp;ft). I’d price a short-load truck against that bag wall before I schedule a Saturday of mixing.</p>
+      <p>Order gravel base as a second line. A 4-inch compacted base under the same footprint is roughly another 4.9&nbsp;cu&nbsp;yd before compaction allowance—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>, not the concrete thickness input.</p>
+
+      <h2>How to pick thickness and order concrete (step-by-step)</h2>
+      <ol>
+        <li>Decide what the slab carries (foot traffic, shed, cars, delivery trucks).</li>
+        <li>Start from IRMCA/QUIKRETE planning thickness (often 4&nbsp;inches; 5&nbsp;inches for heavier residential traffic per IRMCA) and confirm with local code.</li>
+        <li>Measure formed length and width; lock thickness in inches.</li>
+        <li>Run length × width × (thickness ÷ 12) ÷ 27 for yards, or use the concrete calculator for bags with waste.</li>
+        <li>Plan joints, base, and any rebar/mesh from drawings or product sheets—not from volume alone.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>I’d rather pour 4&nbsp;inches on a well-compacted base than 6&nbsp;inches on mush. Soft fill shows up as cracks later.</li>
+        <li>Slope outdoor slabs so water leaves the surface. IRMCA calls for about 1/4&nbsp;inch per foot of drainage slope on exterior flatwork.</li>
+        <li>Match bag product lines on visible slabs so color does not shift mid-pour.</li>
+        <li>For bag math detail, lean on the <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a> guide instead of reinventing yields here.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Treating “4 inches” as a universal driveway and garage rule without checking loads or local specs.</li>
+        <li>Entering gravel depth into the concrete calculator thickness field.</li>
+        <li>Skipping joints on a big rectangle and hoping thickness alone prevents cracks.</li>
+        <li>Assuming every 4-inch slab can skip steel because one fiber mix markets itself that way.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf" rel="noopener noreferrer">Illinois Ready Mixed Concrete Association – Concrete guide for residential exterior flatwork (4&quot; / 5&quot; thickness, joints, slope)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-crackresistantconcretemix.pdf" rel="noopener noreferrer">QUIKRETE Crack Resistant Concrete Mix – patio/sidewalk thickness and mesh note (product literature)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.miconcrete.org/hubfs/MCA%20Driveway%20%26%20Sidewalk%202026.pdf" rel="noopener noreferrer">Michigan Concrete Association – Driveway &amp; sidewalk guidelines (4&quot; / 5&quot; thickness)</a></li>
+      </ul>
+  `,
+
+  'how-much-concrete-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> One cubic yard covers about 81&nbsp;sq&nbsp;ft at 4&nbsp;inches thick, or about 54&nbsp;sq&nbsp;ft at 6&nbsp;inches. Three yards cover about 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. Past roughly one yard, ready-mix usually beats mixing bags all day. Stay on bags? Convert with QUIKRETE 1101 yields and the bags guide.</div>
+
+      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+
+      <h2>How much will 1 yard of concrete cover?</h2>
+      <p>Coverage depends on thickness. One cubic yard is 27 cubic feet. At a uniform 4-inch depth (4÷12 = 1/3&nbsp;ft), area = 27 ÷ (1/3) = 81&nbsp;sq&nbsp;ft. At 6&nbsp;inches, the same yard covers 54&nbsp;sq&nbsp;ft. At 5&nbsp;inches you get about 64.8&nbsp;sq&nbsp;ft. Those are flat, even pours with no thickened edges or steps.</p>
+      <p>Real slabs waste a little to form bulge, uneven subgrade, and spillage. YardTally’s slab calculator defaults to about 10% extra when it counts bags. Ready-mix plants often round tickets up to the next quarter yard anyway, so treat 81&nbsp;sq&nbsp;ft as a clean geometric ceiling, not a promise you will finish exactly flush with one ticketed yard.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Approximate coverage per cubic yard at common thicknesses</caption>
+        <thead><tr><th>Thickness</th><th>Sq ft per cu yd</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>4"</td><td>~81</td><td>Common patio / sidewalk planning depth</td></tr>
+          <tr><td>5"</td><td>~65</td><td>Heavier residential flatwork planning depth in some guides</td></tr>
+          <tr><td>6"</td><td>~54</td><td>Thicker pads / some driveway planning</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>How much does 3 yards of concrete cover at 4 inches?</h2>
+      <p>Three yards × 81&nbsp;sq&nbsp;ft ≈ 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. That is a little larger than a 15×16 rectangle, or roughly a 12×20 pad. Flip the math when you already know area: yards ≈ (sq&nbsp;ft × thickness_inches ÷ 12) ÷ 27. A 243&nbsp;sq&nbsp;ft pad at 4&nbsp;inches is exactly 3.0&nbsp;cu&nbsp;yd before waste.</p>
+      <p>Three yards is firmly in truck territory for most homeowners. Bag math at QUIKRETE’s 0.60&nbsp;cu&nbsp;ft per 80&nbsp;lb bag is about 45 bags per yard before waste—so three yards is on the order of 135 bags before you add contingency. I would not schedule that as a hand-mix day unless the site has no truck access at all.</p>
+
+      <h2>Bags vs yards: when do I switch?</h2>
+      <p>Bags win on small pads, pier tops, and repairs you can mix in a wheelbarrow. Ready-mix wins when volume climbs toward or past about one cubic yard, when you need a continuous pour, or when labor time costs more than the short-load fee. The plant’s minimum load charge can erase the savings on a 1.5-yard ticket, so call before you assume “truck = cheaper.”</p>
+      <p>If you stay on bags, do not reinvent yields here. QUIKRETE Concrete Mix 1101 lists about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb bags. Sakrete High-Strength publishes the same planning band for those sizes. The <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a> walks the divide-and-round-up steps. This page stays focused on how many yards the job wants.</p>
+
+      <h2>How do I calculate concrete for a slab?</h2>
+      <p>Measure the formed length and width in feet. Convert thickness to feet (inches ÷ 12). Multiply for cubic feet. Divide by 27 for cubic yards. Add waste. Example: a 12×12 patio at 4&nbsp;inches is 12 × 12 × (4÷12) = 48&nbsp;cu&nbsp;ft ≈ 1.78&nbsp;cu&nbsp;yd before waste. With 10% waste the calculator shows about 1.96&nbsp;cu&nbsp;yd and 89 of the 80&nbsp;lb bags.</p>
+      <p>Round holes are different shapes. Fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a>. Cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>. Same bag yields, different volume formulas.</p>
+      <ol>
+        <li>Sketch the pour and mark thickness.</li>
+        <li>Compute cubic feet for each rectangle (or use the matching shape calculator).</li>
+        <li>Sum the pieces, convert to yards, then add about 5–10% for waste.</li>
+        <li>Decide bags vs ready-mix from total yards, access, and labor.</li>
+        <li>Order gravel base separately if the slab sits on stone.</li>
+      </ol>
+
+      <h2>Worked example: shed pad that feels like “about a yard”</h2>
+      <p>Suppose the pad is 9×9 at 4&nbsp;inches. Volume = 81 × (4÷12) = 27&nbsp;cu&nbsp;ft = 1.00&nbsp;cu&nbsp;yd before waste. That is the geometric twin of “one yard covers 81&nbsp;sq&nbsp;ft at 4&nbsp;inches.” Add 10% and you are closer to 1.1&nbsp;yd—often a short-load conversation, or about fifty 80&nbsp;lb bags after waste using 0.60&nbsp;cu&nbsp;ft yields (27 × 1.10 ÷ 0.60 ≈ 49.5 → 50 bags). I’d rather pay for the extra tenth of a yard than finish a corner with a frantic hardware-store run.</p>
+
+      <h2>What about cost questions on the SERP?</h2>
+      <p>People Also Ask often pivots into “how much does a 20×20 slab cost?” YardTally does not invent regional price-per-yard figures. Prices swing with fuel, plant minimums, fiber or air entrainment, and weekend pours. Size the yards first with the calculator, then call two plants with the same ticket description. Thickness and reinforcement choices change the bid more than a generic internet average will admit.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Write thickness in inches on the sketch so nobody treats “4” as feet.</li>
+        <li>If the chute cannot reach, pump fees can dwarf the concrete line item—ask early.</li>
+        <li>Match the tool to the shape: slab, post hole, or Sonotube.</li>
+        <li>For a fixed 10×10 chart, jump to the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Using the 81&nbsp;sq&nbsp;ft rule at 6&nbsp;inches (that coverage is ~54&nbsp;sq&nbsp;ft).</li>
+        <li>Ordering exactly the geometric yards with zero waste on a rough subgrade.</li>
+        <li>Hand-mixing a three-yard pour because bag unit price looked cheaper on the shelf.</li>
+        <li>Applying slab coverage rules to fence post holes or Sonotubes.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
+        <li><a href="https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf" rel="noopener noreferrer">IRMCA – Residential exterior flatwork guide (thickness context for coverage planning)</a></li>
+        <li><a href="https://www.quikrete.com/calculator/main.asp" rel="noopener noreferrer">QUIKRETE – Concrete calculator</a></li>
+      </ul>
+  `,
+
+  'sonotube-footing-and-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> A Sonotube is a cardboard form. For many deck posts the concrete poured inside the tube <em>is</em> the footing, so you do not automatically pour a separate pad under every tube—local frost depth, soil bearing, and the permit still control diameter and depth. QUIKRETE’s deck-footing steps say footings typically must extend below frost. A 12-inch × 4&nbsp;ft tube needs about six 80&nbsp;lb bags after 5% waste.</div>
+
+      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches.</p>
+
+      <h2>Do I need a footing under a Sonotube?</h2>
+      <p>Often, no separate “footing under the tube” is required because the poured pier itself is the footing. The tube shapes the column; the concrete bears on firm soil at the bottom of the hole. Some jobs still use a wider poured bell, a Bigfoot-style base form, or a pad poured first with the tube set into plastic concrete when soil is weak or the post carries a large tributary area.</p>
+      <p>Building departments care about bearing area and frost depth, not the brand printed on the cardboard. Lake County, Indiana’s deck handout (citing IRC-style deck footing language) notes posts can sit on concrete columns such as Sonotube pours, and it points readers to minimum footing sizes and frost depth. Your county’s table may differ. Pull the local deck footing sheet before you dig a grid of holes from a forum sketch.</p>
+      <p>If the inspector wants a wider footing than the tube diameter, that is when a bell form or a poured pad under the tube enters the plan. Guessing is how piers heave or punch into soft fill.</p>
+
+      <h2>How deep should a Sonotube be?</h2>
+      <p>Depth is a code and frost question, not a tube-size question. QUIKRETE’s deck footing guidance says to check local minimum diameter and depth, and that footings typically must extend below the frost line so freeze–thaw cycles do not shift the support. Dig the hole to the required depth, then cut the tube to fit.</p>
+      <p>QUIKRETE’s step list digs about 6&nbsp;inches deeper than the required footing depth, places and compacts about 6&nbsp;inches of gravel, then sets the cut QUIK-Tube (their cardboard form) on that base. That gravel is a leveling and drainage detail in their how-to—not a license to stop the concrete short of frost depth. The bottom of the structural concrete still needs to land where the jurisdiction says frost protection starts.</p>
+      <p>Frost lines jump a lot across the country. Warm-climate sheds freestanding on grade are not the same job as a ledger-attached deck in a cold county. When the permit says 36&nbsp;inches or 42&nbsp;inches to the bottom of the footing, that number overrides any “rule of thumb” height you saw on a product page.</p>
+
+      <h2>Do I need rebar in a Sonotube?</h2>
+      <p>Maybe. Plans and local rules decide. QUIKRETE’s deck footing video/article shows consolidating the pour with a piece of rebar or a shovel to knock out air pockets after the form is partly filled—that is placement technique, not a full structural cage design. Many deck piers use vertical bars or a cage when the engineer or manufacturer hardware details call for it. This page will not invent bar counts.</p>
+      <p>If the drawings show a mat or dowels into a pad, size the steel from those notes. For slab mats on a separate patio pour, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>. Round pier cages are a different takeoff.</p>
+
+      <h2>How many bags of concrete for a 4-foot Sonotube?</h2>
+      <p>Use inside diameter and height. A 12-inch tube 4&nbsp;feet tall holds about 3.14&nbsp;cu&nbsp;ft before waste (π × 0.5² × 4). YardTally’s Sonotube tool adds a default 5% spillage factor → about 3.30&nbsp;cu&nbsp;ft, which lands on six 80&nbsp;lb bags or eight 60&nbsp;lb bags at 0.60 / 0.45&nbsp;cu&nbsp;ft yields. Before waste you still round to six 80&nbsp;lb bags because 3.14 ÷ 0.60 ≈ 5.2.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Approximate bags for a 4 ft Sonotube with 5% waste (YardTally defaults)</caption>
+        <thead><tr><th>Inside diameter</th><th>Cu ft (+5%)</th><th>80 lb bags</th><th>60 lb bags</th></tr></thead>
+        <tbody>
+          <tr><td>8"</td><td>1.47</td><td>3</td><td>4</td></tr>
+          <tr><td>10"</td><td>2.29</td><td>4</td><td>6</td></tr>
+          <tr><td>12"</td><td>3.30</td><td>6</td><td>8</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Multiply by pier count. Four 12-inch × 4&nbsp;ft piers are about 24 of the 80&nbsp;lb bags after the calculator’s waste factor, before you add any separate bell or pad volume. Full diameter charts sit on the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube volume guide</a>.</p>
+
+      <h2>Worked example: four deck piers at frost depth</h2>
+      <p>Say the county wants 48&nbsp;inches to the bottom of the footing and you choose 12-inch tubes with QUIKRETE’s gravel detail under each. The concrete column height inside the tube is still about 4&nbsp;feet if the tube sits on the compacted gravel at that depth—confirm the section on your sketch so gravel does not steal structural depth. One tube ≈ 3.14&nbsp;cu&nbsp;ft; four tubes ≈ 12.6&nbsp;cu&nbsp;ft before waste (~0.47&nbsp;cu&nbsp;yd). With 5% waste ≈ 13.2&nbsp;cu&nbsp;ft → about twenty-two 80&nbsp;lb bags (ceil(13.2 ÷ 0.60)). Brace tubes plumb, place hardware before the mix sets, and keep wood posts off damp soil with the approved base connector.</p>
+
+      <h2>How to set depth and estimate bags (step-by-step)</h2>
+      <ol>
+        <li>Read the local frost depth and minimum footing diameter for the deck or structure.</li>
+        <li>Decide whether the tube alone provides bearing area or whether a wider bell/pad is required.</li>
+        <li>Dig to the required depth; add gravel only as the product or plan details allow without shortening structural depth.</li>
+        <li>Cut and brace the tube plumb on firm bearing.</li>
+        <li>Run diameter × height × count through the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>, then add any separate footing volume.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Leave the cardboard in place when the maker allows it; stripping early can scar green concrete.</li>
+        <li>Do not vibrate cardboard forms with a mechanical vibrator if the form maker forbids it—hand rod instead.</li>
+        <li>Deck lumber lists come after the piers. Pair this page with the <a href="/guides/deck-material-list-12x16/">12×16 deck material list</a> when you move above grade.</li>
+        <li>Dug fence holes without a tube belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a>, not here.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Stopping the hole above frost because the tube was only sold in a short length.</li>
+        <li>Pouring a fancy bell “just because” when the soil and permit already accept the tube diameter.</li>
+        <li>Using outside diameter for bag math.</li>
+        <li>Treating QUIKRETE’s consolidating-with-rebar tip as a full engineered cage.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.quikrete.com/athome/video-deck-footings.asp" rel="noopener noreferrer">QUIKRETE – Building deck footings (frost depth, gravel, QUIK-Tube steps)</a></li>
+        <li><a href="https://lakecountyin.gov/departments/planning-commission/building-department-forms-c/forms/code%20requirements%20for%20design%20and%20construction%20of%20residential%20decks.pdf" rel="noopener noreferrer">Lake County, IN – Code requirements for residential decks (Sonotube columns, frost, footing size pointers)</a></li>
+        <li><a href="https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf" rel="noopener noreferrer">QUIKRETE Concrete Mix (No. 1101) data sheet – bag yields</a></li>
+        <li><a href="https://www.sonotube.com/sonotube-concrete-forms" rel="noopener noreferrer">Sonotube – Concrete forms product sizing</a></li>
+      </ul>
+  `,
+
+  'how-much-mulch-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> Mulch volume equals area × depth. At 3&nbsp;inches, UF/IFAS notes one cubic yard covers about 108&nbsp;sq&nbsp;ft. A 10×10 bed at 3&nbsp;inches needs 25&nbsp;cu&nbsp;ft—thirteen 2&nbsp;cu&nbsp;ft bags. Bags fit small beds; bulk usually costs less around a yard or more. UVM Extension cites a 3-3-3 tree mulch mnemonic for mature trees.</div>
+
+      <p>Depth targets (about 2–3&nbsp;inches in most beds) live in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>. Rectangle charts for common frames sit in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. This page answers the broad “how much mulch do I need?” question: coverage math, bags vs bulk, and the 3-3-3 tree reminder.</p>
+
+      <h2>How do I calculate how much mulch I need?</h2>
+      <p>Measure length and width of the planting surface in feet. Multiply for square feet. Choose depth in inches—Clemson and UF/IFAS both land near 2–3&nbsp;inches for many organic mulches in beds. Convert depth to feet (inches ÷ 12) and multiply. Cubic feet ÷ 27 = cubic yards. Iowa State’s mulch calculator method is the same area × depth approach YardTally uses.</p>
+      <p><strong>Cu&nbsp;ft = area_sq&nbsp;ft × (depth_inches ÷ 12).</strong> At 3&nbsp;inches, every 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). UF/IFAS’s check figure—about 108&nbsp;sq&nbsp;ft per cubic yard at 3&nbsp;inches—matches that math: 27 ÷ 0.25 = 108.</p>
+      <p>Odd shapes? Split them into rectangles, or run the <a href="/calculators/mulch-calculator/">mulch calculator</a> twice and add. Tree rings need the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the bare collar at the trunk.</p>
+
+      <h2>Is it cheaper to buy mulch by the yard or by the bag?</h2>
+      <p>Usually bulk wins on price per cubic foot once you need roughly a cubic yard or more and you can stage a delivery. Bags win for small beds, color-matched touch-ups, and sites where a dump truck cannot sit. Iowa State notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size printed on the package—not by a memory of last year’s brand.</p>
+      <p>Do the napkin math before you chase a “sale” on bags. Twenty-five 2&nbsp;cu&nbsp;ft bags is 50&nbsp;cu&nbsp;ft—almost two cubic yards of bagged product after you haul them one-by-one. If bulk is $45/yd delivered and bags pencil out higher for the same volume, the truck wins. If the dealer’s short-load fee is brutal and you only need half a yard, bags can still be the cheaper day.</p>
+
+      <h2>How much will 25 bags of mulch cover?</h2>
+      <p>It depends on bag size and depth. Twenty-five bags × 2&nbsp;cu&nbsp;ft = 50&nbsp;cu&nbsp;ft. At 3&nbsp;inches (0.25&nbsp;ft), coverage ≈ 50 ÷ 0.25 = 200&nbsp;sq&nbsp;ft. At 2&nbsp;inches, the same 50&nbsp;cu&nbsp;ft spreads over about 300&nbsp;sq&nbsp;ft. If the bags are 3&nbsp;cu&nbsp;ft, twenty-five bags are 75&nbsp;cu&nbsp;ft—about 300&nbsp;sq&nbsp;ft at 3&nbsp;inches.</p>
+      <p>Read the bag. “25 bags” without a size is not a coverage number.</p>
+
+      <h2>What is the 3-3-3 rule for mulch?</h2>
+      <p>University of Vermont Extension describes a 3-3-3 method many arborists recommend for mature trees: at least 3&nbsp;inches of clearance from the trunk, no more than 3&nbsp;inches deep, and about 3&nbsp;feet of mulch diameter to protect a meaningful share of the root zone. Think donut, not volcano. UVM’s mulch-volcano article is explicit that mulch should never be piled against bark.</p>
+      <p>That mnemonic lines up with other extension advice even when they do not use the “3-3-3” label. Mississippi State says pull mulch 2–3&nbsp;inches back from trunks and keep a wide ring. Clemson wants a few inches of clearance and warns against volcanoes. UF/IFAS Florida-Friendly guidance keeps mulch farther back from tree bases (on the order of a foot or more in their principle sheet) and caps bed mulch near 2–3&nbsp;inches. Use 3-3-3 as a memorable floor for tree rings, then read the local extension sheet when palms, new transplants, or Florida-Friendly program rules apply.</p>
+
+      <h2>Worked example: front bed plus one tree</h2>
+      <p>Front bed: 20×10&nbsp;ft at 3&nbsp;inches. Area = 200&nbsp;sq&nbsp;ft. Volume = 200 × 0.25 = 50&nbsp;cu&nbsp;ft ≈ 1.85&nbsp;cu&nbsp;yd. That is twenty-five 2&nbsp;cu&nbsp;ft bags or seventeen 3&nbsp;cu&nbsp;ft bags after rounding up—same numbers the mulch calculator returns. At this size I would price a bulk scoop before I fill the SUV with bags.</p>
+      <p>Tree: apply UVM’s 3-3-3 idea as a starting ring—about 3&nbsp;inches deep, kept ~3&nbsp;inches off the bark, roughly 3&nbsp;feet across for a young mature tree, wider toward the drip line when you can. Size the donut with the tree-ring calculator so the trunk opening is not part of the order. Keep the flare visible.</p>
+
+      <h2>How to order mulch without overbuying (step-by-step)</h2>
+      <ol>
+        <li>Measure each bed; split L-shapes into rectangles.</li>
+        <li>Pick depth from the depth guide (often 2–3&nbsp;inches organic).</li>
+        <li>Compute cubic feet, then yards or bags.</li>
+        <li>Compare bag unit price × count against bulk yards + delivery.</li>
+        <li>Subtract existing mulch depth if you are only top-dressing.</li>
+        <li>Stage the pile on a tarp and spread the same week so it does not bleach into a heap against siding.</li>
+      </ol>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Top-dressing from 1&nbsp;inch up to 3&nbsp;inches means ordering the 2-inch difference, not a full new blanket.</li>
+        <li>Dyed mulches vary. Buy enough from one batch for the whole visible bed.</li>
+        <li>Rock mulch is a different coverage and heat story—do not reuse bark bag math blindly.</li>
+        <li>If the bed still needs fill soil, size soil first with the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide, then mulch.</li>
+      </ul>
+
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Volcano mulching against trunks (UVM, Clemson, MSU, and UF all warn against it).</li>
+        <li>Assuming every bag is 2&nbsp;cu&nbsp;ft.</li>
+        <li>Ordering a full 3-inch blanket on top of 2&nbsp;inches that is already there.</li>
+        <li>Using the bed chart for a tree ring without subtracting the clear collar.</li>
+      </ul>
+
+      <h2>Sources</h2>
+      <ul class="sources">
+        <li><a href="https://www.uvm.edu/extension/news/beware-mulch-volcano" rel="noopener noreferrer">University of Vermont Extension – Beware the mulch volcano (3-3-3 method)</a></li>
+        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches (~108 sq ft per cu yd at 3&quot;)</a></li>
+        <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch (2–3 inch depths for many wood/bark mulches)</a></li>
+        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed (area × depth; 2 / 3 cu ft bags)</a></li>
+        <li><a href="https://extension.msstate.edu/blogs/extension-for-real-life/how-mulch" rel="noopener noreferrer">Mississippi State Extension – How to mulch (pull mulch back from trunks)</a></li>
+      </ul>
+  `,
 };

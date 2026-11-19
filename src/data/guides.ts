@@ -78,6 +78,7 @@ export const guides: GuideDefinition[] = [
       'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth before you order.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
     relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
       'raised-bed-soil-mix-4x8',
@@ -102,6 +103,7 @@ export const guides: GuideDefinition[] = [
       'rebar-calculator',
     ],
     relatedGuideSlugs: [
+      'how-much-concrete-do-i-need',
       'how-much-concrete-for-fence-posts',
       'concrete-for-10x10-slab',
       'how-much-concrete-in-a-sonotube',
@@ -121,9 +123,10 @@ export const guides: GuideDefinition[] = [
       'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
     relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
     relatedGuideSlugs: [
+      'concrete-slab-thickness',
+      'how-much-concrete-do-i-need',
       'how-many-bags-of-concrete',
       'how-much-concrete-for-fence-posts',
-      'how-much-concrete-in-a-sonotube',
     ],
     datePublished: '2026-10-20',
     dateModified: '2026-11-13',
@@ -143,7 +146,7 @@ export const guides: GuideDefinition[] = [
     answerFirst:
       'At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (four 2 cu ft bags). A 20×5 bed needs about 25 cu ft (thirteen 2 cu ft bags). Iowa notes bags are commonly 2 or 3 cu ft; UF/IFAS says one cubic yard covers about 108 sq ft at 3 inches. Calculate area × depth first.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
-    relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
+    relatedGuideSlugs: ['how-much-mulch-do-i-need', 'mulch-depth-guide', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-20',
     dateModified: '2026-11-13',
   }),
@@ -406,6 +409,7 @@ export const guides: GuideDefinition[] = [
       'deck-material-calculator',
     ],
     relatedGuideSlugs: [
+      'sonotube-footing-and-depth',
       'how-many-bags-of-concrete',
       'how-much-concrete-for-fence-posts',
       'deck-material-list-16x24',
@@ -431,6 +435,111 @@ export const guides: GuideDefinition[] = [
     relatedGuideSlugs: ['how-to-measure-roof-pitch'],
     datePublished: '2026-11-13',
     dateModified: '2026-11-13',
+  }),
+  g({
+    slug: 'concrete-slab-thickness',
+    title: 'Concrete Slab Thickness Chart',
+    description:
+      'Standard residential slab thickness (about 4 inches; 5 inches for heavier loads per IRMCA), yards for 12×12 / 20×20 / 30×40, plus rebar notes.',
+    h1: 'Concrete Slab Thickness for Patios & Pads',
+    primaryKeyword: 'concrete slab thickness',
+    secondaryKeywords: [
+      'what is the standard thickness for a concrete slab',
+      'how thick should a concrete slab be',
+      'does a 4 inch concrete slab need rebar',
+      'how many yards of concrete for a 30x40 slab',
+    ],
+    answerFirst:
+      'IRMCA recommends a 4-inch minimum for residential exterior flatwork and 5 inches where delivery vehicles or heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4 inches thick. A 12×12 slab at 4 inches is about 1.78 cu yd before waste; run the calculator for bags.',
+    relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
+    relatedGuideSlugs: [
+      'how-much-concrete-do-i-need',
+      'concrete-for-10x10-slab',
+      'how-many-bags-of-concrete',
+    ],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
+  }),
+  g({
+    slug: 'how-much-concrete-do-i-need',
+    title: 'How Much Concrete Do I Need?',
+    description:
+      'See how much area one yard and three yards of concrete cover at 4–6 inches, when to choose bags vs ready-mix, and links to free yard and bag calculators.',
+    h1: 'How Much Concrete Do I Need?',
+    primaryKeyword: 'how much concrete do I need',
+    secondaryKeywords: [
+      'how much will 1 yard of concrete cover',
+      'how much does 3 yards of concrete cover',
+      'concrete coverage per cubic yard',
+      'bags vs ready mix concrete',
+    ],
+    answerFirst:
+      'One cubic yard of concrete covers about 81 sq ft at 4 inches thick, or about 54 sq ft at 6 inches. Three yards cover about 243 sq ft at 4 inches. Past roughly one yard, ready-mix usually beats bagging by hand. Convert yards to bags with the bags guide and QUIKRETE 1101 yields when you stay on bags.',
+    relatedToolSlugs: [
+      'concrete-calculator',
+      'concrete-calculator-post-holes',
+      'sonotube-concrete-calculator',
+    ],
+    relatedGuideSlugs: [
+      'how-many-bags-of-concrete',
+      'concrete-slab-thickness',
+      'concrete-for-10x10-slab',
+    ],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
+  }),
+  g({
+    slug: 'sonotube-footing-and-depth',
+    title: 'Sonotube Footing and Depth',
+    description:
+      'Do you need a footing under a Sonotube, how deep to set deck piers below frost, rebar notes, and bags for a 4 ft tube—with free Sonotube calculator links.',
+    h1: 'Sonotube Footing and Depth',
+    primaryKeyword: 'sonotube footing',
+    secondaryKeywords: [
+      'do I need a footing under a Sonotube',
+      'how deep should a Sonotube be',
+      'do I need rebar in a Sonotube',
+      'how many bags of concrete for a 4 foot sonotube',
+    ],
+    answerFirst:
+      'A Sonotube is a cardboard form. The concrete pier poured inside it is the footing for many deck posts, so you do not always pour a separate pad underneath—local code and soil still decide diameter and depth. QUIKRETE says footings typically must extend below frost. A 12-inch × 4 ft tube needs about six 80 lb bags after 5% waste.',
+    relatedToolSlugs: [
+      'sonotube-concrete-calculator',
+      'concrete-calculator-post-holes',
+      'deck-material-calculator',
+      'rebar-calculator',
+    ],
+    relatedGuideSlugs: [
+      'how-much-concrete-in-a-sonotube',
+      'how-much-concrete-for-fence-posts',
+      'deck-material-list-12x16',
+    ],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
+  }),
+  g({
+    slug: 'how-much-mulch-do-i-need',
+    title: 'How Much Mulch Do I Need?',
+    description:
+      'Calculate mulch bags vs bulk from area and depth, see coverage for 25 bags, and use UVM’s 3-3-3 tree mulch mnemonic with Clemson and UF depth context.',
+    h1: 'How Much Mulch Do I Need?',
+    primaryKeyword: 'how much mulch do I need',
+    secondaryKeywords: [
+      'is it cheaper to buy mulch by the yard or by the bag',
+      'how much will 25 bags of mulch cover',
+      'what is the 3-3-3 rule for mulch',
+      'mulch coverage per cubic yard',
+    ],
+    answerFirst:
+      'Mulch volume equals area × depth. At 3 inches, one cubic yard covers about 108 sq ft (UF/IFAS). A 10×10 bed at 3 inches needs 25 cu ft—thirteen 2 cu ft bags. Bags suit small beds; bulk usually costs less near a yard. UVM cites a 3-3-3 tree mnemonic: 3 inches deep, 3 inches off the trunk, 3 feet wide.',
+    relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
+    relatedGuideSlugs: [
+      'mulch-depth-guide',
+      'mulch-for-common-garden-beds',
+      'topsoil-vs-garden-soil',
+    ],
+    datePublished: '2026-11-19',
+    dateModified: '2026-11-19',
   }),
 ];
 

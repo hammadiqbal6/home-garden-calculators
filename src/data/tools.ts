@@ -244,6 +244,8 @@ export const tools: ToolDefinition[] = [
     ],
     relatedGuideSlugs: [
       'how-many-bags-of-concrete',
+      'how-much-concrete-do-i-need',
+      'concrete-slab-thickness',
       'concrete-for-10x10-slab',
       'how-much-concrete-for-fence-posts',
       'how-much-concrete-in-a-sonotube',
@@ -411,6 +413,7 @@ export const tools: ToolDefinition[] = [
     ],
     relatedGuideSlugs: [
       'how-much-concrete-in-a-sonotube',
+      'sonotube-footing-and-depth',
       'how-much-concrete-for-fence-posts',
       'how-many-bags-of-concrete',
       'deck-material-list-16x24',
@@ -584,6 +587,7 @@ export const tools: ToolDefinition[] = [
     calculatorId: 'mulch',
     relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],
     relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
       'mulch-depth-guide',
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
@@ -663,7 +667,11 @@ export const tools: ToolDefinition[] = [
     summary: 'Annular mulch rings around trees by outer and trunk diameter.',
     calculatorId: 'tree-ring-mulch',
     relatedSlugs: ['mulch-calculator', 'topsoil-calculator'],
-    relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
+    relatedGuideSlugs: [
+      'how-much-mulch-do-i-need',
+      'mulch-depth-guide',
+      'topsoil-vs-garden-soil',
+    ],
     faq: [
       {
         question: 'Why subtract the inner circle?',
@@ -1858,7 +1866,11 @@ export const tools: ToolDefinition[] = [
       'sonotube-concrete-calculator',
       'brick-calculator',
     ],
-    relatedGuideSlugs: ['concrete-for-10x10-slab', 'how-many-bags-of-concrete'],
+    relatedGuideSlugs: [
+      'concrete-slab-thickness',
+      'concrete-for-10x10-slab',
+      'how-many-bags-of-concrete',
+    ],
     faq: [
       {
         question: 'How much rebar for a concrete slab?',

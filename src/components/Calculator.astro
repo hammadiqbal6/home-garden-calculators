@@ -106,11 +106,13 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     roofingSquares,
     roofPitch,
     sandVolume,
+    slabCostCompare,
     slabVolume,
     sonotubeVolume,
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
+    type BagSizeLb,
     type RebarSize,
   } from '../lib/calculators';
 
@@ -1249,6 +1251,111 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         ];
       },
     },
+    'slab-cost': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width',
+          imperialDefault: '10',
+          metricDefault: '3',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'thickness',
+          label: 'Thickness',
+          imperialDefault: '4',
+          metricDefault: '10',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'bagSize',
+          label: 'Bag size to price',
+          type: 'select',
+          options: [
+            { value: '40', label: '40 lb' },
+            { value: '60', label: '60 lb' },
+            { value: '80', label: '80 lb' },
+          ],
+          imperialDefault: '80',
+          metricDefault: '80',
+        },
+        {
+          name: 'pricePerBag',
+          label: 'Price per bag',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your local quote ($)',
+          metricHint: 'your local quote ($)',
+          step: '0.01',
+        },
+        {
+          name: 'pricePerCuYd',
+          label: 'Ready-mix price per cu yd',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'your supplier quote ($)',
+          metricHint: 'your supplier quote ($)',
+          step: '0.01',
+        },
+        {
+          name: 'deliveryFee',
+          label: 'Ready-mix delivery fee',
+          imperialDefault: '0',
+          metricDefault: '0',
+          imperialHint: 'optional; default $0',
+          metricHint: 'optional; default $0',
+          step: '0.01',
+        },
+      ],
+      compute(v, u) {
+        const selects = (v as any).selectValues as Record<string, string> | undefined;
+        const bagSize = Number(selects?.bagSize ?? (v as any).shapeRaw ?? 80) as BagSizeLb;
+        const money = (n: number) => `$${n.toFixed(2)}`;
+        const r = slabCostCompare({
+          length: v.length,
+          width: v.width,
+          thickness: v.thickness,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          thicknessUnit: smallLengthUnit(u),
+          wasteFactor: v.waste / 100,
+          bagSize: ([40, 60, 80].includes(bagSize) ? bagSize : 80) as BagSizeLb,
+          pricePerBag: v.pricePerBag,
+          pricePerCuYd: v.pricePerCuYd,
+          deliveryFee: v.deliveryFee,
+        });
+        const cheaperLabel =
+          r.cheaper === 'bags'
+            ? `Bags (save ${money(r.savings)})`
+            : r.cheaper === 'ready-mix'
+              ? `Ready-mix (save ${money(r.savings)})`
+              : r.cheaper === 'tie'
+                ? 'Tie'
+                : 'Enter bag + ready-mix prices';
+        return [
+          ['Volume', `${r.volumeCuFt} cu ft`],
+          ['Cubic yards (with waste)', String(r.volumeCuYd)],
+          [`${r.bagSize} lb bags`, String(r.bags)],
+          ['Bag material cost', money(r.bagCost)],
+          ['Ready-mix order (¼ yd)', `${r.readyMixYardsOrdered} cu yd`],
+          ['Ready-mix material', money(r.readyMixMaterialCost)],
+          ['Delivery fee', money(r.deliveryFee)],
+          ['Ready-mix total', money(r.readyMixTotalCost)],
+          ['Cheaper option', cheaperLabel],
+        ];
+      },
+    },
   };
 
   function init(root: HTMLElement) {
@@ -1381,7 +1488,11 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       (values as any).selectValues = selectValues;
       // Backward-compatible alias used by the concrete shape branch.
       (values as any).shapeRaw =
-        selectValues.shape ?? selectValues.mode ?? selectValues.barSize ?? 'slab';
+        selectValues.shape ??
+        selectValues.mode ??
+        selectValues.barSize ??
+        selectValues.bagSize ??
+        'slab';
       return values;
     }
 
@@ -1406,6 +1517,9 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         'windowWidth',
         'windowHeight',
         'joint',
+        'pricePerBag',
+        'pricePerCuYd',
+        'deliveryFee',
       ]);
       const inputs = [
         ...root.querySelectorAll<HTMLInputElement>('input[type="number"]'),

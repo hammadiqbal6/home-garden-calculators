@@ -177,7 +177,7 @@ export const guideBodies: Record<string, string> = {
 
       <h2>How do I convert cubic feet to bags of concrete?</h2>
       <p>Bags = ceil(volume_cu_ft ÷ yield). Get volume from the shape first, add waste, then divide. Slabs use length × width × (thickness inches ÷ 12). Post holes and Sonotubes use π × r² × height × count. Divide cubic feet by 27 for cubic yards when you are comparing ready-mix quotes.</p>
-      <p>Pick the right tool: <a href="/calculators/concrete-calculator/">concrete calculator</a> for slabs and steps, <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> for fence posts, and <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> for cardboard forms. Tube charts live in the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>.</p>
+      <p>Pick the right tool: <a href="/calculators/concrete-calculator/">concrete calculator</a> for slabs and steps, <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a> to compare bags vs ready-mix with your quotes, <a href="/calculators/concrete-calculator-post-holes/">post hole calculator</a> for fence posts, and <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a> for cardboard forms. Tube charts live in the <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube concrete guide</a>.</p>
       <p>Weight matters for logistics. Forty-five 80&nbsp;lb bags are about 3,600&nbsp;lb of dry mix before water. If you are working alone, factor mixing time. That labor math is why the “about one cubic yard” ready-mix threshold is a practical rule of thumb, not a hard law.</p>
 
       <h2>Worked example: 10×10×4&quot; slab</h2>
@@ -215,7 +215,7 @@ export const guideBodies: Record<string, string> = {
 
   'concrete-for-10x10-slab': `      <div class="takeaway"><strong>Key takeaway:</strong> A 10×10&nbsp;ft slab at 4&nbsp;inches is about 1.23&nbsp;cu&nbsp;yd (33.3&nbsp;cu&nbsp;ft) before waste. With YardTally’s 10% waste factor, plan on roughly 62 bags of 80&nbsp;lb mix or 82 bags of 60&nbsp;lb mix. Gravel base is ordered separately.</div>
 
-      <p>This page is a size-specific chart. For other footprints use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Round holes belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>. Bag yields follow the <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a>.</p>
+      <p>This page is a size-specific chart. For other footprints use the <a href="/calculators/concrete-calculator/">concrete calculator</a>. To price bags vs ready-mix with your local quotes, use the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Round holes belong on the <a href="/guides/how-much-concrete-for-fence-posts/">fence post guide</a> or <a href="/guides/how-much-concrete-in-a-sonotube/">Sonotube guide</a>. Bag yields follow the <a href="/guides/how-many-bags-of-concrete/">bags of concrete guide</a>.</p>
       <figure class="diagram">
         <img src="/diagrams/slab-dimensions.svg" width="960" height="540" alt="Diagram of a rectangular concrete slab showing length, width and thickness" loading="lazy" />
       </figure>

@@ -97,6 +97,7 @@ export const guides: GuideDefinition[] = [
       'An 80 lb bag yields about 0.60 cu ft; you need roughly 45 bags per cubic yard before waste. Divide your project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60 for 40 / 60 / 80 lb), then round up. For pours larger than about one yard, ready-mix is usually more practical.',
     relatedToolSlugs: [
       'concrete-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
@@ -119,7 +120,12 @@ export const guides: GuideDefinition[] = [
     secondaryKeywords: ['10x10 concrete slab bags', 'concrete for patio slab'],
     answerFirst:
       'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
-    relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
+    relatedToolSlugs: [
+      'concrete-calculator',
+      'concrete-slab-cost-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+    ],
     relatedGuideSlugs: [
       'how-many-bags-of-concrete',
       'how-much-concrete-for-fence-posts',

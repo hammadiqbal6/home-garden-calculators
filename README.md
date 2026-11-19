@@ -14,6 +14,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-19)
 
+- **This PR:** Concrete Slab Cost Calculator (`/calculators/concrete-slab-cost-calculator/`) — bags vs ready-mix cost compare with user-entered prices (default $0), ¼-yard ready-mix rounding, links to concrete calculator + bags / 10×10 guides.
 - Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
@@ -21,7 +22,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Remaining
 
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets.
+- After deploy: IndexNow + GSC validation / request indexing for the new slab-cost URL and prior redirect/noindex/discovered buckets.
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
@@ -42,6 +43,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 | Tool | Path | Primary keyword |
 |---|---|---|
 | Concrete calculator | [`/calculators/concrete-calculator/`](src/pages/calculators/[slug].astro) | concrete calculator |
+| Concrete slab cost | `/calculators/concrete-slab-cost-calculator/` | concrete slab cost calculator |
 | Post holes concrete | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes |
 | Sonotube / columns | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator |
 | Mulch | `/calculators/mulch-calculator/` | mulch calculator |

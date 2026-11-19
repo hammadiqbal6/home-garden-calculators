@@ -81,6 +81,7 @@ export const categories: Record<
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
           <tr><td>Patio, pad, footing, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Bags vs ready-mix dollars (your quotes)</td><td><a href="/calculators/concrete-slab-cost-calculator/">Concrete slab cost calculator</a></td><td>Enter bag $, $/yd, delivery—prices default to $0</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
           <tr><td>Cardboard column / pier forms</td><td><a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a></td><td>12&quot;×4 ft ≈ 6 × 80 lb bags before waste</td></tr>
           <tr><td>Slab rebar mat (spacing → sticks)</td><td><a href="/calculators/rebar-calculator/">Rebar calculator</a></td><td>20×20 at 18&quot; o.c. ≈ 31 × 20 ft sticks after 10% waste</td></tr>
@@ -232,6 +233,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Slabs, footings, and solid steps with cubic yards and bag counts.',
     calculatorId: 'concrete',
     relatedSlugs: [
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
@@ -263,7 +265,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'Should I order ready-mix or use bags?',
         answer:
-          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix.',
+          'Bags are practical under about 1 cubic yard. Larger pours are usually cheaper and more consistent with ready-mix delivered by the yard. Past one yard—or any continuous large slab—compare truck access and labor before you buy bagged mix. For a dollar compare with your local quotes, use the concrete slab cost calculator.',
       },
       {
         question: 'How thick should a concrete slab be?',
@@ -304,6 +306,86 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
+    dateModified: '2026-11-19',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'concrete-slab-cost-calculator',
+    name: 'Concrete Slab Cost Calculator',
+    shortName: 'Slab cost',
+    category: 'concrete',
+    primaryKeyword: 'concrete slab cost calculator',
+    secondaryKeywords: [
+      'concrete cost calculator',
+      'ready mix vs bags cost',
+      'cost of concrete slab',
+      'bags vs ready mix concrete',
+    ],
+    title: 'Concrete Slab Cost Calculator | YardTally',
+    description:
+      'Compare bagged concrete vs ready-mix cost for your slab. Enter your bag price, $/yd, and delivery fee—no invented regional rates. Free planning estimate.',
+    h1: 'Concrete Slab Cost Calculator: Bags vs Ready-Mix',
+    answerFirst:
+      'Enter slab size, waste, your local bag price, ready-mix $/yd, and optional delivery fee. The tool reuses the same slab volume math as the yards-and-bags calculator, rounds ready-mix up to the next ¼ yard, and shows which option costs less. Defaults leave prices at $0—quotes are yours.',
+    summary: 'Bag vs ready-mix dollar compare for rectangular slabs using your quotes.',
+    calculatorId: 'slab-cost',
+    relatedSlugs: [
+      'concrete-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: ['how-many-bags-of-concrete', 'concrete-for-10x10-slab'],
+    faq: [
+      {
+        question: 'Does this calculator invent concrete prices?',
+        answer:
+          'No. Bag price, ready-mix $/yd, and delivery fee default to $0. Enter the quotes from your store or ready-mix plant. YardTally does not publish regional average concrete prices.',
+      },
+      {
+        question: 'How does ready-mix order rounding work?',
+        answer:
+          'After waste, exact yards are rounded up to the next quarter cubic yard (for example 1.23 → 1.25, 1.26 → 1.50). Many plants ticket in ¼ yd steps—confirm your supplier’s minimum and increments before you order.',
+      },
+      {
+        question: 'When are bags cheaper than ready-mix?',
+        answer:
+          'It depends on your quotes and labor. Small pads often favor bags; near or above one cubic yard, ready-mix material plus delivery often wins on total dollars and pour consistency. Enter both sides above to see the cheaper option for your numbers.',
+      },
+      {
+        question: 'What bag yields does the cost tool use?',
+        answer:
+          'Same planning yields as the main concrete calculator: about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb standard mixes (QUIKRETE Concrete Mix style). Confirm the yield printed on the bag you buy.',
+      },
+      {
+        question: 'Is this the same as the concrete calculator?',
+        answer:
+          'Volume uses the same slab formula. This page owns cost compare (bags vs ready-mix with your prices). For yards and bags only—or steps and footings shapes—use the concrete calculator. Size charts: how many bags of concrete and concrete for a 10×10 slab.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE – Concrete calculator & bag yields',
+        href: 'https://www.quikrete.com/calculator/main.asp',
+        usedFor: '40/60/80 lb bag yield planning figures used for bag counts in the cost compare',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'Sakrete – Concrete calculator',
+        href: 'https://sakrete.com/resources/calculators/',
+        usedFor: 'Cross-check bag coverage estimates for bagged concrete',
+        checked: '2026-11-19',
+      },
+      {
+        label: 'American Cement Association (formerly PCA)',
+        href: 'https://www.cement.org/',
+        usedFor: 'Industry context on cement and concrete materials',
+        checked: '2026-11-19',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-slab-cost-calculator'],
+    datePublished: '2026-11-19',
     dateModified: '2026-11-19',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,

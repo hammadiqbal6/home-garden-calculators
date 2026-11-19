@@ -22,6 +22,7 @@ import {
   roofingSquares,
   roofPitch,
   sandVolume,
+  slabCostCompare,
   slabVolume,
   sonotubeVolume,
   topsoilVolume,
@@ -217,6 +218,38 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'stick', label: 'Stick length', value: '20', hint: 'feet' },
     { name: 'waste', label: 'Waste / lap %', value: '10' },
   ],
+  'slab-cost': [
+    { name: 'length', label: 'Length', value: '10', hint: 'feet' },
+    { name: 'width', label: 'Width', value: '10', hint: 'feet' },
+    { name: 'thickness', label: 'Thickness', value: '4', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '10' },
+    {
+      name: 'bagSize',
+      label: 'Bag size to price',
+      type: 'select',
+      options: [
+        { value: '40', label: '40 lb' },
+        { value: '60', label: '60 lb' },
+        { value: '80', label: '80 lb' },
+      ],
+      value: '80',
+    },
+    { name: 'pricePerBag', label: 'Price per bag', value: '0', hint: 'your local quote ($)', step: '0.01' },
+    {
+      name: 'pricePerCuYd',
+      label: 'Ready-mix price per cu yd',
+      value: '0',
+      hint: 'your supplier quote ($)',
+      step: '0.01',
+    },
+    {
+      name: 'deliveryFee',
+      label: 'Ready-mix delivery fee',
+      value: '0',
+      hint: 'optional; default $0',
+      step: '0.01',
+    },
+  ],
 };
 
 function concreteRows(
@@ -371,6 +404,43 @@ const rebarDefault = rebarForSlab({
   stickLengthFt: 20,
   wastePercent: 10,
 });
+/** Dollar fields default to 0 — no invented regional prices in SSR HTML. */
+const slabCostDefault = slabCostCompare({
+  length: 10,
+  width: 10,
+  thickness: 4,
+  wasteFactor: 0.1,
+  bagSize: 80,
+  pricePerBag: 0,
+  pricePerCuYd: 0,
+  deliveryFee: 0,
+});
+
+function moneyLabel(n: number): string {
+  return `$${n.toFixed(2)}`;
+}
+
+function slabCostRows(r: ReturnType<typeof slabCostCompare>): [string, string][] {
+  const cheaperLabel =
+    r.cheaper === 'bags'
+      ? `Bags (save ${moneyLabel(r.savings)})`
+      : r.cheaper === 'ready-mix'
+        ? `Ready-mix (save ${moneyLabel(r.savings)})`
+        : r.cheaper === 'tie'
+          ? 'Tie'
+          : 'Enter bag + ready-mix prices';
+  return [
+    ['Volume', `${r.volumeCuFt} cu ft`],
+    ['Cubic yards (with waste)', String(r.volumeCuYd)],
+    [`${r.bagSize} lb bags`, String(r.bags)],
+    ['Bag material cost', moneyLabel(r.bagCost)],
+    ['Ready-mix order (¼ yd)', `${r.readyMixYardsOrdered} cu yd`],
+    ['Ready-mix material', moneyLabel(r.readyMixMaterialCost)],
+    ['Delivery fee', moneyLabel(r.deliveryFee)],
+    ['Ready-mix total', moneyLabel(r.readyMixTotalCost)],
+    ['Cheaper option', cheaperLabel],
+  ];
+}
 
 export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault),
@@ -501,4 +571,5 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     [`${rebarDefault.stickLengthFt} ft sticks`, String(rebarDefault.sticks)],
     ['Est. weight', `${rebarDefault.weightLbs} lb`],
   ],
+  'slab-cost': slabCostRows(slabCostDefault),
 };

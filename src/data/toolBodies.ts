@@ -15,7 +15,7 @@ export const toolBodies: Record<string, string> = {
       </ul>
       <p>Bag yields used here follow common QUIKRETE / Sakrete published coverage: about 0.30 cu ft (40 lb), 0.45 cu ft (60 lb), and 0.60 cu ft (80 lb). Always check the bag you buy—lightweight and high-strength mixes can differ.</p>
       <h2>Worked example: 10×10 patio slab</h2>
-      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80 lb mix or ceil(36.7 ÷ 0.45) = 82 bags of 60 lb mix (QUIKRETE Concrete Mix yields of about 0.60 / 0.45 cu ft per bag). Ready-mix starts to make sense near or above one cubic yard when access allows a truck. More sizes: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
+      <p>A 10 ft × 10 ft slab at 4 inches thick is 10 × 10 × (4÷12) = 33.33 cu ft ≈ 1.23 cu yd. With 10% waste → 36.7 cu ft. That is ceil(36.7 ÷ 0.60) = 62 bags of 80 lb mix or ceil(36.7 ÷ 0.45) = 82 bags of 60 lb mix (QUIKRETE Concrete Mix yields of about 0.60 / 0.45 cu ft per bag). Ready-mix starts to make sense near or above one cubic yard when access allows a truck—compare dollars with the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a> using your bag and ready-mix quotes. More sizes: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
       <div class="table-scroll">
       <table>
         <caption>Typical bagged concrete yields</caption>
@@ -52,7 +52,7 @@ export const toolBodies: Record<string, string> = {
         <li>Using this slab tool for fence post holes or Sonotubes—use the dedicated calculators instead.</li>
       </ul>
       <h2>Related long-tail jobs</h2>
-      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
+      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>. Cost compare (bags vs ready-mix with your quotes): <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>.</p>
 
       <h2>Assumptions and limits</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool does not size structural thickness, rebar, or frost depth.</p>
@@ -67,6 +67,45 @@ export const toolBodies: Record<string, string> = {
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
 
 
+  `,
+  'concrete-slab-cost-calculator': `
+      <h2>How this concrete slab cost calculator works</h2>
+      <p>Enter slab length, width, thickness, and waste percent. Choose which bag size you want to price, then type your local price per bag, ready-mix price per cubic yard, and optional delivery fee. Dollar fields default to $0—YardTally does not invent regional concrete prices. Volume uses the same <a href="/calculators/concrete-calculator/">concrete calculator</a> slab formula; this page owns the bag-vs-ready-mix cost compare.</p>
+      <h2>How it's calculated</h2>
+      <ul>
+        <li><strong>Volume:</strong> length × width × thickness (feet), then × (1 + waste)</li>
+        <li><strong>Bags:</strong> ceil(volume_cu_ft ÷ bag_yield) for the selected 40 / 60 / 80 lb size</li>
+        <li><strong>Bag cost:</strong> bags × your price per bag</li>
+        <li><strong>Ready-mix order:</strong> round exact yards up to the next ¼ cubic yard</li>
+        <li><strong>Ready-mix total:</strong> ordered yards × your $/yd + delivery fee</li>
+      </ul>
+      <p>Bag yields follow common QUIKRETE / Sakrete published coverage: about 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb standard mixes. Always read the bag you buy.</p>
+      <h2>Worked example: 10×10 patio (hypothetical quotes)</h2>
+      <p>A 10 × 10 ft slab at 4 inches with 10% waste is about 36.7 cu ft ≈ 1.36 cu yd. That is 62 bags of 80 lb mix. If you enter $7.00 per bag, bag material = $434. Exact yards round up to a 1.50 cu yd order; if you enter $160/yd and an $80 delivery fee, ready-mix total = $320. In that example ready-mix saves $114—your result changes with the quotes you type. Size charts: <a href="/guides/concrete-for-10x10-slab/">concrete for a 10×10 slab</a> and <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
+      <div class="takeaway"><strong>Key takeaway:</strong> Volume math is fixed; cost ranking depends only on the bag, $/yd, and delivery numbers you enter. Leave prices at $0 until you have real quotes.</div>
+      <h2>Why round ready-mix to ¼ yard?</h2>
+      <p>Many ready-mix tickets use quarter-yard increments and plant minimums. Rounding up avoids under-ordering on thin slabs. Confirm your plant’s minimum load and short-load fees—those are not modeled here beyond the delivery fee field.</p>
+      <h2>What this tool leaves out</h2>
+      <p>Labor, mixer rental, rebar, forms, base gravel, finishing, and short-load surcharges are separate. For bar sticks use the <a href="/calculators/rebar-calculator/">rebar calculator</a>. For base stone use the <a href="/calculators/gravel-calculator/">gravel calculator</a>. This page does not design thickness or reinforcement.</p>
+      <h2>Common mistakes</h2>
+      <ul>
+        <li>Treating national “average” prices as local quotes—enter your store and plant numbers only.</li>
+        <li>Comparing bags to ready-mix without delivery or without labor time for mixing bags.</li>
+        <li>Ordering exact yards with no waste on rough subgrade.</li>
+        <li>Using this rectangular slab tool for post holes or Sonotubes.</li>
+      </ul>
+      <h2>Related tools and guides</h2>
+      <p>Yards and bags without dollars: <a href="/calculators/concrete-calculator/">concrete calculator</a>. Bag yield tables: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>. Patio size chart: <a href="/guides/concrete-for-10x10-slab/">how much concrete for a 10×10 slab</a>.</p>
+      <h2>Assumptions and limits</h2>
+      <p><strong>Planning estimate only.</strong> Results assume a rectangular slab with uniform thickness. Confirm manufacturer yields, plant minimums, and local code before you order. Shareable URLs keep your inputs in the query string; the canonical URL stays clean for search.</p>
+      <h2>Shopping checklist</h2>
+      <ul>
+        <li>Call the ready-mix plant for $/yd, minimum load, and delivery fee for your address.</li>
+        <li>Price the bag size you will actually mix (check the yield on the label).</li>
+        <li>Confirm truck access and chute reach before choosing ready-mix.</li>
+        <li>Write down both totals from this calculator before you buy.</li>
+      </ul>
+      <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
   'concrete-calculator-post-holes': `
       <h2>Post hole concrete formula</h2>

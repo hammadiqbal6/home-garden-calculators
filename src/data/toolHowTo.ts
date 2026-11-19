@@ -30,6 +30,27 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'concrete-slab-cost-calculator': {
+    name: 'How to compare bag vs ready-mix slab cost',
+    steps: [
+      {
+        name: 'Enter slab size and waste',
+        text: 'Measure length, width, and thickness. Keep the default 10% waste unless your site needs more.',
+      },
+      {
+        name: 'Enter your local bag and ready-mix quotes',
+        text: 'Type price per bag, ready-mix $/yd, and optional delivery fee. Leave unused prices at $0—do not invent regional averages.',
+      },
+      {
+        name: 'Read bags, ¼-yard order, and totals',
+        text: 'Bag counts use the same yields as the main concrete calculator (~0.60 cu ft per 80 lb bag). Ready-mix yards round up to the next quarter yard.',
+      },
+      {
+        name: 'Pick the cheaper option for your quotes',
+        text: 'Compare bag material cost to ready-mix total (material + delivery), then confirm plant minimums and truck access before you order.',
+      },
+    ],
+  },
   'concrete-calculator-post-holes': {
     name: 'How to estimate concrete for post holes',
     steps: [

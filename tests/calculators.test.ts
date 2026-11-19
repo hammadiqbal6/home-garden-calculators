@@ -25,12 +25,14 @@ import {
   roofingSquares,
   roofPitch,
   sandVolume,
+  slabCostCompare,
   slabVolume,
   sonotubeVolume,
   stepsVolume,
   topsoilVolume,
   treeRingMulch,
   asphaltTons,
+  roundUpToQuarterYard,
 } from '../src/lib/calculators';
 import { cuFtToCuYd, toFeet } from '../src/lib/units';
 
@@ -111,6 +113,54 @@ describe('concrete', () => {
     expect(BAG_YIELD_CUFT[80]).toBe(0.6);
     expect(bagsNeeded(1.2, 80)).toBe(2);
     expect(bagsNeeded(1.2, 60)).toBe(3);
+  });
+});
+
+describe('slab cost', () => {
+  it('rounds ready-mix orders up to the next ¼ yard', () => {
+    expect(roundUpToQuarterYard(1.23)).toBe(1.25);
+    expect(roundUpToQuarterYard(1.25)).toBe(1.25);
+    expect(roundUpToQuarterYard(0.01)).toBe(0.25);
+    expect(roundUpToQuarterYard(0)).toBe(0);
+  });
+
+  it('reuses slab volume and compares bag vs ready-mix with user prices', () => {
+    // 10×10×4" + 10% waste ≈ 36.667 cu ft ≈ 1.358 cu yd → order 1.5 yd
+    // 62 × 80 lb bags (QUIKRETE ~0.60 cu ft) × $7 = $434
+    // 1.5 yd × $160 + $80 delivery = $320 → ready-mix cheaper by $114
+    const r = slabCostCompare({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      thicknessUnit: 'in',
+      wasteFactor: 0.1,
+      bagSize: 80,
+      pricePerBag: 7,
+      pricePerCuYd: 160,
+      deliveryFee: 80,
+    });
+    expect(r.volumeCuFt).toBeCloseTo(33.333 * 1.1, 2);
+    expect(r.bags).toBe(62);
+    expect(r.bagCost).toBe(434);
+    expect(r.readyMixYardsOrdered).toBe(1.5);
+    expect(r.readyMixTotalCost).toBe(320);
+    expect(r.cheaper).toBe('ready-mix');
+    expect(r.savings).toBe(114);
+  });
+
+  it('defaults optional dollar fields to 0 and marks compare incomplete', () => {
+    const r = slabCostCompare({
+      length: 10,
+      width: 10,
+      thickness: 4,
+      thicknessUnit: 'in',
+    });
+    expect(r.pricePerBag).toBe(0);
+    expect(r.pricePerCuYd).toBe(0);
+    expect(r.deliveryFee).toBe(0);
+    expect(r.bagCost).toBe(0);
+    expect(r.readyMixTotalCost).toBe(0);
+    expect(r.cheaper).toBe('incomplete');
   });
 });
 

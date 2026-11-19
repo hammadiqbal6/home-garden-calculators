@@ -37,6 +37,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many 80 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How many 60 lb bags of concrete are in a cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab at 4 inches? → ${origin}/guides/concrete-for-10x10-slab/
+- Concrete slab cost calculator (bags vs ready-mix with my quotes)? → ${origin}/calculators/concrete-slab-cost-calculator/
 - How many bags of concrete per fence post? → ${origin}/guides/how-much-concrete-for-fence-posts/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/

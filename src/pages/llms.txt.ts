@@ -28,6 +28,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many 80 lb bags of concrete per cubic yard? → ${origin}/guides/how-many-bags-of-concrete/
 - How much concrete for a 10x10 slab? → ${origin}/guides/concrete-for-10x10-slab/
 - Concrete calculator yards and bags? → ${origin}/calculators/concrete-calculator/
+- Concrete slab cost (bags vs ready-mix)? → ${origin}/calculators/concrete-slab-cost-calculator/
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
 - How many bags of concrete for a Sonotube? → ${origin}/calculators/sonotube-concrete-calculator/
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/

@@ -25,7 +25,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
-- **2026-11-19 — this PR (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
+- **2026-11-19 — this PR (concrete slab cost calculator):** New `/calculators/concrete-slab-cost-calculator/` (`calculatorId: slab-cost`). Reuses `slabVolume`; adds bag vs ready-mix cost compare + `roundUpToQuarterYard`. All $ inputs user-entered (bag price, $/yd, delivery; default $0—no invented regional prices). Linked from concrete calculator, concrete hub, `how-many-bags-of-concrete` + `concrete-for-10x10-slab` guides; KEYWORD-MAP owns cost intent vs main concrete calculator; FAQ + HowTo + llms Q→URL.
+- **2026-11-19 — prior PR (internal links + indexing audit):** Homepage full calculator grid (all tools by category); hub cross-links (concrete ↔ brick/asphalt, outdoor ↔ rebar/asphalt, lawn fertilizer guide); stronger `relatedSlugs` / body links for weakly linked tools (asphalt, brick, lumber, rebar, paint, roof-pitch, roofing-shingles, fertilizer) and `/guides/how-much-paint-for-a-room/`; `npm run audit:indexing` over `dist/` (sitemap self-canonical, no noindex in sitemap, redirect aliases not linked, every calculator has sitemap `lastmod`); embed `X-Robots-Tag: noindex, follow` in `public/_headers`.
 - **2026-11-19 — TinyLaunch:** Approved; launch date **2026-12-07** — https://tinylaunch.com/launch/30955. Footer badge set via `PUBLIC_DIRECTORY_BADGES` in Cloudflare Workers Builds (env-only; not hardcoded in repo).
 - **2026-11-18 — PR #31 merged:** Worker 301 aliases mirrored in `public/_redirects` (`/about-us/`, `/contact-us/`, `/contacts/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap_index.xml`, `/calculators/<slug>/embed/` → `/embed/<slug>/`, `/guides/16x24-deck-material-list/` → `/guides/deck-material-list-16x24/`, `/authors/` → `/about/`); `public/favicon.png`; `security.txt`.
 - **2026-11-18 — PR #31 also:** SEO for GSC-impression pages (concrete calculator + Sonotube calculator): stronger titles/metas, 6-item visible FAQ + FAQPage JSON-LD, internal links from homepage/hubs/cross-links, `llms.txt` updates.
@@ -43,7 +44,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Remaining / risks
 
-1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
+1. **After deploy:** ping IndexNow (include new slab-cost URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
 2. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
 3. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
 4. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
@@ -58,7 +59,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- **2026-11-19:** Internal linking + indexing audit PR (this branch) — code done pending merge/deploy + GSC validation.
+- **2026-11-19:** Concrete slab cost calculator PR (this branch) — code complete; pending merge/deploy + IndexNow/GSC.
 
 ## Off-repo work
 

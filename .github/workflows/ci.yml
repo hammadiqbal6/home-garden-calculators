@@ -23,18 +23,97 @@ env:
 
 jobs:
   # Keep this job name: branch protection / required checks may reference it.
+  # Docs/skills-only PRs still run this job (fast success) so required checks are not blocked.
   build-test-audit:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
+        with:
+          # Need base…head for docs-only path detection on pull_request.
+          fetch-depth: 0
+
+      - name: Detect if heavy CI is needed
+        id: changes
+        run: |
+          set -euo pipefail
+          # Always run full CI on pushes to main (and any non-PR event).
+          if [ "${{ github.event_name }}" != "pull_request" ]; then
+            echo "heavy=true" >> "$GITHUB_OUTPUT"
+            echo "Heavy CI: always on ${{ github.event_name }}"
+            exit 0
+          fi
+          BASE="${{ github.event.pull_request.base.sha }}"
+          HEAD="${{ github.event.pull_request.head.sha }}"
+          # Anything outside docs/skills/status markdown requires install → build → test.
+          HEAVY_RE='^(src/|public/|scripts/|tests/|\.github/|package(-lock)?\.json$|astro\.config\.mjs$|vitest\.config\.ts$|tsconfig\.json$|wrangler\.jsonc$|lighthouserc\.cjs$|vercel\.json$|\.npmrc$|\.node-version$)'
+          if git diff --name-only "$BASE"..."$HEAD" | grep -E "$HEAVY_RE" > /tmp/ci-heavy-paths.txt; then
+            echo "heavy=true" >> "$GITHUB_OUTPUT"
+            echo "Heavy CI paths:"
+            cat /tmp/ci-heavy-paths.txt
+          else
+            echo "heavy=false" >> "$GITHUB_OUTPUT"
+            echo "Docs/skills-only PR — skipping install/build/test"
+            git diff --name-only "$BASE"..."$HEAD" || true
+          fi
+
       - uses: actions/setup-node@v5
+        if: steps.changes.outputs.heavy == 'true'
         with:
           node-version: '22'
           cache: npm
+
       - name: Install
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Unit tests
-        run: npm test
+        if: steps.changes.outputs.heavy == 'true'
+        run: npm ci --prefer-offline --no-audit --fund=false
+
+      # Restore after npm ci (which recreates node_modules). .astro/ is gitignored at repo root.
+      - name: Cache Astro / Vite build caches
+        if: steps.changes.outputs.heavy == 'true'
+        uses: actions/cache@v4
+        with:
+          path: |
+            .astro
+            node_modules/.vite
+            node_modules/.astro
+          key: astro-${{ runner.os }}-node22-${{ hashFiles('package-lock.json', 'astro.config.mjs') }}
+          restore-keys: |
+            astro-${{ runner.os }}-node22-
+
+      - name: Build and unit tests (parallel)
+        if: steps.changes.outputs.heavy == 'true'
+        run: |
+          set -euo pipefail
+          # Vitest does not need dist/; overlap wall time with astro build.
+          npm run build > /tmp/yt-build.log 2>&1 &
+          build_pid=$!
+          npm test > /tmp/yt-test.log 2>&1 &
+          test_pid=$!
+          status=0
+          if ! wait "$build_pid"; then
+            echo "::error::Build failed"
+            echo "::group::Build log"
+            cat /tmp/yt-build.log
+            echo "::endgroup::"
+            status=1
+          else
+            echo "::group::Build log"
+            cat /tmp/yt-build.log
+            echo "::endgroup::"
+          fi
+          if ! wait "$test_pid"; then
+            echo "::error::Unit tests failed"
+            echo "::group::Test log"
+            cat /tmp/yt-test.log
+            echo "::endgroup::"
+            status=1
+          else
+            echo "::group::Test log"
+            cat /tmp/yt-test.log
+            echo "::endgroup::"
+          fi
+          exit "$status"
+
+      - name: Docs-only skip notice
+        if: steps.changes.outputs.heavy != 'true'
+        run: echo "Skipped heavy CI (docs/skills-only). Required check build-test-audit still reports success."

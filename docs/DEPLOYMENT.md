@@ -192,6 +192,8 @@ Production hosting is a **pure static-assets Worker** named `home-garden-calcula
 | Build command | `npm run build` |
 | Deploy command | `npx wrangler deploy && node scripts/indexnow.mjs` |
 
+Workers Builds already runs a lockfile install before the build command. Repo [`.npmrc`](../.npmrc) sets `prefer-offline=true`, `audit=false`, and `fund=false` so that install (and GitHub Actions `npm ci`) stays fast without changing the dashboard build command.
+
 **Build variables** (Workers Builds → Variables):
 
 | Name | Example / notes |
@@ -422,7 +424,7 @@ Also revert the Git commit on `main` if the bad change is in source control.
 | `npm run proof` fails Lighthouse | Perf regression | See `docs/proof/lighthouse/summary.md`; fix CLS/JS before launch. |
 | AdSense “ads.txt not found” | File commented or wrong domain | Uncomment `public/ads.txt`, correct `pub-` id, redeploy, curl live URL. |
 | GA4 no data | Empty `ga4MeasurementId` or ad blocker | Set ID, redeploy, test in DebugView. |
-| Playwright fails in CI proof job | Chromium install | CI runs `npx playwright install chromium --with-deps`; match locally if needed. |
+| Playwright fails in CI proof job | Chromium install | Full checks caches Playwright and runs `npx playwright install chromium` (no `--with-deps` on ubuntu-24.04); match locally if needed. |
 | Build fails on Node 18 | Astro 5 expects Node 20+ | Set `NODE_VERSION=22` on the host. |
 
 ---

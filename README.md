@@ -18,6 +18,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
+- **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
 
 ### Remaining
 
@@ -25,6 +26,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
+- Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
 
 ---
 
@@ -262,7 +264,7 @@ Committed, tool-generated evidence (scores are **not** hand-edited): **[`docs/pr
 npm run build && npm run proof
 ```
 
-Includes Lighthouse HTML/JSON, structured-data samples, audit logs, bundle-size table, mobile screenshots (360px & 768px), and AdSense readiness checklist. CI job **`proof`** on pull requests regenerates the bundle and uploads `docs/proof/` as an artifact.
+Includes Lighthouse HTML/JSON, structured-data samples, audit logs, bundle-size table, mobile screenshots (360px & 768px), and AdSense readiness checklist. Regenerate locally with `npm run proof`, or via **Actions → Full checks** (uploads `docs/proof/` as an artifact).
 
 ---
 
@@ -270,7 +272,8 @@ Includes Lighthouse HTML/JSON, structured-data samples, audit logs, bundle-size 
 
 - Auditors: `scripts/audit/*.mjs` wired via `npm run audit`
 - Lighthouse CI config: `lighthouserc.cjs` (mobile, Performance/A11y/BP/SEO ≥ 0.95, CLS ≤ 0.05)
-- GitHub Actions: [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs install → test → build → links → audit → lighthouse on PRs, plus **`proof`** (full evidence bundle artifact)
+- PR / `main` CI ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)): **build + unit tests** only (job `build-test-audit`). Uses npm cache, Astro/Vite cache, parallel build+test, concurrency cancel-in-progress, and docs/skills-only path skip (job still succeeds so required checks are not blocked).
+- Full suite ([`.github/workflows/full-checks.yml`](.github/workflows/full-checks.yml), manual): links, `npm run audit`, Lighthouse, and proof (Playwright Chromium cached).
 
 ---
 

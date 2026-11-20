@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-19
+**Last updated:** 2026-11-20
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -25,6 +25,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
+- **2026-11-20 — this PR (Agathox ownership verification):** Home (and all pages via `BaseLayout`) emit `<meta name="agathox-verification" content="agathox-verify-ebf97075afd69f9a">`; static `public/.well-known/agathox-verification.txt` (exact token body). Worker already skips trailing-slash 308 for `.txt` via `FILE_EXT` — covered by unit test; no Worker/CSP/consent changes. Directory listing confirmation remains off-repo until Agathox accepts ownership.
 - **2026-11-19 — this PR (Sonotube upgrade):** Optional footing base (`none` / bell frustum / pad cylinder); mixed tube sizes (size B count 0 = unused); live `bags50` (QUIKRETE 0.375 cu ft); bags-per-foot HTML table for 8–36″; `toggleModeFields` hides unused bell/pad inputs; FAQ/body/HowTo refresh; `dateModified` 2026-11-19; unit tests.
 - **2026-11-19 — CI / build speed (this PR):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
 - **2026-11-19 — French drain gravel calculator (this PR):** `/calculators/french-drain-gravel-calculator/` — trench L×W×D minus perforated pipe volume → gravel cu yd + tons (density input), geotextile wrap fabric area, pipe length; Vitest coverage; linked from gravel + retaining-wall tools and landscape hub via `tools[]`; keyword map + llms Q→URL updated.
@@ -62,6 +63,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Remaining / risks
 
+1. **After deploy (this PR):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed. IndexNow not required for this verification-only change.
 1. **After deploy:** ping IndexNow (include new deck footing URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
 1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets (include new `/calculators/concrete-slab-cost-calculator/`).
 2. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
@@ -69,7 +71,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 4. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
 5. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
 6. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
-7. Free-tool / calculator **directory submissions** beyond TinyLaunch (owner says some may be done; only record confirmed names + URLs here).
+7. Free-tool / calculator **directory submissions** beyond TinyLaunch (Agathox ownership tokens shipped 2026-11-20; listing URL unconfirmed until Agathox accepts; other directories only record confirmed names + URLs here).
 8. **Embed-widget outreach** to DIY / landscaping bloggers.
 9. Add closely related **variants of tools that already get impressions** (stair stringer, sod, etc. still in `docs/ideas/README.md`) — deck footing variant shipped 2026-11-19.
 9. Add closely related **variants of tools that already get impressions**, rather than new topics (footing calculator shipped 2026-11-19; other variants still open).
@@ -86,7 +88,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 5. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
 6. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
 7. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
-8. Free-tool / calculator **directory submissions** beyond TinyLaunch (owner says some may be done; only record confirmed names + URLs here).
+8. Free-tool / calculator **directory submissions** beyond TinyLaunch (Agathox ownership tokens shipped 2026-11-20; listing URL unconfirmed until Agathox accepts; other directories only record confirmed names + URLs here).
 9. **Embed-widget outreach** to DIY / landscaping bloggers.
 10. Add closely related **variants of tools that already get impressions**, rather than new topics.
 11. **Weekly GSC check** and refresh baseline metrics in this file.
@@ -96,6 +98,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
+- _(none for this Agathox verification PR)_
 - **2026-11-19:** Sonotube calculator upgrade PR (this branch) — footing/bell, mixed sizes, bags50, bags-per-foot table.
 - **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.
 - **2026-11-19:** Bulk cost upgrade for gravel/topsoil/sand/mulch (this branch) — pending merge/deploy + IndexNow.
@@ -119,7 +122,7 @@ Things done outside this repo (consoles, social, ads, directories). Confirm befo
 | 2026-11-19 | TinyLaunch approved | Launch **2026-12-07** — https://tinylaunch.com/launch/30955 · footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds |
 | 2026-11-19 | Reddit promotion **paused** | New account filter risk; see Remaining / risks #6 |
 | 2026-11-18 | Reddit YardTally `r/SideProject` launch (`u/ihammadiqbal117`) | https://www.reddit.com/r/SideProject/comments/1xz9yzs/ — **not** marked removed (unverified). Advice-only comments in `r/landscaping` / `r/gardening` |
-| — | Directory submissions | TinyLaunch confirmed; others unconfirmed by name |
+| — | Directory submissions | TinyLaunch confirmed; Agathox ownership tokens in site (2026-11-20), listing URL pending acceptance; others unconfirmed by name |
 
 Also historically confirmed (see AGENTS.md): Bing Webmaster + GSC verified; IndexNow active in Bing (~336 URLs, 2026-11-13).
 

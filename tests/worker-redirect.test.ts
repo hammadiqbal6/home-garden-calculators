@@ -109,6 +109,16 @@ describe('trailing-slash helpers (canonical host behavior)', () => {
     expect(withTrailingSlashPath('/')).toBe('/');
     expect(needsTrailingSlashRedirect('/site.webmanifest')).toBe(false);
   });
+
+  it('does not trailing-slash-redirect .well-known verification .txt paths', () => {
+    // FILE_EXT skips paths ending in .txt — required for Agathox ownership file at
+    // /.well-known/agathox-verification.txt (must 200 without a slash redirect).
+    expect(withTrailingSlashPath('/.well-known/agathox-verification.txt')).toBe(
+      '/.well-known/agathox-verification.txt',
+    );
+    expect(needsTrailingSlashRedirect('/.well-known/agathox-verification.txt')).toBe(false);
+    expect(needsTrailingSlashRedirect('/.well-known/security.txt')).toBe(false);
+  });
 });
 
 describe('path alias redirects (live 404 cleanup)', () => {

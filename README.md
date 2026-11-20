@@ -12,8 +12,9 @@ Production-ready **static** website of free DIY / landscaping material calculato
 
 Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md).
 
-### Done (as of 2026-11-19)
+### Done (as of 2026-11-20)
 
+- **Agathox ownership verification (this PR):** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.
 - Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
 - Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
 - **Concrete slab cost calculator** (`/calculators/concrete-slab-cost-calculator/`): volume × user ready-mix or bag prices + optional gravel/rebar/forms/delivery/labor; example defaults labeled, not market facts.
@@ -32,6 +33,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Remaining
 
+- After deploy: confirm Agathox ownership (meta + `/.well-known/agathox-verification.txt`); record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
 - After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).

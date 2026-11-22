@@ -14,6 +14,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-22)
 
+- **SEO title/H1/meta rewrite (this PR):** All hubs, calculators (except lumber left to sibling work), guides, and about/contact/methodology titles ≤48 chars without brand (`formatPageTitle` → ≤60 branded). Priority FAQs expanded (concrete size table, fertilizer 10-10-10/starter/liquid, rebar #3/#4 lb/ft, gravel/French drain/fence/deck footing). Home lead has exact-match popular anchors + ItemList; 10×10 guide adds 12×12/20×20 sections (no new URLs).
 - **Mulch guide merge + weak-page links (this PR):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (3-3-3, 25-bag coverage, bags vs bulk); **301** in `public/_redirects` + `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP / llms retargeted. Strengthened inbound links for footing, slab-cost, deck-footing, French drain, slab-thickness, how-much-concrete, and Sonotube-footing pages.
 - **Lumber weight + chart guide (this PR):** `/calculators/lumber-calculator/` now estimates planning weight (dressed section × Wood Handbook density presets) alongside board feet—no separate weight-calculator URL. New `/guides/lumber-weight-chart/` with SPF / Doug fir / southern pine tables; KEYWORD-MAP + llms Q→URL updated.
 - **Agathox ownership verification:** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.

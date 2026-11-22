@@ -58,14 +58,14 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 | GSC reason | What it is in this codebase | Action |
 |---|---|---|
-| Page with redirect (~4) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slug, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
+| Page with redirect (~4+) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slugs incl. `/guides/how-much-mulch-do-i-need/` → mulch calculator, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
 | Excluded by noindex (~2) | `/embed/<slug>/` (`noindex,follow`) and `/404.html` | Intentional. Not in sitemap. |
 | Alternate page with proper canonical | Embed pages canonicalize to `/calculators/<slug>/` | Intentional widget pattern. |
 | Discovered - currently not indexed (~13) | Weak internal linking historically | Addressed in PR #33 via homepage grid + hubs + related/contextual links; request indexing after deploy. |
 
 ## Remaining / risks
 
-1. **After deploy (this PR):** IndexNow for lumber calculator + `/guides/lumber-weight-chart/`; GSC URL Inspection / request indexing for the new guide.
+1. **After deploy (this PR):** IndexNow for `/calculators/mulch-calculator/` (merged) + lumber calculator + `/guides/lumber-weight-chart/`; GSC validate old mulch-guide redirect; request indexing for newly linked weak pages and lumber guide.
 1. **After deploy (Agathox):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed.
 1. **After deploy:** ping IndexNow (include new deck footing URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
 1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets (include new `/calculators/concrete-slab-cost-calculator/`).

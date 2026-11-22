@@ -150,6 +150,12 @@ describe('path alias redirects (live 404 cleanup)', () => {
     expect(
       pathAliasRedirectLocation('https://getyardtally.com/guides/16x24-deck-material-list/'),
     ).toBe('https://getyardtally.com/guides/deck-material-list-16x24/');
+    expect(
+      pathAliasRedirectLocation('https://getyardtally.com/guides/how-much-mulch-do-i-need/'),
+    ).toBe('https://getyardtally.com/calculators/mulch-calculator/');
+    expect(
+      pathAliasRedirectLocation('https://getyardtally.com/guides/how-much-mulch-do-i-need'),
+    ).toBe('https://getyardtally.com/calculators/mulch-calculator/');
   });
 
   it('maps /calculators/:slug/embed/ → /embed/:slug/', () => {

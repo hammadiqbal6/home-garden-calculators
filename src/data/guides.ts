@@ -410,6 +410,8 @@ export const guides: GuideDefinition[] = [
       'A 12-inch Sonotube that is 4 feet tall holds about 3.14 cubic feet of concrete. That is roughly 5.2 of the 80 lb bags before you round up, so plan on 6 bags, or about 7 of the 60 lb bags. Multiply by pier count, then add a little for spillage.',
     relatedToolSlugs: [
       'sonotube-concrete-calculator',
+      'deck-footing-calculator',
+      'concrete-footing-calculator',
       'concrete-calculator-post-holes',
       'concrete-calculator',
       'deck-material-calculator',

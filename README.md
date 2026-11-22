@@ -14,8 +14,9 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-22)
 
-- **SEO title/H1/meta rewrite (this PR):** All hubs, calculators (except lumber left to sibling work), guides, and about/contact/methodology titles ≤48 chars without brand (`formatPageTitle` → ≤60 branded). Priority FAQs expanded (concrete size table, fertilizer 10-10-10/starter/liquid, rebar #3/#4 lb/ft, gravel/French drain/fence/deck footing). Home lead has exact-match popular anchors + ItemList; 10×10 guide adds 12×12/20×20 sections (no new URLs).
-- **Mulch guide merge + weak-page links (this PR):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (3-3-3, 25-bag coverage, bags vs bulk); **301** in `public/_redirects` + `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP / llms retargeted. Strengthened inbound links for footing, slab-cost, deck-footing, French drain, slab-thickness, how-much-concrete, and Sonotube-footing pages.
+- **Durable SEO agent rules (this PR):** [`.cursor/rules/seo.mdc`](.cursor/rules/seo.mdc) + [`.cursor/skills/add-seo-page/SKILL.md`](.cursor/skills/add-seo-page/SKILL.md); AGENTS.md §5 expanded (titles ≤60 branded, cannibalization/301 merges, inbound-link minimums, AI Overview answer-under-H2, no hard-coded counts). **After every deploy:** run IndexNow (`npm run indexnow` — all sitemap URLs, including new pages and redirect targets; do not change the key) and GSC Request indexing for changed pages.
+- **SEO title/H1/meta rewrite (this PR):** All hubs, calculators, guides, and about/contact/methodology titles ≤48 chars without brand (`formatPageTitle` → ≤60 branded). Concrete calculator titled for top query **concrete slab calculator**. Priority FAQs expanded. Home lead has exact-match popular anchors + ItemList; 10×10 guide adds 12×12/20×20 sections (no new URLs).
+- **Mulch guide merge + weak-page links (this PR):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (3-3-3, 25-bag coverage, bags vs bulk); **301** in `public/_redirects` + `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP / llms retargeted. **Kept** `/guides/mulch-depth-guide/` (AI Overview exemplar). Strengthened inbound links for weakly linked pages.
 - **Lumber weight + chart guide (this PR):** `/calculators/lumber-calculator/` now estimates planning weight (dressed section × Wood Handbook density presets) alongside board feet—no separate weight-calculator URL. New `/guides/lumber-weight-chart/` with SPF / Doug fir / southern pine tables; KEYWORD-MAP + llms Q→URL updated.
 - **Agathox ownership verification:** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.
 - Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
@@ -36,13 +37,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Remaining
 
-- After deploy: IndexNow for mulch calculator (merged URL) + lumber calculator + `/guides/lumber-weight-chart/`; GSC validate old mulch-guide redirect and request indexing for newly linked weak pages / lumber guide.
+- **After deploy (do not run from agents pre-deploy):** `npm run indexnow` (all sitemap URLs — mulch calculator redirect target, lumber calculator + weight chart, AI-exemplar guides, weak-link pages, prior tools) **and** GSC URL Inspection → Request indexing / validate redirect + discovered-not-indexed buckets. IndexNow key unchanged.
 - After deploy: confirm Agathox ownership (meta + `/.well-known/agathox-verification.txt`); record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
-- After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new French drain URL).
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, discovered-not-indexed buckets, and the remaining PAA guides (mulch guide now redirects).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
@@ -223,7 +219,7 @@ Open the printed localhost URL. Edit `src/config/site.ts` before any public laun
 | `npm run audit` | Run all auditors |
 | `npm run lighthouse` | Lighthouse CI mobile budgets (`lighthouserc.cjs`) |
 | `npm run proof` | Regenerate committed proof under `docs/proof/` (Lighthouse, audits, screenshots) |
-| `npm run indexnow` | Ping IndexNow with all URLs from `dist/` sitemaps |
+| `npm run indexnow` | After deploy: ping IndexNow with **all** URLs from `dist/` sitemaps (new pages + live redirect targets). Do not change the key. Google does not use IndexNow — also Request indexing in GSC for changed URLs. |
 | `npm run deploy:indexnow` | `wrangler deploy` then IndexNow ping |
 
 ---

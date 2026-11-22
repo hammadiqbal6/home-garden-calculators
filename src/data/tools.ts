@@ -231,8 +231,8 @@ export const tools: ToolDefinition[] = [
       'Free concrete slab calculator for yards and 40/60/80 lb bags. Size 10×10, 12×12, and 20×20 at 4–6 inches, add waste, and see when a ready-mix truck makes sense.',
     h1: 'Concrete Slab Calculator: Yards, Bags & Rebar',
     answerFirst:
-      'A concrete calculator converts your project dimensions into cubic feet and cubic yards, then into 40, 60, or 80 lb bags. For a slab, multiply length × width × thickness (in feet); divide by 27 for yards. Add about 10% waste. Typical bag yields are 0.30, 0.45, and 0.60 cubic feet.',
-    summary: 'Slabs, footings, and solid steps with cubic yards and bag counts.',
+      'This concrete slab calculator turns length × width × thickness into cubic yards and 40/60/80 lb bags. A 10×10 slab at 4 inches is about 1.23 cu yd (≈62 × 80 lb bags after 10% waste). Add waste, compare bag vs ready-mix, and open the size table below for 12×12 and 20×20.',
+    summary: 'Concrete slab calculator for yards, bags, and common patio sizes.',
     calculatorId: 'concrete',
     relatedSlugs: [
       'concrete-footing-calculator',

@@ -66,7 +66,7 @@ export const guides: GuideDefinition[] = [
     slug: 'mulch-depth-guide',
     title: 'How Deep Should Mulch Be? Beds, Trees, Gardens',
     description:
-      'How deep should mulch be in beds, around trees, and in gardens? Typical 2–3 inch depths, volcano-mulch warnings, and a free mulch calculator.',
+      'How deep should mulch be in beds, around trees, and in gardens? Typical 2–3 inch depths, a coverage table, and a free mulch calculator for bags and yards.',
     h1: 'How Deep Should Mulch Be? Beds, Trees, Gardens',
     primaryKeyword: 'mulch depth',
     secondaryKeywords: [
@@ -75,7 +75,7 @@ export const guides: GuideDefinition[] = [
       'mulch depth for flower beds',
     ],
     answerFirst:
-      'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth before you order.',
+      'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth, then use the mulch calculator for bags and yards.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
     relatedGuideSlugs: [
       'mulch-for-common-garden-beds',
@@ -83,7 +83,7 @@ export const guides: GuideDefinition[] = [
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -160,7 +160,7 @@ export const guides: GuideDefinition[] = [
     slug: 'gravel-types-for-driveways',
     title: 'Best Gravel for a Driveway: Types & Depths',
     description:
-      'Best gravel for a driveway: base vs surface types and typical depths. Choose crushed stone grades and estimate yards with the gravel calculator.',
+      'Best gravel for a driveway: dense-grade base vs surface stone, depth and tonnage tables, and a free gravel calculator for yards and tons.',
     h1: 'Best Gravel for a Driveway: Types & Depths',
     primaryKeyword: 'gravel types for driveways',
     secondaryKeywords: [
@@ -169,14 +169,14 @@ export const guides: GuideDefinition[] = [
       'crushed stone vs pea gravel',
     ],
     answerFirst:
-      'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons. Treat depth and tons-per-yard figures as planning assumptions.',
+      'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons—or use the gravel calculator.',
     relatedToolSlugs: ['gravel-calculator', 'asphalt-calculator', 'sand-calculator', 'paver-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'retaining-wall-blocks-and-base',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'how-to-measure-roof-pitch',
@@ -347,7 +347,7 @@ export const guides: GuideDefinition[] = [
     slug: 'retaining-wall-blocks-and-base',
     title: 'Retaining Wall Blocks & Base: Count & Build',
     description:
-      'Retaining wall blocks and base: how to count face blocks, gravel base, and drainage backfill. Planning steps with a free block calculator.',
+      'How many retaining wall blocks you need, gravel base depth, and drainage backfill—with a planning table and free retaining wall calculator.',
     h1: 'Retaining Wall Blocks & Base: Count & Build',
     primaryKeyword: 'retaining wall blocks and base',
     secondaryKeywords: [
@@ -357,14 +357,14 @@ export const guides: GuideDefinition[] = [
       'typical retaining wall block dimensions',
     ],
     answerFirst:
-      'A 20 ft wall that is 3 ft exposed with 18×6 in face blocks needs about 84 face blocks before waste (six courses × 14), plus a compacted gravel trench. YardTally’s 24×6 in trench is a planning default. “Paver base” under a wall means wall base, not patio depths; taller walls need engineering.',
+      'A 20 ft wall that is 3 ft exposed with 18×6 in face blocks needs about 84 face blocks before waste (six courses × 14), plus a compacted gravel trench. YardTally’s 24×6 in trench is a planning default. Use the retaining wall calculator for live counts; taller walls need engineering.',
     relatedToolSlugs: ['retaining-wall-calculator', 'brick-calculator', 'gravel-calculator'],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'gravel-types-for-driveways',
     ],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'topsoil-vs-garden-soil',

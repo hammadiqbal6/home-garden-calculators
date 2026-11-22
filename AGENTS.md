@@ -85,15 +85,42 @@ npm run proof        # full proof bundle (Lighthouse + audits)
 - **Guides:** answer-first 40–60 words (sourced verdict first); question H2s from real search/PAA; worked example; FAQ 3–5; body ≥800 words in `guideBodies.ts`.
 - **Tools:** answer-first 40–60 words before inputs; calculator above the fold; FAQ 3–5; SSR default results (real numbers, not em dashes) via `calculatorFields.ts`.
 
-## 5. SEO / AEO rules
+## 5. SEO / AEO / AI Overview rules
 
-- Titles 25–65 (prefer branded ≤60); meta 70–160 (aim ~120–160); one H1; og/twitter match title & description.
-- Answer-first on home/tools/guides; tools link ≥1 topical guide; no doorway/query-variant duplicates.
-- **Schema:** BreadcrumbList; tools → WebApplication (+ FAQPage); guides → Article (+ FAQPage). **HowTo only from visible on-page steps** (`guideHowTo.ts` / `toolHowTo.ts`). No fake `aggregateRating`.
-- **Sitemap `lastmod`:** from each page’s real `dateModified` in `astro.config.mjs` — **never** `Date.now()` / “now”.
-- **IndexNow** after publish (`npm run indexnow` / deploy hook). Google does not use IndexNow.
-- Keep `llms.txt` (Q→URL), `llms-full.txt` (figures), and `/.well-known/llms.txt` (alias) in sync when answers/figures change.
-- Keyword map: `docs/KEYWORD-MAP.md`. Full checklist: `docs/PAGE-CHECKLIST.md`.
+Standing rule file: [`.cursor/rules/seo.mdc`](.cursor/rules/seo.mdc). Page checklist skill: [`.cursor/skills/add-seo-page/SKILL.md`](.cursor/skills/add-seo-page/SKILL.md).
+
+### Titles, H1, meta
+- **Branded `<title>` ≤ 60 characters.** `formatPageTitle` appends ` | YardTally` (~12 chars) — keep the title **prop ≤ 48**.
+- Unique title, H1, and meta per URL, aimed at real query wording (GSC / autocomplete / PAA). Meta 70–160 (aim ~120–160); og/twitter match; one H1.
+- Never hard-code counts like “All 26 calculators” — use `tools.length` / `guides.length`.
+
+### Cannibalization & merges
+- Check `docs/KEYWORD-MAP.md` before any new URL. **One primary page per query cluster.**
+- Prefer extending an existing tool/guide over a near-duplicate. If two URLs fight the same intent, **merge and 301** (keep `public/_redirects` and `PATH_ALIAS_REDIRECTS` in `src/lib/workerRedirect.ts` in sync).
+- Example: `/guides/how-much-mulch-do-i-need/` → `/calculators/mulch-calculator/`. **Keep** `/guides/mulch-depth-guide/` as the depth page (do not merge it away).
+
+### Internal links (required for new pages)
+Every new indexable page needs inbound links from: (1) its **hub** body/prose, (2) homepage and/or index, (3) **2–3 related** siblings. Keep `relatedSlugs` / `relatedGuideSlugs` reciprocal with body anchors. Weak inbound (5–7 links) delays indexing.
+
+### AI Overviews / AI Mode / answer engines
+On calculator and guide bodies:
+1. **1–2 sentence direct answer under each question H2**, then detail.
+2. Plain HTML **summary tables** (sizes, bags, yards, weights) computed from formulas/sources — never copy competitors.
+3. Show the **formula** and a **worked example** matching Vitest / calculator output.
+4. Visible **Reviewed by** / last updated (guides byline; tools `TrustBlock`) and cite methodology or primary sources (USDA Wood Handbook, QUIKRETE/Sakrete TDS, extensions).
+5. Clear link to the matching calculator so AI readers can click through.
+6. Valid structured data: tools → WebApplication (+ FAQPage when FAQ visible); guides → Article (+ FAQPage); BreadcrumbList; HowTo **only** from real on-page steps. No fake `aggregateRating`.
+7. Do **not** block AI crawlers in `robots.txt`. Keep `/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` in sync when answers/figures change (`llms.txt` helps AI crawlers, not Google ranking).
+
+### Canonicals, sitemap, embeds
+- Self-canonical via `siteConfig.siteUrl`; **trailing-slash** URLs; embeds stay **`noindex,follow`** with canonical to the tool.
+- Sitemap includes every tool/guide in `tools[]` / `guides[]` after build. `lastmod` from real `dateModified` — **never** `Date.now()` / “now”.
+
+### After every deploy (mandatory)
+1. **IndexNow** — `npm run indexnow` (or the Workers Builds `deploy:indexnow` hook). Script reads **all** `<loc>` URLs from `dist/` sitemaps (new pages + redirect **targets** that remain live). Do **not** change the IndexNow key or key file. Google does not use IndexNow.
+2. **Google Search Console** — URL Inspection → **Request indexing** for each new or substantially changed page (and validate redirect/noindex buckets when relevant).
+
+Agents must **not** run IndexNow or request GSC indexing unless the site was actually deployed and the owner asked. Keyword map: `docs/KEYWORD-MAP.md`. Full checklist: `docs/PAGE-CHECKLIST.md`.
 
 ## 6. Security & consent
 
@@ -119,6 +146,7 @@ Do **not** loosen to `*` or broad CDNs. CSP changes are careful, dedicated PRs.
 
 Follow the skills (file lists are authoritative):
 
+- **SEO edit / new page checklist** → [`.cursor/skills/add-seo-page/SKILL.md`](.cursor/skills/add-seo-page/SKILL.md) (cannibalization, titles ≤60 branded, AI Overview answer-under-H2, inbound links, sitemap, IndexNow after deploy)
 - New calculator → [`.cursor/skills/add-a-new-calculator/SKILL.md`](.cursor/skills/add-a-new-calculator/SKILL.md)
 - New guide → [`.cursor/skills/add-a-new-guide/SKILL.md`](.cursor/skills/add-a-new-guide/SKILL.md)
 - Refresh a guide → [`.cursor/skills/refresh-an-existing-guide/SKILL.md`](.cursor/skills/refresh-an-existing-guide/SKILL.md)
@@ -136,7 +164,7 @@ Research first: one primary query, SERP/PAA, cannibalization check in `docs/KEYW
 - **Every PR (mandatory):** update [README.md](README.md) **and** [docs/GROWTH-STATUS.md](docs/GROWTH-STATUS.md) Done/Remaining to match what this PR ships and what is still open. No exceptions for “small” fixes.
 - Seasonality: ship evergreen DIY content **Nov–Feb** ahead of **Mar–Jun** peaks (lawn, mulch, concrete, paint).
 - Before merge: run the [pre-merge SEO/AEO checklist](.cursor/skills/pre-merge-seo-aeo-checklist/SKILL.md) and `npm test && npm run build && npm run audit && npm run check:links`.
-- After deploy: IndexNow; spot-check critical URLs in GSC when indexing matters.
+- **After every deploy:** run IndexNow (`npm run indexnow` / deploy hook — submits all sitemap URLs, including new pages and live redirect targets; do not change the key) **and** GSC URL Inspection → Request indexing for changed pages. Do not run IndexNow from an agent before deploy.
 
 ## 9. Don'ts
 
@@ -150,3 +178,5 @@ Research first: one primary query, SERP/PAA, cannibalization check in `docs/KEYW
 - Don’t ship doorway URL variants or near-duplicate keyword pages.
 - Don’t leave copy disagreeing with Vitest math / bag yields.
 - Don’t merge without green build+tests, or pile unrelated concerns into one PR.
+- Don’t hard-code tool/guide counts; don’t change the IndexNow key; don’t block AI crawlers in `robots.txt`.
+- Don’t merge away `/guides/mulch-depth-guide/` (depth intent); quantity “how much mulch” lives on the mulch calculator after the 301 merge.

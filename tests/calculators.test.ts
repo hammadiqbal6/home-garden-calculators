@@ -16,8 +16,12 @@ import {
   grassSeed,
   frenchDrainMaterials,
   gravelVolume,
+  ACTUAL_SOFTWOOD_SECTIONS,
+  LUMBER_DENSITY_PRESETS,
+  actualSoftwoodSection,
   lumberFromBoardFeet,
   lumberFromPieces,
+  lumberWeight,
   masonryUnits,
   paintNeeded,
   paverCount,
@@ -671,6 +675,80 @@ describe('lumber', () => {
     // 5.33 BF each → ceil(50/5.33) = 10
     expect(r.piecesNeeded).toBe(10);
     expect(r.totalBoardFeetOrdered).toBeCloseTo(53.3, 1);
+  });
+
+  it('maps nominal softwood sizes to dressed actual sections', () => {
+    expect(actualSoftwoodSection(2, 4)).toEqual(ACTUAL_SOFTWOOD_SECTIONS['2x4']);
+    expect(actualSoftwoodSection(2, 6)).toEqual({ thicknessIn: 1.5, widthIn: 5.5 });
+    expect(actualSoftwoodSection(2, 8)).toEqual({ thicknessIn: 1.5, widthIn: 7.25 });
+    expect(actualSoftwoodSection(2, 10)).toEqual({ thicknessIn: 1.5, widthIn: 9.25 });
+    expect(actualSoftwoodSection(2, 12)).toEqual({ thicknessIn: 1.5, widthIn: 11.25 });
+    expect(actualSoftwoodSection(4, 4)).toEqual({ thicknessIn: 3.5, widthIn: 3.5 });
+  });
+
+  it('uses Wood Handbook SG × 62.4 × 1.12 for KD density presets', () => {
+    expect(LUMBER_DENSITY_PRESETS.spf_kd.densityLbPerCuFt).toBeCloseTo(0.41 * 62.4 * 1.12, 1);
+    expect(LUMBER_DENSITY_PRESETS.douglas_fir_larch_kd.densityLbPerCuFt).toBeCloseTo(
+      0.48 * 62.4 * 1.12,
+      1,
+    );
+    expect(LUMBER_DENSITY_PRESETS.southern_pine_kd.densityLbPerCuFt).toBeCloseTo(
+      0.51 * 62.4 * 1.12,
+      1,
+    );
+    expect(LUMBER_DENSITY_PRESETS.southern_pine_green.densityLbPerCuFt).toBe(53);
+  });
+
+  it('estimates 2×4×8 SPF weight from actual 1.5×3.5 section', () => {
+    // vol = (1.5 × 3.5 × 8 × 12) / 1728 = 0.291666… cu ft
+    // density SPF KD = 0.41 × 62.4 × 1.12 ≈ 28.65 lb/cu ft
+    // weight ≈ 8.36 lb
+    const r = lumberWeight({
+      thicknessIn: 2,
+      widthIn: 4,
+      length: 8,
+      pieces: 1,
+      densityPreset: 'spf_kd',
+    });
+    expect(r.actualThicknessIn).toBe(1.5);
+    expect(r.actualWidthIn).toBe(3.5);
+    expect(r.volumeCuFtPerPiece).toBeCloseTo(0.2917, 3);
+    const density = LUMBER_DENSITY_PRESETS.spf_kd.densityLbPerCuFt;
+    expect(r.weightLbPerPiece).toBeCloseTo(0.2916667 * density, 1);
+    expect(r.weightLbPerLinearFoot).toBeCloseTo(r.weightLbPerPiece / 8, 2);
+    expect(r.weightKgPerPiece).toBeCloseTo(r.weightLbPerPiece * 0.45359237, 2);
+  });
+
+  it('scales total weight by piece count', () => {
+    const one = lumberWeight({
+      thicknessIn: 2,
+      widthIn: 4,
+      length: 8,
+      pieces: 1,
+      densityPreset: 'spf_kd',
+    });
+    const ten = lumberWeight({
+      thicknessIn: 2,
+      widthIn: 4,
+      length: 8,
+      pieces: 10,
+      densityPreset: 'spf_kd',
+    });
+    expect(ten.weightLbTotal).toBeCloseTo(one.weightLbPerPiece * 10, 1);
+    expect(ten.pieces).toBe(10);
+  });
+
+  it('accepts a custom density override', () => {
+    const r = lumberWeight({
+      thicknessIn: 2,
+      widthIn: 4,
+      length: 8,
+      pieces: 1,
+      densityPreset: 'custom',
+      densityLbPerCuFt: 30,
+    });
+    expect(r.densityLbPerCuFt).toBe(30);
+    expect(r.weightLbPerPiece).toBeCloseTo(0.2916667 * 30, 1);
   });
 });
 

@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 /**
  * Notify IndexNow (Bing, Yandex, etc.) of all URLs in the built sitemap.
- * Google does not use IndexNow.
+ * Google does not use IndexNow — also Request indexing in GSC for changed pages.
  *
- * Usage:
+ * Submits every <loc> from dist/ sitemaps after build. New tools/guides registered
+ * in tools[] / guides[] appear automatically. Live redirect *targets* (final 200
+ * URLs) are included; old alias paths are not (they are not in the sitemap).
+ * Do not change the committed IndexNow key / public/<key>.txt.
+ *
+ * Usage (after deploy / when dist/ matches production):
  *   node scripts/indexnow.mjs
  *   node scripts/indexnow.mjs --dry-run
  *

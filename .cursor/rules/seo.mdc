@@ -1,0 +1,62 @@
+---
+description: Durable SEO + AI Overview / generative-search rules for YardTally pages
+globs:
+  - src/pages/**/*.{astro,ts,js,mjs}
+  - src/data/**/*.{ts,js}
+  - src/components/{Calculator,TrustBlock,EmbedSnippet}.astro
+  - src/lib/{seo,schema,calculators}/**
+  - public/_redirects
+  - docs/{KEYWORD-MAP,PAGE-CHECKLIST,SEO-GUARDRAILS,GROWTH-STATUS,WRITING-GUIDE}.md
+alwaysApply: false
+---
+
+# SEO + AI answer engines (YardTally)
+
+Canonical detail: [AGENTS.md §5](../../AGENTS.md#5-seo--aeo--ai-overview-rules). Technical CI limits: [seo-guardrails.mdc](seo-guardrails.mdc). Research/on-page shape: [seo-pages.mdc](seo-pages.mdc). Adding/editing a page: [`.cursor/skills/add-seo-page/SKILL.md`](../skills/add-seo-page/SKILL.md).
+
+## Titles, H1, meta (every page)
+
+- **Branded title ≤ 60 characters total.** `formatPageTitle` appends ` | YardTally` (~12 chars). Keep the title **prop ≤ 48** so the final `<title>` stays ≤60.
+- One **unique** title, H1, and meta description per URL — aim at real query wording (GSC / autocomplete / PAA), not generic marketing.
+- Meta 70–160 (aim ~120–160). og/twitter match title + description. Exactly one H1.
+
+## Cannibalization before new URLs
+
+- Check `docs/KEYWORD-MAP.md` first. **One primary page per query cluster.**
+- Prefer extending an existing tool/guide (sections, tables, FAQ) over a near-duplicate URL.
+- If two URLs fight the same intent, **merge and 301** (sync `public/_redirects` + `PATH_ALIAS_REDIRECTS` in `src/lib/workerRedirect.ts`). Example pattern: mulch “how much do I need” → calculator.
+
+## Internal links (new pages)
+
+Every new indexable page needs inbound links from:
+
+1. Its **hub** body copy (not only the card grid),
+2. The **homepage** and/or index (`/calculators/` or `/guides/`),
+3. **2–3 related** sibling tools/guides (`relatedSlugs` / `relatedGuideSlugs` + body anchors).
+
+Keep tool↔guide cross-links reciprocal. Weak inbound (5–7 links) delays indexing.
+
+## Counts, sitemap, canonicals
+
+- **Never hard-code page counts** (“All 26 calculators”). Derive from `tools.length` / `guides.length` / data.
+- New tools/guides registered in `tools[]` / `guides[]` enter the sitemap automatically; confirm after `npm run build`. Bump `dateModified` only when content/math changes — never `Date.now()`.
+- Self-canonical via `siteConfig.siteUrl`; **trailing-slash** URLs; embeds stay **`noindex,follow`** with canonical to the tool.
+- Do not block AI crawlers in `robots.txt` (GPTBot, Google-Extended, OAI-SearchBot, etc. already allowed). Keep `/llms.txt`, `/llms-full.txt`, `/.well-known/llms.txt` in sync when answers/figures change.
+- **After every deploy:** run `npm run indexnow` (submits every sitemap URL — new pages + redirect targets; **do not change the IndexNow key**) and GSC URL Inspection → Request indexing for changed pages. Agents must not run IndexNow before deploy.
+
+## AI Overviews / AI Mode / answer engines
+
+On calculator and guide bodies:
+
+1. **Answer under each question H2** — 1–2 direct sentences first (number or verdict), then detail.
+2. **Plain HTML summary tables** (sizes, bags, yards, weights) you computed from formulas/sources — never copy competitor charts.
+3. Show the **formula** and a **worked example** with numbers that match Vitest / calculator output.
+4. Visible **Reviewed by** / author and **Last updated** (guides byline; tools via `TrustBlock` + “Last reviewed”). Link **methodology** or cite primary sources (USDA Wood Handbook, QUIKRETE/Sakrete TDS, extensions).
+5. **Structured data stays valid:** tools → WebApplication (+ FAQPage when FAQ visible); guides → Article (+ FAQPage); BreadcrumbList; HowTo **only** from real on-page steps (`toolHowTo.ts` / `guideHowTo.ts`). No fake `aggregateRating`.
+
+Page-lead `answerFirst` (40–60 words) still required above the tool/guide body.
+
+## Voice and facts
+
+Follow [content-quality.mdc](content-quality.mdc) and `docs/WRITING-GUIDE.md`. No invented stats, experts, or credentials.
+---

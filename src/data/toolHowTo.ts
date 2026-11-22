@@ -497,7 +497,7 @@ export const toolHowTo: Record<string, ToolHowTo> = {
     ],
   },
   'lumber-calculator': {
-    name: 'How to calculate board feet and lumber pieces',
+    name: 'How to calculate board feet, pieces, and lumber weight',
     steps: [
       {
         name: 'Enter nominal thickness, width, and length',
@@ -508,12 +508,12 @@ export const toolHowTo: Record<string, ToolHowTo> = {
         text: 'Count identical pieces to total board feet, or enter a target board-foot purchase and convert to pieces of that size.',
       },
       {
-        name: 'Read board feet and linear feet',
-        text: 'Board feet per piece = (thickness × width × length) ÷ 12. Multiply by piece count for the order total.',
+        name: 'Pick species / condition for weight',
+        text: 'Choose SPF, Douglas fir-larch, or southern pine kiln-dried, or green/wet treated southern pine. Custom density overrides the preset. Weight uses the dressed section × density.',
       },
       {
-        name: 'Cross-check specialty takeoffs',
-        text: 'For a rectangular deck board and joist list, also use the deck material calculator so spacing rules stay consistent.',
+        name: 'Read board feet, linear feet, and weight',
+        text: 'Board feet per piece = (T × W × L) ÷ 12. Weight = (actual T × actual W × L × 12) ÷ 1728 × density. Results show lb and kg per piece and per linear foot.',
       },
     ],
   },

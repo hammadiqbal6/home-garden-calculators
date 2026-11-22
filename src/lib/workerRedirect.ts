@@ -79,6 +79,7 @@ export const PATH_ALIAS_REDIRECTS: Readonly<Record<string, string>> = {
   '/terms-of-service': '/terms/',
   '/sitemap_index.xml': '/sitemap-index.xml',
   '/guides/16x24-deck-material-list': '/guides/deck-material-list-16x24/',
+  '/guides/how-much-mulch-do-i-need': '/calculators/mulch-calculator/',
 };
 
 /** /calculators/:slug/embed[/] → /embed/:slug/ */

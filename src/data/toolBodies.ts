@@ -28,21 +28,25 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <div class="takeaway"><strong>Key takeaway:</strong> Convert thickness to feet before multiplying, divide by 27 for cubic yards, then add waste. Bag yields vary slightly by brand—verify on the label.</div>
-      <h2>Choosing slab thickness</h2>
-      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it doesn't design structural thickness, rebar, or base depth. For bar counts and sticks, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
-      <h2>Waste factor tips</h2>
-      <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short. Cold joints and mismatched batches are hard to hide.</p>
+      <h2>Common slab sizes at 4, 5, and 6 inches</h2>
+      <p>Volume (cu yd) = L × W × (thickness÷12) ÷ 27. Bags below use 10% waste and 80 lb bags at ~0.60 cu ft each. Enter the same dimensions above for 40/60/80 lb counts together.</p>
       <div class="table-scroll">
       <table>
-        <caption>10×10 slab bag counts at standard yields (after 10% waste)</caption>
-        <thead><tr><th>Thickness</th><th>Volume + waste</th><th>80 lb bags</th><th>60 lb bags</th></tr></thead>
+        <caption>Yards before waste and ~80 lb bags after 10% waste</caption>
+        <thead><tr><th>Size</th><th>4&quot; yd</th><th>4&quot; bags</th><th>5&quot; yd</th><th>5&quot; bags</th><th>6&quot; yd</th><th>6&quot; bags</th></tr></thead>
         <tbody>
-          <tr><td>4 in</td><td>~36.7 cu ft</td><td>62</td><td>82</td></tr>
-          <tr><td>6 in</td><td>~55.0 cu ft</td><td>92</td><td>123</td></tr>
+          <tr><td>10×10</td><td>1.23</td><td>~62</td><td>1.54</td><td>~77</td><td>1.85</td><td>~92</td></tr>
+          <tr><td>12×12</td><td>1.78</td><td>~89</td><td>2.22</td><td>~111</td><td>2.67</td><td>~133</td></tr>
+          <tr><td>20×20</td><td>4.94</td><td>~245</td><td>6.17</td><td>~306</td><td>7.41</td><td>~367</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Gravel or crushed-stone base under the slab is ordered separately—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Regional frost depth and soil type change how thick that base should be; this tool doesn't size base for your climate.</p>
+      <h2>Choosing slab thickness</h2>
+      <p>Many residential patios and shed pads use 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This calculator estimates concrete volume only—it doesn't design structural thickness, rebar, or base depth. For bar counts and sticks, use the <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
+      <h2>How much extra concrete to order</h2>
+      <p>Uneven subgrade, form bulge, and spillage routinely consume 5–10% extra. DIY bag mixes benefit from the higher end of that range. Order a little more rather than finishing a pour short. Cold joints and mismatched batches are hard to hide.</p>
+      <h2>Bags vs a ready-mix truck</h2>
+      <p>Bags work under about one cubic yard. Past that—or any continuous large slab—compare short-load truck fees and chute access. This calculator rounds ready-mix yards up to the next ¼ cu yd after waste. Gravel or crushed-stone base under the slab is ordered separately—use the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
       <h2>Skip these</h2>
       <ul>
         <li>Mixing inches and feet in the same product (4 must mean 0.333 ft for thickness).</li>
@@ -52,7 +56,7 @@ export const toolBodies: Record<string, string> = {
         <li>Using this slab tool for fence post holes or Sonotubes—use the dedicated calculators instead.</li>
       </ul>
       <h2>Related jobs</h2>
-      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a> and <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
+      <p>For fence posts use the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a> and the <a href="/guides/how-much-concrete-for-fence-posts/">how much concrete for fence posts</a> guide. Strip and pad runs belong on the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>. Price a patio with your quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Coverage (“how much will one yard cover?”) is in <a href="/guides/how-much-concrete-do-i-need/">how much concrete do I need</a>; thickness norms live in <a href="/guides/concrete-slab-thickness/">concrete slab thickness</a>. For cardboard pier forms use the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>, <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>, and <a href="/guides/sonotube-footing-and-depth/">Sonotube footing and depth</a>. Deck pier grids: <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>. Bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete do I need</a>.</p>
 
       <h2>Assumptions and limits</h2>
       <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you pour or order. Results assume rectangular or cylindrical shapes with uniform depth. Real sites have slopes, voids, and product variation. This tool doesn't size structural thickness, rebar, or frost depth.</p>
@@ -210,7 +214,7 @@ export const toolBodies: Record<string, string> = {
 
       <h2>How much concrete for spread pad footings?</h2>
       <p>Same rectangle math, multiplied by pad count. Four 3×3 ft pads at 12 in thick: 4 × 3 × 3 × 1 = 36 cu ft ≈ 1.33 cu yd before waste. With 10% waste → about 39.6 cu ft → still in the mid-60s of 80 lb bags. Switch the footing type to Spread pad and set Count to the number of pads so you do not forget one corner.</p>
-      <p>Pads under posts or columns are not the same as a slab. If you are pouring a patio or garage floor, use the <a href="/calculators/concrete-calculator/">concrete calculator</a> instead. Round pier forms belong on the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>.</p>
+      <p>Pads under posts or columns are not the same as a slab. If you are pouring a patio or garage floor, use the <a href="/calculators/concrete-calculator/">concrete calculator</a> instead—and price it with the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a> when you have plant quotes. Round pier forms belong on the <a href="/calculators/sonotube-concrete-calculator/">Sonotube calculator</a>; deck pier counts from spacing use the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>. Frost and “do I need a footing under the tube?” notes: <a href="/guides/sonotube-footing-and-depth/">Sonotube footing and depth</a>.</p>
 
       <h2>Optional rebar estimate—what it does and does not do</h2>
       <p>With rebar On, strip mode counts longitudinal bars along the run plus transverse bars at your spacing. Pad mode builds a small each-way grid per pad, then multiplies by count. Linear feet convert to stock sticks with a waste/lap percent. Unit weights follow common CRSI nominal bar weights.</p>
@@ -242,10 +246,14 @@ export const toolBodies: Record<string, string> = {
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
   'mulch-calculator': `
-      <h2>Mulch formula</h2>
-      <p>Cubic feet = area (sq ft) × (depth inches ÷ 12). Enter length, width, and depth; the calculator returns cubic feet, yards, and bag counts for common 2 and 3 cu ft bags. Depth is the big lever—jumping from 2 inches to 3 inches adds about 50% more material.</p>
-      <h2>Worked example</h2>
-      <p>A 20 × 5 ft bed at 3 inches needs 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, or thirteen 2 cu ft bags. At 2 inches the same bed needs about 16.7 cu ft—useful when refreshing an existing layer rather than starting bare soil.</p>
+      <h2>How do I calculate how much mulch I need?</h2>
+      <p>Cubic feet = area (sq ft) × (depth inches ÷ 12). Enter length, width, and depth; you get cubic feet, yards, and bag counts for common 2 and 3 cu ft bags. At 3 inches, every 100 sq ft needs 25 cu ft (about 0.93 cu yd). UF/IFAS’s check figure—about 108 sq ft per cubic yard at 3 inches—matches that math: 27 ÷ 0.25 = 108. Depth is the big lever—jumping from 2 inches to 3 inches adds about 50% more material.</p>
+      <p>Odd shapes? Split them into rectangles, or run this calculator twice and add. Tree rings need the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the bare collar at the trunk.</p>
+
+      <h2>Worked example: front bed plus one tree</h2>
+      <p>Front bed: 20×10 ft at 3 inches. Area = 200 sq ft. Volume = 200 × 0.25 = 50 cu ft ≈ 1.85 cu yd. That is twenty-five 2 cu ft bags or seventeen 3 cu ft bags after rounding up—same numbers this calculator returns. At this size I’d price a bulk scoop before I fill the SUV with bags.</p>
+      <p>A smaller 20 × 5 ft bed at 3 inches needs 100 × 0.25 = 25 cu ft ≈ 0.93 cu yd, or thirteen 2 cu ft bags. At 2 inches the same bed needs about 16.7 cu ft—useful when refreshing an existing layer rather than starting bare soil.</p>
+      <p>Tree: apply UVM’s 3-3-3 idea as a starting ring—about 3 inches deep, kept ~3 inches off the bark, roughly 3 feet across for a young mature tree, wider toward the drip line when you can. Size the donut with the tree-ring calculator so the trunk opening is not part of the order. Keep the flare visible.</p>
       <div class="table-scroll">
       <table>
         <caption>Coverage per bag at common depths</caption>
@@ -256,18 +264,31 @@ export const toolBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
+
+      <h2>How much will 25 bags of mulch cover?</h2>
+      <p>It depends on bag size and depth. Twenty-five bags × 2 cu ft = 50 cu ft. At 3 inches (0.25 ft), coverage ≈ 50 ÷ 0.25 = 200 sq ft. At 2 inches, the same 50 cu ft spreads over about 300 sq ft. If the bags are 3 cu ft, twenty-five bags are 75 cu ft—about 300 sq ft at 3 inches. Read the bag. “25 bags” without a size is not a coverage number.</p>
+
+      <h2>Is it cheaper to buy mulch by the yard or by the bag?</h2>
+      <p>Usually bulk wins on price per cubic foot once you need roughly a cubic yard or more and you can stage a delivery. Bags win for small beds, color-matched touch-ups, and sites where a dump truck cannot sit. Iowa State notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size printed on the package—not by a memory of last year’s brand.</p>
+      <p>Do the napkin math before you chase a “sale” on bags. Twenty-five 2 cu ft bags is 50 cu ft—almost two cubic yards of bagged product after you haul them one-by-one. Enter your local $/yd and $/bag above to compare—YardTally does not invent retail prices. If the dealer’s short-load fee is brutal and you only need half a yard, bags can still be the cheaper day.</p>
+
+      <h2>What is the 3-3-3 rule for mulch?</h2>
+      <p>University of Vermont Extension describes a 3-3-3 method many arborists recommend for mature trees: at least 3 inches of clearance from the trunk, no more than 3 inches deep, and about 3 feet of mulch diameter to protect a meaningful share of the root zone. Think donut, not volcano. UVM’s mulch-volcano article is explicit that mulch should never be piled against bark.</p>
+      <p>That mnemonic lines up with other extension advice even when they do not use the “3-3-3” label. Mississippi State says pull mulch 2–3 inches back from trunks and keep a wide ring. Clemson wants a few inches of clearance and warns against volcanoes. UF/IFAS Florida-Friendly guidance keeps mulch farther back from tree bases and caps bed mulch near 2–3 inches. Use 3-3-3 as a memorable floor for tree rings, then read the local extension sheet when palms, new transplants, or Florida-Friendly program rules apply.</p>
+
       <h2>Depth guide (summary)</h2>
       <p>University extension guidance commonly recommends about 2–3 inches of organic mulch for shrub and perennial beds. Keep mulch a few inches away from tree trunks and woody stems. See our <a href="/guides/mulch-depth-guide/">mulch depth for gardens</a> guide and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donut shapes. Quantity charts for common rectangles live in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Depth in inches must be converted to feet before multiplying by area. Over-mulching can smother roots and trap moisture against bark.</div>
-      <h2>Bulk vs bags</h2>
-      <p>Bulk is usually cheaper above roughly one cubic yard and reduces plastic waste. Bags are convenient for rooftop beds, small townhouses, and topping up. Ask your yard whether the product is dyed, hardwood, pine bark, or composted—water needs and fade rates differ.</p>
+
       <h2>Soil under the mulch</h2>
       <p>Mulch sits on top of planting soil—it doesn't replace fill volume. If you still need to raise grade or choose between mineral topsoil and bagged garden blends, read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> first, then size surface cover here.</p>
+
       <h2>Mistakes I see a lot</h2>
       <ul>
-        <li>Volcano mulching against trunks.</li>
-        <li>Ordering for the wrong depth after settling (fresh mulch compresses).</li>
-        <li>Ignoring pathways that also need coverage.</li>
+        <li>Volcano mulching against trunks (UVM, Clemson, MSU, and UF all warn against it).</li>
+        <li>Assuming every bag is 2 cu ft.</li>
+        <li>Ordering a full 3-inch blanket on top of 2 inches that is already there.</li>
+        <li>Using the bed chart for a tree ring without subtracting the clear collar.</li>
         <li>Buying mulch when the bed still needs soil volume (use the <a href="/calculators/topsoil-calculator/">topsoil calculator</a> for fill).</li>
       </ul>
 
@@ -276,15 +297,14 @@ export const toolBodies: Record<string, string> = {
       <p>Unit toggles switch input labels between US imperial and metric. Shareable URLs store your inputs in the query string for convenience, while the canonical tag stays on the clean page URL so search engines don't index every parameter combination.</p>
       <h2>Before you buy</h2>
       <ul>
-        <li>Write down the calculator outputs (volume, bags, or piece counts) and round up for waste.</li>
-        <li>Call your supplier for density, dye lot, or delivery minimums when ordering bulk material.</li>
-        <li>Check access for trucks, wheelbarrows, and staging space before delivery day.</li>
-        <li>Photograph existing conditions so you can revisit dimensions if a helper measures differently.</li>
+        <li>Measure each bed; split L-shapes into rectangles.</li>
+        <li>Pick depth from the <a href="/guides/mulch-depth-guide/">depth guide</a> (often 2–3 inches organic).</li>
+        <li>Write down the calculator outputs (volume, bags) and round up for waste.</li>
+        <li>Compare bag unit price × count against bulk yards + delivery; subtract existing mulch depth if you are only top-dressing.</li>
+        <li>Call your supplier for dye lot or delivery minimums; check truck access and staging space.</li>
       </ul>
       <p>Short version: round up a little. Running short mid-job costs more than the spare bag.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
-
-
   `,
   'mulch-calculator-tree-rings': `
       <h2>Tree ring formula</h2>
@@ -341,7 +361,7 @@ export const toolBodies: Record<string, string> = {
       </table>
       </div>
       <h2>Base vs surface stone</h2>
-      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—don't assume one stone type does every job. For a hot-mix surface course instead of loose stone, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> after you size the crushed-stone base here.</p>
+      <p>Angular crusher run locks when compacted and makes a strong base. Clean drain rock and rounded pea gravel behave differently under tires. Match the product to the layer—don't assume one stone type does every job. For a perforated-pipe trench, switch to the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> so pipe volume is subtracted and fabric wrap is sized. For a hot-mix surface course instead of loose stone, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> after you size the crushed-stone base here.</p>
       <h2>Skip these</h2>
       <ul>
         <li>Skipping fabric or drainage details on soft soils.</li>
@@ -537,7 +557,7 @@ export const toolBodies: Record<string, string> = {
       <p>Some decks use a belled footing or a pad under the tube. This page models a straight cylinder only. If your detail flares at the bottom, volume goes up—order extra bags or ask the ready-mix driver for a short load.</p>
 
       <h2>When to use which concrete tool</h2>
-      <p>Use this page when you still need a footing count from deck size and spacing. Use the Sonotube tool when pier count and tube size are already set. Dug fence posts without cardboard forms belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. Rectangular pads and steps stay on the <a href="/calculators/concrete-calculator/">slab concrete calculator</a>. Bag yield charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Tube charts: <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>.</p>
+      <p>Use this page when you still need a footing count from deck size and spacing. Use the Sonotube tool when pier count and tube size are already set. Continuous strip or pad footings under walls belong on the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>. Dug fence posts without cardboard forms belong on the <a href="/calculators/concrete-calculator-post-holes/">post hole concrete calculator</a>. Rectangular pads and steps stay on the <a href="/calculators/concrete-calculator/">slab concrete calculator</a>. Bag yield charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Tube charts: <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>. Frost and tube-as-footing questions: <a href="/guides/sonotube-footing-and-depth/">Sonotube footing and depth</a>.</p>
 
       <h2>Common mistakes</h2>
       <ul>
@@ -763,7 +783,7 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
       <p>For a 20 ft long, 3 ft high wall with 18×6 inch blocks: courses = 6; blocks/course = ceil(20 ÷ 1.5) = 14; total = 84 blocks before waste. Base trench gravel is estimated from length × base width × base depth.</p>
       <div class="takeaway"><strong>Key takeaway:</strong> Taller walls and surcharges often need engineering and geogrid. Stay within manufacturer height limits for gravity walls.</div>
       <h2>Drainage matters</h2>
-      <p>Segmental walls usually need free-draining backfill and outlet pipes. Don't backfill with heavy clay against the blocks. Use the <a href="/calculators/gravel-calculator/">gravel calculator</a> for larger drain-rock volumes.</p>
+      <p>Segmental walls usually need free-draining backfill and outlet pipes. Don't backfill with heavy clay against the blocks. Use the <a href="/calculators/gravel-calculator/">gravel calculator</a> for larger drain-rock volumes, or the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> when you are sizing a perforated-pipe trench (rock minus pipe + fabric).</p>
       <h2>Skip these</h2>
       <ul>
         <li>Skipping compacted base leveling pads.</li>
@@ -839,6 +859,7 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
   `,
   'fertilizer-calculator': `
       <h2>Nitrogen math</h2>
+      <p>Product lb per 1,000 = desired lb N ÷ (N% ÷ 100). For 1 lb N with 10-10-10, that is 10 lb of product per 1,000. Starter bags often list coverage on the label—use that rate or enter the first N-P-K number here. Liquid concentrates work the same way when the jug lists N% by weight; still mix per the label.</p>
       <p>It backs out product pounds from the nitrogen you want per 1,000 sq ft and the bag's N%. Example path: 1 lb N with 30% N → about 3.3 lb of product per 1,000 sq ft. Local nutrient rules can cap what you're allowed to put down.</p>
       <h2>Worked example</h2>
       <p>For 2,000 sq ft at 1 lb N/1000 with 30% nitrogen fertilizer: product per 1000 = 1/0.30 ≈ 3.33 lb; total ≈ 6.67 lb. A 40 lb bag covers multiple applications—store dry and calibrate your spreader.</p>
@@ -1022,17 +1043,27 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
   `,
   'lumber-calculator': `
       <h2>How this lumber calculator works</h2>
-      <p>It converts board counts and dimensions into board feet and piece lists for common framing/decking takeoffs. Species and grade still come from your plan or code—not from this page.</p>
+      <p>It converts board counts into board feet and piece lists, then estimates planning weight from the dressed cross-section and a softwood density preset. Grade and span still come from your plan or code—not from this page. For size-by-size charts, open the <a href="/guides/lumber-weight-chart/">lumber weight chart</a>.</p>
       <h2>The math</h2>
       <ul>
-        <li><strong>Board feet per piece</strong> = (T × W × L) ÷ 12</li>
+        <li><strong>Board feet per piece</strong> = (nominal T × nominal W × L_ft) ÷ 12</li>
         <li><strong>Total board feet</strong> = board feet per piece × piece count</li>
         <li><strong>Pieces from board feet</strong> = ceil(target board feet ÷ board feet per piece)</li>
         <li><strong>Linear feet</strong> = piece length × piece count</li>
+        <li><strong>Weight</strong> = (actual T_in × actual W_in × L_ft × 12) ÷ 1728 × density_lb_per_cu_ft</li>
       </ul>
-      <p>Use nominal sizes for pricing (a dressed 2×4 is still tallied as 2×4). Hardwood mills sometimes use different tally rules—confirm with the seller when buying hardwood.</p>
-      <h2>Worked example: ten 2×4×8s</h2>
-      <p>Board feet each = (2 × 4 × 8) ÷ 12 = 5.33. Ten pieces = 53.3 board feet and 80 linear feet. Switching to “pieces from board feet” with a 50 board-foot target of the same size returns 10 pieces (ceil(50 ÷ 5.33)).</p>
+      <p>Board-foot pricing uses nominal sizes (a dressed 2×4 still tallies as 2×4). Weight uses the actual section—1½ × 3½ for a 2×4, 1½ × 5½ for a 2×6, 1½ × 7¼ for a 2×8, 3½ × 3½ for a 4×4. Hardwood mills sometimes use different tally rules—confirm with the seller.</p>
+      <h2>Density presets (USDA Wood Handbook)</h2>
+      <p>Kiln-dried planning density ≈ specific gravity × 62.4 × 1.12 (about 12% moisture). Presets:</p>
+      <ul>
+        <li><strong>SPF KD</strong> — SG ≈ 0.41 → ~28.7 lb/cu ft</li>
+        <li><strong>Douglas fir-larch KD</strong> — SG ≈ 0.48 → ~33.5 lb/cu ft (handbook coast DF density is ~34)</li>
+        <li><strong>Southern pine KD</strong> — SG ≈ 0.51 → ~35.6 lb/cu ft</li>
+        <li><strong>Southern pine green / wet treated</strong> — handbook green loblolly ~53 lb/cu ft</li>
+      </ul>
+      <p>Moisture moves the needle. A stick that sat in the rain or came fresh off a treating plant won't match kiln-dried numbers. Treat every weight as a planning estimate.</p>
+      <h2>Worked example: ten 2×4×8s (SPF KD)</h2>
+      <p>Board feet each = (2 × 4 × 8) ÷ 12 = 5.33. Ten pieces = 53.3 board feet and 80 linear feet. Actual volume each = (1.5 × 3.5 × 8 × 12) ÷ 1728 ≈ 0.292 cu ft. At ~28.7 lb/cu ft that's about <strong>8.4 lb per stick</strong> (~1.05 lb/ft), or ~84 lb for the bundle. Switching to “pieces from board feet” with a 50 board-foot target returns 10 pieces (ceil(50 ÷ 5.33)).</p>
       <div class="table-scroll">
       <table>
         <caption>Common softwood board-foot values</caption>
@@ -1045,24 +1076,24 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
         </tbody>
       </table>
       </div>
-      <div class="takeaway"><strong>Key takeaway:</strong> Board feet price the wood; linear feet and piece counts tell you how many sticks to pull from the rack. Use nominal dimensions for softwood tally.</div>
+      <div class="takeaway"><strong>Key takeaway:</strong> Board feet price the wood; actual section × density estimates what you'll lift. Use the <a href="/calculators/lumber-calculator/">lumber weight calculator</a> fields above for live numbers, and the <a href="/guides/lumber-weight-chart/">weight chart</a> for SPF / Doug fir / southern pine tables.</div>
       <h2>Deck projects vs general takeoffs</h2>
-      <p>This tool is the general board-foot / piece converter. For a rectangular deck with joist spacing and board face width, use the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and the size lists for a <a href="/guides/deck-material-list-12x16/">12×16 deck</a> or <a href="/guides/deck-material-list-16x24/">16×24 deck</a>. Then convert odd leftover sizes here if the yard prices them by the board foot.</p>
+      <p>This tool is the general board-foot / piece / weight converter. For a rectangular deck with joist spacing and board face width, use the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and the size lists for a <a href="/guides/deck-material-list-12x16/">12×16 deck</a> or <a href="/guides/deck-material-list-16x24/">16×24 deck</a>. Then convert odd leftover sizes here if the yard prices them by the board foot.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using dressed 1½ × 3½ inches for a 2×4 board-foot tally (undercounts).</li>
-        <li>Mixing meters and inches without converting length to feet for the formula.</li>
-        <li>Assuming hardwood and softwood always use the same tally.</li>
-        <li>Forgetting that board feet already embed thickness—don't also multiply by a separate “depth.”</li>
+        <li>Using nominal 2×4 volume for weight (overstates what the stick really is).</li>
+        <li>Mixing kiln-dried density with wet treated lumber when planning truck loads.</li>
+        <li>Mixing meters and inches without converting length to feet for the formulas.</li>
       </ul>
       <h2>Limits (read before you order)</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before structural use. Results assume identical rectangular pieces. Tapers, rounds, and patterned stock need supplier rules. The calculator doesn't design spans, grades, or species—check span tables and grade stamps.</p>
+      <p><strong>Planning estimate only.</strong> Moisture content, grade, and species mix change weight. Check manufacturer specs and local code before structural use. Results assume identical rectangular pieces. The calculator doesn't design spans—check span tables and grade stamps.</p>
       <h2>Load-out checklist</h2>
       <ul>
-        <li>List each size separately (2×4s and 2×6s don't share a board-foot line item usefully at the rack).</li>
-        <li>Note grade and species on the quote.</li>
+        <li>List each size separately (2×4s and 2×6s don't share a useful rack line item).</li>
+        <li>Note grade, species, and KD vs treated on the quote.</li>
         <li>Add a few extras for culls when appearance matters.</li>
-        <li>Measure twice before cutting long stock for headers and beams.</li>
+        <li>Weigh truck capacity against total estimated pounds, not board feet alone.</li>
       </ul>
       <p>I'd rather overshoot by a little than stop mid-job for another store run.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
@@ -1136,7 +1167,7 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
       <div class="takeaway"><strong>Key takeaway:</strong> Volume is fixed by geometry; cost is only as good as the prices you paste in. Treat every dollar field as a quote placeholder, not a national average.</div>
       <h2>When ready-mix wins vs bags</h2>
       <p>Bags are fine for a small pad you can mix in batches. Past about one cubic yard—or any pour that must stay continuous across a patio—most people price a short-load truck even when the yardage looks “small.” Short-load fees often hurt more than the extra concrete on the ticket; I round up to the next quarter yard when the plant bills that way. Run both modes here with your real numbers before you decide.</p>
-      <p>Need a volume-only check without money fields? Stay on the <a href="/calculators/concrete-calculator/">yards &amp; bags calculator</a>. Bag charts without pricing live in <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
+      <p>Need a volume-only check without money fields? Stay on the <a href="/calculators/concrete-calculator/">yards &amp; bags calculator</a>. Coverage planning is in <a href="/guides/how-much-concrete-do-i-need/">how much concrete do I need</a>; thickness norms in <a href="/guides/concrete-slab-thickness/">concrete slab thickness</a>. Strip footings are a different shape—use the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>. Bag charts without pricing live in <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>.</p>
       <h2>Pricing the add-ons without guessing</h2>
       <p>Gravel base is a separate order. Measure base depth, convert with the <a href="/calculators/gravel-calculator/">gravel calculator</a>, then paste the yard’s ton or yard quote into the gravel field. Steel can be rebar sticks (see the <a href="/calculators/rebar-calculator/">rebar calculator</a>) or welded-wire mesh from a lumber yard—enter the cash total, not a made-up $/sq ft “industry rate.” Forms are usually 2× lumber you already price per board foot. Delivery and short-load fees come straight off the batch plant’s quote sheet. Labor per sq ft is optional; use it only if you are comparing DIY vs hired finishing, and use <em>your</em> rate.</p>
       <h2>Common mistakes</h2>

@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-20
+**Last updated:** 2026-11-22
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -25,6 +25,10 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
+- **2026-11-22 — this PR (durable SEO + AI Overview agent rules):** Added [`.cursor/rules/seo.mdc`](../.cursor/rules/seo.mdc) and [`.cursor/skills/add-seo-page/SKILL.md`](../.cursor/skills/add-seo-page/SKILL.md); expanded AGENTS.md §5 (titles ≤60 branded, cannibalization/301, inbound-link minimums, answer-under-H2, no hard-coded counts, AI crawlers allowed). Extended existing seo-pages / seo-guardrails / add-calculator / add-guide / pre-merge skills to point at them. **Post-deploy (documented, not run pre-deploy):** `npm run indexnow` submits all sitemap URLs (new pages + redirect targets; key unchanged) + GSC Request indexing for changed pages.
+- **2026-11-22 — this PR (SEO title/H1/meta all pages):** Hub/index/calculator/guide titles and H1s rewritten to ≤48 chars without brand (≤60 with `| YardTally`). Concrete calculator titled/answer-first for top web query **concrete slab calculator**. Priority FAQs/bodies expanded. Home popular exact-match anchors + ItemList. 10×10 guide owns 12×12/20×20 sections (no new guide URLs). No sonotube-sizes or fertilizer-per-1000 new URLs.
+- **2026-11-22 — this PR (mulch guide merge + weak-page internal links):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/`; **301** in `_redirects` + `PATH_ALIAS_REDIRECTS`; **kept** `/guides/mulch-depth-guide/` (GSC AI Overview exemplar). Strengthened inbound links for weakly linked footing/slab-cost/deck-footing/French-drain/thickness/how-much-concrete/Sonotube-footing pages.
+- **2026-11-22 — this PR (lumber weight + chart guide):** Extended `/calculators/lumber-calculator/` with softwood weight (Wood Handbook densities). New `/guides/lumber-weight-chart/`; no separate lumber-weight calculator URL.
 - **2026-11-20 — this PR (Agathox ownership verification):** Home (and all pages via `BaseLayout`) emit `<meta name="agathox-verification" content="agathox-verify-ebf97075afd69f9a">`; static `public/.well-known/agathox-verification.txt` (exact token body). Worker already skips trailing-slash 308 for `.txt` via `FILE_EXT` — covered by unit test; no Worker/CSP/consent changes. Directory listing confirmation remains off-repo until Agathox accepts ownership.
 - **2026-11-19 — this PR (Sonotube upgrade):** Optional footing base (`none` / bell frustum / pad cylinder); mixed tube sizes (size B count 0 = unused); live `bags50` (QUIKRETE 0.375 cu ft); bags-per-foot HTML table for 8–36″; `toggleModeFields` hides unused bell/pad inputs; FAQ/body/HowTo refresh; `dateModified` 2026-11-19; unit tests.
 - **2026-11-19 — CI / build speed (this PR):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
@@ -56,17 +60,16 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 | GSC reason | What it is in this codebase | Action |
 |---|---|---|
-| Page with redirect (~4) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slug, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
+| Page with redirect (~4+) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slugs incl. `/guides/how-much-mulch-do-i-need/` → mulch calculator, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
 | Excluded by noindex (~2) | `/embed/<slug>/` (`noindex,follow`) and `/404.html` | Intentional. Not in sitemap. |
 | Alternate page with proper canonical | Embed pages canonicalize to `/calculators/<slug>/` | Intentional widget pattern. |
 | Discovered - currently not indexed (~13) | Weak internal linking historically | Addressed in PR #33 via homepage grid + hubs + related/contextual links; request indexing after deploy. |
 
 ## Remaining / risks
 
-1. **After deploy (this PR):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed. IndexNow not required for this verification-only change.
-1. **After deploy:** ping IndexNow (include new deck footing URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
-1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets (include new `/calculators/concrete-slab-cost-calculator/`).
-2. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
+1. **After deploy (this PR — do not run IndexNow pre-deploy):** `npm run indexnow` (all `dist/` sitemap URLs — mulch calculator redirect target, lumber + weight chart, AI-exemplar guides, weak-link pages, prior tools; **do not change the IndexNow key**) **and** GSC URL Inspection → Request indexing / validate redirect + discovered-not-indexed buckets.
+2. **After deploy (Agathox):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed.
+3. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
 3. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
 4. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
 5. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
@@ -98,16 +101,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
-- _(none for this Agathox verification PR)_
-- **2026-11-19:** Sonotube calculator upgrade PR (this branch) — footing/bell, mixed sizes, bags50, bags-per-foot table.
-- **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.
-- **2026-11-19:** Bulk cost upgrade for gravel/topsoil/sand/mulch (this branch) — pending merge/deploy + IndexNow.
-- _(none for this PR — deck footing calculator shipping as Done above)_
-- _(none in this PR)_
-- _(none for this PR)_
-- _(none for this French-drain tool PR)_
-- **2026-11-19:** PAA guides PR (`cursor/paa-guides-410c`) — four AlsoAsked/PAA guides shipping; pending merge/deploy + IndexNow.
-- Upgrade PRs #35–#37 (Sonotube / concrete cost / bulk cost) — owner merging separately.
+- **2026-11-22:** Full SEO plan PR (`cursor/seo-plan-all-pages-0397`) — titles/FAQs/links/lumber weight/mulch merge/agent rules shipping; AI Overview exemplar pass on mulch-depth, gravel-types, retaining-wall-blocks guides; build/test/audit before PR open.
 - Human-writing rewrite + detector PR — separate branch.
 - **2026-11-19:** Human-writing rewrite PR (`cursor/human-writing-rewrite-410c`) — shipping in this PR; detector scores in `docs/ai-detect-scores.md`.
 - **2026-11-19:** PAA guides PR #46 (`cursor/paa-guides-410c`) — separate branch; CI green; pending merge.

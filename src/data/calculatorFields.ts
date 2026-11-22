@@ -18,6 +18,7 @@ import {
   grassSeed,
   gravelVolume,
   lumberFromPieces,
+  lumberWeight,
   paintNeeded,
   paverCount,
   postHoleVolume,
@@ -376,6 +377,20 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'length', label: 'Length', value: '8', hint: 'feet' },
     { name: 'pieces', label: 'Number of pieces', value: '10' },
     { name: 'boardFeet', label: 'Target board feet', value: '50' },
+    {
+      name: 'species',
+      label: 'Species / condition',
+      type: 'select',
+      options: [
+        { value: 'spf_kd', label: 'SPF kiln-dried (~29 lb/cu ft)' },
+        { value: 'douglas_fir_larch_kd', label: 'Douglas fir-larch KD (~34 lb/cu ft)' },
+        { value: 'southern_pine_kd', label: 'Southern pine KD (~36 lb/cu ft)' },
+        { value: 'southern_pine_green', label: 'Southern pine green / wet PT (~53)' },
+        { value: 'custom', label: 'Custom density' },
+      ],
+      value: 'spf_kd',
+    },
+    { name: 'density', label: 'Custom density', value: '28.7', hint: 'lb/cu ft (planning)' },
   ],
   rebar: [
     { name: 'length', label: 'Slab length', value: '20', hint: 'feet' },
@@ -668,6 +683,13 @@ const lumberDefault = lumberFromPieces({
   length: 8,
   pieces: 10,
 });
+const lumberWeightDefault = lumberWeight({
+  thicknessIn: 2,
+  widthIn: 4,
+  length: 8,
+  pieces: 10,
+  densityPreset: 'spf_kd',
+});
 const rebarDefault = rebarForSlab({
   length: 20,
   width: 20,
@@ -853,6 +875,23 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Total board feet', String(lumberDefault.totalBoardFeet)],
     ['Linear feet', String(lumberDefault.totalLinearFeet)],
     ['Pieces', String(lumberDefault.pieces)],
+    [
+      'Actual section',
+      `${lumberWeightDefault.actualThicknessIn} × ${lumberWeightDefault.actualWidthIn} in`,
+    ],
+    ['Density used', `${lumberWeightDefault.densityLbPerCuFt} lb/cu ft`],
+    [
+      'Weight / piece',
+      `${lumberWeightDefault.weightLbPerPiece} lb (${lumberWeightDefault.weightKgPerPiece} kg)`,
+    ],
+    [
+      'Weight / linear ft',
+      `${lumberWeightDefault.weightLbPerLinearFoot} lb/ft (${lumberWeightDefault.weightKgPerLinearFoot} kg/ft)`,
+    ],
+    [
+      'Total weight',
+      `${lumberWeightDefault.weightLbTotal} lb (${lumberWeightDefault.weightKgTotal} kg)`,
+    ],
   ],
   rebar: [
     ['Bars along length', String(rebarDefault.barsAlongLength)],

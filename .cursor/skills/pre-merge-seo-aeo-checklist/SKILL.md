@@ -8,14 +8,17 @@ description: Pre-merge SEO/AEO checklist for YardTally PRs (metadata, schema, si
 Run before opening or updating a content/calculator/consent PR. Full page rules: `docs/PAGE-CHECKLIST.md` + `npm run audit:pages`.
 
 ## Content
-- [ ] Unique primary keyword in `docs/KEYWORD-MAP.md`; no cannibalization
-- [ ] Title 25–65 (aim ~30–60); meta 70–160 (aim ~120–160); one H1
-- [ ] Answer-first 40–60 words; human voice; no banned filler
-- [ ] Every statistic has a primary source URL; Sources list visible
+- [ ] Unique primary keyword in `docs/KEYWORD-MAP.md`; no cannibalization (or merge + 301)
+- [ ] Title prop ≤48 → branded ≤60; unique H1 + meta; meta 70–160; one H1
+- [ ] Answer-first 40–60 words; **1–2 sentence answer under each question H2**; formula + worked example + summary tables
+- [ ] Human voice; no banned filler; no hard-coded tool/guide counts
+- [ ] Every statistic has a primary source URL; Sources list visible; methodology link where useful
 - [ ] Guides ≥800 words; tools ≥~600 words unique value + working calculator
 - [ ] FAQ 3–5 real questions when the page has FAQ; visible text matches FAQPage
-- [ ] Guides show `Reviewed by Hammad Iqbal · Last updated …`
+- [ ] Guides show `Reviewed by Hammad Iqbal · Last updated …`; tools TrustBlock last reviewed
+- [ ] New URLs linked from hub prose + home/index + 2–3 siblings
 - [ ] `dateModified` bumped only for touched URLs (sitemap lastmod — never “now”)
+- [ ] Full page flow: [add-seo-page/SKILL.md](../add-seo-page/SKILL.md)
 
 ## Schema / AI surfaces
 - [ ] Tools: WebApplication + BreadcrumbList (+ FAQPage); HowTo only from on-page steps

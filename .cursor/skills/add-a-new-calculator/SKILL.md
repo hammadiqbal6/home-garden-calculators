@@ -8,6 +8,8 @@ description: Add a YardTally calculator end-to-end (math, tests, UI, SSR default
 ## When to use
 New material estimator with unique “do” intent. Check `docs/ideas/README.md` backlog and `docs/KEYWORD-MAP.md` first — no keyword cannibalization.
 
+**SEO / AI Overview checklist (titles ≤60 branded, inbound links, answer-under-H2, sitemap):** run [add-seo-page/SKILL.md](../add-seo-page/SKILL.md) in parallel with this file list.
+
 ## Files to touch
 
 | File | What |

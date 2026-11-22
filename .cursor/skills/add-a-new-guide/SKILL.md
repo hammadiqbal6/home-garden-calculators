@@ -8,6 +8,8 @@ description: Add a YardTally guide end-to-end (keyword, bodies, FAQs, HowTo, sch
 ## When to use
 New how-to / explainer with a unique primary keyword (not a calculator). Prefer calendar items in `docs/SEO-GUIDE.md` and gaps in `docs/KEYWORD-MAP.md`.
 
+**SEO / AI Overview checklist (cannibalization, titles, answer-under-H2, inbound links):** run [add-seo-page/SKILL.md](../add-seo-page/SKILL.md) in parallel with this file list.
+
 ## Files to touch
 
 | File | What |

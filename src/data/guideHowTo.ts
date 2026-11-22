@@ -390,25 +390,26 @@ export const guideHowTo: Record<string, GuideHowTo> = {
       },
     ],
   },
-  'how-much-mulch-do-i-need': {
-    name: 'How to calculate how much mulch you need',
+  'lumber-weight-chart': {
+    name: 'How to estimate softwood lumber weight',
     steps: [
       {
-        name: 'Measure each bed',
-        text: 'Split L-shapes into rectangles and record length and width in feet.',
+        name: 'Use the dressed (actual) cross-section',
+        text: 'A 2×4 is 1½ × 3½ in, a 2×6 is 1½ × 5½, a 2×8 is 1½ × 7¼, and a 4×4 is 3½ × 3½. Do not use nominal 2×4 for weight.',
       },
       {
-        name: 'Pick depth',
-        text: 'Most beds use about 2–3 inches of organic mulch (Clemson, UF/IFAS). See the mulch depth guide for details.',
+        name: 'Pick a density from species and moisture',
+        text: 'Kiln-dried SPF ≈ 28.7 lb/cu ft, Douglas fir-larch KD ≈ 33.5, southern pine KD ≈ 35.6, green/wet treated southern pine ≈ 53 (USDA Wood Handbook planning values).',
       },
       {
-        name: 'Compute cubic feet, then yards or bags',
-        text: 'Cu ft = area × (depth inches ÷ 12). Divide by 27 for yards, or by 2 or 3 for common bag sizes (Iowa).',
+        name: 'Multiply volume by density',
+        text: 'Volume cu ft = (actual T × actual W × length ft × 12) ÷ 1728. Weight lb = volume × density. Divide by length for lb per foot.',
       },
       {
-        name: 'Compare bags vs bulk and subtract existing depth',
-        text: 'Bulk often wins near a cubic yard or more. If you are only top-dressing, order the depth difference, not a full new blanket.',
+        name: 'Check odd sizes in the lumber calculator',
+        text: 'Enter thickness, width, length, piece count, and a species preset on the lumber calculator for live board feet and weight together.',
       },
     ],
   },
+
 };

@@ -8,27 +8,28 @@ alwaysApply: false
 
 **Site SEO state (what’s already done / don’t redo):** [AGENTS.md — SEO state (as of 2026-11-15)](../../AGENTS.md#seo-state-as-of-2026-11-15).
 
+**Durable SEO + AI Overview rules** (titles ≤60 branded, cannibalization, inbound links, answer-under-H2): [seo.mdc](seo.mdc) · [AGENTS.md §5](../../AGENTS.md#5-seo--aeo--ai-overview-rules) · skill [add-seo-page](../skills/add-seo-page/SKILL.md).
+
 ## Research first (before any new or reworked page)
 
 1. One primary query; check autocomplete / PAA / SERP top 5 format.
 2. Name intent (do / know / compare / navigate) and match page type.
-3. Check `docs/KEYWORD-MAP.md` for cannibalization; extend an existing URL when intent overlaps.
+3. Check `docs/KEYWORD-MAP.md` for cannibalization; extend an existing URL when intent overlaps (or merge + 301).
 4. List 3–6 secondary questions → H2s and FAQ.
-5. Follow the full checklist in `docs/PAGE-CHECKLIST.md` (synced from the shared per-page checklist).
+5. Follow [add-seo-page](../skills/add-seo-page/SKILL.md) + `docs/PAGE-CHECKLIST.md`.
 
 ## On-page structure
 
-- Title 25–65 chars (prefer branded ≤60), primary keyword near the start; meta description 70–160 (aim ~120–160); og/twitter match.
-- Exactly one H1; logical H2/H3 (no skipped levels).
-- Answer first: opening 40–60 words answer the query with a **number or clear verdict** in sentence 1 where one exists.
+- Title prop ≤48 so branded title ≤60; unique H1 + meta per URL; og/twitter match.
+- Exactly one H1; logical H2/H3 (no skipped levels). Phrase H2s as questions when people search that way; put a **1–2 sentence answer under each H2** before detail (AI Overviews / AI Mode).
+- Answer first: opening 40–60 words with a **number or clear verdict** in sentence 1 where one exists.
+- Include formula + worked example + plain HTML summary tables; visible Reviewed by / last updated + sources; clear link to the matching calculator.
 - Tools: calculator inputs ≤60 words after H1 and above the fold on mobile (390×844); cookie bar ≤56px.
-- Hubs: 1–2 sentence numeric lead, then **card grid immediately** (first card above the fold).
+- Hubs: 1–2 sentence numeric lead, then **card grid immediately**; also link new children in hub **prose**.
 - Guides: answer block immediately after H1; byline/dates after the answer.
-- Cite primary sources; visible Published / Last updated matching schema.
-- Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; no hardcoded site host.
+- Self-referencing canonical from `siteConfig.siteUrl`; trailing slash; no hardcoded site host; never hard-code tool/guide counts.
 - Schema: BreadcrumbList; WebApplication (tools); Article + FAQPage when FAQ is visible; CollectionPage on hubs/indexes.
 - **HowTo JSON-LD only from visible on-page steps** (`guideHowTo.ts` / `toolHowTo.ts`). Never invent steps for schema.
-- Sitemap `lastmod` comes from each page’s real `dateModified` (`astro.config.mjs`) — never `Date.now()`.
-- After publish: IndexNow (`npm run indexnow` / `deploy:indexnow`). Keep Q→URL map in `src/pages/llms.txt.ts` and figures in `llms-full.txt.ts` in sync (`.well-known/llms.txt` aliases `/llms.txt`).
+- Sitemap `lastmod` from real `dateModified` — never `Date.now()`. Keep `llms.txt` / `llms-full.txt` in sync; do not block AI crawlers in robots.txt.
 - Tool pages link ≥1 topical guide high on the page; no thin query-variant duplicates.
 ---

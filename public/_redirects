@@ -33,6 +33,9 @@
 /guides/16x24-deck-material-list /guides/deck-material-list-16x24/ 301
 /guides/16x24-deck-material-list/ /guides/deck-material-list-16x24/ 301
 
+/guides/how-much-mulch-do-i-need /calculators/mulch-calculator/ 301
+/guides/how-much-mulch-do-i-need/ /calculators/mulch-calculator/ 301
+
 # —— Dynamic aliases ——
 /calculators/:slug/embed /embed/:slug/ 301
 /calculators/:slug/embed/ /embed/:slug/ 301

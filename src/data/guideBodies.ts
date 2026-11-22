@@ -70,13 +70,14 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-  'mulch-depth-guide': `      <div class="takeaway"><strong>Key takeaway:</strong> For most flower beds and gardens, plan on about 2–3 inches of organic mulch. Keep mulch pulled back from trunks, refresh by measuring what is already there, and size bags from area × depth.</div>
+  'mulch-depth-guide': `      <div class="takeaway"><strong>Quick answer:</strong> Most flower beds and gardens want about <strong>2–3 inches</strong> of organic mulch—not a volcano against trunks. Pick the depth first, then run the free <a href="/calculators/mulch-calculator/">mulch calculator for bags and cubic yards</a> (or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donuts). Formula: <strong>cu&nbsp;ft = area (sq&nbsp;ft) × (depth_inches ÷ 12)</strong>.</div>
 
       <h2>How deep should mulch be in flower beds / for gardens?</h2>
-      <p>Two to three inches. That's the working range for most flower beds and gardens. It knocks weeds back and holds moisture without smothering roots. Mississippi State says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and says don't exceed 3 inches in beds. Clemson lists 2–3 inches for many wood and bark mulches.</p>
-      <p>This page answers “how deep,” not only “how many bags.” For quantities on common rectangles, see the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>. Odd shapes? Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
+      <p><strong>Two to three inches.</strong> That's the working range for most flower beds and gardens—deep enough to knock weeds back and hold moisture, shallow enough that roots still get air. Clemson lists 2–3 inches for many wood and bark mulches; UF/IFAS Florida-Friendly guidance targets about 3 inches and says don't exceed 3 inches in beds.</p>
+      <p>This page answers “how deep,” not only “how many bags.” Once you lock the inches, size the order with the <a href="/calculators/mulch-calculator/">mulch calculator for bags and yards</a>. Rectangle charts live in the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>.</p>
 
       <h2>Recommended depths by area</h2>
+      <p>Use 2–3 inches in most ornamental beds; about 3 inches (max 3) where UF/IFAS Florida-Friendly guidance applies; keep tree rings at similar depth with a bare collar at the trunk.</p>
       <div class="table-scroll">
       <table>
         <caption>Typical organic mulch depths cited for landscape beds</caption>
@@ -89,47 +90,74 @@ export const guideBodies: Record<string, string> = {
         </tbody>
       </table>
       </div>
-      <p>Organic mulch feeds soil life as it breaks down. Inorganic rock mulch behaves differently: it doesn't add organic matter the way shredded bark does, it can heat beds in full sun, and it's harder to remove later. Choose organic mulch when soil improvement is part of the goal. Season also matters. Hot, dry beds often benefit from a full 3-inch organic layer. Wet, poorly drained beds may do better closer to 2 inches so the surface stays less soggy.</p>
+      <p>Organic mulch feeds soil life as it breaks down. Rock mulch doesn't add organic matter the same way, can heat beds in full sun, and is harder to reverse later. Hot, dry beds often like a full 3-inch organic layer. Wet, poorly drained beds may sit happier closer to 2 inches so the surface stays less soggy.</p>
 
       <h2>Is 4 inches of mulch too much?</h2>
-      <p>For most ornamental beds, yes. Layers much deeper than about 3 inches can shed water and cut oxygen to roots. UF/IFAS says not to apply more than 3 inches in beds because excess mulch can divert rain and irrigation. Wood-chip paths sometimes run thicker under foot traffic. That is a different job than a planting bed.</p>
-      <p>Ordering for 4 inches when you only need 3 inches wastes about one-third extra material. Measure the depth you intend to maintain after settling, not the fluffy height right out of the bag.</p>
+      <p><strong>Yes for most ornamental beds.</strong> Layers much deeper than about 3 inches can shed water and cut oxygen to roots. UF/IFAS says not to apply more than 3 inches in beds because excess mulch can divert rain and irrigation.</p>
+      <p>Wood-chip paths sometimes run thicker under foot traffic—that's a different job than a planting bed. Ordering for 4 inches when you only need 3 wastes about one-third extra material. Measure the depth you intend to keep after settling, not the fluffy height right out of the bag.</p>
 
       <h2>Should I remove old mulch before adding new?</h2>
-      <p>Not always. If the old layer is thin and well decomposed, rake it and top-dress only enough to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, thin or remove it first so new mulch doesn't create an anaerobic blanket. Light replenishment is preferred when depth falls below about 2 inches.</p>
-      <p>Mississippi State Extension also warns that years of heavy mulching can build soil against plant bases. After a few seasons, rake off excess before you lay a fresh, even layer.</p>
+      <p><strong>Not always.</strong> If the old layer is thin and well decomposed, rake it and top-dress only enough to restore about 2–3 inches total. Thick, matted, or moldy layers should be thinned or removed first so new mulch doesn't seal into an anaerobic blanket.</p>
+      <p>Mississippi State Extension also warns that years of heavy mulching can build soil against plant bases. After a few seasons, rake off excess before you lay a fresh, even layer. Light replenishment beats a full restart when depth just dips below about 2 inches.</p>
+
+      <h2>How deep should mulch be around trees (trunk clearance)?</h2>
+      <p><strong>Keep about 2–3 inches of mulch in a wide ring, pulled 2–3 inches back from the trunk flare—never piled against bark.</strong> Mississippi State Extension says pull mulch 2–3 inches back from trunks. UVM Extension’s 3-3-3 reminder: at least 3 inches clear of the trunk, no more than 3 inches deep, about 3 feet of diameter (a donut, not a volcano).</p>
+      <p>Size odd rings with the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>. Leave the root flare visible. Piling mulch against bark traps moisture and invites rot, pests, and girdling roots.</p>
+
+      <h2>What is volcano mulching, and why skip it?</h2>
+      <p><strong>Skip it.</strong> A mulch volcano is a cone piled high against the trunk. It holds moisture on bark, hides the flare, and can encourage decline. Spread a flat donut instead: same bed depth (about 2–3 inches), bare collar at the wood.</p>
+      <p>If you've inherited a volcano, pull the cone down to mineral soil at the flare, then rebuild a thin even layer outward. That's usually a rake job, not a new truckload.</p>
+
+      <h2>How much mulch do I need once depth is set?</h2>
+      <p><strong>Cubic feet = area (sq&nbsp;ft) × (depth_inches ÷ 12).</strong> Divide by 27 for cubic yards, or by bag size (often 2 or 3 cu&nbsp;ft) for bag counts. UF/IFAS notes one cubic yard covers about 108 sq ft at 3 inches. Iowa State’s mulch method is the same math YardTally uses.</p>
+      <p>Run custom shapes through the <a href="/calculators/mulch-calculator/">mulch calculator for bags and cubic yards</a>. Common rectangles also sit in the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Mulch coverage by area at 2&quot; and 3&quot; (cu ft = area × depth÷12; ~2 cu ft bags rounded up)</caption>
+        <thead>
+          <tr><th>Area</th><th>Depth</th><th>Cu ft</th><th>Cu yd</th><th>~2 cu ft bags</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>50 sq ft</td><td>2"</td><td>8.3</td><td>0.31</td><td>5</td></tr>
+          <tr><td>50 sq ft</td><td>3"</td><td>12.5</td><td>0.46</td><td>7</td></tr>
+          <tr><td>100 sq ft</td><td>2"</td><td>16.7</td><td>0.62</td><td>9</td></tr>
+          <tr><td>100 sq ft</td><td>3"</td><td>25.0</td><td>0.93</td><td>13</td></tr>
+          <tr><td>200 sq ft</td><td>2"</td><td>33.3</td><td>1.23</td><td>17</td></tr>
+          <tr><td>200 sq ft</td><td>3"</td><td>50.0</td><td>1.85</td><td>25</td></tr>
+          <tr><td>500 sq ft</td><td>2"</td><td>83.3</td><td>3.09</td><td>42</td></tr>
+          <tr><td>500 sq ft</td><td>3"</td><td>125.0</td><td>4.63</td><td>63</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>If the bed still needs soil volume under the mulch—raising grade or filling low spots—read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> first. Mulch doesn't replace cubic yards of fill.</p>
 
       <h2>How to measure depth and refresh mulch (step-by-step)</h2>
+      <p>Probe what you have, set a 2–3 inch target, then order only the difference using area × depth.</p>
       <ol>
         <li>Pull weeds and water dry soil so you aren't sealing dust under a new blanket.</li>
         <li>Push a ruler or marked trowel through the mulch to the soil surface and read the current depth in several spots.</li>
         <li>Decide the target depth (usually 2–3 inches in beds; about 3 inches where UF/IFAS Florida-Friendly guidance applies).</li>
-        <li>If you already have close to target depth, rake to loosen mats and stop; if you're short, order only the difference.</li>
+        <li>If you're already close to target, rake to loosen mats and stop; if you're short, order only the difference.</li>
         <li>Measure bed length and width (or break curves into rectangles). Area (sq&nbsp;ft) × (depth inches ÷ 12) = cubic feet needed.</li>
-        <li>Convert to bags (÷ bag size, often 2 or 3 cu&nbsp;ft) or yards (÷ 27). Round up a little for settling.</li>
+        <li>Convert to bags (÷ bag size, often 2 or 3 cu&nbsp;ft) or yards (÷ 27). Round up a little for settling—or plug the numbers into the <a href="/calculators/mulch-calculator/">mulch calculator</a>.</li>
         <li>Spread evenly, keep mulch a few inches off trunks and stems, and water lightly so the layer settles to the measured depth.</li>
       </ol>
-      <p><strong>Cubic feet = area (sq&nbsp;ft) × (depth_inches ÷ 12).</strong> At 3 inches, each 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). At 2 inches, the same 100&nbsp;sq&nbsp;ft needs about 16.7&nbsp;cu&nbsp;ft.</p>
 
       <h2>Worked example: 20 × 5 ft bed</h2>
-      <p>A 20 × 5&nbsp;ft bed is 100&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 100 × 0.25 = 25&nbsp;cu&nbsp;ft ≈ thirteen 2&nbsp;cu&nbsp;ft bags. At 2&nbsp;inches: 100 × (2÷12) ≈ 16.7&nbsp;cu&nbsp;ft ≈ nine 2&nbsp;cu&nbsp;ft bags. Split irregular beds into rectangles and add the volumes, using the same method the calculator uses.</p>
+      <p>A 20 × 5&nbsp;ft bed is 100&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 100 × 0.25 = <strong>25&nbsp;cu&nbsp;ft</strong> ≈ thirteen 2&nbsp;cu&nbsp;ft bags (about 0.93&nbsp;cu&nbsp;yd). At 2&nbsp;inches: 100 × (2÷12) ≈ <strong>16.7&nbsp;cu&nbsp;ft</strong> ≈ nine 2&nbsp;cu&nbsp;ft bags. Split irregular beds into rectangles and add the volumes—the same method the calculator uses.</p>
 
       <h2>Worked example: tree ring</h2>
-      <p>Suppose you mulch a ring with a 6&nbsp;ft outer diameter and leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ 6.6&nbsp;cu&nbsp;ft (about four 2&nbsp;cu&nbsp;ft bags). Keep the trunk flare bare; MSU’s 2–3 inch pull-back is about clearance from bark, not deeper mulch against the wood.</p>
-
-      <h2>How much mulch do I need once depth is set?</h2>
-      <p>Depth answers “how thick”; area × depth answers “how much.” Iowa State’s mulch calculator method is the same math YardTally uses: cubic feet = area × (depth inches ÷ 12). UF/IFAS notes that one cubic yard covers about 108 sq ft at 3 inches. For common rectangles, use the <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a> chart; for custom beds and tree rings, use the <a href="/calculators/mulch-calculator/">mulch calculator</a> or <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>.</p>
-      <p>If the bed still needs soil volume under the mulch—raising grade, filling low spots, or choosing bagged blends—read <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> before you order surface cover. Mulch doesn't replace cubic yards of fill.</p>
+      <p>Mulch a ring with a 6&nbsp;ft outer diameter, leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ <strong>6.6&nbsp;cu&nbsp;ft</strong> (about four 2&nbsp;cu&nbsp;ft bags). Confirm with the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>. Keep the flare bare.</p>
 
       <h2>New plantings vs refresh layers</h2>
-      <p>On bare soil after planting, start at the full target depth (usually 2–3 inches). On established beds, measure what remains after a season of settling and decomposition, then top-dress only the difference so the finished layer stays in the extension range. Seedlings and very small transplants sometimes need a thinner first layer so stems aren't buried—UF/IFAS notes seedlings often only need about 1 inch.</p>
-      <p>Replenish on a calendar that matches how fast your product breaks down. Fine shredded hardwood shrinks faster than coarse chips. Budget a light spring top-dress rather than dumping another full 3 inches on top of last year’s mat.</p>
+      <p>On bare soil after planting, start at the full target depth (usually 2–3 inches). On established beds, measure what remains, then top-dress only the difference so you stay in the extension range. Seedlings and tiny transplants sometimes need a thinner first layer—UF/IFAS notes seedlings often only need about 1 inch.</p>
+      <p>Fine shredded hardwood shrinks faster than coarse chips. Budget a light spring top-dress rather than dumping another full 3 inches on last year’s mat.</p>
 
       <h2>Field notes</h2>
       <ul>
         <li>Match mulch type to the job: shredded hardwood for beds, coarser chips for paths.</li>
-        <li>Keep mulch off siding and stems to reduce moisture and pest issues.</li>
-        <li>Organic mulches shrink as they decompose; budget a light top-dress rather than a deep dump every spring.</li>
+        <li>Keep mulch off siding and stems to cut moisture and pest issues.</li>
+        <li>Organic mulches shrink as they decompose; plan a light top-dress, not a deep dump every spring.</li>
         <li>Fine sawdust or packed fresh clippings can mat and shed water; prefer coarser products for a 2–3 inch layer.</li>
         <li>If you mulch food gardens with dyed product, read the label and ask what the colorant and base wood are.</li>
       </ul>
@@ -147,7 +175,7 @@ export const guideBodies: Record<string, string> = {
       <h2>When to call a pro / safety</h2>
       <p>Call an arborist if trees show girdling roots, buried root flares, or decline after years of deep mulch. Large properties may justify a crew for bulk delivery and even spreading. Wear dust protection when dumping dry bulk mulch, and spread large deliveries promptly so piles don't heat against building walls.</p>
 
-      <p>Measure what's already there before you dump another full layer. Most beds need a top-dress, not a restart.</p>
+      <p>Measure what's already there before you dump another full layer. Most beds need a top-dress, not a restart. When you're ready to order, use the <a href="/calculators/mulch-calculator/">mulch calculator for bags and yards</a>.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -155,6 +183,7 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches</a></li>
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
         <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed</a></li>
+        <li><a href="https://www.uvm.edu/extension/news/beware-mulch-volcano" rel="noopener noreferrer">UVM Extension – Beware the mulch volcano (3-3-3)</a></li>
       </ul>
   `,
   'how-many-bags-of-concrete': `      <div class="takeaway"><strong>Key takeaway:</strong> Divide project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60&nbsp;cu&nbsp;ft for 40 / 60 / 80&nbsp;lb), round up, then add waste. An 80&nbsp;lb bag yields about 0.60&nbsp;cu&nbsp;ft—roughly 45 bags per cubic yard before waste.</div>
@@ -251,6 +280,26 @@ export const guideBodies: Record<string, string> = {
       </table>
       </div>
 
+      <h2>How much concrete for a 12×12 slab?</h2>
+      <p>Same formula, bigger footprint. At 4 inches: 12 × 12 × (4÷12) = 48 cu ft ≈ 1.78 cu yd before waste. With 10% waste ≈ 52.8 cu ft → about 89 bags of 80 lb mix (0.60 cu ft) or 118 bags of 60 lb. At 6 inches: 72 cu ft ≈ 2.67 cu yd before waste → about 132 / 176 bags after 10% waste. Plug 12×12 into the <a href="/calculators/concrete-calculator/">concrete calculator</a> for live bag counts.</p>
+
+      <h2>How much concrete for a 20×20 slab?</h2>
+      <p>At 4 inches: 20 × 20 × (4÷12) = 133.3 cu ft ≈ 4.94 cu yd before waste. With 10% waste ≈ 146.7 cu ft → about 245 bags of 80 lb mix—ready-mix territory for almost every crew. At 6 inches: 200 cu ft ≈ 7.41 cu yd before waste. Call the plant about short-load fees before you assume bags are cheaper.</p>
+
+      <h2>12×12 and 20×20 chart (with 10% waste)</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Larger patio pads—yards before waste and ~80 lb bags after 10% waste</caption>
+        <thead><tr><th>Size</th><th>Thickness</th><th>Cu yd (before)</th><th>~80 lb bags (+10%)</th></tr></thead>
+        <tbody>
+          <tr><td>12×12</td><td>4&quot;</td><td>1.78</td><td>~89</td></tr>
+          <tr><td>12×12</td><td>6&quot;</td><td>2.67</td><td>~132</td></tr>
+          <tr><td>20×20</td><td>4&quot;</td><td>4.94</td><td>~245</td></tr>
+          <tr><td>20×20</td><td>6&quot;</td><td>7.41</td><td>~367</td></tr>
+        </tbody>
+      </table>
+      </div>
+
       <h2>Other common patio sizes (4&quot; thick, before waste)</h2>
       <div class="table-scroll">
       <table>
@@ -260,6 +309,7 @@ export const guideBodies: Record<string, string> = {
           <tr><td>8×8</td><td>21.3</td><td>0.79</td></tr>
           <tr><td>10×12</td><td>40.0</td><td>1.48</td></tr>
           <tr><td>12×12</td><td>48.0</td><td>1.78</td></tr>
+          <tr><td>20×20</td><td>133.3</td><td>4.94</td></tr>
         </tbody>
       </table>
       </div>
@@ -393,45 +443,49 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch</a></li>
       </ul>
   `,
-  'gravel-types-for-driveways': `      <div class="takeaway"><strong>Key takeaway:</strong> Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) topped with a stable surface aggregate. Rounded pea gravel looks tidy but rolls under tires. Estimate volume with length × width × depth, then convert to tons using your yard’s compacted density.</div>
+  'gravel-types-for-driveways': `      <div class="takeaway"><strong>Quick answer:</strong> Best driveway gravel is <strong>angular crushed stone</strong>—dense grade / crusher run for a compacted base, plus a stable angular surface course. Pea gravel alone rolls under tires. Size orders with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>. Formula: <strong>cu&nbsp;yd = L × W × (depth_in ÷ 12) ÷ 27</strong>; tons ≈ yards × (density ÷ 2,000). YardTally’s mid planning density is about 2,700&nbsp;lb/cu&nbsp;yd—confirm with your quarry.</div>
 
       <h2>What is the best gravel for a driveway?</h2>
-      <p>Start with angular crushed stone that locks when you compact it—dense grade / crusher run for the base, then a stable surface aggregate on top. Rounded pea gravel looks neat. It also rolls under tires. I'd keep pea gravel for paths, not drive lanes.</p>
-      <p>Think in layers. A thicker compacted base carries loads. A thinner angular surface course provides traction and a finished look. Mixing those jobs into one uncompacted lift is a common reason drives rut in the first winter. On soft clay, contractors often add geotextile under the base so stone doesn't punch into mud.</p>
+      <p><strong>Angular crushed stone that locks when compacted—dense grade / crusher run for the base, then a stable angular surface course—not pea gravel alone.</strong> Rounded pea gravel looks neat. It also rolls under tires. I'd keep pea gravel for paths, not drive lanes.</p>
+      <p>Think in layers. A thicker compacted base carries loads. A thinner angular surface course gives traction and a finished look. Mixing those jobs into one uncompacted lift is a common reason drives rut in the first winter. On soft clay, contractors often add geotextile under the base so stone doesn't punch into mud. Plug your length, width, and depth into the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a> before you call the yard.</p>
 
       <h2>What is dense gravel / dense grade?</h2>
-      <p>Dense grade (also sold as crusher run or road base) is angular crushed stone mixed with stone dust and fines. The fines fill voids so the blend locks into a firm mat when compacted in lifts. Clean stone such as #57 has fewer fines, drains well, and may not lock as tightly for a base. Product names vary by quarry.</p>
+      <p><strong>Dense grade (crusher run / road base) is angular crushed stone mixed with stone dust and fines so it locks into a firm mat when compacted in lifts.</strong> Clean stone such as #57 has fewer fines, drains well, and may not lock as tightly for a structural base. Product names vary by quarry—ask what they actually compact for drives.</p>
       <p>Drainage and crown matter as much as stone type. Water that sits in wheel paths pumps fines upward and creates potholes. A slight crown, open edges, or a defined ditch keeps the section drier. Clemson’s porous-pavement overview is useful context when you're comparing impermeable pavement with gravel or permeable systems that let water infiltrate.</p>
 
       <h2>How do I convert driveway gravel to tons?</h2>
-      <p>First compute cubic yards: length × width × (depth inches ÷ 12) ÷ 27. Then multiply by the density your quarry quotes. Yards sell by the ton or by the yard. Moisture and rock type change the weight. YardTally uses a mid-range planning density near 2,700 lb per cu yd. Treat that as a planning assumption, not a universal rule.</p>
-      <p>Estimate with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. If you're building a paver driveway instead of loose gravel, you'll also need a sand setting bed. See the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
+      <p><strong>Cu&nbsp;yd = length × width × (depth inches ÷ 12) ÷ 27, then tons = cu&nbsp;yd × (density lb/cu&nbsp;yd ÷ 2,000).</strong> YardTally uses a mid-range planning density near 2,700&nbsp;lb per cu&nbsp;yd. Treat that as a planning assumption, not a universal rule—moisture and rock type change the ticket weight.</p>
+      <p>Estimate live with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>. If you're building a paver driveway instead of loose gravel, you'll also need a sand setting bed—see the <a href="/calculators/sand-calculator/">sand calculator</a> and <a href="/calculators/paver-calculator/">paver calculator</a>.</p>
 
       <h2>Planning depths (assumptions, not a design code)</h2>
-      <p>Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a thinner surface course, often landing somewhere in a broad 4–8 inch total range before soft soils or heavier vehicles. Soft clay, steep grades, and delivery trucks can need deeper stone or fabric. Confirm with local practice or a contractor. This guide doesn't design structural thickness.</p>
+      <p><strong>Depth depends on soil and traffic—this guide doesn't design structural thickness.</strong> As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a thinner surface course, often landing somewhere in a broad 4–8 inch total range before soft soils or heavier vehicles.</p>
+      <p>Soft clay, steep grades, and delivery trucks can need deeper stone or fabric. Confirm with local practice or a contractor. The tables below are quantity planning aids, not a pavement design code.</p>
+
+      <h2>Worked example: 12 × 50 ft driveway</h2>
+      <p>A 12 × 50&nbsp;ft drive is <strong>600&nbsp;sq&nbsp;ft</strong>. At a 4-inch planning depth: 600 × (4÷12) = 200&nbsp;cu&nbsp;ft ≈ <strong>7.41&nbsp;cu&nbsp;yd</strong> before waste (~10.0 tons at 2,700&nbsp;lb/cu&nbsp;yd). With a 10% compaction/crowning allowance ≈ <strong>8.15&nbsp;cu&nbsp;yd</strong> (~11.0 tons planning). At 6 inches before waste: 300&nbsp;cu&nbsp;ft ≈ <strong>11.11&nbsp;cu&nbsp;yd</strong> (~15.0 tons). Re-run those numbers in the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a> with your quarry’s density.</p>
 
       <h2>Worked example: 40 × 10 ft drive</h2>
-      <p>Area = 400&nbsp;sq&nbsp;ft. Using a 4-inch planning depth: 400 × (4÷12) = 133.3&nbsp;cu&nbsp;ft ≈ 4.94&nbsp;cu&nbsp;yd before waste. With a 10% compaction/crowning allowance ≈ 5.4&nbsp;cu&nbsp;yd. At a mid-range planning density of 2,700&nbsp;lb/cu&nbsp;yd that is about 7.3&nbsp;tons after waste. Re-run the ton math with the quarry’s density before you pay the ticket.</p>
+      <p>Area = 400&nbsp;sq&nbsp;ft. At 4 inches: 400 × (4÷12) = 133.3&nbsp;cu&nbsp;ft ≈ <strong>4.94&nbsp;cu&nbsp;yd</strong> before waste (~6.7 tons planning). With 10% allowance ≈ 5.4&nbsp;cu&nbsp;yd (~7.3 tons). Same footprint with a planning section of 6&nbsp;inches dense-grade base and 2&nbsp;inches clean surface: base ≈ 7.4&nbsp;cu&nbsp;yd; surface ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before the surface course.</p>
 
-      <h2>Worked example: base plus surface</h2>
-      <p>Same 40 × 10 footprint with a planning section of 6&nbsp;inches dense-grade base and 2&nbsp;inches clean surface stone: base = 400 × 0.5 = 200&nbsp;cu&nbsp;ft ≈ 7.4&nbsp;cu&nbsp;yd. Surface = 400 × (2÷12) ≈ 66.7&nbsp;cu&nbsp;ft ≈ 2.5&nbsp;cu&nbsp;yd. Compact the base in lifts before placing the surface course.</p>
-
-      <h2>Layer volume reference for a 40 × 10 ft drive</h2>
+      <h2>Driveway gravel tonnage table</h2>
+      <p>Use these planning volumes before waste; multiply yards by your quarry density ÷ 2,000 for a ticket estimate.</p>
       <div class="table-scroll">
       <table>
-        <caption>Approximate stone volume for a 400 sq ft driveway by depth (before waste; tons use 2,700 lb/cu yd planning density)</caption>
-        <thead><tr><th>Depth</th><th>Cu ft</th><th>Cu yd</th><th>Tons (planning)</th></tr></thead>
+        <caption>Approximate stone volume by footprint and depth (before waste; tons use 2,700 lb/cu yd planning density)</caption>
+        <thead><tr><th>Drive footprint</th><th>Depth</th><th>Cu ft</th><th>Cu yd</th><th>Tons (planning)</th></tr></thead>
         <tbody>
-          <tr><td>2"</td><td>66.7</td><td>2.47</td><td>~3.3</td></tr>
-          <tr><td>4"</td><td>133.3</td><td>4.94</td><td>~6.7</td></tr>
-          <tr><td>6"</td><td>200.0</td><td>7.41</td><td>~10.0</td></tr>
+          <tr><td>40 × 10 ft (400 sq ft)</td><td>2"</td><td>66.7</td><td>2.47</td><td>~3.3</td></tr>
+          <tr><td>40 × 10 ft (400 sq ft)</td><td>4"</td><td>133.3</td><td>4.94</td><td>~6.7</td></tr>
+          <tr><td>40 × 10 ft (400 sq ft)</td><td>6"</td><td>200.0</td><td>7.41</td><td>~10.0</td></tr>
+          <tr><td>12 × 50 ft (600 sq ft)</td><td>4"</td><td>200.0</td><td>7.41</td><td>~10.0</td></tr>
+          <tr><td>12 × 50 ft (600 sq ft)</td><td>6"</td><td>300.0</td><td>11.11</td><td>~15.0</td></tr>
         </tbody>
       </table>
       </div>
-      <p>The tonnage column is a planning aid only. Your quarry’s weight per cubic yard decides the actual ticket.</p>
+      <p>The tonnage column is a planning aid only. Your quarry’s weight per cubic yard decides the actual ticket. Add compaction allowance on top when the yard says so.</p>
 
       <h2>Questions to ask the quarry</h2>
-      <p>Which stone do they recommend for a compacted base, and which for a surface layer? What is the maximum stone size, and how many fines does it contain? Is it sold by the ton or by the yard, and what density should you use after compaction? Share length, width, slope, and soil type. Steeper drives wash out faster with rounded stone. Snow plowing favors a rigid base and stone that resists blade scrape.</p>
+      <p>Ask which stone they compact for a base versus a surface layer, maximum stone size, fines content, whether it's sold by the ton or by the yard, and what density to use after compaction. Share length, width, slope, and soil type. Steeper drives wash out faster with rounded stone. Snow plowing favors a rigid base and stone that resists blade scrape.</p>
 
       <h2>What usually bites people</h2>
       <ul>
@@ -457,7 +511,7 @@ export const guideBodies: Record<string, string> = {
       <h2>When to call a pro / safety / codes</h2>
       <p>Call an excavator or paving contractor for long drives, steep grades, poor soils, heavy vehicles, or when stormwater rules limit runoff onto the street. Utility locates are mandatory before excavating. Confirm driveway aprons and septic locations can handle delivery trucks. Local jurisdictions may regulate curb cuts and drainage.</p>
 
-      <p>Ask the yard which stone they actually compact for drives. Pretty pea gravel and a durable base aren't the same ticket.</p>
+      <p>Ask the yard which stone they actually compact for drives. Pretty pea gravel and a durable base aren't the same ticket. When you're ready to order, use the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -623,6 +677,15 @@ export const guideBodies: Record<string, string> = {
       <h2>What does 30-0-4 mean?</h2>
       <p>Thirty percent nitrogen, zero phosphate, and four percent potash by weight. A 10 lb bag of 30-0-4 contains about 3 lb of nitrogen (10 × 0.30). Pennsylvania’s homeowner fertilizer page walks through the same label math: convert the first number to a decimal and multiply by the product pounds you spread per 1,000 sq ft to find actual nitrogen delivered.</p>
       <p>Skip phosphorus unless a soil test or an establishment exception allows it under local rules. Many turf laws restrict phosphate on established lawns.</p>
+
+      <h2>How much 10-10-10 fertilizer per 1,000 sq ft?</h2>
+      <p>10-10-10 is 10% nitrogen. For 1 lb actual N per 1,000 sq ft you need 1 ÷ 0.10 = <strong>10 lb of product per 1,000</strong>. A 5,000 sq ft lawn at that rate needs about 50 lb of 10-10-10. That also delivers 1 lb phosphate and 1 lb potash per 1,000—often more phosphorus than an established lawn needs. Prefer a soil test before routine 10-10-10 on mature turf; many jurisdictions restrict phosphate on established lawns.</p>
+
+      <h2>How much starter fertilizer per 1,000 sq ft?</h2>
+      <p>Starter products often run higher in the middle N-P-K number for new seed. Use the coverage rate printed on the bag, or enter the nitrogen target and first N-P-K number in the <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>. Do not invent a starter rate from a blog—labels and local phosphate rules win. Overseeding thin turf may need a different product than bare-soil establishment.</p>
+
+      <h2>Can I use liquid lawn fertilizer the same way?</h2>
+      <p>Yes for nitrogen math if the label lists N-P-K percent by weight (or clear lb N per gallon). Convert your target lb N into product pounds or gallons with the same N fraction. Hose-end concentrates vary—follow the label for water volume and settings. The calculator gives product pounds; you still mix per the jug.</p>
 
       <h2>Is 1 lb N always correct?</h2>
       <p>No. One pound of nitrogen per 1,000 sq ft is a planning example, not a universal prescription. Penn State discusses about 2 lb N per 1,000 per season as a starting annual rate. Pennsylvania law caps total N near 0.9 lb per 1,000 per application. Split that ~2 lb annual starting rate into thirds to stay under the 0.9 cap.</p>
@@ -1181,67 +1244,62 @@ export const guideBodies: Record<string, string> = {
         <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
-  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Key takeaway:</strong> Block count ≈ courses × blocks per course, where courses = ceil(wall height ÷ block height) and blocks per course = ceil(wall length ÷ block length). YardTally’s gravel trench defaults (about 24 in wide by 6 in deep) are planning assumptions for the calculator, not a universal code. Taller walls, surcharges, and poor soils need engineering. Follow the block manufacturer’s installation manual and local codes.</div>
+  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Quick answer:</strong> Blocks ≈ courses × blocks per course, where <strong>courses = ceil(wall height ÷ block height)</strong> and <strong>blocks per course = ceil(wall length ÷ block length)</strong>. Example: a 20×3&nbsp;ft exposed wall with 18×6&nbsp;in face blocks needs <strong>84</strong> face blocks before waste (~89 with 5%). YardTally’s gravel trench defaults (~24&nbsp;in wide × 6&nbsp;in deep) are planning assumptions—not a code. Run the free <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a>, then refine trench stone with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>.</div>
 
       <figure class="diagram">
         <img src="/diagrams/retaining-wall-dimensions.svg" width="960" height="540" alt="Diagram of a retaining wall section showing wall height, block face, and gravel trench width and depth" loading="lazy" />
       </figure>
 
-      <h2>Can I use paver base under a retaining wall?</h2>
-      <p>Yes for a compacted gravel trench under wall blocks, people often call that “paver base.” Treat it as wall base, not a patio sand-and-gravel section. Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
-      <p>Related ideas (compacted angular gravel) transfer. The assembly doesn't. Patio bedding sand isn't a substitute for wall drainage stone, and patio base thickness isn't a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+      <p>Start with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a> using your pallet face sizes. Adjust the trench to the manufacturer sheet when it differs from YardTally’s planning defaults. Taller walls, surcharges, and soft soils need engineering—follow the block maker’s manual and local rules.</p>
 
       <h2>How many retaining wall blocks do I need?</h2>
-      <p>Block count ≈ courses × blocks per course. Courses = ceil(wall height ÷ block height). Blocks per course = ceil(wall length ÷ block length). YardTally's gravel trench defaults (about 24 in wide by 6 in deep) are calculator planning numbers, not a universal code. Taller walls, surcharges, and soft soils need engineering. Follow the block maker's manual and local rules.</p>
-      <p>Formulas for a straight wall with uniform rectangular face blocks:</p>
-      <p><strong>Courses = ceil(wall height ÷ block face height).</strong></p>
-      <p><strong>Blocks per course = ceil(wall length ÷ block face length).</strong></p>
-      <p><strong>Blocks = courses × blocks per course</strong> (then add waste for cuts and breakage).</p>
-      <p>Base trench gravel volume ≈ wall length × trench width × trench depth (convert to yards by dividing cubic feet by 27).</p>
-      <p>YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6 in face blocks, 5% waste, and a gravel trench about 24 in wide by 6 in deep unless you change those inputs. Those trench numbers are planning defaults for the tool. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
-
-      <h2>What are typical retaining wall block dimensions?</h2>
-      <p>Use the face length and face height on the pallet tag or cut sheet. Many retail landscape blocks are near 18 in long by 6 in tall, which is YardTally’s planning default, not a rule. Courses = ceil(height ÷ face height). Blocks per course = ceil(length ÷ face length).</p>
-      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Don't scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
-
-      <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
-      <p>With 18 in long × 6 in tall face blocks (YardTally calculator defaults):</p>
-      <ul>
-        <li>Courses = ceil(3 ÷ 0.5) = <strong>6 courses</strong>.</li>
-        <li>Blocks per course = ceil(20 ÷ 1.5) = <strong>14</strong>.</li>
-        <li>Blocks = 6 × 14 = <strong>84</strong>; with 5% waste ≈ <strong>89 blocks</strong>.</li>
-        <li>Face area = 20 × 3 = 60 sq ft.</li>
-        <li>Base gravel at the calculator’s planning trench of 20 ft × 2 ft wide × 0.5 ft deep = 20 cu ft ≈ <strong>0.74 cu yd</strong>.</li>
-      </ul>
-      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it doesn't show in the exposed height.</p>
+      <p><strong>Blocks = ceil(wall height ÷ block height) × ceil(wall length ÷ block length), then add waste.</strong> For a straight wall with uniform rectangular face blocks: courses = ceil(H ÷ face height); blocks per course = ceil(L ÷ face length); total = courses × blocks per course.</p>
+      <p>Base trench gravel volume ≈ wall length × trench width × trench depth (cu&nbsp;ft ÷ 27 = cu&nbsp;yd). YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6&nbsp;in face blocks, 5% waste, and a gravel trench about 24&nbsp;in wide by 6&nbsp;in deep unless you change those inputs. Those trench numbers are planning defaults for the tool—not a universal code. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
 
       <h2>Block planning table</h2>
+      <p>Approximate face-block counts for common 18×6&nbsp;in planning blocks (no waste—add about 5–10%).</p>
       <div class="table-scroll">
       <table>
         <caption>Approximate block counts for 18×6 in face blocks (no waste; add ~5–10%; dimensions are a common planning size)</caption>
         <thead>
-          <tr><th>Wall L × H</th><th>Courses</th><th>Per course</th><th>Blocks</th></tr>
+          <tr><th>Wall L × H</th><th>Courses</th><th>Per course</th><th>Blocks</th><th>~With 5% waste</th></tr>
         </thead>
         <tbody>
-          <tr><td>10 × 2 ft</td><td>4</td><td>7</td><td>28</td></tr>
-          <tr><td>20 × 2 ft</td><td>4</td><td>14</td><td>56</td></tr>
-          <tr><td>20 × 3 ft</td><td>6</td><td>14</td><td>84</td></tr>
-          <tr><td>30 × 3 ft</td><td>6</td><td>20</td><td>120</td></tr>
+          <tr><td>10 × 2 ft</td><td>4</td><td>7</td><td>28</td><td>~30</td></tr>
+          <tr><td>20 × 2 ft</td><td>4</td><td>14</td><td>56</td><td>~59</td></tr>
+          <tr><td>20 × 3 ft</td><td>6</td><td>14</td><td>84</td><td>~89</td></tr>
+          <tr><td>30 × 3 ft</td><td>6</td><td>20</td><td>120</td><td>~126</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item.</p>
+      <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item. Confirm with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> using your actual face sizes.</p>
+
+      <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
+      <p>With 18&nbsp;in long × 6&nbsp;in tall face blocks (YardTally calculator defaults): courses = ceil(3 ÷ 0.5) = <strong>6</strong>; blocks per course = ceil(20 ÷ 1.5) = <strong>14</strong>; blocks = 6 × 14 = <strong>84</strong>; with 5% waste ≈ <strong>89 blocks</strong>. Face area = 20 × 3 = 60&nbsp;sq&nbsp;ft. Base gravel at the planning trench of 20&nbsp;ft × 2&nbsp;ft wide × 0.5&nbsp;ft deep = 20&nbsp;cu&nbsp;ft ≈ <strong>0.74&nbsp;cu&nbsp;yd</strong>.</p>
+      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it doesn't show in the exposed height.</p>
+
+      <h2>Can I use paver base under a retaining wall?</h2>
+      <p><strong>Yes for a compacted gravel trench under wall blocks—people often call that “paver base”—but treat it as wall base, not a patio sand-and-gravel section.</strong> Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
+      <p>Related ideas (compacted angular gravel) transfer. The assembly doesn't. Patio bedding sand isn't a substitute for wall drainage stone, and patio base thickness isn't a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+
+      <h2>How deep should the gravel base be?</h2>
+      <p><strong>Follow the block manufacturer’s trench detail—YardTally’s planning default is about 6&nbsp;in deep × 24&nbsp;in wide of compacted gravel, not a universal code.</strong> Don't copy patio sand-bed depths behind retained soil.</p>
+      <p>Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. Size trench stone with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a> after you know trench L×W×D. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
+
+      <h2>What are typical retaining wall block dimensions?</h2>
+      <p><strong>Use the face length and face height on the pallet tag—many retail landscape blocks are near 18&nbsp;in long by 6&nbsp;in tall (YardTally’s planning default, not a rule).</strong> Courses = ceil(height ÷ face height). Blocks per course = ceil(length ÷ face length).</p>
+      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Don't scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
+
+      <h2>Drainage and geogrid—what’s required?</h2>
+      <p><strong>Drain the backfill: perforated pipe in clean stone, outlet to daylight or an approved system, and free-draining backfill per the manufacturer—not clay dumped against the blocks.</strong> Water is the quiet load behind many wall failures. Geogrid type, length, and spacing come from the producer’s charts or a site-specific design—not a blog guess.</p>
+      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage won't send water onto a neighbor’s foundation. Patio-only thin-layer bases (not wall backfill) live in the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide.</p>
 
       <h2>When do I need an engineer?</h2>
-      <p>Call for engineered design when the wall gets taller than the manufacturer’s gravity (unreinforced) chart, when a driveway, slope, or structure sits above the wall, when soils are poor or wet, or when your building department says a permit needs stamped drawings. Local height triggers vary. Don't invent a legal cap from a blog rule of thumb.</p>
-      <p>Geogrid type, length, and vertical spacing aren't guesswork. They come from the manufacturer’s engineered charts or a site-specific design. If your project exceeds the published maximum for an unreinforced stack, stop and get qualified help.</p>
-
-      <h2>Drainage, geogrid, and base preparation</h2>
-      <p>Water is the quiet load behind many wall failures. A perforated drainpipe at the base of the drainage stone, outlets to daylight or an approved system, and free-draining backfill keep hydrostatic pressure down. Compacted clay jammed against the back of hollow blocks is a common mistake. Follow the block producer’s backfill specification, which often calls for clean stone in a drainage zone.</p>
-      <p>Base preparation deserves as much care as the visible face. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. For patio-only thin-layer bases (not wall backfill), see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
-      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage won't send water onto a neighbor’s foundation.</p>
+      <p><strong>Call for engineered design when the wall exceeds the manufacturer’s gravity (unreinforced) chart, carries surcharge (driveway, slope, structure), sits on poor or wet soils, or your building department requires stamped drawings.</strong> Local height triggers vary—don't invent a legal cap from a blog rule of thumb.</p>
+      <p>If your project exceeds the published maximum for an unreinforced stack, stop shopping blocks and get qualified help.</p>
 
       <h2>Step-by-step</h2>
+      <p>Confirm height and permits first, then size blocks and trench with the calculator before you dig.</p>
       <ol>
         <li>Determine retained height, slope above/below, and any driveway or structure surcharge.</li>
         <li>Ask the building department whether the wall height or surcharge triggers a permit or engineering review.</li>
@@ -1276,10 +1334,7 @@ export const guideBodies: Record<string, string> = {
       <h2>Permits, utilities, and site checks</h2>
       <p>Many local codes treat taller retaining walls as engineered structures that need a permit, and surcharge from driveways, slopes, or buildings can trigger review earlier than a short garden edge. Call your building department before design, and schedule a utility locate before digging. Mark property lines, since walls near boundaries can raise drainage and access issues with neighbors. Where the soil is poor or the wall holds back water, a professional designer is worth the cost.</p>
 
-      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
-
-      <p>If the wall is tall, surcharge-loaded, or on soft soil, stop shopping blocks and talk to someone who stamps drawings.</p>
-
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee. Size the order with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a>.</p>
 
       <h2>Sources</h2>
       <ul class="sources">
@@ -1542,7 +1597,7 @@ export const guideBodies: Record<string, string> = {
 
   'concrete-slab-thickness': `      <div class="takeaway"><strong>Key takeaway:</strong> Plan most residential patio and sidewalk slabs at about 4&nbsp;inches thick. IRMCA’s exterior flatwork guide sets a 4-inch minimum and bumps to 5&nbsp;inches where delivery traffic or other heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4&nbsp;inches. Thickness drives yards: a 12×12 at 4&nbsp;inches is about 1.78&nbsp;cu&nbsp;yd before waste.</div>
 
-      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Coverage and bags-vs-yards planning: <a href="/guides/how-much-concrete-do-i-need/">how much concrete do I need</a>. Price a patio with your plant quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Strip footings are a different shape—use the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>.</p>
 
       <h2>What is the standard thickness for a concrete slab?</h2>
       <p>For residential exterior flatwork—patios, sidewalks, many shed pads—4&nbsp;inches is the usual starting point. The Illinois Ready Mixed Concrete Association guide for residential exterior flatwork states a minimum recommended thickness of 4&nbsp;inches. Where traffic includes delivery vehicles or other heavy loads, that same guide moves the minimum to 5&nbsp;inches. QUIKRETE’s Crack Resistant mix instructions say sidewalks and patios should be at least 4&nbsp;inches thick.</p>
@@ -1618,7 +1673,7 @@ export const guideBodies: Record<string, string> = {
 
   'how-much-concrete-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> One cubic yard covers about 81&nbsp;sq&nbsp;ft at 4&nbsp;inches thick, or about 54&nbsp;sq&nbsp;ft at 6&nbsp;inches. Three yards cover about 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. Past roughly one yard, ready-mix usually beats mixing bags all day. Stay on bags? Convert with QUIKRETE 1101 yields and the bags guide.</div>
 
-      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Thickness norms: <a href="/guides/concrete-slab-thickness/">concrete slab thickness</a>. Price the pour with your quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Continuous strip or pad footings: <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>.</p>
 
       <h2>How much will 1 yard of concrete cover?</h2>
       <p>Coverage depends on thickness. One cubic yard is 27 cubic feet. At a uniform 4-inch depth (4÷12 = 1/3&nbsp;ft), area = 27 ÷ (1/3) = 81&nbsp;sq&nbsp;ft. At 6&nbsp;inches, the same yard covers 54&nbsp;sq&nbsp;ft. At 5&nbsp;inches you get about 64.8&nbsp;sq&nbsp;ft. Those are flat, even pours with no thickened edges or steps.</p>
@@ -1687,7 +1742,7 @@ export const guideBodies: Record<string, string> = {
 
   'sonotube-footing-and-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> A Sonotube is a cardboard form. For many deck posts the concrete poured inside the tube <em>is</em> the footing, so you do not automatically pour a separate pad under every tube—local frost depth, soil bearing, and the permit still control diameter and depth. QUIKRETE’s deck-footing steps say footings typically must extend below frost. A 12-inch × 4&nbsp;ft tube needs about six 80&nbsp;lb bags after 5% waste.</div>
 
-      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches.</p>
+      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches. Still need a pier count from deck size and spacing? Start with the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>. Continuous strip or pad footings under walls belong on the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>, not this tube page.</p>
 
       <h2>Do I need a footing under a Sonotube?</h2>
       <p>Often, no separate “footing under the tube” is required because the poured pier itself is the footing. The tube shapes the column; the concrete bears on firm soil at the bottom of the hole. Some jobs still use a wider poured bell, a Bigfoot-style base form, or a pad poured first with the tube set into plastic concrete when soil is weak or the post carries a large tributary area.</p>
@@ -1754,65 +1809,116 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sonotube.com/sonotube-concrete-forms" rel="noopener noreferrer">Sonotube – Concrete forms product sizing</a></li>
       </ul>
   `,
+  'lumber-weight-chart': `
+      <div class="takeaway"><strong>Key takeaway:</strong> Softwood weight uses the <em>dressed</em> section, not the nominal stamp. A kiln-dried SPF 2×4 is about <strong>1.05 lb per foot</strong> (~8.4 lb for an 8-footer). Douglas fir runs heavier; wet treated southern pine can nearly double kiln-dried weight. Densities come from USDA Wood Handbook specific gravity—planning estimates, not scale tickets.</div>
 
-  'how-much-mulch-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> Mulch volume equals area × depth. At 3&nbsp;inches, UF/IFAS notes one cubic yard covers about 108&nbsp;sq&nbsp;ft. A 10×10 bed at 3&nbsp;inches needs 25&nbsp;cu&nbsp;ft—thirteen 2&nbsp;cu&nbsp;ft bags. Bags fit small beds; bulk usually costs less around a yard or more. UVM Extension cites a 3-3-3 tree mulch mnemonic for mature trees.</div>
-
-      <p>Depth targets (about 2–3&nbsp;inches in most beds) live in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>. Rectangle charts for common frames sit in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. This page answers the broad “how much mulch do I need?” question: coverage math, bags vs bulk, and the 3-3-3 tree reminder.</p>
-
-      <h2>How do I calculate how much mulch I need?</h2>
-      <p>Measure length and width of the planting surface in feet. Multiply for square feet. Choose depth in inches—Clemson and UF/IFAS both land near 2–3&nbsp;inches for many organic mulches in beds. Convert depth to feet (inches ÷ 12) and multiply. Cubic feet ÷ 27 = cubic yards. Iowa State’s mulch calculator method is the same area × depth approach YardTally uses.</p>
-      <p><strong>Cu&nbsp;ft = area_sq&nbsp;ft × (depth_inches ÷ 12).</strong> At 3&nbsp;inches, every 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). UF/IFAS’s check figure—about 108&nbsp;sq&nbsp;ft per cubic yard at 3&nbsp;inches—matches that math: 27 ÷ 0.25 = 108.</p>
-      <p>Odd shapes? Split them into rectangles, or run the <a href="/calculators/mulch-calculator/">mulch calculator</a> twice and add. Tree rings need the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the bare collar at the trunk.</p>
-
-      <h2>Is it cheaper to buy mulch by the yard or by the bag?</h2>
-      <p>Usually bulk wins on price per cubic foot once you need roughly a cubic yard or more and you can stage a delivery. Bags win for small beds, color-matched touch-ups, and sites where a dump truck cannot sit. Iowa State notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size printed on the package—not by a memory of last year’s brand.</p>
-      <p>Do the napkin math before you chase a “sale” on bags. Twenty-five 2&nbsp;cu&nbsp;ft bags is 50&nbsp;cu&nbsp;ft—almost two cubic yards of bagged product after you haul them one-by-one. If bulk is $45/yd delivered and bags pencil out higher for the same volume, the truck wins. If the dealer’s short-load fee is brutal and you only need half a yard, bags can still be the cheaper day.</p>
-
-      <h2>How much will 25 bags of mulch cover?</h2>
-      <p>It depends on bag size and depth. Twenty-five bags × 2&nbsp;cu&nbsp;ft = 50&nbsp;cu&nbsp;ft. At 3&nbsp;inches (0.25&nbsp;ft), coverage ≈ 50 ÷ 0.25 = 200&nbsp;sq&nbsp;ft. At 2&nbsp;inches, the same 50&nbsp;cu&nbsp;ft spreads over about 300&nbsp;sq&nbsp;ft. If the bags are 3&nbsp;cu&nbsp;ft, twenty-five bags are 75&nbsp;cu&nbsp;ft—about 300&nbsp;sq&nbsp;ft at 3&nbsp;inches.</p>
-      <p>Read the bag. “25 bags” without a size is not a coverage number.</p>
-
-      <h2>What is the 3-3-3 rule for mulch?</h2>
-      <p>University of Vermont Extension describes a 3-3-3 method many arborists recommend for mature trees: at least 3&nbsp;inches of clearance from the trunk, no more than 3&nbsp;inches deep, and about 3&nbsp;feet of mulch diameter to protect a meaningful share of the root zone. Think donut, not volcano. UVM’s mulch-volcano article is explicit that mulch should never be piled against bark.</p>
-      <p>That mnemonic lines up with other extension advice even when they do not use the “3-3-3” label. Mississippi State says pull mulch 2–3&nbsp;inches back from trunks and keep a wide ring. Clemson wants a few inches of clearance and warns against volcanoes. UF/IFAS Florida-Friendly guidance keeps mulch farther back from tree bases (on the order of a foot or more in their principle sheet) and caps bed mulch near 2–3&nbsp;inches. Use 3-3-3 as a memorable floor for tree rings, then read the local extension sheet when palms, new transplants, or Florida-Friendly program rules apply.</p>
-
-      <h2>Worked example: front bed plus one tree</h2>
-      <p>Front bed: 20×10&nbsp;ft at 3&nbsp;inches. Area = 200&nbsp;sq&nbsp;ft. Volume = 200 × 0.25 = 50&nbsp;cu&nbsp;ft ≈ 1.85&nbsp;cu&nbsp;yd. That is twenty-five 2&nbsp;cu&nbsp;ft bags or seventeen 3&nbsp;cu&nbsp;ft bags after rounding up—same numbers the mulch calculator returns. At this size I would price a bulk scoop before I fill the SUV with bags.</p>
-      <p>Tree: apply UVM’s 3-3-3 idea as a starting ring—about 3&nbsp;inches deep, kept ~3&nbsp;inches off the bark, roughly 3&nbsp;feet across for a young mature tree, wider toward the drip line when you can. Size the donut with the tree-ring calculator so the trunk opening is not part of the order. Keep the flare visible.</p>
-
-      <h2>How to order mulch without overbuying (step-by-step)</h2>
-      <ol>
-        <li>Measure each bed; split L-shapes into rectangles.</li>
-        <li>Pick depth from the depth guide (often 2–3&nbsp;inches organic).</li>
-        <li>Compute cubic feet, then yards or bags.</li>
-        <li>Compare bag unit price × count against bulk yards + delivery.</li>
-        <li>Subtract existing mulch depth if you are only top-dressing.</li>
-        <li>Stage the pile on a tarp and spread the same week so it does not bleach into a heap against siding.</li>
-      </ol>
-
-      <h2>Tips</h2>
+      <h2>How do you calculate lumber weight?</h2>
+      <p>Skip the board-foot formula when you're asking what a stick weighs. Board feet price softwood with <em>nominal</em> thickness and width. Weight cares about the wood that's actually there.</p>
+      <p>Formula:</p>
       <ul>
-        <li>Top-dressing from 1&nbsp;inch up to 3&nbsp;inches means ordering the 2-inch difference, not a full new blanket.</li>
-        <li>Dyed mulches vary. Buy enough from one batch for the whole visible bed.</li>
-        <li>Rock mulch is a different coverage and heat story—do not reuse bark bag math blindly.</li>
-        <li>If the bed still needs fill soil, size soil first with the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide, then mulch.</li>
+        <li><strong>Volume (cu ft)</strong> = (actual thickness_in × actual width_in × length_ft × 12) ÷ 1728</li>
+        <li><strong>Weight (lb)</strong> = volume × density_lb_per_cu_ft</li>
+        <li><strong>Weight per foot</strong> = weight ÷ length_ft</li>
       </ul>
+      <p>Kiln-dried planning density ≈ specific gravity × 62.4 × 1.12 (about 12% moisture), using Wood Handbook SG values. Green or freshly treated stock needs a wetter density—southern pine green is published near 53 lb/cu ft for loblolly-class material.</p>
+      <p>Live inputs live on the <a href="/calculators/lumber-calculator/">lumber weight calculator</a> (same page as board feet). This guide is the chart.</p>
+
+      <h2>What are the actual sizes for 2×4, 2×6, 2×8, and 4×4?</h2>
+      <p>American Softwood Lumber Standard (PS 20) dressed sizes for common framing:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Nominal vs actual softwood section</caption>
+        <thead><tr><th>Nominal</th><th>Actual (in)</th></tr></thead>
+        <tbody>
+          <tr><td>2×4</td><td>1½ × 3½</td></tr>
+          <tr><td>2×6</td><td>1½ × 5½</td></tr>
+          <tr><td>2×8</td><td>1½ × 7¼</td></tr>
+          <tr><td>2×10</td><td>1½ × 9¼</td></tr>
+          <tr><td>2×12</td><td>1½ × 11¼</td></tr>
+          <tr><td>4×4</td><td>3½ × 3½</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>If you plug 2 × 4 into the weight formula, you'll overstate the stick. That's fine for board-foot billing. It's wrong for truck loading.</p>
+
+      <h2>Which density should I use?</h2>
+      <p>YardTally's presets (computed from Wood Handbook SG unless noted):</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Planning densities from USDA Wood Handbook SG</caption>
+        <thead><tr><th>Preset</th><th>SG (approx.)</th><th>Density (lb/cu ft)</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>SPF kiln-dried</td><td>0.41</td><td>28.7</td><td>SG × 62.4 × 1.12; lodgepole / mid-SPF class</td></tr>
+          <tr><td>Douglas fir-larch KD</td><td>0.48</td><td>33.5</td><td>Coast DF SG at 12% MC; handbook density ~34</td></tr>
+          <tr><td>Southern pine KD</td><td>0.51</td><td>35.6</td><td>Loblolly-class SG at 12% MC</td></tr>
+          <tr><td>Southern pine green / wet PT</td><td>0.47 (green basis)</td><td>53</td><td>Handbook green loblolly density; wet treated often similar</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Species groups are blunt instruments. A spruce stud and a denser pine in the same SPF bin won't match ounce-for-ounce. Grade stamps and mill tickets beat internet averages when the load is tight.</p>
+
+      <h2>Lumber weight per foot chart</h2>
+      <p>Computed with the dressed sections above and the KD / green densities in the table. Round to two decimals for shopping; don't pretend it's a certified scale weight.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Weight per linear foot (lb/ft), planning estimates</caption>
+        <thead>
+          <tr><th>Size</th><th>SPF KD</th><th>Doug fir-larch KD</th><th>Southern pine KD</th><th>SP green / wet PT</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2×4</td><td>1.05</td><td>1.22</td><td>1.30</td><td>1.93</td></tr>
+          <tr><td>2×6</td><td>1.64</td><td>1.92</td><td>2.04</td><td>3.04</td></tr>
+          <tr><td>2×8</td><td>2.17</td><td>2.53</td><td>2.69</td><td>4.00</td></tr>
+          <tr><td>4×4</td><td>2.44</td><td>2.85</td><td>3.03</td><td>4.51</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>How much does a 2×4×8 weigh?</h2>
+      <p>Same math, eight-foot length:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Weight per 8 ft stick (lb), planning estimates</caption>
+        <thead>
+          <tr><th>Size</th><th>SPF KD</th><th>Doug fir-larch KD</th><th>Southern pine KD</th><th>SP green / wet PT</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2×4×8</td><td>8.37</td><td>9.77</td><td>10.38</td><td>15.46</td></tr>
+          <tr><td>2×6×8</td><td>13.15</td><td>15.35</td><td>16.32</td><td>24.29</td></tr>
+          <tr><td>2×8×8</td><td>17.34</td><td>20.24</td><td>21.51</td><td>32.02</td></tr>
+          <tr><td>4×4×8</td><td>19.53</td><td>22.80</td><td>24.23</td><td>36.07</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Worked SPF example: volume = (1.5 × 3.5 × 8 × 12) ÷ 1728 ≈ 0.292 cu ft. Times 28.7 lb/cu ft ≈ <strong>8.4 lb</strong>. Ten of those studs are about 84 lb before you count straps and scrap.</p>
+      <p>Need a mixed list? Enter each size in the <a href="/calculators/lumber-calculator/">lumber calculator</a> with the species preset that matches the rack.</p>
+
+      <h2>Kiln-dried vs green vs pressure-treated</h2>
+      <p>Water is heavy. Kiln-dried framing is dried toward a service moisture content; the 12% MC factor in the SG formula is a planning stand-in, not a moisture-meter reading of your particular stick.</p>
+      <p>Green lumber hasn't been dried. Pressure-treated southern pine often leaves the plant wet with retention solution. On load-out day it can feel closer to the handbook green density (~53 lb/cu ft) than to KD southern pine (~36). It will dry and lose weight in service. Your pickup truck doesn't care about next summer—it cares about today.</p>
+      <p>If you're stacking treated posts for a fence, use the green/wet preset or a custom density, then compare with the <a href="/calculators/fence-calculator/">fence calculator</a> for post and rail counts. Deck framing takeoffs start on the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and the <a href="/guides/deck-material-list-12x16/">12×16</a> / <a href="/guides/deck-material-list-16x24/">16×24</a> lists, then convert odd leftovers here.</p>
+
+      <h2>Worked example: wall stud package</h2>
+      <p>Say you need forty kiln-dried SPF 2×4×8s for a partition. Board feet = 40 × 5.33 ≈ 213 bf. Weight ≈ 40 × 8.37 ≈ <strong>335 lb</strong>. That's one careful trip in a half-ton if the bed is otherwise empty—or a good reason to ask the yard about delivery when you also grab plates and headers.</p>
+      <p>Swap the same count to wet treated southern pine and you're nearer 40 × 15.5 ≈ <strong>620 lb</strong>. Same board-foot ticket. Completely different lift.</p>
 
       <h2>Common mistakes</h2>
       <ul>
-        <li>Volcano mulching against trunks (UVM, Clemson, MSU, and UF all warn against it).</li>
-        <li>Assuming every bag is 2&nbsp;cu&nbsp;ft.</li>
-        <li>Ordering a full 3-inch blanket on top of 2&nbsp;inches that is already there.</li>
-        <li>Using the bed chart for a tree ring without subtracting the clear collar.</li>
+        <li>Using nominal 2×4 volume for weight.</li>
+        <li>Applying SPF KD density to a bunk of wet PT.</li>
+        <li>Forgetting that length is in <em>feet</em> in the volume formula (12 converts the inch section to cubic inches before ÷ 1728).</li>
+        <li>Expecting the chart to match a moisture-metered stick after rain.</li>
       </ul>
 
+      <h2>Limits</h2>
+      <p><strong>Planning estimates only.</strong> Species mix inside a grade stamp, exact moisture, and mill practice all move weight. Structural design uses span tables and grades—not these pound charts. Confirm treated-use categories (ground contact vs above ground) on the tag, not from density alone.</p>
+
       <h2>Sources</h2>
-      <ul class="sources">
-        <li><a href="https://www.uvm.edu/extension/news/beware-mulch-volcano" rel="noopener noreferrer">University of Vermont Extension – Beware the mulch volcano (3-3-3 method)</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches (~108 sq ft per cu yd at 3&quot;)</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch (2–3 inch depths for many wood/bark mulches)</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed (area × depth; 2 / 3 cu ft bags)</a></li>
-        <li><a href="https://extension.msstate.edu/blogs/extension-for-real-life/how-mulch" rel="noopener noreferrer">Mississippi State Extension – How to mulch (pull mulch back from trunks)</a></li>
+      <ul>
+        <li><a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fpl_gtr190.pdf" rel="noopener noreferrer">USDA Forest Service – Wood Handbook FPL-GTR-190</a> (specific gravity and density of softwoods; KD ≈ SG × 62.4 × 1.12; green loblolly density ~53 lb/cu ft)</li>
+        <li><a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fpl_gtr282.pdf" rel="noopener noreferrer">USDA Forest Service – Wood Handbook FPL-GTR-282</a> (updated Wood Handbook edition; same SG / density basis)</li>
+        <li><a href="https://alsc.org/greenbook%20collection/ps20.pdf" rel="noopener noreferrer">ALSC – PS 20 American Softwood Lumber Standard</a> (dressed sizes; board measure)</li>
+        <li><a href="https://www.ecfr.gov/current/title-7/subtitle-B/chapter-XI/part-1217/subpart-A/subject-group-ECFR2f9f8517fff2bc4/section-1217.4" rel="noopener noreferrer">eCFR – 7 CFR 1217.4 Board foot</a></li>
       </ul>
   `,
 };

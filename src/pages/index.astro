@@ -3,13 +3,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/site';
 import { categories, tools } from '../data/tools';
 import { guides } from '../data/guides';
-import { homeGraph } from '../lib/schema';
+import { homeGraph, collectionPageJsonLd } from '../lib/schema';
 
-const jsonLd = [homeGraph()];
+const popularTools = [
+  { name: 'Concrete calculator', path: '/calculators/concrete-calculator/' },
+  { name: 'Mulch calculator', path: '/calculators/mulch-calculator/' },
+  { name: 'Gravel calculator', path: '/calculators/gravel-calculator/' },
+  { name: 'Paver calculator', path: '/calculators/paver-calculator/' },
+  { name: 'Fence calculator', path: '/calculators/fence-calculator/' },
+  { name: 'Deck material calculator', path: '/calculators/deck-material-calculator/' },
+];
+
+const jsonLd = [
+  homeGraph(),
+  collectionPageJsonLd({
+    name: 'Free Home & Garden Calculators (Concrete, Mulch)',
+    description:
+      'Popular YardTally calculators for concrete, mulch, gravel, pavers, fence, and deck materials—yards, bags, and piece counts from simple dimensions.',
+    path: '/',
+    items: popularTools,
+  }),
+];
 ---
 
 <BaseLayout
-  title="Free Home & Garden Material Calculators"
+  title="Free Home & Garden Calculators (Concrete, Mulch)"
   description="Free concrete, mulch, gravel, fence, deck, roof pitch, paint, and landscape calculators. US & metric units, bag counts, and guides—no signup."
   canonicalPath="/"
   jsonLd={jsonLd}
@@ -22,10 +40,15 @@ const jsonLd = [homeGraph()];
     </p>
     <h1>Free home &amp; garden material calculators</h1>
     <p class="lede answer-first">
-      {siteConfig.name} estimates concrete bags, mulch yards, gravel tons, grass seed, fertilizer, paint, and outdoor
-      materials from simple dimensions. Enter length, width, and depth (or area and rate) for cubic yards,
-      bags, or product pounds in US or metric units. Math runs privately in your browser—confirm bag yields,
-      local codes, and product labels before you buy.
+      {siteConfig.name} estimates
+      <a href="/calculators/concrete-calculator/">concrete</a> bags,
+      <a href="/calculators/mulch-calculator/">mulch</a> yards,
+      <a href="/calculators/gravel-calculator/">gravel</a> tons,
+      <a href="/calculators/paver-calculator/">paver</a> counts,
+      <a href="/calculators/fence-calculator/">fence</a> posts, and
+      <a href="/calculators/deck-material-calculator/">deck</a> boards from simple dimensions.
+      Enter length, width, and depth (or area and rate) for cubic yards, bags, or product pounds in US or metric
+      units. Math runs privately in your browser—confirm bag yields, local codes, and product labels before you buy.
     </p>
     <p class="meta-row" style="margin-top:0.5rem">Updated {siteConfig.contentUpdated}</p>
     <div class="btn-row">
@@ -38,12 +61,20 @@ const jsonLd = [homeGraph()];
   <section class="container" style="padding-bottom:2rem">
     <h2>All {tools.length} calculators</h2>
     <p style="margin-top:0.5rem;max-width:42rem">
-      Every tool is linked below by project type. Concrete project starters:
+      Every tool is linked below by project type. Popular concrete starters:
       <a href="/calculators/concrete-calculator/">concrete calculator for slabs in yards and bags</a>,
+      <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>,
+      <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>,
       <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator (bags by diameter)</a>,
+      <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>,
+      <a href="/guides/how-much-concrete-do-i-need/">how much concrete do I need</a>,
+      <a href="/guides/concrete-slab-thickness/">concrete slab thickness</a>,
+      <a href="/guides/sonotube-footing-and-depth/">Sonotube footing and depth</a>,
       <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>,
-      <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a>,
       and the <a href="/hubs/concrete/">concrete calculators hub</a>.
+      Landscape: <a href="/calculators/mulch-calculator/">how much mulch do I need</a>,
+      <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a>,
+      and the <a href="/hubs/landscape/">landscape calculators hub</a>.
     </p>
   </section>
 

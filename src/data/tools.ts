@@ -596,7 +596,7 @@ export const tools: ToolDefinition[] = [
       'Free mulch calculator for cubic yards and 2 or 3 cu ft bags. Enter bed area and depth to compare bag vs bulk before you order.',
     h1: 'Mulch Calculator: Cubic Yards & Bags',
     answerFirst:
-      'Mulch volume equals area × depth. At 3 inches, one cubic yard covers about 108 sq ft (UF/IFAS). A 10×10 bed at 3 inches needs 25 cu ft—thirteen 2 cu ft bags. Bags suit small beds; bulk usually costs less near a yard. Optional local prices compare bulk vs bags. UVM cites a 3-3-3 tree mnemonic: 3 inches deep, 3 inches off the trunk, 3 feet wide.',
+      'Mulch volume equals area × depth. At 3 inches, one cubic yard covers about 108 sq ft (UF/IFAS). A 10×10 bed at 3 inches needs 25 cu ft—about thirteen 2 cu ft bags. Bags suit small beds; bulk usually costs less near a yard. UVM’s 3-3-3 tree tip: 3 inches deep, 3 inches off the trunk, ~3 feet wide.',
     summary: 'Bed mulch in cubic yards and bag counts.',
     calculatorId: 'mulch',
     relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],

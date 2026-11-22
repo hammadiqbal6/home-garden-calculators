@@ -859,6 +859,7 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
   `,
   'fertilizer-calculator': `
       <h2>Nitrogen math</h2>
+      <p>Product lb per 1,000 = desired lb N ÷ (N% ÷ 100). For 1 lb N with 10-10-10, that is 10 lb of product per 1,000. Starter bags often list coverage on the label—use that rate or enter the first N-P-K number here. Liquid concentrates work the same way when the jug lists N% by weight; still mix per the label.</p>
       <p>It backs out product pounds from the nitrogen you want per 1,000 sq ft and the bag's N%. Example path: 1 lb N with 30% N → about 3.3 lb of product per 1,000 sq ft. Local nutrient rules can cap what you're allowed to put down.</p>
       <h2>Worked example</h2>
       <p>For 2,000 sq ft at 1 lb N/1000 with 30% nitrogen fertilizer: product per 1000 = 1/0.30 ≈ 3.33 lb; total ≈ 6.67 lb. A 40 lb bag covers multiple applications—store dry and calibrate your spreader.</p>

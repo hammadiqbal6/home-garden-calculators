@@ -78,12 +78,12 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "About 50 cu ft or 1.85 cu yd before waste. With 10% waste, expect roughly 92 bags of 80 lb mix or 123 bags of 60 lb mix. At that size, ready-mix is often more practical if a truck can reach the pad."
     },
     {
-      "question": "Does the slab volume include the gravel base?",
-      "answer": "No. Concrete volume is only the slab thickness. Compacted gravel or crushed-stone base is a separate order. Estimate it with a gravel calculator using base depth, not slab thickness, and compact the base in lifts before you form and pour the pad."
+      "question": "How much concrete for a 12×12 or 20×20 slab?",
+      "answer": "At 4 inches before waste: 12×12 ≈ 1.78 cu yd (~89 of the 80 lb bags after 10% waste); 20×20 ≈ 4.94 cu yd (~245 bags). At 6 inches those pads are about 2.67 / 7.41 cu yd. Charts are on this page; use the concrete calculator for other sizes."
     },
     {
-      "question": "What thickness should a patio slab be?",
-      "answer": "Many residential patios and shed pads use about 4 inches of concrete over compacted base. Driveways and heavier loads often need 5–6 inches plus reinforcement details required by local code. This guide estimates volume only. It does not design structural thickness."
+      "question": "Does the slab volume include the gravel base?",
+      "answer": "No. Concrete volume is only the slab thickness. Compacted gravel or crushed-stone base is a separate order. Estimate it with a gravel calculator using base depth, not slab thickness, and compact the base in lifts before you form and pour the pad."
     },
     {
       "question": "How do I convert a 10×10 slab to bags?",
@@ -180,24 +180,28 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   ],
   "fertilizer-nitrogen-per-1000-sq-ft":   [
     {
+      "question": "How much fertilizer per 1,000 sq ft?",
+      "answer": "Product lb per 1,000 = desired lb nitrogen ÷ (N% ÷ 100). For 1 lb N with 25-0-5, use 4 lb of product per 1,000. For 10-10-10 at the same N target, use 10 lb of product per 1,000. Multiply by (lawn sq ft ÷ 1,000) for the whole yard."
+    },
+    {
+      "question": "How much 10-10-10 per 1,000 sq ft?",
+      "answer": "At 1 lb actual nitrogen per 1,000, 10-10-10 needs 10 lb of product per 1,000 because it is 10% N. That also delivers 1 lb phosphate and 1 lb potash—confirm a soil test before routine phosphate on established turf."
+    },
+    {
       "question": "How do I calculate fertilizer for 1 lb of nitrogen per 1,000 sq ft?",
       "answer": "Divide 1 by the nitrogen decimal. For 30-0-4, 1 ÷ 0.30 ≈ 3.3 lb of product per 1,000 sq ft. Multiply by (area ÷ 1,000) for the whole lawn."
     },
     {
-      "question": "What does 30-0-4 mean?",
-      "answer": "Thirty percent nitrogen, zero phosphate, four percent potash by weight. A 10 lb bag contains about 3 lb of nitrogen (10 × 0.30). Pennsylvania’s fertilizer guidance uses the same label math for homeowners."
+      "question": "Should new seedings use a starter fertilizer?",
+      "answer": "Often yes when the label and soil test support it, especially if phosphorus is recommended for establishment. Use the bag’s coverage rate or enter N% in the fertilizer calculator. Do not invent a starter rate. Coordinate with seeding rates from the grass seed guide."
+    },
+    {
+      "question": "Can I use liquid lawn fertilizer the same way?",
+      "answer": "Yes for nitrogen math if the label lists N-P-K percent by weight (or clear lb N per gallon). Convert target lb N into product pounds or gallons with the same N fraction, then follow the jug’s mixing chart for water volume."
     },
     {
       "question": "Is 1 lb N per 1,000 always correct?",
-      "answer": "No. Penn State discusses about 2 lb N per 1,000 per growing season as a starting annual rate. Pennsylvania caps total N near 0.9 lb per 1,000 per application. Iowa tall fescue guidance may use about 1 lb N in late fall for low-maintenance lawns. Follow soil tests, labels, and local law."
-    },
-    {
-      "question": "How does bag size enter the math?",
-      "answer": "After you know total product pounds, bags needed ≈ ceil(total product lb ÷ bag weight). The fertilizer calculator can show that step."
-    },
-    {
-      "question": "Should new seedings use a starter fertilizer?",
-      "answer": "Often yes when the label and soil test support it, especially if phosphorus is recommended for establishment. Do not assume every lawn food is a starter. Coordinate with seeding rates from the grass seed guide."
+      "answer": "No. Penn State discusses about 2 lb N per 1,000 per growing season as a starting annual rate. Pennsylvania caps total N near 0.9 lb per 1,000 per application. Follow soil tests, labels, and local law."
     }
   ],
   "raised-bed-soil-mix-4x8":   [
@@ -476,26 +480,27 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
       "answer": "No. Sonotubes are cardboard forms for round piers. Dug fence holes without a tube use the post hole calculator and fence post guide. Different defaults, depths, and hardware details."
     },
   ],
-  "how-much-mulch-do-i-need": [
+  "lumber-weight-chart": [
     {
-      "question": "How much mulch do I need for 100 sq ft?",
-      "answer": "At 3 inches deep: 100 \u00d7 0.25 = 25 cu ft \u2248 0.93 cu yd, or thirteen 2 cu ft bags (nine 3 cu ft bags). At 2 inches the same bed needs about 16.7 cu ft. UF/IFAS notes one cubic yard covers about 108 sq ft at 3 inches."
+      "question": "How much does a 2×4 weigh per foot?",
+      "answer": "About 1.05 lb/ft for kiln-dried SPF using the dressed 1½ × 3½ in section and Wood Handbook density (~28.7 lb/cu ft). Douglas fir-larch KD is about 1.22 lb/ft; southern pine KD about 1.30 lb/ft. Wet treated southern pine can approach ~1.9 lb/ft."
     },
     {
-      "question": "Is it cheaper to buy mulch by the yard or by the bag?",
-      "answer": "Bulk usually costs less per cubic foot once you need about a cubic yard or more and can take delivery. Bags are better for small beds and touch-ups. Iowa notes bags are commonly 2 or 3 cu ft\u2014divide your cubic feet by the size on the package."
+      "question": "How much does a 2×4×8 weigh?",
+      "answer": "Roughly 8.4 lb for kiln-dried SPF, about 9.8 lb for Douglas fir-larch KD, and about 10.4 lb for southern pine KD. Green or wet pressure-treated southern pine of the same size can land near 15 lb. These are planning estimates—moisture moves the number."
     },
     {
-      "question": "How much will 25 bags of mulch cover?",
-      "answer": "If they are 2 cu ft bags, that is 50 cu ft\u2014about 200 sq ft at 3 inches or about 300 sq ft at 2 inches. If they are 3 cu ft bags, 25 bags are 75 cu ft (about 300 sq ft at 3 inches). Always check the bag size."
+      "question": "Why is pressure-treated lumber heavier?",
+      "answer": "Treating solutions add water and chemicals. Fresh PT southern pine often behaves closer to green density (~53 lb/cu ft in the Wood Handbook for loblolly-class stock) than to kiln-dried framing. It lightens as it dries, but truck-day weight is what matters for load-out."
     },
     {
-      "question": "What is the 3-3-3 rule for mulch?",
-      "answer": "UVM Extension cites a 3-3-3 method for mature trees: at least 3 inches from the trunk, no more than 3 inches deep, and about 3 feet of mulch diameter. Keep a donut clear of the bark\u2014never a mulch volcano. Other extensions use similar clearance and depth guidance without the slogan."
+      "question": "Do I use nominal or actual size for weight?",
+      "answer": "Actual (dressed) size. A 2×4 is 1½ × 3½ in, not 2 × 4. Board-foot pricing still uses nominal dimensions. Mixing the two is the usual source of “my weight chart doesn’t match the calculator” complaints."
     },
     {
-      "question": "How deep should mulch be in beds?",
-      "answer": "About 2\u20133 inches of organic mulch for most beds (Clemson, UF/IFAS). See the mulch depth guide for the full depth discussion; this page focuses on quantity, bags vs bulk, and tree-ring mnemonic."
+      "question": "Where can I calculate a custom stick list?",
+      "answer": "Use the lumber calculator (board feet and weight on the same page). Pick a species/condition preset or enter a custom density, then enter thickness, width, length, and piece count."
     },
   ],
+
 };

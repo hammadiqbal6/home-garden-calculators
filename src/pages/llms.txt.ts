@@ -39,7 +39,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
-- How much mulch do I need (bags vs bulk)? → ${origin}/guides/how-much-mulch-do-i-need/
+- How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
+- What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
@@ -48,6 +49,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - How many bricks for a wall? → ${origin}/calculators/brick-calculator/
 - How many board feet in lumber? → ${origin}/calculators/lumber-calculator/
+- How much does a 2x4 weigh? → ${origin}/guides/lumber-weight-chart/
+- Lumber weight per foot (2x4, 2x6, 2x8)? → ${origin}/guides/lumber-weight-chart/
+- Lumber board feet and weight calculator? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a slab? → ${origin}/calculators/rebar-calculator/
 - How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
 - Deck footing calculator (count, frost depth, bags)? → ${origin}/calculators/deck-footing-calculator/

@@ -40,10 +40,10 @@ function g(
 export const guides: GuideDefinition[] = [
   g({
     slug: 'how-much-concrete-for-fence-posts',
-    title: 'How Much Concrete for Fence Posts? Chart',
+    title: 'How Much Concrete for a Fence Post? Bags',
     description:
-      'Learn how much concrete each fence post needs by hole diameter and depth, with bag charts, worked examples, and links to free calculators.',
-    h1: 'How Much Concrete for Fence Posts?',
+      'How much concrete for a fence post by hole diameter and depth. Bag charts for 4×4 and 6×6 posts, frost tips, and a free post-hole calculator.',
+    h1: 'How Much Concrete for a Fence Post? Bags',
     primaryKeyword: 'how much concrete for fence posts',
     secondaryKeywords: ['concrete per fence post', 'bags of concrete for fence posts'],
     answerFirst:
@@ -64,10 +64,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'mulch-depth-guide',
-    title: 'Mulch Depth for Gardens: How Deep?',
+    title: 'How Deep Should Mulch Be? Beds, Trees, Gardens',
     description:
-      'How deep mulch should be in flower beds and gardens: about 2–3 inches organic, with MSU, UF/IFAS, and Clemson guidance plus a free mulch calculator.',
-    h1: 'Mulch Depth for Gardens',
+      'How deep should mulch be in beds, around trees, and in gardens? Typical 2–3 inch depths, volcano-mulch warnings, and a free mulch calculator.',
+    h1: 'How Deep Should Mulch Be? Beds, Trees, Gardens',
     primaryKeyword: 'mulch depth',
     secondaryKeywords: [
       'how deep should mulch be',
@@ -78,7 +78,6 @@ export const guides: GuideDefinition[] = [
       'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth before you order.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
     relatedGuideSlugs: [
-      'how-much-mulch-do-i-need',
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
       'raised-bed-soil-mix-4x8',
@@ -88,10 +87,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'how-many-bags-of-concrete',
-    title: 'How Many Bags of Concrete Do I Need?',
+    title: 'How Many Bags of Concrete Per Yard? Chart',
     description:
-      'Convert cubic feet and yards to 40, 60, and 80 lb concrete bags with yield tables, waste tips, worked examples, and free calculator links.',
-    h1: 'How Many Bags of Concrete Do I Need?',
+      'How many bags of concrete per cubic yard for 40, 60, and 80 lb mixes. Chart bag counts for slabs, posts, and Sonotubes with standard yields.',
+    h1: 'How Many Bags of Concrete Per Yard? Chart',
     primaryKeyword: 'how many bags of concrete do I need',
     secondaryKeywords: ['80 lb bags of concrete per yard', 'concrete bag calculator'],
     answerFirst:
@@ -104,9 +103,11 @@ export const guides: GuideDefinition[] = [
     ],
     relatedGuideSlugs: [
       'how-much-concrete-do-i-need',
+      'concrete-slab-thickness',
       'how-much-concrete-for-fence-posts',
       'concrete-for-10x10-slab',
       'how-much-concrete-in-a-sonotube',
+      'sonotube-footing-and-depth',
     ],
     datePublished: '2026-10-19',
     dateModified: '2026-11-19',
@@ -115,13 +116,18 @@ export const guides: GuideDefinition[] = [
     slug: 'concrete-for-10x10-slab',
     title: 'How Much Concrete for a 10×10 Slab?',
     description:
-      'Concrete yards and bag counts for a 10×10 slab at 4 and 6 inches, plus other common patio sizes, waste tips, and a free calculator link.',
+      'How much concrete for a 10×10 slab at 4–6 inches, plus 12×12 and 20×20 charts. Yards, bags, and waste—with a free slab calculator link.',
     h1: 'How Much Concrete for a 10×10 Slab?',
     primaryKeyword: 'how much concrete for a 10x10 slab',
     secondaryKeywords: ['10x10 concrete slab bags', 'concrete for patio slab'],
     answerFirst:
       'A 10×10 ft slab at 4 inches needs about 1.23 cubic yards (33.3 cu ft) before waste—roughly 62 bags of 80 lb mix or 82 bags of 60 lb mix after 10% waste. At 6 inches the same footprint is about 1.85 cu yd. Use these figures as planning estimates and confirm bag yields on the label.',
-    relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
+    relatedToolSlugs: [
+      'concrete-calculator',
+      'concrete-slab-cost-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+    ],
     relatedGuideSlugs: [
       'concrete-slab-thickness',
       'how-much-concrete-do-i-need',
@@ -129,14 +135,14 @@ export const guides: GuideDefinition[] = [
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-10-20',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'mulch-for-common-garden-beds',
-    title: 'Mulch for Common Garden Bed Sizes (Chart)',
+    title: 'Mulch for Garden Beds: 4x8, 10x10 & Sizes',
     description:
-      'Cubic yards and bag counts for common garden bed sizes at 2 and 3 inch mulch depth, with a free mulch calculator for custom beds.',
-    h1: 'Mulch for Common Garden Bed Sizes',
+      'Mulch amounts for common garden bed sizes—4×8, 10×10, and more. Cubic yards and bags at typical depths, with a free mulch calculator.',
+    h1: 'Mulch for Garden Beds: 4x8, 10x10 & Sizes',
     primaryKeyword: 'mulch for garden bed sizes',
     secondaryKeywords: [
       'how much mulch for a 4x8 garden bed',
@@ -146,16 +152,16 @@ export const guides: GuideDefinition[] = [
     answerFirst:
       'At 3 inches deep, a 4×8 ft bed needs 8 cu ft of mulch (four 2 cu ft bags). A 20×5 bed needs about 25 cu ft (thirteen 2 cu ft bags). Iowa notes bags are commonly 2 or 3 cu ft; UF/IFAS says one cubic yard covers about 108 sq ft at 3 inches. Calculate area × depth first.',
     relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings'],
-    relatedGuideSlugs: ['how-much-mulch-do-i-need', 'mulch-depth-guide', 'topsoil-vs-garden-soil'],
+    relatedGuideSlugs: ['mulch-depth-guide', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-20',
     dateModified: '2026-11-19',
   }),
   g({
     slug: 'gravel-types-for-driveways',
-    title: 'Gravel Types for Driveways: Base vs Surface',
+    title: 'Best Gravel for a Driveway: Types & Depths',
     description:
-      'Compare crushed stone, dense grade, pea gravel, and clean rock for driveway layers, plus how to estimate tons with a gravel calculator.',
-    h1: 'Gravel Types for Driveways',
+      'Best gravel for a driveway: base vs surface types and typical depths. Choose crushed stone grades and estimate yards with the gravel calculator.',
+    h1: 'Best Gravel for a Driveway: Types & Depths',
     primaryKeyword: 'gravel types for driveways',
     secondaryKeywords: [
       'best gravel for driveway',
@@ -174,10 +180,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'how-to-measure-roof-pitch',
-    title: 'How to Measure Roof Pitch (Safe Methods)',
+    title: 'How to Measure Roof Pitch: 3 Easy Methods',
     description:
-      'Measure roof pitch as X-in-12 using a level and tape, from the attic, or from rafter geometry. Includes angle conversion and calculators.',
-    h1: 'How to Measure Roof Pitch',
+      'How to measure roof pitch safely from the attic, roof, or ground. Convert rise and run to pitch and degrees with a free pitch calculator.',
+    h1: 'How to Measure Roof Pitch: 3 Easy Methods',
     primaryKeyword: 'how to measure roof pitch',
     secondaryKeywords: ['measure roof slope', 'roof pitch from ground'],
     answerFirst:
@@ -189,10 +195,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'grass-seed-per-sq-ft',
-    title: 'Grass Seed per 1,000 Sq Ft (lb Rates)',
+    title: 'Grass Seed per Sq Ft: New Lawn & Overseed',
     description:
-      'Convert grass seed bag rates in lb per 1,000 sq ft into total pounds for new lawns and overseeding, with worked examples and calculator links.',
-    h1: 'How Much Grass Seed per 1,000 Square Feet?',
+      'Grass seed per square foot and per 1,000 sq ft for new lawns and overseeding. Use bag rates with worked examples for cool-season turf.',
+    h1: 'Grass Seed per Sq Ft: New Lawn & Overseed',
     primaryKeyword: 'grass seed per square foot',
     secondaryKeywords: [
       'how much grass seed per 1000 sq ft',
@@ -211,10 +217,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'fertilizer-nitrogen-per-1000-sq-ft',
-    title: 'How Much Nitrogen per 1,000 Sq Ft? (Lawn Chart)',
+    title: 'How Much Fertilizer per 1,000 Sq Ft?',
     description:
-      'Calculate lawn fertilizer product pounds from a nitrogen target and N-P-K analysis, with examples per 1,000 square feet and label safety tips.',
-    h1: 'Fertilizer Nitrogen per 1,000 Square Feet',
+      'How much fertilizer per 1,000 sq ft from nitrogen targets and N-P-K. Includes 10-10-10, starter rates, and product pounds for lawn feeding.',
+    h1: 'How Much Fertilizer per 1,000 Square Feet?',
     primaryKeyword: 'fertilizer nitrogen per 1000 sq ft',
     secondaryKeywords: [
       'how to calculate fertilizer for 1 lb nitrogen',
@@ -226,14 +232,14 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['fertilizer-calculator', 'grass-seed-calculator'],
     relatedGuideSlugs: ['grass-seed-per-sq-ft', 'topsoil-vs-garden-soil'],
     datePublished: '2026-10-23',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'raised-bed-soil-mix-4x8',
-    title: '4×8 Raised Bed Soil Mix & Depth',
+    title: 'Raised Bed Soil Mix for a 4x8: Ratios & Cu Ft',
     description:
-      'Soil volume for a 4×8 raised bed by depth, plus Iowa Extension mix options, settling tips, and links to free soil calculators.',
-    h1: 'Raised Bed Soil Mix for a 4×8 Bed',
+      'Raised bed soil mix for a 4×8 bed: ratios and cubic feet. Plan compost, topsoil, and aeration blend volume with a free bed soil calculator.',
+    h1: 'Raised Bed Soil Mix for a 4x8: Ratios & Cu Ft',
     primaryKeyword: 'raised bed soil mix 4x8',
     secondaryKeywords: [
       'how much soil for 4x8 raised bed',
@@ -249,10 +255,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'how-much-paint-for-a-room',
-    title: 'How Much Paint for a Room?',
+    title: 'How Much Paint for a Room? Gallons by Size',
     description:
-      'Estimate interior paint gallons from wall area, openings, coats, and Behr coverage (250–400 sq ft/gal), with 12×12 and small bathroom examples.',
-    h1: 'How Much Paint Do I Need for a Room?',
+      'How much paint for a room by size and coats. Gallons for walls and ceilings with door and window deductions—pair with the paint calculator.',
+    h1: 'How Much Paint for a Room? Gallons by Size',
     primaryKeyword: 'how much paint for a room',
     secondaryKeywords: [
       'how many square feet does a gallon of paint cover',
@@ -269,10 +275,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'paver-base-gravel-and-sand-depth',
-    title: 'Paver Base Gravel & Sand Depth',
+    title: 'Paver Base Depth: Gravel & Sand Thickness',
     description:
-      'YardTally planning depths for paver base gravel and bedding sand, with patio volume examples and links to paver, sand, and gravel calculators.',
-    h1: 'Paver Base Gravel and Sand Depth',
+      'Paver base depth for gravel and sand under patios and walkways. Typical compacted thicknesses and how to estimate yards before you order.',
+    h1: 'Paver Base Depth: Gravel & Sand Thickness',
     primaryKeyword: 'paver base gravel and sand depth',
     secondaryKeywords: [
       'how deep should paver base gravel be',
@@ -292,10 +298,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'deck-material-list-12x16',
-    title: '12×16 Deck Material List (Boards, Joists)',
+    title: '12x16 Deck Material List: Boards & Joists',
     description:
-      '12×16 deck material takeoff (not construction plans): board and joist counts with YardTally defaults, plus links to deck and footing calculators.',
-    h1: 'Deck Material List for a 12×16 Deck',
+      '12×16 deck material list for deck boards, joists, posts, and hardware. Planning takeoff with YardTally defaults—confirm spans with local code.',
+    h1: '12x16 Deck Material List: Boards & Joists',
     primaryKeyword: 'deck material list 12x16',
     secondaryKeywords: [
       '12x16 deck boards',
@@ -307,7 +313,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
     relatedGuideSlugs: [
       'deck-material-list-16x24',
-      'how-to-measure-roof-pitch',
+      'lumber-weight-chart',
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-10-23',
@@ -315,10 +321,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'deck-material-list-16x24',
-    title: '16×24 Deck Material List (Lumber & Footings)',
+    title: '16x24 Deck Material List: Lumber Takeoff',
     description:
-      '16×24 deck material takeoff: boards, joists, and footing pointers with YardTally defaults, plus links to the deck and Sonotube calculators.',
-    h1: 'Deck Material List for a 16×24 Deck',
+      '16×24 deck material list for boards, joists, beams, posts, and footings. Full lumber takeoff assumptions you can adjust before you buy.',
+    h1: '16x24 Deck Material List: Lumber Takeoff',
     primaryKeyword: '16x24 deck material list',
     secondaryKeywords: [
       '16x24 deck boards',
@@ -331,7 +337,7 @@ export const guides: GuideDefinition[] = [
     relatedToolSlugs: ['deck-material-calculator', 'lumber-calculator', 'sonotube-concrete-calculator'],
     relatedGuideSlugs: [
       'deck-material-list-12x16',
-      'how-many-bags-of-concrete',
+      'lumber-weight-chart',
       'how-much-concrete-for-fence-posts',
     ],
     datePublished: '2026-11-13',
@@ -339,10 +345,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'retaining-wall-blocks-and-base',
-    title: 'Retaining Wall Blocks & Base',
+    title: 'Retaining Wall Blocks & Base: Count & Build',
     description:
-      'Estimate retaining wall blocks by courses, plan gravel wall base (not patio paver depths), and know when manufacturer charts need an engineer.',
-    h1: 'Retaining Wall Blocks and Base',
+      'Retaining wall blocks and base: how to count face blocks, gravel base, and drainage backfill. Planning steps with a free block calculator.',
+    h1: 'Retaining Wall Blocks & Base: Count & Build',
     primaryKeyword: 'retaining wall blocks and base',
     secondaryKeywords: [
       'how many retaining wall blocks',
@@ -362,10 +368,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'topsoil-vs-garden-soil',
-    title: 'Topsoil vs Garden Soil: Differences, Uses & Cost',
+    title: 'Topsoil vs Garden Soil: Differences & Uses',
     description:
-      'Compare topsoil and garden soil, calculate cubic yards from area and depth, and see when potting mix beats mineral topsoil in containers.',
-    h1: 'Topsoil vs Garden Soil',
+      'Topsoil vs garden soil: differences, best uses, and when to buy each. Pair with free topsoil and raised-bed calculators for yards and bags.',
+    h1: 'Topsoil vs Garden Soil: Differences & Uses',
     primaryKeyword: 'topsoil vs garden soil',
     secondaryKeywords: [
       'garden soil vs topsoil',
@@ -390,10 +396,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'how-much-concrete-in-a-sonotube',
-    title: 'How Much Concrete in a Sonotube?',
+    title: 'How Much Concrete in a Sonotube? Size Chart',
     description:
-      'Figure how much concrete fills an 8–18 inch Sonotube at common heights, with 60 and 80 lb bag charts, πr²h math, and a free tube calculator.',
-    h1: 'How Much Concrete in a Sonotube?',
+      'How much concrete in a Sonotube by diameter and height. Size chart for bags and yards, plus links to the free Sonotube calculator.',
+    h1: 'How Much Concrete in a Sonotube? Size Chart',
     primaryKeyword: 'how much concrete in a sonotube',
     secondaryKeywords: [
       'sonotube bags of concrete',
@@ -419,10 +425,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'how-to-estimate-roofing-shingles',
-    title: 'How to Estimate Roofing Shingles',
+    title: 'Estimate Roofing Shingles: Squares & Bundles',
     description:
-      'Estimate roofing shingles from plan area, pitch factor, and waste. Convert squares to bundles with IKO and GAF coverage figures plus a free calculator.',
-    h1: 'How to Estimate Roofing Shingles',
+      'Estimate roofing shingles in squares and bundles from plan area and pitch. Waste for hips and valleys, with a free shingle calculator link.',
+    h1: 'Estimate Roofing Shingles: Squares & Bundles',
     primaryKeyword: 'how to estimate roofing shingles',
     secondaryKeywords: [
       'how to figure shingles for a roof',
@@ -438,10 +444,10 @@ export const guides: GuideDefinition[] = [
   }),
   g({
     slug: 'concrete-slab-thickness',
-    title: 'Concrete Slab Thickness Chart',
+    title: 'How Thick Should a Concrete Slab Be?',
     description:
-      'Standard residential slab thickness (about 4 inches; 5 inches for heavier loads per IRMCA), yards for 12×12 / 20×20 / 30×40, plus rebar notes.',
-    h1: 'Concrete Slab Thickness for Patios & Pads',
+      'How thick should a concrete slab be for a patio, driveway, or shed? Compare 4, 5, and 6 inch options and see how thickness changes yards and bags.',
+    h1: 'How Thick Should a Concrete Slab Be?',
     primaryKeyword: 'concrete slab thickness',
     secondaryKeywords: [
       'what is the standard thickness for a concrete slab',
@@ -451,21 +457,27 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'IRMCA recommends a 4-inch minimum for residential exterior flatwork and 5 inches where delivery vehicles or heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4 inches thick. A 12×12 slab at 4 inches is about 1.78 cu yd before waste; run the calculator for bags.',
-    relatedToolSlugs: ['concrete-calculator', 'rebar-calculator', 'gravel-calculator'],
+    relatedToolSlugs: [
+      'concrete-calculator',
+      'concrete-slab-cost-calculator',
+      'concrete-footing-calculator',
+      'rebar-calculator',
+      'gravel-calculator',
+    ],
     relatedGuideSlugs: [
       'how-much-concrete-do-i-need',
       'concrete-for-10x10-slab',
       'how-many-bags-of-concrete',
     ],
     datePublished: '2026-11-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'how-much-concrete-do-i-need',
-    title: 'How Much Concrete Do I Need?',
+    title: 'How Much Concrete? Slab, Footing & Post Math',
     description:
-      'See how much area one yard and three yards of concrete cover at 4–6 inches, when to choose bags vs ready-mix, and links to free yard and bag calculators.',
-    h1: 'How Much Concrete Do I Need?',
+      'How much concrete do you need for slabs, footings, and posts? Formulas, waste tips, and links to free YardTally calculators for each shape.',
+    h1: 'How Much Concrete? Slab, Footing & Post Math',
     primaryKeyword: 'how much concrete do I need',
     secondaryKeywords: [
       'how much will 1 yard of concrete cover',
@@ -477,6 +489,8 @@ export const guides: GuideDefinition[] = [
       'One cubic yard of concrete covers about 81 sq ft at 4 inches thick, or about 54 sq ft at 6 inches. Three yards cover about 243 sq ft at 4 inches. Past roughly one yard, ready-mix usually beats bagging by hand. Convert yards to bags with the bags guide and QUIKRETE 1101 yields when you stay on bags.',
     relatedToolSlugs: [
       'concrete-calculator',
+      'concrete-slab-cost-calculator',
+      'concrete-footing-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
     ],
@@ -484,16 +498,17 @@ export const guides: GuideDefinition[] = [
       'how-many-bags-of-concrete',
       'concrete-slab-thickness',
       'concrete-for-10x10-slab',
+      'sonotube-footing-and-depth',
     ],
     datePublished: '2026-11-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
     slug: 'sonotube-footing-and-depth',
-    title: 'Sonotube Footing and Depth',
+    title: 'Sonotube Footing Size & Depth: Frost Rules',
     description:
-      'Do you need a footing under a Sonotube, how deep to set deck piers below frost, rebar notes, and bags for a 4 ft tube—with free Sonotube calculator links.',
-    h1: 'Sonotube Footing and Depth',
+      'Sonotube footing size and depth with frost-line rules of thumb. Diameter and embedment planning plus a free Sonotube concrete calculator.',
+    h1: 'Sonotube Footing Size & Depth: Frost Rules',
     primaryKeyword: 'sonotube footing',
     secondaryKeywords: [
       'do I need a footing under a Sonotube',
@@ -505,41 +520,48 @@ export const guides: GuideDefinition[] = [
       'A Sonotube is a cardboard form. The concrete pier poured inside it is the footing for many deck posts, so you do not always pour a separate pad underneath—local code and soil still decide diameter and depth. QUIKRETE says footings typically must extend below frost. A 12-inch × 4 ft tube needs about six 80 lb bags after 5% waste.',
     relatedToolSlugs: [
       'sonotube-concrete-calculator',
+      'deck-footing-calculator',
+      'concrete-footing-calculator',
       'concrete-calculator-post-holes',
       'deck-material-calculator',
       'rebar-calculator',
     ],
     relatedGuideSlugs: [
       'how-much-concrete-in-a-sonotube',
+      'how-much-concrete-do-i-need',
       'how-much-concrete-for-fence-posts',
       'deck-material-list-12x16',
     ],
     datePublished: '2026-11-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-22',
   }),
   g({
-    slug: 'how-much-mulch-do-i-need',
-    title: 'How Much Mulch Do I Need?',
+    slug: 'lumber-weight-chart',
+    title: 'Lumber Weight Chart: 2×4 per Foot',
     description:
-      'Calculate mulch bags vs bulk from area and depth, see coverage for 25 bags, and use UVM’s 3-3-3 tree mulch mnemonic with Clemson and UF depth context.',
-    h1: 'How Much Mulch Do I Need?',
-    primaryKeyword: 'how much mulch do I need',
+      'Softwood lumber weight chart for 2×4–4×4: lb per foot and per 8 ft for SPF, Douglas fir, and southern pine from USDA Wood Handbook density.',
+    h1: 'Lumber Weight Chart (2×4, 2×6, 2×8, 4×4)',
+    primaryKeyword: 'lumber weight chart',
     secondaryKeywords: [
-      'is it cheaper to buy mulch by the yard or by the bag',
-      'how much will 25 bags of mulch cover',
-      'what is the 3-3-3 rule for mulch',
-      'mulch coverage per cubic yard',
+      '2x4 weight',
+      '2x4 weight per foot',
+      'how much does a 2x4x8 weigh',
+      'lumber weight per foot',
+      'pressure treated lumber weight',
     ],
     answerFirst:
-      'Mulch volume equals area × depth. At 3 inches, one cubic yard covers about 108 sq ft (UF/IFAS). A 10×10 bed at 3 inches needs 25 cu ft—thirteen 2 cu ft bags. Bags suit small beds; bulk usually costs less near a yard. UVM cites a 3-3-3 tree mnemonic: 3 inches deep, 3 inches off the trunk, 3 feet wide.',
-    relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
-    relatedGuideSlugs: [
-      'mulch-depth-guide',
-      'mulch-for-common-garden-beds',
-      'topsoil-vs-garden-soil',
+      'A kiln-dried SPF 2×4 weighs about 1.05 lb per linear foot—roughly 8.4 lb for an 8 ft stick—using the dressed 1½×3½ in section and USDA Wood Handbook density (~28.7 lb/cu ft). Douglas fir-larch KD is closer to 9.8 lb; wet treated southern pine can hit ~15 lb. Treat these as planning estimates.',
+    relatedToolSlugs: [
+      'lumber-calculator',
+      'deck-material-calculator',
+      'fence-calculator',
     ],
-    datePublished: '2026-11-19',
-    dateModified: '2026-11-19',
+    relatedGuideSlugs: [
+      'deck-material-list-12x16',
+      'deck-material-list-16x24',
+    ],
+    datePublished: '2026-11-22',
+    dateModified: '2026-11-22',
   }),
 ];
 

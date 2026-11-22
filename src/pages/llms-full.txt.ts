@@ -52,8 +52,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/
-- How much mulch do I need (bags vs bulk)? → ${origin}/guides/how-much-mulch-do-i-need/
-- What is the 3-3-3 rule for mulch? → ${origin}/guides/how-much-mulch-do-i-need/
+- How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
+- What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
+- How much will 25 bags of mulch cover? → ${origin}/calculators/mulch-calculator/
 - How much mulch for a 4x8 garden bed? → ${origin}/guides/mulch-for-common-garden-beds/
 - How many 2 cu ft and 3 cu ft bags of mulch? → ${origin}/calculators/mulch-calculator/
 - How much grass seed per 1,000 square feet? → ${origin}/guides/grass-seed-per-sq-ft/
@@ -75,6 +76,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How many concrete blocks (CMU) for a wall? → ${origin}/calculators/brick-calculator/
 - What is a board foot? → ${origin}/calculators/lumber-calculator/
 - How many board feet in a 2x4x8? → ${origin}/calculators/lumber-calculator/
+- How much does a 2x4 weigh per foot? → ${origin}/guides/lumber-weight-chart/
+- How much does a 2x4x8 weigh? → ${origin}/guides/lumber-weight-chart/
+- Lumber weight chart (SPF, Doug fir, southern pine)? → ${origin}/guides/lumber-weight-chart/
+- Lumber weight calculator (board feet + lb)? → ${origin}/calculators/lumber-calculator/
 - How much rebar for a concrete slab? → ${origin}/calculators/rebar-calculator/
 - How much rebar for a 20x20 slab? → ${origin}/calculators/rebar-calculator/
 - How many footings for a deck? → ${origin}/calculators/deck-footing-calculator/
@@ -120,7 +125,8 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Compacted hot-mix asphalt planning density ≈ 145 lb/cu ft (FHWA WFL estimating practice; Iowa DOT mix properties). Tons = area × depth_ft × density ÷ 2,000.
 - Modular clay brick: actual face ~7⅝ × 2¼ in; with ⅜ in joint ≈ 6.86 bricks/sq ft (Glen-Gery). Standard CMU face ~15⅝ × 7⅝ in → nominal 8×16 module (CMHA).
 - Softwood board feet = (nominal T_in × W_in × L_ft) ÷ 12 (7 CFR 1217.4 / ALSC PS 20). Under 1 in nominal thickness tallies as 1 in.
-- Slab rebar: bars each way = floor(span_in ÷ spacing_in) + 1; convert linear feet to sticks with waste. ACI 318 caps many shrinkage/temperature spacings at the lesser of 5× thickness or 18 in—confirm locally. Example: 20×20 at 18 in o.c. → 560 ft before waste.
+- Softwood weight (planning): volume_cu_ft = (actual_T × actual_W × L_ft × 12) ÷ 1728; weight_lb = volume × density. KD density ≈ SG × 62.4 × 1.12 (USDA Wood Handbook). SPF KD ~28.7 lb/cu ft → 2×4×8 ≈ 8.4 lb; Doug fir-larch KD ~33.5; southern pine KD ~35.6; green/wet PT southern pine ~53. Chart: ${origin}/guides/lumber-weight-chart/ ; live tool: ${origin}/calculators/lumber-calculator/
+- Slab rebar: bars each way = floor(span_in ÷ spacing_in) + 1; convert linear feet to sticks with waste. Unit weights (CRSI): #3 ≈ 0.376 lb/ft, #4 ≈ 0.668 lb/ft. ACI 318 caps many shrinkage/temperature spacings at the lesser of 5× thickness or 18 in—confirm locally. Example: 20×20 at 18 in o.c. → 560 ft before waste.
 - Concrete slab cost: volume × user-entered ready-mix $/yd (or bag count × $/bag) + optional add-ons the user prices. YardTally does not publish regional concrete prices; example form defaults are placeholders only. Live tool: ${origin}/calculators/concrete-slab-cost-calculator/
 
 ## Calculators

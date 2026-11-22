@@ -12,9 +12,11 @@ Production-ready **static** website of free DIY / landscaping material calculato
 
 Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md).
 
-### Done (as of 2026-11-20)
+### Done (as of 2026-11-22)
 
-- **Agathox ownership verification (this PR):** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.
+- **Mulch guide merge + weak-page links (this PR):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (3-3-3, 25-bag coverage, bags vs bulk); **301** in `public/_redirects` + `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP / llms retargeted. Strengthened inbound links for footing, slab-cost, deck-footing, French drain, slab-thickness, how-much-concrete, and Sonotube-footing pages.
+- **Lumber weight + chart guide (this PR):** `/calculators/lumber-calculator/` now estimates planning weight (dressed section × Wood Handbook density presets) alongside board feet—no separate weight-calculator URL. New `/guides/lumber-weight-chart/` with SPF / Doug fir / southern pine tables; KEYWORD-MAP + llms Q→URL updated.
+- **Agathox ownership verification:** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.
 - Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
 - Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
 - **Concrete slab cost calculator** (`/calculators/concrete-slab-cost-calculator/`): volume × user ready-mix or bag prices + optional gravel/rebar/forms/delivery/labor; example defaults labeled, not market facts.
@@ -22,7 +24,7 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 - Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
 - **Deck footing calculator** (`/calculators/deck-footing-calculator/`): deck size + beam/post spacing → footing count, frost-depth hole size, concrete per pier / total, bags, optional Sonotube diameter; links to Sonotube tool.
 - **Concrete footing calculator** (`/calculators/concrete-footing-calculator/`): strip/pad volume, waste %, 40/60/80 lb bags, optional rebar estimate.
-- **PAA guides (this PR):** `/guides/concrete-slab-thickness/`, `/guides/how-much-concrete-do-i-need/`, `/guides/sonotube-footing-and-depth/`, `/guides/how-much-mulch-do-i-need/` — AlsoAsked/PAA question pages with cited bodies, FAQs, HowTo, KEYWORD-MAP rows, and llms Q→URL lines.
+- **PAA guides:** `/guides/concrete-slab-thickness/`, `/guides/how-much-concrete-do-i-need/`, `/guides/sonotube-footing-and-depth/` (mulch PAA merged into mulch calculator).
 - TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
 - YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
 - **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
@@ -33,12 +35,13 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Remaining
 
+- After deploy: IndexNow for mulch calculator (merged URL) + lumber calculator + `/guides/lumber-weight-chart/`; GSC validate old mulch-guide redirect and request indexing for newly linked weak pages / lumber guide.
 - After deploy: confirm Agathox ownership (meta + `/.well-known/agathox-verification.txt`); record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
 - After deploy: IndexNow + GSC validation / request indexing for the new deck footing URL and prior redirect/noindex/discovered buckets.
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new footing tool URL).
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (includes new slab-cost URL).
 - After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, and discovered-not-indexed buckets (including the new French drain URL).
-- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, discovered-not-indexed buckets, and the four new guides.
+- After deploy: IndexNow + GSC validation / request indexing for redirect, noindex, alternate-canonical, discovered-not-indexed buckets, and the remaining PAA guides (mulch guide now redirects).
 - `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
 - GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.

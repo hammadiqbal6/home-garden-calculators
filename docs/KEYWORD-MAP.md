@@ -17,7 +17,7 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/concrete-slab-cost-calculator/` | concrete slab cost calculator | concrete slab cost, cost of concrete slab, concrete patio cost calculator, ready mix concrete cost calculator |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
 | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator, how much concrete for sonotube |
-| `/calculators/mulch-calculator/` | mulch calculator | mulch calculator bags, mulch calculator cubic yards |
+| `/calculators/mulch-calculator/` | how much mulch do I need | mulch calculator, mulch calculator bags, mulch calculator cubic yards, mulch bags vs bulk, how much will 25 bags of mulch cover, 3-3-3 rule for mulch |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
 | `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator | french drain calculator, how much gravel for a french drain, french drain fabric calculator |
@@ -36,7 +36,8 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator | garden box soil calculator |
 | `/calculators/asphalt-calculator/` | asphalt calculator | asphalt driveway calculator, how much asphalt do I need, asphalt tons calculator |
 | `/calculators/brick-calculator/` | brick calculator | how many bricks do I need, concrete block calculator, CMU calculator, cinder block calculator |
-| `/calculators/lumber-calculator/` | lumber calculator | board feet calculator, how many board feet, what is a board foot, how much lumber do I need |
+| `/calculators/lumber-calculator/` | lumber calculator | board feet calculator, how many board feet, what is a board foot, how much lumber do I need, lumber weight calculator, 2x4 weight |
+| `/guides/lumber-weight-chart/` | lumber weight chart | 2x4 weight, 2x4 weight per foot, how much does a 2x4x8 weigh, lumber weight per foot, pressure treated lumber weight |
 | `/calculators/rebar-calculator/` | rebar calculator | how much rebar for a slab, concrete slab rebar, rebar spacing calculator, rebar for 20x20 slab |
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |
 | `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be, mulch depth for gardens |
@@ -50,8 +51,6 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/guides/concrete-slab-thickness/` | concrete slab thickness | what is the standard thickness for a concrete slab, how thick should a concrete slab be, does a 4 inch concrete slab need rebar, how many yards for 30x40 slab |
 | `/guides/how-much-concrete-do-i-need/` | how much concrete do I need | how much will 1 yard of concrete cover, how much does 3 yards of concrete cover, bags vs ready mix concrete |
 | `/guides/sonotube-footing-and-depth/` | sonotube footing | do I need a footing under a Sonotube, how deep should a Sonotube be, bags for a 4 foot sonotube |
-| `/guides/how-much-mulch-do-i-need/` | how much mulch do I need | mulch bags vs bulk cost, how much will 25 bags of mulch cover, 3-3-3 rule for mulch |
-
 | `/guides/grass-seed-per-sq-ft/` | grass seed per square foot | how much grass seed per 1000 sq ft, grass seed rate per 1000 sq ft |
 | `/guides/fertilizer-nitrogen-per-1000-sq-ft/` | fertilizer nitrogen per 1000 sq ft | what does 30-0-4 mean, lawn fertilizer rate |
 | `/guides/raised-bed-soil-mix-4x8/` | raised bed soil mix 4x8 | how much soil for 4x8 raised bed, good soil mix for raised bed |
@@ -76,14 +75,14 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 - Slab **cost** (`/calculators/concrete-slab-cost-calculator/`) is separate from slab **volume** (`/calculators/concrete-calculator/`)—do not merge; cost page must use user-entered prices only (no invented market rates).
 - Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab-volume URL under a rebar slug.
 - Brick calculator owns clay brick **and** CMU/cinder-block count modes—do not split `/concrete-block-calculator/`. Segmental retaining-wall blocks stay on the retaining-wall tool.
-- Lumber calculator owns board-foot tally—do not split `/board-feet-calculator/`. Deck board/joist layout stays on the deck-material tool.
+- Lumber calculator owns board-foot tally **and** lumber weight (same URL)—do not split `/board-feet-calculator/` or `/lumber-weight-calculator/`. Weight **chart** guide (`/guides/lumber-weight-chart/`) owns know/compare tables for 2×4 weight etc.; calculator owns the interactive estimator. Deck board/joist layout stays on the deck-material tool.
 - Deck footing calculator owns **pier count + frost-depth concrete** from deck size/spacing—do not fold into deck-material or Sonotube titles; link Sonotube for known tube-only pours.
-- Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator ≠ common **bed-size** chart.
+- Tree-ring mulch ≠ bed mulch—keep separate. Mulch **depth** guide ≠ mulch **quantity** calculator (owns “how much mulch do I need” + bags vs bulk + 3-3-3) ≠ common **bed-size** chart. Legacy `/guides/how-much-mulch-do-i-need/` **301** → `/calculators/mulch-calculator/`.
 - French drain gravel (trench − pipe + fabric) ≠ flat-pad gravel calculator—keep `/calculators/french-drain-gravel-calculator/` separate; link to `/calculators/gravel-calculator/` for pads/drives.
 - Roof pitch (geometry) ≠ shingles/squares (materials)—keep separate.
 - Do **not** create `/concrete-calculator-yards/` style clones; put unit language on the primary page.
 - Long-tail size guides (`10x10 slab`, `common garden beds`) must link to the primary calculator and not duplicate its primary keyword.
 - **Concrete slab thickness** (how thick / 12×12·20×20·30×40 yards) ≠ **10×10 slab** size chart ≠ **how much concrete do I need** (1-yard / 3-yard coverage + bags vs yards) ≠ **how many bags of concrete** (bag-yield tables) ≠ main concrete calculator primary.
 - **Sonotube footing & depth** (do I need a footing / frost depth) ≠ **how much concrete in a Sonotube** (πr²h bag charts).
-- **How much mulch do I need** (bags vs bulk + coverage + 3-3-3) ≠ **mulch depth** ≠ **common garden bed** quantity chart ≠ mulch calculator primary.
+- **How much mulch do I need** lives on `/calculators/mulch-calculator/` (merged; do not recreate the guide). Still ≠ **mulch depth** ≠ **common garden bed** quantity chart.
 - Expanded guide bodies live in `src/data/guideExpansions.ts`. Related tools must be **topic-matched** (fence→post-hole/fence; mulch→mulch tools; gravel→gravel/sand/paver; roof→pitch/shingles)—never a fixed concrete/gravel/mulch set on every guide.

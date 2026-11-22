@@ -251,6 +251,26 @@ export const guideBodies: Record<string, string> = {
       </table>
       </div>
 
+      <h2>How much concrete for a 12×12 slab?</h2>
+      <p>Same formula, bigger footprint. At 4 inches: 12 × 12 × (4÷12) = 48 cu ft ≈ 1.78 cu yd before waste. With 10% waste ≈ 52.8 cu ft → about 89 bags of 80 lb mix (0.60 cu ft) or 118 bags of 60 lb. At 6 inches: 72 cu ft ≈ 2.67 cu yd before waste → about 132 / 176 bags after 10% waste. Plug 12×12 into the <a href="/calculators/concrete-calculator/">concrete calculator</a> for live bag counts.</p>
+
+      <h2>How much concrete for a 20×20 slab?</h2>
+      <p>At 4 inches: 20 × 20 × (4÷12) = 133.3 cu ft ≈ 4.94 cu yd before waste. With 10% waste ≈ 146.7 cu ft → about 245 bags of 80 lb mix—ready-mix territory for almost every crew. At 6 inches: 200 cu ft ≈ 7.41 cu yd before waste. Call the plant about short-load fees before you assume bags are cheaper.</p>
+
+      <h2>12×12 and 20×20 chart (with 10% waste)</h2>
+      <div class="table-scroll">
+      <table>
+        <caption>Larger patio pads—yards before waste and ~80 lb bags after 10% waste</caption>
+        <thead><tr><th>Size</th><th>Thickness</th><th>Cu yd (before)</th><th>~80 lb bags (+10%)</th></tr></thead>
+        <tbody>
+          <tr><td>12×12</td><td>4&quot;</td><td>1.78</td><td>~89</td></tr>
+          <tr><td>12×12</td><td>6&quot;</td><td>2.67</td><td>~132</td></tr>
+          <tr><td>20×20</td><td>4&quot;</td><td>4.94</td><td>~245</td></tr>
+          <tr><td>20×20</td><td>6&quot;</td><td>7.41</td><td>~367</td></tr>
+        </tbody>
+      </table>
+      </div>
+
       <h2>Other common patio sizes (4&quot; thick, before waste)</h2>
       <div class="table-scroll">
       <table>
@@ -260,6 +280,7 @@ export const guideBodies: Record<string, string> = {
           <tr><td>8×8</td><td>21.3</td><td>0.79</td></tr>
           <tr><td>10×12</td><td>40.0</td><td>1.48</td></tr>
           <tr><td>12×12</td><td>48.0</td><td>1.78</td></tr>
+          <tr><td>20×20</td><td>133.3</td><td>4.94</td></tr>
         </tbody>
       </table>
       </div>
@@ -623,6 +644,15 @@ export const guideBodies: Record<string, string> = {
       <h2>What does 30-0-4 mean?</h2>
       <p>Thirty percent nitrogen, zero phosphate, and four percent potash by weight. A 10 lb bag of 30-0-4 contains about 3 lb of nitrogen (10 × 0.30). Pennsylvania’s homeowner fertilizer page walks through the same label math: convert the first number to a decimal and multiply by the product pounds you spread per 1,000 sq ft to find actual nitrogen delivered.</p>
       <p>Skip phosphorus unless a soil test or an establishment exception allows it under local rules. Many turf laws restrict phosphate on established lawns.</p>
+
+      <h2>How much 10-10-10 fertilizer per 1,000 sq ft?</h2>
+      <p>10-10-10 is 10% nitrogen. For 1 lb actual N per 1,000 sq ft you need 1 ÷ 0.10 = <strong>10 lb of product per 1,000</strong>. A 5,000 sq ft lawn at that rate needs about 50 lb of 10-10-10. That also delivers 1 lb phosphate and 1 lb potash per 1,000—often more phosphorus than an established lawn needs. Prefer a soil test before routine 10-10-10 on mature turf; many jurisdictions restrict phosphate on established lawns.</p>
+
+      <h2>How much starter fertilizer per 1,000 sq ft?</h2>
+      <p>Starter products often run higher in the middle N-P-K number for new seed. Use the coverage rate printed on the bag, or enter the nitrogen target and first N-P-K number in the <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a>. Do not invent a starter rate from a blog—labels and local phosphate rules win. Overseeding thin turf may need a different product than bare-soil establishment.</p>
+
+      <h2>Can I use liquid lawn fertilizer the same way?</h2>
+      <p>Yes for nitrogen math if the label lists N-P-K percent by weight (or clear lb N per gallon). Convert your target lb N into product pounds or gallons with the same N fraction. Hose-end concentrates vary—follow the label for water volume and settings. The calculator gives product pounds; you still mix per the jug.</p>
 
       <h2>Is 1 lb N always correct?</h2>
       <p>No. One pound of nitrogen per 1,000 sq ft is a planning example, not a universal prescription. Penn State discusses about 2 lb N per 1,000 per season as a starting annual rate. Pennsylvania law caps total N near 0.9 lb per 1,000 per application. Split that ~2 lb annual starting rate into thirds to stay under the 0.9 cap.</p>
@@ -1542,7 +1572,7 @@ export const guideBodies: Record<string, string> = {
 
   'concrete-slab-thickness': `      <div class="takeaway"><strong>Key takeaway:</strong> Plan most residential patio and sidewalk slabs at about 4&nbsp;inches thick. IRMCA’s exterior flatwork guide sets a 4-inch minimum and bumps to 5&nbsp;inches where delivery traffic or other heavy loads are expected. QUIKRETE lists sidewalks and patios at least 4&nbsp;inches. Thickness drives yards: a 12×12 at 4&nbsp;inches is about 1.78&nbsp;cu&nbsp;yd before waste.</div>
 
-      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+      <p>This page answers “how thick” and shows coverage for common footprints. It is not a structural design. Local code, soil, and load still win. For a 10×10-only bag chart, use the <a href="/guides/concrete-for-10x10-slab/">10×10 slab guide</a>. For live yards and bags on any size, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Coverage and bags-vs-yards planning: <a href="/guides/how-much-concrete-do-i-need/">how much concrete do I need</a>. Price a patio with your plant quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Strip footings are a different shape—use the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>.</p>
 
       <h2>What is the standard thickness for a concrete slab?</h2>
       <p>For residential exterior flatwork—patios, sidewalks, many shed pads—4&nbsp;inches is the usual starting point. The Illinois Ready Mixed Concrete Association guide for residential exterior flatwork states a minimum recommended thickness of 4&nbsp;inches. Where traffic includes delivery vehicles or other heavy loads, that same guide moves the minimum to 5&nbsp;inches. QUIKRETE’s Crack Resistant mix instructions say sidewalks and patios should be at least 4&nbsp;inches thick.</p>
@@ -1618,7 +1648,7 @@ export const guideBodies: Record<string, string> = {
 
   'how-much-concrete-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> One cubic yard covers about 81&nbsp;sq&nbsp;ft at 4&nbsp;inches thick, or about 54&nbsp;sq&nbsp;ft at 6&nbsp;inches. Three yards cover about 243&nbsp;sq&nbsp;ft at 4&nbsp;inches. Past roughly one yard, ready-mix usually beats mixing bags all day. Stay on bags? Convert with QUIKRETE 1101 yields and the bags guide.</div>
 
-      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>.</p>
+      <p>Searchers type “how much concrete do I need” when they want coverage and a yards-vs-bags decision, not only a bag chart. This page owns that planning view. For pure bag conversion tables, use <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. For a live takeoff, open the <a href="/calculators/concrete-calculator/">concrete calculator</a>. Thickness norms: <a href="/guides/concrete-slab-thickness/">concrete slab thickness</a>. Price the pour with your quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>. Continuous strip or pad footings: <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>.</p>
 
       <h2>How much will 1 yard of concrete cover?</h2>
       <p>Coverage depends on thickness. One cubic yard is 27 cubic feet. At a uniform 4-inch depth (4÷12 = 1/3&nbsp;ft), area = 27 ÷ (1/3) = 81&nbsp;sq&nbsp;ft. At 6&nbsp;inches, the same yard covers 54&nbsp;sq&nbsp;ft. At 5&nbsp;inches you get about 64.8&nbsp;sq&nbsp;ft. Those are flat, even pours with no thickened edges or steps.</p>
@@ -1687,7 +1717,7 @@ export const guideBodies: Record<string, string> = {
 
   'sonotube-footing-and-depth': `      <div class="takeaway"><strong>Key takeaway:</strong> A Sonotube is a cardboard form. For many deck posts the concrete poured inside the tube <em>is</em> the footing, so you do not automatically pour a separate pad under every tube—local frost depth, soil bearing, and the permit still control diameter and depth. QUIKRETE’s deck-footing steps say footings typically must extend below frost. A 12-inch × 4&nbsp;ft tube needs about six 80&nbsp;lb bags after 5% waste.</div>
 
-      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches.</p>
+      <p>Bag counts and πr²h math live on the <a href="/guides/how-much-concrete-in-a-sonotube/">how much concrete in a Sonotube</a> guide and the <a href="/calculators/sonotube-concrete-calculator/">Sonotube concrete calculator</a>. This page answers the footing and depth questions that show up next to those searches. Still need a pier count from deck size and spacing? Start with the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a>. Continuous strip or pad footings under walls belong on the <a href="/calculators/concrete-footing-calculator/">concrete footing calculator</a>, not this tube page.</p>
 
       <h2>Do I need a footing under a Sonotube?</h2>
       <p>Often, no separate “footing under the tube” is required because the poured pier itself is the footing. The tube shapes the column; the concrete bears on firm soil at the bottom of the hole. Some jobs still use a wider poured bell, a Bigfoot-style base form, or a pad poured first with the tube set into plastic concrete when soil is weak or the post carries a large tributary area.</p>
@@ -1754,65 +1784,116 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sonotube.com/sonotube-concrete-forms" rel="noopener noreferrer">Sonotube – Concrete forms product sizing</a></li>
       </ul>
   `,
+  'lumber-weight-chart': `
+      <div class="takeaway"><strong>Key takeaway:</strong> Softwood weight uses the <em>dressed</em> section, not the nominal stamp. A kiln-dried SPF 2×4 is about <strong>1.05 lb per foot</strong> (~8.4 lb for an 8-footer). Douglas fir runs heavier; wet treated southern pine can nearly double kiln-dried weight. Densities come from USDA Wood Handbook specific gravity—planning estimates, not scale tickets.</div>
 
-  'how-much-mulch-do-i-need': `      <div class="takeaway"><strong>Key takeaway:</strong> Mulch volume equals area × depth. At 3&nbsp;inches, UF/IFAS notes one cubic yard covers about 108&nbsp;sq&nbsp;ft. A 10×10 bed at 3&nbsp;inches needs 25&nbsp;cu&nbsp;ft—thirteen 2&nbsp;cu&nbsp;ft bags. Bags fit small beds; bulk usually costs less around a yard or more. UVM Extension cites a 3-3-3 tree mulch mnemonic for mature trees.</div>
-
-      <p>Depth targets (about 2–3&nbsp;inches in most beds) live in the <a href="/guides/mulch-depth-guide/">mulch depth guide</a>. Rectangle charts for common frames sit in <a href="/guides/mulch-for-common-garden-beds/">mulch for common garden beds</a>. This page answers the broad “how much mulch do I need?” question: coverage math, bags vs bulk, and the 3-3-3 tree reminder.</p>
-
-      <h2>How do I calculate how much mulch I need?</h2>
-      <p>Measure length and width of the planting surface in feet. Multiply for square feet. Choose depth in inches—Clemson and UF/IFAS both land near 2–3&nbsp;inches for many organic mulches in beds. Convert depth to feet (inches ÷ 12) and multiply. Cubic feet ÷ 27 = cubic yards. Iowa State’s mulch calculator method is the same area × depth approach YardTally uses.</p>
-      <p><strong>Cu&nbsp;ft = area_sq&nbsp;ft × (depth_inches ÷ 12).</strong> At 3&nbsp;inches, every 100&nbsp;sq&nbsp;ft needs 25&nbsp;cu&nbsp;ft (about 0.93&nbsp;cu&nbsp;yd). UF/IFAS’s check figure—about 108&nbsp;sq&nbsp;ft per cubic yard at 3&nbsp;inches—matches that math: 27 ÷ 0.25 = 108.</p>
-      <p>Odd shapes? Split them into rectangles, or run the <a href="/calculators/mulch-calculator/">mulch calculator</a> twice and add. Tree rings need the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> so you subtract the bare collar at the trunk.</p>
-
-      <h2>Is it cheaper to buy mulch by the yard or by the bag?</h2>
-      <p>Usually bulk wins on price per cubic foot once you need roughly a cubic yard or more and you can stage a delivery. Bags win for small beds, color-matched touch-ups, and sites where a dump truck cannot sit. Iowa State notes mulch is commonly sold in 2- or 3-cubic-foot bags, so always divide cubic feet by the bag size printed on the package—not by a memory of last year’s brand.</p>
-      <p>Do the napkin math before you chase a “sale” on bags. Twenty-five 2&nbsp;cu&nbsp;ft bags is 50&nbsp;cu&nbsp;ft—almost two cubic yards of bagged product after you haul them one-by-one. If bulk is $45/yd delivered and bags pencil out higher for the same volume, the truck wins. If the dealer’s short-load fee is brutal and you only need half a yard, bags can still be the cheaper day.</p>
-
-      <h2>How much will 25 bags of mulch cover?</h2>
-      <p>It depends on bag size and depth. Twenty-five bags × 2&nbsp;cu&nbsp;ft = 50&nbsp;cu&nbsp;ft. At 3&nbsp;inches (0.25&nbsp;ft), coverage ≈ 50 ÷ 0.25 = 200&nbsp;sq&nbsp;ft. At 2&nbsp;inches, the same 50&nbsp;cu&nbsp;ft spreads over about 300&nbsp;sq&nbsp;ft. If the bags are 3&nbsp;cu&nbsp;ft, twenty-five bags are 75&nbsp;cu&nbsp;ft—about 300&nbsp;sq&nbsp;ft at 3&nbsp;inches.</p>
-      <p>Read the bag. “25 bags” without a size is not a coverage number.</p>
-
-      <h2>What is the 3-3-3 rule for mulch?</h2>
-      <p>University of Vermont Extension describes a 3-3-3 method many arborists recommend for mature trees: at least 3&nbsp;inches of clearance from the trunk, no more than 3&nbsp;inches deep, and about 3&nbsp;feet of mulch diameter to protect a meaningful share of the root zone. Think donut, not volcano. UVM’s mulch-volcano article is explicit that mulch should never be piled against bark.</p>
-      <p>That mnemonic lines up with other extension advice even when they do not use the “3-3-3” label. Mississippi State says pull mulch 2–3&nbsp;inches back from trunks and keep a wide ring. Clemson wants a few inches of clearance and warns against volcanoes. UF/IFAS Florida-Friendly guidance keeps mulch farther back from tree bases (on the order of a foot or more in their principle sheet) and caps bed mulch near 2–3&nbsp;inches. Use 3-3-3 as a memorable floor for tree rings, then read the local extension sheet when palms, new transplants, or Florida-Friendly program rules apply.</p>
-
-      <h2>Worked example: front bed plus one tree</h2>
-      <p>Front bed: 20×10&nbsp;ft at 3&nbsp;inches. Area = 200&nbsp;sq&nbsp;ft. Volume = 200 × 0.25 = 50&nbsp;cu&nbsp;ft ≈ 1.85&nbsp;cu&nbsp;yd. That is twenty-five 2&nbsp;cu&nbsp;ft bags or seventeen 3&nbsp;cu&nbsp;ft bags after rounding up—same numbers the mulch calculator returns. At this size I would price a bulk scoop before I fill the SUV with bags.</p>
-      <p>Tree: apply UVM’s 3-3-3 idea as a starting ring—about 3&nbsp;inches deep, kept ~3&nbsp;inches off the bark, roughly 3&nbsp;feet across for a young mature tree, wider toward the drip line when you can. Size the donut with the tree-ring calculator so the trunk opening is not part of the order. Keep the flare visible.</p>
-
-      <h2>How to order mulch without overbuying (step-by-step)</h2>
-      <ol>
-        <li>Measure each bed; split L-shapes into rectangles.</li>
-        <li>Pick depth from the depth guide (often 2–3&nbsp;inches organic).</li>
-        <li>Compute cubic feet, then yards or bags.</li>
-        <li>Compare bag unit price × count against bulk yards + delivery.</li>
-        <li>Subtract existing mulch depth if you are only top-dressing.</li>
-        <li>Stage the pile on a tarp and spread the same week so it does not bleach into a heap against siding.</li>
-      </ol>
-
-      <h2>Tips</h2>
+      <h2>How do you calculate lumber weight?</h2>
+      <p>Skip the board-foot formula when you're asking what a stick weighs. Board feet price softwood with <em>nominal</em> thickness and width. Weight cares about the wood that's actually there.</p>
+      <p>Formula:</p>
       <ul>
-        <li>Top-dressing from 1&nbsp;inch up to 3&nbsp;inches means ordering the 2-inch difference, not a full new blanket.</li>
-        <li>Dyed mulches vary. Buy enough from one batch for the whole visible bed.</li>
-        <li>Rock mulch is a different coverage and heat story—do not reuse bark bag math blindly.</li>
-        <li>If the bed still needs fill soil, size soil first with the <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a> guide, then mulch.</li>
+        <li><strong>Volume (cu ft)</strong> = (actual thickness_in × actual width_in × length_ft × 12) ÷ 1728</li>
+        <li><strong>Weight (lb)</strong> = volume × density_lb_per_cu_ft</li>
+        <li><strong>Weight per foot</strong> = weight ÷ length_ft</li>
       </ul>
+      <p>Kiln-dried planning density ≈ specific gravity × 62.4 × 1.12 (about 12% moisture), using Wood Handbook SG values. Green or freshly treated stock needs a wetter density—southern pine green is published near 53 lb/cu ft for loblolly-class material.</p>
+      <p>Live inputs live on the <a href="/calculators/lumber-calculator/">lumber weight calculator</a> (same page as board feet). This guide is the chart.</p>
+
+      <h2>What are the actual sizes for 2×4, 2×6, 2×8, and 4×4?</h2>
+      <p>American Softwood Lumber Standard (PS 20) dressed sizes for common framing:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Nominal vs actual softwood section</caption>
+        <thead><tr><th>Nominal</th><th>Actual (in)</th></tr></thead>
+        <tbody>
+          <tr><td>2×4</td><td>1½ × 3½</td></tr>
+          <tr><td>2×6</td><td>1½ × 5½</td></tr>
+          <tr><td>2×8</td><td>1½ × 7¼</td></tr>
+          <tr><td>2×10</td><td>1½ × 9¼</td></tr>
+          <tr><td>2×12</td><td>1½ × 11¼</td></tr>
+          <tr><td>4×4</td><td>3½ × 3½</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>If you plug 2 × 4 into the weight formula, you'll overstate the stick. That's fine for board-foot billing. It's wrong for truck loading.</p>
+
+      <h2>Which density should I use?</h2>
+      <p>YardTally's presets (computed from Wood Handbook SG unless noted):</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Planning densities from USDA Wood Handbook SG</caption>
+        <thead><tr><th>Preset</th><th>SG (approx.)</th><th>Density (lb/cu ft)</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>SPF kiln-dried</td><td>0.41</td><td>28.7</td><td>SG × 62.4 × 1.12; lodgepole / mid-SPF class</td></tr>
+          <tr><td>Douglas fir-larch KD</td><td>0.48</td><td>33.5</td><td>Coast DF SG at 12% MC; handbook density ~34</td></tr>
+          <tr><td>Southern pine KD</td><td>0.51</td><td>35.6</td><td>Loblolly-class SG at 12% MC</td></tr>
+          <tr><td>Southern pine green / wet PT</td><td>0.47 (green basis)</td><td>53</td><td>Handbook green loblolly density; wet treated often similar</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Species groups are blunt instruments. A spruce stud and a denser pine in the same SPF bin won't match ounce-for-ounce. Grade stamps and mill tickets beat internet averages when the load is tight.</p>
+
+      <h2>Lumber weight per foot chart</h2>
+      <p>Computed with the dressed sections above and the KD / green densities in the table. Round to two decimals for shopping; don't pretend it's a certified scale weight.</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Weight per linear foot (lb/ft), planning estimates</caption>
+        <thead>
+          <tr><th>Size</th><th>SPF KD</th><th>Doug fir-larch KD</th><th>Southern pine KD</th><th>SP green / wet PT</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2×4</td><td>1.05</td><td>1.22</td><td>1.30</td><td>1.93</td></tr>
+          <tr><td>2×6</td><td>1.64</td><td>1.92</td><td>2.04</td><td>3.04</td></tr>
+          <tr><td>2×8</td><td>2.17</td><td>2.53</td><td>2.69</td><td>4.00</td></tr>
+          <tr><td>4×4</td><td>2.44</td><td>2.85</td><td>3.03</td><td>4.51</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h2>How much does a 2×4×8 weigh?</h2>
+      <p>Same math, eight-foot length:</p>
+      <div class="table-scroll">
+      <table>
+        <caption>Weight per 8 ft stick (lb), planning estimates</caption>
+        <thead>
+          <tr><th>Size</th><th>SPF KD</th><th>Doug fir-larch KD</th><th>Southern pine KD</th><th>SP green / wet PT</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>2×4×8</td><td>8.37</td><td>9.77</td><td>10.38</td><td>15.46</td></tr>
+          <tr><td>2×6×8</td><td>13.15</td><td>15.35</td><td>16.32</td><td>24.29</td></tr>
+          <tr><td>2×8×8</td><td>17.34</td><td>20.24</td><td>21.51</td><td>32.02</td></tr>
+          <tr><td>4×4×8</td><td>19.53</td><td>22.80</td><td>24.23</td><td>36.07</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>Worked SPF example: volume = (1.5 × 3.5 × 8 × 12) ÷ 1728 ≈ 0.292 cu ft. Times 28.7 lb/cu ft ≈ <strong>8.4 lb</strong>. Ten of those studs are about 84 lb before you count straps and scrap.</p>
+      <p>Need a mixed list? Enter each size in the <a href="/calculators/lumber-calculator/">lumber calculator</a> with the species preset that matches the rack.</p>
+
+      <h2>Kiln-dried vs green vs pressure-treated</h2>
+      <p>Water is heavy. Kiln-dried framing is dried toward a service moisture content; the 12% MC factor in the SG formula is a planning stand-in, not a moisture-meter reading of your particular stick.</p>
+      <p>Green lumber hasn't been dried. Pressure-treated southern pine often leaves the plant wet with retention solution. On load-out day it can feel closer to the handbook green density (~53 lb/cu ft) than to KD southern pine (~36). It will dry and lose weight in service. Your pickup truck doesn't care about next summer—it cares about today.</p>
+      <p>If you're stacking treated posts for a fence, use the green/wet preset or a custom density, then compare with the <a href="/calculators/fence-calculator/">fence calculator</a> for post and rail counts. Deck framing takeoffs start on the <a href="/calculators/deck-material-calculator/">deck material calculator</a> and the <a href="/guides/deck-material-list-12x16/">12×16</a> / <a href="/guides/deck-material-list-16x24/">16×24</a> lists, then convert odd leftovers here.</p>
+
+      <h2>Worked example: wall stud package</h2>
+      <p>Say you need forty kiln-dried SPF 2×4×8s for a partition. Board feet = 40 × 5.33 ≈ 213 bf. Weight ≈ 40 × 8.37 ≈ <strong>335 lb</strong>. That's one careful trip in a half-ton if the bed is otherwise empty—or a good reason to ask the yard about delivery when you also grab plates and headers.</p>
+      <p>Swap the same count to wet treated southern pine and you're nearer 40 × 15.5 ≈ <strong>620 lb</strong>. Same board-foot ticket. Completely different lift.</p>
 
       <h2>Common mistakes</h2>
       <ul>
-        <li>Volcano mulching against trunks (UVM, Clemson, MSU, and UF all warn against it).</li>
-        <li>Assuming every bag is 2&nbsp;cu&nbsp;ft.</li>
-        <li>Ordering a full 3-inch blanket on top of 2&nbsp;inches that is already there.</li>
-        <li>Using the bed chart for a tree ring without subtracting the clear collar.</li>
+        <li>Using nominal 2×4 volume for weight.</li>
+        <li>Applying SPF KD density to a bunk of wet PT.</li>
+        <li>Forgetting that length is in <em>feet</em> in the volume formula (12 converts the inch section to cubic inches before ÷ 1728).</li>
+        <li>Expecting the chart to match a moisture-metered stick after rain.</li>
       </ul>
 
+      <h2>Limits</h2>
+      <p><strong>Planning estimates only.</strong> Species mix inside a grade stamp, exact moisture, and mill practice all move weight. Structural design uses span tables and grades—not these pound charts. Confirm treated-use categories (ground contact vs above ground) on the tag, not from density alone.</p>
+
       <h2>Sources</h2>
-      <ul class="sources">
-        <li><a href="https://www.uvm.edu/extension/news/beware-mulch-volcano" rel="noopener noreferrer">University of Vermont Extension – Beware the mulch volcano (3-3-3 method)</a></li>
-        <li><a href="https://gardeningsolutions.ifas.ufl.edu/care/planting/mulch/" rel="noopener noreferrer">UF/IFAS – Choosing and installing mulches (~108 sq ft per cu yd at 3&quot;)</a></li>
-        <li><a href="https://hgic.clemson.edu/factsheet/mulch/" rel="noopener noreferrer">Clemson HGIC – Mulch (2–3 inch depths for many wood/bark mulches)</a></li>
-        <li><a href="https://yardandgarden.extension.iastate.edu/how-to/how-determine-amount-mulch-needed-garden-bed" rel="noopener noreferrer">Iowa State Extension – How to determine amount of mulch needed (area × depth; 2 / 3 cu ft bags)</a></li>
-        <li><a href="https://extension.msstate.edu/blogs/extension-for-real-life/how-mulch" rel="noopener noreferrer">Mississippi State Extension – How to mulch (pull mulch back from trunks)</a></li>
+      <ul>
+        <li><a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fpl_gtr190.pdf" rel="noopener noreferrer">USDA Forest Service – Wood Handbook FPL-GTR-190</a> (specific gravity and density of softwoods; KD ≈ SG × 62.4 × 1.12; green loblolly density ~53 lb/cu ft)</li>
+        <li><a href="https://www.fpl.fs.usda.gov/documnts/fplgtr/fpl_gtr282.pdf" rel="noopener noreferrer">USDA Forest Service – Wood Handbook FPL-GTR-282</a> (updated Wood Handbook edition; same SG / density basis)</li>
+        <li><a href="https://alsc.org/greenbook%20collection/ps20.pdf" rel="noopener noreferrer">ALSC – PS 20 American Softwood Lumber Standard</a> (dressed sizes; board measure)</li>
+        <li><a href="https://www.ecfr.gov/current/title-7/subtitle-B/chapter-XI/part-1217/subpart-A/subject-group-ECFR2f9f8517fff2bc4/section-1217.4" rel="noopener noreferrer">eCFR – 7 CFR 1217.4 Board foot</a></li>
       </ul>
   `,
 };

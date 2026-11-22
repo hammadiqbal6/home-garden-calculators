@@ -107,8 +107,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     grassSeed,
     frenchDrainMaterials,
     gravelVolume,
+    LUMBER_DENSITY_PRESETS,
     lumberFromBoardFeet,
     lumberFromPieces,
+    lumberWeight,
     masonryUnits,
     paintNeeded,
     paverCount,
@@ -1685,12 +1687,59 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         },
         { name: 'pieces', label: 'Number of pieces', imperialDefault: '10', metricDefault: '10' },
         { name: 'boardFeet', label: 'Target board feet', imperialDefault: '50', metricDefault: '50' },
+        {
+          name: 'species',
+          label: 'Species / condition',
+          type: 'select',
+          options: [
+            { value: 'spf_kd', label: 'SPF kiln-dried (~29 lb/cu ft)' },
+            { value: 'douglas_fir_larch_kd', label: 'Douglas fir-larch KD (~34 lb/cu ft)' },
+            { value: 'southern_pine_kd', label: 'Southern pine KD (~36 lb/cu ft)' },
+            { value: 'southern_pine_green', label: 'Southern pine green / wet PT (~53)' },
+            { value: 'custom', label: 'Custom density' },
+          ],
+          imperialDefault: 'spf_kd',
+          metricDefault: 'spf_kd',
+        },
+        {
+          name: 'density',
+          label: 'Custom density',
+          imperialDefault: String(LUMBER_DENSITY_PRESETS.spf_kd.densityLbPerCuFt),
+          metricDefault: String(Math.round(LUMBER_DENSITY_PRESETS.spf_kd.densityLbPerCuFt * 16.018463)),
+          imperialHint: 'lb/cu ft (planning)',
+          metricHint: 'kg/m³ (planning)',
+        },
       ],
       compute(v, u) {
         const selects = (v as any).selectValues as Record<string, string> | undefined;
         const mode = selects?.mode ?? (v as any).shapeRaw ?? 'pieces';
+        const species = selects?.species ?? 'spf_kd';
         const thicknessIn = u === 'imperial' ? v.thickness : v.thickness / 25.4;
         const widthIn = u === 'imperial' ? v.width : v.width / 25.4;
+        // kg/m³ → lb/cu ft ≈ ÷ 16.018463
+        const customDensityLb =
+          u === 'imperial' ? v.density : v.density / 16.018463;
+        const weightRows = (pieces: number) => {
+          const w = lumberWeight({
+            thicknessIn,
+            widthIn,
+            length: v.length,
+            lengthUnit: lengthUnit(u),
+            pieces,
+            densityPreset: species,
+            densityLbPerCuFt: customDensityLb,
+          });
+          return [
+            [
+              'Actual section',
+              `${w.actualThicknessIn} × ${w.actualWidthIn} in`,
+            ],
+            ['Density used', `${w.densityLbPerCuFt} lb/cu ft`],
+            ['Weight / piece', `${w.weightLbPerPiece} lb (${w.weightKgPerPiece} kg)`],
+            ['Weight / linear ft', `${w.weightLbPerLinearFoot} lb/ft (${w.weightKgPerLinearFoot} kg/ft)`],
+            ['Total weight', `${w.weightLbTotal} lb (${w.weightKgTotal} kg)`],
+          ] as [string, string][];
+        };
         if (mode === 'boardFeet') {
           const r = lumberFromBoardFeet({
             thicknessIn,
@@ -1705,6 +1754,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
             ['Pieces needed', String(r.piecesNeeded)],
             ['Board feet ordered', String(r.totalBoardFeetOrdered)],
             ['Linear feet', String(r.totalLinearFeet)],
+            ...weightRows(r.piecesNeeded),
           ];
         }
         const r = lumberFromPieces({
@@ -1719,6 +1769,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ['Total board feet', String(r.totalBoardFeet)],
           ['Linear feet', String(r.totalLinearFeet)],
           ['Pieces', String(r.pieces)],
+          ...weightRows(r.pieces),
         ];
       },
     },
@@ -2148,6 +2199,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         const bfEl = root.querySelector<HTMLElement>('[data-field="boardFeet"]');
         if (piecesEl) piecesEl.hidden = mode !== 'pieces';
         if (bfEl) bfEl.hidden = mode !== 'boardFeet';
+        const species =
+          root.querySelector<HTMLSelectElement>('[name="species"]')?.value ?? 'spf_kd';
+        const densityEl = root.querySelector<HTMLElement>('[data-field="density"]');
+        if (densityEl) densityEl.hidden = species !== 'custom';
         return;
       }
       if (id === 'concrete-slab-cost') {

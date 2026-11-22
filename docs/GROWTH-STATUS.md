@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-20
+**Last updated:** 2026-11-22
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -25,6 +25,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Done
 
+- **2026-11-22 — this PR (mulch guide merge + weak-page internal links):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (unique 3-3-3 / 25-bag / bags-vs-bulk copy + FAQ); removed guide from `guides.ts` / bodies / FAQs / HowTo; **301** in `public/_redirects` and `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP primary + llms Q→URL retargeted; OG assets left unused. Strengthened inbound links for footing, slab-cost, deck-footing, French drain, slab-thickness, how-much-concrete, and Sonotube-footing (homepage prose, hub introHtml, sibling relatedSlugs/bodies).
+- **2026-11-22 — this PR (lumber weight + chart guide):** Extended `/calculators/lumber-calculator/` with softwood weight (actual dressed section × USDA Wood Handbook density presets: SPF / Doug fir-larch / southern pine KD + green/wet PT; custom density). No separate lumber-weight URL. New guide `/guides/lumber-weight-chart/` with per-foot and 8 ft tables; KEYWORD-MAP + llms Q→URL; rebar FAQ already documents CRSI lb/ft. Unit tests for weight math.
 - **2026-11-20 — this PR (Agathox ownership verification):** Home (and all pages via `BaseLayout`) emit `<meta name="agathox-verification" content="agathox-verify-ebf97075afd69f9a">`; static `public/.well-known/agathox-verification.txt` (exact token body). Worker already skips trailing-slash 308 for `.txt` via `FILE_EXT` — covered by unit test; no Worker/CSP/consent changes. Directory listing confirmation remains off-repo until Agathox accepts ownership.
 - **2026-11-19 — this PR (Sonotube upgrade):** Optional footing base (`none` / bell frustum / pad cylinder); mixed tube sizes (size B count 0 = unused); live `bags50` (QUIKRETE 0.375 cu ft); bags-per-foot HTML table for 8–36″; `toggleModeFields` hides unused bell/pad inputs; FAQ/body/HowTo refresh; `dateModified` 2026-11-19; unit tests.
 - **2026-11-19 — CI / build speed (this PR):** Faster GitHub Actions + in-repo Cloudflare install config without dropping checks. Baseline PR CI job ~22–32s (install ~10–15s, build ~3–5s, tests ~1–2s). Changes: `.npmrc` (`prefer-offline`, `audit=false`, `fund=false`) for Actions + Workers Builds; `npm ci --prefer-offline --no-audit --fund=false`; Astro/Vite `actions/cache`; parallel `build` + `test` in `build-test-audit`; docs/skills-only path skip that still reports the required check; Full checks Playwright Chromium cache (still chromium-only). Concurrency cancel-in-progress was already present.
@@ -63,7 +65,8 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## Remaining / risks
 
-1. **After deploy (this PR):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed. IndexNow not required for this verification-only change.
+1. **After deploy (this PR):** IndexNow for lumber calculator + `/guides/lumber-weight-chart/`; GSC URL Inspection / request indexing for the new guide.
+1. **After deploy (Agathox):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed.
 1. **After deploy:** ping IndexNow (include new deck footing URL); GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
 1. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets (include new `/calculators/concrete-slab-cost-calculator/`).
 2. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
@@ -98,6 +101,7 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 
 ## In progress
 
+- _(none for this lumber-weight PR — shipping as Done above)_
 - _(none for this Agathox verification PR)_
 - **2026-11-19:** Sonotube calculator upgrade PR (this branch) — footing/bell, mixed sizes, bags50, bags-per-foot table.
 - **2026-11-19:** CI / build speed PR (this branch) — workflow + `.npmrc` changes; awaiting green CI.

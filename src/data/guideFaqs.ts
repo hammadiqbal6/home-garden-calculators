@@ -31,7 +31,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How deep should mulch be around trees?",
-      "answer": "Use a similar 2–3 inch depth in a wide ring, kept clear of the trunk flare. Mississippi State Extension says pull mulch about 2–3 inches back from the trunk. Piling mulch against bark traps moisture and can encourage rot and pests. Leave a bare collar at the base."
+      "answer": "Use a similar 2–3 inch depth in a wide ring, kept clear of the trunk flare. Mississippi State Extension says pull mulch about 2–3 inches back from the trunk. UVM’s 3-3-3 reminder: at least 3 inches clear of the trunk, no more than 3 inches deep, about 3 feet diameter—a donut, not a volcano."
     },
     {
       "question": "Is 4 inches of mulch too much?",
@@ -39,11 +39,11 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "Should I remove old mulch before adding new?",
-      "answer": "Not always. If the old layer is thin and well decomposed, top-dress to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, rake it out or thin it first. UF/IFAS prefers light replenishment over full replacement that can damage surface roots."
+      "answer": "Not always. If the old layer is thin and well decomposed, top-dress to restore about 2–3 inches total. If you have a thick, matted, or moldy layer, rake it out or thin it first. Light replenishment beats a full restart when depth just dips below about 2 inches."
     },
     {
       "question": "Does mulch depth change bag counts?",
-      "answer": "Yes. Volume scales with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft; at 2 inches the same bed needs about 16.7 cu ft. Use the mulch calculator for irregular shapes, or the common bed sizes chart for rectangles."
+      "answer": "Yes. Volume scales with depth: cubic feet = area × (depth inches ÷ 12). At 3 inches, 100 sq ft needs about 25 cu ft (~13 of the 2 cu ft bags); at 2 inches the same bed needs about 16.7 cu ft (~9 bags). Use the mulch calculator for irregular shapes, or the coverage table / common bed sizes chart for rectangles."
     }
   ],
   "how-many-bags-of-concrete": [
@@ -115,7 +115,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
   "gravel-types-for-driveways":   [
     {
       "question": "What gravel is best for a driveway?",
-      "answer": "Angular crushed stone with fines—often sold as crusher run, dense grade, or road base—locks together when compacted and makes a stable base. Rounded pea gravel alone tends to roll under tires and is a poor sole driving surface."
+      "answer": "Angular crushed stone—dense grade / crusher run for a compacted base plus a stable angular surface course. Rounded pea gravel alone tends to roll under tires and is a poor sole driving surface. Size orders with the gravel calculator for tons and cubic yards."
     },
     {
       "question": "What is dense grade gravel?",
@@ -123,11 +123,11 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How deep should driveway gravel be?",
-      "answer": "Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a surface course. Soft soils and heavier vehicles need more. Confirm with local practice; this is not a structural design."
+      "answer": "Depth depends on soil strength and traffic. As a DIY planning assumption only, many light residential drives use several inches of compacted base plus a surface course (often landing in a broad 4–8 inch total range). Soft soils and heavier vehicles need more. Confirm with local practice; this is not a structural design."
     },
     {
       "question": "How do I convert driveway gravel to tons?",
-      "answer": "Compute cubic yards (length × width × depth ÷ 27), then multiply by density. YardTally uses about 2,700 lb per cu yd for crushed stone as a mid-range planning density. Ask your quarry for the compacted figure and order extra for compaction."
+      "answer": "Compute cubic yards (length × width × (depth inches ÷ 12) ÷ 27), then multiply by density ÷ 2,000. YardTally uses about 2,700 lb per cu yd as a mid-range planning density. Example: a 12×50 ft drive at 4 inches is about 7.41 cu yd (~10.0 tons planning) before waste. Ask your quarry for the compacted figure."
     },
     {
       "question": "Do I need sand under driveway gravel?",

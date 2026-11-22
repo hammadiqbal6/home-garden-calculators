@@ -1244,63 +1244,62 @@ export const guideBodies: Record<string, string> = {
         <li>Check current American Wood Council (AWC) / DCA deck span tables and your decking brand’s installation guide for joist spacing and allowable spans. YardTally’s 5.5 in face width and 16 in O.C. joist figures are calculator planning defaults, not engineered design.</li>
       </ul>
   `,
-  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Quick answer:</strong> Blocks ≈ courses × blocks per course—<strong>courses = ceil(height ÷ block height)</strong>, <strong>blocks/course = ceil(length ÷ block length)</strong>. A 20×3&nbsp;ft wall with 18×6&nbsp;in face blocks needs about <strong>84 blocks</strong> before waste (~89 with 5%). Run live counts in the free <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a>; size trench stone with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Trench defaults (~24×6&nbsp;in) are planning assumptions—taller walls need engineering and the block maker’s manual.</div>
+  'retaining-wall-blocks-and-base': `      <div class="takeaway"><strong>Quick answer:</strong> Blocks ≈ courses × blocks per course, where <strong>courses = ceil(wall height ÷ block height)</strong> and <strong>blocks per course = ceil(wall length ÷ block length)</strong>. Example: a 20×3&nbsp;ft exposed wall with 18×6&nbsp;in face blocks needs <strong>84</strong> face blocks before waste (~89 with 5%). YardTally’s gravel trench defaults (~24&nbsp;in wide × 6&nbsp;in deep) are planning assumptions—not a code. Run the free <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a>, then refine trench stone with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>.</div>
 
       <figure class="diagram">
         <img src="/diagrams/retaining-wall-dimensions.svg" width="960" height="540" alt="Diagram of a retaining wall section showing wall height, block face, and gravel trench width and depth" loading="lazy" />
       </figure>
 
-      <h2>Can I use paver base under a retaining wall?</h2>
-      <p><strong>Yes for a compacted gravel trench—people often call that “paver base”—but treat it as wall base, not a patio sand-and-gravel section.</strong> Patio paver depths differ from wall trenches.</p>
-      <p>See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil. Patio bedding sand isn't a substitute for wall drainage stone. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+      <p>Start with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a> using your pallet face sizes. Adjust the trench to the manufacturer sheet when it differs from YardTally’s planning defaults. Taller walls, surcharges, and soft soils need engineering—follow the block maker’s manual and local rules.</p>
 
       <h2>How many retaining wall blocks do I need?</h2>
-      <p><strong>Blocks = ceil(height ÷ block height) × ceil(length ÷ block length), then add waste.</strong> Example: 20&nbsp;ft long × 3&nbsp;ft exposed with 18×6&nbsp;in face blocks → 6 courses × 14 per course = <strong>84 blocks</strong> (~89 with 5% waste).</p>
-      <p><strong>Courses = ceil(wall height ÷ block face height).</strong> <strong>Blocks per course = ceil(wall length ÷ block face length).</strong> Base trench gravel ≈ length × trench width × trench depth (÷ 27 for yards). Plug face sizes into the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> (defaults: 18×6&nbsp;in blocks, 5% waste, ~24×6&nbsp;in gravel trench). Refine stone with the <a href="/calculators/gravel-calculator/">gravel calculator</a>. Material choice echoes <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
-
-      <h2>What are typical retaining wall block dimensions?</h2>
-      <p><strong>Read the pallet tag—many retail landscape blocks are near 18&nbsp;in long by 6&nbsp;in tall (YardTally’s planning default, not a rule).</strong> Courses and per-course counts use those face dimensions.</p>
-      <p>Segmental walls often include buried base courses, geogrid, drainage pipe, and clean stone behind the blocks. Don't scale a short DIY patio-edge detail to a tall yard cut without professional design.</p>
-
-      <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
-      <p>With 18 in long × 6 in tall face blocks (YardTally calculator defaults):</p>
-      <ul>
-        <li>Courses = ceil(3 ÷ 0.5) = <strong>6 courses</strong>.</li>
-        <li>Blocks per course = ceil(20 ÷ 1.5) = <strong>14</strong>.</li>
-        <li>Blocks = 6 × 14 = <strong>84</strong>; with 5% waste ≈ <strong>89 blocks</strong>.</li>
-        <li>Face area = 20 × 3 = 60 sq ft.</li>
-        <li>Base gravel at the calculator’s planning trench of 20 ft × 2 ft wide × 0.5 ft deep = 20 cu ft ≈ <strong>0.74 cu yd</strong>.</li>
-      </ul>
-      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it doesn't show in the exposed height.</p>
+      <p><strong>Blocks = ceil(wall height ÷ block height) × ceil(wall length ÷ block length), then add waste.</strong> For a straight wall with uniform rectangular face blocks: courses = ceil(H ÷ face height); blocks per course = ceil(L ÷ face length); total = courses × blocks per course.</p>
+      <p>Base trench gravel volume ≈ wall length × trench width × trench depth (cu&nbsp;ft ÷ 27 = cu&nbsp;yd). YardTally’s <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> defaults to common 18×6&nbsp;in face blocks, 5% waste, and a gravel trench about 24&nbsp;in wide by 6&nbsp;in deep unless you change those inputs. Those trench numbers are planning defaults for the tool—not a universal code. Refine aggregate tonnage with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a>. Material choice echoes themes in <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
 
       <h2>Block planning table</h2>
+      <p>Approximate face-block counts for common 18×6&nbsp;in planning blocks (no waste—add about 5–10%).</p>
       <div class="table-scroll">
       <table>
         <caption>Approximate block counts for 18×6 in face blocks (no waste; add ~5–10%; dimensions are a common planning size)</caption>
         <thead>
-          <tr><th>Wall L × H</th><th>Courses</th><th>Per course</th><th>Blocks</th></tr>
+          <tr><th>Wall L × H</th><th>Courses</th><th>Per course</th><th>Blocks</th><th>~With 5% waste</th></tr>
         </thead>
         <tbody>
-          <tr><td>10 × 2 ft</td><td>4</td><td>7</td><td>28</td></tr>
-          <tr><td>20 × 2 ft</td><td>4</td><td>14</td><td>56</td></tr>
-          <tr><td>20 × 3 ft</td><td>6</td><td>14</td><td>84</td></tr>
-          <tr><td>30 × 3 ft</td><td>6</td><td>20</td><td>120</td></tr>
+          <tr><td>10 × 2 ft</td><td>4</td><td>7</td><td>28</td><td>~30</td></tr>
+          <tr><td>20 × 2 ft</td><td>4</td><td>14</td><td>56</td><td>~59</td></tr>
+          <tr><td>20 × 3 ft</td><td>6</td><td>14</td><td>84</td><td>~89</td></tr>
+          <tr><td>30 × 3 ft</td><td>6</td><td>20</td><td>120</td><td>~126</td></tr>
         </tbody>
       </table>
       </div>
-      <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item.</p>
+      <p>Curves, corners, and capped walls change counts. Cap units are often ordered as a separate linear-foot item. Confirm with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator</a> using your actual face sizes.</p>
+
+      <h2>Worked example: 20 ft long × 3 ft exposed height</h2>
+      <p>With 18&nbsp;in long × 6&nbsp;in tall face blocks (YardTally calculator defaults): courses = ceil(3 ÷ 0.5) = <strong>6</strong>; blocks per course = ceil(20 ÷ 1.5) = <strong>14</strong>; blocks = 6 × 14 = <strong>84</strong>; with 5% waste ≈ <strong>89 blocks</strong>. Face area = 20 × 3 = 60&nbsp;sq&nbsp;ft. Base gravel at the planning trench of 20&nbsp;ft × 2&nbsp;ft wide × 0.5&nbsp;ft deep = 20&nbsp;cu&nbsp;ft ≈ <strong>0.74&nbsp;cu&nbsp;yd</strong>.</p>
+      <p>These figures match the retaining-wall calculator defaults for a 20×3 wall. If your manufacturer requires an extra buried course, add that course to the block count even though it doesn't show in the exposed height.</p>
+
+      <h2>Can I use paver base under a retaining wall?</h2>
+      <p><strong>Yes for a compacted gravel trench under wall blocks—people often call that “paver base”—but treat it as wall base, not a patio sand-and-gravel section.</strong> Patio paver depths differ from wall trenches. See the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide for patio layers, then follow your wall manufacturer’s manual for trench width and depth behind retained soil.</p>
+      <p>Related ideas (compacted angular gravel) transfer. The assembly doesn't. Patio bedding sand isn't a substitute for wall drainage stone, and patio base thickness isn't a wall trench design. When in doubt, use the wall-system detail, not the patio worksheet.</p>
+
+      <h2>How deep should the gravel base be?</h2>
+      <p><strong>Follow the block manufacturer’s trench detail—YardTally’s planning default is about 6&nbsp;in deep × 24&nbsp;in wide of compacted gravel, not a universal code.</strong> Don't copy patio sand-bed depths behind retained soil.</p>
+      <p>Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. Size trench stone with the <a href="/calculators/gravel-calculator/">gravel calculator for tons and cubic yards</a> after you know trench L×W×D. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>.</p>
+
+      <h2>What are typical retaining wall block dimensions?</h2>
+      <p><strong>Use the face length and face height on the pallet tag—many retail landscape blocks are near 18&nbsp;in long by 6&nbsp;in tall (YardTally’s planning default, not a rule).</strong> Courses = ceil(height ÷ face height). Blocks per course = ceil(length ÷ face length).</p>
+      <p>Segmental landscape walls often include buried base courses, geogrid at specified elevations, drainage pipe, and clean stone behind the blocks. Those components are specified by height and soil conditions. Don't scale a short DIY patio-edge wall detail to a tall yard cut without professional design.</p>
+
+      <h2>Drainage and geogrid—what’s required?</h2>
+      <p><strong>Drain the backfill: perforated pipe in clean stone, outlet to daylight or an approved system, and free-draining backfill per the manufacturer—not clay dumped against the blocks.</strong> Water is the quiet load behind many wall failures. Geogrid type, length, and spacing come from the producer’s charts or a site-specific design—not a blog guess.</p>
+      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage won't send water onto a neighbor’s foundation. Patio-only thin-layer bases (not wall backfill) live in the <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a> guide.</p>
 
       <h2>When do I need an engineer?</h2>
-      <p><strong>When the wall exceeds the manufacturer’s unreinforced height chart, when a driveway or structure sits above it, when soils are poor or wet, or when the building department wants stamped drawings.</strong> Local height triggers vary—don't invent a legal cap from a blog.</p>
-      <p>Geogrid type, length, and spacing come from the manufacturer’s engineered charts or a site-specific design. If you exceed the published maximum for an unreinforced stack, stop and get qualified help.</p>
-
-      <h2>Drainage, geogrid, and base preparation</h2>
-      <p><strong>Drain the backfill: perforated pipe in clean stone, outlet to daylight, and compacted lifts—not clay dumped against the blocks.</strong> Water is the quiet load behind many wall failures.</p>
-      <p>Follow the block producer’s backfill spec. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped). A crooked base course telegraphs to the cap. For stone selection, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>; for patio-only thin bases, see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
-      <p>Base preparation deserves as much care as the visible face. Excavate to stable material, place angular gravel, and compact until the first course sits level (or correctly stepped on slopes). A crooked base course telegraphs all the way to the cap. For gravel selection intuition, read <a href="/guides/gravel-types-for-driveways/">gravel types for driveways</a>. For patio-only thin-layer bases (not wall backfill), see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base gravel and sand depth</a>.</p>
-      <p>Utilities, easements, and property lines also constrain walls. Call before you dig, and confirm that redirecting drainage won't send water onto a neighbor’s foundation.</p>
+      <p><strong>Call for engineered design when the wall exceeds the manufacturer’s gravity (unreinforced) chart, carries surcharge (driveway, slope, structure), sits on poor or wet soils, or your building department requires stamped drawings.</strong> Local height triggers vary—don't invent a legal cap from a blog rule of thumb.</p>
+      <p>If your project exceeds the published maximum for an unreinforced stack, stop shopping blocks and get qualified help.</p>
 
       <h2>Step-by-step</h2>
+      <p>Confirm height and permits first, then size blocks and trench with the calculator before you dig.</p>
       <ol>
         <li>Determine retained height, slope above/below, and any driveway or structure surcharge.</li>
         <li>Ask the building department whether the wall height or surcharge triggers a permit or engineering review.</li>
@@ -1335,10 +1334,7 @@ export const guideBodies: Record<string, string> = {
       <h2>Permits, utilities, and site checks</h2>
       <p>Many local codes treat taller retaining walls as engineered structures that need a permit, and surcharge from driveways, slopes, or buildings can trigger review earlier than a short garden edge. Call your building department before design, and schedule a utility locate before digging. Mark property lines, since walls near boundaries can raise drainage and access issues with neighbors. Where the soil is poor or the wall holds back water, a professional designer is worth the cost.</p>
 
-      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee.</p>
-
-      <p>If the wall is tall, surcharge-loaded, or on soft soil, stop shopping blocks and talk to someone who stamps drawings.</p>
-
+      <p>When the math is close, I buy the extra unit. Leftover material beats a second delivery fee. Size the order with the <a href="/calculators/retaining-wall-calculator/">retaining wall calculator for block count and base gravel</a>.</p>
 
       <h2>Sources</h2>
       <ul class="sources">

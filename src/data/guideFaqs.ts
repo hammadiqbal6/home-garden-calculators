@@ -329,7 +329,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How many retaining wall blocks do I need?",
-      "answer": "Divide wall length by block length and height by block height, multiply, then add waste. Example: 20 ft × 3 ft with 18×6 in face blocks → 84 blocks before waste (about 89 with 5%)."
+      "answer": "Blocks = ceil(wall height ÷ block height) × ceil(wall length ÷ block length), then add waste. Example: 20 ft × 3 ft with 18×6 in face blocks → 6 courses × 14 = 84 blocks before waste (about 89 with 5%). Use the retaining wall calculator for live counts."
     },
     {
       "question": "What are typical retaining wall block dimensions?",
@@ -337,7 +337,7 @@ export const guideFaqs: Record<string, GuideFaq[]> = {
     },
     {
       "question": "How deep should the gravel base be?",
-      "answer": "Manufacturer manuals vary. YardTally’s calculator planning default is about 6 in deep × 24 in wide of compacted gravel, not a universal code. Do not copy patio sand-bed depths behind retained soil."
+      "answer": "Manufacturer manuals vary. YardTally’s calculator planning default is about 6 in deep × 24 in wide of compacted gravel, not a universal code. Do not copy patio sand-bed depths behind retained soil. Refine trench stone with the gravel calculator."
     },
     {
       "question": "When do I need an engineer?",

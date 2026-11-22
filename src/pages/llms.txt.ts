@@ -39,8 +39,14 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Sonotube concrete calculator (bags by diameter)? → ${origin}/calculators/sonotube-concrete-calculator/
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
+- How much mulch for 100 sq ft at 2–3 inches? → ${origin}/guides/mulch-depth-guide/
+- What is volcano mulching / trunk clearance? → ${origin}/guides/mulch-depth-guide/
 - How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
-- What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
+- What is the 3-3-3 rule for mulch? → ${origin}/guides/mulch-depth-guide/
+- Best gravel for a driveway / dense grade? → ${origin}/guides/gravel-types-for-driveways/
+- How much gravel for a 12x50 driveway? → ${origin}/guides/gravel-types-for-driveways/
+- How many retaining wall blocks do I need? → ${origin}/guides/retaining-wall-blocks-and-base/
+- Can I use paver base under a retaining wall? → ${origin}/guides/retaining-wall-blocks-and-base/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/
 - How do I measure roof pitch? → ${origin}/guides/how-to-measure-roof-pitch/
@@ -66,7 +72,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - Modular brick ≈ 6.86 / sq ft with ⅜" joint (Glen-Gery); board feet = T × W × L ÷ 12 (softwood nominal)
 - BEHR interior: ~250–400 sq ft per gallon per coat
 - Roofing square = 100 sq ft; often ~3 bundles/square; IKO 6:12 factor 1.118; waste ~10–15%
-- Mulch beds: ~2–3 inches; Iowa PM 1072 cool-season seed rates in lb per 1,000 sq ft
+- Mulch beds: ~2–3 inches; 100 sq ft at 3" ≈ 25 cu ft (~13 × 2 cu ft bags); pull mulch 2–3" from trunks (no volcano)
+- Driveway gravel planning: angular dense grade + surface course; 12×50 at 4" ≈ 7.41 cu yd (~10 tons at 2,700 lb/yd³)
+- Retaining wall blocks: courses × per course; 20×3 ft with 18×6 in faces ≈ 84 blocks (~89 with 5%); trench ~24×6 in planning default
+- Iowa PM 1072 cool-season seed rates in lb per 1,000 sq ft
 
 ## Calculators
 

@@ -52,8 +52,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/
+- How much mulch for 100 sq ft at 2–3 inches? → ${origin}/guides/mulch-depth-guide/
+- What is volcano mulching / how far from the trunk? → ${origin}/guides/mulch-depth-guide/
 - How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
-- What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
+- What is the 3-3-3 rule for mulch? → ${origin}/guides/mulch-depth-guide/
 - How much will 25 bags of mulch cover? → ${origin}/calculators/mulch-calculator/
 - How much mulch for a 4x8 garden bed? → ${origin}/guides/mulch-for-common-garden-beds/
 - How many 2 cu ft and 3 cu ft bags of mulch? → ${origin}/calculators/mulch-calculator/
@@ -65,9 +67,13 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How to figure shingles for a roof? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - How many bundles in a square? → ${origin}/guides/how-to-estimate-roofing-shingles/
 - What is dense gravel / best gravel for a driveway? → ${origin}/guides/gravel-types-for-driveways/
+- How much gravel for a 12x50 driveway? → ${origin}/guides/gravel-types-for-driveways/
+- How do I convert driveway gravel to tons? → ${origin}/guides/gravel-types-for-driveways/
 - How much gravel for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - How much landscape fabric for a French drain? → ${origin}/calculators/french-drain-gravel-calculator/
 - Can I use paver base under a retaining wall? → ${origin}/guides/retaining-wall-blocks-and-base/
+- How many retaining wall blocks do I need? → ${origin}/guides/retaining-wall-blocks-and-base/
+- How deep should retaining wall gravel base be? → ${origin}/guides/retaining-wall-blocks-and-base/
 - Is a 12x16 deck material list the same as plans? → ${origin}/guides/deck-material-list-12x16/
 - How many boards for a 16x24 deck? → ${origin}/guides/deck-material-list-16x24/
 - How much asphalt do I need for a driveway? → ${origin}/calculators/asphalt-calculator/
@@ -111,15 +117,19 @@ Well-known alias: ${origin}/.well-known/llms.txt
 
 ### Mulch & lawn
 - Bed mulch depth: commonly about 2–3 inches organic (Clemson, UF/IFAS). Pull mulch 2–3 inches back from trunks (Mississippi State). UF/IFAS: about 108 sq ft per cubic yard at 3 inches; do not exceed 3 inches in beds.
+- Coverage (cu ft = area × depth_in/12): 100 sq ft at 3" = 25 cu ft ≈ 0.93 cu yd ≈ thirteen 2 cu ft bags; at 2" ≈ 16.7 cu ft ≈ nine bags. 500 sq ft at 3" = 125 cu ft ≈ 4.63 cu yd ≈ 63 bags. Depth + coverage guide: ${origin}/guides/mulch-depth-guide/
 - UVM Extension 3-3-3 tree mulch mnemonic: at least 3 inches from the trunk, no more than 3 inches deep, about 3 feet diameter (donut, not volcano). Source: https://www.uvm.edu/extension/news/beware-mulch-volcano
 - One cubic yard of concrete covers about 81 sq ft at 4 inches (27 ÷ 1/3). Three yards ≈ 243 sq ft at 4 inches.
 - IRMCA residential exterior flatwork: minimum 4 inches thickness; 5 inches where delivery vehicles / heavy loads expected. Source: https://irmca.org/file/640/Concrete%20Guide%20for%20Residential%20Exterior%20Flatwork.pdf
 - Iowa State PM 1072 new-lawn lb per 1,000 sq ft: KY bluegrass 1–1.5; 50/50 rye/bluegrass 3–3.5; tall fescue 7–9. Source: https://yardandgarden.extension.iastate.edu/files/inline-files/PM1072.pdf
 - Penn State watershed-friendly yard: about 2 lb N per 1,000 sq ft per growing season as a starting rate for many established lawns; Pennsylvania applications limited to 0.9 lb N per 1,000 per application. Sources: https://extension.psu.edu/spring-tips-for-a-watershed-friendly-yard ; https://www.pa.gov/agencies/pda/plants-land-water/fertilizer/homeowners-and-applicators
 
-### Gravel / French drain
+### Gravel / French drain / retaining walls
+- Driveway best practice: angular dense grade / crusher run base + stable angular surface course—not pea gravel alone. Planning depths are assumptions, not a design code. Guide: ${origin}/guides/gravel-types-for-driveways/
 - Flat pads: volume = L × W × depth; tons ≈ yards × (density lb/yd³ ÷ 2000); YardTally mid crushed-stone density ≈ 2,700 lb/yd³ (confirm with yard).
+- Example: 12×50 ft driveway at 4" ≈ 7.41 cu yd (~10.0 tons planning) before waste; at 6" ≈ 11.11 cu yd (~15.0 tons). Live: ${origin}/calculators/gravel-calculator/
 - French drain: gravel = trench volume − πr²L pipe cylinder; fabric wrap width ≈ W + 2D + overlap. Residential planning ranges often ~12–18 in wide × 18–24 in deep with ~4 in pipe (LSU AgCenter).
+- Retaining wall blocks: courses = ceil(H ÷ face height); per course = ceil(L ÷ face length). 20×3 ft with 18×6 in faces → 84 blocks (~89 with 5%); planning trench ~24 in wide × 6 in deep ≈ 0.74 cu yd base gravel. Guide: ${origin}/guides/retaining-wall-blocks-and-base/ ; live: ${origin}/calculators/retaining-wall-calculator/
 
 ### Asphalt, masonry, lumber, rebar
 - Compacted hot-mix asphalt planning density ≈ 145 lb/cu ft (FHWA WFL estimating practice; Iowa DOT mix properties). Tons = area × depth_ft × density ÷ 2,000.

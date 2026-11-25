@@ -61,8 +61,11 @@ From `MORE-IDEAS.md` / Meyerhans census / Calcwright. Prefer these before spinni
 
 | Add-on tool | Notes | Status |
 |---|---|---|
-| Stair stringer calculator | High-traffic competitor example (~19k est. visits); pairs with concrete steps | backlog |
-| Sod calculator | Landscape cluster; DR 11 sites rank | backlog |
+| Stair stringer calculator | High-traffic competitor example (~19k est. visits); pairs with concrete steps | backlog (concrete **steps volume** built) |
+| Sod calculator | Landscape cluster; DR 11 sites rank | **built** (`/calculators/sod-calculator/`) |
+| Concrete steps calculator | Poured stair solid-fill volume; GSC slab/Sonotube adjacent | **built** (`/calculators/concrete-steps-calculator/`) |
+| Paver base gravel calculator | Patio / wall-base gravel trench; pairs with paver + retaining wall | **built** (`/calculators/paver-base-calculator/`) |
+| Circular bed mulch calculator | Round planting beds; no cannibal of rectangular mulch | **built** (`/calculators/mulch-calculator-circular-beds/`) |
 | BTU / HVAC sizing helper | Home cluster; keep non-YMYL / disclaimer-heavy | backlog |
 | Metal roofing calculator | Extends roofing squares tool | backlog |
 | Grout calculator | Pairs with paver calculator | backlog |
@@ -76,7 +79,7 @@ From `MORE-IDEAS.md` / Meyerhans census / Calcwright. Prefer these before spinni
 | Firewood cord calculator | From homestead overlap (#22) | backlog |
 | Propane tank calculator | From homestead overlap (#22) | backlog |
 
-**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube + rebar), mulch (+ tree rings), gravel, French drain gravel, topsoil, sand, asphalt, pavers, fence, deck materials, lumber/board feet, roof pitch, roofing shingles/squares, paint, retaining wall blocks, brick/CMU, grass seed, fertilizer, raised bed soil.
+**Already shipping in this repo (not backlog):** concrete (slab/footing/steps + post holes + Sonotube + rebar + slab cost + deck footing), mulch (+ tree rings + circular beds), gravel, French drain gravel, paver base, topsoil, sand, asphalt, pavers, fence, deck materials, lumber/board feet + weight, roof pitch, roofing shingles/squares, paint, retaining wall blocks, brick/CMU, grass seed, sod, fertilizer, raised bed soil.
 
 ---
 

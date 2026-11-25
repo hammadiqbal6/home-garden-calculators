@@ -31,6 +31,7 @@ const badges = siteConfig.directoryBadges;
                     alt={badge.alt}
                     loading="lazy"
                     decoding="async"
+                    onerror="this.closest('.directory-badge')?.remove()"
                   />
                 </picture>
               ) : (
@@ -41,6 +42,7 @@ const badges = siteConfig.directoryBadges;
                   alt={badge.alt}
                   loading="lazy"
                   decoding="async"
+                  onerror="this.closest('.directory-badge')?.remove()"
                 />
               )
             }

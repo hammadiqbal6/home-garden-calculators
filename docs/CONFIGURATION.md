@@ -25,8 +25,8 @@ Do **not** put `PUBLIC_*` in top-level wrangler `vars` (breaks `npx wrangler pre
 | `PUBLIC_AUTHOR_NAME` | `Hammad Iqbal` | Bylines, About, Person schema |
 | `PUBLIC_AUTHOR_BIO` | _(honest maintainer bio; `{name}` expands)_ | Person / About bio |
 | `PUBLIC_AUTHOR_URL` | `https://github.com/hammadiqbal6` | Person `@id` |
-| `PUBLIC_AUTHOR_SAME_AS` | author URL | Comma-separated Person `sameAs` |
-| `PUBLIC_ORG_SAME_AS` | _(empty)_ | Comma-separated Organization `sameAs` |
+| `PUBLIC_AUTHOR_SAME_AS` | GitHub profile URL | Comma-separated Person `sameAs` (add real LinkedIn/X/etc. when available) |
+| `PUBLIC_ORG_SAME_AS` | same GitHub URL | Comma-separated Organization `sameAs` (owner supplies extra real profiles) |
 | `PUBLIC_THEME_COLOR` | `#1f6b4a` | `theme-color` meta, manifest |
 | `PUBLIC_BACKGROUND_COLOR` | `#f3f6f2` | Manifest `background_color` |
 | `PUBLIC_LOCALE` | `en-US` | `<html lang>` |
@@ -39,7 +39,7 @@ Do **not** put `PUBLIC_*` in top-level wrangler `vars` (breaks `npx wrangler pre
 | `PUBLIC_SITE_URL_PET` | pet-calculators…workers.dev | Sister origin |
 | `PUBLIC_SISTER_NAME_*` | FeeCalc / Docuklin / FiberCalc / PetCalc Tools | About sibling display names |
 | `PUBLIC_EMAILJS_*` | _(empty)_ | Contact form (see `docs/CONTACT-EMAILJS.md`) |
-| `PUBLIC_GA4_MEASUREMENT_ID` | _(set in `.env.example`)_ | Analytics |
+| `PUBLIC_GA4_MEASUREMENT_ID` | `G-N4VRDDEVLP` (hardcoded fallback) | GA4; unset still emits gtag via `DEFAULT_GA4_MEASUREMENT_ID` |
 | `PUBLIC_GSC_VERIFICATION` | _(current GSC token)_ | Search Console meta |
 | `PUBLIC_BING_SITE_VERIFICATION` | _(empty)_ | Bing meta |
 | `PUBLIC_INDEXNOW_KEY` / `INDEXNOW_KEY` | _(current key)_ | IndexNow |

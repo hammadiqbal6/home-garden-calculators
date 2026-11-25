@@ -1,3 +1,4 @@
+import { toolBodyVariants } from './toolBodyVariants';
 /**
  * Long-form HTML bodies for each calculator (unique copy per tool).
  * Kept separate from the registry for maintainability.
@@ -1229,4 +1230,5 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
       <p>Call the yard for washed drain rock (open-graded, not crusher-run fines) and ask what they stock near your pipe size. Grab the perforated pipe plus a couple of couplings and whatever fitting daylights the run. Cut geotextile to the wrap width this tool prints, or buy the next wider roll they sell. Do the 811 locate first. Stretch a slope string so the trench actually falls toward the outlet instead of becoming a long bathtub.</p>
       <p class="meta-row">Formulas are unit-tested TypeScript—see <a href="/methodology/">methodology</a> for sources, limits, and the correction log.</p>
   `,
+  ...toolBodyVariants,
 };

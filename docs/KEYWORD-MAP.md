@@ -13,13 +13,16 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/hubs/outdoor-structures/` | outdoor project calculator | fence deck roof calculators |
 | `/hubs/lawn/` | lawn calculator | grass seed fertilizer calculator |
 | `/calculators/concrete-calculator/` | concrete calculator | concrete slab calculator, how many bags of concrete, concrete calculator yards |
+| `/calculators/concrete-steps-calculator/` | concrete steps calculator | concrete stair calculator, how much concrete for steps, poured concrete steps calculator |
 | `/calculators/concrete-footing-calculator/` | concrete footing calculator | strip footing calculator, pad footing calculator, continuous footing calculator, how much concrete for a footing |
 | `/calculators/concrete-slab-cost-calculator/` | concrete slab cost calculator | concrete slab cost, cost of concrete slab, concrete patio cost calculator, ready mix concrete cost calculator |
 | `/calculators/concrete-calculator-post-holes/` | concrete calculator for post holes | fence post concrete calculator, how much concrete per fence post |
 | `/calculators/sonotube-concrete-calculator/` | sonotube concrete calculator | concrete tube calculator, concrete calculator for tubes, column concrete calculator, cardboard form calculator, how much concrete for sonotube |
 | `/calculators/mulch-calculator/` | how much mulch do I need | mulch calculator, mulch calculator bags, mulch calculator cubic yards, mulch bags vs bulk, how much will 25 bags of mulch cover, 3-3-3 rule for mulch |
+| `/calculators/mulch-calculator-circular-beds/` | circular mulch calculator | round garden bed mulch calculator, mulch for round beds |
 | `/calculators/mulch-calculator-tree-rings/` | mulch calculator for tree rings | tree ring mulch calculator, mulch around trees |
 | `/calculators/gravel-calculator/` | gravel calculator | crushed stone calculator, how much gravel |
+| `/calculators/paver-base-calculator/` | paver base calculator | paver base for retaining wall, gravel base for pavers, retaining wall gravel base calculator |
 | `/calculators/french-drain-gravel-calculator/` | french drain gravel calculator | french drain calculator, how much gravel for a french drain, french drain fabric calculator |
 | `/calculators/topsoil-calculator/` | topsoil calculator | soil calculator cubic yards |
 | `/calculators/sand-calculator/` | sand calculator | paver sand calculator |
@@ -31,13 +34,14 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 | `/calculators/roofing-shingles-calculator/` | roofing calculator | shingle estimator square feet, shingle estimator, shingle calculator, roofing squares calculator |
 | `/calculators/paint-calculator/` | paint calculator | how much paint do I need, room paint calculator |
 | `/calculators/retaining-wall-calculator/` | retaining wall calculator | retaining wall block calculator |
-| `/calculators/grass-seed-calculator/` | grass seed calculator | grass seed per 1000 sq ft, overseeding calculator |
+| `/calculators/grass-seed-calculator/` | grass seed calculator | grass seed per 1000 sq ft, overseeding calculator, grass seed density |
+| `/calculators/sod-calculator/` | sod calculator | how much sod do I need, sod pallet calculator, lawn sod calculator |
 | `/calculators/fertilizer-calculator/` | fertilizer calculator | lawn fertilizer calculator |
 | `/calculators/raised-bed-soil-calculator/` | raised bed soil calculator | garden box soil calculator |
-| `/calculators/asphalt-calculator/` | asphalt calculator | asphalt driveway calculator, how much asphalt do I need, asphalt tons calculator |
-| `/calculators/brick-calculator/` | brick calculator | how many bricks do I need, concrete block calculator, CMU calculator, cinder block calculator |
-| `/calculators/lumber-calculator/` | lumber calculator | board feet calculator, how many board feet, what is a board foot, how much lumber do I need, lumber weight calculator, 2x4 weight |
-| `/guides/lumber-weight-chart/` | lumber weight chart | 2x4 weight, 2x4 weight per foot, how much does a 2x4x8 weigh, lumber weight per foot, pressure treated lumber weight |
+| `/calculators/asphalt-calculator/` | asphalt calculator | asphalt driveway calculator, how much asphalt do I need, asphalt tons calculator, blacktop calculator |
+| `/calculators/brick-calculator/` | brick calculator | brick estimator, how many bricks do I need, concrete block calculator, CMU calculator, cinder block calculator |
+| `/calculators/lumber-calculator/` | lumber calculator | board feet calculator, how many board feet, what is a board foot, how much lumber do I need, lumber weight calculator, dimensional lumber weight calculator, dimensional lumber weight per foot, square foot lumber calculator, 2x4 weight |
+| `/guides/lumber-weight-chart/` | lumber weight chart | 2x4 weight, 2x4 weight per foot, how much does a 2x4x8 weigh, lumber weight per foot, dimensional lumber weight per foot, pressure treated lumber weight |
 | `/calculators/rebar-calculator/` | rebar calculator | how much rebar for a slab, concrete slab rebar, rebar spacing calculator, rebar for 20x20 slab |
 | `/guides/how-much-concrete-for-fence-posts/` | how much concrete for fence posts | bags of concrete for fence posts |
 | `/guides/mulch-depth-guide/` | mulch depth | how deep should mulch be, mulch depth for gardens |
@@ -70,7 +74,10 @@ Governing research: [MARKET-RESEARCH.md](./MARKET-RESEARCH.md), [SEO-PLAYBOOK.md
 ## Cannibalization rules
 
 - Post holes and Sonotube are **separate intents** (fence holes vs form tubes)—keep separate pages.
-- Main concrete calculator targets **slabs/steps** (and generic rectangular volume)—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors.
+- Main concrete calculator targets **slabs** (and generic rectangular volume)—do not mention post holes/Sonotubes in its title or meta description; link out with exact-match anchors. **Solid poured steps** live on `/calculators/concrete-steps-calculator/` (link from the slab tool; do not clone doorway stair sizes).
+- **Paver base quantity** (patio pad / retaining-wall gravel trench) ≠ flat **gravel calculator** primary ≠ **French drain** trench-minus-pipe ≠ **paver piece count** ≠ base **depth** guide.
+- **Circular bed mulch** ≠ rectangular bed mulch ≠ tree-ring donut.
+- **Sod rolls/pallets** ≠ grass **seed** lb/1,000 (keep separate URLs).
 - Strip/pad **footing volume** is a distinct intent from slab volume—keep `/calculators/concrete-footing-calculator/`; do not clone doorway size URLs (e.g. `/16-inch-footing-calculator/`).
 - Slab **cost** (`/calculators/concrete-slab-cost-calculator/`) is separate from slab **volume** (`/calculators/concrete-calculator/`)—do not merge; cost page must use user-entered prices only (no invented market rates).
 - Rebar is a **separate intent** from concrete volume—keep `/calculators/rebar-calculator/`; do **not** launch a second slab-volume URL under a rebar slug.

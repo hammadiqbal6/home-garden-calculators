@@ -43,10 +43,9 @@ const canonicalTool = absoluteUrl(`/calculators/${tool.slug}/`);
     <h1 style="font-size:1.25rem;margin:0 0 0.75rem">{tool.h1}</h1>
     <Calculator calculatorId={tool.calculatorId} embed />
     <p class="credit">
-      Powered by
-      <a href={canonicalTool} target="_blank" rel="nofollow noopener">{siteConfig.name}</a>
+      <a href={canonicalTool} target="_blank" rel="noopener">Calculator by {siteConfig.name}</a>
       ·
-      <a href={`${siteConfig.siteUrl}/about/`} target="_blank" rel="nofollow noopener"
+      <a href={`${siteConfig.siteUrl}/about/`} target="_blank" rel="noopener"
         >{siteConfig.author.name}</a
       >
     </p>

@@ -2,7 +2,7 @@
 
 Production-ready **static** website of free DIY / landscaping material calculators. Built to rank in Google, be citable by AI search, pass AdSense review, and stay fast on mobile.
 
-**Brand:** YardTally · **Site:** https://getyardtally.com · **Config:** [`src/config/site.ts`](src/config/site.ts)  
+**Brand:** YardTally · **Live site:** [https://getyardtally.com](https://getyardtally.com) · **Config:** [`src/config/site.ts`](src/config/site.ts)  
 **Governing research:** [`docs/SEO-PLAYBOOK.md`](docs/SEO-PLAYBOOK.md) · [`docs/MARKET-RESEARCH.md`](docs/MARKET-RESEARCH.md) · [`docs/ideas/README.md`](docs/ideas/README.md)  
 **Living growth tracker:** [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md) (update Done/Remaining in the **same PR** as every change)
 
@@ -12,41 +12,32 @@ Production-ready **static** website of free DIY / landscaping material calculato
 
 Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md).
 
-### Done (as of 2026-11-22)
+### Done (as of 2026-11-25)
 
-- **Durable SEO agent rules (this PR):** [`.cursor/rules/seo.mdc`](.cursor/rules/seo.mdc) + [`.cursor/skills/add-seo-page/SKILL.md`](.cursor/skills/add-seo-page/SKILL.md); AGENTS.md §5 expanded (titles ≤60 branded, cannibalization/301 merges, inbound-link minimums, AI Overview answer-under-H2, no hard-coded counts). **After every deploy:** run IndexNow (`npm run indexnow` — all sitemap URLs, including new pages and redirect targets; do not change the key) and GSC Request indexing for changed pages.
-- **SEO title/H1/meta rewrite (this PR):** All hubs, calculators, guides, and about/contact/methodology titles ≤48 chars without brand (`formatPageTitle` → ≤60 branded). Concrete calculator titled for top query **concrete slab calculator**. Priority FAQs expanded. Home lead has exact-match popular anchors + ItemList; 10×10 guide adds 12×12/20×20 sections (no new URLs).
-- **Mulch guide merge + weak-page links (this PR):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/` (3-3-3, 25-bag coverage, bags vs bulk); **301** in `public/_redirects` + `PATH_ALIAS_REDIRECTS`; KEYWORD-MAP / llms retargeted. **Kept** `/guides/mulch-depth-guide/` (AI Overview exemplar). Strengthened inbound links for weakly linked pages.
-- **Lumber weight + chart guide (this PR):** `/calculators/lumber-calculator/` now estimates planning weight (dressed section × Wood Handbook density presets) alongside board feet—no separate weight-calculator URL. New `/guides/lumber-weight-chart/` with SPF / Doug fir / southern pine tables; KEYWORD-MAP + llms Q→URL updated.
-- **Agathox ownership verification:** `<meta name="agathox-verification" …>` in `BaseLayout` + `public/.well-known/agathox-verification.txt` (exact token). Worker already serves `.txt` without trailing-slash redirect (`FILE_EXT`); no CSP/consent changes.
-- Concrete calculator upgrade: optional bag/ready-mix cost inputs (user-entered prices), round order up to ¼ yd.
-- Gravel/topsoil/sand/mulch upgrade: tons↔yards both ways, bag vs bulk cost compare with user-entered prices.
-- **Concrete slab cost calculator** (`/calculators/concrete-slab-cost-calculator/`): volume × user ready-mix or bag prices + optional gravel/rebar/forms/delivery/labor; example defaults labeled, not market facts.
-- Technical SEO baseline: IndexNow, GSC/Bing verified, sitemap `/sitemap.xml` → `/sitemap-index.xml` **301**, embed `noindex` + tool canonical, trust/embed widgets (PRs #28–#31).
-- Homepage links **all** calculators; hubs cross-link related materials; stronger internal links for previously weak tools/guides; `npm run audit:indexing` guards sitemap self-canonicals / noindex / redirect aliases.
-- **Deck footing calculator** (`/calculators/deck-footing-calculator/`): deck size + beam/post spacing → footing count, frost-depth hole size, concrete per pier / total, bags, optional Sonotube diameter; links to Sonotube tool.
-- **Concrete footing calculator** (`/calculators/concrete-footing-calculator/`): strip/pad volume, waste %, 40/60/80 lb bags, optional rebar estimate.
-- **PAA guides:** `/guides/concrete-slab-thickness/`, `/guides/how-much-concrete-do-i-need/`, `/guides/sonotube-footing-and-depth/` (mulch PAA merged into mulch calculator).
-- TinyLaunch **approved**, launch **2026-12-07** (https://tinylaunch.com/launch/30955); footer badge via `PUBLIC_DIRECTORY_BADGES` in Workers Builds.
-- YardTally `r/SideProject` launch post exists (do not mark removed unless verified).
-- **Sonotube calculator upgrade (this PR):** optional bell/pad footing, mixed tube sizes, bags50 + bags-per-foot table (8–36″), FAQ/body/HowTo refresh, `dateModified` 2026-11-19.
-- **CI / build speed:** `npm ci --prefer-offline --no-audit --fund=false`, Astro/Vite cache, parallel build+test, docs-only path skip (required check still reports), Playwright Chromium cache on Full checks; `.npmrc` speeds Workers Builds installs.
-- **This PR:** gravel / topsoil / sand / mulch calculators — tons↔yards both ways, optional convertTons, 0.5 cu ft (bulk) or 2/3 cu ft (mulch) bag counts, optional local price fields for bag-vs-bulk cost compare (no invented prices).
-- **French drain gravel calculator** (`/calculators/french-drain-gravel-calculator/`): trench − pipe gravel yards/tons, fabric wrap area, pipe length; linked from gravel + retaining-wall tools.
-- **Human writing rewrite:** all `guideBodies.ts` + `toolBodies.ts` rewritten to practitioner voice per [`docs/WRITING-GUIDE.md`](docs/WRITING-GUIDE.md); local AI detector (`npm run audit:ai-detect`) with scores in [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) (target AI &lt; 30%).
+- **SEO authority + GSC variants (this PR):** Advanced Consent Mode v2 (always-load gtag, denied defaults, Accept grant / Reject denied; `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Person/Org `sameAs` defaults to real GitHub. Additive tools: concrete steps, sod, paver base, circular-bed mulch. Brick/lumber/lawn FAQ + hub/home thicken; stronger inbound to GSC impression pages. Privacy/terms `noindex,follow` + sitemap exclude. Directory badge / calculator console guards. **Embed credit:** visible dofollow “Calculator by YardTally” → canonical tool URL (snippet + embed page).
+- Prior: durable SEO agent rules; title/H1 rewrite; mulch quantity merge into calculator; lumber weight on lumber calculator + weight chart guide; Agathox verification; slab/footing/deck-footing/French-drain/Sonotube upgrades; homepage grid + indexing audit; PAA guides; human-writing rewrite; TinyLaunch approved (launch 2026-12-07).
+
+## Embed this calculator
+
+Live site: [https://getyardtally.com](https://getyardtally.com)
+
+Every embeddable tool on the site has an **Embed this calculator** box. Copy the iframe + keep the credit link so the widget points back to the matching calculator:
+
+```html
+<iframe src="https://getyardtally.com/embed/concrete-calculator/" title="Concrete Calculator – YardTally" width="100%" height="640" loading="lazy" style="border:0;border-radius:8px;max-width:100%"></iframe>
+<p style="font-size:12px;margin-top:8px"><a href="https://getyardtally.com/calculators/concrete-calculator/" target="_blank" rel="noopener">Calculator by YardTally</a></p>
+```
+
+Replace `concrete-calculator` with any embeddable slug (see the tool list below). The live embed UI shows the same credit.
 
 ### Remaining
 
-- **After deploy (do not run from agents pre-deploy):** `npm run indexnow` (all sitemap URLs — mulch calculator redirect target, lumber calculator + weight chart, AI-exemplar guides, weak-link pages, prior tools) **and** GSC URL Inspection → Request indexing / validate redirect + discovered-not-indexed buckets. IndexNow key unchanged.
-- After deploy: confirm Agathox ownership (meta + `/.well-known/agathox-verification.txt`); record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
-- `PUBLIC_BING_SITE_VERIFICATION`, author/`sameAs` env vars still unset; editorial backlinks still essentially none.
-- **Reddit promotion paused** (2026-11-19): new account (`u/ihammadiqbal117`, ~1 karma) hit site-wide filter on Docuklin posts/comments — build karma with link-free helpful comments before posting again.
-- GA4 Consent Mode measurement gap; AdSense still in “Getting ready”; more directory submissions / embed outreach.
-- Closely related **variants of tools that already get impressions** (beyond this Sonotube upgrade).
-- Optional follow-up: dashboard-only Workers Builds tweaks (not in-repo) if install still dominates deploy time.
-- Other closely related tool variants (stair stringer, sod, etc.) still in the ideas backlog.
-- Other impression-adjacent tool variants beyond the footing calculator still open.
-- Closely related tool variants beyond French drain (see `docs/GROWTH-STATUS.md` Remaining).
+- **After deploy (do not run from agents pre-deploy):** `npm run indexnow` (all sitemap URLs including new variants) **and** GSC URL Inspection → Request indexing / validate discovered-not-indexed + redirect/noindex buckets. IndexNow key unchanged.
+- After deploy: confirm Agathox ownership; record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
+- Optional real LinkedIn/X/Product Hunt `sameAs` via env only; `PUBLIC_BING_SITE_VERIFICATION` still unset; editorial backlinks still essentially none.
+- **Reddit promotion paused** (2026-11-19): build karma with link-free helpful comments before posting again.
+- AdSense still in “Getting ready”; more directory submissions / embed outreach.
+- Further impression-adjacent variants (e.g. stair **stringer**) still in `docs/ideas/README.md` — do not split lumber-weight or CMU URLs.
 - Re-score bodies with `npm run audit:ai-detect` when copy changes; keep [`docs/ai-detect-scores.md`](docs/ai-detect-scores.md) in sync (not part of CI).
 
 ---

@@ -29,9 +29,12 @@ import {
   roofPitch,
   sandVolume,
   slabVolume,
+  circularBedMulch,
   concreteCostCompare,
   mixedSonotubeVolume,
   roundUpToQuarterYard,
+  sodNeeded,
+  stepsVolume,
   topsoilVolume,
   treeRingMulch,
 } from '../lib/calculators';
@@ -133,6 +136,13 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'priceBag80', label: 'Price per 80 lb bag (optional)', value: '0', hint: 'your local price' },
     { name: 'priceYd', label: 'Ready-mix price per cu yd (optional)', value: '0', hint: 'your quote' },
     { name: 'delivery', label: 'Delivery fee (optional)', value: '0', hint: 'one-time fee' },
+  ],
+  'concrete-steps': [
+    { name: 'width', label: 'Stair width', value: '3', hint: 'feet' },
+    { name: 'steps', label: 'Number of steps', value: '3' },
+    { name: 'riser', label: 'Riser', value: '7', hint: 'inches' },
+    { name: 'tread', label: 'Tread', value: '11', hint: 'inches' },
+    { name: 'waste', label: 'Waste %', value: '10' },
   ],
   'post-holes': [
     { name: 'diameter', label: 'Hole diameter', value: '10', hint: 'inches' },
@@ -243,6 +253,11 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'waste', label: 'Waste %', value: '5' },
   ],
   mulch: [...dims('20', '5', 'Depth', '3', 'inches'), ...mulchPriceFields()],
+  'circular-mulch': [
+    { name: 'diameter', label: 'Bed diameter', value: '8', hint: 'feet' },
+    { name: 'depth', label: 'Depth', value: '3', hint: 'inches' },
+    ...mulchPriceFields(),
+  ],
   'tree-ring-mulch': [
     { name: 'outer', label: 'Outer ring diameter', value: '6', hint: 'feet' },
     { name: 'trunk', label: 'Trunk / keep-out diameter', value: '1', hint: 'feet' },
@@ -252,6 +267,31 @@ export const ssrFields: Record<string, SsrField[]> = {
     ...dims('20', '10', 'Depth', '4', 'inches'),
     { name: 'waste', label: 'Waste / compaction %', value: '10' },
     ...bulkPriceFields(),
+  ],
+  'paver-base': [
+    ...dims('20', '4', 'Compacted base depth', '6', 'inches'),
+    { name: 'waste', label: 'Compaction / waste %', value: '10' },
+    {
+      name: 'convertTons',
+      label: 'Convert tons → yards (optional)',
+      value: '',
+      hint: 'leave blank to skip',
+      optional: true,
+    },
+    {
+      name: 'pricePerYard',
+      label: 'Price per cu yd (optional)',
+      value: '',
+      hint: 'your local quote',
+      optional: true,
+    },
+    {
+      name: 'pricePerTon',
+      label: 'Price per ton (optional)',
+      value: '',
+      hint: 'your local quote',
+      optional: true,
+    },
   ],
   'french-drain': [
     { name: 'length', label: 'Trench length', value: '40', hint: 'feet' },
@@ -319,6 +359,13 @@ export const ssrFields: Record<string, SsrField[]> = {
     { name: 'blockL', label: 'Block face length', value: '18', hint: 'inches' },
     { name: 'blockH', label: 'Block face height', value: '6', hint: 'inches' },
     { name: 'waste', label: 'Waste %', value: '5' },
+  ],
+  sod: [
+    { name: 'length', label: 'Lawn length', value: '50', hint: 'feet' },
+    { name: 'width', label: 'Lawn width', value: '20', hint: 'feet' },
+    { name: 'waste', label: 'Waste / cut %', value: '5' },
+    { name: 'piece', label: 'Sq ft per roll / piece', value: '10', hint: 'supplier coverage' },
+    { name: 'pallet', label: 'Sq ft per pallet', value: '450', hint: 'supplier coverage' },
   ],
   'grass-seed': [
     { name: 'length', label: 'Lawn length', value: '50', hint: 'feet' },
@@ -534,6 +581,34 @@ function mulchRows(r: ReturnType<typeof bedMulch>): [string, string][] {
   return rows;
 }
 
+const stepsDefault = stepsVolume({
+  numberOfSteps: 3,
+  riser: 7,
+  tread: 11,
+  width: 3,
+  riserUnit: 'in',
+  treadUnit: 'in',
+  widthUnit: 'ft',
+  wasteFactor: 0.1,
+});
+const circularMulchDefault = circularBedMulch({
+  diameter: 8,
+  depthInches: 3,
+});
+const paverBaseDefault = gravelVolume({
+  length: 20,
+  width: 4,
+  depthInches: 6,
+  wasteFactor: 0.1,
+  densityLbPerCuYd: 2700,
+});
+const sodDefault = sodNeeded({
+  length: 50,
+  width: 20,
+  wastePercent: 5,
+  sqFtPerPiece: 10,
+  sqFtPerPallet: 450,
+});
 const concreteDefault = slabVolume({
   length: 10,
   width: 10,
@@ -714,6 +789,7 @@ const slabCostDefault = concreteSlabCost({
 
 export const defaultResultRows: Record<string, [string, string][]> = {
   concrete: concreteRows(concreteDefault, true),
+  'concrete-steps': concreteRows(stepsDefault),
   'post-holes': concreteRows(postHolesDefault),
   sonotube: [
     ['Volume', `${sonotubeDefault.volumeCuFt} cu ft`],
@@ -730,6 +806,7 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ...concreteRows(footingDefault),
   ],
   mulch: mulchRows(mulchDefault),
+  'circular-mulch': mulchRows(circularMulchDefault),
   'deck-footings': [
     ['Footings (posts)', String(deckFootingsDefault.footingCount)],
     ['Posts along length', String(deckFootingsDefault.postsAlong)],
@@ -761,6 +838,14 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['3 cu ft bags', String(treeRingDefault.bags3CuFt)],
   ],
   gravel: bulkRows(gravelDefault),
+  'paver-base': [
+    ['Area', `${paverBaseDefault.areaSqFt} sq ft`],
+    [
+      'Volume',
+      `${paverBaseDefault.volumeCuFt} cu ft (${paverBaseDefault.volumeCuYd} cu yd / ${paverBaseDefault.volumeCuM} m³)`,
+    ],
+    ['Est. tons', String(paverBaseDefault.tons)],
+  ],
   'french-drain': [
     ['Pipe length', `${frenchDrainDefault.pipeLengthFt} ft`],
     [
@@ -833,6 +918,12 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Blocks', String(wallDefault.blocks)],
     ['Blocks with waste', String(wallDefault.blocksWithWaste)],
     ['Base gravel', `${wallDefault.baseGravelCuYd} cu yd`],
+  ],
+  sod: [
+    ['Lawn area', `${sodDefault.areaSqFt} sq ft (${sodDefault.areaSqM} m²)`],
+    ['Area with waste', `${sodDefault.areaWithWasteSqFt} sq ft`],
+    ['Rolls / pieces', String(sodDefault.pieces)],
+    ['Pallets', String(sodDefault.pallets)],
   ],
   'grass-seed': [
     ['Area', `${seedDefault.areaSqFt} sq ft (${seedDefault.areaSqM} m²)`],

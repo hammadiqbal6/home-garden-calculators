@@ -38,6 +38,8 @@ import {
   stepsVolume,
   topsoilVolume,
   treeRingMulch,
+  circularBedMulch,
+  sodNeeded,
   asphaltTons,
   concreteSlabCost,
   formatUsd,
@@ -276,6 +278,14 @@ describe('mulch', () => {
     expect(() =>
       treeRingMulch({ outerDiameter: 2, trunkDiameter: 3, depthInches: 3 }),
     ).toThrow();
+  });
+
+  it('circular bed mulch uses π r² × depth', () => {
+    const r = circularBedMulch({ diameter: 8, depthInches: 3 });
+    const area = Math.PI * 16;
+    expect(r.areaSqFt).toBeCloseTo(area, 2);
+    expect(r.volumeCuFt).toBeCloseTo(area * 0.25, 2);
+    expect(r.bags2CuFt).toBe(Math.ceil((area * 0.25) / 2));
   });
 });
 
@@ -573,6 +583,20 @@ describe('roof / paint / wall / lawn', () => {
   it('raised bed soil volume', () => {
     const r = raisedBedSoil({ length: 8, width: 4, depthInches: 12 });
     expect(r.volumeCuFt).toBe(32);
+  });
+
+  it('sod area with waste rounds pieces and pallets up', () => {
+    const r = sodNeeded({
+      length: 50,
+      width: 20,
+      wastePercent: 5,
+      sqFtPerPiece: 10,
+      sqFtPerPallet: 450,
+    });
+    expect(r.areaSqFt).toBe(1000);
+    expect(r.areaWithWasteSqFt).toBe(1050);
+    expect(r.pieces).toBe(105);
+    expect(r.pallets).toBe(3);
   });
 });
 

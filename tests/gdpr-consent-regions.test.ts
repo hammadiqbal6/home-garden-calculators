@@ -95,14 +95,16 @@ describe('BaseLayout GA4 consent gating', () => {
     const configCall = layout.indexOf("gtag('config', gaId");
     expect(loadFn).toBeGreaterThan(-1);
     expect(configCall).toBeGreaterThan(loadFn);
-    // No idle/interaction prefetch outside CMP — wait for Accept / prior Accept.
-    expect(layout).not.toMatch(/pointerdown.*__ycLoadGa|setTimeout\(window\.__ycLoadGa/);
+    // Advanced Consent Mode: scheduleGa always calls __ycLoadGa (denied defaults).
+    expect(layout).toMatch(/function scheduleGa\(\)[\s\S]*__ycLoadGa\(\)/);
   });
 
-  it('grants consent before first load and re-sends page_view if already configured', () => {
+  it('always loads gtag under denied defaults; grant updates consent and sends page_view', () => {
     expect(layout).toContain("gtag('event', 'page_view'");
-    expect(layout).toMatch(/if \(configured\)[\s\S]*__ycSendPageView[\s\S]*else[\s\S]*__ycLoadGa/);
+    expect(layout).toContain('window.__ycDenyConsent');
+    expect(layout).toMatch(/__ycGrantConsent[\s\S]*consent', 'update'[\s\S]*__ycLoadGa\(\)[\s\S]*__ycSendPageView/);
     expect(layout).toMatch(/getItem\(['"]yc_cookie_ok['"]\)/);
     expect(layout).toMatch(/v === ['"]1['"]/);
+    expect(layout).toMatch(/v === ['"]0['"]/);
   });
 });

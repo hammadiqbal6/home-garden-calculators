@@ -29,6 +29,7 @@ const jsonLd = [
   title="Privacy Policy: Cookies & Ads"
   description={`${siteConfig.name} privacy policy: calculators run in your browser; cookies, Google AdSense and GA4 disclosures, and how to opt out of personalized ads.`}
   canonicalPath="/privacy/"
+  robots="noindex, follow"
   jsonLd={jsonLd}
 >
   <Breadcrumbs items={[{ name: 'Home', href: '/' }, { name: 'Privacy' }]} />
@@ -58,12 +59,13 @@ const jsonLd = [
     <h2>Cookies, analytics, and advertising</h2>
     <p>
       We may use Google Analytics 4 to understand aggregate traffic. Consent Mode v2 defaults keep
-      <code>analytics_storage</code> and ad-related storage denied until consent is granted. In the EEA, UK,
-      and Switzerland those defaults are region-scoped and stay denied until Google’s certified CMP updates
-      consent; the GA script may load there with storage denied so Consent Mode can operate. Elsewhere, the
-      GA script loads only after you Accept the site cookie bar (or on later visits if you already accepted),
-      and then a page view is sent. Third-party vendors, including Google, may use cookies to serve ads based
-      on a user’s prior visits to this or other websites when Google AdSense is enabled.
+      <code>analytics_storage</code> and ad-related storage denied until consent is granted. The GA
+      <code>gtag.js</code> tag may load with those denied defaults (Advanced Consent Mode / cookieless pings)
+      so measurement can operate without storing analytics cookies until you grant consent. In the EEA, UK,
+      and Switzerland those defaults are also region-scoped and stay denied until Google’s certified CMP
+      updates consent. Elsewhere, Accept on the site cookie bar grants storage and sends a page view; Reject
+      keeps storage denied. Third-party vendors, including Google, may use cookies to serve ads based on a
+      user’s prior visits to this or other websites when Google AdSense is enabled.
     </p>
     <h2>Which consent tool applies</h2>
     <p>
@@ -76,8 +78,8 @@ const jsonLd = [
     </p>
     <p>
       <strong>Other regions:</strong> the site shows a small first-party cookie notice (Accept / Reject).
-      Accept grants analytics and ad-storage Consent Mode signals, loads the GA script if needed, and sends a
-      page view. Reject keeps them denied without loading the tag. Google’s European regulations CMP message
+      Accept grants analytics and ad-storage Consent Mode signals and sends a page view. Reject keeps storage
+      denied (the tag may still be present under denied defaults). Google’s European regulations CMP message
       is not used outside the EEA, UK, and Switzerland.
     </p>
     <p>

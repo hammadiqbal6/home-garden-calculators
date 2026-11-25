@@ -324,7 +324,7 @@ console.log(
   'Page with redirect: intentional 301 aliases (about-us, contact-us, privacy-policy, terms-of-service, sitemap.xml, authors, old guide slug, /calculators/*/embed/). Not in sitemap; validate in GSC after crawl.',
 );
 console.log(
-  'Excluded by noindex: /embed/*/ (+ /404.html). Intentional; canonical on embeds points at the tool page.',
+  'Excluded by noindex: /embed/*/ (+ /404.html, /privacy/, /terms/). Intentional; privacy/terms match sister-site noindex,follow and stay out of the sitemap; embeds canonicalize to the tool page.',
 );
 console.log(
   'Alternate page with proper canonical: embed URLs that canonicalize to /calculators/<slug>/. Intentional.',

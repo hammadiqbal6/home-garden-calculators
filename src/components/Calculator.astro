@@ -96,6 +96,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     asphaltTons,
     concreteCostCompare,
     bedMulch,
+    circularBedMulch,
     deckFootings,
     concreteSlabCost,
     deckMaterials,
@@ -123,6 +124,7 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
     sandVolume,
     slabVolume,
     mixedSonotubeVolume,
+    sodNeeded,
     stepsVolume,
     topsoilVolume,
     treeRingMulch,
@@ -469,6 +471,49 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ]);
         }
         return rows;
+      },
+    },
+    'concrete-steps': {
+      fields: [
+        {
+          name: 'width',
+          label: 'Stair width',
+          imperialDefault: '3',
+          metricDefault: '0.9',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'steps', label: 'Number of steps', imperialDefault: '3', metricDefault: '3' },
+        {
+          name: 'riser',
+          label: 'Riser',
+          imperialDefault: '7',
+          metricDefault: '18',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'tread',
+          label: 'Tread',
+          imperialDefault: '11',
+          metricDefault: '28',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Waste %', imperialDefault: '10', metricDefault: '10' },
+      ],
+      compute(v, u) {
+        const r = stepsVolume({
+          numberOfSteps: v.steps,
+          riser: v.riser,
+          tread: v.tread,
+          width: v.width,
+          riserUnit: smallLengthUnit(u),
+          treadUnit: smallLengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wasteFactor: v.waste / 100,
+        });
+        return resultRows(r);
       },
     },
     'post-holes': {
@@ -952,6 +997,55 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
         return mulchResultRows(r);
       },
     },
+    'circular-mulch': {
+      fields: [
+        {
+          name: 'diameter',
+          label: 'Bed diameter',
+          imperialDefault: '8',
+          metricDefault: '2.4',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Depth',
+          imperialDefault: '3',
+          metricDefault: '7.5',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        {
+          name: 'pricePerYard',
+          label: 'Price per cu yd (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'your local quote',
+          metricHint: 'your local quote',
+          optional: true,
+        },
+        {
+          name: 'pricePerBag',
+          label: 'Price per bag (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: '2 or 3 cu ft bag price',
+          metricHint: '2 or 3 cu ft bag price',
+          optional: true,
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const r = circularBedMulch({
+          diameter: v.diameter,
+          depthInches,
+          diameterUnit: lengthUnit(u),
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerBag: v.pricePerBag > 0 ? v.pricePerBag : undefined,
+        });
+        return mulchResultRows(r);
+      },
+    },
     'tree-ring-mulch': {
       fields: [
         {
@@ -996,6 +1090,85 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
       },
     },
     gravel: bulkConfig('gravel'),
+    'paver-base': {
+      fields: [
+        {
+          name: 'length',
+          label: 'Length (or wall run)',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Width (or base trench width)',
+          imperialDefault: '4',
+          metricDefault: '1.2',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'depth',
+          label: 'Compacted base depth',
+          imperialDefault: '6',
+          metricDefault: '15',
+          imperialHint: 'inches',
+          metricHint: 'cm',
+        },
+        { name: 'waste', label: 'Compaction / waste %', imperialDefault: '10', metricDefault: '10' },
+        {
+          name: 'convertTons',
+          label: 'Convert tons → yards (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'leave blank to skip',
+          metricHint: 'leave blank to skip',
+          optional: true,
+        },
+        {
+          name: 'pricePerYard',
+          label: 'Price per cu yd (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'your local quote',
+          metricHint: 'your local quote',
+          optional: true,
+        },
+        {
+          name: 'pricePerTon',
+          label: 'Price per ton (optional)',
+          imperialDefault: '',
+          metricDefault: '',
+          imperialHint: 'your local quote',
+          metricHint: 'your local quote',
+          optional: true,
+        },
+      ],
+      compute(v, u) {
+        const depthInches = u === 'imperial' ? v.depth : v.depth / 2.54;
+        const r = gravelVolume({
+          length: v.length,
+          width: v.width,
+          depthInches,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wasteFactor: v.waste / 100,
+          convertTons: v.convertTons > 0 ? v.convertTons : undefined,
+          pricePerYard: v.pricePerYard > 0 ? v.pricePerYard : undefined,
+          pricePerTon: v.pricePerTon > 0 ? v.pricePerTon : undefined,
+        });
+        const rows: [string, string][] = [
+          ['Area', `${r.areaSqFt} sq ft`],
+          ['Volume', `${r.volumeCuFt} cu ft (${r.volumeCuYd} cu yd / ${r.volumeCuM} m³)`],
+        ];
+        if (r.tons != null) rows.push(['Est. tons', String(r.tons)]);
+        if (r.yardsFromTons != null) rows.push(['Yards from tons', String(r.yardsFromTons)]);
+        if (r.costYards != null) rows.push(['Bulk cost (by yard)', `$${r.costYards}`]);
+        if (r.costTons != null) rows.push(['Bulk cost (by ton)', `$${r.costTons}`]);
+        return rows;
+      },
+    },
     topsoil: bulkConfig('topsoil'),
     sand: bulkConfig('sand'),
     paver: {
@@ -1373,6 +1546,60 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
           ['Blocks', String(r.blocks)],
           ['Blocks with waste', String(r.blocksWithWaste)],
           ['Base gravel', `${r.baseGravelCuYd} cu yd`],
+        ];
+      },
+    },
+    sod: {
+      fields: [
+        {
+          name: 'length',
+          label: 'Lawn length',
+          imperialDefault: '50',
+          metricDefault: '15',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        {
+          name: 'width',
+          label: 'Lawn width',
+          imperialDefault: '20',
+          metricDefault: '6',
+          imperialHint: 'feet',
+          metricHint: 'meters',
+        },
+        { name: 'waste', label: 'Waste / cut %', imperialDefault: '5', metricDefault: '5' },
+        {
+          name: 'piece',
+          label: 'Sq ft per roll / piece',
+          imperialDefault: '10',
+          metricDefault: '10',
+          imperialHint: 'supplier coverage',
+          metricHint: 'supplier coverage',
+        },
+        {
+          name: 'pallet',
+          label: 'Sq ft per pallet',
+          imperialDefault: '450',
+          metricDefault: '450',
+          imperialHint: 'supplier coverage',
+          metricHint: 'supplier coverage',
+        },
+      ],
+      compute(v, u) {
+        const r = sodNeeded({
+          length: v.length,
+          width: v.width,
+          lengthUnit: lengthUnit(u),
+          widthUnit: lengthUnit(u),
+          wastePercent: v.waste,
+          sqFtPerPiece: v.piece,
+          sqFtPerPallet: v.pallet,
+        });
+        return [
+          ['Lawn area', `${r.areaSqFt} sq ft (${r.areaSqM} m²)`],
+          ['Area with waste', `${r.areaWithWasteSqFt} sq ft`],
+          ['Rolls / pieces', String(r.pieces)],
+          ['Pallets', String(r.pallets)],
         ];
       },
     },
@@ -2082,7 +2309,10 @@ const resultPlaceholders = defaultResultRows[calculatorId] ?? [
   function init(root: HTMLElement) {
     const id = root.dataset.calculator || '';
     const config = configs[id];
-    if (!config) return;
+    if (!config) {
+      console.warn('[YardTally] Unknown calculator id:', id);
+      return;
+    }
 
     const fieldsEl = root.querySelector('.calc-fields') as HTMLElement;
     const resultsEl = root.querySelector('.results') as HTMLElement;

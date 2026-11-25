@@ -80,7 +80,8 @@ export const categories: Record<
         <caption>Match the pour shape to the right tool</caption>
         <thead><tr><th>Project</th><th>Use this calculator</th><th>Quick check</th></tr></thead>
         <tbody>
-          <tr><td>Patio, slab, solid steps</td><td><a href="/calculators/concrete-calculator/">Concrete calculator (yards &amp; bags)</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Patio / slab</td><td><a href="/calculators/concrete-calculator/">Concrete slab calculator</a></td><td>10×10×4&quot; ≈ 1.23 yd³ (~62 × 80 lb after 10% waste)</td></tr>
+          <tr><td>Solid poured steps</td><td><a href="/calculators/concrete-steps-calculator/">Concrete steps calculator</a></td><td>3 steps × 7&quot;×11&quot; × 3 ft ≈ 10.6 cu ft after 10% waste</td></tr>
           <tr><td>Strip or spread pad footings</td><td><a href="/calculators/concrete-footing-calculator/">Concrete footing calculator</a></td><td>40 ft × 16&quot; × 8&quot; ≈ 1.32 yd³ (~66 × 80 lb after 10% waste)</td></tr>
           <tr><td>Slab cost (your ready-mix or bag prices)</td><td><a href="/calculators/concrete-slab-cost-calculator/">Concrete slab cost calculator</a></td><td>Volume × your $/yd or $/bag + optional add-ons</td></tr>
           <tr><td>Fence or sign post holes</td><td><a href="/calculators/concrete-calculator-post-holes/">Post hole concrete calculator</a></td><td>8&quot;×2 ft ≈ 2 × 80 lb bags after waste</td></tr>
@@ -127,7 +128,7 @@ export const categories: Record<
       <p>Bulk yards usually win on price once you need more than about a cubic yard and have truck access. Bags win for small beds, tree rings, and sites where a dump truck cannot reach. YardTally ton estimates use mid densities (gravel/sand ≈ 2,700 lb/yd³, topsoil ≈ 2,200 lb/yd³)—moisture and rock type move those numbers, so confirm with your stone yard ticket.</p>
       <h2>Worked example: 20×10 path at 4 inches</h2>
       <p>Area = 200 sq ft. Depth = 4÷12 = 0.333 ft. Volume = 66.7 cu ft ≈ 2.47 cu yd before waste; with 10% compaction allowance ≈ 2.72 cu yd ≈ 3.67 tons at 2,700 lb/yd³. Run the same dimensions in the <a href="/calculators/gravel-calculator/">gravel calculator</a>.</p>
-      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> (how much mulch do I need for beds) and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). For a perforated-pipe trench, size rock with the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> (trench volume minus pipe, plus fabric wrap)—not the flat-pad gravel tool. Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>. For asphalt driveways, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (planning density ~145 lb/cu ft compacted).</p>
+      <p>Use the <a href="/calculators/mulch-calculator/">mulch calculator</a> (how much mulch do I need for beds), the <a href="/calculators/mulch-calculator-circular-beds/">circular bed mulch calculator</a> for round beds, and the <a href="/calculators/mulch-calculator-tree-rings/">tree ring calculator</a> for donut volumes. Depth guidance: <a href="/guides/mulch-depth-guide/">mulch depth guide</a> (typically 2–3&nbsp;inches for beds). For a perforated-pipe trench, size rock with the <a href="/calculators/french-drain-gravel-calculator/">French drain gravel calculator</a> (trench volume minus pipe, plus fabric wrap)—not the flat-pad gravel tool. Size patio or retaining-wall base stone with the <a href="/calculators/paver-base-calculator/">paver base calculator</a>. Pair pavers with <a href="/calculators/sand-calculator/">sand</a> and gravel; see <a href="/guides/paver-base-gravel-and-sand-depth/">paver base depth</a> and <a href="/guides/gravel-types-for-driveways/">driveway gravel types</a>. For asphalt driveways, estimate tons with the <a href="/calculators/asphalt-calculator/">asphalt calculator</a> (planning density ~145 lb/cu ft compacted).</p>
     `,
   },
   outdoor: {
@@ -150,14 +151,14 @@ export const categories: Record<
           <tr><td>Deck</td><td><a href="/calculators/deck-material-calculator/">Deck materials</a></td><td><a href="/calculators/deck-footing-calculator/">Deck footings</a> · <a href="/calculators/sonotube-concrete-calculator/">Sonotube piers</a></td></tr>
           <tr><td>Roof / re-roof</td><td><a href="/calculators/roof-pitch-calculator/">Pitch</a> → <a href="/calculators/roofing-shingles-calculator/">Shingles</a></td><td><a href="/guides/how-to-measure-roof-pitch/">Measure pitch safely</a></td></tr>
           <tr><td>Painted walls</td><td><a href="/calculators/paint-calculator/">Paint calculator</a></td><td><a href="/guides/how-much-paint-for-a-room/">Room paint guide</a></td></tr>
-          <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a></td></tr>
+          <tr><td>Segmental wall</td><td><a href="/calculators/retaining-wall-calculator/">Block calculator</a></td><td><a href="/guides/retaining-wall-blocks-and-base/">Blocks &amp; base guide</a> · <a href="/calculators/paver-base-calculator/">Paver / wall base gravel</a></td></tr>
           <tr><td>Brick or CMU masonry wall</td><td><a href="/calculators/brick-calculator/">Brick / block calculator</a></td><td>Modular brick ≈ 6.86 / sq ft with ⅜&quot; joint</td></tr>
-          <tr><td>General lumber takeoff</td><td><a href="/calculators/lumber-calculator/">Lumber / board feet</a></td><td>Board feet = T × W × L ÷ 12 (nominal)</td></tr>
+          <tr><td>General lumber takeoff</td><td><a href="/calculators/lumber-calculator/">Lumber / board feet &amp; weight</a></td><td><a href="/guides/lumber-weight-chart/">Weight per foot chart</a> (SPF / DF / SP)</td></tr>
         </tbody>
       </table>
       </div>
       <h2>How to choose what to estimate first</h2>
-      <p>Start with geometry (run length, deck footprint, plan roof area, wall face), then layer on waste and related materials. Fence posts drive concrete volume; deck boards drive joist count and pier locations—run the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a> for pier count and frost-depth bags before you buy cardboard tubes. Roof pitch drives shingle squares; retaining-wall height drives whether you need engineering beyond a simple block count.</p>
+      <p>Start with geometry (run length, deck footprint, plan roof area, wall face), then layer on waste and related materials. Fence posts drive concrete volume—use the <a href="/guides/how-much-concrete-for-fence-posts/">fence post concrete guide</a> for bag charts before you dig. Deck boards drive joist count and pier locations—run the <a href="/calculators/deck-footing-calculator/">deck footing calculator</a> for pier count and frost-depth bags before you buy cardboard tubes. Roof pitch drives shingle squares; measure safely with <a href="/guides/how-to-measure-roof-pitch/">how to measure roof pitch</a>. Retaining-wall height drives whether you need engineering beyond a simple block count. Clay brick or CMU counts stay on the <a href="/calculators/brick-calculator/">brick estimator</a>.</p>
       <h2>Worked examples</h2>
       <ul>
         <li><strong>48 ft fence at 8 ft spacing:</strong> 6 sections, 7 posts, 18 rails (3 per bay). For 10&quot; × 2.5 ft holes filled solid, plan ~15 × 80 lb bags after 10% waste—use the post-hole tool, not a flat “one bag per post” rule for cylinder fills.</li>
@@ -185,6 +186,7 @@ export const categories: Record<
       <h2>Worked examples</h2>
       <ul>
         <li><strong>Seed:</strong> 5,000 sq ft × (3.5 lb ÷ 1,000) = 17.5 lb for a new cool-season lawn. The same area overseeded at 1.75 lb/1,000 needs 8.75 lb.</li>
+        <li><strong>Sod:</strong> a 50×20 ft lawn (1,000 sq ft) with 5% waste is 1,050 sq ft → about 105 rolls at 10 sq ft each or 3 pallets at 450 sq ft—see the <a href="/calculators/sod-calculator/">sod calculator</a>.</li>
         <li><strong>Fertilizer:</strong> Target 1 lb N per 1,000 sq ft with a 25-0-5 product → product = 1 ÷ 0.25 = 4 lb per 1,000 sq ft. For 5,000 sq ft that is 20 lb of product (half of a 40 lb bag).</li>
         <li><strong>Raised bed next to the lawn:</strong> an 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd) of mix—see the <a href="/calculators/raised-bed-soil-calculator/">raised bed soil calculator</a>.</li>
       </ul>
@@ -195,18 +197,23 @@ export const categories: Record<
         <thead><tr><th>Season</th><th>Common tasks</th><th>YardTally tools</th></tr></thead>
         <tbody>
           <tr><td>Early spring</td><td>Soil test, light cleanup, pre-emergent where appropriate</td><td><a href="/calculators/fertilizer-calculator/">Fertilizer</a> · <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">N per 1,000 sq&nbsp;ft guide</a></td></tr>
-          <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a> · <a href="/guides/grass-seed-per-sq-ft/">Seed rates guide</a></td></tr>
+          <tr><td>Late summer / early fall</td><td>Best window for cool-season seed and overseed</td><td><a href="/calculators/grass-seed-calculator/">Grass seed</a> · <a href="/calculators/sod-calculator/">Sod calculator</a> · <a href="/guides/grass-seed-per-sq-ft/">Seed rates guide</a></td></tr>
           <tr><td>Fall</td><td>Nitrogen feeding per local calendar; topdress thin spots</td><td><a href="/calculators/topsoil-calculator/">Topsoil</a> · <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">Fertilizer nitrogen guide</a></td></tr>
           <tr><td>Anytime (beds)</td><td>Raised-bed fills next to the lawn</td><td><a href="/calculators/raised-bed-soil-calculator/">Raised bed soil</a></td></tr>
         </tbody>
       </table>
       </div>
+      <h2>Sod vs seed on the same lawn</h2>
+      <p>Sod is ordered in square feet (rolls or pallets) with a small waste factor for cuts. Seed is ordered in pounds from a rate per 1,000 sq ft on the bag. Don't mix the units: a 1,000 sq ft lawn with 5% sod waste is 1,050 sq ft of turf (about three 450 sq ft pallets at the common planning default), while the same area seeded at 3.5 lb/1,000 needs 3.5 lb of cool-season blend—not “one pallet of seed.” Run the <a href="/calculators/sod-calculator/">sod calculator</a> when the ticket lists roll coverage; stay on the grass-seed tool for broadcast or slit-seed jobs.</p>
+      <h2>Nitrogen label math (quick)</h2>
+      <p>Product pounds per 1,000 sq ft = target lb N ÷ (N% ÷ 100). A 25-0-5 bag at 1 lb N/1,000 needs 4 lb of product per 1,000. Multiply by lawn thousands for the whole yard, then divide by bag weight for bag count. The <a href="/calculators/fertilizer-calculator/">fertilizer calculator</a> and <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">nitrogen per 1,000 sq ft</a> guide walk the same arithmetic with worked tables.</p>
       <h2>Common mistakes</h2>
       <ul>
         <li>Using new-lawn seed rates for overseeding (usually too much seed).</li>
         <li>Applying fertilizer by bag count without dividing by the nitrogen percentage.</li>
         <li>Skipping a soil test when pH or phosphorus limits growth more than nitrogen.</li>
         <li>Assuming one national calendar fits every USDA hardiness zone.</li>
+        <li>Ordering sod from a seed rate, or seed by the pallet, without converting units.</li>
       </ul>
       <p>Start with the <a href="/guides/fertilizer-nitrogen-per-1000-sq-ft/">fertilizer nitrogen per 1,000&nbsp;sq&nbsp;ft</a> guide for label math, then the <a href="/guides/grass-seed-per-sq-ft/">grass seed per sq&nbsp;ft</a>, <a href="/guides/topsoil-vs-garden-soil/">topsoil vs garden soil</a>, and <a href="/guides/raised-bed-soil-mix-4x8/">4×8 raised bed mix</a> guides.</p>
     `,
@@ -235,6 +242,7 @@ export const tools: ToolDefinition[] = [
     summary: 'Concrete slab calculator for yards, bags, and common patio sizes.',
     calculatorId: 'concrete',
     relatedSlugs: [
+      'concrete-steps-calculator',
       'concrete-footing-calculator',
       'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
@@ -336,7 +344,11 @@ export const tools: ToolDefinition[] = [
       'Concrete for post holes equals the cylinder volume of each hole times the number of posts: π × (diameter÷2)² × depth. An 8-inch-wide, 2-foot-deep hole is about 0.70 cu ft—about two 60 or 80 lb bags after 10% waste. Multiply by your post count; Fast-Setting dry-pour methods may use fewer bags.',
     summary: 'Fence and sign post hole concrete by diameter, depth, and count.',
     calculatorId: 'post-holes',
-    relatedSlugs: ['concrete-calculator', 'sonotube-concrete-calculator', 'fence-calculator'],
+    relatedSlugs: [
+      'concrete-calculator',
+      'sonotube-concrete-calculator',
+      'fence-calculator',
+    ],
     relatedGuideSlugs: [
       'how-much-concrete-for-fence-posts',
       'how-many-bags-of-concrete',
@@ -599,7 +611,12 @@ export const tools: ToolDefinition[] = [
       'Mulch volume equals area × depth. At 3 inches, one cubic yard covers about 108 sq ft (UF/IFAS). A 10×10 bed at 3 inches needs 25 cu ft—about thirteen 2 cu ft bags. Bags suit small beds; bulk usually costs less near a yard. UVM’s 3-3-3 tree tip: 3 inches deep, 3 inches off the trunk, ~3 feet wide.',
     summary: 'Bed mulch in cubic yards and bag counts.',
     calculatorId: 'mulch',
-    relatedSlugs: ['mulch-calculator-tree-rings', 'topsoil-calculator', 'raised-bed-soil-calculator'],
+    relatedSlugs: [
+      'mulch-calculator-tree-rings',
+      'topsoil-calculator',
+      'raised-bed-soil-calculator',
+      'mulch-calculator-circular-beds',
+    ],
     relatedGuideSlugs: [
       'mulch-depth-guide',
       'mulch-for-common-garden-beds',
@@ -690,7 +707,11 @@ export const tools: ToolDefinition[] = [
       'Tree-ring mulch volume uses a donut (annulus): π × (R_outer² − R_trunk²) × depth. Leave a small bare gap at the trunk flare—do not pile mulch against bark. A 6 ft wide ring around a 1 ft trunk at 3 inches deep needs about 7 cu ft of mulch.',
     summary: 'Annular mulch rings around trees by outer and trunk diameter.',
     calculatorId: 'tree-ring-mulch',
-    relatedSlugs: ['mulch-calculator', 'topsoil-calculator'],
+    relatedSlugs: [
+      'mulch-calculator',
+      'topsoil-calculator',
+      'mulch-calculator-circular-beds',
+    ],
     relatedGuideSlugs: [
       'mulch-depth-guide',
       'mulch-for-common-garden-beds',
@@ -754,6 +775,7 @@ export const tools: ToolDefinition[] = [
       'asphalt-calculator',
       'concrete-calculator',
       'retaining-wall-calculator',
+      'paver-base-calculator',
     ],
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
@@ -897,7 +919,11 @@ export const tools: ToolDefinition[] = [
       'Topsoil volume is area × depth. To add 2 inches over 500 sq ft: 500 × (2÷12) = 83.3 cu ft ≈ 3.1 cu yd. This tool estimates tons at ~2,200 lb/yd³, counts 0.5 cu ft bags, and converts tons↔yards both ways. Optional prices compare bulk vs bags—no invented retail prices. Include ~10% for settling.',
     summary: 'Lawn and garden topsoil depth to yards.',
     calculatorId: 'topsoil',
-    relatedSlugs: ['mulch-calculator', 'raised-bed-soil-calculator', 'sand-calculator'],
+    relatedSlugs: [
+      'mulch-calculator',
+      'raised-bed-soil-calculator',
+      'sand-calculator',
+    ],
     relatedGuideSlugs: ['topsoil-vs-garden-soil', 'raised-bed-soil-mix-4x8', 'grass-seed-per-sq-ft'],
     faq: [
       {
@@ -950,7 +976,13 @@ export const tools: ToolDefinition[] = [
       'Sand volume uses the same length × width × depth formula as gravel. Paver bedding sand is often about 1 inch deep; playground sand is deeper. A 10×10 area at 1 inch is 8.3 cu ft (~0.31 cu yd). Tons use ~2,700 lb/yd³; optional prices compare bulk vs 0.5 cu ft bags. Add waste for screeding.',
     summary: 'Bedding and fill sand by area and depth.',
     calculatorId: 'sand',
-    relatedSlugs: ['paver-calculator', 'gravel-calculator', 'asphalt-calculator', 'concrete-calculator'],
+    relatedSlugs: [
+      'paver-calculator',
+      'gravel-calculator',
+      'asphalt-calculator',
+      'concrete-calculator',
+      'paver-base-calculator',
+    ],
     relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
@@ -1003,7 +1035,13 @@ export const tools: ToolDefinition[] = [
       'Pavers needed ≈ patio area ÷ paver face area, then add 5–10% waste for cuts. A 10×10 patio with 12×12 inch pavers needs 100 pavers, about 110 with 10% waste. Plan ~1" sand bed and several inches of compacted gravel base.',
     summary: 'Patio paver counts with sand and base volumes.',
     calculatorId: 'paver',
-    relatedSlugs: ['sand-calculator', 'gravel-calculator', 'asphalt-calculator', 'retaining-wall-calculator'],
+    relatedSlugs: [
+      'sand-calculator',
+      'gravel-calculator',
+      'asphalt-calculator',
+      'retaining-wall-calculator',
+      'paver-base-calculator',
+    ],
     relatedGuideSlugs: ['paver-base-gravel-and-sand-depth', 'gravel-types-for-driveways'],
     faq: [
       {
@@ -1282,7 +1320,11 @@ export const tools: ToolDefinition[] = [
       'Roof pitch is rise over run, usually stated as inches of rise per 12 inches of run (for example 6/12). Angle = arctan(rise÷run). The area factor √(1+(rise/run)²) converts horizontal plan area to actual roof surface area for material estimates.',
     summary: 'Pitch, degrees, percent slope, and area multiplier.',
     calculatorId: 'roof-pitch',
-    relatedSlugs: ['roofing-shingles-calculator', 'deck-material-calculator', 'lumber-calculator'],
+    relatedSlugs: [
+      'roofing-shingles-calculator',
+      'deck-material-calculator',
+      'lumber-calculator',
+    ],
     relatedGuideSlugs: ['how-to-measure-roof-pitch', 'how-to-estimate-roofing-shingles'],
     faq: [
       {
@@ -1340,7 +1382,11 @@ export const tools: ToolDefinition[] = [
       'One roofing square covers 100 square feet of roof surface. Multiply plan length × width by the pitch area factor, divide by 100 for squares, then add 10–15% waste. Most asphalt bundles cover about ⅓ square (3 bundles per square).',
     summary: 'Squares and bundles from plan area and pitch.',
     calculatorId: 'roofing',
-    relatedSlugs: ['roof-pitch-calculator', 'deck-material-calculator', 'lumber-calculator'],
+    relatedSlugs: [
+      'roof-pitch-calculator',
+      'deck-material-calculator',
+      'lumber-calculator',
+    ],
     relatedGuideSlugs: ['how-to-estimate-roofing-shingles', 'how-to-measure-roof-pitch'],
     faq: [
       {
@@ -1404,7 +1450,11 @@ export const tools: ToolDefinition[] = [
       'Paint gallons ≈ paintable wall area × coats ÷ coverage. Wall area is perimeter × height (or 2×(L+W)×H for a rectangular room). Subtract doors (~20 sq ft) and windows (~15 sq ft each). At 350 sq ft/gallon, two coats on 400 sq ft need about 2.3 gallons.',
     summary: 'Room paint in gallons and liters with openings deducted.',
     calculatorId: 'paint',
-    relatedSlugs: ['fence-calculator', 'deck-material-calculator', 'lumber-calculator'],
+    relatedSlugs: [
+      'fence-calculator',
+      'deck-material-calculator',
+      'lumber-calculator',
+    ],
     relatedGuideSlugs: ['how-much-paint-for-a-room'],
     faq: [
       {
@@ -1463,6 +1513,7 @@ export const tools: ToolDefinition[] = [
       'paver-calculator',
       'brick-calculator',
       'concrete-calculator',
+      'paver-base-calculator',
     ],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
@@ -1507,7 +1558,12 @@ export const tools: ToolDefinition[] = [
     shortName: 'Grass seed',
     category: 'lawn',
     primaryKeyword: 'grass seed calculator',
-    secondaryKeywords: ['lawn seed calculator', 'overseeding calculator', 'grass seed per 1000 sq ft'],
+    secondaryKeywords: [
+      'lawn seed calculator',
+      'overseeding calculator',
+      'grass seed per 1000 sq ft',
+      'grass seed density',
+    ],
     title: 'Grass Seed Calculator: New Lawn or Overseed',
     description:
       'Grass seed calculator for new lawn or overseed rates per 1,000 sq ft. Convert lawn area into pounds of seed using the rate on your bag.',
@@ -1516,9 +1572,19 @@ export const tools: ToolDefinition[] = [
       'Per 1,000 sq ft: seed needed = (lawn sq ft ÷ 1,000) × the bag rate. Cool-season blends often list about 3–4 lb per 1,000 sq ft for new lawns and roughly half that for overseeding. Always follow the rate printed on your seed bag for the species mix.',
     summary: 'New lawn and overseed seed quantities.',
     calculatorId: 'grass-seed',
-    relatedSlugs: ['fertilizer-calculator', 'topsoil-calculator', 'raised-bed-soil-calculator'],
+    relatedSlugs: [
+      'fertilizer-calculator',
+      'topsoil-calculator',
+      'raised-bed-soil-calculator',
+      'sod-calculator',
+    ],
     relatedGuideSlugs: ['grass-seed-per-sq-ft', 'fertilizer-nitrogen-per-1000-sq-ft'],
     faq: [
+      {
+        question: 'What is grass seed density / rate per 1,000 sq ft?',
+        answer:
+          'Bag labels list seeding rate (lb per 1,000 sq ft), not seeds per square inch. Cool-season blends often sit near 3–4 lb/1,000 for new lawns and about half that for overseed. Enter the printed rate here; species tables live in the grass seed per sq ft guide.',
+      },
       {
         question: 'How much grass seed per 1,000 sq ft?',
         answer:
@@ -1556,7 +1622,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['grass-seed-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-25',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1575,7 +1641,12 @@ export const tools: ToolDefinition[] = [
       'Product fertilizer = (area÷1000) × (desired lb nitrogen per 1000 ÷ nitrogen fraction). Example: 1 lb N/1000 sq ft using a 25-0-5 product needs 4 lb of product per 1,000 sq ft because 1 ÷ 0.25 = 4. Match timing to local extension calendars.',
     summary: 'Product pounds from N rate and analysis.',
     calculatorId: 'fertilizer',
-    relatedSlugs: ['grass-seed-calculator', 'topsoil-calculator', 'raised-bed-soil-calculator'],
+    relatedSlugs: [
+      'grass-seed-calculator',
+      'topsoil-calculator',
+      'raised-bed-soil-calculator',
+      'sod-calculator',
+    ],
     relatedGuideSlugs: ['fertilizer-nitrogen-per-1000-sq-ft', 'grass-seed-per-sq-ft'],
     faq: [
       {
@@ -1644,7 +1715,11 @@ export const tools: ToolDefinition[] = [
       'Raised bed soil volume = interior length × width × fill depth. An 8×4 ft bed 12 inches deep needs 32 cu ft (~1.2 cu yd). Many gardeners blend topsoil, compost, and aeration materials rather than using a single bagged product.',
     summary: 'Soil fill volume for garden boxes.',
     calculatorId: 'raised-bed',
-    relatedSlugs: ['topsoil-calculator', 'mulch-calculator', 'grass-seed-calculator'],
+    relatedSlugs: [
+      'topsoil-calculator',
+      'mulch-calculator',
+      'grass-seed-calculator',
+    ],
     relatedGuideSlugs: ['raised-bed-soil-mix-4x8', 'topsoil-vs-garden-soil'],
     faq: [
       {
@@ -1692,22 +1767,36 @@ export const tools: ToolDefinition[] = [
       'asphalt driveway calculator',
       'how much asphalt do I need',
       'asphalt tons calculator',
+      'blacktop calculator',
+      'roadway fill volume calculator',
     ],
     title: 'Asphalt Calculator: Tons for Driveway or Lot',
     description:
-      'Asphalt calculator for tons from area and depth. Plan driveway or lot paving with compacted thickness and a practical waste allowance.',
+      'Asphalt / blacktop calculator for tons from area and depth. Plan driveway or lot paving with compacted thickness and a practical waste allowance.',
     h1: 'Asphalt Calculator: Tons for Driveway or Lot',
     answerFirst:
       'Asphalt tons ≈ area × compacted depth (ft) × density ÷ 2,000. This tool defaults to 145 lb/cu ft for compacted hot-mix asphalt—a common FHWA / industry planning density. A 40×12 ft drive at 3 inches with 5% waste is about 9.14 tons.',
     summary: 'Driveway and pad asphalt in tons from area and compacted depth.',
     calculatorId: 'asphalt',
-    relatedSlugs: ['gravel-calculator', 'paver-calculator', 'concrete-calculator', 'sand-calculator'],
+    relatedSlugs: [
+      'gravel-calculator',
+      'paver-calculator',
+      'concrete-calculator',
+      'sand-calculator',
+      'paver-base-calculator',
+      'french-drain-gravel-calculator',
+    ],
     relatedGuideSlugs: ['gravel-types-for-driveways', 'paver-base-gravel-and-sand-depth'],
     faq: [
       {
         question: 'How much asphalt do I need for a driveway?',
         answer:
           'Multiply length × width × compacted depth in feet, then convert with mix density. At 145 lb/cu ft, 480 sq ft at 3 inches is about 8.7 tons before waste; add a few percent for edges.',
+      },
+      {
+        question: 'Is this a blacktop calculator for residential driveways?',
+        answer:
+          'Yes—“blacktop” and hot-mix asphalt use the same area × depth × density math here. Enter your compacted surface thickness (often about 2–3 inches residential) and override density if the plant ticket differs from 145 lb/cu ft.',
       },
       {
         question: 'How many tons of asphalt per square foot?',
@@ -1741,7 +1830,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['asphalt-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-25',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1752,6 +1841,7 @@ export const tools: ToolDefinition[] = [
     category: 'outdoor',
     primaryKeyword: 'brick calculator',
     secondaryKeywords: [
+      'brick estimator',
       'how many bricks do I need',
       'concrete block calculator',
       'CMU calculator',
@@ -1759,7 +1849,7 @@ export const tools: ToolDefinition[] = [
     ],
     title: 'Brick Calculator: Bricks per Sq Ft for Walls',
     description:
-      'Brick calculator for bricks per square foot on walls. Count modular brick or CMU blocks with mortar joints and a waste factor.',
+      'Brick calculator and brick estimator for walls. Count modular brick or CMU blocks per square foot with mortar joints and waste.',
     h1: 'Brick Calculator: Bricks per Sq Ft for Walls',
     answerFirst:
       'Bricks needed ≈ wall face ÷ (brick face + mortar joint), counted in full courses. Modular brick with a ⅜ inch joint uses about 6.86 bricks per square foot (Glen-Gery). Switch to CMU mode for standard 8×16 concrete block faces.',
@@ -1770,6 +1860,8 @@ export const tools: ToolDefinition[] = [
       'concrete-calculator',
       'rebar-calculator',
       'sand-calculator',
+      'paver-base-calculator',
+      'lumber-calculator',
     ],
     relatedGuideSlugs: ['retaining-wall-blocks-and-base', 'paver-base-gravel-and-sand-depth'],
     faq: [
@@ -1777,6 +1869,11 @@ export const tools: ToolDefinition[] = [
         question: 'How many bricks do I need for a wall?',
         answer:
           'Divide the wall into mortar modules: ceil(height ÷ module height) courses × ceil(length ÷ module length) units, then add waste. Modular brick at ⅜ inch joints is about 6.86 per square foot before course rounding.',
+      },
+      {
+        question: 'Is this a brick estimator for clay brick and CMU?',
+        answer:
+          'Yes. Use clay brick mode for modular face brick and CMU mode for concrete block / cinder block counts. Effective module = brick face + mortar joint (~6.86 modular bricks/sq ft at ⅜ inch joints per Glen-Gery); ceil to whole courses and add waste. Segmental retaining-wall blocks stay on the retaining wall calculator.',
       },
       {
         question: 'How much mortar per brick?',
@@ -1810,7 +1907,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['brick-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-25',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1826,11 +1923,14 @@ export const tools: ToolDefinition[] = [
       'what is a board foot',
       'how much lumber do I need',
       'lumber weight calculator',
+      'dimensional lumber weight calculator',
+      'dimensional lumber weight per foot',
+      'square foot lumber calculator',
       '2x4 weight',
     ],
     title: 'Lumber Calculator: Board Feet & Weight',
     description:
-      'Free lumber calculator for board feet, piece counts, and planning weight. Includes a softwood weight chart link and KD vs green density options.',
+      'Free lumber calculator for board feet, piece counts, and dimensional lumber weight. Softwood weight chart link plus KD vs green density options.',
     h1: 'Lumber Calculator: Board Feet & Weight',
     answerFirst:
       'Board feet = (nominal thickness × nominal width × length in feet) ÷ 12. Ten 2×4×8s are 53.3 board feet. Weight uses the dressed section (a 2×4 is 1½×3½) × USDA Wood Handbook density—about 8.4 lb for one kiln-dried SPF 2×4×8 as a planning estimate.',
@@ -1842,6 +1942,7 @@ export const tools: ToolDefinition[] = [
       'roof-pitch-calculator',
       'paint-calculator',
       'raised-bed-soil-calculator',
+      'brick-calculator',
     ],
     relatedGuideSlugs: [
       'lumber-weight-chart',
@@ -1903,7 +2004,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['lumber-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-22',
+    dateModified: '2026-11-25',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -2074,6 +2175,289 @@ export const tools: ToolDefinition[] = [
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
+
+  {
+    slug: 'concrete-steps-calculator',
+    name: 'Concrete Steps Calculator',
+    shortName: 'Concrete steps',
+    category: 'concrete',
+    primaryKeyword: 'concrete steps calculator',
+    secondaryKeywords: [
+      'concrete stair calculator',
+      'how much concrete for steps',
+      'poured concrete steps calculator',
+    ],
+    title: 'Concrete Steps Calculator: Bags & Yards',
+    description:
+      'Free concrete steps calculator for solid poured stairs. Enter width, rise, tread, and step count for cubic yards and 40/60/80 lb bags.',
+    h1: 'Concrete Steps Calculator: Bags & Yards',
+    answerFirst:
+      'Solid poured steps use volume = width × tread × riser × n(n+1)/2. Three steps at 7″ rise and 11″ tread on a 3 ft wide flight are about 9.63 cu ft before waste (~10.6 cu ft after 10%)—about eighteen 80 lb bags of standard mix.',
+    summary: 'Solid poured stair volume in yards and bags.',
+    calculatorId: 'concrete-steps',
+    relatedSlugs: [
+      'concrete-calculator',
+      'concrete-footing-calculator',
+      'rebar-calculator',
+      'concrete-calculator-post-holes',
+    ],
+    relatedGuideSlugs: ['how-many-bags-of-concrete', 'how-much-concrete-do-i-need', 'concrete-slab-thickness'],
+    faq: [
+      {
+        question: 'How much concrete for 3 poured steps?',
+        answer:
+          'For 7″ rise, 11″ tread, and 3 ft width: about 9.63 cu ft before waste and 10.6 cu ft after 10% waste—roughly 18 × 80 lb bags (QUIKRETE 1101 planning yield ~0.60 cu ft/bag). Enter your sizes above for exact totals.',
+      },
+      {
+        question: 'Why not use length × width × thickness?',
+        answer:
+          'Solid stairs stack tread-deep layers. The n(n+1)/2 factor accounts for that wedge. A flat rectangle undercounts the pour.',
+      },
+      {
+        question: 'Does this include the footing under the stairs?',
+        answer:
+          'No. This tool sizes stair fill only. Use the concrete footing calculator for a strip or pad under the bottom step, and confirm frost depth with local code.',
+      },
+      {
+        question: 'What bag yields does YardTally use?',
+        answer:
+          'About 0.30 / 0.45 / 0.60 cu ft for 40 / 60 / 80 lb QUIKRETE Concrete Mix No. 1101 planning figures. Read the yield on the bag you buy.',
+      },
+    ],
+    sources: [
+      {
+        label: 'QUIKRETE – Concrete calculator & bag yields',
+        href: 'https://www.quikrete.com/calculator/main.asp',
+        usedFor: '40/60/80 lb bag yield planning figures',
+        checked: '2026-11-25',
+      },
+      {
+        label: 'Sakrete – Concrete calculator',
+        href: 'https://sakrete.com/resources/calculators/',
+        usedFor: 'Cross-check bag coverage estimates',
+        checked: '2026-11-25',
+      },
+    ],
+    sectionsHtml: toolBodies['concrete-steps-calculator'],
+    datePublished: '2026-11-25',
+    dateModified: '2026-11-25',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'sod-calculator',
+    name: 'Sod Calculator',
+    shortName: 'Sod',
+    category: 'lawn',
+    primaryKeyword: 'sod calculator',
+    secondaryKeywords: [
+      'how much sod do I need',
+      'sod pallet calculator',
+      'lawn sod calculator',
+    ],
+    title: 'Sod Calculator: Rolls & Pallets',
+    description:
+      'Free sod calculator for lawn area, waste, rolls, and pallets. Enter length and width plus your supplier’s sq ft per roll and per pallet.',
+    h1: 'Sod Calculator: Rolls & Pallets',
+    answerFirst:
+      'Sod needed = lawn area × (1 + waste%), then round up by roll and pallet coverage. A 50×20 ft lawn (1,000 sq ft) with 5% waste is 1,050 sq ft—about 105 rolls at 10 sq ft each or 3 pallets at 450 sq ft (override with your ticket).',
+    summary: 'Lawn sod rolls and pallets from area and waste.',
+    calculatorId: 'sod',
+    relatedSlugs: [
+      'grass-seed-calculator',
+      'fertilizer-calculator',
+      'topsoil-calculator',
+      'raised-bed-soil-calculator',
+    ],
+    relatedGuideSlugs: [
+      'grass-seed-per-sq-ft',
+      'fertilizer-nitrogen-per-1000-sq-ft',
+      'topsoil-vs-garden-soil',
+    ],
+    faq: [
+      {
+        question: 'How much sod for 1,000 square feet?',
+        answer:
+          'With 5% waste, order about 1,050 sq ft. At 10 sq ft per roll that is 105 rolls; at 450 sq ft per pallet that is 3 pallets. Change coverage to match your supplier.',
+      },
+      {
+        question: 'Sod calculator vs grass seed calculator?',
+        answer:
+          'Use this page for rolls or pallets. Use the grass seed calculator when you are seeding or overseeding by pounds per 1,000 sq ft.',
+      },
+      {
+        question: 'How much extra sod should I order?',
+        answer:
+          'Most crews plan 5–10% waste for cuts along beds and curves. Enter your waste percent above rather than guessing after the truck leaves.',
+      },
+      {
+        question: 'Are 10 sq ft rolls and 450 sq ft pallets fixed?',
+        answer:
+          'No—those are common retail planning defaults only. Always override with the coverage printed on your sod ticket.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Iowa State University Extension – PM 1072 Lawn seeding',
+        href: 'https://store.extension.iastate.edu/product/4210',
+        usedFor: 'Lawn establishment context; sod coverage still comes from your supplier ticket',
+        checked: '2026-11-25',
+      },
+      {
+        label: 'University of Minnesota Extension – Establishing a lawn',
+        href: 'https://extension.umn.edu/lawn-care/establishing-lawn',
+        usedFor: 'Lawn establishment practice overview (seed vs sod context)',
+        checked: '2026-11-25',
+      },
+    ],
+    sectionsHtml: toolBodies['sod-calculator'],
+    datePublished: '2026-11-25',
+    dateModified: '2026-11-25',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'paver-base-calculator',
+    name: 'Paver Base Calculator',
+    shortName: 'Paver base',
+    category: 'landscape',
+    primaryKeyword: 'paver base calculator',
+    secondaryKeywords: [
+      'paver base for retaining wall',
+      'gravel base for pavers',
+      'retaining wall gravel base calculator',
+      'how much gravel under pavers',
+    ],
+    title: 'Paver Base Calculator: Gravel Yards',
+    description:
+      'Free paver base calculator for patio pads and retaining-wall gravel trenches. Convert length, width, and compacted depth into cubic yards and tons.',
+    h1: 'Paver Base Calculator: Gravel Yards',
+    answerFirst:
+      'Paver base volume = length × width × compacted depth, plus waste. A 20×4 ft trench at 6 inches with 10% waste is about 1.63 cu yd (~2.2 tons at 2,700 lb/yd³). Use this for patio base or retaining-wall gravel base—not French drains.',
+    summary: 'Compacted gravel base for pavers and wall trenches.',
+    calculatorId: 'paver-base',
+    relatedSlugs: [
+      'gravel-calculator',
+      'sand-calculator',
+      'paver-calculator',
+      'retaining-wall-calculator',
+      'french-drain-gravel-calculator',
+    ],
+    relatedGuideSlugs: [
+      'paver-base-gravel-and-sand-depth',
+      'retaining-wall-blocks-and-base',
+      'gravel-types-for-driveways',
+    ],
+    faq: [
+      {
+        question: 'How much gravel for paver base?',
+        answer:
+          'Multiply pad length × width × compacted depth (in feet), add waste, and convert to yards. Example: 20×4 ft at 6 in with 10% waste ≈ 1.63 cu yd.',
+      },
+      {
+        question: 'Can I use paver base under a retaining wall?',
+        answer:
+          'Many segmental wall makers call for a compactable gravel trench under the first course. Enter trench length, width, and design depth here; size blocks on the retaining wall calculator.',
+      },
+      {
+        question: 'Is this the same as the gravel calculator?',
+        answer:
+          'Same rectangle math with paver/wall-base defaults and links. General driveways and pads can use either tool; French drains need the French drain gravel calculator.',
+      },
+      {
+        question: 'What density is used for tons?',
+        answer:
+          'About 2,700 lb per cubic yard as a mid crushed-stone planning figure. Confirm with your quarry ticket when buying by the ton.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Penn State Extension – Landscape mulch and stone basics',
+        href: 'https://extension.psu.edu/',
+        usedFor: 'Landscape aggregate practice context; confirm local base specs',
+        checked: '2026-11-25',
+      },
+      {
+        label: 'YardTally methodology – bulk densities',
+        href: '/methodology/',
+        usedFor: '2,700 lb/cu yd mid gravel density used for ton estimates',
+        checked: '2026-11-25',
+      },
+    ],
+    sectionsHtml: toolBodies['paver-base-calculator'],
+    datePublished: '2026-11-25',
+    dateModified: '2026-11-25',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+  {
+    slug: 'mulch-calculator-circular-beds',
+    name: 'Circular Bed Mulch Calculator',
+    shortName: 'Circular mulch',
+    category: 'landscape',
+    primaryKeyword: 'circular mulch calculator',
+    secondaryKeywords: [
+      'round garden bed mulch calculator',
+      'mulch for round beds',
+      'circular flower bed mulch',
+    ],
+    title: 'Circular Bed Mulch Calculator',
+    description:
+      'Free circular bed mulch calculator for round planting areas. Enter diameter and depth for cubic yards and 2/3 cu ft bag counts.',
+    h1: 'Circular Bed Mulch Calculator',
+    answerFirst:
+      'Round-bed mulch volume = π × (diameter ÷ 2)² × (depth ÷ 12). An 8 ft diameter bed at 3 inches needs about 12.6 cu ft (~0.47 cu yd)—about seven 2 cu ft bags or five 3 cu ft bags.',
+    summary: 'Mulch yards and bags for circular garden beds.',
+    calculatorId: 'circular-mulch',
+    relatedSlugs: [
+      'mulch-calculator',
+      'mulch-calculator-tree-rings',
+      'topsoil-calculator',
+      'raised-bed-soil-calculator',
+    ],
+    relatedGuideSlugs: [
+      'mulch-depth-guide',
+      'mulch-for-common-garden-beds',
+      'topsoil-vs-garden-soil',
+    ],
+    faq: [
+      {
+        question: 'How much mulch for an 8 ft round bed?',
+        answer:
+          'At 3 inches deep, about 12.6 cu ft (~0.47 cu yd). That is roughly seven 2 cu ft bags or five 3 cu ft bags after rounding up.',
+      },
+      {
+        question: 'Circular bed vs tree ring calculator?',
+        answer:
+          'Use this page for a solid circular planting bed. Use the tree ring calculator when you need a donut with trunk keep-out in the middle.',
+      },
+      {
+        question: 'How deep should mulch be?',
+        answer:
+          'Most organic mulches for shrub and flower beds land around 2–3 inches. See the mulch depth guide, then enter that depth here.',
+      },
+    ],
+    sources: [
+      {
+        label: 'Penn State Extension – Mulching',
+        href: 'https://extension.psu.edu/mulching-landscape-trees-and-shrubs',
+        usedFor: 'Typical organic mulch depth guidance for landscape beds',
+        checked: '2026-11-25',
+      },
+      {
+        label: 'Clemson HGIC – Mulch',
+        href: 'https://hgic.clemson.edu/',
+        usedFor: 'Landscape mulch practice overview',
+        checked: '2026-11-25',
+      },
+    ],
+    sectionsHtml: toolBodies['mulch-calculator-circular-beds'],
+    datePublished: '2026-11-25',
+    dateModified: '2026-11-25',
+    applicationCategory: 'UtilitiesApplication',
+    embeddable: true,
+  },
+
 ];
 
 export function getTool(slug: string): ToolDefinition | undefined {

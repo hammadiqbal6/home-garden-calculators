@@ -76,14 +76,19 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'Most flower beds and garden plantings do well with about 2–3 inches of organic mulch. Mississippi State Extension says pull mulch 2–3 inches back from trunks. UF/IFAS Florida-Friendly guidance targets about 3 inches and warns against deeper beds. Clemson lists 2–3 inches for many wood and bark mulches. Measure existing depth, then use the mulch calculator for bags and yards.',
-    relatedToolSlugs: ['mulch-calculator', 'mulch-calculator-tree-rings', 'topsoil-calculator'],
+    relatedToolSlugs: [
+      'mulch-calculator',
+      'mulch-calculator-circular-beds',
+      'mulch-calculator-tree-rings',
+      'topsoil-calculator',
+    ],
     relatedGuideSlugs: [
       'mulch-for-common-garden-beds',
       'topsoil-vs-garden-soil',
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-22',
+    dateModified: '2026-11-25',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -170,7 +175,13 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'Driveways usually need a compacted angular crushed-stone base (dense grade / crusher run) plus a stable surface course. Pea gravel rolls under tires and is a poor sole driving surface. Estimate length × width × depth, then ask your quarry for compacted density when converting yards to tons—or use the gravel calculator.',
-    relatedToolSlugs: ['gravel-calculator', 'asphalt-calculator', 'sand-calculator', 'paver-calculator'],
+    relatedToolSlugs: [
+      'gravel-calculator',
+      'paver-base-calculator',
+      'asphalt-calculator',
+      'sand-calculator',
+      'paver-calculator',
+    ],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'retaining-wall-blocks-and-base',
@@ -358,7 +369,12 @@ export const guides: GuideDefinition[] = [
     ],
     answerFirst:
       'A 20 ft wall that is 3 ft exposed with 18×6 in face blocks needs about 84 face blocks before waste (six courses × 14), plus a compacted gravel trench. YardTally’s 24×6 in trench is a planning default. Use the retaining wall calculator for live counts; taller walls need engineering.',
-    relatedToolSlugs: ['retaining-wall-calculator', 'brick-calculator', 'gravel-calculator'],
+    relatedToolSlugs: [
+      'retaining-wall-calculator',
+      'brick-calculator',
+      'gravel-calculator',
+      'paver-base-calculator',
+    ],
     relatedGuideSlugs: [
       'paver-base-gravel-and-sand-depth',
       'gravel-types-for-driveways',
@@ -563,7 +579,7 @@ export const guides: GuideDefinition[] = [
       'deck-material-list-16x24',
     ],
     datePublished: '2026-11-22',
-    dateModified: '2026-11-22',
+    dateModified: '2026-11-25',
   }),
 ];
 

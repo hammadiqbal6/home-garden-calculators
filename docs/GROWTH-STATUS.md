@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-22
+**Last updated:** 2026-11-25
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -10,21 +10,25 @@ Every change/PR must also refresh the **Done** / **Remaining** sections below (a
 
 ## Baseline metrics
 
-As of **2026-11-17** (GSC 28-day window unless noted):
+As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless noted):
 
 | Signal | Value |
 |---|---|
 | Site | getyardtally.com |
 | Stack | Astro on Cloudflare Workers (`home-garden-calculators`); build-time `PUBLIC_*` in Workers Builds env |
-| GA4 | Measurement ID `G-N4VRDDEVLP` (property `559570732`) |
-| GSC (last 28 days → 2026-11-17) | **0** clicks · **229** impressions · avg position **58.8** |
-| Indexing | **37** pages indexed · **20** not indexed (includes **13** “Discovered - currently not indexed”; also GSC emails Nov 16/19: Page with redirect, Excluded by noindex, Alternate canonical) |
-| GA4 users (28 days) | **3** users |
-| Cloudflare page views (prior window, 2026-11-18 note) | ~**6.2k** (GA4 fires only after cookie consent Accept; Cloudflare includes bot traffic) |
+| GA4 | Measurement ID `G-N4VRDDEVLP` (property `559570732`) — Consent Mode v2 Advanced now ships with denied defaults + always-load gtag (this PR) |
+| GSC (last 3 months → 2026-11-25) | **0** clicks · **437** impressions · avg position **47.7** |
+| GSC (prior 28-day → 2026-11-17) | **0** clicks · **229** impressions · avg position **58.8** |
+| Indexing | **13** pages “Discovered - currently not indexed” (strengthen inbound links); also Page with redirect / Excluded by noindex / Alternate canonical buckets |
+| Top queries (impr / pos) | concrete slab calculator 14/36.4; concrete measurement 9/90.3; sonotube concrete calculator 8/43.2; dimensional lumber weight per foot 7/22.0; dimensional lumber weight calculator 6/27.2; brick estimator 5/40.8; lawn fertilizer calculator 5/52.6; concrete sonotube calculator 5/62.2; sonotube calculator 4/55.2; calculator for mulch 4/66.0 |
+| Top pages (impr / pos) | brick 48/47.8; concrete 43/52.9; mulch-depth guide 42/34.7; Sonotube 31/50.9; fence-post guide 29/66.4; lumber 27/25.2; roof-pitch guide 26/76.8; paint guide 20/37.2; gravel-types 19/57.6; asphalt 15/52.4 |
+| GA4 users (28 days, prior) | **3** users (pre–Consent Mode Advanced) |
+| Cloudflare page views (prior window, 2026-11-18 note) | ~**6.2k** (Cloudflare includes bot traffic) |
 | Domain rating (owner-reported, Ahrefs-style) | **3** |
 
 ## Done
 
+- **2026-11-25 — this PR (SEO authority + GSC-prioritized variants):** Advanced Consent Mode v2 (always load gtag; default denied; Accept grant / Reject stay denied; hardcoded `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Author/Organization `sameAs` defaults to real GitHub `https://github.com/hammadiqbal6` + About personal-bio expansion. New additive calculators (no URL/title/H1 changes to existing pages): `/calculators/concrete-steps-calculator/`, `/calculators/sod-calculator/`, `/calculators/paver-base-calculator/`, `/calculators/mulch-calculator-circular-beds/`. Expanded lumber-weight chart + brick estimator FAQ; lawn hub + homepage thickened; GSC under-linked pages (brick, asphalt, lumber-weight, fence posts, roof pitch, paint) get stronger home/hub/related inbound. Privacy + terms `noindex, follow` and excluded from sitemap (audits updated). First-party console: directory badge `onerror` + calculator unknown-id guard. **Embed credit (backlink support):** visible dofollow “Calculator by YardTally” → canonical `/calculators/<slug>/` in the copyable snippet and on `/embed/<slug>/` (policy flip from prior nofollow). README links the live site and documents the embed snippet. **No deploy / IndexNow from this agent.**
 - **2026-11-22 — this PR (durable SEO + AI Overview agent rules):** Added [`.cursor/rules/seo.mdc`](../.cursor/rules/seo.mdc) and [`.cursor/skills/add-seo-page/SKILL.md`](../.cursor/skills/add-seo-page/SKILL.md); expanded AGENTS.md §5 (titles ≤60 branded, cannibalization/301, inbound-link minimums, answer-under-H2, no hard-coded counts, AI crawlers allowed). Extended existing seo-pages / seo-guardrails / add-calculator / add-guide / pre-merge skills to point at them. **Post-deploy (documented, not run pre-deploy):** `npm run indexnow` submits all sitemap URLs (new pages + redirect targets; key unchanged) + GSC Request indexing for changed pages.
 - **2026-11-22 — this PR (SEO title/H1/meta all pages):** Hub/index/calculator/guide titles and H1s rewritten to ≤48 chars without brand (≤60 with `| YardTally`). Concrete calculator titled/answer-first for top web query **concrete slab calculator**. Priority FAQs/bodies expanded. Home popular exact-match anchors + ItemList. 10×10 guide owns 12×12/20×20 sections (no new guide URLs). No sonotube-sizes or fertilizer-per-1000 new URLs.
 - **2026-11-22 — this PR (mulch guide merge + weak-page internal links):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/`; **301** in `_redirects` + `PATH_ALIAS_REDIRECTS`; **kept** `/guides/mulch-depth-guide/` (GSC AI Overview exemplar). Strengthened inbound links for weakly linked footing/slab-cost/deck-footing/French-drain/thickness/how-much-concrete/Sonotube-footing pages.
@@ -61,50 +65,30 @@ As of **2026-11-17** (GSC 28-day window unless noted):
 | GSC reason | What it is in this codebase | Action |
 |---|---|---|
 | Page with redirect (~4+) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slugs incl. `/guides/how-much-mulch-do-i-need/` → mulch calculator, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
-| Excluded by noindex (~2) | `/embed/<slug>/` (`noindex,follow`) and `/404.html` | Intentional. Not in sitemap. |
+| Excluded by noindex (~2+) | `/embed/<slug>/` (`noindex,follow`), `/404.html`, and (this PR) `/privacy/` + `/terms/` | Intentional. Not in sitemap. |
 | Alternate page with proper canonical | Embed pages canonicalize to `/calculators/<slug>/` | Intentional widget pattern. |
-| Discovered - currently not indexed (~13) | Weak internal linking historically | Addressed in PR #33 via homepage grid + hubs + related/contextual links; request indexing after deploy. |
+| Discovered - currently not indexed (~13) | Weak internal linking historically | PR #33 + this PR (home/hub/related inbound to GSC impression pages); request indexing after deploy. |
 
 ## Remaining / risks
 
-1. **After deploy (this PR — do not run IndexNow pre-deploy):** `npm run indexnow` (all `dist/` sitemap URLs — mulch calculator redirect target, lumber + weight chart, AI-exemplar guides, weak-link pages, prior tools; **do not change the IndexNow key**) **and** GSC URL Inspection → Request indexing / validate redirect + discovered-not-indexed buckets.
+1. **After deploy (this PR — do not run IndexNow pre-deploy):** `npm run indexnow` (all `dist/` sitemap URLs including new variant tools + redirect targets; **do not change the IndexNow key**) **and** GSC URL Inspection → Request indexing for new/changed pages + validate discovered-not-indexed / redirect / noindex buckets.
 2. **After deploy (Agathox):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed.
-3. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
-3. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
-4. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
+3. **Optional `sameAs` enrichment:** LinkedIn / X / Product Hunt URLs only when real — set via `PUBLIC_AUTHOR_SAME_AS` / `PUBLIC_ORG_SAME_AS` (GitHub default already ships). Do not invent profiles.
+4. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
 5. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
-6. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
-7. Free-tool / calculator **directory submissions** beyond TinyLaunch (Agathox ownership tokens shipped 2026-11-20; listing URL unconfirmed until Agathox accepts; other directories only record confirmed names + URLs here).
+6. **Reddit promotion paused (2026-11-19, owner decision).** Build karma with plain, **link-free** helpful comments before posting again. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
+7. Free-tool / calculator **directory submissions** beyond TinyLaunch (Agathox ownership tokens shipped 2026-11-20; listing URL unconfirmed until Agathox accepts).
 8. **Embed-widget outreach** to DIY / landscaping bloggers.
-9. Add closely related **variants of tools that already get impressions** (stair stringer, sod, etc. still in `docs/ideas/README.md`) — deck footing variant shipped 2026-11-19.
-9. Add closely related **variants of tools that already get impressions**, rather than new topics (footing calculator shipped 2026-11-19; other variants still open).
-9. Add closely related **variants of tools that already get impressions**, rather than new topics (slab cost shipped; other cost/variant tools still open).
-9. Add closely related **variants of tools that already get impressions**, rather than new topics (French drain gravel calculator shipped 2026-11-19; other variants still open).
+9. Further impression-adjacent variants still open (e.g. stair **stringer**, not poured-step volume)—see `docs/ideas/README.md`. Avoid lumber-weight or CMU split URLs.
 10. **Weekly GSC check** and refresh baseline metrics in this file.
 11. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
 12. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
 13. **CI follow-up (optional, off-repo):** if Workers Builds install still dominates, tune dashboard Node/cache settings (not expressible in-repo beyond `.npmrc`).
-1. **Re-run `npm run audit:ai-detect`** after any future guide/tool body rewrite; keep [`docs/ai-detect-scores.md`](ai-detect-scores.md) in sync. Commercial detectors (GPTZero, etc.) may still differ from local HF models.
-2. **After deploy:** ping IndexNow; GSC URL Inspection → Request indexing / validate for previously “Discovered - not indexed” and redirect/noindex buckets.
-3. **GA4 Consent Mode v2** (default denied + cookieless pings) so traffic is measured; currently GA fires only after Accept.
-4. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
-5. **Author / `sameAs` env vars unset** (`PUBLIC_AUTHOR_URL` / profile URLs) — Organization/Person schema sameAs stays thin until set.
-6. **Editorial backlinks** — essentially none yet; embed outreach + directories still open.
-7. **Reddit promotion paused (2026-11-19, owner decision).** `u/ihammadiqbal117` is ~1 day old with 1 karma. Reddit’s site-wide filter removed the Docuklin `r/SideProject` post and `r/Contractor` comments (`[ Removed by Reddit ]`). Before any further posts, build karma with plain, **link-free** helpful comments. Do **not** mark the YardTally `r/SideProject` post as removed unless verified.
-8. Free-tool / calculator **directory submissions** beyond TinyLaunch (Agathox ownership tokens shipped 2026-11-20; listing URL unconfirmed until Agathox accepts; other directories only record confirmed names + URLs here).
-9. **Embed-widget outreach** to DIY / landscaping bloggers.
-10. Add closely related **variants of tools that already get impressions**, rather than new topics.
-11. **Weekly GSC check** and refresh baseline metrics in this file.
-12. **AdSense:** keep publishing on schedule; expect review ~3–4 weeks from application (Nov 2026).
-13. **TinyLaunch launch day 2026-12-07** — prepare listing assets; badge already via `PUBLIC_DIRECTORY_BADGES`.
-14. **CI follow-up (optional, off-repo):** if Workers Builds install still dominates, tune dashboard Node/cache settings (not expressible in-repo beyond `.npmrc`).
+14. **Re-run `npm run audit:ai-detect`** after future guide/tool body rewrites; keep [`docs/ai-detect-scores.md`](ai-detect-scores.md) in sync.
 
 ## In progress
 
-- **2026-11-22:** Full SEO plan PR (`cursor/seo-plan-all-pages-0397`) — titles/FAQs/links/lumber weight/mulch merge/agent rules shipping; AI Overview exemplar pass on mulch-depth, gravel-types, retaining-wall-blocks guides; build/test/audit before PR open.
-- Human-writing rewrite + detector PR — separate branch.
-- **2026-11-19:** Human-writing rewrite PR (`cursor/human-writing-rewrite-410c`) — shipping in this PR; detector scores in `docs/ai-detect-scores.md`.
-- **2026-11-19:** PAA guides PR #46 (`cursor/paa-guides-410c`) — separate branch; CI green; pending merge.
+- **2026-11-25:** SEO authority / GSC variants PR (`cursor/seo-authority-variants-2d8c`) — GA4 Consent Mode v2, sameAs defaults, 4 variant tools, privacy/terms noindex, inbound to under-linked GSC pages.
 
 ## Off-repo work
 

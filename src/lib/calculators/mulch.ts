@@ -79,6 +79,28 @@ export function bedMulch(opts: {
 }
 
 /**
+ * Full circular bed (not a tree-ring donut): π r² × depth.
+ * Diameter is the bed footprint; for rings around trunks use treeRingMulch.
+ */
+export function circularBedMulch(opts: {
+  diameter: number;
+  depthInches: number;
+  diameterUnit?: LengthUnit;
+  pricePerYard?: number;
+  pricePerBag?: number;
+}): MulchResult {
+  const d = toFeet(opts.diameter, opts.diameterUnit ?? 'ft');
+  const depthFt = opts.depthInches / 12;
+  if (d <= 0 || depthFt <= 0) throw new Error('Dimensions must be positive');
+  const r = d / 2;
+  const area = Math.PI * r * r;
+  return fromVolume(area, area * depthFt, {
+    pricePerYard: opts.pricePerYard,
+    pricePerBag: opts.pricePerBag,
+  });
+}
+
+/**
  * Tree ring / donut mulch: π (R_outer² − R_inner²) × depth.
  * Inner radius is trunk/root flare clearance (often leave 2–3" bare at trunk).
  */

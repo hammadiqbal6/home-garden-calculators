@@ -106,3 +106,46 @@ export function raisedBedSoil(opts: {
     bags15CuFt: ceilBags(volumeCuFt, 1.5),
   };
 }
+
+export interface SodResult {
+  areaSqFt: number;
+  areaSqM: number;
+  areaWithWasteSqFt: number;
+  /** Rolls / pieces needed at sqFtPerPiece (ceil). */
+  pieces: number;
+  /** Pallets needed when sqFtPerPallet > 0 (ceil). */
+  pallets: number;
+}
+
+/**
+ * Sod area takeoff: lawn L×W, optional waste %, then pieces and pallets from
+ * user-entered coverage. Defaults (10 sq ft/roll, 450 sq ft/pallet) are common
+ * retail planning figures—override with the supplier ticket.
+ */
+export function sodNeeded(opts: {
+  length: number;
+  width: number;
+  lengthUnit?: LengthUnit;
+  widthUnit?: LengthUnit;
+  wastePercent?: number;
+  sqFtPerPiece?: number;
+  sqFtPerPallet?: number;
+}): SodResult {
+  const L = toFeet(opts.length, opts.lengthUnit ?? 'ft');
+  const W = toFeet(opts.width, opts.widthUnit ?? 'ft');
+  if (L <= 0 || W <= 0) throw new Error('Dimensions must be positive');
+  const waste = (opts.wastePercent ?? 5) / 100;
+  if (waste < 0 || waste > 0.5) throw new Error('Waste percent out of range');
+  const piece = opts.sqFtPerPiece ?? 10;
+  const pallet = opts.sqFtPerPallet ?? 450;
+  if (piece <= 0 || pallet <= 0) throw new Error('Coverage must be positive');
+  const area = L * W;
+  const withWaste = area * (1 + waste);
+  return {
+    areaSqFt: round(area, 2),
+    areaSqM: round(sqFtToSqM(area), 2),
+    areaWithWasteSqFt: round(withWaste, 2),
+    pieces: Math.ceil(withWaste / piece),
+    pallets: Math.ceil(withWaste / pallet),
+  };
+}

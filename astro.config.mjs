@@ -30,7 +30,11 @@ export default defineConfig({
     sitemap({
       changefreq: undefined,
       priority: undefined,
-      filter: (page) => !page.includes('/404') && !page.includes('/embed/'),
+      filter: (page) =>
+        !page.includes('/404') &&
+        !page.includes('/embed/') &&
+        !page.includes('/privacy/') &&
+        !page.includes('/terms/'),
       serialize(item) {
         try {
           const pathname = new URL(item.url).pathname;

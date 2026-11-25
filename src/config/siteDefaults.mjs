@@ -51,8 +51,18 @@ export const DEFAULT_AUTHOR_URL = 'https://github.com/hammadiqbal6';
 /** Comma-separated profile URLs for Person.sameAs. */
 export const DEFAULT_AUTHOR_SAME_AS = DEFAULT_AUTHOR_URL;
 
-/** Comma-separated Organization.sameAs; empty → omit / reuse author. */
-export const DEFAULT_ORG_SAME_AS = '';
+/**
+ * Comma-separated Organization.sameAs.
+ * Default matches the maintainer GitHub already used for Person — do not invent
+ * LinkedIn / X / Product Hunt URLs; set those via PUBLIC_ORG_SAME_AS when real.
+ */
+export const DEFAULT_ORG_SAME_AS = DEFAULT_AUTHOR_URL;
+
+/**
+ * GA4 measurement ID fallback when PUBLIC_GA4_MEASUREMENT_ID is unset at build.
+ * Production property for getyardtally.com (see docs/GROWTH-STATUS.md).
+ */
+export const DEFAULT_GA4_MEASUREMENT_ID = 'G-N4VRDDEVLP';
 
 /** Footer © owner; empty → use site name. */
 export const DEFAULT_COPYRIGHT_OWNER = '';

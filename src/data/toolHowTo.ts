@@ -559,4 +559,88 @@ export const toolHowTo: Record<string, ToolHowTo> = {
       },
     ],
   },
+  'concrete-steps-calculator': {
+    name: 'How to estimate concrete for poured steps',
+    steps: [
+      {
+        name: 'Enter stair width, step count, riser, and tread',
+        text: 'Use the finished stair width and the rise/tread you will form. Convert inches carefully when switching units.',
+      },
+      {
+        name: 'Apply waste',
+        text: 'Add waste for form flex and spillage (default 10%). Round up when ordering bags.',
+      },
+      {
+        name: 'Read cubic feet, yards, and bags',
+        text: 'Solid-fill volume uses width × tread × riser × n(n+1)/2. Convert bags with the yield on your mix label (QUIKRETE 1101 lists about 0.60 cu ft per 80 lb bag).',
+      },
+      {
+        name: 'Confirm footing and steel separately',
+        text: 'This tool sizes stair fill only. Check frost footings and rebar on their own calculators or drawings before you pour.',
+      },
+    ],
+  },
+  'sod-calculator': {
+    name: 'How to estimate sod rolls and pallets',
+    steps: [
+      {
+        name: 'Measure lawn length and width',
+        text: 'Split irregular yards into rectangles and add areas, or enter one rectangle at a time.',
+      },
+      {
+        name: 'Set waste and coverage',
+        text: 'Enter waste for cuts (often 5–10%) and the square feet per roll and per pallet from your supplier ticket.',
+      },
+      {
+        name: 'Read pieces and pallets',
+        text: 'The calculator multiplies area by waste, then rounds up rolls and pallets so you do not short the order.',
+      },
+      {
+        name: 'Schedule install',
+        text: 'Confirm harvest and delivery timing with the farm; sod does not wait like a bag of seed.',
+      },
+    ],
+  },
+  'paver-base-calculator': {
+    name: 'How to estimate paver or wall-base gravel',
+    steps: [
+      {
+        name: 'Enter pad or trench dimensions',
+        text: 'Use length and width of the patio pad or retaining-wall base trench, plus the finished compacted depth.',
+      },
+      {
+        name: 'Add compaction waste',
+        text: 'Include waste for spill and uneven subgrade (default 10%). Depth is the compacted target, not loose dump height.',
+      },
+      {
+        name: 'Read yards and tons',
+        text: 'Convert cubic feet to yards and estimate tons at about 2,700 lb/cu yd unless your quarry gives a ticket density.',
+      },
+      {
+        name: 'Order sand and pavers separately',
+        text: 'Bedding sand and paver piece counts are not included—run those tools after the base is sized.',
+      },
+    ],
+  },
+  'mulch-calculator-circular-beds': {
+    name: 'How to estimate mulch for a circular bed',
+    steps: [
+      {
+        name: 'Measure bed diameter and depth',
+        text: 'Measure across the planting circle and choose depth (often 2–3 inches for organic mulch).',
+      },
+      {
+        name: 'Compute circle area and volume',
+        text: 'Area = π × (diameter ÷ 2)². Volume = area × (depth inches ÷ 12).',
+      },
+      {
+        name: 'Convert to bags or yards',
+        text: 'Read cubic yards and ceil bag counts for 2 and 3 cu ft bags, then confirm bag size on the label.',
+      },
+      {
+        name: 'Keep mulch off stems',
+        text: 'Pull mulch back from trunks and crowns. Use the tree-ring tool when a trunk keep-out hole is required.',
+      },
+    ],
+  },
 };

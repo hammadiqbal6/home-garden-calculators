@@ -31,6 +31,7 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How thick should a concrete slab be? → ${origin}/guides/concrete-slab-thickness/
 - How much concrete for a 10x10 slab? → ${origin}/guides/concrete-for-10x10-slab/
 - Concrete calculator yards and bags? → ${origin}/calculators/concrete-calculator/
+- How much concrete for poured steps? → ${origin}/calculators/concrete-steps-calculator/
 - How much concrete for a strip footing? → ${origin}/calculators/concrete-footing-calculator/
 - Concrete footing calculator (strip and pad)? → ${origin}/calculators/concrete-footing-calculator/
 - How much concrete in a Sonotube? → ${origin}/guides/how-much-concrete-in-a-sonotube/
@@ -40,6 +41,9 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much area will one gallon of paint cover? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be? → ${origin}/guides/mulch-depth-guide/
 - How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
+- How much mulch for a round / circular bed? → ${origin}/calculators/mulch-calculator-circular-beds/
+- How much gravel for a paver or retaining-wall base? → ${origin}/calculators/paver-base-calculator/
+- How much sod do I need (rolls / pallets)? → ${origin}/calculators/sod-calculator/
 - What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
 - Topsoil vs garden soil? → ${origin}/guides/topsoil-vs-garden-soil/
 - How much grass seed per 1,000 sq ft? → ${origin}/guides/grass-seed-per-sq-ft/

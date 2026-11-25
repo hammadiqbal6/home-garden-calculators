@@ -35,7 +35,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_LOGO_PATH?: string;
   readonly PUBLIC_OG_IMAGE_PATH?: string;
   readonly PUBLIC_OG_IMAGE_ALT?: string;
-  /** GA4 measurement ID (G-…). Empty/unset → no analytics scripts. */
+  /** GA4 measurement ID (G-…). Unset → DEFAULT_GA4_MEASUREMENT_ID in siteDefaults.mjs. */
   readonly PUBLIC_GA4_MEASUREMENT_ID?: string;
   /** Google Search Console HTML-tag verification content. Optional. */
   readonly PUBLIC_GSC_VERIFICATION?: string;

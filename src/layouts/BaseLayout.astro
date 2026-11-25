@@ -13,6 +13,11 @@ interface Props {
   ogType?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noIndex?: boolean;
+  /**
+   * Explicit robots content (e.g. `noindex, follow` for privacy/terms).
+   * When set, overrides the boolean `noIndex` shortcut.
+   */
+  robots?: string;
   ogImagePath?: string;
   ogImageAlt?: string;
 }
@@ -24,9 +29,12 @@ const {
   ogType = 'website',
   jsonLd = [],
   noIndex = false,
+  robots,
   ogImagePath = siteConfig.defaultOgImage,
   ogImageAlt = siteConfig.defaultOgImageAlt,
 } = Astro.props;
+
+const robotsContent = robots || (noIndex ? 'noindex,nofollow' : undefined);
 
 /** Single brand suffix — strips a trailing `| {brand}` then re-adds it once. */
 const title = formatPageTitle(titleProp);
@@ -64,7 +72,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
     <meta name="description" content={description} />
     <meta name="author" content={siteConfig.author.name} />
     {canonical && <link rel="canonical" href={canonical} />}
-    {noIndex && <meta name="robots" content="noindex,nofollow" />}
+    {robotsContent && <meta name="robots" content={robotsContent} />}
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:title" content={title} />
@@ -157,6 +165,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
               }
               if (!configured) {
                 configured = true;
+                // Advanced Consent Mode: config under current consent (denied until update).
                 gtag('config', gaId, {
                   anonymize_ip: true,
                   send_page_view: true,
@@ -181,33 +190,41 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
                 ad_personalization: 'granted',
                 analytics_storage: 'granted',
               });
-              // Grant BEFORE first config so the initial page_view is not dropped under denied
-              // storage. If config already ran under denied (race), re-send page_view.
-              if (configured) {
-                __ycSendPageView();
-              } else {
-                window.__ycLoadGa();
-              }
+              // Ensure gtag.js + config exist, then send a page_view after the grant
+              // (config may already have run under denied storage).
+              window.__ycLoadGa();
+              __ycSendPageView();
+            };
+
+            window.__ycDenyConsent = function () {
+              if (__ytIsCmpRegion()) return;
+              gtag('consent', 'update', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+              });
             };
 
             /**
-             * Load gating:
-             * - EEA/UK/CH: load with denied defaults so Consent Mode + Google CMP (TCF) can operate.
-             * - Elsewhere: load only after Accept (or a prior Accept in localStorage).
+             * Advanced Consent Mode (all regions):
+             * Always load gtag.js with denied defaults (cookieless pings).
+             * Grant storage on Accept (or prior Accept); keep denied on Reject.
+             * EEA/UK/CH: Google’s certified CMP updates consent via TCF.
              */
             function scheduleGa() {
               try {
-                if (__ytIsCmpRegion()) {
-                  window.__ycLoadGa();
-                  return;
-                }
+                window.__ycLoadGa();
+                if (__ytIsCmpRegion()) return;
                 var v = localStorage.getItem('yc_cookie_ok');
                 if (v === '1') {
                   window.__ycGrantConsent();
-                  return;
+                } else if (v === '0') {
+                  window.__ycDenyConsent();
                 }
-                // Reject or no preference: do not load gtag.js until Accept.
-              } catch (e) {}
+              } catch (e) {
+                window.__ycLoadGa();
+              }
             }
             if ('requestIdleCallback' in window) {
               requestIdleCallback(scheduleGa, { timeout: 4000 });
@@ -450,6 +467,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
               }
               localStorage.setItem('yc_cookie_ok', '0');
               dismissCookieNotice();
+              if (typeof window.__ycDenyConsent === 'function') window.__ycDenyConsent();
             });
         } catch (e) {}
 

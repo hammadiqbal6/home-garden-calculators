@@ -135,9 +135,7 @@ for (const file of pages) {
     url.startsWith('/hubs/') ||
     url.startsWith('/about') ||
     url.startsWith('/contact') ||
-    url.startsWith('/methodology') ||
-    url.startsWith('/privacy') ||
-    url.startsWith('/terms')
+    url.startsWith('/methodology')
   ) {
     const origin = SITE_ORIGIN.replace(/\/$/, '');
     const expected =

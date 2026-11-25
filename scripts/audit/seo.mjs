@@ -469,8 +469,6 @@ for (const file of pages) {
         url.startsWith('/hubs/') ||
         url.startsWith('/about') ||
         url.startsWith('/contact') ||
-        url.startsWith('/privacy') ||
-        url.startsWith('/terms') ||
         url.startsWith('/embed-info') ||
         url.startsWith('/methodology'))
     ) {

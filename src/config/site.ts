@@ -18,6 +18,7 @@ import {
   DEFAULT_CONTENT_UPDATED,
   DEFAULT_COPYRIGHT_OWNER,
   DEFAULT_DATE_CREATED,
+  DEFAULT_GA4_MEASUREMENT_ID,
   DEFAULT_INDEXNOW_KEY,
   DEFAULT_LOCALE,
   DEFAULT_LOGO_PATH,
@@ -91,7 +92,9 @@ const brandColor = readPublicEnv('PUBLIC_THEME_COLOR') || DEFAULT_THEME_COLOR;
 const backgroundColor =
   readPublicEnv('PUBLIC_BACKGROUND_COLOR') || DEFAULT_BACKGROUND_COLOR;
 const locale = readPublicEnv('PUBLIC_LOCALE') || DEFAULT_LOCALE;
-const ga4MeasurementId = readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID');
+/** Prefer PUBLIC_GA4_MEASUREMENT_ID; fall back so builds without the env still emit gtag. */
+const ga4MeasurementId =
+  readPublicEnv('PUBLIC_GA4_MEASUREMENT_ID') || DEFAULT_GA4_MEASUREMENT_ID;
 /** Prefer PUBLIC_GSC_VERIFICATION; keep legacy alias for older Workers Builds configs. */
 const searchConsoleVerification =
   readPublicEnv('PUBLIC_GSC_VERIFICATION') ||
@@ -228,7 +231,10 @@ export const siteConfig = {
   /** Organization logo (PNG ≥112px for Google Images) */
   logoPath,
   analytics: {
-    /** GA4 measurement ID from PUBLIC_GA4_MEASUREMENT_ID — empty disables gtag */
+    /**
+     * GA4 measurement ID from PUBLIC_GA4_MEASUREMENT_ID, else DEFAULT_GA4_MEASUREMENT_ID.
+     * Always non-empty in production defaults so Consent Mode + gtag ship even when env is unset.
+     */
     ga4MeasurementId,
     /** Google Search Console HTML tag content — empty omits the meta tag */
     searchConsoleVerification,

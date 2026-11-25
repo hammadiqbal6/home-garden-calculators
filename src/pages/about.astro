@@ -68,13 +68,16 @@ const jsonLd = [
     </p>
 
     <h2 id="personal-bio">Personal bio</h2>
-    <p class="bio-placeholder">
-      <em>
-        [Owner placeholder — replace this paragraph with a short personal bio: background, why you care about
-        home and garden material estimates, or other honest context. Do not invent licenses, job titles, or
-        credentials. Edit <code>about.astro</code> or set <code>PUBLIC_AUTHOR_BIO</code> for the project bio
-        above.]
-      </em>
+    <p>
+      I’m {siteConfig.author.name}, the sole maintainer of {siteConfig.name} (launched publicly around
+      {siteConfig.dateCreated} as {siteConfig.formerName}, then rebranded). I also maintain the sibling free
+      tool sites listed below—same GitHub profile (
+      <a href={siteConfig.author.canonicalPersonUrl} rel="me noopener noreferrer"
+        >{siteConfig.author.canonicalPersonUrl.replace(/^https?:\/\//, '')}</a
+      >), same “show the formula and cite the source” approach. Contact for this site is
+      <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a> (forwarded via the domain’s
+      email routing). I am not a licensed contractor, engineer, or landscaper; these pages are planning
+      estimators only.
     </p>
 
     <h2>How the calculators work</h2>

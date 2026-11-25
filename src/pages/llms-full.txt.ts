@@ -53,6 +53,10 @@ Well-known alias: ${origin}/.well-known/llms.txt
 - How much paint for a small bathroom? → ${origin}/guides/how-much-paint-for-a-room/
 - How deep should mulch be for gardens? → ${origin}/guides/mulch-depth-guide/
 - How much mulch do I need (bags vs bulk)? → ${origin}/calculators/mulch-calculator/
+- How much mulch for a round / circular bed? → ${origin}/calculators/mulch-calculator-circular-beds/
+- How much gravel for a paver or retaining-wall base? → ${origin}/calculators/paver-base-calculator/
+- How much sod do I need (rolls / pallets)? → ${origin}/calculators/sod-calculator/
+- How much concrete for poured steps? → ${origin}/calculators/concrete-steps-calculator/
 - What is the 3-3-3 rule for mulch? → ${origin}/calculators/mulch-calculator/
 - How much will 25 bags of mulch cover? → ${origin}/calculators/mulch-calculator/
 - How much mulch for a 4x8 garden bed? → ${origin}/guides/mulch-for-common-garden-beds/

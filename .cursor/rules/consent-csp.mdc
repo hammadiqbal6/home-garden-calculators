@@ -7,9 +7,10 @@ alwaysApply: false
 # Consent + CSP
 
 ## Consent (do not “simplify”)
-- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until the CMP updates (`BaseLayout.astro` + `src/lib/gdprRegions.ts`). Defaults must run before any `gtag('config')`.
-- **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar. Load gtag.js with denied defaults (Advanced Consent Mode); do not use the site Accept path.
-- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message). Load gtag.js only after Accept (or a prior Accept in `yc_cookie_ok`); grant Consent Mode **before** the first `config` so `page_view` is not dropped; if already configured under denied, send an explicit `page_view` on Accept.
+- **Consent Mode v2 (Advanced, all regions):** default `denied` for `ad_storage`, `ad_user_data`, `ad_personalization`, and `analytics_storage` **before** any `gtag('config')` (`BaseLayout.astro` + `src/lib/gdprRegions.ts`). Always load `gtag.js` so cookieless pings work; never gate script load on Accept.
+- **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar. Google’s CMP updates consent via TCF; do not use the site Accept path.
+- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message). On Accept → `consent update` granted + explicit `page_view`. On Reject → keep storage denied (script stays loaded). Honor prior `yc_cookie_ok` (`1` grant / `0` deny).
+- **GA4 ID:** `PUBLIC_GA4_MEASUREMENT_ID` or hardcoded `DEFAULT_GA4_MEASUREMENT_ID` (`G-N4VRDDEVLP`) so builds without the env still emit tracking.
 - Geo signal: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` (`src/worker.ts`, `src/lib/htmlGeoInject.ts`).
 - Privacy copy must stay aligned with AdSense cookies + opt-out + this split (`src/pages/privacy.astro`, `docs/ADSENSE.md`).
 

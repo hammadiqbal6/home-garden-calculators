@@ -70,7 +70,7 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-  'mulch-depth-guide': `      <div class="takeaway"><strong>Quick answer:</strong> Most flower beds and gardens want about <strong>2–3 inches</strong> of organic mulch—not a volcano against trunks. Pick the depth first, then run the free <a href="/calculators/mulch-calculator/">mulch calculator for bags and cubic yards</a> (or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donuts). Formula: <strong>cu&nbsp;ft = area (sq&nbsp;ft) × (depth_inches ÷ 12)</strong>.</div>
+  'mulch-depth-guide': `      <div class="takeaway"><strong>Quick answer:</strong> Most flower beds and gardens want about <strong>2–3 inches</strong> of organic mulch—not a volcano against trunks. Pick the depth first, then run the free <a href="/calculators/mulch-calculator/">mulch calculator for bags and cubic yards</a>, the <a href="/calculators/mulch-calculator-circular-beds/">circular bed mulch calculator</a> for round beds, or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donuts. Formula: <strong>cu&nbsp;ft = area (sq&nbsp;ft) × (depth_inches ÷ 12)</strong>.</div>
 
       <h2>How deep should mulch be in flower beds / for gardens?</h2>
       <p><strong>Two to three inches.</strong> That's the working range for most flower beds and gardens—deep enough to knock weeds back and hold moisture, shallow enough that roots still get air. Clemson lists 2–3 inches for many wood and bark mulches; UF/IFAS Florida-Friendly guidance targets about 3 inches and says don't exceed 3 inches in beds.</p>
@@ -145,6 +145,9 @@ export const guideBodies: Record<string, string> = {
 
       <h2>Worked example: 20 × 5 ft bed</h2>
       <p>A 20 × 5&nbsp;ft bed is 100&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 100 × 0.25 = <strong>25&nbsp;cu&nbsp;ft</strong> ≈ thirteen 2&nbsp;cu&nbsp;ft bags (about 0.93&nbsp;cu&nbsp;yd). At 2&nbsp;inches: 100 × (2÷12) ≈ <strong>16.7&nbsp;cu&nbsp;ft</strong> ≈ nine 2&nbsp;cu&nbsp;ft bags. Split irregular beds into rectangles and add the volumes—the same method the calculator uses.</p>
+
+      <h2>Worked example: 8 ft circular bed</h2>
+      <p>Round beds use area = π × (diameter ÷ 2)². An 8&nbsp;ft circle is about 50.3&nbsp;sq&nbsp;ft. At 3&nbsp;inches: 50.3 × 0.25 ≈ <strong>12.6&nbsp;cu&nbsp;ft</strong> (~0.47&nbsp;cu&nbsp;yd)—about seven 2&nbsp;cu&nbsp;ft bags. Run diameter and depth in the <a href="/calculators/mulch-calculator-circular-beds/">circular bed mulch calculator</a> when the bed is a true circle instead of a rectangle.</p>
 
       <h2>Worked example: tree ring</h2>
       <p>Mulch a ring with a 6&nbsp;ft outer diameter, leave a 1.5&nbsp;ft clear circle at the trunk, 3&nbsp;inches deep. Outer area ≈ π × 3² ≈ 28.3&nbsp;sq&nbsp;ft; inner opening ≈ π × 0.75² ≈ 1.8&nbsp;sq&nbsp;ft; mulched area ≈ 26.5&nbsp;sq&nbsp;ft. Volume ≈ 26.5 × 0.25 ≈ <strong>6.6&nbsp;cu&nbsp;ft</strong> (about four 2&nbsp;cu&nbsp;ft bags). Confirm with the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a>. Keep the flare bare.</p>
@@ -1869,10 +1872,13 @@ export const guideBodies: Record<string, string> = {
           <tr><td>2×4</td><td>1.05</td><td>1.22</td><td>1.30</td><td>1.93</td></tr>
           <tr><td>2×6</td><td>1.64</td><td>1.92</td><td>2.04</td><td>3.04</td></tr>
           <tr><td>2×8</td><td>2.17</td><td>2.53</td><td>2.69</td><td>4.00</td></tr>
+          <tr><td>2×10</td><td>2.76</td><td>3.23</td><td>3.43</td><td>5.11</td></tr>
+          <tr><td>2×12</td><td>3.36</td><td>3.92</td><td>4.17</td><td>6.21</td></tr>
           <tr><td>4×4</td><td>2.44</td><td>2.85</td><td>3.03</td><td>4.51</td></tr>
         </tbody>
       </table>
       </div>
+      <p>2×10 and 2×12 use the same dressed 1½ in thickness with 9¼ and 11¼ in widths. Multiply lb/ft by stick length for a single piece, or use the interactive <a href="/calculators/lumber-calculator/">dimensional lumber weight calculator</a> when you have mixed lengths and piece counts.</p>
 
       <h2>How much does a 2×4×8 weigh?</h2>
       <p>Same math, eight-foot length:</p>

@@ -422,14 +422,28 @@ for (const file of pages) {
     if (!/href=["']\/guides\//i.test(html)) {
       fail(`${url}: tool page has no /guides/ link`);
     }
-    // Every tool page: visible embed section + nofollow branded credit (anti–link-scheme).
+    // Every tool page: visible embed section + dofollow “Calculator by …” credit to the tool URL.
     // Snippet lives in a textarea, so quotes may be HTML-escaped (&quot;).
     if (!/Embed this calculator/i.test(html)) {
       fail(`${url}: missing visible “Embed this calculator” section`);
-    } else if (
-      !/Powered by[\s\S]{0,400}?rel=(?:["']|&quot;)[^"'&]*nofollow/i.test(html)
-    ) {
-      fail(`${url}: embed credit missing rel="nofollow" on Powered by link`);
+    } else {
+      const creditOk =
+        /Calculator by[\s\S]{0,500}?href=(?:["']|&quot;)[^"'&]*\/calculators\//i.test(
+          html,
+        ) ||
+        /href=(?:["']|&quot;)[^"'&]*\/calculators\/[\s\S]{0,300}?Calculator by/i.test(
+          html,
+        );
+      if (!creditOk) {
+        fail(`${url}: embed credit missing “Calculator by” link to /calculators/`);
+      }
+      // Credit must be dofollow (no rel=nofollow on the YardTally calculator credit).
+      const nofollowCredit =
+        /Calculator by[\s\S]{0,500}?rel=(?:["']|&quot;)[^"'&]*nofollow/i.test(html) ||
+        /rel=(?:["']|&quot;)[^"'&]*nofollow[\s\S]{0,200}?Calculator by/i.test(html);
+      if (nofollowCredit) {
+        fail(`${url}: embed “Calculator by” credit must be dofollow (no rel=nofollow)`);
+      }
     }
   }
 

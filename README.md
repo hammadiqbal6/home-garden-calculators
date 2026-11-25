@@ -2,7 +2,7 @@
 
 Production-ready **static** website of free DIY / landscaping material calculators. Built to rank in Google, be citable by AI search, pass AdSense review, and stay fast on mobile.
 
-**Brand:** YardTally · **Site:** https://getyardtally.com · **Config:** [`src/config/site.ts`](src/config/site.ts)  
+**Brand:** YardTally · **Live site:** [https://getyardtally.com](https://getyardtally.com) · **Config:** [`src/config/site.ts`](src/config/site.ts)  
 **Governing research:** [`docs/SEO-PLAYBOOK.md`](docs/SEO-PLAYBOOK.md) · [`docs/MARKET-RESEARCH.md`](docs/MARKET-RESEARCH.md) · [`docs/ideas/README.md`](docs/ideas/README.md)  
 **Living growth tracker:** [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md) (update Done/Remaining in the **same PR** as every change)
 
@@ -14,8 +14,21 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-25)
 
-- **SEO authority + GSC variants (this PR):** Advanced Consent Mode v2 (always-load gtag, denied defaults, Accept grant / Reject denied; `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Person/Org `sameAs` defaults to real GitHub. Additive tools: concrete steps, sod, paver base, circular-bed mulch. Brick/lumber/lawn FAQ + hub/home thicken; stronger inbound to GSC impression pages (brick, asphalt, lumber-weight, fence posts, roof pitch, paint). Privacy/terms `noindex,follow` + sitemap exclude. Directory badge / calculator console guards.
+- **SEO authority + GSC variants (this PR):** Advanced Consent Mode v2 (always-load gtag, denied defaults, Accept grant / Reject denied; `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Person/Org `sameAs` defaults to real GitHub. Additive tools: concrete steps, sod, paver base, circular-bed mulch. Brick/lumber/lawn FAQ + hub/home thicken; stronger inbound to GSC impression pages. Privacy/terms `noindex,follow` + sitemap exclude. Directory badge / calculator console guards. **Embed credit:** visible dofollow “Calculator by YardTally” → canonical tool URL (snippet + embed page).
 - Prior: durable SEO agent rules; title/H1 rewrite; mulch quantity merge into calculator; lumber weight on lumber calculator + weight chart guide; Agathox verification; slab/footing/deck-footing/French-drain/Sonotube upgrades; homepage grid + indexing audit; PAA guides; human-writing rewrite; TinyLaunch approved (launch 2026-12-07).
+
+## Embed this calculator
+
+Live site: [https://getyardtally.com](https://getyardtally.com)
+
+Every embeddable tool on the site has an **Embed this calculator** box. Copy the iframe + keep the credit link so the widget points back to the matching calculator:
+
+```html
+<iframe src="https://getyardtally.com/embed/concrete-calculator/" title="Concrete Calculator – YardTally" width="100%" height="640" loading="lazy" style="border:0;border-radius:8px;max-width:100%"></iframe>
+<p style="font-size:12px;margin-top:8px"><a href="https://getyardtally.com/calculators/concrete-calculator/" target="_blank" rel="noopener">Calculator by YardTally</a></p>
+```
+
+Replace `concrete-calculator` with any embeddable slug (see the tool list below). The live embed UI shows the same credit.
 
 ### Remaining
 

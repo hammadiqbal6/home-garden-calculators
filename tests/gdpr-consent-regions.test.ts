@@ -113,13 +113,27 @@ describe('BaseLayout GA4 consent gating', () => {
     expect(secondBlock).toContain("analytics_storage: 'granted'");
   });
 
-  it('always loads gtag; grant updates consent and sends page_view; reject denies analytics', () => {
+  it('loads GA promptly (no idle deferral) and avoids double page_view on grant', () => {
     expect(layout).toContain("gtag('event', 'page_view'");
     expect(layout).toContain('window.__ycDenyConsent');
-    expect(layout).toMatch(/__ycGrantConsent[\s\S]*consent', 'update'[\s\S]*__ycLoadGa\(\)[\s\S]*__ycSendPageView/);
+    expect(layout).not.toContain('requestIdleCallback');
+    expect(layout).toMatch(/scheduleGa\(\);\s*$/m);
+    expect(layout).toMatch(
+      /__ycGrantConsent[\s\S]*if \(configured\)[\s\S]*__ycSendPageView[\s\S]*else[\s\S]*__ycLoadGa/,
+    );
     expect(layout).toMatch(/getItem\(['"]yc_cookie_ok['"]\)/);
     expect(layout).toMatch(/v === ['"]1['"]/);
     expect(layout).toMatch(/v === ['"]0['"]/);
     expect(layout).toMatch(/Do not sell or share/);
+  });
+});
+
+describe('CSP AdSense hosts', () => {
+  const headers = readFileSync(resolve('public/_headers'), 'utf8');
+
+  it('allows *.adtrafficquality.google in script-src, connect-src, and frame-src', () => {
+    expect(headers).toMatch(/script-src[^;]*https:\/\/\*\.adtrafficquality\.google/);
+    expect(headers).toMatch(/connect-src[^;]*https:\/\/\*\.adtrafficquality\.google/);
+    expect(headers).toMatch(/frame-src[^;]*https:\/\/\*\.adtrafficquality\.google/);
   });
 });

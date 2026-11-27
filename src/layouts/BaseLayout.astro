@@ -192,10 +192,13 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
                 ad_personalization: 'granted',
                 analytics_storage: 'granted',
               });
-              // Ensure gtag.js + config exist, then send a page_view after the grant
-              // (config may already have run under denied ad storage).
-              window.__ycLoadGa();
-              __ycSendPageView();
+              // Avoid double page_view: config sends one when first loaded after grant;
+              // if config already ran (e.g. under denied ad storage), send an explicit page_view once.
+              if (configured) {
+                __ycSendPageView();
+              } else {
+                window.__ycLoadGa();
+              }
             };
 
             window.__ycDenyConsent = function () {
@@ -209,7 +212,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
             };
 
             /**
-             * Geo consent policy (2026-11-27):
+             * Geo consent policy (2026-11-27) + prompt GA load (no idle deferral):
              * - EEA/UK/CH: load with denied defaults; Google CMP updates via TCF.
              * - Elsewhere: analytics granted by default; honor prior Reject (yc_cookie_ok=0)
              *   or prior Accept (yc_cookie_ok=1 grants ads + analytics).
@@ -228,11 +231,8 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
                 window.__ycLoadGa();
               }
             }
-            if ('requestIdleCallback' in window) {
-              requestIdleCallback(scheduleGa, { timeout: 4000 });
-            } else {
-              setTimeout(scheduleGa, 1500);
-            }
+            // Load immediately — idle deferral delayed/missed hits on short visits.
+            scheduleGa();
           }
         </script>
       )

@@ -14,8 +14,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-27)
 
-- **Geo analytics consent (this PR):** Consent Mode region defaults — EEA/UK/CH denied until Google CMP; elsewhere analytics granted by default with Reject / Do not sell or share opt-out; `/cookies/` preference page; privacy/terms/rules aligned (owner policy 2026-11-27).
-- Prior: SEO authority + GSC variants (Advanced Consent Mode always-load gtag, sameAs, additive tools, embed dofollow credit); durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing/deck-footing/French-drain/Sonotube upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
+- **Analytics reliability (this PR):** Load GA immediately (drop idle deferral); fix Accept double `page_view` (send only when config already ran); add `https://*.adtrafficquality.google` to CSP `script-src` (already in connect/frame).
+- Prior: Geo analytics consent (region defaults + `/cookies/`); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 

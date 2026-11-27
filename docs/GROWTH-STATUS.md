@@ -28,7 +28,8 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## Done
 
-- **2026-11-27 — this PR (analytics reliability):** Verified and fixed: GA no longer deferred via `requestIdleCallback` (loads immediately); Accept path sends at most one `page_view` (explicit only if `config` already ran); CSP `script-src` now includes `https://*.adtrafficquality.google` (connect/frame already had it). **No IndexNow.**
+- **2026-11-27 — this PR (embed framing):** `/embed/*` can be iframed cross-origin (`! X-Frame-Options` + CSP `frame-ancestors *`); site-wide `X-Frame-Options: SAMEORIGIN` unchanged. **No IndexNow.**
+- **2026-11-27 — analytics reliability (#53):** GA no longer deferred via `requestIdleCallback` (loads immediately); Accept path sends at most one `page_view` (explicit only if `config` already ran); CSP `script-src` includes `https://*.adtrafficquality.google`.
 - **2026-11-27 — geo analytics consent (#52):** Consent Mode region defaults — EEA/UK/CH analytics+ads denied until Google CMP; elsewhere `analytics_storage` granted by default (ads still denied until Accept). Cookie bar Reject label → “Do not sell or share”; new `/cookies/` preference page (`noindex,follow`, sitemap-excluded). Privacy/terms/ADSENSE/AGENTS/consent-csp rules updated to the owner policy (Sidney, 2026-11-27).
 - **2026-11-25 — SEO authority + GSC-prioritized variants:** Advanced Consent Mode v2 (always load gtag; default denied; Accept grant / Reject stay denied; hardcoded `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Author/Organization `sameAs` defaults to real GitHub `https://github.com/hammadiqbal6` + About personal-bio expansion. New additive calculators (no URL/title/H1 changes to existing pages): `/calculators/concrete-steps-calculator/`, `/calculators/sod-calculator/`, `/calculators/paver-base-calculator/`, `/calculators/mulch-calculator-circular-beds/`. Expanded lumber-weight chart + brick estimator FAQ; lawn hub + homepage thickened; GSC under-linked pages (brick, asphalt, lumber-weight, fence posts, roof pitch, paint) get stronger home/hub/related inbound. Privacy + terms `noindex, follow` and excluded from sitemap (audits updated). First-party console: directory badge `onerror` + calculator unknown-id guard. **Embed credit (backlink support):** visible dofollow “Calculator by YardTally” → canonical `/calculators/<slug>/` in the copyable snippet and on `/embed/<slug>/` (policy flip from prior nofollow). README links the live site and documents the embed snippet. **No deploy / IndexNow from this agent.**
 - **2026-11-22 — this PR (durable SEO + AI Overview agent rules):** Added [`.cursor/rules/seo.mdc`](../.cursor/rules/seo.mdc) and [`.cursor/skills/add-seo-page/SKILL.md`](../.cursor/skills/add-seo-page/SKILL.md); expanded AGENTS.md §5 (titles ≤60 branded, cannibalization/301, inbound-link minimums, answer-under-H2, no hard-coded counts, AI crawlers allowed). Extended existing seo-pages / seo-guardrails / add-calculator / add-guide / pre-merge skills to point at them. **Post-deploy (documented, not run pre-deploy):** `npm run indexnow` submits all sitemap URLs (new pages + redirect targets; key unchanged) + GSC Request indexing for changed pages.
@@ -90,7 +91,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## In progress
 
-- **2026-11-27:** Remaining fix PRs — embed framing, SEO page copy, Worker `/404/` body.
+- **2026-11-27:** Remaining fix PRs — SEO page copy, Worker `/404/` body.
 
 ## Off-repo work
 

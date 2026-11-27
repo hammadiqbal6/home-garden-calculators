@@ -14,8 +14,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-27)
 
-- **Analytics reliability (this PR):** Load GA immediately (drop idle deferral); fix Accept double `page_view` (send only when config already ran); add `https://*.adtrafficquality.google` to CSP `script-src` (already in connect/frame).
-- Prior: Geo analytics consent (region defaults + `/cookies/`); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
+- **Embed framing (this PR):** `/embed/*` unsets `X-Frame-Options` and sets CSP `frame-ancestors *` so widgets can be iframed on other sites; rest of site keeps `SAMEORIGIN`.
+- Prior: Analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 

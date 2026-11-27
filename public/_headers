@@ -60,5 +60,9 @@
   Cache-Control: public, max-age=86400
 
 # Embed widgets: keep out of the organic index (canonical points at the tool page).
+# Allow cross-origin iframes for /embed/* only — unset SAMEORIGIN from /* and set
+# CSP frame-ancestors * (X-Frame-Options and frame-ancestors must not conflict).
 /embed/*
   X-Robots-Tag: noindex, follow
+  ! X-Frame-Options
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://*.googlesyndication.com https://*.adtrafficquality.google https://www.googletagmanager.com https://www.google-analytics.com https://fundingchoicesmessages.google.com https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.g.doubleclick.net https://*.google.com https://*.googlesyndication.com https://*.adtrafficquality.google https://fundingchoicesmessages.google.com https://cloudflareinsights.com https://api.emailjs.com; frame-src https://*.g.doubleclick.net https://*.googlesyndication.com https://*.adtrafficquality.google https://www.google.com https://fundingchoicesmessages.google.com https://www.googletagmanager.com; font-src 'self' data: https://fonts.gstatic.com; base-uri 'self'; form-action 'self'; frame-ancestors *

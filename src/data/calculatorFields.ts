@@ -960,6 +960,7 @@ export const defaultResultRows: Record<string, [string, string][]> = {
     ['Units / course', String(brickDefault.unitsPerCourse)],
     ['Units (exact)', String(brickDefault.unitsExact)],
     ['Units with waste', String(brickDefault.unitsWithWaste)],
+    ['80 lb mortar bags (est.)', String(brickDefault.mortarBags80)],
   ],
   lumber: [
     ['Board feet / piece', String(lumberDefault.boardFeetPerPiece)],

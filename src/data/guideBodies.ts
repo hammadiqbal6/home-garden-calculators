@@ -70,9 +70,7 @@ export const guideBodies: Record<string, string> = {
         <li><a href="https://www.sakrete.com/wp-content/uploads/2024/01/Sakrete-High-Strength-Concrete-Mix-TDS.pdf" rel="noopener noreferrer">Sakrete High Strength Concrete Mix TDS – bag yields</a></li>
       </ul>
   `,
-  'mulch-depth-guide': `      <div class="takeaway"><strong>Quick answer:</strong> Most flower beds and gardens want about <strong>2–3 inches</strong> of organic mulch—not a volcano against trunks. Pick the depth first, then run the free <a href="/calculators/mulch-calculator/">mulch calculator for bags and cubic yards</a>, the <a href="/calculators/mulch-calculator-circular-beds/">circular bed mulch calculator</a> for round beds, or the <a href="/calculators/mulch-calculator-tree-rings/">tree ring mulch calculator</a> for donuts. Formula: <strong>cu&nbsp;ft = area (sq&nbsp;ft) × (depth_inches ÷ 12)</strong>.</div>
-
-      <h2>How deep should mulch be in flower beds / for gardens?</h2>
+  'mulch-depth-guide': `      <h2>How deep should mulch be in flower beds / for gardens?</h2>
       <p><strong>Two to three inches.</strong> That's the working range for most flower beds and gardens—deep enough to knock weeds back and hold moisture, shallow enough that roots still get air. Clemson lists 2–3 inches for many wood and bark mulches; UF/IFAS Florida-Friendly guidance targets about 3 inches and says don't exceed 3 inches in beds.</p>
       <p>This page answers “how deep,” not only “how many bags.” Once you lock the inches, size the order with the <a href="/calculators/mulch-calculator/">mulch calculator for bags and yards</a>. Rectangle charts live in the <a href="/guides/mulch-for-common-garden-beds/">common bed sizes chart</a>.</p>
 
@@ -241,6 +239,7 @@ export const guideBodies: Record<string, string> = {
       </ul>
 
       <p>I'd rather haul one extra 80 lb bag than stop mid-spread with a wet slab waiting.</p>
+      <p>Once you know yards and bags, price the pour with your plant or store quotes on the <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a>—defaults there are labeled examples, not market rates.</p>
       <h2>Does bag brand change the count?</h2>
       <p>Yes, a little. QUIKRETE 1101 and Sakrete High Strength sit close on the 40 / 60 / 80 lb planning yields YardTally uses, but lightweight, crack-resistant, and high-early mixes often print different coverage. If the store only has a specialty bag, don't force the 0.60 cu ft assumption. Re-divide with the number on that bag.</p>
       <p>Color and finish matter on visible slabs. Mixing two brands in one pour can show as a shade or texture change when it cures. Fence posts buried underground care less about color and more about outdoor mix vs interior patching compound.</p>

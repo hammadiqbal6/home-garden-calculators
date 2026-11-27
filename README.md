@@ -14,8 +14,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-27)
 
-- **Worker `/404/` body (this PR):** Serve the Astro 404 HTML with HTTP 404 (fetch ASSETS `/404/`, strip `Location`). Fixes empty-body 404 caused by `/404.html` → 307 under `force-trailing-slash`.
-- Prior: Embed framing (#54); analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
+- **SEO page fixes (this PR):** Slab cost title/H1/meta/answerFirst (opens with 1.23/1.36 yd; prices labeled examples); concrete calculator title drops Rebar; lumber meta + KEYWORD-MAP (weight-per-foot owned by chart guide); brick mortar bags from QUIKRETE 1102 + retitle; mulch-depth duplicate quick-answer removed; inbound from how-many-bags → slab cost.
+- Prior: Worker `/404/` (#55); embed framing (#54); analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 

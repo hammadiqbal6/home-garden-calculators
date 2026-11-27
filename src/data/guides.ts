@@ -88,7 +88,7 @@ export const guides: GuideDefinition[] = [
       'raised-bed-soil-mix-4x8',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-25',
+    dateModified: '2026-11-27',
   }),
   g({
     slug: 'how-many-bags-of-concrete',
@@ -102,6 +102,7 @@ export const guides: GuideDefinition[] = [
       'An 80 lb bag yields about 0.60 cu ft; you need roughly 45 bags per cubic yard before waste. Divide your project volume in cubic feet by the bag yield (about 0.30 / 0.45 / 0.60 for 40 / 60 / 80 lb), then round up. For pours larger than about one yard, ready-mix is usually more practical.',
     relatedToolSlugs: [
       'concrete-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-calculator-post-holes',
       'sonotube-concrete-calculator',
       'rebar-calculator',
@@ -115,7 +116,7 @@ export const guides: GuideDefinition[] = [
       'sonotube-footing-and-depth',
     ],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-19',
+    dateModified: '2026-11-27',
   }),
   g({
     slug: 'concrete-for-10x10-slab',

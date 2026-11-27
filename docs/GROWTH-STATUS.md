@@ -28,7 +28,8 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## Done
 
-- **2026-11-27 — this PR (Worker `/404/` body):** Live `/404/` returned empty body + `Location: /404/` because the Worker fetched `/404.html` and Assets `force-trailing-slash` 307’d it. Now fetches ASSETS `/404/`, strips Location, forces status 404 (also covers `/404.html`). **No IndexNow.**
+- **2026-11-27 — this PR (SEO page fixes):** Concrete slab cost title/H1/meta + numeric answerFirst; concrete calculator title “Slab Yards & Bags”; lumber meta + KEYWORD-MAP settle weight-per-foot on chart guide; brick mortar bags (QUIKRETE 1102: 37 bricks / 13 blocks per 80 lb) + retitle; mulch-depth duplicate takeaway removed; how-many-bags → slab-cost link. **No IndexNow.**
+- **2026-11-27 — Worker `/404/` body (#55):** Live `/404/` returned empty body + `Location: /404/` because the Worker fetched `/404.html` and Assets `force-trailing-slash` 307’d it. Now fetches ASSETS `/404/`, strips Location, forces status 404 (also covers `/404.html`).
 - **2026-11-27 — embed framing (#54):** `/embed/*` can be iframed cross-origin (`! X-Frame-Options` + CSP `frame-ancestors *`); site-wide `X-Frame-Options: SAMEORIGIN` unchanged.
 - **2026-11-27 — analytics reliability (#53):** GA no longer deferred via `requestIdleCallback` (loads immediately); Accept path sends at most one `page_view` (explicit only if `config` already ran); CSP `script-src` includes `https://*.adtrafficquality.google`.
 - **2026-11-27 — geo analytics consent (#52):** Consent Mode region defaults — EEA/UK/CH analytics+ads denied until Google CMP; elsewhere `analytics_storage` granted by default (ads still denied until Accept). Cookie bar Reject label → “Do not sell or share”; new `/cookies/` preference page (`noindex,follow`, sitemap-excluded). Privacy/terms/ADSENSE/AGENTS/consent-csp rules updated to the owner policy (Sidney, 2026-11-27).
@@ -92,7 +93,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## In progress
 
-- **2026-11-27:** Remaining fix PR — SEO page copy (#56).
+- None for the 2026-11-27 fix-PR batch (#52–#56); off-repo directory/embed/Product Hunt work remains below.
 
 ## Off-repo work
 

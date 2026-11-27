@@ -1031,7 +1031,7 @@ bags = ceil(volume_total × (1 + waste) ÷ bag_yield)</code></pre>
         <li>Skipping waste on cut-heavy patterns.</li>
       </ul>
       <h2>Assumptions and limits</h2>
-      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you order. Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar volume isn't estimated here—ask your mason or use bag coverage on the mortar mix you buy.</p>
+      <p><strong>Planning estimate only.</strong> Check manufacturer specs and local code before you order. Results assume a flat rectangular face with uniform unit size and joint. Corbelled, curved, or multi-wythe walls need extra detailing. Mortar bags use QUIKRETE Mortar Mix No. 1102 yields (up to 37 standard bricks or 13 standard blocks per 80 lb bag)—confirm the bag you buy.</p>
       <h2>Shopping checklist</h2>
       <ul>
         <li>Confirm actual face dimensions and joint width with the supplier.</li>

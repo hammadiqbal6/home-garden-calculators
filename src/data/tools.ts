@@ -233,10 +233,10 @@ export const tools: ToolDefinition[] = [
       'concrete calculator yards',
       'concrete calculator bags',
     ],
-    title: 'Concrete Slab Calculator: Yards, Bags & Rebar',
+    title: 'Concrete Calculator: Slab Yards & Bags',
     description:
       'Free concrete slab calculator for yards and 40/60/80 lb bags. Size 10×10, 12×12, and 20×20 at 4–6 inches, add waste, and see when a ready-mix truck makes sense.',
-    h1: 'Concrete Slab Calculator: Yards, Bags & Rebar',
+    h1: 'Concrete Calculator: Slab Yards & Bags',
     answerFirst:
       'This concrete slab calculator turns length × width × thickness into cubic yards and 40/60/80 lb bags. A 10×10 slab at 4 inches is about 1.23 cu yd (≈62 × 80 lb bags after 10% waste). Add waste, compare bag vs ready-mix, and open the size table below for 12×12 and 20×20.',
     summary: 'Concrete slab calculator for yards, bags, and common patio sizes.',
@@ -325,7 +325,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-calculator'],
     datePublished: '2026-10-19',
-    dateModified: '2026-11-22',
+    dateModified: '2026-11-27',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1847,12 +1847,12 @@ export const tools: ToolDefinition[] = [
       'CMU calculator',
       'cinder block calculator',
     ],
-    title: 'Brick Calculator: Bricks per Sq Ft for Walls',
+    title: 'Brick Calculator: How Many Bricks & Mortar',
     description:
-      'Brick calculator and brick estimator for walls. Count modular brick or CMU blocks per square foot with mortar joints and waste.',
-    h1: 'Brick Calculator: Bricks per Sq Ft for Walls',
+      'Brick calculator for walls: count modular brick or CMU, then estimate 80 lb mortar bags (QUIKRETE 1102: up to 37 bricks or 13 blocks per bag).',
+    h1: 'Brick Calculator: How Many Bricks & Mortar',
     answerFirst:
-      'Bricks needed ≈ wall face ÷ (brick face + mortar joint), counted in full courses. Modular brick with a ⅜ inch joint uses about 6.86 bricks per square foot (Glen-Gery). Switch to CMU mode for standard 8×16 concrete block faces.',
+      'Bricks needed ≈ wall face ÷ (brick face + mortar joint), counted in full courses. Modular brick with a ⅜ inch joint uses about 6.86 bricks per square foot (Glen-Gery). Mortar bags use QUIKRETE Mortar Mix 1102: up to 37 standard bricks or 13 standard blocks per 80 lb bag—confirm the bag you buy.',
     summary: 'Clay brick or CMU counts for a wall face with mortar and waste.',
     calculatorId: 'brick',
     relatedSlugs: [
@@ -1878,7 +1878,7 @@ export const tools: ToolDefinition[] = [
       {
         question: 'How much mortar per brick?',
         answer:
-          'Mortar volume depends on joint width and whether joints are full or face-shell bedded. This calculator counts units, not mortar bags—ask your mason or use the coverage on the mortar mix bag you buy.',
+          'QUIKRETE Mortar Mix No. 1102 lists up to 37 standard bricks or 13 standard 8×8×16 blocks per 80 lb bag. This calculator divides units-with-waste by those yields and rounds up. Joint width, bedding style, and specialty mixes change coverage—read the bag you buy.',
       },
       {
         question: 'Can I calculate concrete blocks (CMU) here?',
@@ -1904,10 +1904,16 @@ export const tools: ToolDefinition[] = [
         usedFor: 'Nominal 8×8×16 CMU; specified faces typically ⅜ in less than nominal for modular joints',
         checked: '2026-11-13',
       },
+      {
+        label: 'QUIKRETE Mortar Mix (No. 1102) data sheet',
+        href: 'https://www.quikrete.com/pdfs/data_sheet-mortar%20mix%201102.pdf',
+        usedFor: '80 lb bag lays up to 37 standard bricks or 13 standard 8×8×16 blocks',
+        checked: '2026-11-27',
+      },
     ],
     sectionsHtml: toolBodies['brick-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-25',
+    dateModified: '2026-11-27',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -1924,13 +1930,11 @@ export const tools: ToolDefinition[] = [
       'how much lumber do I need',
       'lumber weight calculator',
       'dimensional lumber weight calculator',
-      'dimensional lumber weight per foot',
       'square foot lumber calculator',
-      '2x4 weight',
     ],
     title: 'Lumber Calculator: Board Feet & Weight',
     description:
-      'Free lumber calculator for board feet, piece counts, and dimensional lumber weight. Softwood weight chart link plus KD vs green density options.',
+      'Free lumber calculator for board feet, piece counts, and softwood weight (dressed size × USDA density). Per-foot charts live on the lumber weight chart guide.',
     h1: 'Lumber Calculator: Board Feet & Weight',
     answerFirst:
       'Board feet = (nominal thickness × nominal width × length in feet) ÷ 12. Ten 2×4×8s are 53.3 board feet. Weight uses the dressed section (a 2×4 is 1½×3½) × USDA Wood Handbook density—about 8.4 lb for one kiln-dried SPF 2×4×8 as a planning estimate.',
@@ -2004,7 +2008,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['lumber-calculator'],
     datePublished: '2026-11-13',
-    dateModified: '2026-11-25',
+    dateModified: '2026-11-27',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },
@@ -2100,12 +2104,12 @@ export const tools: ToolDefinition[] = [
       'concrete patio cost calculator',
       'ready mix concrete cost calculator',
     ],
-    title: 'Concrete Slab Cost: Price per Sq Ft & Yard',
+    title: 'Concrete Slab Cost Calculator: Price per Sq Ft',
     description:
-      'Estimate concrete slab cost from your ready-mix $/yard or bag price. See price per sq ft, volume, and optional gravel, rebar, forms, and delivery add-ons.',
-    h1: 'Concrete Slab Cost: Price per Sq Ft & Yard',
+      'Estimate concrete slab cost from your ready-mix or bag price. A 10×10×4″ pour is about 1.36 cu yd with 10% waste—enter your quotes for total and $/sq ft.',
+    h1: 'Concrete Slab Cost Calculator: Price per Sq Ft',
     answerFirst:
-      'This concrete slab cost calculator turns length × width × thickness into cubic yards (or bags), then multiplies by the ready-mix or bag price you enter. Add optional line items you price yourself—gravel base, rebar or mesh, forms, delivery/short-load fees, and labor per square foot. Defaults are labeled examples only; replace them with your plant or store quotes.',
+      'A 10×10 slab at 4 inches is about 1.23 cu yd before waste (~1.36 cu yd with 10% waste). This concrete slab cost calculator multiplies that volume (or bag count) by the ready-mix or bag price you enter, then adds optional gravel, rebar, forms, delivery, and labor you price yourself. Default dollar fields are labeled examples—not market stats.',
     summary: 'Slab volume priced with your ready-mix or bag quotes plus optional add-ons.',
     calculatorId: 'concrete-slab-cost',
     relatedSlugs: [
@@ -2171,7 +2175,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-slab-cost-calculator'],
     datePublished: '2026-11-19',
-    dateModified: '2026-11-22',
+    dateModified: '2026-11-27',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

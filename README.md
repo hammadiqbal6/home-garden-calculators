@@ -12,10 +12,10 @@ Production-ready **static** website of free DIY / landscaping material calculato
 
 Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWTH-STATUS.md`](docs/GROWTH-STATUS.md).
 
-### Done (as of 2026-11-25)
+### Done (as of 2026-11-27)
 
-- **SEO authority + GSC variants (this PR):** Advanced Consent Mode v2 (always-load gtag, denied defaults, Accept grant / Reject denied; `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Person/Org `sameAs` defaults to real GitHub. Additive tools: concrete steps, sod, paver base, circular-bed mulch. Brick/lumber/lawn FAQ + hub/home thicken; stronger inbound to GSC impression pages. Privacy/terms `noindex,follow` + sitemap exclude. Directory badge / calculator console guards. **Embed credit:** visible dofollow “Calculator by YardTally” → canonical tool URL (snippet + embed page).
-- Prior: durable SEO agent rules; title/H1 rewrite; mulch quantity merge into calculator; lumber weight on lumber calculator + weight chart guide; Agathox verification; slab/footing/deck-footing/French-drain/Sonotube upgrades; homepage grid + indexing audit; PAA guides; human-writing rewrite; TinyLaunch approved (launch 2026-12-07).
+- **Geo analytics consent (this PR):** Consent Mode region defaults — EEA/UK/CH denied until Google CMP; elsewhere analytics granted by default with Reject / Do not sell or share opt-out; `/cookies/` preference page; privacy/terms/rules aligned (owner policy 2026-11-27).
+- Prior: SEO authority + GSC variants (Advanced Consent Mode always-load gtag, sameAs, additive tools, embed dofollow credit); durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing/deck-footing/French-drain/Sonotube upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 

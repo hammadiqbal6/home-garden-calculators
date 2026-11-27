@@ -1,18 +1,21 @@
 ---
-description: Consent Mode v2, Google CMP geo split, and CSP allowlist discipline
-globs: public/_headers, src/layouts/BaseLayout.astro, src/worker.ts, src/lib/gdprRegions.ts, src/pages/privacy.astro
+description: Consent Mode v2 geo defaults, Google CMP geo split, and CSP allowlist discipline
+globs: public/_headers, src/layouts/BaseLayout.astro, src/worker.ts, src/lib/gdprRegions.ts, src/pages/privacy.astro, src/pages/cookies.astro
 alwaysApply: false
 ---
 
 # Consent + CSP
 
 ## Consent (do not “simplify”)
-- **Consent Mode v2 (Advanced, all regions):** default `denied` for `ad_storage`, `ad_user_data`, `ad_personalization`, and `analytics_storage` **before** any `gtag('config')` (`BaseLayout.astro` + `src/lib/gdprRegions.ts`). Always load `gtag.js` so cookieless pings work; never gate script load on Accept.
+- **Consent Mode v2 (Advanced, region defaults):** before any `gtag('config')` (`BaseLayout.astro` + `src/lib/gdprRegions.ts`):
+  - **EEA / UK / CH** (`region: GDPR_CONSENT_REGION_CODES`): default `denied` for `ad_storage`, `ad_user_data`, `ad_personalization`, and `analytics_storage`.
+  - **Everywhere else:** default `analytics_storage: granted`; keep `ad_storage` / `ad_user_data` / `ad_personalization` **denied** until Accept (AdSense-safe). Owner decision 2026-11-27 (Sidney): non-CMP regions must not ship analytics denied-by-default (that produced `gcs=G100` and near-zero GA4 users).
+- Always load `gtag.js` so Consent Mode / cookieless pings work; never gate script load on Accept.
 - **EEA / UK / CH:** Google Funding Choices / AdSense Privacy & messaging is the **only** CMP UI. Suppress the first-party cookie bar. Google’s CMP updates consent via TCF; do not use the site Accept path.
-- **Elsewhere:** site Accept/Reject cookie bar only (no Google CMP message). On Accept → `consent update` granted + explicit `page_view`. On Reject → keep storage denied (script stays loaded). Honor prior `yc_cookie_ok` (`1` grant / `0` deny).
+- **Elsewhere:** site cookie bar with Accept + **Reject / Do not sell or share**. Accept → grant analytics + ads + `page_view`. Reject → `consent update` denied for analytics and ads, remember `yc_cookie_ok=0`. No prior choice → analytics stays at the granted default; ads stay denied. Honor prior `yc_cookie_ok` (`1` grant / `0` deny). Preference UI also on `/cookies/` (`src/pages/cookies.astro`).
 - **GA4 ID:** `PUBLIC_GA4_MEASUREMENT_ID` or hardcoded `DEFAULT_GA4_MEASUREMENT_ID` (`G-N4VRDDEVLP`) so builds without the env still emit tracking.
-- Geo signal: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` (`src/worker.ts`, `src/lib/htmlGeoInject.ts`).
-- Privacy copy must stay aligned with AdSense cookies + opt-out + this split (`src/pages/privacy.astro`, `docs/ADSENSE.md`).
+- Geo signal: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` / `CF-IPCountry` (`src/worker.ts`, `src/lib/htmlGeoInject.ts`). Consent Mode `region` list is the primary default split; CF country drives banner UX.
+- Privacy + cookies copy must stay aligned with this geo policy (`src/pages/privacy.astro`, `src/pages/cookies.astro`, `docs/ADSENSE.md`).
 
 ## CSP (`public/_headers`)
 Keep the allowlist **narrow**. Comment in `_headers` explains each host. Required families:

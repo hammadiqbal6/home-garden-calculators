@@ -137,10 +137,10 @@ Keep the allowlist narrow; every host needs a comment + product reason.
 Do **not** loosen to `*` or broad CDNs. CSP changes are careful, dedicated PRs.
 
 ### Consent
-- **Consent Mode v2:** default `denied` for ad/analytics storage in EEA/UK/CH until CMP updates (`BaseLayout.astro`, `gdprRegions.ts`).
+- **Consent Mode v2 (region defaults, owner policy 2026-11-27):** EEA/UK/CH default `denied` for ad + analytics until CMP updates; **elsewhere** default `analytics_storage: granted` with ad storage still `denied` until Accept (`BaseLayout.astro`, `gdprRegions.ts`). Reject / Do not sell or share denies analytics + ads and remembers `yc_cookie_ok=0`. Preference UI: `/cookies/`.
 - **EEA / UK / CH:** Google AdSense Privacy & messaging / Funding Choices is the **only** CMP UI; suppress the site cookie bar.
-- **Elsewhere:** site Accept/Reject cookie bar only.
-- Geo: Worker injects `<meta name="yt-geo-country">` from `request.cf.country`. Details: [docs/ADSENSE.md](docs/ADSENSE.md).
+- **Elsewhere:** site Accept + Reject / Do not sell or share bar (and `/cookies/`).
+- Geo: Worker injects `<meta name="yt-geo-country">` from `request.cf.country` / `CF-IPCountry`. Details: [docs/ADSENSE.md](docs/ADSENSE.md).
 
 ## 7. Adding pages
 

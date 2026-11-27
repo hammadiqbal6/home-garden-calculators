@@ -39,7 +39,7 @@ const jsonLd = [
       {siteConfig.name} calculator inputs are processed in your browser and are not uploaded to our servers as part
       of the static site. This policy explains cookies, analytics, and advertising disclosures.
     </p>
-    <p>Last updated 2026-11-13</p>
+    <p>Last updated 2026-11-27</p>
     <h2>Information we process</h2>
     <ul>
       <li>
@@ -58,14 +58,16 @@ const jsonLd = [
     </ul>
     <h2>Cookies, analytics, and advertising</h2>
     <p>
-      We may use Google Analytics 4 to understand aggregate traffic. Consent Mode v2 defaults keep
-      <code>analytics_storage</code> and ad-related storage denied until consent is granted. The GA
-      <code>gtag.js</code> tag may load with those denied defaults (Advanced Consent Mode / cookieless pings)
-      so measurement can operate without storing analytics cookies until you grant consent. In the EEA, UK,
-      and Switzerland those defaults are also region-scoped and stay denied until Google’s certified CMP
-      updates consent. Elsewhere, Accept on the site cookie bar grants storage and sends a page view; Reject
-      keeps storage denied. Third-party vendors, including Google, may use cookies to serve ads based on a
-      user’s prior visits to this or other websites when Google AdSense is enabled.
+      We may use Google Analytics 4 to understand aggregate traffic. Consent Mode v2 uses
+      <strong>region-specific defaults</strong> (owner policy 2026-11-27): in the EEA, UK, and Switzerland,
+      <code>analytics_storage</code> and ad-related storage stay denied until Google’s certified CMP updates
+      consent; elsewhere, <code>analytics_storage</code> starts <strong>granted</strong> so measurement can
+      count visits, while ad storage (<code>ad_storage</code>, <code>ad_user_data</code>,
+      <code>ad_personalization</code>) stays denied until you Accept. The GA <code>gtag.js</code> tag loads
+      under Advanced Consent Mode. Use Reject / Do not sell or share (or the
+      <a href="/cookies/">cookie choices</a> page) to deny analytics and ads and remember that choice.
+      Third-party vendors, including Google, may use cookies to serve ads based on a user’s prior visits to
+      this or other websites when Google AdSense is enabled.
     </p>
     <h2>Which consent tool applies</h2>
     <p>
@@ -77,10 +79,11 @@ const jsonLd = [
       choice.
     </p>
     <p>
-      <strong>Other regions:</strong> the site shows a small first-party cookie notice (Accept / Reject).
-      Accept grants analytics and ad-storage Consent Mode signals and sends a page view. Reject keeps storage
-      denied (the tag may still be present under denied defaults). Google’s European regulations CMP message
-      is not used outside the EEA, UK, and Switzerland.
+      <strong>Other regions:</strong> the site shows a first-party notice with Accept and Do not sell or
+      share / Reject. Analytics starts granted; Accept also grants ad-storage signals and sends a page view.
+      Reject / Do not sell or share denies analytics and ad storage and stores that preference. Manage the
+      same choices anytime on <a href="/cookies/">/cookies/</a>. Google’s European regulations CMP message is
+      not used outside the EEA, UK, and Switzerland.
     </p>
     <p>
       Google’s use of advertising cookies enables it and its partners to serve ads based on your visits to

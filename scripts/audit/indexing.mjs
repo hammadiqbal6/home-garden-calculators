@@ -5,7 +5,9 @@
  * - Sitemap URLs must not carry noindex
  * - noindex pages listed; must stay out of the sitemap (embeds, 404)
  * - Known redirect-alias paths must not appear in sitemap or as internal href targets
- * - Every calculator page under dist/calculators/<slug>/ must be in the sitemap with lastmod
+ * - Every calculator, guide, hub, and static indexable page must be in the sitemap with lastmod
+ * - robots.txt must reference {origin}/sitemap-index.xml
+ * - Every non-noindex HTML page in dist/ must appear in the sitemap (catch stray routes)
  *
  * Keep REDIRECT_ALIAS_PATHS in sync with src/lib/workerRedirect.ts PATH_ALIAS_REDIRECTS
  * (+ /sitemap.xml and /calculators/:slug/embed/).
@@ -17,6 +19,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DIST, isAssetHref, relUrl, walkHtml } from './lib.mjs';
 import { resolveSiteOrigin } from '../../src/config/siteDefaults.mjs';
+import {
+  STATIC_INDEXABLE_PATHS,
+  SITEMAP_EXCLUDED_PATH_RE,
+} from './expected-sitemap-paths.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -70,6 +76,9 @@ const report = {
   redirectAliasesLinked: [],
   calculatorsMissingFromSitemap: [],
   calculatorsMissingLastmod: [],
+  expectedMissingFromSitemap: [],
+  expectedMissingLastmod: [],
+  indexableHtmlMissingFromSitemap: [],
 };
 
 function collectSitemapEntries(sitemapPath, depth = 0, out = []) {
@@ -122,13 +131,22 @@ function extractOgUrl(html) {
   );
 }
 
-function listCalculatorSlugs() {
-  const dir = path.join(DIST, 'calculators');
+function listChildSlugs(segment) {
+  const dir = path.join(DIST, segment);
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir, { withFileTypes: true })
     .filter((ent) => ent.isDirectory() && fs.existsSync(path.join(dir, ent.name, 'index.html')))
     .map((ent) => ent.name);
+}
+
+function listCalculatorSlugs() {
+  return listChildSlugs('calculators');
+}
+
+function normalizePathname(urlPath) {
+  if (!urlPath || urlPath === '/') return '/';
+  return urlPath.endsWith('/') ? urlPath : `${urlPath}/`;
 }
 
 if (!fs.existsSync(DIST)) {
@@ -283,23 +301,80 @@ for (const [pathname, froms] of aliasHrefHits) {
 }
 
 const locByPath = new Map(entries.map((e) => [new URL(e.loc).pathname, e]));
-const calcSlugs = listCalculatorSlugs();
-for (const slug of calcSlugs) {
-  const p = `/calculators/${slug}/`;
+
+function requireInSitemap(pathname, bucketMissing, bucketLastmod) {
+  const p = normalizePathname(pathname);
   const entry = locByPath.get(p);
   if (!entry) {
-    fail(`calculator missing from sitemap: ${p}`);
-    report.calculatorsMissingFromSitemap.push(p);
-  } else if (!entry.lastmod) {
-    fail(`calculator sitemap entry missing lastmod: ${p}`);
-    report.calculatorsMissingLastmod.push(p);
+    fail(`indexable route missing from sitemap: ${p}`);
+    bucketMissing.push(p);
+    return;
+  }
+  if (!entry.lastmod) {
+    fail(`sitemap entry missing lastmod: ${p}`);
+    bucketLastmod.push(p);
+  }
+}
+
+for (const p of STATIC_INDEXABLE_PATHS) {
+  requireInSitemap(p, report.expectedMissingFromSitemap, report.expectedMissingLastmod);
+}
+
+const calcSlugs = listCalculatorSlugs();
+for (const slug of calcSlugs) {
+  requireInSitemap(
+    `/calculators/${slug}/`,
+    report.calculatorsMissingFromSitemap,
+    report.calculatorsMissingLastmod,
+  );
+}
+
+const guideSlugs = listChildSlugs('guides');
+for (const slug of guideSlugs) {
+  requireInSitemap(
+    `/guides/${slug}/`,
+    report.expectedMissingFromSitemap,
+    report.expectedMissingLastmod,
+  );
+}
+
+const hubSlugs = listChildSlugs('hubs');
+for (const slug of hubSlugs) {
+  requireInSitemap(
+    `/hubs/${slug}/`,
+    report.expectedMissingFromSitemap,
+    report.expectedMissingLastmod,
+  );
+}
+
+/** Every non-noindex HTML page in dist must be listed (catches stray routes). */
+for (const file of walkHtml()) {
+  const url = relUrl(file);
+  const pathname = normalizePathname(url === '/404.html' ? '/404/' : url);
+  if (SITEMAP_EXCLUDED_PATH_RE.test(pathname)) continue;
+  const html = fs.readFileSync(file, 'utf8');
+  if (hasNoindex(html)) continue;
+  if (!locByPath.has(pathname)) {
+    fail(`indexable HTML missing from sitemap: ${pathname}`);
+    report.indexableHtmlMissingFromSitemap.push(pathname);
+  }
+}
+
+const robotsPath = path.join(DIST, 'robots.txt');
+if (!fs.existsSync(robotsPath)) {
+  fail('dist/robots.txt missing');
+} else {
+  const robots = fs.readFileSync(robotsPath, 'utf8');
+  const expectedSitemapLine = `Sitemap: ${SITE_ORIGIN}/sitemap-index.xml`;
+  if (!robots.includes(expectedSitemapLine)) {
+    fail(`robots.txt must include "${expectedSitemapLine}"`);
   }
 }
 
 console.log('\n—— Bucket report ——');
 console.log(`Self-canonical sitemap URLs: ${report.selfCanonicalOk.length}/${entries.length}`);
 console.log(
-  `noindex pages (intentional embeds/404): ${report.noindexPages.join(', ') || '(none)'}`,
+  `noindex pages (intentional embeds/404/privacy/cookies/terms): ${report.noindexPages.join(', ') || '(none)'}`,
 );
 console.log(`noindex kept out of sitemap: ${report.noindexOkNotInSitemap.length}`);
 if (report.noindexInSitemap.length) {
@@ -317,6 +392,12 @@ if (report.redirectAliasesInSitemap.length || report.redirectAliasesLinked.lengt
 }
 console.log(
   `Calculators in dist: ${calcSlugs.length}; missing from sitemap: ${report.calculatorsMissingFromSitemap.length}`,
+);
+console.log(
+  `Guides in dist: ${guideSlugs.length}; hubs: ${hubSlugs.length}; registry/static gaps: ${report.expectedMissingFromSitemap.length}`,
+);
+console.log(
+  `Indexable HTML missing from sitemap: ${report.indexableHtmlMissingFromSitemap.length}`,
 );
 
 console.log('\n—— GSC bucket mapping (code audit) ——');

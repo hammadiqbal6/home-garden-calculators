@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-27
+**Last updated:** 2026-11-27 (sitemap coverage + slab-cost SEO)
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -28,7 +28,8 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## Done
 
-- **2026-11-27 — this PR (SEO page fixes):** Concrete slab cost title/H1/meta + numeric answerFirst; concrete calculator title “Slab Yards & Bags”; lumber meta + KEYWORD-MAP settle weight-per-foot on chart guide; brick mortar bags (QUIKRETE 1102: 37 bricks / 13 blocks per 80 lb) + retitle; mulch-depth duplicate takeaway removed; how-many-bags → slab-cost link. **No IndexNow.**
+- **2026-11-27 — this PR (sitemap + slab-cost SEO):** Verified live `/sitemap-index.xml` → `sitemap-0.xml` already lists every calculator (incl. `/calculators/concrete-calculator/` and `/calculators/concrete-slab-cost-calculator/`) with apex HTTPS + trailing slash matching page canonicals; `robots.txt` already points at the index. Hardened `audit:indexing` to fail on any missing calculator/guide/hub/static indexable route, missing `lastmod`, or wrong robots Sitemap line; added `tests/sitemap-coverage.test.ts`; wired `npm run audit:indexing` into PR CI after build. Tightened slab-cost title/H1/meta to exact primary query; reciprocal internal links with concrete steps. GSC URL Inspection (2026-11-27): both concrete pages **Submitted and indexed**; resubmitted sitemap-index so Google re-fetches. **No IndexNow from this agent (pre-deploy).**
+- **2026-11-27 — SEO page fixes (#56):** Concrete slab cost title/H1/meta + numeric answerFirst; concrete calculator title “Slab Yards & Bags”; lumber meta + KEYWORD-MAP settle weight-per-foot on chart guide; brick mortar bags (QUIKRETE 1102: 37 bricks / 13 blocks per 80 lb) + retitle; mulch-depth duplicate takeaway removed; how-many-bags → slab-cost link. **No IndexNow.**
 - **2026-11-27 — Worker `/404/` body (#55):** Live `/404/` returned empty body + `Location: /404/` because the Worker fetched `/404.html` and Assets `force-trailing-slash` 307’d it. Now fetches ASSETS `/404/`, strips Location, forces status 404 (also covers `/404.html`).
 - **2026-11-27 — embed framing (#54):** `/embed/*` can be iframed cross-origin (`! X-Frame-Options` + CSP `frame-ancestors *`); site-wide `X-Frame-Options: SAMEORIGIN` unchanged.
 - **2026-11-27 — analytics reliability (#53):** GA no longer deferred via `requestIdleCallback` (loads immediately); Accept path sends at most one `page_view` (explicit only if `config` already ran); CSP `script-src` includes `https://*.adtrafficquality.google`.
@@ -76,7 +77,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## Remaining / risks
 
-1. **After deploy (this PR — do not run IndexNow pre-deploy):** `npm run indexnow` (all `dist/` sitemap URLs including new variant tools + redirect targets; **do not change the IndexNow key**) **and** GSC URL Inspection → Request indexing for new/changed pages + validate discovered-not-indexed / redirect / noindex buckets.
+1. **After deploy (this PR — do not run IndexNow pre-deploy):** `npm run indexnow` (all `dist/` sitemap URLs including new variant tools + redirect targets; **do not change the IndexNow key**) **and** GSC URL Inspection → Request indexing for slab-cost (title/meta change) + validate sitemap “indexed” count catching up from the 2026-11-27 resubmit / discovered-not-indexed / redirect / noindex buckets.
 2. **After deploy (Agathox):** confirm Agathox can read the meta tag and/or `/.well-known/agathox-verification.txt` (200, no slash redirect); record listing URL here only when owner-confirmed.
 3. **Optional `sameAs` enrichment:** LinkedIn / X / Product Hunt URLs only when real — set via `PUBLIC_AUTHOR_SAME_AS` / `PUBLIC_ORG_SAME_AS` (GitHub default already ships). Do not invent profiles.
 4. **`PUBLIC_BING_SITE_VERIFICATION` unset** in Workers Builds — Bing HTML meta tag not emitted until set (Bing Webmaster itself was previously verified; confirm if meta tag is still desired).
@@ -93,7 +94,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## In progress
 
-- None for the 2026-11-27 fix-PR batch (#52–#56); off-repo directory/embed/Product Hunt work remains below.
+- None for the 2026-11-27 sitemap/slab-cost PR; off-repo directory/embed/Product Hunt work remains below.
 
 ## Off-repo work
 

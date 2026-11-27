@@ -18,6 +18,13 @@ export const CMU_FACE_HEIGHT_IN = 7.625;
 /** Common mortar joint for modular brick and CMU, inches. */
 export const STANDARD_MORTAR_JOINT_IN = 0.375;
 
+/**
+ * QUIKRETE Mortar Mix No. 1102 (80 lb): lays up to 37 standard bricks or
+ * 13 standard 8×8×16 blocks per bag (product data sheet, revised Nov 2020).
+ */
+export const QUIKRETE_MORTAR_80LB_BRICKS = 37;
+export const QUIKRETE_MORTAR_80LB_BLOCKS = 13;
+
 export interface BrickResult {
   mode: MasonryMode;
   faceAreaSqFt: number;
@@ -28,6 +35,8 @@ export interface BrickResult {
   unitsWithWaste: number;
   moduleLengthIn: number;
   moduleHeightIn: number;
+  /** 80 lb QUIKRETE Mortar Mix bags for unitsWithWaste (ceil). */
+  mortarBags80: number;
 }
 
 /**
@@ -66,6 +75,9 @@ export function masonryUnits(opts: {
   const exact = courses * unitsPerCourse;
   const waste = (opts.wastePercent ?? 5) / 100;
   const withWaste = Math.ceil(Math.round(exact * (1 + waste) * 1e6) / 1e6);
+  const perBag =
+    mode === 'cmu' ? QUIKRETE_MORTAR_80LB_BLOCKS : QUIKRETE_MORTAR_80LB_BRICKS;
+  const mortarBags80 = Math.ceil(withWaste / perBag);
 
   return {
     mode,
@@ -77,6 +89,7 @@ export function masonryUnits(opts: {
     unitsWithWaste: withWaste,
     moduleLengthIn: round(moduleL, 3),
     moduleHeightIn: round(moduleH, 3),
+    mortarBags80,
   };
 }
 

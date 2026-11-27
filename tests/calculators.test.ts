@@ -667,6 +667,26 @@ describe('brick / CMU', () => {
     });
     expect(r.unitsWithWaste).toBe(Math.ceil(r.unitsExact * 1.05));
   });
+
+  it('estimates 80 lb mortar bags from QUIKRETE 1102 yields', () => {
+    const brick = brickCount({
+      wallLength: 10,
+      wallHeight: 10,
+      wastePercent: 0,
+    });
+    // 15×46 = 690 bricks → ceil(690/37) = 19 bags
+    expect(brick.unitsExact).toBe(690);
+    expect(brick.mortarBags80).toBe(Math.ceil(690 / 37));
+
+    const cmu = cmuCount({
+      wallLength: 16,
+      wallHeight: 8,
+      wastePercent: 0,
+    });
+    // 144 blocks → ceil(144/13) = 12 bags
+    expect(cmu.unitsExact).toBe(144);
+    expect(cmu.mortarBags80).toBe(Math.ceil(144 / 13));
+  });
 });
 
 describe('lumber', () => {

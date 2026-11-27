@@ -26,7 +26,7 @@ export const toolBodyVariants: Record<string, string> = {
 
       <h2>How many bags of concrete for porch steps?</h2>
       <p>For the worked example, plan on <strong>18 × 80 lb</strong>, <strong>24 × 60 lb</strong>, or <strong>36 × 40 lb</strong> bags after waste. Bigger flights scale fast—compare ready-mix once you're past about a cubic yard.</p>
-      <p>More bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Related tools live in the <a href="/hubs/concrete/">concrete hub</a>, including the <a href="/calculators/concrete-footing-calculator/">footing calculator</a> and <a href="/calculators/rebar-calculator/">rebar calculator</a>.</p>
+      <p>More bag charts: <a href="/guides/how-many-bags-of-concrete/">how many bags of concrete</a>. Related tools live in the <a href="/hubs/concrete/">concrete hub</a>, including the <a href="/calculators/concrete-footing-calculator/">footing calculator</a>, <a href="/calculators/rebar-calculator/">rebar calculator</a>, and <a href="/calculators/concrete-slab-cost-calculator/">concrete slab cost calculator</a> when you have plant or bag quotes.</p>
 
       <h2>Do steps need footings or rebar?</h2>
       <p>Often yes at the code level, but this tool only sizes concrete volume for the stair mass you enter. Frost depth and steel layout belong on the drawing.</p>

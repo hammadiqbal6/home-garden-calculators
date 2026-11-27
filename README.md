@@ -14,8 +14,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-27)
 
-- **SEO page fixes (this PR):** Slab cost title/H1/meta/answerFirst (opens with 1.23/1.36 yd; prices labeled examples); concrete calculator title drops Rebar; lumber meta + KEYWORD-MAP (weight-per-foot owned by chart guide); brick mortar bags from QUIKRETE 1102 + retitle; mulch-depth duplicate quick-answer removed; inbound from how-many-bags → slab cost.
-- Prior: Worker `/404/` (#55); embed framing (#54); analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
+- **Sitemap coverage + slab-cost SEO (this PR):** Confirmed production sitemap lists all indexable calculators/guides/hubs with canonical apex + trailing-slash URLs; hardened `audit:indexing` + Vitest contract + CI gate so missing routes fail the build; slab-cost title/H1/meta tightened to “concrete slab cost calculator”; reciprocal links with concrete steps; GSC sitemap resubmitted.
+- Prior (#56): Slab cost answerFirst; concrete “Slab Yards & Bags”; lumber/brick/mulch SEO; Worker `/404/` (#55); embed framing (#54); analytics (#53); geo consent (#52); SEO authority; durable SEO rules; title rewrite; mulch merge; lumber weight; Agathox; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 
@@ -32,7 +32,7 @@ Replace `concrete-calculator` with any embeddable slug (see the tool list below)
 
 ### Remaining
 
-- **After deploy (do not run from agents pre-deploy):** `npm run indexnow` (all sitemap URLs including new variants) **and** GSC URL Inspection → Request indexing / validate discovered-not-indexed + redirect/noindex buckets. IndexNow key unchanged.
+- **After deploy (do not run from agents pre-deploy):** `npm run indexnow` (all sitemap URLs including new variants) **and** GSC URL Inspection → Request indexing for changed slab-cost page / validate sitemap indexed count + discovered-not-indexed + redirect/noindex buckets. IndexNow key unchanged.
 - After deploy: confirm Agathox ownership; record listing URL in `docs/GROWTH-STATUS.md` when confirmed.
 - Optional real LinkedIn/X/Product Hunt `sameAs` via env only; `PUBLIC_BING_SITE_VERIFICATION` still unset; editorial backlinks still essentially none.
 - **Reddit promotion paused** (2026-11-19): build karma with link-free helpful comments before posting again.

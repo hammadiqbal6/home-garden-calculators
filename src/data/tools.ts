@@ -2104,16 +2104,17 @@ export const tools: ToolDefinition[] = [
       'concrete patio cost calculator',
       'ready mix concrete cost calculator',
     ],
-    title: 'Concrete Slab Cost Calculator: Price per Sq Ft',
+    title: 'Concrete Slab Cost Calculator',
     description:
-      'Estimate concrete slab cost from your ready-mix or bag price. A 10×10×4″ pour is about 1.36 cu yd with 10% waste—enter your quotes for total and $/sq ft.',
-    h1: 'Concrete Slab Cost Calculator: Price per Sq Ft',
+      'Concrete slab cost calculator for ready-mix $/yd or bag prices. A 10×10×4″ pour is ~1.36 cu yd with 10% waste—enter your quotes for total cost and $/sq ft.',
+    h1: 'Concrete Slab Cost Calculator',
     answerFirst:
       'A 10×10 slab at 4 inches is about 1.23 cu yd before waste (~1.36 cu yd with 10% waste). This concrete slab cost calculator multiplies that volume (or bag count) by the ready-mix or bag price you enter, then adds optional gravel, rebar, forms, delivery, and labor you price yourself. Default dollar fields are labeled examples—not market stats.',
     summary: 'Slab volume priced with your ready-mix or bag quotes plus optional add-ons.',
     calculatorId: 'concrete-slab-cost',
     relatedSlugs: [
       'concrete-calculator',
+      'concrete-steps-calculator',
       'concrete-footing-calculator',
       'rebar-calculator',
       'gravel-calculator',
@@ -2201,6 +2202,7 @@ export const tools: ToolDefinition[] = [
     calculatorId: 'concrete-steps',
     relatedSlugs: [
       'concrete-calculator',
+      'concrete-slab-cost-calculator',
       'concrete-footing-calculator',
       'rebar-calculator',
       'concrete-calculator-post-holes',
@@ -2244,7 +2246,7 @@ export const tools: ToolDefinition[] = [
     ],
     sectionsHtml: toolBodies['concrete-steps-calculator'],
     datePublished: '2026-11-25',
-    dateModified: '2026-11-25',
+    dateModified: '2026-11-27',
     applicationCategory: 'UtilitiesApplication',
     embeddable: true,
   },

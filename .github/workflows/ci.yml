@@ -114,6 +114,12 @@ jobs:
           fi
           exit "$status"
 
+      # Fail the PR if any indexable route is missing from the built sitemap
+      # (canonical host + trailing slash + lastmod). Needs dist/ from the build step.
+      - name: Sitemap coverage (audit:indexing)
+        if: steps.changes.outputs.heavy == 'true'
+        run: npm run audit:indexing
+
       - name: Docs-only skip notice
         if: steps.changes.outputs.heavy != 'true'
         run: echo "Skipped heavy CI (docs/skills-only). Required check build-test-audit still reports success."

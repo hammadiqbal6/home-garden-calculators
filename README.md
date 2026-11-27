@@ -14,8 +14,8 @@ Refresh this section whenever you ship a PR. Full detail + metrics: [`docs/GROWT
 
 ### Done (as of 2026-11-27)
 
-- **Embed framing (this PR):** `/embed/*` unsets `X-Frame-Options` and sets CSP `frame-ancestors *` so widgets can be iframed on other sites; rest of site keeps `SAMEORIGIN`.
-- Prior: Analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
+- **Worker `/404/` body (this PR):** Serve the Astro 404 HTML with HTTP 404 (fetch ASSETS `/404/`, strip `Location`). Fixes empty-body 404 caused by `/404.html` → 307 under `force-trailing-slash`.
+- Prior: Embed framing (#54); analytics reliability (#53); geo analytics consent (#52); SEO authority + GSC variants; durable SEO agent rules; title/H1 rewrite; mulch quantity merge; lumber weight + chart; Agathox; slab/footing upgrades; homepage grid; PAA guides; human-writing rewrite; TinyLaunch (2026-12-07).
 
 ## Embed this calculator
 

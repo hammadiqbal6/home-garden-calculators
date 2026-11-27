@@ -34,6 +34,7 @@ export default defineConfig({
         !page.includes('/404') &&
         !page.includes('/embed/') &&
         !page.includes('/privacy/') &&
+        !page.includes('/cookies/') &&
         !page.includes('/terms/'),
       serialize(item) {
         try {

@@ -1,6 +1,6 @@
 # Growth / SEO status (living)
 
-**Last updated:** 2026-11-25
+**Last updated:** 2026-11-27
 
 Read this before planning growth, SEO, or content work. Update it in the **same PR** when you complete, start, or add an item. Do **not** invent metrics, directory confirmations, or off-repo actions — only record owner-confirmed facts.
 
@@ -16,7 +16,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 |---|---|
 | Site | getyardtally.com |
 | Stack | Astro on Cloudflare Workers (`home-garden-calculators`); build-time `PUBLIC_*` in Workers Builds env |
-| GA4 | Measurement ID `G-N4VRDDEVLP` (property `559570732`) — Consent Mode v2 Advanced now ships with denied defaults + always-load gtag (this PR) |
+| GA4 | Measurement ID `G-N4VRDDEVLP` (property `559570732`) — Consent Mode v2 Advanced with **geo defaults** (EEA/UK/CH denied; elsewhere analytics granted + Reject / Do not sell or share) |
 | GSC (last 3 months → 2026-11-25) | **0** clicks · **437** impressions · avg position **47.7** |
 | GSC (prior 28-day → 2026-11-17) | **0** clicks · **229** impressions · avg position **58.8** |
 | Indexing | **13** pages “Discovered - currently not indexed” (strengthen inbound links); also Page with redirect / Excluded by noindex / Alternate canonical buckets |
@@ -28,7 +28,8 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## Done
 
-- **2026-11-25 — this PR (SEO authority + GSC-prioritized variants):** Advanced Consent Mode v2 (always load gtag; default denied; Accept grant / Reject stay denied; hardcoded `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Author/Organization `sameAs` defaults to real GitHub `https://github.com/hammadiqbal6` + About personal-bio expansion. New additive calculators (no URL/title/H1 changes to existing pages): `/calculators/concrete-steps-calculator/`, `/calculators/sod-calculator/`, `/calculators/paver-base-calculator/`, `/calculators/mulch-calculator-circular-beds/`. Expanded lumber-weight chart + brick estimator FAQ; lawn hub + homepage thickened; GSC under-linked pages (brick, asphalt, lumber-weight, fence posts, roof pitch, paint) get stronger home/hub/related inbound. Privacy + terms `noindex, follow` and excluded from sitemap (audits updated). First-party console: directory badge `onerror` + calculator unknown-id guard. **Embed credit (backlink support):** visible dofollow “Calculator by YardTally” → canonical `/calculators/<slug>/` in the copyable snippet and on `/embed/<slug>/` (policy flip from prior nofollow). README links the live site and documents the embed snippet. **No deploy / IndexNow from this agent.**
+- **2026-11-27 — this PR (geo analytics consent):** Consent Mode region defaults — EEA/UK/CH analytics+ads denied until Google CMP; elsewhere `analytics_storage` granted by default (ads still denied until Accept). Cookie bar Reject label → “Do not sell or share”; new `/cookies/` preference page (`noindex,follow`, sitemap-excluded). Privacy/terms/ADSENSE/AGENTS/consent-csp rules updated to the owner policy (Sidney, 2026-11-27). **No IndexNow from this agent.**
+- **2026-11-25 — SEO authority + GSC-prioritized variants:** Advanced Consent Mode v2 (always load gtag; default denied; Accept grant / Reject stay denied; hardcoded `DEFAULT_GA4_MEASUREMENT_ID=G-N4VRDDEVLP`). Author/Organization `sameAs` defaults to real GitHub `https://github.com/hammadiqbal6` + About personal-bio expansion. New additive calculators (no URL/title/H1 changes to existing pages): `/calculators/concrete-steps-calculator/`, `/calculators/sod-calculator/`, `/calculators/paver-base-calculator/`, `/calculators/mulch-calculator-circular-beds/`. Expanded lumber-weight chart + brick estimator FAQ; lawn hub + homepage thickened; GSC under-linked pages (brick, asphalt, lumber-weight, fence posts, roof pitch, paint) get stronger home/hub/related inbound. Privacy + terms `noindex, follow` and excluded from sitemap (audits updated). First-party console: directory badge `onerror` + calculator unknown-id guard. **Embed credit (backlink support):** visible dofollow “Calculator by YardTally” → canonical `/calculators/<slug>/` in the copyable snippet and on `/embed/<slug>/` (policy flip from prior nofollow). README links the live site and documents the embed snippet. **No deploy / IndexNow from this agent.**
 - **2026-11-22 — this PR (durable SEO + AI Overview agent rules):** Added [`.cursor/rules/seo.mdc`](../.cursor/rules/seo.mdc) and [`.cursor/skills/add-seo-page/SKILL.md`](../.cursor/skills/add-seo-page/SKILL.md); expanded AGENTS.md §5 (titles ≤60 branded, cannibalization/301, inbound-link minimums, answer-under-H2, no hard-coded counts, AI crawlers allowed). Extended existing seo-pages / seo-guardrails / add-calculator / add-guide / pre-merge skills to point at them. **Post-deploy (documented, not run pre-deploy):** `npm run indexnow` submits all sitemap URLs (new pages + redirect targets; key unchanged) + GSC Request indexing for changed pages.
 - **2026-11-22 — this PR (SEO title/H1/meta all pages):** Hub/index/calculator/guide titles and H1s rewritten to ≤48 chars without brand (≤60 with `| YardTally`). Concrete calculator titled/answer-first for top web query **concrete slab calculator**. Priority FAQs/bodies expanded. Home popular exact-match anchors + ItemList. 10×10 guide owns 12×12/20×20 sections (no new guide URLs). No sonotube-sizes or fertilizer-per-1000 new URLs.
 - **2026-11-22 — this PR (mulch guide merge + weak-page internal links):** Merged `/guides/how-much-mulch-do-i-need/` into `/calculators/mulch-calculator/`; **301** in `_redirects` + `PATH_ALIAS_REDIRECTS`; **kept** `/guides/mulch-depth-guide/` (GSC AI Overview exemplar). Strengthened inbound links for weakly linked footing/slab-cost/deck-footing/French-drain/thickness/how-much-concrete/Sonotube-footing pages.
@@ -65,7 +66,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 | GSC reason | What it is in this codebase | Action |
 |---|---|---|
 | Page with redirect (~4+) | Intentional 301 aliases (`/about-us/`, `/contact-us/`, `/privacy-policy/`, `/terms-of-service/`, `/sitemap.xml`, `/authors/`, old guide slugs incl. `/guides/how-much-mulch-do-i-need/` → mulch calculator, `/calculators/*/embed/`) | Keep redirects; sitemap + internal links already use final 200 URLs. Request GSC validation after next crawl. |
-| Excluded by noindex (~2+) | `/embed/<slug>/` (`noindex,follow`), `/404.html`, and (this PR) `/privacy/` + `/terms/` | Intentional. Not in sitemap. |
+| Excluded by noindex (~2+) | `/embed/<slug>/` (`noindex,follow`), `/404.html`, `/privacy/`, `/cookies/`, `/terms/` | Intentional. Not in sitemap. |
 | Alternate page with proper canonical | Embed pages canonicalize to `/calculators/<slug>/` | Intentional widget pattern. |
 | Discovered - currently not indexed (~13) | Weak internal linking historically | PR #33 + this PR (home/hub/related inbound to GSC impression pages); request indexing after deploy. |
 
@@ -88,7 +89,7 @@ As of **2026-11-25** (GSC `sc-domain:getyardtally.com`, last **3 months** unless
 
 ## In progress
 
-- **2026-11-25:** SEO authority / GSC variants PR (`cursor/seo-authority-variants-2d8c`) — GA4 Consent Mode v2, sameAs defaults, 4 variant tools, privacy/terms noindex, inbound to under-linked GSC pages.
+- **2026-11-27:** Fix PRs queued separately — analytics reliability (idle/double page_view/CSP), embed framing, SEO page copy, Worker `/404/` body.
 
 ## Off-repo work
 

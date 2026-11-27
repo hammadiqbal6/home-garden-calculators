@@ -39,7 +39,7 @@ Implementation notes (see `BaseLayout.astro` + `src/worker.ts`):
 
 - Cloudflare `request.cf.country` is injected as `<meta name="yt-geo-country">` on HTML responses.
 - Visitors in EEA/UK/CH see **only** Google’s message (the first-party cookie bar is suppressed). `__tcfapi` `gdprApplies` is a secondary check when geo is unknown.
-- Consent Mode v2 defaults are **denied** everywhere before `gtag('config')` (`ad_storage`, `ad_user_data`, `ad_personalization`, `analytics_storage`). **Advanced Consent Mode:** `gtag.js` always loads (cookieless pings); EEA/UK/CH CMP updates via TCF; elsewhere Accept grants storage and Reject keeps denied.
+- Consent Mode v2 **region defaults** before `gtag('config')`: EEA/UK/CH denied for `ad_storage`, `ad_user_data`, `ad_personalization`, and `analytics_storage`; elsewhere `analytics_storage` granted by default while ad signals stay denied until Accept (owner policy 2026-11-27). **Advanced Consent Mode:** `gtag.js` always loads; EEA/UK/CH CMP updates via TCF; elsewhere Reject / Do not sell or share denies analytics + ads (`/cookies/` preference page).
 - GA4 ID: `PUBLIC_GA4_MEASUREMENT_ID` or hardcoded `DEFAULT_GA4_MEASUREMENT_ID` (`G-N4VRDDEVLP`).
 - Publish the message in AdSense → Privacy & messaging, enable Consent Mode on the message, then set `PUBLIC_ADSENSE_ENABLED=true`.
 

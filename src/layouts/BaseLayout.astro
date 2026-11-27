@@ -131,7 +131,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
           window.__ytIsCmpRegion = __ytIsCmpRegion;
           __ytIsCmpRegion();
 
-          // Consent Mode v2 — EEA/UK/CH: denied until Google's certified CMP updates.
+          // Consent Mode v2 — EEA/UK/CH: analytics + ads denied until Google's certified CMP updates.
           gtag('consent', 'default', {
             ad_storage: 'denied',
             ad_user_data: 'denied',
@@ -140,12 +140,14 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
             wait_for_update: 2000,
             region: gdprRegions,
           });
-          // Everywhere else: denied until the site cookie notice is accepted (unchanged).
+          // Everywhere else (owner policy 2026-11-27): analytics granted by default so GA4
+          // counts users; ad storage stays denied until Accept (AdSense-safe). Opt-out via
+          // Reject / Do not sell or share updates analytics to denied and remembers choice.
           gtag('consent', 'default', {
             ad_storage: 'denied',
             ad_user_data: 'denied',
             ad_personalization: 'denied',
-            analytics_storage: 'denied',
+            analytics_storage: 'granted',
             wait_for_update: 500,
           });
 
@@ -165,7 +167,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
               }
               if (!configured) {
                 configured = true;
-                // Advanced Consent Mode: config under current consent (denied until update).
+                // Advanced Consent Mode: config under current region defaults / updates.
                 gtag('config', gaId, {
                   anonymize_ip: true,
                   send_page_view: true,
@@ -191,7 +193,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
                 analytics_storage: 'granted',
               });
               // Ensure gtag.js + config exist, then send a page_view after the grant
-              // (config may already have run under denied storage).
+              // (config may already have run under denied ad storage).
               window.__ycLoadGa();
               __ycSendPageView();
             };
@@ -207,10 +209,10 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
             };
 
             /**
-             * Advanced Consent Mode (all regions):
-             * Always load gtag.js with denied defaults (cookieless pings).
-             * Grant storage on Accept (or prior Accept); keep denied on Reject.
-             * EEA/UK/CH: Google’s certified CMP updates consent via TCF.
+             * Geo consent policy (2026-11-27):
+             * - EEA/UK/CH: load with denied defaults; Google CMP updates via TCF.
+             * - Elsewhere: analytics granted by default; honor prior Reject (yc_cookie_ok=0)
+             *   or prior Accept (yc_cookie_ok=1 grants ads + analytics).
              */
             function scheduleGa() {
               try {
@@ -315,6 +317,7 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
             <li><a href="/about/">About</a></li>
             <li><a href="/methodology/">Methodology</a></li>
             <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/cookies/">Cookies</a></li>
             <li><a href="/terms/">Terms</a></li>
             <li><a href="/contact/">Contact</a></li>
           </ul>
@@ -330,11 +333,13 @@ const gdprRegions = [...GDPR_CONSENT_REGION_CODES];
     </footer>
     <div class="cookie-notice" id="cookie-notice" role="dialog" aria-label="Cookie notice" hidden>
       <p>
-        Cookies for analytics{siteConfig.adsense.enabled ? ' and ads' : ''}.
+        Analytics cookies help us improve the calculators{siteConfig.adsense.enabled ? '; ads use separate consent' : ''}.
+        <a href="/cookies/">Cookie choices</a>
+        ·
         <a href="/privacy/">Privacy</a>
       </p>
       <div class="cookie-actions">
-        <button type="button" class="btn btn-secondary" id="cookie-reject">Reject</button>
+        <button type="button" class="btn btn-secondary" id="cookie-reject">Do not sell or share</button>
         <button type="button" class="btn btn-primary" id="cookie-accept">Accept</button>
       </div>
     </div>

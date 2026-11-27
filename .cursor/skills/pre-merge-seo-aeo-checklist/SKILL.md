@@ -29,7 +29,7 @@ Run before opening or updating a content/calculator/consent PR. Full page rules:
 
 ## Consent / CSP (if touched)
 - [ ] EEA/UK/CH → Google CMP only; elsewhere → site banner (`gdprRegions.ts` / `BaseLayout.astro`)
-- [ ] Consent Mode v2 defaults stay denied for GDPR regions
+- [ ] Consent Mode v2: EEA/UK/CH defaults denied; elsewhere analytics granted by default with Reject / Do not sell or share opt-out (see consent-csp.mdc)
 - [ ] `public/_headers` CSP only gains hosts with a named product reason + comment
 
 ## Commands (required)

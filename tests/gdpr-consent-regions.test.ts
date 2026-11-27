@@ -99,12 +99,27 @@ describe('BaseLayout GA4 consent gating', () => {
     expect(layout).toMatch(/function scheduleGa\(\)[\s\S]*__ycLoadGa\(\)/);
   });
 
-  it('always loads gtag under denied defaults; grant updates consent and sends page_view', () => {
+  it('uses region defaults: EEA denied analytics; elsewhere analytics granted, ads denied', () => {
+    expect(layout).toMatch(
+      /gtag\('consent', 'default'[\s\S]*analytics_storage: 'denied'[\s\S]*region:\s*gdprRegions/,
+    );
+    expect(layout).toMatch(
+      /gtag\('consent', 'default'[\s\S]*analytics_storage: 'granted'[\s\S]*wait_for_update:\s*500/,
+    );
+    // Non-CMP default block must still deny ad storage until Accept.
+    const secondDefault = layout.lastIndexOf("gtag('consent', 'default'");
+    const secondBlock = layout.slice(secondDefault, secondDefault + 350);
+    expect(secondBlock).toContain("ad_storage: 'denied'");
+    expect(secondBlock).toContain("analytics_storage: 'granted'");
+  });
+
+  it('always loads gtag; grant updates consent and sends page_view; reject denies analytics', () => {
     expect(layout).toContain("gtag('event', 'page_view'");
     expect(layout).toContain('window.__ycDenyConsent');
     expect(layout).toMatch(/__ycGrantConsent[\s\S]*consent', 'update'[\s\S]*__ycLoadGa\(\)[\s\S]*__ycSendPageView/);
     expect(layout).toMatch(/getItem\(['"]yc_cookie_ok['"]\)/);
     expect(layout).toMatch(/v === ['"]1['"]/);
     expect(layout).toMatch(/v === ['"]0['"]/);
+    expect(layout).toMatch(/Do not sell or share/);
   });
 });
